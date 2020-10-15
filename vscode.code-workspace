@@ -1,0 +1,38 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "..\\..\\Sairam_Interns_DB.git"
+		},
+		{
+			"path": "..\\..\\NucleoBoard_FW.git"
+		},
+		{
+			"path": "..\\..\\..\\Nodejs_Project"
+		},
+		{
+			"path": "..\\..\\..\\wamp64\\www\\agrosense_app"
+		},
+		{
+			"path": "..\\..\\..\\wamp64\\www\\metronic_app"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"deque": "cpp",
+			"initializer_list": "cpp",
+			"list": "cpp",
+			"queue": "cpp",
+			"random": "cpp",
+			"stack": "cpp",
+			"type_traits": "cpp",
+			"vector": "cpp",
+			"xhash": "cpp",
+			"xstring": "cpp",
+			"xtree": "cpp",
+			"xutility": "cpp"
+		}
+	}
+}
