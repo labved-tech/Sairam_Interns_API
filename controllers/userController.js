@@ -1,38 +1,130 @@
 /* DEPENDENCIES */
 const mongoose = require('mongoose');
-const userInformation = require('../models/userInformationModel');
 
 /* MIDDLEWARES */
 const UserInformation = require('../models/userInformationModel');
+const PersonalDetails = require('../models/personalDetailsModel');
+const OrganisationDetails = require('../models/organisationDetailsModel');
 
-// ROUTE HANDLERS
-exports.getAllUsers = (req, res, next) => {
-  console.log('Getting All Users');
-  res.status(200).json({ status: 'my-app', message: 'Getting All Users' });
+/* CONTROLLERS */
+exports.checkID = (req, res, next, val) => {
+  const { id } = req.params.id;
+  console.log(`ID is ${id}`);
   next();
 };
 
-exports.getUser = (req, res, next) => {
-  console.log('Getting One User');
-  res.status(200).json({ status: 'my-app', message: 'Getting One User' });
+exports.getAllUser = async (req, res, next) => {
+  console.log('Getting All User');
+
+  try {
+    const users = await UserInformation.find().then();
+
+    res.status(200).json({
+      status: 'sucess',
+      message: 'Got All Users',
+      results: users.length,
+      data: {
+        users,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
+  next();
+};
+
+exports.getUser = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Getting User for Id ${id}`);
+
+  try {
+    const user = await UserInformation.findById(id).then();
+    res.status(200).json({
+      status: 'sucess',
+      message: `Got User Id=${id}`,
+      Data: { user },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
   next();
 };
 
 exports.createUser = async (req, res, next) => {
   console.log('Creating User');
 
-  res.status(200).json({ status: 'my-app', message: 'Created User' });
+  // const { status } = req.body;
+  // const { email } = req.body;
+
+  // console.log(status);
+
+  try {
+    const user = await UserInformation.create(req.body).then();
+    res.status(201).json({
+      status: 'sucess',
+      message: 'Created User',
+      data: { user },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
   next();
 };
 
-exports.updateUser = (req, res, next) => {
-  console.log('Update User');
-  res.status(200).json({ status: 'my-app', message: 'Update User' });
+exports.updateUser = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Updating User Id ${id}`);
+
+  try {
+    const user = await UserInformation.findByIdAndUpdate(id, req.body, {
+      new: true,
+    }).then();
+
+    res.status(201).json({
+      status: 'sucess',
+      message: `Updated User Id=${id}`,
+      data: { user },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
   next();
 };
 
-exports.deleteUser = (req, res, next) => {
-  console.log('Delete User');
-  res.status(200).json({ status: 'my-app', message: 'Delete User' });
+exports.deleteUser = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Deleting User Id ${id}`);
+
+  try {
+    const user = await UserInformation.findByIdAndDelete(id).then();
+
+    res.status(200).json({
+      status: 'sucess',
+      message: `Deleted User Id=${id}`,
+      data: { user },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
   next();
 };

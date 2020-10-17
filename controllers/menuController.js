@@ -2,25 +2,20 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Menu = require('../models/menuModel');
+const Menu = require('../models/menuManagerModel');
 
 /* DATABASE */
 
 /* CONTROLLERS */
-exports.checkID = (req, res, next, val) => {
-  const id = req.params.id * 1;
-  console.log(`ID is ${id}`);
-  next();
-};
 exports.getAllMenu = async (req, res, next) => {
   console.log('Getting All Menu');
 
   try {
-    const menus = await Menu.find();
+    const menus = await Menu.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All Menu',
+      message: 'Got All Menus',
       results: menus.length,
       data: {
         menus,
@@ -38,10 +33,10 @@ exports.getAllMenu = async (req, res, next) => {
 
 exports.getOneMenu = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting One Menu for Id ${id}`);
+  console.log(`Getting Menu with Id ${id}`);
 
   try {
-    const menu = await Menu.findById(id);
+    const menu = await Menu.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got Menu Id=${id}`,
@@ -58,7 +53,11 @@ exports.getOneMenu = async (req, res, next) => {
 };
 
 exports.createMenu = async (req, res, next) => {
-  console.log('Created Menu');
+  console.log('Creating Menu');
+  console.log(req.body);
+
+  const { items } = req.body;
+  console.log(items);
 
   try {
     const newMenu = await Menu.create(req.body).then();
@@ -71,7 +70,7 @@ exports.createMenu = async (req, res, next) => {
       },
     });
   } catch (err) {
-    req.status(400).json({
+    res.status(400).json({
       status: 'fail',
       message: err,
     });
@@ -80,16 +79,48 @@ exports.createMenu = async (req, res, next) => {
   next();
 };
 
-exports.updateMenu = (req, res, next) => {
-  const id = req.params.id * 1;
-  console.log(`Updated Menu Id ${id}`);
-  res.status(200).json({ status: 'sucess', message: `Updated Menu Id=${id}` });
+exports.updateMenu = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Updating Menu Id ${id}`);
+
+  try {
+    const menu = await Menu.findByIdAndUpdate(id, req.body, {
+      new: true,
+    }).then();
+
+    res.status(201).json({
+      status: 'sucess',
+      message: `Updated Menu Id=${id}`,
+      data: { menu },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
   next();
 };
 
-exports.deleteMenu = (req, res, next) => {
-  const id = req.params.id * 1;
-  console.log(`Delete Menu Id ${id}`);
-  res.status(200).json({ app: 'sucess', message: `Deleted Menu Id=${id}` });
+exports.deleteMenu = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Deleting Menu Id ${id}`);
+
+  try {
+    const menu = await Menu.findByIdAndDelete(id).then();
+
+    res.status(200).json({
+      status: 'sucess',
+      message: `Deleted Menu Id=${id}`,
+      data: { menu },
+    });
+  } catch (err) {
+    res.status(400).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+
   next();
 };

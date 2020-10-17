@@ -19,7 +19,7 @@ router.use((req, res, next) => {
 // ROUTES
 router
   .route('/')
-  .get(userController.getAllUsers)
+  .get(userController.getAllUser)
   .post(userController.createUser);
 router
   .route('/:id')

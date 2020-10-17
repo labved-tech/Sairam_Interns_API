@@ -20,7 +20,7 @@ router
   .post(exampleController.createExample);
 router
   .route('/:id')
-  .get(exampleController.getOneExample)
+  .get(exampleController.getExample)
   .patch(exampleController.updateExample)
   .delete(exampleController.deleteExample);
 

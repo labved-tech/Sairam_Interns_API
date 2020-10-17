@@ -44,6 +44,6 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
-app.use('/api/v1/menu', menuRouter);
+app.use('/api/v1/menu-manager', menuRouter);
 
 module.exports = app;

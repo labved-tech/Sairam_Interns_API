@@ -1,63 +1,56 @@
 /* DEPENDENCIES */
 const mongoose = require('mongoose');
+const validator = require('validator');
+
+/* SCHEMA CONSTRUCTOR */
+const { Schema } = mongoose;
+
+/* CHILD SCHEMA */
+const PersonalDetails = require('./personalDetailsModel');
 
 /* SCHEMA */
-const userInformationSchema = {
-  _parentId: { type: mongoose.ObjectId },
+const userInformationSchema = new Schema({
+  _parentId: {
+    type: mongoose.ObjectId,
+  },
   status: { type: String },
-  email: { type: String, required: 1 },
-  accountType: { type: String, required: 1 },
+  email: {
+    type: String,
+    required: [true, 'Please provide a valid email'],
+    unique: true,
+    lowercase: true,
+    validate: [validator.isEmail, ' Please provide a valid email'],
+  },
+  password: {
+    type: String,
+    required: [true, 'Please provide a valid password'],
+    minlength: 8,
+  },
+  accountType: {
+    type: String,
+    required: [true, 'Please provide a valid account Type'],
+  },
   personalDetails: {
-    _id: { type: mongoose.ObjectId },
-    firstName: { type: String, required: 1 },
-    lastName: { type: String, required: 1 },
-    middleName: { type: String },
-    mobileNo: { type: String, required: 1 },
-    landlineNo: { type: String },
-    aadharNo: { type: String },
-    iecNo: { type: String },
-    panNo: { type: String },
-    address1: { type: String, required: 1 },
-    address2: { type: String },
-    city: { type: String, required: 1 },
-    state: { type: String, required: 1 },
-    zipCode: { type: String, required: 1 },
-    country: { type: String, required: 1 },
-    location: { type: String },
-    verifyDocs: { type: String },
+    type: Schema.Types.ObjectId,
+    ref: 'PersonalDetails',
   },
   isOrganisation: { type: Boolean },
   organisationDetails: {
-    _id: { type: mongoose.ObjectId },
-    name: {
-      type: String,
-    },
-    mobileNo: { type: String },
-    landlineNo: { type: String },
-    aadharNo: { type: String },
-    iecNo: { type: String },
-    panNo: { type: String },
-    address1: { type: String },
-    address2: { type: String },
-    city: { type: String },
-    state: { type: String },
-    zipCode: { type: String },
-    country: { type: String },
-    location: { type: String },
-    verifyDocs: { type: String },
+    type: Schema.Types.ObjectId,
+    ref: 'OrganisationDetails',
   },
   usergroupId: [mongoose.ObjectId],
   userGroups: [],
   surveyNo: { type: String },
   createAt: { type: Date, Default: Date.now },
   updatedAt: { type: Date },
-};
+});
 
 /* MODEL */
-const userInformation = mongoose.model(
-  'userInformation',
-  userInformationSchema
+const UserInformation = mongoose.model(
+  'userInformation', // collection name
+  userInformationSchema // schema name
 );
 
 /* EXPORT */
-module.exports = userInformation;
+module.exports = UserInformation;

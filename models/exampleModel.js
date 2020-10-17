@@ -10,7 +10,7 @@ const exampleSchema = {
 };
 
 /* MODEL */
-const example = mongoose.model('example', exampleSchema);
+const Example = mongoose.model('example', exampleSchema);
 
 /* EXPORT */
-module.exports = example;
+module.exports = Example;
