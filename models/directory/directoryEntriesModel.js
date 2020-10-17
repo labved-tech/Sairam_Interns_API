@@ -29,25 +29,21 @@ const directoryEntriesSchema = new Schema({
     _parentId: { type: mongoose.ObjectId },
     commentStatus: { type: String },
     commentCount: { type: Number },
-    contactInfo: {
-        [
-            {
-                _id: { type: mongoose.ObjectId },
-                item: { type: String },
-                type: { type: String },
-                isPublic: { type: Boolean }
-            }
-        ]
-    },
-    relation: {
-        [
-            {
-                _id: { type: mongoose.ObjectId },
-                type: { type: Number },
-                isPublic: { type: Number }
-            }
-        ]
-    },
+    contactInfo:[
+        {
+            _id: { type: mongoose.ObjectId },
+            item: { type: String },
+            type: { type: String },
+            isPublic: { type: Boolean }
+        }
+    ],
+    relation: [
+        {
+            _id: { type: mongoose.ObjectId },
+            type: { type: Number },
+            isPublic: { type: Number }
+        }
+    ],
     meta: { type: Object },
     directories: [
         {
