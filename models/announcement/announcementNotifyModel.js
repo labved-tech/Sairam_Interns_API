@@ -5,19 +5,19 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const announcementNotifySchema =  newSchema ({
+const announcementNotifySchema =  new Schema ({
 
-    _id : {type:mongoose.ObjectId},
-    _announcementId : {type:mongoose.ObjectId},
-    priority : {type:String},
+    _id : {type: mongoose.ObjectId},
+    _announcementId : {type: mongoose.ObjectId},
+    priority : {type : String},
     recipient : {
-        _id : {type:mongoose.ObjectId},
-        _recipientId : {type:mongoose.ObjectId},
-        recipentName : {type:String},
-        recipentEmail : {type:String},
-        isEmailSent : {type:Boolean},
+        _id : {type : mongoose.ObjectId},
+        _recipientId : {type: mongoose.ObjectId},
+        recipentName : {type: String},
+        recipentEmail : {type: String},
+        isEmailSent : {type: Boolean},
         seenAt : {type: Date},
-        sentAt : {type:Date}
+        sentAt : {type: Date}
     }
 });
 

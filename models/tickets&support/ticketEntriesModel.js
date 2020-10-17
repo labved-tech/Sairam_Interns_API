@@ -21,7 +21,7 @@ const ticketEntriesSchema = new Schema({
     priority : {type: String},
     lastActivityDate : {type: Date},
     lastActivityBy : {type: String},
-    _agencyId : {type:mongoose.ObjectId}
+    _agencyId : {type: mongoose.ObjectId}
 
 });
 /* MODEL */

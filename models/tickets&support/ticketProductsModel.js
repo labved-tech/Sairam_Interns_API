@@ -6,15 +6,15 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ticketProductsSchema = new Schema({
-    _id : {type:mongoose.ObjectId},
-    name : {type:String},
-    description : {type:String},
-    notes : {type:String},
-    status : {type:String},
-    createdAt : { type: Date},
-    updatedAt: {type:Date},
-    createdBy : {type:mongoose.ObjectId},
-    updatedAt : {type:mongoose.ObjectId}
+    _id : {type: mongoose.ObjectId},
+    name : {type: String},
+    description : {type: String},
+    notes : {type: String},
+    status : {type: String},
+    createdAt : {type: Date},
+    updatedAt: {type: Date},
+    createdBy : {type: mongoose.ObjectId},
+    updatedAt : {type: mongoose.ObjectId}
     
 });
 /* MODEL */

@@ -9,8 +9,8 @@ const ticketResponseSchema = new Schema({
     _id : {type: mongoose.ObjectId},
     _ticketId : {type: mongoose.ObjectId},
     _responderId : {type: mongoose.ObjectId},
-    responderName : {type:String},
-    emailSent : {type:Boolean},
+    responderName : {type: String},
+    emailSent : {type: Boolean},
     isStatusChange : {type: Boolean},
     body : {type: String}
 });

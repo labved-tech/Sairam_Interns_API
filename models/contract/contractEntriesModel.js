@@ -11,15 +11,15 @@ const contractEntriesSchema = new Schema({
     _clientId : {type: mongoose.ObjectId},
     clientAccepted : {type: Boolean},
     acceptedDate : {type: Date},
-    contractNumber : {type:String},
-    _contractTemplateId : {type:mongoose.ObjectId},
-    rel : {type:String},
+    contractNumber : {type: String},
+    _contractTemplateId : {type: mongoose.ObjectId},
+    rel : {type: String},
     _relId : {type: mongoose.ObjectId},
     validFrom : {type: Date},
     validTill : {type: Date},
     validity : {type: Number},
     billingType : {type: String},
-    rate : {type: Number},
+    rate : {type : Number},
     tax : {
             _id : { type: mongoose.ObjectId},
             HSNCode : {type: String},
@@ -27,11 +27,11 @@ const contractEntriesSchema = new Schema({
             SGSTRate : {type: Number},
             IGSTRate : {type: Number},
     },
-    contractFileURL : {type:String},
-    additionalAttributes : {type:String},
-    signedContractUploaded : {type:String},
-    termsAndConditions:[],
-    status : {type:String}
+    contractFileURL : {type: String},
+    additionalAttributes : {type: String},
+    signedContractUploaded : {type: String},
+    termsAndConditions : [],
+    status : {type: String}
 });
 
 /* MODEL */
