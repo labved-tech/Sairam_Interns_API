@@ -1,13 +1,15 @@
 /* DEPENDENCIES */
 const mongoose = require('mongoose');
 
-/* SCHEMA */
+/* SCHEMA CONSTRUCTOR */
+const { Schema } = mongoose;
 
-const exampleSchema = {
+/* SCHEMA */
+const exampleSchema = new Schema({
   name: String,
   email: String,
   mobNo: String,
-};
+});
 
 /* MODEL */
 const Example = mongoose.model('example', exampleSchema);

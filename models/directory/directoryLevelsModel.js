@@ -1,0 +1,20 @@
+const directoryLevels = {
+    _id:{type:mongoose.ObjectId},
+    name:{type:String},
+    description:{type:String},
+    activePeriod:{type:Number},
+    changeLevelId:{type:String},
+    listingsInPackage:{type:Number},
+    riseUpEnabled:{type:Boolean},
+    sticky:{type:Boolean},
+    featured:{type:Boolean},    
+    ownPage:{type:Boolean},
+    unlimitedCategories:{type:Boolean},
+    map:{type:Boolean},  
+    mapMakers:{type:Boolean},
+    logoEnabled:{type:Boolean},
+    ImageLimit:{type:Number},
+    updatedAt:{type:Date},
+    videoLimit:{type:Number},
+    contentFields:{type:Object}  
+}  
