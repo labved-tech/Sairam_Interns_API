@@ -16,23 +16,21 @@ const leadEntriesSchema = new Schema({
     website:{type:String}, 
     address:{
         _id:{type:mongoose.ObjectId},
-        Address1:{type:String},
+        Address1:{type:String},      
         Street:{type:String},
         City:{type:String},
         State:{type:String},        
         Country:{type:String},
         PostalCode:{type:String}
     },   
-    contactInformation:{
-        [
-            {
-                _id:{type:mongoose.ObjectId},
-                item:{type:String},
-                type:{type:String},
-                isPublic:{type:Boolean}
-            }
-        ]
-    },
+    contactInformation:[        
+        {
+            _id:{type:mongoose.ObjectId},
+            item:{type:String},
+            type:{type:String},
+            isPublic:{type:Boolean}
+        }
+    ],  
     assignedTo:{type:String},
     source:{
         _id:{type:mongoose.ObjectId},

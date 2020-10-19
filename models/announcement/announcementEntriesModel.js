@@ -7,16 +7,18 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const announcementEntriesSchema = new Schema({
 
-    _id : {type: moongose.ObjectId},
+    _id : {type: moogoose.ObjectId},
     title : {type: String},
     message : {type: String},
     from : {type: String},
     isEmailReq : {type: Boolean},
     priority : {type: String},
-    targetConditions : {
-        _id : {type: moongose.ObjectId},
-        condition : {type: Object},
-    },
+    targetConditions : [
+            {
+            _id : {type: moongose.ObjectId},
+            condition : {type: Object},
+        }
+    ],
     expires : {type: Number},
     status : {type: String},
     createdBy : {type: mongoose.ObjectId},

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const quotationSchema =new Schema( {
+const quotationSchema = new Schema( {
     _id:{type:mongoose.ObjectId},
     moduleReferance:{type:String},
     header:{type:String},

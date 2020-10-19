@@ -12,18 +12,15 @@ const commentEntriesSchema = new Schema({
     _relId:{type:mongoose.ObjectId},
     rating:{type:Number},
     message:{type:String},
-    commentReplies:{
-        [
-            {
-
-                message:{type:String},
-                _commentorId:{type:mongoose.ObjectId},
-                createdAt:{type:Date},
-                updatedAt:{type:Date},
-                _id:{type:mongoose.ObjectId}
-            }    
-        ]
-    },
+    commentReplies:[
+        {   _id:{type:mongoose.ObjectId},
+            message:{type:String},
+            _commentorId:{type:mongoose.ObjectId},
+            createdAt:{type:Date},
+            updatedAt:{type:Date}
+            
+        }    
+    ],
     status:{type:String},
     createdAt:{type:Date},
     updatedAt:{type:Date}
