@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const announcementEntriesSchema = new Schema({
 
-    _id : {type: moongose.ObjectId},
+    _id : {type: moogoose.ObjectId},
     title : {type: String},
     message : {type: String},
     from : {type: String},
