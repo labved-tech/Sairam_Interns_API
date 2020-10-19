@@ -1,22 +1,7 @@
 {
 	"folders": [
 		{
-			"path": ".."
-		},
-		{
-			"path": "..\\..\\Sairam_Interns_DB.git"
-		},
-		{
-			"path": "..\\..\\NucleoBoard_FW.git"
-		},
-		{
-			"path": "..\\..\\..\\Nodejs_Project"
-		},
-		{
-			"path": "..\\..\\..\\wamp64\\www\\agrosense_app"
-		},
-		{
-			"path": "..\\..\\..\\wamp64\\www\\metronic_app"
+			"path": "."
 		}
 	],
 	"settings": {
