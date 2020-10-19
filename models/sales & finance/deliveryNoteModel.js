@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const deliveryNoteSchema =new Schema( {
+const deliveryNoteSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     packingListnumber:{type:Number},
     taxInvoiceNumber:{type:Number},
@@ -19,7 +19,7 @@ const deliveryNoteSchema =new Schema( {
     consigneeEmail:{type:String},
     consigneeContactNumber:{type:String},
     consigneeGstin:{type:String},
-    box=[],
+    box =[],
     shipMethod:{type:String},
     carrierName:{type:String},
     carrierTrackingNumber:{type:Number},

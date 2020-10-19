@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const ecommerceOrderSchema = new Schema({
     _id:{type:mongoose.ObjectId},
-    items:{
+    items:
         [
             {
                 _id:{type:mongoose.ObjectId},
@@ -30,9 +30,7 @@ const ecommerceOrderSchema = new Schema({
                 }
             }       
                 
-        ]        
-        
-    },
+        ],
     numItems:{type:Number},   
     grossTotal:{type:Number},   
     taxTotal:{type:Number},

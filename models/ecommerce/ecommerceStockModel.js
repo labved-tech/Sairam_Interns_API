@@ -10,7 +10,7 @@ const ecommerceStockSchema = new Schema({
     _productId:{type:mongoose.ObjectId},
     type:{type:String},
     unitPrice:{type:Number},
-    discount:{
+    discount:
         [
             {
                 _id:{type:mongoose.ObjectId},
@@ -21,9 +21,9 @@ const ecommerceStockSchema = new Schema({
                 Description:{type:String},
             }
         ]
-    },
+    ,
     availableStock:{type:Number},
-    tax:{
+    tax:
         [
             {
                 _id:{type:mongoose.ObjectId},
@@ -31,8 +31,7 @@ const ecommerceStockSchema = new Schema({
                 SGST:{type:String},    
                 IGST:{type:String}
             }
-        ]
-    },
+        ],
     Name:{type:String},
     Description:{type:String},
     Notes:{type:String},
