@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const projectDiscussionCommentsSchema = new Schema({
+const projectFilesSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     fileName:{type:String},
     fileType:{type:String},
@@ -19,7 +19,7 @@ const projectDiscussionCommentsSchema = new Schema({
 });
 
 /* MODEL */
-const ProjectDiscussionComments = mongoose.model('projectDiscussionComments', projectDiscussionCommentsSchema);
+const ProjectFiles = mongoose.model('projectFiles', projectFilesSchema);
 
 /* EXPORT */
-module.exports = ProjectDiscussionComments;
+module.exports = ProjectFiles;

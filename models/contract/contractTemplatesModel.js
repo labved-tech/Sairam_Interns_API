@@ -11,11 +11,10 @@ const contractTemplatesSchema = new Schema({
     billingType : {type: String},
     value : {type: Number},
     tax : {
-            _id : {type: mongoose.ObjectId},
-            CGST : {type: String},
-            SGST : {type: String},
-            IGST : {type: String},
-            HSN  : {type: String},          
+            CGSTRate : {type: String},
+            SGSTRate : {type: String},
+            IGSTRate : {type: String},
+            HSNCode  : {type: String},          
     },
     _contractOwnerId : {type: mongoose.ObjectId},
     contractFileTemplateURL : {type: String},
@@ -39,10 +38,8 @@ const contractTemplatesSchema = new Schema({
     terms: 
         [
             {
-                _id :   {type: mongoose.ObjectId},
                 title : {type: String},
                 text :  { type: String},
-            
             }
         ],
     validity : {type: Number},

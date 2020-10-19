@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const projectDiscussionSchema = new Schema({
+const projectDiscussionsSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     _projectId:{type:mongoose.ObjectId},
     subject:{type:String},

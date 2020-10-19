@@ -10,7 +10,6 @@ const taskRemindersSchema = new Schema({
     description:{type:String},
     date:{type:Date},
     isNotified:{type:Boolean},
-    timeSpend:{type:Number},
     _taskId:{type:mongoose.ObjectId},
     notifyByEmail:{type:Boolean},
     creator:{type:String}
