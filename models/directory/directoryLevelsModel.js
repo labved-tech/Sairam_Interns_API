@@ -1,4 +1,11 @@
-const directoryLevels = {
+/* DEPENDENCIES */
+const mongoose = require('mongoose');
+
+/* SCHEMA CONSTRUCTOR */
+const { Schema } = mongoose;
+
+/* SCHEMA */
+const directoryLevelsSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     name:{type:String},
     description:{type:String},
@@ -17,4 +24,10 @@ const directoryLevels = {
     updatedAt:{type:Date},
     videoLimit:{type:Number},
     contentFields:{type:Object}  
-}  
+});
+
+/* MODEL */
+const DirectoryLevels = mongoose.model('directoryLevels', directoryLevelsSchema);
+
+/* EXPORT */
+module.exports = DirectoryLevels;
