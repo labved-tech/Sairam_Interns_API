@@ -10,7 +10,7 @@ const announcementNotifySchema =  new Schema ({
     _id : {type: mongoose.ObjectId},
     _announcementId : {type: mongoose.ObjectId},
     priority : {type : String},
-    recipient : {
+    recipient : [{
         _id : {type : mongoose.ObjectId},
         _recipientId : {type: mongoose.ObjectId},
         recipentName : {type: String},
@@ -18,7 +18,7 @@ const announcementNotifySchema =  new Schema ({
         isEmailSent : {type: Boolean},
         seenAt : {type: Date},
         sentAt : {type: Date}
-    }
+    }]
 });
 
 /* MODEL */
