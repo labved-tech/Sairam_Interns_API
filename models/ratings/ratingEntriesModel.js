@@ -10,13 +10,13 @@ const ratingEntriesSchema =new Schema( {
     relType:{type:String},   
     _relId:{type:Smongoose.ObjectId},
     meta=
-        [
-            {
-                _attributeId:{type:mongoose.ObjectId},
-                type:{type:String},
-                value:{type:String}
-            }
-        ],
+    [
+        {
+            _attributeId:{type:mongoose.ObjectId},
+            type:{type:String},
+            value:{type:String}
+        }
+    ],
     
     _userId:{type:Smongoose.ObjectId}, 
     status:{type:String},   
