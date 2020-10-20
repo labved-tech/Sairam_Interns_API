@@ -6,25 +6,30 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const menuManagerSchema = new Schema({
-  name: { type: String, require: true },
-  menuItems: {
-    _id: { type: mongoose.ObjectId },
-    sectionName: { type: String },
-    Items: [
-      {
-        _id: { type: mongoose.ObjectId },
-        name: { type: String },
-        route: { type: String },
-        subItems: [
-          {
-            _id: { type: mongoose.ObjectId },
-            name: { type: String },
-            route: { type: String },
-          },
-        ],
-      },
-    ],
-  },
+  name: { type: String, require: true, unique: [true, 'Already exists'] },
+  menuItems: [
+    {
+      _id: { type: mongoose.ObjectId },
+      sectionName: { type: String, unique: [true, 'Already exists'] },
+      priority: { type: Number, unique: [true, 'Already exists'] },
+      items: [
+        {
+          _id: { type: mongoose.ObjectId },
+          name: { type: String, unique: [true, 'Already exists'] },
+          route: { type: String, unique: [true, 'Already exists'] },
+          priority: { type: Number, unique: [true, 'Already exists'] },
+          subItems: [
+            {
+              _id: { type: mongoose.ObjectId },
+              name: { type: String, unique: [true, 'Already exists'] },
+              route: { type: String, unique: [true, 'Already exists'] },
+              priority: { type: Number, unique: [true, 'Already exists'] },
+            },
+          ],
+        },
+      ],
+    },
+  ],
 });
 
 /* MODEL */

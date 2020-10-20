@@ -54,10 +54,10 @@ exports.getOneMenu = async (req, res, next) => {
 
 exports.createMenu = async (req, res, next) => {
   console.log('Creating Menu');
-  console.log(req.body);
+  //console.log(req.body);
 
-  const { items } = req.body;
-  console.log(items);
+  const { menuItems } = req.body;
+  console.log(menuItems);
 
   try {
     const newMenu = await Menu.create(req.body).then();

@@ -10,6 +10,7 @@ const app = express();
 app.use(express.json());
 
 /* USER DEFINED MIDDLEWARES */
+const viewRouter = require('./routes/viewRoutes');
 const exampleRouter = require('./routes/exampleRoutes');
 const userRouter = require('./routes/userRoutes');
 const menuRouter = require('./routes/menuRoutes');
@@ -37,10 +38,7 @@ app.use((req, res, next) => {
 });
 
 // USER ROUTE
-app.get('/', (req, res) => {
-  // res.status(200).render('base');
-  res.status(200).render('index');
-});
+app.use('/', viewRouter);
 
 app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
