@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const taxInvoiceSchema =new Schema( {
+const taxInvoiceSchema = new Schema( {
     _id:{type:mongoose.ObjectId},
     taxInvoiceNo:{type:String},
     header:{type:String},
@@ -34,8 +34,8 @@ const taxInvoiceSchema =new Schema( {
         bankIFSC:{type:String}
            
     },
-    itemTable:{
-        [
+    itemTable: [
+        
             {
                 serialNo:{type:String},
                 itemCode:{type:String},
@@ -54,8 +54,8 @@ const taxInvoiceSchema =new Schema( {
                 IGSTAmount:{type:Number},
                 totalPrice:{type:Number}
             }
-        ]
-    },
+        ],
+    
     totalBeforeTax:{type:Number},
     CGSTTotal:{type:Number},
     SGSTTotal:{type:Number},
@@ -72,4 +72,4 @@ const taxInvoiceSchema =new Schema( {
 const TaxInvoice = mongoose.model('taxInvoice',taxInvoiceSchema);
 
 /* EXPORT */
-module.exports = taxInvoice;    
+module.exports = TaxInvoice;    

@@ -1,4 +1,11 @@
-const farmExportedStrategy={
+/* DEPENDENCIES */
+const mongoose = require('mongoose');
+
+/* SCHEMA CONSTRUCTOR */
+const { Schema } = mongoose;
+
+/* SCHEMA */
+const farmExportedStrategySchema = new Schema({
     _id:{type:mongoose.ObjectId},
     name:{type:String},
     description:{type:String},
@@ -19,4 +26,10 @@ const farmExportedStrategy={
     totalExpense:{type:Number},
     author_notes:{type:String},
     parentId:{type:String}
-}
+});
+
+/* MODEL */
+const FarmExportedStrategy = mongoose.model('fofarmExportedStrategy', farmExportedStrategySchema);
+
+/* EXPORT */
+module.exports = FarmExportedStrategy;

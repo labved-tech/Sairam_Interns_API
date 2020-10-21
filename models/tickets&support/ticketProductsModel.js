@@ -14,7 +14,7 @@ const ticketProductsSchema = new Schema({
     createdAt : {type: Date},
     updatedAt: {type: Date},
     createdBy : {type: mongoose.ObjectId},
-    updatedAt : {type: mongoose.ObjectId}
+    updatedBy : {type: mongoose.ObjectId}
     
 });
 /* MODEL */

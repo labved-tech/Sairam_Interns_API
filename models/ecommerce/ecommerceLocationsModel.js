@@ -22,16 +22,14 @@ const ecommerceLocationsSchema = new Schema({
     PANNo:{type:String},
     licenseNo:{type:String},
     status:{type:String},
-    verifyDocuments:{
-        [
+    verifyDocuments:[
             {
                 _id:{type:mongoose.ObjectId},
                 name:{type:String},
                 URL:{type:String},
                 type:{type:String}
             }
-        ]    
-    },
+        ],
     Name:{type:String},
     description:{type:String},
     notes:{type:String},

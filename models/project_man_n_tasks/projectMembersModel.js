@@ -14,7 +14,6 @@ const projectMembersSchema = new Schema({
     updatedAt:{type:Date},
     createdBy:{type:mongoose.ObjectId},
     updatedBy:{type:mongoose.ObjectId}
-    
 });
 
 /* MODEL */

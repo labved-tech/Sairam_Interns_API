@@ -12,6 +12,7 @@ const projectDiscussionCommentsSchema = new Schema({
     parent:{type:String},
     created:{type:Date},
     modified:{type:Date},
+    content:{type:String},
     _commenterId:{type:mongoose.ObjectId},
     fullname:{type:String},
     fileName:{type:String},

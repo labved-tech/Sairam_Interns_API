@@ -16,6 +16,7 @@ const projectEntriesSchema = new Schema({
     progress:{type:Number},
     estimatedHours:{type:Number},
     type:{type:String},
+    _farmId:{type:mongoose.ObjectId},
     _farmRegionId:{type:mongoose.ObjectId},
     createdAt:{type:Date},
     _createdbyId:{type:mongoose.ObjectId},

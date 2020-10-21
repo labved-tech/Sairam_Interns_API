@@ -21,7 +21,6 @@ const contractEntriesSchema = new Schema({
     billingType : {type: String},
     rate : {type : Number},
     tax : {
-            _id : { type: mongoose.ObjectId},
             HSNCode : {type: String},
             CGSTRate : {type: Number},
             SGSTRate : {type: Number},

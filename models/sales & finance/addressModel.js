@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const addressSchema =new Schema( {
+const addressSchema = new Schema({
     address1: { type: String },
     city: { type: String },
     state: { type: String },

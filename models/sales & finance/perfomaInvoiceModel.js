@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const perfomaInvoiceSchema =new Schema( {
+const perfomaInvoiceSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     profomaInvoiceNo:{type:String},
     moduleReferance:{type:String},
@@ -31,12 +31,11 @@ const perfomaInvoiceSchema =new Schema( {
         bankIFSC:{type:String},
     },
     sellerGSTIN:{type:String},
-    paymentMethods:{
-        [
+    paymentMethods:[
             {
                 _id:{type:mongoose.ObjectId},
                 type:{type:String},
-                meta:{
+                meta:
                     [
                         {
                             accountNo:{type:String},
@@ -44,12 +43,10 @@ const perfomaInvoiceSchema =new Schema( {
                             bankIFSC:{type:String}
                         }
                     ]
-                }
+                
             }
-        ]
-    },
-    itemTable:{
-        [
+    ],
+    itemTable:[
             {
                serialNo:{type:String},
                itemCode:{tyoe:String},
@@ -68,8 +65,7 @@ const perfomaInvoiceSchema =new Schema( {
                IGSTAmount:{type:Number},
                totalPrice:{type:Number}
             }
-        ]
-    },
+        ],
     totalBeforeTax:{type:Number},
     CGSTTotal:{type:Number},
     SGSTTotal:{type:Number},
