@@ -18,7 +18,7 @@ const menuManagerSchema = new Schema({
           name: { type: String, unique: [true, 'Already exists'] },
           route: { type: String, unique: [true, 'Already exists'] },
           priority: { type: Number, unique: [true, 'Already exists'] },
-          subItems: [
+          subItems1: [
             {
               _id: { type: mongoose.ObjectId },
               name: { type: String, unique: [true, 'Already exists'] },

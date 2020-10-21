@@ -22,21 +22,55 @@
 	#kt_aside_menu_wrapper(class='aside-menu-wrapper flex-column-fluid')
 		//- begin::Menu Container
 		#kt_aside_menu(class='aside-menu my-4' data-menu-vertical='1' data-menu-scroll='1' data-menu-dropdown-timeout='500')
-			//- begin::Menu Nav
+			// begin::Menu Nav
 			ul(class='menu-nav')
 				li(class='menu-item menu-item-active' aria-haspopup='true')
-					a(href='index.html' class='menu-link')
+					a(href='/dashboard' class='menu-link')
 						i(class='menu-icon flaticon2-poll-symbol')
-						-var sectionNo = sectionItems.length
-						console.log(`section entries ${sectionNo}`)
 						span(class='menu-text') Dashboard
+				-var sectionNo = sectionItems.length
+				-console.log(`No of section :${sectionNo}`)
 				each sectionEntry in sectionItems
-					if sectionEntry.sectionItems
-						li(class='menu-section')
-							h4(class='menu-text')= sectionEntry.sectionName
-							i(class='menu-icon ki ki-bold-more-hor icon-md')
+					li(class='menu-section')
+						h4(class='menu-text')= sectionEntry.sectionName
+						i(class='menu-icon ki ki-bold-more-hor icon-md')
+					-var menuItemsNo = sectionEntry.menuItemsNo
+					-console.log(`No of Menu Items :${menuItemsNo}`)
+					if(menuItemsNo)
+						each menuEntry in sectionEntry.menuItems
+							li(class='menu-item menu-item-submenu' aria-haspopup='true' data-menu-toggle='hover')
+								a(href='/' + menuEntry.route class='menu-link menu-toggle') 
+									i(class='menu-icon flaticon2-box-1')
+									span(class='menu-text')= menuEntry.name
+									i(class='menu-arrow')
+								div(class='menu-submenu')
+									i(class='menu-arrow')
+									-var subItems1No = menuEntry.subItems1No
+									-console.log(`No of subItems1 :${subItems1No}`)
+									if(subItems1No)
+										ul(class='menu-subnav')
+											each subItems1Entry in menuEntry.subItems1
+												li(class='menu-item menu-item-submenu' aria-haspopup='true' data-menu-toggle='hover')
+													a(href='/' + subItems1Entry.route class='menu-link menu-toggle')
+														i(class='menu-bullet menu-bullet-line')
+															span
+														span(class='menu-text')= subItems1Entry.name
+														i(class='menu-arrow')
+													div(class='menu-submenu')
+														i(class='menu-arrow')
+														-var subItems2No = subItems1Entry.subItems2No
+														-console.log(`No of subItems2 :${subItems2No}`)
+														if(subItems2No)
+															ul(class='menu-subnav')
+																each subItems2Entry in subItems1Entry.subItems2
+																	li(class='menu-item' aria-haspopup='true')
+																		a(href='/' + menuEntry.route + '/' + subItems1Entry.route +  '/' + subItems2Entry.route class='menu-link')
+																			i(class='menu-bullet menu-bullet-dot')
+																				span
+																			span(class='menu-text')= subItems2Entry.name
 
-			//- end::Menu Nav
-		//- end::Menu Container
-	//- end::Aside Menu
-//- end::Aside
+
+				// end::Menu Nav
+			// end::Menu Container
+		// end::Aside Menu
+	// end::Aside

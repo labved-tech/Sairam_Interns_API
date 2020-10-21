@@ -37,9 +37,12 @@ app.use((req, res, next) => {
   next();
 });
 
-// USER ROUTE
+
+/* ROUTES */
+// PAGE
 app.use('/', viewRouter);
 
+// API
 app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
