@@ -37,7 +37,7 @@
             "demo_api_url": "https://keenthemes.com/metronic/tools/preview/"
         },
         "dist": [
-            "./../assets"
+            "./../{demo}/dist/assets"
         ]
     },
     "build": {
