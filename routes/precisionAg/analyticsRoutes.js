@@ -16,12 +16,12 @@ router.param('id', analyticsController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(analyticsController.getAllanalytics)
-  .post(analyticsController.createanalytics);
+  .get(analyticsController.getAllAnalytics)
+  .post(analyticsController.createAnalytics);
 router
   .route('/:id')
-  .get(analyticsController.getanalytics)
-  .patch(analyticsController.updateanalytics)
-  .delete(analyticsController.deleteanalytics);
+  .get(analyticsController.getAnalytics)
+  .patch(analyticsController.updateAnalytics)
+  .delete(analyticsController.deleteAnalytics);
 
 module.exports = router;

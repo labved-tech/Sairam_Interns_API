@@ -16,12 +16,12 @@ router.param('id', farmStrategyController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(farmStrategyController.getAllfarmStrategy)
-  .post(farmStrategyController.createfarmStrategy);
+  .get(farmStrategyController.getAllFarmStrategy)
+  .post(farmStrategyController.createFarmStrategy);
 router
   .route('/:id')
-  .get(farmStrategyController.getfarmStrategy)
-  .patch(farmStrategyController.updatefarmStrategy)
-  .delete(farmStrategyController.deletefarmStrategy);
+  .get(farmStrategyController.getFarmStrategy)
+  .patch(farmStrategyController.updateFarmStrategy)
+  .delete(farmStrategyController.deleteFarmStrategy);
 
 module.exports = router;

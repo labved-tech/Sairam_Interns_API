@@ -16,12 +16,12 @@ router.param('id', formResponseController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(formResponseController.getAllformResponse)
-  .post(formResponseController.createformResponse);
+  .get(formResponseController.getAllFormResponse)
+  .post(formResponseController.createFormResponse);
 router
   .route('/:id')
-  .get(formResponseController.getformResponse)
-  .patch(formResponseController.updateformResponse)
-  .delete(formResponseController.deleteformResponse);
+  .get(formResponseController.getFormResponse)
+  .patch(formResponseController.updateFormResponse)
+  .delete(formResponseController.deleteFormResponse);
 
 module.exports = router;

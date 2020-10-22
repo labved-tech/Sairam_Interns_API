@@ -16,12 +16,12 @@ router.param('id', reportsController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(reportsController.getAllreports)
-  .post(reportsController.createreports);
+  .get(reportsController.getAllReports)
+  .post(reportsController.createReports);
 router
   .route('/:id')
-  .get(reportsController.getreports)
-  .patch(reportsController.updatereports)
-  .delete(reportsController.deletereports);
+  .get(reportsController.getReports)
+  .patch(reportsController.updateReports)
+  .delete(reportsController.deleteReports);
 
 module.exports = router;

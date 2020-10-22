@@ -16,12 +16,12 @@ router.param('id', pagesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(pagesController.getAllpages)
-  .post(pagesController.createpages);
+  .get(pagesController.getAllPages)
+  .post(pagesController.createPages);
 router
   .route('/:id')
-  .get(pagesController.getpages)
-  .patch(pagesController.updatepages)
-  .delete(pagesController.deletepages);
+  .get(pagesController.getPages)
+  .patch(pagesController.updatePages)
+  .delete(pagesController.deletePages);
 
 module.exports = router;

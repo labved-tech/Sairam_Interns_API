@@ -7,7 +7,7 @@ const leadEntriesController = require('./../../controllers/leads/leadEntriesCont
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in leadEntries Routes');
+  console.log('We are in leadEntriesRoutes');
   next();
 });
 
@@ -16,12 +16,13 @@ router.param('id', leadEntriesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(leadEntriesController.getAllleadEntries)
+  .get(leadEntriesController.getAllLeadEntries)
   .post(leadEntriesController.createleadEntries);
 router
   .route('/:id')
-  .get(leadEntriesController.getleadEntries)
-  .patch(leadEntriesController.updateleadEntries)
-  .delete(leadEntriesController.deleteleadEntries);
+  .get(leadEntriesController.getLeadEntries)
+  .patch(leadEntriesController.updateLeadEntries)
+  .delete(leadEntriesController.deleteLeadEntries);
 
 module.exports = router;
+

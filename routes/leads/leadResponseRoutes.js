@@ -16,12 +16,12 @@ router.param('id', leadResponseController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(leadResponseController.getAllleadResponse)
-  .post(leadResponseController.createleadResponse);
+  .get(leadResponseController.getAllLeadResponse)
+  .post(leadResponseController.createLeadResponse);
 router
   .route('/:id')
-  .get(leadResponseController.getleadResponse)
-  .patch(leadResponseController.updateleadResponse)
-  .delete(leadResponseController.deleteleadResponse);
+  .get(leadResponseController.getLeadResponse)
+  .patch(leadResponseController.updateLeadResponse)
+  .delete(leadResponseController.deleteLeadResponse);
 
 module.exports = router;

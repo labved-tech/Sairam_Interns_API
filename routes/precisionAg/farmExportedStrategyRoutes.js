@@ -16,12 +16,12 @@ router.param('id', farmExportedStrategyController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(farmExportedStrategyController.getAllfarmExportedStrategy)
-  .post(farmExportedStrategyController.createfarmExportedStrategy);
+  .get(farmExportedStrategyController.getAllFarmExportedStrategy)
+  .post(farmExportedStrategyController.createFarmExportedStrategy);
 router
   .route('/:id')
-  .get(farmExportedStrategyController.getfarmExportedStrategy)
-  .patch(farmExportedStrategyController.updatefarmExportedStrategy)
-  .delete(farmExportedStrategyController.deletefarmExportedStrategy);
+  .get(farmExportedStrategyController.getFarmExportedStrategy)
+  .patch(farmExportedStrategyController.updateFarmExportedStrategy)
+  .delete(farmExportedStrategyController.deleteFarmExportedStrategy);
 
 module.exports = router;

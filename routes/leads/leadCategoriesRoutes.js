@@ -7,7 +7,7 @@ const leadCategoriesController = require('./../../controllers/leads/leadCategori
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in leadCategories Routes');
+  console.log('We are in leadCategoriesRoutes');
   next();
 });
 
@@ -16,12 +16,12 @@ router.param('id', leadCategoriesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(leadCategoriesController.getAllleadCategories)
+  .get(leadCategoriesController.getAllLeadCategories)
   .post(leadCategoriesController.createleadCategories);
 router
   .route('/:id')
-  .get(leadCategoriesController.getleadCategories)
-  .patch(leadCategoriesController.updateleadCategories)
-  .delete(leadCategoriesController.deleteleadCategories);
+  .get(leadCategoriesController.getLeadCategories)
+  .patch(leadCategoriesController.updateLeadCategories)
+  .delete(leadCategoriesController.deleteLeadCategories);
 
 module.exports = router;

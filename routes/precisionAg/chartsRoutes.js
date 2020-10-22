@@ -16,12 +16,12 @@ router.param('id', chartsController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(chartsController.getAllcharts)
-  .post(chartsController.createcharts);
+  .get(chartsController.getAllCharts)
+  .post(chartsController.createCharts);
 router
   .route('/:id')
-  .get(chartsController.getcharts)
-  .patch(chartsController.updatecharts)
-  .delete(chartsController.deletecharts);
+  .get(chartsController.getCharts)
+  .patch(chartsController.updateCharts)
+  .delete(chartsController.deleteCharts);
 
 module.exports = router;
