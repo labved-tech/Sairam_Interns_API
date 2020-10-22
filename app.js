@@ -24,6 +24,7 @@ app.set('views', path.join(__dirname, 'views'));
 /* GLOBAL MIDDLEWARE USAGE*/
 
 // Serving Static Files
+console.log(`Directory Name: ${__dirname}`);
 app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use((req, res, next) => {
