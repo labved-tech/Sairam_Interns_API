@@ -16,12 +16,12 @@ router.param('id', milestoneController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(milestoneController.getAllmilestone)
-  .post(milestoneController.createmilestone);
+  .get(milestoneController.getAllMilestone)
+  .post(milestoneController.createMilestone);
 router
   .route('/:id')
-  .get(milestoneController.getmilestone)
-  .patch(milestoneController.updatemilestone)
-  .delete(milestoneController.deletemilestone);
+  .get(milestoneController.getMilestone)
+  .patch(milestoneController.updateMilestone)
+  .delete(milestoneController.deleteMilestone);
 
 module.exports = router;

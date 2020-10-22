@@ -16,12 +16,12 @@ router.param('id', projectActivityController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectActivityController.getAllprojectActivity)
-  .post(projectActivityController.createprojectActivity);
+  .get(projectActivityController.getAllProjectActivity)
+  .post(projectActivityController.createProjectActivity);
 router
   .route('/:id')
-  .get(projectActivityController.getprojectActivity)
-  .patch(projectActivityController.updateprojectActivity)
-  .delete(projectActivityController.deleteprojectActivity);
+  .get(projectActivityController.getProjectActivity)
+  .patch(projectActivityController.updateProjectActivity)
+  .delete(projectActivityController.deleteProjectActivity);
 
 module.exports = router;
