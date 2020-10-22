@@ -39,6 +39,7 @@ app.use((req, res, next) => {
 
 
 /* ROUTES */
+
 // PAGE
 app.use('/', viewRouter);
 

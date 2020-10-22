@@ -30,44 +30,44 @@
 						span(class='menu-text') Dashboard
 				-var sectionNo = sectionItems.length
 				-console.log(`No of section :${sectionNo}`)
-				each sectionEntry in sectionItems
+				-for(x=0;x<sectionNo;x++)
 					li(class='menu-section')
-						h4(class='menu-text')= sectionEntry.sectionName
+						h4(class='menu-text')= sectionItems[x].sectionName
 						i(class='menu-icon ki ki-bold-more-hor icon-md')
-					-var menuItemsNo = sectionEntry.menuItemsNo
+					-var menuItemsNo = sectionItems[x].menuItemsNo
 					-console.log(`No of Menu Items :${menuItemsNo}`)
-					if(menuItemsNo)
-						each menuEntry in sectionEntry.menuItems
+					-if(menuItemsNo)
+						-for(let i=0;i<menuItemsNo;i++)
 							li(class='menu-item menu-item-submenu' aria-haspopup='true' data-menu-toggle='hover')
-								a(href='/' + menuEntry.route class='menu-link menu-toggle') 
+								a(href='/' + sectionItems[x].menuItems[i].route class='menu-link menu-toggle') 
 									i(class='menu-icon flaticon2-box-1')
-									span(class='menu-text')= menuEntry.name
-									i(class='menu-arrow')
-								div(class='menu-submenu')
-									i(class='menu-arrow')
-									-var subItems1No = menuEntry.subItems1No
+									span(class='menu-text')= sectionItems[x].menuItems[i].name
+									-var subItems1No = sectionItems[x].menuItems[i].subItems1No
 									-console.log(`No of subItems1 :${subItems1No}`)
-									if(subItems1No)
+									-if(subItems1No)
+										i(class='menu-arrow')
+								div(class='menu-submenu')
+										i(class='menu-arrow')
 										ul(class='menu-subnav')
-											each subItems1Entry in menuEntry.subItems1
+											-for(let j=0;j<subItems1No;j++)
 												li(class='menu-item menu-item-submenu' aria-haspopup='true' data-menu-toggle='hover')
-													a(href='/' + subItems1Entry.route class='menu-link menu-toggle')
+													a(href='/' + sectionItems[x].menuItems[i].route + '/' + sectionItems[x].menuItems[i].subItems1[j].route class='menu-link menu-toggle')
 														i(class='menu-bullet menu-bullet-line')
 															span
-														span(class='menu-text')= subItems1Entry.name
-														i(class='menu-arrow')
-													div(class='menu-submenu')
-														i(class='menu-arrow')
-														-var subItems2No = subItems1Entry.subItems2No
+														span(class='menu-text')= sectionItems[x].menuItems[i].subItems1[j].name
+														-var subItems2No = sectionItems[x].menuItems[i].subItems1[j].subItems2No
 														-console.log(`No of subItems2 :${subItems2No}`)
-														if(subItems2No)
+														-if(subItems2No)
+															i(class='menu-arrow')
+													div(class='menu-submenu')
+															i(class='menu-arrow')
 															ul(class='menu-subnav')
-																each subItems2Entry in subItems1Entry.subItems2
+																-for(k=0;k<subItems2No;k++)
 																	li(class='menu-item' aria-haspopup='true')
-																		a(href='/' + menuEntry.route + '/' + subItems1Entry.route +  '/' + subItems2Entry.route class='menu-link')
+																		a(href='/' + sectionItems[x].menuItems[i].route + '/' + sectionItems[x].menuItems[i].subItems1[j].route +  '/' + sectionItems[x].menuItems[i].subItems1[j].subItems2[k].route class='menu-link')
 																			i(class='menu-bullet menu-bullet-dot')
 																				span
-																			span(class='menu-text')= subItems2Entry.name
+																			span(class='menu-text')= sectionItems[x].menuItems[i].subItems1[j].subItems2[k].name
 
 
 				// end::Menu Nav
