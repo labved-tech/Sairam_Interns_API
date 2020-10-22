@@ -8,7 +8,7 @@ exports.getOverview = (req, res) => {
         sectionName: 'Module Management',
         isSection: false,
         priority : 1,
-        menuItemsNo: 1,
+        menuItemsNo: 11,
         menuItems:  [
           {
             name: 'Announcements',
@@ -182,6 +182,48 @@ exports.getOverview = (req, res) => {
             route: 'ratings',
             imgPath: '',
             priority: 9,
+            subItems1No: 2,
+            subItems1: [
+              {
+                name: 'Add New',
+                route: 'add-new',
+                priority: 1,
+                subItems2No: 0,
+              },
+              {
+                name: 'View All',
+                route: 'view-all',
+                priority: 2,
+                subItems2No: 0,
+              },
+            ],
+          },
+          {
+            name: 'Projects',
+            route: 'projects',
+            imgPath: '',
+            priority: 10,
+            subItems1No: 2,
+            subItems1: [
+              {
+                name: 'Add New',
+                route: 'add-new',
+                priority: 1,
+                subItems2No: 0,
+              },
+              {
+                name: 'View All',
+                route: 'view-all',
+                priority: 2,
+                subItems2No: 0,
+              },
+            ],
+          },
+          {
+            name: 'Tickets & Support',
+            route: 'tickets-support',
+            imgPath: '',
+            priority: 11,
             subItems1No: 2,
             subItems1: [
               {
