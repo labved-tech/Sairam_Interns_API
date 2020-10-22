@@ -16,13 +16,13 @@ router.param('id', taskTimersController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(taskTimersController.getAlltaskTimers)
-  .post(taskTimersController.createtaskTimers);
+  .get(taskTimersController.getAllTaskTimers)
+  .post(taskTimersController.createTaskTimers);
 router
   .route('/:id')
-  .get(taskTimersController.gettaskTimers)
-  .patch(taskTimersController.updatetaskTimers)
-  .delete(taskTimersController.deletetaskTimers);
+  .get(taskTimersController.getTaskTimers)
+  .patch(taskTimersController.updateTaskTimers)
+  .delete(taskTimersController.deleteTaskTimers);
 
 module.exports = router;
   

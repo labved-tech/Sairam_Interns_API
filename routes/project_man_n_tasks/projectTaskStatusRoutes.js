@@ -16,12 +16,12 @@ router.param('id', projectTaskStatusController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectTaskStatusController.getAllprojectTaskStatus)
-  .post(projectTaskStatusController.createprojectTaskStatus);
+  .get(projectTaskStatusController.getAllProjectTaskStatus)
+  .post(projectTaskStatusController.createProjectTaskStatus);
 router
   .route('/:id')
-  .get(projectTaskStatusController.getprojectTaskStatus)
-  .patch(projectTaskStatusController.updateprojectTaskStatus)
-  .delete(projectTaskStatusController.deleteprojectTaskStatus);
+  .get(projectTaskStatusController.getProjectTaskStatus)
+  .patch(projectTaskStatusController.updateProjectTaskStatus)
+  .delete(projectTaskStatusController.deleteProjectTaskStatus);
 
 module.exports = router;

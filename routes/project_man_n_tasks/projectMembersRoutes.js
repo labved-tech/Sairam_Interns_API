@@ -16,12 +16,12 @@ router.param('id', projectMembersController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectMembersController.getAllprojectMembers)
-  .post(projectMembersController.createprojectMembers);
+  .get(projectMembersController.getAllProjectMembers)
+  .post(projectMembersController.createProjectMembers);
 router
   .route('/:id')
-  .get(projectMembersController.getprojectMembers)
-  .patch(projectMembersController.updateprojectMembers)
-  .delete(projectMembersController.deleteprojectMembers);
+  .get(projectMembersController.getProjectMembers)
+  .patch(projectMembersController.updateProjectMembers)
+  .delete(projectMembersController.deleteProjectMembers);
 
 module.exports = router;

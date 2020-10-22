@@ -16,12 +16,12 @@ router.param('id', taskRemindersController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(taskRemindersController.getAlltaskReminders)
-  .post(taskRemindersController.createtaskReminders);
+  .get(taskRemindersController.getAllTaskReminders)
+  .post(taskRemindersController.createTaskReminders);
 router
   .route('/:id')
-  .get(taskRemindersController.gettaskReminders)
-  .patch(taskRemindersController.updatetaskReminders)
-  .delete(taskRemindersController.deletetaskReminders);
+  .get(taskRemindersController.getTaskReminders)
+  .patch(taskRemindersController.updateTaskReminders)
+  .delete(taskRemindersController.deleteTaskReminders);
 
 module.exports = router;

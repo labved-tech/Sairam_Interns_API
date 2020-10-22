@@ -16,12 +16,12 @@ router.param('id', projectDiscussionCommentsController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectDiscussionCommentsController.getAllprojectDiscussionComments)
-  .post(projectDiscussionCommentsController.createprojectDiscussionComments);
+  .get(projectDiscussionCommentsController.getAllProjectDiscussionComments)
+  .post(projectDiscussionCommentsController.createProjectDiscussionComments);
 router
   .route('/:id')
-  .get(projectDiscussionCommentsController.getprojectDiscussionComments)
-  .patch(projectDiscussionCommentsController.updateprojectDiscussionComments)
-  .delete(projectDiscussionCommentsController.deleteprojectDiscussionComments);
+  .get(projectDiscussionCommentsController.getProjectDiscussionComments)
+  .patch(projectDiscussionCommentsController.updateProjectDiscussionComments)
+  .delete(projectDiscussionCommentsController.deleteProjectDiscussionComments);
 
 module.exports = router;

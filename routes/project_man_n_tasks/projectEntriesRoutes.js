@@ -17,12 +17,12 @@ router.param('id', projectEntriesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectEntriesController.getAllprojectEntries)
-  .post(projectEntriesController.createprojectEntries);
+  .get(projectEntriesController.getAllProjectEntries)
+  .post(projectEntriesController.createProjectEntries);
 router
   .route('/:id')
-  .get(projectEntriesController.getprojectEntries)
-  .patch(projectEntriesController.updateprojectEntries)
-  .delete(projectEntriesController.deleteprojectEntries);
+  .get(projectEntriesController.getProjectEntries)
+  .patch(projectEntriesController.updateProjectEntries)
+  .delete(projectEntriesController.deleteProjectEntries);
 
 module.exports = router;

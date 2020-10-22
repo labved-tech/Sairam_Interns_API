@@ -16,12 +16,12 @@ router.param('id', taskChecklistEntryController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(taskChecklistEntryController.getAlltaskChecklistEntry)
-  .post(taskChecklistEntryController.createtaskChecklistEntry);
+  .get(taskChecklistEntryController.getAllTaskChecklistEntry)
+  .post(taskChecklistEntryController.createTaskChecklistEntry);
 router
   .route('/:id')
-  .get(taskChecklistEntryController.gettaskChecklistEntry)
-  .patch(taskChecklistEntryController.updatetaskChecklistEntry)
-  .delete(taskChecklistEntryController.deletetaskChecklistEntry);
+  .get(taskChecklistEntryController.getTaskChecklistEntry)
+  .patch(taskChecklistEntryController.updateTaskChecklistEntry)
+  .delete(taskChecklistEntryController.deleteTaskChecklistEntry);
 
 module.exports = router;

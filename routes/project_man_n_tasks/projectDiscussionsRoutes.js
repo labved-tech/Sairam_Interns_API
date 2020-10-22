@@ -16,12 +16,12 @@ router.param('id', projectDiscussionsController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectDiscussionsController.getAllprojectDiscussions)
-  .post(projectDiscussionsController.createprojectDiscussions);
+  .get(projectDiscussionsController.getAllProjectDiscussions)
+  .post(projectDiscussionsController.createProjectDiscussions);
 router
   .route('/:id')
-  .get(projectDiscussionsController.getprojectDiscussions)
-  .patch(projectDiscussionsController.updateprojectDiscussions)
-  .delete(projectDiscussionsController.deleteprojectDiscussions);
+  .get(projectDiscussionsController.getProjectDiscussions)
+  .patch(projectDiscussionsController.updateProjectDiscussions)
+  .delete(projectDiscussionsController.deleteProjectDiscussions);
 
 module.exports = router;

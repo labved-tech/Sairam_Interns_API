@@ -16,12 +16,12 @@ router.param('id', projectFilesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectFilesController.getAllprojectFiles)
-  .post(projectFilesController.createprojectFiles);
+  .get(projectFilesController.getAllProjectFiles)
+  .post(projectFilesController.createProjectFiles);
 router
   .route('/:id')
-  .get(projectFilesController.getprojectFiles)
-  .patch(projectFilesController.updateprojectFiles)
-  .delete(projectFilesController.deleteprojectFiles);
+  .get(projectFilesController.getProjectFiles)
+  .patch(projectFilesController.updateProjectFiles)
+  .delete(projectFilesController.deleteProjectFiles);
 
 module.exports = router;

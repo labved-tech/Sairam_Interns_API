@@ -16,12 +16,12 @@ router.param('id', taskEntriesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(taskEntriesController.getAlltaskEntries)
-  .post(taskEntriesController.createtaskEntries);
+  .get(taskEntriesController.getAllTaskEntries)
+  .post(taskEntriesController.createTaskEntries);
 router
   .route('/:id')
-  .get(taskEntriesController.gettaskEntries)
-  .patch(taskEntriesController.updatetaskEntries)
-  .delete(taskEntriesController.deletetaskEntries);
+  .get(taskEntriesController.getTaskEntries)
+  .patch(taskEntriesController.updateTaskEntries)
+  .delete(taskEntriesController.deleteTaskEntries);
 
 module.exports = router;

@@ -16,12 +16,12 @@ router.param('id', projectNotesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectNotesController.getAllprojectNotes)
-  .post(projectNotesController.createprojectNotes);
+  .get(projectNotesController.getAllProjectNotes)
+  .post(projectNotesController.createProjectNotes);
 router
   .route('/:id')
-  .get(projectNotesController.getprojectNotes)
-  .patch(projectNotesController.updateprojectNotes)
-  .delete(projectNotesController.deleteprojectNotes);
+  .get(projectNotesController.getProjectNotes)
+  .patch(projectNotesController.updateProjectNotes)
+  .delete(projectNotesController.deleteProjectNotes);
 
 module.exports = router;

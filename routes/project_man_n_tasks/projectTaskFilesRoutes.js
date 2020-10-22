@@ -16,12 +16,12 @@ router.param('id', projectTaskFilesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(projectTaskFilesController.getAllprojectTaskFiles)
-  .post(projectTaskFilesController.createprojectTaskFiles);
+  .get(projectTaskFilesController.getAllProjectTaskFiles)
+  .post(projectTaskFilesController.createProjectTaskFiles);
 router
   .route('/:id')
-  .get(projectTaskFilesController.getprojectTaskFiles)
-  .patch(projectTaskFilesController.updateprojectTaskFiles)
-  .delete(projectTaskFilesController.deleteprojectTaskFiles);
+  .get(projectTaskFilesController.getProjectTaskFiles)
+  .patch(projectTaskFilesController.updateProjectTaskFiles)
+  .delete(projectTaskFilesController.deleteProjectTaskFiles);
 
 module.exports = router;
