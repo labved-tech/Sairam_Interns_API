@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Example = require('../models/exampleModel');
+const RatingAttribute = require('./../../models/ratings/ratingAttributeModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllExample = async (req, res, next) => {
-  console.log('Getting All Example');
+exports.getAllRatingAttribute = async (req, res, next) => {
+  console.log('Getting All RatingAttribute');
 
   try {
-    const examples = await Example.find().then();
+    const ratingAttributes = await RatingAttribute.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All Example',
-      results: examples.length,
+      message: 'Got All RatingAttribute',
+      results: ratingAttributes.length,
       data: {
-        examples,
+        ratingAttributes,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllExample = async (req, res, next) => {
   next();
 };
 
-exports.getExample = async (req, res, next) => {
+exports.getRatingAttribute = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting Example for Id ${id}`);
+  console.log(`Getting RatingAttribute for Id ${id}`);
 
   try {
-    const example = await Example.findById(id).then();
+    const ratingAttribute = await RatingAttribute.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got Example Id=${id}`,
-      Data: { example },
+      message: `Got RatingAttribute Id=${id}`,
+      Data: { ratingAttribute },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getExample = async (req, res, next) => {
   next();
 };
 
-exports.createExample = async (req, res, next) => {
-  console.log('Creating Example');
+exports.createRatingAttribute = async (req, res, next) => {
+  console.log('Creating RatingAttribute');
 
   try {
-    const example = await Example.create(req.body).then();
+    const ratingAttribute = await RatingAttribute.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created Example',
-      data: { example },
+      message: 'Created RatingAttribute',
+      data: { ratingAttribute },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createExample = async (req, res, next) => {
   next();
 };
 
-exports.updateExample = async (req, res, next) => {
+exports.updateRatingAttribute = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating Example Id ${id}`);
+  console.log(`Updating RatingAttribute Id ${id}`);
 
   try {
-    const example = await Example.findByIdAndUpdate(id, req.body, {
+    const ratingAttribute = await RatingAttribute.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated Example Id=${id}`,
-      data: { example },
+      message: `Updated RatingAttribute Id=${id}`,
+      data: { ratingAttribute },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updateExample = async (req, res, next) => {
   next();
 };
 
-exports.deleteExample = async (req, res, next) => {
+exports.deleteRatingAttribute = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting Example Id ${id}`);
+  console.log(`Deleting RatingAttribute Id ${id}`);
 
   try {
-    const example = await Example.findByIdAndDelete(id).then();
+    const ratingAttribute = await RatingAttribute.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted Example Id=${id}`,
-      data: { example },
+      message: `Deleted RatingAttribute Id=${id}`,
+      data: { ratingAttribute },
     });
   } catch (err) {
     res.status(400).json({
