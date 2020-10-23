@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const FarmResponse = require('./../../models/precisionAg/farmResponseModel');
+const FormResponse = require('./../../models/precisionAg/formResponseModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllFarmResponse = async (req, res, next) => {
-  console.log('Getting All farmResponse');
+exports.getAllFormResponse = async (req, res, next) => {
+  console.log('Getting All formResponse');
 
   try {
-    const farmResponses = await FarmResponse.find().then();
+    const formResponses = await FormResponse.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All farmResponse',
-      results: farmResponses.length,
+      message: 'Got All formResponse',
+      results: formResponses.length,
       data: {
-        farmResponses,
+        formResponses,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllFarmResponse = async (req, res, next) => {
   next();
 };
 
-exports.getFarmResponse = async (req, res, next) => {
+exports.getFormResponse = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting farmResponse for Id ${id}`);
+  console.log(`Getting formResponse for Id ${id}`);
 
   try {
-    const farmResponse = await FarmResponse.findById(id).then();
+    const formResponse = await FormResponse.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got farmResponse Id=${id}`,
-      Data: { farmResponse },
+      message: `Got formResponse Id=${id}`,
+      Data: { formResponse },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getFarmResponse = async (req, res, next) => {
   next();
 };
 
-exports.createFarmResponse = async (req, res, next) => {
-  console.log('Creating farmResponse');
+exports.createFormResponse = async (req, res, next) => {
+  console.log('Creating formResponse');
 
   try {
-    const farmResponse = await FarmResponse.create(req.body).then();
+    const formResponse = await FormResponse.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created farmResponse',
-      data: { farmResponse },
+      message: 'Created formResponse',
+      data: { formResponse },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createFarmResponse = async (req, res, next) => {
   next();
 };
 
-exports.updateFarmResponse = async (req, res, next) => {
+exports.updateFormResponse = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating farmResponse Id ${id}`);
+  console.log(`Updating formResponse Id ${id}`);
 
   try {
-    const farmResponse = await FarmResponse.findByIdAndUpdate(id, req.body, {
+    const formResponse = await FormResponse.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated farmResponse Id=${id}`,
-      data: { farmResponse },
+      message: `Updated formResponse Id=${id}`,
+      data: { formResponse },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updateFarmResponse = async (req, res, next) => {
   next();
 };
 
-exports.deleteFarmResponse = async (req, res, next) => {
+exports.deleteFormResponse = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting farmResponse Id ${id}`);
+  console.log(`Deleting formResponse Id ${id}`);
 
   try {
-    const farmResponse = await FarmResponse.findByIdAndDelete(id).then();
+    const formResponse = await FormResponse.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted farmResponse Id=${id}`,
-      data: { farmResponse },
+      message: `Deleted formResponse Id=${id}`,
+      data: { formResponse },
     });
   } catch (err) {
     res.status(400).json({
