@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const announcementNotify = require('./../../models/announcement/announcementNotifyModel');
+const AnnouncementNotify = require('./../../models/announcement/announcementNotifyModel');
 
 /* DATABASE */
 
@@ -17,7 +17,7 @@ exports.getAllAnnouncementNotify = async (req, res, next) => {
   console.log('Getting All announcementNotify');
 
   try {
-    const announcementNotify = await announcementNotify.find().then();
+    const announcementNotify = await AnnouncementNotify.find().then();
 
     res.status(200).json({
       status: 'sucess',
@@ -37,12 +37,12 @@ exports.getAllAnnouncementNotify = async (req, res, next) => {
   next();
 };
 
-exports.getannouncementNotify= async (req, res, next) => {
+exports.getAnnouncementNotify= async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting announcementNotify for Id ${id}`);
 
   try {
-    const announcementNotify = await announcementNotify.findById(id).then();
+    const announcementNotify = await AnnouncementNotify.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got announcementNotify Id=${id}`,
@@ -58,11 +58,11 @@ exports.getannouncementNotify= async (req, res, next) => {
   next();
 };
 
-exports.createannouncementNotify = async (req, res, next) => {
+exports.createAnnouncementNotify = async (req, res, next) => {
   console.log('Creating announcementNotify');
 
   try {
-    const announcementNotify = await announcementNotify.create(req.body).then();
+    const announcementNotify = await AnnouncementNotify.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
@@ -79,12 +79,12 @@ exports.createannouncementNotify = async (req, res, next) => {
   next();
 };
 
-exports.updateannouncementNotify = async (req, res, next) => {
+exports.updateAnnouncementNotify = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating announcementNotify Id ${id}`);
 
   try {
-    const announcementNotify= await announcementNotify.findByIdAndUpdate(id, req.body, {
+    const announcementNotify= await AnnouncementNotify.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
@@ -103,12 +103,12 @@ exports.updateannouncementNotify = async (req, res, next) => {
   next();
 };
 
-exports.deleteannouncementNotify= async (req, res, next) => {
+exports.deleteAnnouncementNotify= async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting announcementNotify Id ${id}`);
 
   try {
-    const announcementNotify = await announcementNotify.findByIdAndDelete(id).then();
+    const announcementNotify = await AnnouncementNotify.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
