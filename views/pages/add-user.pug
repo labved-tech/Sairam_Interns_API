@@ -1,9 +1,749 @@
 extends ./../index.pug
 
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/js/pages/custom/user/add-user.js')
+
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
         include ./../partials/_subheader/subheader-v1.pug
-        h1 test
-        script(src='js/jquery-1.9.1.min.js' type='text/javascript')
-        link(href='css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
-        script(src='js/pages/custom/user/add-user.js')
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class=' container ')
+                // begin::Card
+                div(class='card card-custom card-transparent')
+                    div(class='card-body p-0')
+                        // begin::Wizard
+                        #kt_wizard(class='wizard wizard-4' data-wizard-state='step-first' data-wizard-clickable='true')
+                            // begin::Wizard Nav
+                            div(class='wizard-nav')
+                                div(class='wizard-steps')
+                                    div(class='wizard-step' data-wizard-type='step' data-wizard-state='current')
+                                        div(class='wizard-wrapper')
+                                            div(class='wizard-number')
+                                                | 1
+                                            div(class='wizard-label')
+                                                div(class='wizard-title')
+                                                    | Profile
+                                                div(class='wizard-desc')
+                                                    | User's Personal Information
+                                    div(class='wizard-step' data-wizard-type='step')
+                                        div(class='wizard-wrapper')
+                                            div(class='wizard-number')
+                                                | 2
+                                            div(class='wizard-label')
+                                                div(class='wizard-title')
+                                                    | Account
+                                                div(class='wizard-desc')
+                                                    | User's Account & Settings
+                                    div(class='wizard-step' data-wizard-type='step')
+                                        div(class='wizard-wrapper')
+                                            div(class='wizard-number')
+                                                | 3
+                                            div(class='wizard-label')
+                                                div(class='wizard-title')
+                                                    | Address
+                                                div(class='wizard-desc')
+                                                    | User's Shipping Address
+                                    div(class='wizard-step' data-wizard-type='step')
+                                        div(class='wizard-wrapper')
+                                            div(class='wizard-number')
+                                                | 4
+                                            div(class='wizard-label')
+                                                div(class='wizard-title')
+                                                    | Submission
+                                                div(class='wizard-desc')
+                                                    | Review and Submit
+                            // end::Wizard Nav
+                            // begin::Card
+                            div(class='card card-custom card-shadowless rounded-top-0')
+                                // begin::Body
+                                div(class='card-body p-0')
+                                    div(class='row justify-content-center py-8 px-8 py-lg-15 px-lg-10')
+                                        div(class='col-xl-12 col-xxl-10')
+                                            // begin::Wizard Form
+                                            form#kt_form(class='form')
+                                                div(class='row justify-content-center')
+                                                    div(class='col-xl-9')
+                                                        // begin::Wizard Step 1
+                                                        div(class='my-5 step' data-wizard-type='step-content' data-wizard-state='current')
+                                                            h5(class='text-dark font-weight-bold mb-10') User's Profile Details:
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label text-left') Avatar
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    #kt_user_add_avatar(class='image-input image-input-outline')
+                                                                        div(class='image-input-wrapper' style='background-image: url(assets/media/users/100_6.jpg)')
+                                                                        label(class='btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow' data-action='change' data-toggle='tooltip' title='' data-original-title='Change avatar')
+                                                                            i(class='fa fa-pen icon-sm text-muted')
+                                                                            input(type='file' name='profile_avatar' accept='.png, .jpg, .jpeg')
+                                                                            input(type='hidden' name='profile_avatar_remove')
+                                                                        span(class='btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow' data-action='cancel' data-toggle='tooltip' title='Cancel avatar')
+                                                                            i(class='ki ki-bold-close icon-xs text-muted')
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label') First Name
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    input(class='form-control form-control-solid form-control-lg' name='firstname' type='text' value='')
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label') Last Name
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    input(class='form-control form-control-solid form-control-lg' name='lastname' type='text' value='')
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label') Company Name
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    input(class='form-control form-control-solid form-control-lg' name='companyname' type='text' value='Loop Inc.')
+                                                                    span(class='form-text text-muted')
+                                                                        | If you want your invoices addressed to a company. Leave blank to use your full name.
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label') Contact Phone
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    div(class='input-group input-group-solid input-group-lg')
+                                                                        div(class='input-group-prepend')
+                                                                            span(class='input-group-text')
+                                                                                i(class='la la-phone')
+                                                                        input(type='text' class='form-control form-control-solid form-control-lg' name='phone' value='5678967456' placeholder='Phone')
+                                                                    span(class='form-text text-muted') Enter valid US phone number(e.g: 5678967456).
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label') Email Address
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    div(class='input-group input-group-solid input-group-lg')
+                                                                        div(class='input-group-prepend')
+                                                                            span(class='input-group-text')
+                                                                                i(class='la la-at')
+                                                                        input(type='text' class='form-control form-control-solid form-control-lg' name='email' value='')
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-xl-3 col-lg-3 col-form-label') Company Site
+                                                                div(class='col-lg-9 col-xl-9')
+                                                                    div(class='input-group input-group-solid input-group-lg')
+                                                                        input(type='text' class='form-control form-control-solid form-control-lg' name='companywebsite' placeholder='Username' value='loop')
+                                                                        div(class='input-group-append')
+                                                                            span(class='input-group-text') .com
+                                                            // end::Group
+                                                        // end::Wizard Step 1
+                                                        // begin::Wizard Step 2
+                                                        div(class='my-5 step' data-wizard-type='step-content')
+                                                            h5(class='text-dark font-weight-bold mb-10 mt-5') User's Account Details
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-form-label col-xl-3 col-lg-3') Language
+                                                                div(class='col-xl-9 col-lg-9')
+                                                                    select(class='form-control form-control-lg form-control-solid' name='language')
+                                                                        option(value='') Select Language...
+                                                                        option(value='id') Bahasa Indonesia - Indonesian
+                                                                        option(value='msa') Bahasa Melayu - Malay
+                                                                        option(value='ca') Català - Catalan
+                                                                        option(value='cs') Čeština - Czech
+                                                                        option(value='da') Dansk - Danish
+                                                                        option(value='de') Deutsch - German
+                                                                        option(value='en' selected='') English
+                                                                        option(value='en-gb') English UK - British English
+                                                                        option(value='es') Español - Spanish
+                                                                        option(value='eu') Euskara - Basque (beta)
+                                                                        option(value='fil') Filipino
+                                                                        option(value='fr') Français - French
+                                                                        option(value='ga') Gaeilge - Irish (beta)
+                                                                        option(value='gl') Galego - Galician (beta)
+                                                                        option(value='hr') Hrvatski - Croatian
+                                                                        option(value='it') Italiano - Italian
+                                                                        option(value='hu') Magyar - Hungarian
+                                                                        option(value='nl') Nederlands - Dutch
+                                                                        option(value='no') Norsk - Norwegian
+                                                                        option(value='pl') Polski - Polish
+                                                                        option(value='pt') Português - Portuguese
+                                                                        option(value='ro') Română - Romanian
+                                                                        option(value='sk') Slovenčina - Slovak
+                                                                        option(value='fi') Suomi - Finnish
+                                                                        option(value='sv') Svenska - Swedish
+                                                                        option(value='vi') Tiếng Việt - Vietnamese
+                                                                        option(value='tr') Türkçe - Turkish
+                                                                        option(value='el') Ελληνικά - Greek
+                                                                        option(value='bg') Български език - Bulgarian
+                                                                        option(value='ru') Русский - Russian
+                                                                        option(value='sr') Српски - Serbian
+                                                                        option(value='uk') Українська мова - Ukrainian
+                                                                        option(value='he') עִבְרִית - Hebrew
+                                                                        option(value='ur') اردو - Urdu (beta)
+                                                                        option(value='ar') العربية - Arabic
+                                                                        option(value='fa') فارسی - Persian
+                                                                        option(value='mr') मराठी - Marathi
+                                                                        option(value='hi') हिन्दी - Hindi
+                                                                        option(value='bn') বাংলা - Bangla
+                                                                        option(value='gu') ગુજરાતી - Gujarati
+                                                                        option(value='ta') தமிழ் - Tamil
+                                                                        option(value='kn') ಕನ್ನಡ - Kannada
+                                                                        option(value='th') ภาษาไทย - Thai
+                                                                        option(value='ko') 한국어 - Korean
+                                                                        option(value='ja') 日本語 - Japanese
+                                                                        option(value='zh-cn') 简体中文 - Simplified Chinese
+                                                                        option(value='zh-tw') 繁體中文 - Traditional Chinese
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-form-label col-xl-3 col-lg-3') Time Zone
+                                                                div(class='col-xl-9 col-lg-9')
+                                                                    select(class='form-control form-control-lg form-control-solid' name='timezone')
+                                                                        option(data-offset='-39600' value='International Date Line West') (GMT-11:00) International Date Line West
+                                                                        option(data-offset='-39600' value='Midway Island') (GMT-11:00) Midway Island
+                                                                        option(data-offset='-39600' value='Samoa') (GMT-11:00) Samoa
+                                                                        option(data-offset='-36000' value='Hawaii') (GMT-10:00) Hawaii
+                                                                        option(data-offset='-28800' value='Alaska') (GMT-08:00) Alaska
+                                                                        option(data-offset='-25200' value='Pacific Time (US & Canada)') (GMT-07:00) Pacific Time (US & Canada)
+                                                                        option(data-offset='-25200' value='Tijuana') (GMT-07:00) Tijuana
+                                                                        option(data-offset='-25200' value='Arizona') (GMT-07:00) Arizona
+                                                                        option(data-offset='-21600' value='Mountain Time (US & Canada)') (GMT-06:00) Mountain Time (US & Canada)
+                                                                        option(data-offset='-21600' value='Chihuahua') (GMT-06:00) Chihuahua
+                                                                        option(data-offset='-21600' value='Mazatlan') (GMT-06:00) Mazatlan
+                                                                        option(data-offset='-21600' value='Saskatchewan') (GMT-06:00) Saskatchewan
+                                                                        option(data-offset='-21600' value='Central America') (GMT-06:00) Central America
+                                                                        option(data-offset='-18000' value='Central Time (US & Canada)') (GMT-05:00) Central Time (US & Canada)
+                                                                        option(data-offset='-18000' value='Guadalajara') (GMT-05:00) Guadalajara
+                                                                        option(data-offset='-18000' value='Mexico City') (GMT-05:00) Mexico City
+                                                                        option(data-offset='-18000' value='Monterrey') (GMT-05:00) Monterrey
+                                                                        option(data-offset='-18000' value='Bogota') (GMT-05:00) Bogota
+                                                                        option(data-offset='-18000' value='Lima') (GMT-05:00) Lima
+                                                                        option(data-offset='-18000' value='Quito') (GMT-05:00) Quito
+                                                                        option(data-offset='-14400' value='Eastern Time (US & Canada)') (GMT-04:00) Eastern Time (US & Canada)
+                                                                        option(data-offset='-14400' value='Indiana (East)') (GMT-04:00) Indiana (East)
+                                                                        option(data-offset='-14400' value='Caracas') (GMT-04:00) Caracas
+                                                                        option(data-offset='-14400' value='La Paz') (GMT-04:00) La Paz
+                                                                        option(data-offset='-14400' value='Georgetown') (GMT-04:00) Georgetown
+                                                                        option(data-offset='-10800' value='Atlantic Time (Canada)') (GMT-03:00) Atlantic Time (Canada)
+                                                                        option(data-offset='-10800' value='Santiago') (GMT-03:00) Santiago
+                                                                        option(data-offset='-10800' value='Brasilia') (GMT-03:00) Brasilia
+                                                                        option(data-offset='-10800' value='Buenos Aires') (GMT-03:00) Buenos Aires
+                                                                        option(data-offset='-9000' value='Newfoundland') (GMT-02:30) Newfoundland
+                                                                        option(data-offset='-7200' value='Greenland') (GMT-02:00) Greenland
+                                                                        option(data-offset='-7200' value='Mid-Atlantic') (GMT-02:00) Mid-Atlantic
+                                                                        option(data-offset='-3600' value='Cape Verde Is.') (GMT-01:00) Cape Verde Is.
+                                                                        option(data-offset='0' value='Azores') (GMT) Azores
+                                                                        option(data-offset='0' value='Monrovia') (GMT) Monrovia
+                                                                        option(data-offset='0' value='UTC') (GMT) UTC
+                                                                        option(data-offset='3600' value='Dublin') (GMT+01:00) Dublin
+                                                                        option(data-offset='3600' value='Edinburgh') (GMT+01:00) Edinburgh
+                                                                        option(data-offset='3600' value='Lisbon') (GMT+01:00) Lisbon
+                                                                        option(data-offset='3600' value='London') (GMT+01:00) London
+                                                                        option(data-offset='3600' value='Casablanca') (GMT+01:00) Casablanca
+                                                                        option(data-offset='3600' value='West Central Africa') (GMT+01:00) West Central Africa
+                                                                        option(data-offset='7200' value='Belgrade') (GMT+02:00) Belgrade
+                                                                        option(data-offset='7200' value='Bratislava') (GMT+02:00) Bratislava
+                                                                        option(data-offset='7200' value='Budapest') (GMT+02:00) Budapest
+                                                                        option(data-offset='7200' value='Ljubljana') (GMT+02:00) Ljubljana
+                                                                        option(data-offset='7200' value='Prague') (GMT+02:00) Prague
+                                                                        option(data-offset='7200' value='Sarajevo') (GMT+02:00) Sarajevo
+                                                                        option(data-offset='7200' value='Skopje') (GMT+02:00) Skopje
+                                                                        option(data-offset='7200' value='Warsaw') (GMT+02:00) Warsaw
+                                                                        option(data-offset='7200' value='Zagreb') (GMT+02:00) Zagreb
+                                                                        option(data-offset='7200' value='Brussels') (GMT+02:00) Brussels
+                                                                        option(data-offset='7200' value='Copenhagen') (GMT+02:00) Copenhagen
+                                                                        option(data-offset='7200' value='Madrid') (GMT+02:00) Madrid
+                                                                        option(data-offset='7200' value='Paris') (GMT+02:00) Paris
+                                                                        option(data-offset='7200' value='Amsterdam') (GMT+02:00) Amsterdam
+                                                                        option(data-offset='7200' value='Berlin') (GMT+02:00) Berlin
+                                                                        option(data-offset='7200' value='Bern') (GMT+02:00) Bern
+                                                                        option(data-offset='7200' value='Rome') (GMT+02:00) Rome
+                                                                        option(data-offset='7200' value='Stockholm') (GMT+02:00) Stockholm
+                                                                        option(data-offset='7200' value='Vienna') (GMT+02:00) Vienna
+                                                                        option(data-offset='7200' value='Cairo') (GMT+02:00) Cairo
+                                                                        option(data-offset='7200' value='Harare') (GMT+02:00) Harare
+                                                                        option(data-offset='7200' value='Pretoria') (GMT+02:00) Pretoria
+                                                                        option(data-offset='10800' value='Bucharest') (GMT+03:00) Bucharest
+                                                                        option(data-offset='10800' value='Helsinki') (GMT+03:00) Helsinki
+                                                                        option(data-offset='10800' value='Kiev') (GMT+03:00) Kiev
+                                                                        option(data-offset='10800' value='Kyiv') (GMT+03:00) Kyiv
+                                                                        option(data-offset='10800' value='Riga') (GMT+03:00) Riga
+                                                                        option(data-offset='10800' value='Sofia') (GMT+03:00) Sofia
+                                                                        option(data-offset='10800' value='Tallinn') (GMT+03:00) Tallinn
+                                                                        option(data-offset='10800' value='Vilnius') (GMT+03:00) Vilnius
+                                                                        option(data-offset='10800' value='Athens') (GMT+03:00) Athens
+                                                                        option(data-offset='10800' value='Istanbul') (GMT+03:00) Istanbul
+                                                                        option(data-offset='10800' value='Minsk') (GMT+03:00) Minsk
+                                                                        option(data-offset='10800' value='Jerusalem') (GMT+03:00) Jerusalem
+                                                                        option(data-offset='10800' value='Moscow') (GMT+03:00) Moscow
+                                                                        option(data-offset='10800' value='St. Petersburg') (GMT+03:00) St. Petersburg
+                                                                        option(data-offset='10800' value='Volgograd') (GMT+03:00) Volgograd
+                                                                        option(data-offset='10800' value='Kuwait') (GMT+03:00) Kuwait
+                                                                        option(data-offset='10800' value='Riyadh') (GMT+03:00) Riyadh
+                                                                        option(data-offset='10800' value='Nairobi') (GMT+03:00) Nairobi
+                                                                        option(data-offset='10800' value='Baghdad') (GMT+03:00) Baghdad
+                                                                        option(data-offset='14400' value='Abu Dhabi') (GMT+04:00) Abu Dhabi
+                                                                        option(data-offset='14400' value='Muscat') (GMT+04:00) Muscat
+                                                                        option(data-offset='14400' value='Baku') (GMT+04:00) Baku
+                                                                        option(data-offset='14400' value='Tbilisi') (GMT+04:00) Tbilisi
+                                                                        option(data-offset='14400' value='Yerevan') (GMT+04:00) Yerevan
+                                                                        option(data-offset='16200' value='Tehran') (GMT+04:30) Tehran
+                                                                        option(data-offset='16200' value='Kabul') (GMT+04:30) Kabul
+                                                                        option(data-offset='18000' value='Ekaterinburg') (GMT+05:00) Ekaterinburg
+                                                                        option(data-offset='18000' value='Islamabad') (GMT+05:00) Islamabad
+                                                                        option(data-offset='18000' value='Karachi') (GMT+05:00) Karachi
+                                                                        option(data-offset='18000' value='Tashkent') (GMT+05:00) Tashkent
+                                                                        option(data-offset='19800' value='Chennai') (GMT+05:30) Chennai
+                                                                        option(data-offset='19800' value='Kolkata') (GMT+05:30) Kolkata
+                                                                        option(data-offset='19800' value='Mumbai') (GMT+05:30) Mumbai
+                                                                        option(data-offset='19800' value='New Delhi') (GMT+05:30) New Delhi
+                                                                        option(data-offset='19800' value='Sri Jayawardenepura') (GMT+05:30) Sri Jayawardenepura
+                                                                        option(data-offset='20700' value='Kathmandu') (GMT+05:45) Kathmandu
+                                                                        option(data-offset='21600' value='Astana') (GMT+06:00) Astana
+                                                                        option(data-offset='21600' value='Dhaka') (GMT+06:00) Dhaka
+                                                                        option(data-offset='21600' value='Almaty') (GMT+06:00) Almaty
+                                                                        option(data-offset='21600' value='Urumqi') (GMT+06:00) Urumqi
+                                                                        option(data-offset='23400' value='Rangoon') (GMT+06:30) Rangoon
+                                                                        option(data-offset='25200' value='Novosibirsk') (GMT+07:00) Novosibirsk
+                                                                        option(data-offset='25200' value='Bangkok') (GMT+07:00) Bangkok
+                                                                        option(data-offset='25200' value='Hanoi') (GMT+07:00) Hanoi
+                                                                        option(data-offset='25200' value='Jakarta') (GMT+07:00) Jakarta
+                                                                        option(data-offset='25200' value='Krasnoyarsk') (GMT+07:00) Krasnoyarsk
+                                                                        option(data-offset='28800' value='Beijing') (GMT+08:00) Beijing
+                                                                        option(data-offset='28800' value='Chongqing') (GMT+08:00) Chongqing
+                                                                        option(data-offset='28800' value='Hong Kong') (GMT+08:00) Hong Kong
+                                                                        option(data-offset='28800' value='Kuala Lumpur') (GMT+08:00) Kuala Lumpur
+                                                                        option(data-offset='28800' value='Singapore') (GMT+08:00) Singapore
+                                                                        option(data-offset='28800' value='Taipei') (GMT+08:00) Taipei
+                                                                        option(data-offset='28800' value='Perth') (GMT+08:00) Perth
+                                                                        option(data-offset='28800' value='Irkutsk') (GMT+08:00) Irkutsk
+                                                                        option(data-offset='28800' value='Ulaan Bataar') (GMT+08:00) Ulaan Bataar
+                                                                        option(data-offset='32400' value='Seoul') (GMT+09:00) Seoul
+                                                                        option(data-offset='32400' value='Osaka') (GMT+09:00) Osaka
+                                                                        option(data-offset='32400' value='Sapporo') (GMT+09:00) Sapporo
+                                                                        option(data-offset='32400' value='Tokyo') (GMT+09:00) Tokyo
+                                                                        option(data-offset='32400' value='Yakutsk') (GMT+09:00) Yakutsk
+                                                                        option(data-offset='34200' value='Darwin') (GMT+09:30) Darwin
+                                                                        option(data-offset='34200' value='Adelaide') (GMT+09:30) Adelaide
+                                                                        option(data-offset='36000' value='Canberra') (GMT+10:00) Canberra
+                                                                        option(data-offset='36000' value='Melbourne') (GMT+10:00) Melbourne
+                                                                        option(data-offset='36000' value='Sydney') (GMT+10:00) Sydney
+                                                                        option(data-offset='36000' value='Brisbane') (GMT+10:00) Brisbane
+                                                                        option(data-offset='36000' value='Hobart') (GMT+10:00) Hobart
+                                                                        option(data-offset='36000' value='Vladivostok') (GMT+10:00) Vladivostok
+                                                                        option(data-offset='36000' value='Guam') (GMT+10:00) Guam
+                                                                        option(data-offset='36000' value='Port Moresby') (GMT+10:00) Port Moresby
+                                                                        option(data-offset='36000' value='Solomon Is.') (GMT+10:00) Solomon Is.
+                                                                        option(data-offset='39600' value='Magadan') (GMT+11:00) Magadan
+                                                                        option(data-offset='39600' value='New Caledonia') (GMT+11:00) New Caledonia
+                                                                        option(data-offset='43200' value='Fiji') (GMT+12:00) Fiji
+                                                                        option(data-offset='43200' value='Kamchatka') (GMT+12:00) Kamchatka
+                                                                        option(data-offset='43200' value='Marshall Is.') (GMT+12:00) Marshall Is.
+                                                                        option(data-offset='43200' value='Auckland') (GMT+12:00) Auckland
+                                                                        option(data-offset='43200' value='Wellington') (GMT+12:00) Wellington
+                                                                        option(data-offset='46800' value="Nuku'alofa") (GMT+13:00) Nuku'alofa
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-form-label col-xl-3 col-lg-3') Communication
+                                                                div(class='col-xl-9 col-lg-9 col-form-label')
+                                                                    div(class='checkbox-inline')
+                                                                        label(class='checkbox')
+                                                                            input(name='communication' type='checkbox')
+                                                                            span
+                                                                            |                                                             Email
+                                                                        label(class='checkbox')
+                                                                            input(name='communication' type='checkbox')
+                                                                            span
+                                                                            |                                                             SMS
+                                                                        label(class='checkbox')
+                                                                            input(name='communication' type='checkbox')
+                                                                            span
+                                                                            |                                                             Phone
+                                                            // end::Group
+                                                            div(class='separator separator-dashed my-10')
+                                                            h5(class='text-dark font-weight-bold mb-10') User's Account Settings
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-form-label col-xl-3 col-lg-3') Login verification
+                                                                div(class='col-xl-9 col-lg-9')
+                                                                    button(type='button' class='btn btn-light-primary font-weight-bold btn-sm') Setup login verification
+                                                                    div(class='form-text text-muted mt-3')
+                                                                        | After you log in, you will be asked for additional information to confirm your identity and protect your account from being compromised.
+                                                                        a(href='#') Learn more
+                                                                        | .
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row')
+                                                                label(class='col-form-label col-xl-3 col-lg-3') Password reset verification
+                                                                div(class='col-xl-9 col-lg-9')
+                                                                    div(class='checkbox-inline')
+                                                                        label(class='checkbox mb-2')
+                                                                            input(type='checkbox')
+                                                                            span
+                                                                            |                                                             Require personal information to reset your password.
+                                                                    div(class='form-text text-muted')
+                                                                        | For extra security, this requires you to confirm your email or phone number when you reset your password.
+                                                                        a(href='#' class='font-weight-bold') Learn more
+                                                                        | .
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group row mt-10')
+                                                                label(class='col-xl-3 col-lg-3')
+                                                                div(class='col-xl-9 col-lg-9')
+                                                                    button(type='button' class='btn btn-light-danger font-weight-bold btn-sm') Deactivate your account ?
+                                                            // end::Group
+                                                        // end::Wizard Step 2
+                                                        // begin::Wizard Step 3
+                                                        div(class='my-5 step' data-wizard-type='step-content')
+                                                            h5(class='mb-10 font-weight-bold text-dark') Setup Your Address
+                                                            // begin::Group
+                                                            div(class='form-group')
+                                                                label Address Line 1
+                                                                input(type='text' class='form-control form-control-solid form-control-lg' name='address1' placeholder='Address Line 1' value='Address Line 1')
+                                                                span(class='form-text text-muted') Please enter your Address.
+                                                            // end::Group
+                                                            // begin::Group
+                                                            div(class='form-group')
+                                                                label Address Line 2
+                                                                input(type='text' class='form-control form-control-solid form-control-lg' name='address2' placeholder='Address Line 2' value='Address Line 2')
+                                                                span(class='form-text text-muted') Please enter your Address.
+                                                            // begin::Row
+                                                            div(class='row')
+                                                                div(class='col-xl-6')
+                                                                    // begin::Group
+                                                                    div(class='form-group')
+                                                                        label Postcode
+                                                                        input(type='text' class='form-control form-control-solid form-control-lg' name='postcode' placeholder='Postcode' value='3000')
+                                                                        span(class='form-text text-muted') Please enter your Postcode.
+                                                                // end::Group
+                                                                // begin::Group
+                                                                div(class='col-xl-6')
+                                                                    div(class='form-group')
+                                                                        label City
+                                                                        input(type='text' class='form-control form-control-solid form-control-lg' name='city' placeholder='City' value='Melbourne')
+                                                                        span(class='form-text text-muted') Please enter your City.
+                                                                // end::Group
+                                                            // end::Row
+                                                            // begin::Row
+                                                            div(class='row')
+                                                                div(class='col-xl-6')
+                                                                    // begin::Group
+                                                                    div(class='form-group')
+                                                                        label State
+                                                                        input(type='text' class='form-control form-control-solid form-control-lg' name='state' placeholder='State' value='VIC')
+                                                                        span(class='form-text text-muted') Please enter your State.
+                                                                    // end::Group
+                                                                div(class='col-xl-6')
+                                                                    // begin::Group
+                                                                    div(class='form-group')
+                                                                        label Country
+                                                                        select(name='country' class='form-control form-control-solid form-control-lg')
+                                                                            option(value='') Select
+                                                                            option(value='AF') Afghanistan
+                                                                            option(value='AX') Åland Islands
+                                                                            option(value='AL') Albania
+                                                                            option(value='DZ') Algeria
+                                                                            option(value='AS') American Samoa
+                                                                            option(value='AD') Andorra
+                                                                            option(value='AO') Angola
+                                                                            option(value='AI') Anguilla
+                                                                            option(value='AQ') Antarctica
+                                                                            option(value='AG') Antigua and Barbuda
+                                                                            option(value='AR') Argentina
+                                                                            option(value='AM') Armenia
+                                                                            option(value='AW') Aruba
+                                                                            option(value='AU' selected='') Australia
+                                                                            option(value='AT') Austria
+                                                                            option(value='AZ') Azerbaijan
+                                                                            option(value='BS') Bahamas
+                                                                            option(value='BH') Bahrain
+                                                                            option(value='BD') Bangladesh
+                                                                            option(value='BB') Barbados
+                                                                            option(value='BY') Belarus
+                                                                            option(value='BE') Belgium
+                                                                            option(value='BZ') Belize
+                                                                            option(value='BJ') Benin
+                                                                            option(value='BM') Bermuda
+                                                                            option(value='BT') Bhutan
+                                                                            option(value='BO') Bolivia, Plurinational State of
+                                                                            option(value='BQ') Bonaire, Sint Eustatius and Saba
+                                                                            option(value='BA') Bosnia and Herzegovina
+                                                                            option(value='BW') Botswana
+                                                                            option(value='BV') Bouvet Island
+                                                                            option(value='BR') Brazil
+                                                                            option(value='IO') British Indian Ocean Territory
+                                                                            option(value='BN') Brunei Darussalam
+                                                                            option(value='BG') Bulgaria
+                                                                            option(value='BF') Burkina Faso
+                                                                            option(value='BI') Burundi
+                                                                            option(value='KH') Cambodia
+                                                                            option(value='CM') Cameroon
+                                                                            option(value='CA') Canada
+                                                                            option(value='CV') Cape Verde
+                                                                            option(value='KY') Cayman Islands
+                                                                            option(value='CF') Central African Republic
+                                                                            option(value='TD') Chad
+                                                                            option(value='CL') Chile
+                                                                            option(value='CN') China
+                                                                            option(value='CX') Christmas Island
+                                                                            option(value='CC') Cocos (Keeling) Islands
+                                                                            option(value='CO') Colombia
+                                                                            option(value='KM') Comoros
+                                                                            option(value='CG') Congo
+                                                                            option(value='CD') Congo, the Democratic Republic of the
+                                                                            option(value='CK') Cook Islands
+                                                                            option(value='CR') Costa Rica
+                                                                            option(value='CI') Côte d'Ivoire
+                                                                            option(value='HR') Croatia
+                                                                            option(value='CU') Cuba
+                                                                            option(value='CW') Curaçao
+                                                                            option(value='CY') Cyprus
+                                                                            option(value='CZ') Czech Republic
+                                                                            option(value='DK') Denmark
+                                                                            option(value='DJ') Djibouti
+                                                                            option(value='DM') Dominica
+                                                                            option(value='DO') Dominican Republic
+                                                                            option(value='EC') Ecuador
+                                                                            option(value='EG') Egypt
+                                                                            option(value='SV') El Salvador
+                                                                            option(value='GQ') Equatorial Guinea
+                                                                            option(value='ER') Eritrea
+                                                                            option(value='EE') Estonia
+                                                                            option(value='ET') Ethiopia
+                                                                            option(value='FK') Falkland Islands (Malvinas)
+                                                                            option(value='FO') Faroe Islands
+                                                                            option(value='FJ') Fiji
+                                                                            option(value='FI') Finland
+                                                                            option(value='FR') France
+                                                                            option(value='GF') French Guiana
+                                                                            option(value='PF') French Polynesia
+                                                                            option(value='TF') French Southern Territories
+                                                                            option(value='GA') Gabon
+                                                                            option(value='GM') Gambia
+                                                                            option(value='GE') Georgia
+                                                                            option(value='DE') Germany
+                                                                            option(value='GH') Ghana
+                                                                            option(value='GI') Gibraltar
+                                                                            option(value='GR') Greece
+                                                                            option(value='GL') Greenland
+                                                                            option(value='GD') Grenada
+                                                                            option(value='GP') Guadeloupe
+                                                                            option(value='GU') Guam
+                                                                            option(value='GT') Guatemala
+                                                                            option(value='GG') Guernsey
+                                                                            option(value='GN') Guinea
+                                                                            option(value='GW') Guinea-Bissau
+                                                                            option(value='GY') Guyana
+                                                                            option(value='HT') Haiti
+                                                                            option(value='HM') Heard Island and McDonald Islands
+                                                                            option(value='VA') Holy See (Vatican City State)
+                                                                            option(value='HN') Honduras
+                                                                            option(value='HK') Hong Kong
+                                                                            option(value='HU') Hungary
+                                                                            option(value='IS') Iceland
+                                                                            option(value='IN') India
+                                                                            option(value='ID') Indonesia
+                                                                            option(value='IR') Iran, Islamic Republic of
+                                                                            option(value='IQ') Iraq
+                                                                            option(value='IE') Ireland
+                                                                            option(value='IM') Isle of Man
+                                                                            option(value='IL') Israel
+                                                                            option(value='IT') Italy
+                                                                            option(value='JM') Jamaica
+                                                                            option(value='JP') Japan
+                                                                            option(value='JE') Jersey
+                                                                            option(value='JO') Jordan
+                                                                            option(value='KZ') Kazakhstan
+                                                                            option(value='KE') Kenya
+                                                                            option(value='KI') Kiribati
+                                                                            option(value='KP') Korea, Democratic People's Republic of
+                                                                            option(value='KR') Korea, Republic of
+                                                                            option(value='KW') Kuwait
+                                                                            option(value='KG') Kyrgyzstan
+                                                                            option(value='LA') Lao People's Democratic Republic
+                                                                            option(value='LV') Latvia
+                                                                            option(value='LB') Lebanon
+                                                                            option(value='LS') Lesotho
+                                                                            option(value='LR') Liberia
+                                                                            option(value='LY') Libya
+                                                                            option(value='LI') Liechtenstein
+                                                                            option(value='LT') Lithuania
+                                                                            option(value='LU') Luxembourg
+                                                                            option(value='MO') Macao
+                                                                            option(value='MK') Macedonia, the former Yugoslav Republic of
+                                                                            option(value='MG') Madagascar
+                                                                            option(value='MW') Malawi
+                                                                            option(value='MY') Malaysia
+                                                                            option(value='MV') Maldives
+                                                                            option(value='ML') Mali
+                                                                            option(value='MT') Malta
+                                                                            option(value='MH') Marshall Islands
+                                                                            option(value='MQ') Martinique
+                                                                            option(value='MR') Mauritania
+                                                                            option(value='MU') Mauritius
+                                                                            option(value='YT') Mayotte
+                                                                            option(value='MX') Mexico
+                                                                            option(value='FM') Micronesia, Federated States of
+                                                                            option(value='MD') Moldova, Republic of
+                                                                            option(value='MC') Monaco
+                                                                            option(value='MN') Mongolia
+                                                                            option(value='ME') Montenegro
+                                                                            option(value='MS') Montserrat
+                                                                            option(value='MA') Morocco
+                                                                            option(value='MZ') Mozambique
+                                                                            option(value='MM') Myanmar
+                                                                            option(value='NA') Namibia
+                                                                            option(value='NR') Nauru
+                                                                            option(value='NP') Nepal
+                                                                            option(value='NL') Netherlands
+                                                                            option(value='NC') New Caledonia
+                                                                            option(value='NZ') New Zealand
+                                                                            option(value='NI') Nicaragua
+                                                                            option(value='NE') Niger
+                                                                            option(value='NG') Nigeria
+                                                                            option(value='NU') Niue
+                                                                            option(value='NF') Norfolk Island
+                                                                            option(value='MP') Northern Mariana Islands
+                                                                            option(value='NO') Norway
+                                                                            option(value='OM') Oman
+                                                                            option(value='PK') Pakistan
+                                                                            option(value='PW') Palau
+                                                                            option(value='PS') Palestinian Territory, Occupied
+                                                                            option(value='PA') Panama
+                                                                            option(value='PG') Papua New Guinea
+                                                                            option(value='PY') Paraguay
+                                                                            option(value='PE') Peru
+                                                                            option(value='PH') Philippines
+                                                                            option(value='PN') Pitcairn
+                                                                            option(value='PL') Poland
+                                                                            option(value='PT') Portugal
+                                                                            option(value='PR') Puerto Rico
+                                                                            option(value='QA') Qatar
+                                                                            option(value='RE') Réunion
+                                                                            option(value='RO') Romania
+                                                                            option(value='RU') Russian Federation
+                                                                            option(value='RW') Rwanda
+                                                                            option(value='BL') Saint Barthélemy
+                                                                            option(value='SH') Saint Helena, Ascension and Tristan da Cunha
+                                                                            option(value='KN') Saint Kitts and Nevis
+                                                                            option(value='LC') Saint Lucia
+                                                                            option(value='MF') Saint Martin (French part)
+                                                                            option(value='PM') Saint Pierre and Miquelon
+                                                                            option(value='VC') Saint Vincent and the Grenadines
+                                                                            option(value='WS') Samoa
+                                                                            option(value='SM') San Marino
+                                                                            option(value='ST') Sao Tome and Principe
+                                                                            option(value='SA') Saudi Arabia
+                                                                            option(value='SN') Senegal
+                                                                            option(value='RS') Serbia
+                                                                            option(value='SC') Seychelles
+                                                                            option(value='SL') Sierra Leone
+                                                                            option(value='SG') Singapore
+                                                                            option(value='SX') Sint Maarten (Dutch part)
+                                                                            option(value='SK') Slovakia
+                                                                            option(value='SI') Slovenia
+                                                                            option(value='SB') Solomon Islands
+                                                                            option(value='SO') Somalia
+                                                                            option(value='ZA') South Africa
+                                                                            option(value='GS') South Georgia and the South Sandwich Islands
+                                                                            option(value='SS') South Sudan
+                                                                            option(value='ES') Spain
+                                                                            option(value='LK') Sri Lanka
+                                                                            option(value='SD') Sudan
+                                                                            option(value='SR') Suriname
+                                                                            option(value='SJ') Svalbard and Jan Mayen
+                                                                            option(value='SZ') Swaziland
+                                                                            option(value='SE') Sweden
+                                                                            option(value='CH') Switzerland
+                                                                            option(value='SY') Syrian Arab Republic
+                                                                            option(value='TW') Taiwan, Province of China
+                                                                            option(value='TJ') Tajikistan
+                                                                            option(value='TZ') Tanzania, United Republic of
+                                                                            option(value='TH') Thailand
+                                                                            option(value='TL') Timor-Leste
+                                                                            option(value='TG') Togo
+                                                                            option(value='TK') Tokelau
+                                                                            option(value='TO') Tonga
+                                                                            option(value='TT') Trinidad and Tobago
+                                                                            option(value='TN') Tunisia
+                                                                            option(value='TR') Turkey
+                                                                            option(value='TM') Turkmenistan
+                                                                            option(value='TC') Turks and Caicos Islands
+                                                                            option(value='TV') Tuvalu
+                                                                            option(value='UG') Uganda
+                                                                            option(value='UA') Ukraine
+                                                                            option(value='AE') United Arab Emirates
+                                                                            option(value='GB') United Kingdom
+                                                                            option(value='US') United States
+                                                                            option(value='UM') United States Minor Outlying Islands
+                                                                            option(value='UY') Uruguay
+                                                                            option(value='UZ') Uzbekistan
+                                                                            option(value='VU') Vanuatu
+                                                                            option(value='VE') Venezuela, Bolivarian Republic of
+                                                                            option(value='VN') Viet Nam
+                                                                            option(value='VG') Virgin Islands, British
+                                                                            option(value='VI') Virgin Islands, U.S.
+                                                                            option(value='WF') Wallis and Futuna
+                                                                            option(value='EH') Western Sahara
+                                                                            option(value='YE') Yemen
+                                                                            option(value='ZM') Zambia
+                                                                            option(value='ZW') Zimbabwe
+                                                                    // end::Group
+                                                        // end::Wizard Step 3
+                                                        // begin::Wizard Step 4
+                                                        div(class='my-5 step' data-wizard-type='step-content')
+                                                            h5(class='mb-10 font-weight-bold text-dark') Review your Details and Submit
+                                                            // begin::Item
+                                                            div(class='border-bottom mb-5 pb-5')
+                                                                div(class='font-weight-bolder  mb-3')
+                                                                    | Your Account Details:
+                                                                div(class='line-height-xl')
+                                                                    | John Wick
+                                                                    br
+                                                                    |  Phone: +61412345678
+                                                                    br
+                                                                    |  Email: johnwick@reeves.com
+                                                            // end::Item
+                                                            // begin::Item
+                                                            div(class='border-bottom mb-5 pb-5')
+                                                                div(class='font-weight-bolder  mb-3')
+                                                                    | Your Address Details:
+                                                                div(class='line-height-xl')
+                                                                    | Address Line 1
+                                                                    br
+                                                                    |  Address Line 2
+                                                                    br
+                                                                    |  Melbourne 3000, VIC, Australia
+                                                            // end::Item
+                                                            // begin::Item
+                                                            div
+                                                                div(class='font-weight-bolder ')
+                                                                    | Payment Details:
+                                                                div(class='line-height-xl')
+                                                                    | Card Number: xxxx xxxx xxxx 1111
+                                                                    br
+                                                                    |  Card Name: John Wick
+                                                                    br
+                                                                    |  Card Expiry: 01/21
+                                                            // end::Item
+                                                        // end::Wizard Step 4
+                                                        // begin::Wizard Actions
+                                                        div(class='d-flex justify-content-between border-top pt-10 mt-15')
+                                                            div(class='mr-2')
+                                                                button#prev-step(type='button' class='btn btn-light-primary font-weight-bolder px-9 py-4' data-wizard-type='action-prev')
+                                                                    | Previous
+                                                            div
+                                                                button(type='button' class='btn btn-success font-weight-bolder px-9 py-4' data-wizard-type='action-submit')
+                                                                    | Submit
+                                                                button#next-step(type='button' class='btn btn-primary font-weight-bolder px-9 py-4' data-wizard-type='action-next')
+                                                                    | Next
+                                                        // end::Wizard Actions
+                                            // end::Wizard Form
+                                // end::Body
+                            // end::Card
+                        // end::Wizard
+                // end::Card
+            // end::Container
+        // end::Entry
+
+
+

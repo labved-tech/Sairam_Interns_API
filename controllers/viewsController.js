@@ -397,9 +397,9 @@ exports.getError = (req, res) => {
 
 // ACCOUNT SETTINGS RELATED CONTROLLER
 exports.getAllUser = (req, res) => {
-  console.log('We are in Error Page');
+  console.log('We are in All Users Page');
 
-  res.status(200).render('./pages/error');
+  res.status(200).render('./../views/pages/all-users', doc);
 }
 exports.getAddUser = (req, res) => {
   console.log('We are in Add Users Page');
