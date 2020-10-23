@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const ratingAttributeGroupsController = require('./.../../controllers/ratings/ratingAttributeGroupsController');
+const ratingAttributeGroupsController = require('./../../controllers/ratings/ratingAttributeGroupsController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
