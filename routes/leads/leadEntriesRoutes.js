@@ -17,7 +17,7 @@ router.param('id', leadEntriesController.checkID);
 router
   .route('/')
   .get(leadEntriesController.getAllLeadEntries)
-  .post(leadEntriesController.createleadEntries);
+  .post(leadEntriesController.createLeadEntries);
 router
   .route('/:id')
   .get(leadEntriesController.getLeadEntries)

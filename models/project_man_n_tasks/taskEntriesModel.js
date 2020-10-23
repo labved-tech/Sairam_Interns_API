@@ -28,7 +28,7 @@ const taskEntriesSchema = new Schema({
     startDate:{type:Date},
     dateadded:{type:Date},
     dueDate:{type:Date},
-    assignedTo=[]
+    assignedTo:{type:Array}
 });
 
 /* MODEL */

@@ -16,7 +16,7 @@ const projectDiscussionsSchema = new Schema({
 });
 
 /* MODEL */
-const ProjectDiscussion = mongoose.model('projectDiscussion', projectDiscussionSchema);
+const ProjectsDiscussions = mongoose.model('projectDiscussions', projectDiscussionsSchema);
 
 /* EXPORT */
-module.exports = ProjectDiscussion;
+module.exports = ProjectsDiscussions;

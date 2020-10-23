@@ -37,7 +37,7 @@ exports.getAllFarmExportedStrategy = async (req, res, next) => {
   next();
 };
 
-exports.getfarmExportedStrategy = async (req, res, next) => {
+exports.getFarmExportedStrategy = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting farmExportedStrategy for Id ${id}`);
 

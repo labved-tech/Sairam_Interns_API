@@ -17,7 +17,7 @@ router.param('id', leadCategoriesController.checkID);
 router
   .route('/')
   .get(leadCategoriesController.getAllLeadCategories)
-  .post(leadCategoriesController.createleadCategories);
+  .post(leadCategoriesController.createLeadCategories);
 router
   .route('/:id')
   .get(leadCategoriesController.getLeadCategories)
