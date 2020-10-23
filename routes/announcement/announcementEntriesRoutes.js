@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const announcementEntriesController = require('../../controllers/announcement/announcementEntriesController');
+const announcementEntriesController = require('./../../controllers/announcement/announcementEntriesController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
@@ -22,7 +22,7 @@ router
   .route('/:id')
   .get(announcementEntriesController.getAnnouncementEntries)
   .patch(announcementEntriesController.updateAnnouncementEntries)
-  .delete(announcementEntriesontroller.deleteAnnouncementEntries);
+  .delete(announcementEntriesController.deleteAnnouncementEntries);
 
 module.exports = router;
 

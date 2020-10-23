@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const perfomaInvoiceSchema = new Schema({
+const perfomaInvoiceSchema = new Schema ({
     _id:{type:mongoose.ObjectId},
     profomaInvoiceNo:{type:String},
     moduleReferance:{type:String},
@@ -50,7 +50,7 @@ const perfomaInvoiceSchema = new Schema({
             {
                serialNo:{type:String},
                itemCode:{tyoe:String},
-               name:{type:string},
+               name:{type:String},
                quantity:{type:Number},
                unitofMeasurement:{type:String},
                unitPrice:{type:Number},

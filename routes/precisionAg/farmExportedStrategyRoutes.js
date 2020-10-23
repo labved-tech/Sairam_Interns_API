@@ -20,8 +20,11 @@ router
   .post(farmExportedStrategyController.createFarmExportedStrategy);
 router
   .route('/:id')
-  .get(farmExportedStrategyController.getFarmExportedStrategy)
   .patch(farmExportedStrategyController.updateFarmExportedStrategy)
   .delete(farmExportedStrategyController.deleteFarmExportedStrategy);
+
+  router
+  .route('/:id')  
+  .get(farmExportedStrategyController.getFarmExportedStrategy)
 
 module.exports = router;

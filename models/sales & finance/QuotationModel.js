@@ -31,13 +31,13 @@ const quotationSchema = new Schema( {
     paymentMethods:{
         _id:{type:mongoose.ObjectId},
         type:{type:String},
-        meta:{type:object},
+        meta:{type:Object},
     },
     QuotationNumber:{type:Number}
 });
 
 /* MODEL */
-const Quotation = mongoose.model('quotation',QuotationSchema);
+const Quotation = mongoose.model('quotation',quotationSchema);
 
 /* EXPORT */
 module.exports = Quotation;    

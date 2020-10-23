@@ -43,7 +43,7 @@ const farmStrategySchema = new Schema({
                 }
             ],
             stageOrder:{type:Number},
-            editable:{type:boolean},
+            editable:{type:Boolean},
             createdBy:{type:mongoose.ObjectId},
             createdAt:{type:Date},
             updatedAt:{type:Date}

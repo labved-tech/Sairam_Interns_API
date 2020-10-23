@@ -19,7 +19,7 @@ const deliveryNoteSchema = new Schema({
     consigneeEmail:{type:String},
     consigneeContactNumber:{type:String},
     consigneeGstin:{type:String},
-    box =[],
+    box:{type:Array},
     shipMethod:{type:String},
     carrierName:{type:String},
     carrierTrackingNumber:{type:Number},
