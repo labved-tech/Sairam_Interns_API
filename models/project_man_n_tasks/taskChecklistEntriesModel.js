@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const taskChecklistEntrySchema = new Schema({
+const taskChecklistEntriesSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     _taskId:{type:mongoose.ObjectId},
     finished:{type:Boolean},
@@ -16,7 +16,7 @@ const taskChecklistEntrySchema = new Schema({
 });
 
 /* MODEL */
-const TaskChecklistEntry = mongoose.model('taskChecklistEntry', taskChecklistEntrySchema);
+const TaskChecklistEntries = mongoose.model('taskChecklistEntries', taskChecklistEntriesSchema);
 
 /* EXPORT */
-module.exports = TaskChecklistEntry;
+module.exports = TaskChecklistEntries;
