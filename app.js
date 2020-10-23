@@ -63,7 +63,7 @@ app.use('/api/v1/announcement-entries', announcementEntryRouter);
 app.use('/api/v1/lead-entries',leadEntriesRouter);
 app.use('/api/v1/lead-response',leadResponseRouter);
 app.use('/api/v1/lead-categories',leadCategoriesRouter);
-app.use('/api/v1/analytics',analyticsRouter);
+app.use('/api/v1/analytics', analyticsRouter);
 
 app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
 
