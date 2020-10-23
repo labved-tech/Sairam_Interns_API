@@ -58,7 +58,7 @@ exports.getAnnouncementEntries = async (req, res, next) => {
   next();
 };
 
-exports.AnnouncementEntries = async (req, res, next) => {
+exports.createAnnouncementEntries = async (req, res, next) => {
   console.log('Creating announcementEntries');
 
   try {

@@ -22,7 +22,7 @@ router
   .route('/:id')
   .get(announcementEntriesController.getAnnouncementEntries)
   .patch(announcementEntriesController.updateAnnouncementEntries)
-  .delete(announcementEntriesontroller.deleteAnnouncementEntries);
+  .delete(announcementEntriesController.deleteAnnouncementEntries);
 
 module.exports = router;
 
