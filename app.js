@@ -61,6 +61,17 @@ const perfomaInvoiceRouter = require('./routes/sales&finance/perfomaInvoiceRoute
 const quotationRouter = require('./routes/sales&finance/quotationRoutes');
 const taxInvoiceRouter = require('./routes/sales&finance/taxInvoiceRoutes');
 
+const ratingAttributeGroupsRouter = require('./routes/ratings/ratingAttributeGroupsRoutes');
+const ratingAttributeRouter = require('./routes/ratings/ratingAttributeRoutes');
+const ratingEntriesRouter = require('./routes/ratings/ratingEntriesRoutes');
+
+const addressRouter = require('./routes/ecommerce/addressRoutes');
+const ecommerceLocationsRouter = require('./routes/ecommerce/ecommerceLocationsRoutes');
+const ecommerceOrderRouter = require('./routes/ecommerce/ecommerceOrderRoutes');
+const ecommerceStockRouter = require('./routes/ecommerce/ecommerceStockRoutes');
+
+const commentsEntriesRouter = require('./routes/comments/commentsEntriesRoutes');
+
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
@@ -131,8 +142,6 @@ app.use('/api/v1/task-checklist-status',taskChecklistStatusRouter);
 app.use('/api/v1/task-reminders',taskRemindersRouter);
 app.use('/api/v1/task-timers',taskTimersRouter);
 
-
-
 app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
 app.use('/api/v1/newsletter-entries', newsletterMessagesRouter);
 
@@ -142,4 +151,18 @@ app.use('/api/v1/packing-list',packingListRouter);
 app.use ('/api/v1/perfoma-invoice',perfomaInvoiceRouter);
 app.use('/api/v1/quotation',quotationRouter);
 app.use('/api/v1/tax-invoice',taxInvoiceRouter);
+
+app.use('/api/v1/commentEntries',commentEntriesRouter);
+
+app.use('/api/v1/address',addressRouter);
+app.use('/api/v1/ecommerceLocations',ecommerceLocationsRouter);
+app.use('/api/v1/ecommerceOrder',ecommerceOrderRouter);
+app.use('/api/v1/ecommerceProducts',ecommerceProductsRouter);
+app.use('/api/v1/ecommerceProducts',ecommerceProductsRouter);
+app.use('/api/v1/ecommerceStock',ecommerceStockRouter);
+
+app.use('/api/v1/ratingAttributeGroups',ratingAttributeGroupsRouter);
+app.use('/api/v1/ratingAttribute',ratingAttributeRouter);
+app.use('/api/v1/ratingEntries',ratingEntriesRouter);
+
 module.exports = app;
