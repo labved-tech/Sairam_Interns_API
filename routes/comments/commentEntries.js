@@ -1,23 +1,27 @@
-const commentEntries = {
-    _id:{type:mongoose.ObjectId},
-    _commentorId:{type:mongoose.ObjectId},
-    relName:{type:String},
-    _relId:{type:mongoose.ObjectId},
-    rating:{type:Number},
-    message:{type:String},
-    commentReplies:{
-        [
-            {
+/* DEPENDENCIES */
+const express = require('express');
 
-                message:{type:String},
-                _commentorId:{type:mongoose.ObjectId},
-                createdAt:{type:Date},
-                updatedAt:{type:Date},
-                _id:{type:mongoose.ObjectId}
-            }    
-        ]
-    },
-    status:{type:String},
-    createdAt:{type:Date},
-    updatedAt:{type:Date}
-}
+/* MIDDLEWARE */
+const router = express.Router();
+const commentEntriesController = require('./../../controllers/comments/commentEntriesController');
+
+/* GLOBAL MIDDLEWARE USAGE*/
+router.use((req, res, next) => {
+  console.log('We are in commentEntriesRoutes');
+  next();
+});
+
+router.param('id', commentEntriesController.checkID);
+
+/* ROUTES */
+router
+  .route('/')
+  .get(commentEntriesController.getAllCommentEntries)
+  .post(commentEntriesController.createCommentEntries);
+router
+  .route('/:id')
+  .get(commentEntriesController.getCommentEntries)
+  .patch(commentEntriesController.updateCommentEntries)
+  .delete(commentEntriesController.deleteCommentEntries);
+
+module.exports = router;

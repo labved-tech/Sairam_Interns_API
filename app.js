@@ -15,9 +15,9 @@ const exampleRouter = require('./routes/exampleRoutes');
 const userRouter = require('./routes/userRoutes');
 const menuRouter = require('./routes/menuRoutes');
 
-// Interns
+//INTERNS
 const announcementEntryRouter = require('./routes/announcement/announcementEntryRoutes');
-
+const leadEntriesRouter = require('./routes/leads/leadEntriesRoutes');
 
 
 /* ENVIRONMENT */
@@ -54,7 +54,8 @@ app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
-// Interns
+//INTERNS
 app.use('/api/v1/announcement-entries', announcementEntryRouter);
+app.use('/api/v1/lead-entries',leadEntriesRouter);
 
 module.exports = app;

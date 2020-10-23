@@ -1,20 +1,27 @@
-const ratingEntries = {
-    _id:{type:mongoose.ObjectId},
-    relType:{type:String},   
-    _relId:{type:Smongoose.ObjectId},
-    meta={
-        [
-            {
-                _attributeId:{type:mongoose.ObjectId},
-                type:{type:String},
-                value:{type:String}
-            }
-        ]
-    },
-    _userId:{type:Smongoose.ObjectId}, 
-    status:{type:String},   
-    createdAt:{type:Date},
-    createdBy:{type:mongoose.ObjectId},
-    updatedBy:{type:mongoose.ObjectId}, 
-    updatedAt:{type:Date}   
-}
+/* DEPENDENCIES */
+const express = require('express');
+
+/* MIDDLEWARE */
+const router = express.Router();
+const ratingEntriesController = require('./../../controllers/ratings/ratingEntriesController');
+
+/* GLOBAL MIDDLEWARE USAGE*/
+router.use((req, res, next) => {
+  console.log('We are in ratingEntriesRoutes');
+  next();
+});
+
+router.param('id', ratingEntriesController.checkID);
+
+/* ROUTES */
+router
+  .route('/')
+  .get(ratingEntriesController.getAllRatingEntries)
+  .post(ratingEntriesController.createRatingEntries);
+router
+  .route('/:id')
+  .get(ratingEntriesController.getRatingEntries)
+  .patch(ratingEntriesController.updateRatingEntries)
+  .delete(ratingEntriesController.deleteRatingEntries);
+
+module.exports = router;
