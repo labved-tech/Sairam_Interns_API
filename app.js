@@ -21,6 +21,7 @@ const leadEntriesRouter = require('./routes/leads/leadEntriesRoutes');
 const leadCategoriesRouter = require('./routes/leads/leadCategoriesRoutes');
 const leadResponseRouter = require('./routes/leads/leadResponseRoutes');
 const analyticsRouter = require('./routes/precisionAg/analyticsRoutes');
+const newsletterEntriesRouter = require('./routes/newsletter/newsletterEntriesRoutes');
 
 
 /* ENVIRONMENT */
@@ -57,7 +58,8 @@ app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
-//INTERNS
+// INTERNS 
+app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
 app.use('/api/v1/announcement-entries', announcementEntryRouter);
 app.use('/api/v1/lead-entries',leadEntriesRouter);
 app.use('/api/v1/lead-response',leadResponseRouter);
