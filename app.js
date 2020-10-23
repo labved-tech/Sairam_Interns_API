@@ -56,8 +56,9 @@ app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
 // INTERNS 
-app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
 app.use('/api/v1/announcement-entries', announcementEntryRouter);
 app.use('/api/v1/lead-entries',leadEntriesRouter);
+app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
+
 
 module.exports = app;
