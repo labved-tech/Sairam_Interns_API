@@ -15,6 +15,9 @@ const exampleRouter = require('./routes/exampleRoutes');
 const userRouter = require('./routes/userRoutes');
 const menuRouter = require('./routes/menuRoutes');
 
+/* INTERN */
+const newsletterEntriesRouter = require('./routes/newsletter/newsletterEntriesRoutes');
+
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
@@ -48,5 +51,8 @@ app.use('/', viewRouter);
 app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
+
+/* Interns*/
+app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
 
 module.exports = app;
