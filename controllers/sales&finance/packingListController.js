@@ -22,7 +22,7 @@ exports.checkID = (req, res, next, val) => {
   
       res.status(200).json({
         status: 'sucess',
-        message: 'Got All PackingList',
+        message: 'Got All Packing List',
         results: packingLists.length,
         data: {
           packingLists,

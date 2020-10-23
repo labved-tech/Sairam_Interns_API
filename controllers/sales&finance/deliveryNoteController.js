@@ -21,7 +21,7 @@ exports.getAllDeliveryNote = async (req, res, next) => {
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All DeliveryNote',
+      message: 'Got All Delivery Note',
       results: deliveryNotes.length,
       data: {
         deliveryNotes,
@@ -105,14 +105,14 @@ exports.updateDeliveryNote = async (req, res, next) => {
 
 exports.deleteDeliveryNote = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting DeliveryNote Id ${id}`);
+  console.log(`Deleting Delivery Note Id ${id}`);
 
   try {
     const deliveryNote = await DeliveryNote.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted DeliveryNote Id=${id}`,
+      message: `Deleted Delivery Note Id=${id}`,
       data: { deliveryNote },
     });
   } catch (err) {

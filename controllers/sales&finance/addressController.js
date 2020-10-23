@@ -45,7 +45,7 @@ exports.getAddress = async (req, res, next) => {
     const address = await Address.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `GotAddress Id=${id}`,
+      message: `Got Address Id=${id}`,
       Data: {address },
     });
   } catch (err) {
