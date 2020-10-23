@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const announcementEntries = require('./../../models/announcement/announcementEntriesModel');
+const AnnouncementEntries = require('./../../models/announcement/announcementEntriesModel');
 
 /* DATABASE */
 
@@ -17,7 +17,7 @@ exports.getAllAnnouncementEntries = async (req, res, next) => {
   console.log('Getting All announcementEntries');
 
   try {
-    const announcementEntries = await announcementEntries.find().then();
+    const announcementEntries = await AnnouncementEntries.find().then();
 
     res.status(200).json({
       status: 'sucess',
@@ -62,7 +62,7 @@ exports.createAnnouncementEntries = async (req, res, next) => {
   console.log('Creating announcementEntries');
 
   try {
-    const announcementEntries= await Example.create(req.body).then();
+    const announcementEntries= await AnnouncementEntries.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
@@ -84,7 +84,7 @@ exports.updateAnnouncementEntries= async (req, res, next) => {
   console.log(`Updating Announcement Entries Id ${id}`);
 
   try {
-    const announcementEntries= await Example.findByIdAndUpdate(id, req.body, {
+    const announcementEntries= await AnnouncementEntries.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
@@ -108,7 +108,7 @@ exports.deleteAnnouncementEntries= async (req, res, next) => {
   console.log(`Deleting Announcement Entries Id ${id}`);
 
   try {
-    const announcementEntries= await Example.findByIdAndDelete(id).then();
+    const announcementEntries= await AnnouncementEntries.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',

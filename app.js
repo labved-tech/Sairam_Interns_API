@@ -16,8 +16,12 @@ const userRouter = require('./routes/userRoutes');
 const menuRouter = require('./routes/menuRoutes');
 
 //INTERNS
-const announcementEntryRouter = require('./routes/announcement/announcementEntryRoutes');
+const announcementEntriesRouter = require('./routes/announcement/announcementEntriesRoutes');
+const announcementNotifyRouter = require('./routes/announcement/announcementNotifyRoutes');
 const leadEntriesRouter = require('./routes/leads/leadEntriesRoutes');
+const leadCategoriesRouter = require('./routes/leads/leadCategoriesRoutes');
+const leadResponseRouter = require('./routes/leads/leadResponseRoutes');
+const analyticsRouter = require('./routes/precisionAg/analyticsRoutes');
 const newsletterEntriesRouter = require('./routes/newsletter/newsletterEntriesRoutes');
 
 
@@ -56,8 +60,13 @@ app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
 // INTERNS 
-app.use('/api/v1/announcement-entries', announcementEntryRouter);
+app.use('/api/v1/announcement-entries', announcementEntriesRouter);
+app.use('/api/v1/announcement-notify', announcementNotifyRouter);
 app.use('/api/v1/lead-entries',leadEntriesRouter);
+app.use('/api/v1/lead-response',leadResponseRouter);
+app.use('/api/v1/lead-categories',leadCategoriesRouter);
+app.use('/api/v1/analytics', analyticsRouter);
+
 app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
 
 
