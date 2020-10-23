@@ -16,7 +16,8 @@ const directoryAttributeGroupsSchema = new Schema({
             Description:{type:String},
             notes:{type:String},
             status:{type:String},
-            updatedBy:{type:mongoose.ObjectId},                updatedAt:{type:Date},
+            updatedBy:{type:mongoose.ObjectId},               
+            updatedAt:{type:Date},
             createdBy:{type:mongoose.ObjectId},
             createdAt:{type:Date}        
         }
