@@ -13,7 +13,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllannouncementEntries = async (req, res, next) => {
+exports.getAllAnnouncementEntries = async (req, res, next) => {
   console.log('Getting All announcementEntries');
 
   try {
@@ -37,7 +37,7 @@ exports.getAllannouncementEntries = async (req, res, next) => {
   next();
 };
 
-exports.getannouncementEntries = async (req, res, next) => {
+exports.getAnnouncementEntries = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Announcement Entries for Id ${id}`);
 
@@ -58,7 +58,7 @@ exports.getannouncementEntries = async (req, res, next) => {
   next();
 };
 
-exports.announcementEntries = async (req, res, next) => {
+exports.createAnnouncementEntries = async (req, res, next) => {
   console.log('Creating announcementEntries');
 
   try {
@@ -79,7 +79,7 @@ exports.announcementEntries = async (req, res, next) => {
   next();
 };
 
-exports.updateannouncementEntries= async (req, res, next) => {
+exports.updateAnnouncementEntries= async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Announcement Entries Id ${id}`);
 
@@ -103,7 +103,7 @@ exports.updateannouncementEntries= async (req, res, next) => {
   next();
 };
 
-exports.deleteannouncementEntries= async (req, res, next) => {
+exports.deleteAnnouncementEntries= async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Announcement Entries Id ${id}`);
 
