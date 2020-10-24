@@ -39,7 +39,7 @@ exports.getAllAnnouncementNotify = async (req, res, next) => {
 
 exports.getAnnouncementNotify= async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting announcementNotify for Id ${id}`);
+  console.log(`Getting Announcement Notify for Id ${id}`);
 
   try {
     const announcementNotify = await AnnouncementNotify.findById(id).then();
