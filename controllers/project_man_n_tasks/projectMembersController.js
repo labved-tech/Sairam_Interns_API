@@ -17,14 +17,14 @@ exports.getAllProjectMembers = async (req, res, next) => {
   console.log('Getting All projectMembers');
 
   try {
-    const projectMemberss = await ProjectMembers.find().then();
+    const projectMembers = await ProjectMembers.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All projectMembers',
-      results: projectMemberss.length,
+      results: projectMembers.length,
       data: {
-        projectMemberss,
+        projectMembers,
       },
     });
   } catch (err) {

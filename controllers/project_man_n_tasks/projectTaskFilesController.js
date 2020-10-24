@@ -17,14 +17,14 @@ exports.getAllProjectTaskFiles = async (req, res, next) => {
   console.log('Getting All projectTaskFiles');
 
   try {
-    const projectTaskFiless = await ProjectTaskFiles.find().then();
+    const projectTaskFiles = await ProjectTaskFiles.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All projectTaskFiles',
-      results: projectTaskFiless.length,
+      results: projectTaskFiles.length,
       data: {
-        projectTaskFiless,
+        projectTaskFiles,
       },
     });
   } catch (err) {

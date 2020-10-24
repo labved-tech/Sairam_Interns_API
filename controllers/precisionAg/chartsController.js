@@ -17,14 +17,14 @@ exports.getAllCharts = async (req, res, next) => {
   console.log('Getting All charts');
 
   try {
-    const chartss = await Charts.find().then();
+    const charts = await Charts.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All charts',
-      results: chartss.length,
+      results: charts.length,
       data: {
-        chartss,
+        charts,
       },
     });
   } catch (err) {

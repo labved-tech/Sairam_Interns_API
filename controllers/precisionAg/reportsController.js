@@ -17,14 +17,14 @@ exports.getAllReports = async (req, res, next) => {
   console.log('Getting All reports');
 
   try {
-    const reportss = await Reports.find().then();
+    const reports = await Reports.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All reports',
-      results: reportss.length,
+      results: reports.length,
       data: {
-        reportss,
+        reports,
       },
     });
   } catch (err) {

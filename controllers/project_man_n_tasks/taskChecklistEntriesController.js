@@ -17,14 +17,14 @@ exports.getAllTaskChecklistEntries = async (req, res, next) => {
   console.log('Getting All taskChecklistEntries');
 
   try {
-    const taskChecklistEntriess = await TaskChecklistEntries.find().then();
+    const taskChecklistEntries = await TaskChecklistEntries.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All taskChecklistEntries',
-      results: taskChecklistEntriess.length,
+      results: taskChecklistEntries.length,
       data: {
-        taskChecklistEntriess,
+        taskChecklistEntries,
       },
     });
   } catch (err) {

@@ -17,14 +17,14 @@ exports.getAllTaskReminders = async (req, res, next) => {
   console.log('Getting All taskReminders');
 
   try {
-    const taskReminderss = await TaskReminders.find().then();
+    const taskReminders = await TaskReminders.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All taskReminders',
-      results: taskReminderss.length,
+      results: taskReminders.length,
       data: {
-        taskReminderss,
+        taskReminders,
       },
     });
   } catch (err) {

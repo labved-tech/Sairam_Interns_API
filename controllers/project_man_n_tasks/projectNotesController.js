@@ -17,14 +17,14 @@ exports.getAllProjectNotes = async (req, res, next) => {
   console.log('Getting All projectNotes');
 
   try {
-    const projectNotess = await ProjectNotes.find().then();
+    const projectNotes = await ProjectNotes.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All projectNotes',
-      results: projectNotess.length,
+      results: projectNotes.length,
       data: {
-        projectNotess,
+        projectNotes,
       },
     });
   } catch (err) {
