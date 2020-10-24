@@ -24,17 +24,21 @@ const leadCategoriesRouter = require('./routes/leads/leadCategoriesRoutes');
 const leadResponseRouter = require('./routes/leads/leadResponseRoutes');
 
 const analyticsRouter = require('./routes/precisionAg/analyticsRoutes');
+
 const chartsRouter = require('./routes/precisionAg/chartsRoutes');
+
 const farmEntriesRouter = require('./routes/precisionAg/farmEntriesRoutes');
 const farmExportedStrategyRouter = require('./routes/precisionAg/farmExportedStrategyRoutes');
 const farmRegionsRouter = require('./routes/precisionAg/farmRegionsRoutes');
 const farmStrategyRouter = require('./routes/precisionAg/farmStrategyRoutes');
 const formResponseRouter = require('./routes/precisionAg/formResponseRoutes');
 const formsRouter = require('./routes/precisionAg/formsRoutes');
+
 const pagesRouter = require('./routes/precisionAg/pagesRoutes');
 const reportsRouter = require('./routes/precisionAg/reportsRoutes');
 
 const milestoneRouter = require('./routes/project_man_n_tasks/milestoneRoutes');
+
 const projectActivityRouter = require('./routes/project_man_n_tasks/projectActivityRoutes');
 const projectAdminsRouter = require('./routes/project_man_n_tasks/projectAdminsRoutes');
 const projectDiscussionCommentsRouter = require('./routes/project_man_n_tasks/projectDiscussionCommentsRoutes');
@@ -45,6 +49,7 @@ const projectMembersRouter = require('./routes/project_man_n_tasks/projectMember
 const projectNotesRouter = require('./routes/project_man_n_tasks/projectNotesRoutes');
 const projectTaskFilesRouter = require('./routes/project_man_n_tasks/projectTaskFilesRoutes');
 const projectTaskStatusRouter = require('./routes/project_man_n_tasks/projectTaskStatusRoutes');
+
 const taskChecklistEntriesRouter = require('./routes/project_man_n_tasks/taskChecklistEntriesRoutes');
 const taskChecklistStatusRouter = require('./routes/project_man_n_tasks/taskChecklistStatusRoutes');
 //const taskEntriesRouter = require('./routes/project_man_n_tasks/taskEntriesRoutes');
