@@ -49,7 +49,6 @@ const projectMembersRouter = require('./routes/project_man_n_tasks/projectMember
 const projectNotesRouter = require('./routes/project_man_n_tasks/projectNotesRoutes');
 const projectTaskFilesRouter = require('./routes/project_man_n_tasks/projectTaskFilesRoutes');
 const projectTaskStatusRouter = require('./routes/project_man_n_tasks/projectTaskStatusRoutes');
-
 const taskChecklistEntriesRouter = require('./routes/project_man_n_tasks/taskChecklistEntriesRoutes');
 const taskChecklistStatusRouter = require('./routes/project_man_n_tasks/taskChecklistStatusRoutes');
 //const taskEntriesRouter = require('./routes/project_man_n_tasks/taskEntriesRoutes');
