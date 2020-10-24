@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Address = require('../../models/ecommerce/ecommerceAddressModel');
+const EcommerceAddress = require('../../models/ecommerce/ecommerceAddressModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllAddress = async (req, res, next) => {
-  console.log('Getting All Address');
+exports.getAllEcommerceAddress = async (req, res, next) => {
+  console.log('Getting All ecommerceAddress');
 
   try {
-    const addresss = await Address.find().then();
+    const ecommerceAddresss = await EcommerceAddress.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All Address',
-      results: addresss.length,
+      message: 'Got All ecommerceAddress',
+      results: ecommerceAddresss.length,
       data: {
-        addresss,
+        ecommerceAddresss,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllAddress = async (req, res, next) => {
   next();
 };
 
-exports.getAddress = async (req, res, next) => {
+exports.getEcommerceAddress = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting Address for Id ${id}`);
+  console.log(`Getting ecommerceAddress for Id ${id}`);
 
   try {
-    const address = await Address.findById(id).then();
+    const ecommerceAddress = await EcommerceAddress.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got Address Id=${id}`,
-      Data: { address },
+      message: `Got ecommerceAddress Id=${id}`,
+      Data: { ecommerceAddress },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getAddress = async (req, res, next) => {
   next();
 };
 
-exports.createAddress = async (req, res, next) => {
-  console.log('Creating Address');
+exports.createEcommerceAddress = async (req, res, next) => {
+  console.log('Creating ecommerceAddress');
 
   try {
-    const address = await Address.create(req.body).then();
+    const ecommerceAddress = await EcommerceAddress.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created Address',
-      data: { address },
+      message: 'Created ecommerceAddress',
+      data: { ecommerceAddress },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createAddress = async (req, res, next) => {
   next();
 };
 
-exports.updateAddress = async (req, res, next) => {
+exports.updateEcommerceAddress = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating Address Id ${id}`);
+  console.log(`Updating ecommerceAddress Id ${id}`);
 
   try {
-    const address = await Address.findByIdAndUpdate(id, req.body, {
+    const ecommerceAddress = await EcommerceAddress.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated Address Id=${id}`,
-      data: { address },
+      message: `Updated ecommerceAddress Id=${id}`,
+      data: { ecommerceAddress },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updateAddress = async (req, res, next) => {
   next();
 };
 
-exports.deleteAddress = async (req, res, next) => {
+exports.deleteEcommerceAddress = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting Address Id ${id}`);
+  console.log(`Deleting ecommerceAddress Id ${id}`);
 
   try {
-    const address = await Address.findByIdAndDelete(id).then();
+    const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted Address Id=${id}`,
-      data: { address },
+      message: `Deleted ecommerceAddress Id=${id}`,
+      data: { ecommerceAddress },
     });
   } catch (err) {
     res.status(400).json({
