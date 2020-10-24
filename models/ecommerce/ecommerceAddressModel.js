@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const addressSchema = new Schema({
+const ecommerceAddressSchema = new Schema({
     _id:{type:mongoose.ObjectId},
     Address1:{type:String},
     street:{type:String},
@@ -16,7 +16,7 @@ const addressSchema = new Schema({
 });
 
 /* MODEL */
-const Address = mongoose.model('address',addressSchema);
+const EcommerceAddress = mongoose.model('ecommerceAddress',ecommerceAddressSchema);
 
 /* EXPORT */
-module.exports = Address;
+module.exports = EcommerceAddress;

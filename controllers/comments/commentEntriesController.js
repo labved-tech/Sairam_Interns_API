@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const CommentEntries = require('./../../models/comments/commentEntriesModel');
+const CommentEntries = require('../../models/comments/commentEntriesModel');
 
 /* DATABASE */
 
@@ -58,7 +58,7 @@ exports.getCommentEntries = async (req, res, next) => {
   next();
 };
 
-exports.createcommentEntries = async (req, res, next) => {
+exports.createCommentEntries = async (req, res, next) => {
   console.log('Creating CommentEntries');
 
   try {

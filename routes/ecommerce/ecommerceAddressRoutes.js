@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const addressController = require('./../../controllers/ecommerce/addressController');
+const addressController = require('../../controllers/ecommerce/ecommerceAddressController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

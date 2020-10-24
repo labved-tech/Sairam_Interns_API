@@ -65,12 +65,13 @@ const ratingAttributeGroupsRouter = require('./routes/ratings/ratingAttributeGro
 const ratingAttributeRouter = require('./routes/ratings/ratingAttributeRoutes');
 const ratingEntriesRouter = require('./routes/ratings/ratingEntriesRoutes');
 
-const addressRouter = require('./routes/ecommerce/addressRoutes');
+const ecommerceAddressRouter = require('./routes/ecommerce/ecommerceAddressRoutes');
 const ecommerceLocationsRouter = require('./routes/ecommerce/ecommerceLocationsRoutes');
+const ecommerceProductsRouter = require('./routes/ecommerce/ecommerceProductsRoutes');
 const ecommerceOrderRouter = require('./routes/ecommerce/ecommerceOrderRoutes');
 const ecommerceStockRouter = require('./routes/ecommerce/ecommerceStockRoutes');
 
-const commentsEntriesRouter = require('./routes/comments/commentsEntriesRoutes');
+const commentEntriesRouter = require('./routes/comments/commentEntriesRoutes');
 
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
@@ -154,10 +155,9 @@ app.use('/api/v1/tax-invoice',taxInvoiceRouter);
 
 app.use('/api/v1/commentEntries',commentEntriesRouter);
 
-app.use('/api/v1/address',addressRouter);
+app.use('/api/v1/address',ecommerceAddressRouter);
 app.use('/api/v1/ecommerceLocations',ecommerceLocationsRouter);
 app.use('/api/v1/ecommerceOrder',ecommerceOrderRouter);
-app.use('/api/v1/ecommerceProducts',ecommerceProductsRouter);
 app.use('/api/v1/ecommerceProducts',ecommerceProductsRouter);
 app.use('/api/v1/ecommerceStock',ecommerceStockRouter);
 

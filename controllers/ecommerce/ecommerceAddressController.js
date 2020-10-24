@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Address = require('./../../models/ecommerce/addressModel');
+const Address = require('../../models/ecommerce/ecommerceAddressModel');
 
 /* DATABASE */
 
@@ -37,7 +37,7 @@ exports.getAllAddress = async (req, res, next) => {
   next();
 };
 
-exports.getaddress = async (req, res, next) => {
+exports.getAddress = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Address for Id ${id}`);
 

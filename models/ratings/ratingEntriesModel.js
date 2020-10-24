@@ -8,8 +8,8 @@ const { Schema } = mongoose;
 const ratingEntriesSchema =new Schema( {
     _id:{type:mongoose.ObjectId},
     relType:{type:String},   
-    _relId:{type:Smongoose.ObjectId},
-    meta=
+    _relId:{type:mongoose.ObjectId},
+    meta:
     [
         {
             _attributeId:{type:mongoose.ObjectId},
@@ -18,7 +18,7 @@ const ratingEntriesSchema =new Schema( {
         }
     ],
     
-    _userId:{type:Smongoose.ObjectId}, 
+    _userId:{type:mongoose.ObjectId}, 
     status:{type:String},   
     createdAt:{type:Date},
     createdBy:{type:mongoose.ObjectId},
