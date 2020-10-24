@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const RatingAttribute = require('./../../models/ratings/ratingAttributeModel');
+const RatingAttribute = require('../../models/ratings/ratingAttributeModel');
 
 /* DATABASE */
 

@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const RatingAttributeGroup = require('./../../models/ratings/ratingAttributeGroupModel');
+const RatingAttributeGroup = require('../../models/ratings/ratingAttributeGroupsModel');
 
 /* DATABASE */
 
@@ -42,11 +42,11 @@ exports.getRatingAttributeGroup = async (req, res, next) => {
   console.log(`Getting RatingAttributeGroup for Id ${id}`);
 
   try {
-    const ratingAttributeGroup = await RatingAttributeGroup.findById(id).then();
+    const ratingAttributeGroups = await RatingAttributeGroup.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got RatingAttributeGroup Id=${id}`,
-      Data: { ratingAttributeGroup },
+      Data: { ratingAttributeGroups },
     });
   } catch (err) {
     res.status(404).json({
@@ -62,12 +62,12 @@ exports.createRatingAttributeGroup = async (req, res, next) => {
   console.log('Creating RatingAttributeGroup');
 
   try {
-    const ratingAttributeGroup = await RatingAttributeGroup.create(req.body).then();
+    const ratingAttributeGroups = await RatingAttributeGroup.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created RatingAttributeGroup',
-      data: { ratingAttributeGroup },
+      data: { ratingAttributeGroups },
     });
   } catch (err) {
     res.status(400).json({
@@ -84,14 +84,14 @@ exports.updateRatingAttributeGroup = async (req, res, next) => {
   console.log(`Updating RatingAttributeGroup Id ${id}`);
 
   try {
-    const ratingAttributeGroup = await RatingAttributeGroup.findByIdAndUpdate(id, req.body, {
+    const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
       message: `Updated RatingAttributeGroup Id=${id}`,
-      data: { ratingAttributeGroup },
+      data: { ratingAttributeGroups },
     });
   } catch (err) {
     res.status(400).json({
@@ -108,12 +108,12 @@ exports.deleteRatingAttributeGroup = async (req, res, next) => {
   console.log(`Deleting RatingAttributeGroup Id ${id}`);
 
   try {
-    const ratingAttributeGroup = await RatingAttributeGroup.findByIdAndDelete(id).then();
+    const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
       message: `Deleted RatingAttributeGroup Id=${id}`,
-      data: { ratingAttributeGroup },
+      data: { ratingAttributeGroups },
     });
   } catch (err) {
     res.status(400).json({

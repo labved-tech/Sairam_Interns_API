@@ -17,14 +17,14 @@ exports.getAllProjectDiscussionComments = async (req, res, next) => {
   console.log('Getting All projectDiscussionComments');
 
   try {
-    const projectDiscussionCommentss = await ProjectDiscussionComments.find().then();
+    const projectDiscussionComments = await ProjectDiscussionComments.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All projectDiscussionComments',
-      results: projectDiscussionCommentss.length,
+      results: projectDiscussionComments.length,
       data: {
-        projectDiscussionCommentss,
+        projectDiscussionComments,
       },
     });
   } catch (err) {

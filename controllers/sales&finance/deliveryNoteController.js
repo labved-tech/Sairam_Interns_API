@@ -66,7 +66,7 @@ exports.createDeliveryNote = async (req, res, next) => {
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created DeliveryNote',
+      message: 'Created Delivery Note',
       data: { deliveryNote },
     });
   } catch (err) {
@@ -81,7 +81,7 @@ exports.createDeliveryNote = async (req, res, next) => {
 
 exports.updateDeliveryNote = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating DeliveryNote Id ${id}`);
+  console.log(`Updating Delivery Note Id ${id}`);
 
   try {
     const deliveryNote = await DeliveryNote.findByIdAndUpdate(id, req.body, {

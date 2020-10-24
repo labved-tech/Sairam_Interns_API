@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const EcommerceOrder = require('./../../models/ecommerce/ecommerceOrderModel');
+const EcommerceOrder = require('../../models/ecommerce/ecommerceOrderModel');
 
 /* DATABASE */
 
@@ -37,7 +37,7 @@ exports.getAllEcommerceOrder = async (req, res, next) => {
   next();
 };
 
-exports.getecommerceOrder = async (req, res, next) => {
+exports.getEcommerceOrder = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting EcommerceOrder for Id ${id}`);
 

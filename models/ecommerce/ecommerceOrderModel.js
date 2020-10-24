@@ -36,7 +36,7 @@ const ecommerceOrderSchema = new Schema({
     taxTotal:{type:Number},
     shippingCharges:{type:Number},
     insuranceCharges:{type:Number},
-    netTotal:{type:integer},
+    netTotal:{type:Number},
     status:{type:String},
     _userId:{type:mongoose.ObjectId},
     updatedAt:{type:Date},

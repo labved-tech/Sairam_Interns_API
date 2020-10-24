@@ -17,14 +17,14 @@ exports.getAllFarmRegions = async (req, res, next) => {
   console.log('Getting All farmRegions');
 
   try {
-    const farmRegionss = await FarmRegions.find().then();
+    const farmRegions = await FarmRegions.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All farmRegions',
-      results: farmRegionss.length,
+      results: farmRegions.length,
       data: {
-        farmRegionss,
+        farmRegions,
       },
     });
   } catch (err) {

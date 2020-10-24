@@ -17,14 +17,14 @@ exports.getAllPages = async (req, res, next) => {
   console.log('Getting All pages');
 
   try {
-    const pagess = await Pages.find().then();
+    const pages = await Pages.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All pages',
-      results: pagess.length,
+      results: pages.length,
       data: {
-        pagess,
+        pages,
       },
     });
   } catch (err) {

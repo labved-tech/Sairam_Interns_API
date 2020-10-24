@@ -14,14 +14,14 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllNewsletterMessages = async (req, res, next) => {
-  console.log('Getting All NewsletterMessages');
+  console.log('Getting All Newsletter Messages');
 
   try {
     const newsletterMessagess = await NewsletterMessages.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All NewsletterMessages',
+      message: 'Got All Newsletter Messages',
       results: newsletterMessagess.length,
       data: {
         newsletterMessagess,
@@ -39,13 +39,13 @@ exports.getAllNewsletterMessages = async (req, res, next) => {
 
 exports.getNewsletterMessages = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting NewsletterMessages for Id ${id}`);
+  console.log(`Getting Newsletter Messages for Id ${id}`);
 
   try {
     const newsletterMessages = await NewsletterMessages.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got NewsletterMessages Id=${id}`,
+      message: `Got Newsletter Messages Id=${id}`,
       Data: { newsletterMessages },
     });
   } catch (err) {
@@ -59,14 +59,14 @@ exports.getNewsletterMessages = async (req, res, next) => {
 };
 
 exports.createNewsletterMessages = async (req, res, next) => {
-  console.log('Creating NewsletterMessages');
+  console.log('Creating Newsletter Messages');
 
   try {
     constnewsletterMessages = await NewsletterMessages.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created NewsletterMessages',
+      message: 'Created Newsletter Messages',
       data: { newsletterMessages },
     });
   } catch (err) {
@@ -81,7 +81,7 @@ exports.createNewsletterMessages = async (req, res, next) => {
 
 exports.updateNewsletterMessages = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating NewsletterMessages Id ${id}`);
+  console.log(`Updating Newsletter Messages Id ${id}`);
 
   try {
     const newsletterMessages = await NewsletterMessages.findByIdAndUpdate(id, req.body, {
@@ -90,7 +90,7 @@ exports.updateNewsletterMessages = async (req, res, next) => {
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated NewsletterMessages Id=${id}`,
+      message: `Updated Newsletter Messages Id=${id}`,
       data: { newsletterMessages },
     });
   } catch (err) {
@@ -105,14 +105,14 @@ exports.updateNewsletterMessages = async (req, res, next) => {
 
 exports.deleteNewsletterMessages = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting NewsletterMessages Id ${id}`);
+  console.log(`Deleting Newsletter Messages Id ${id}`);
 
   try {
     const newsletterMessages = await NewsletterMessages.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted NewsletterMessages Id=${id}`,
+      message: `Deleted Newsletter Messages Id=${id}`,
       data: { newsletterMessages },
     });
   } catch (err) {

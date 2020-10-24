@@ -17,14 +17,14 @@ exports.getAllAnalytics = async (req, res, next) => {
   console.log('Getting All analytics');
 
   try {
-    const analyticss = await Analytics.find().then();
+    const analytics = await Analytics.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All analytics',
-      results: analyticss.length,
+      results: analytics.length,
       data: {
-        analyticss,
+        analytics,
       },
     });
   } catch (err) {
