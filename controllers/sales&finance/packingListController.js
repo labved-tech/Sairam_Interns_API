@@ -40,13 +40,13 @@ exports.checkID = (req, res, next, val) => {
   
   exports.getPackingList = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Getting PackingList for Id ${id}`);
+    console.log(`Getting Packing List for Id ${id}`);
   
     try {
       const packingList = await PackingList.findById(id).then();
       res.status(200).json({
         status: 'sucess',
-        message: `Got PackingList Id=${id}`,
+        message: `Got Packing List Id=${id}`,
         Data: { packingList },
       });
     } catch (err) {
@@ -82,7 +82,7 @@ exports.checkID = (req, res, next, val) => {
   
   exports.updatePackingList = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Updating PackingList Id ${id}`);
+    console.log(`Updating Packing List Id ${id}`);
   
     try {
       const packingList = await PackingList.findByIdAndUpdate(id, req.body, {
@@ -91,7 +91,7 @@ exports.checkID = (req, res, next, val) => {
   
       res.status(201).json({
         status: 'sucess',
-        message: `Updated PackingList Id=${id}`,
+        message: `Updated Packing List Id=${id}`,
         data: { packingList },
       });
     } catch (err) {
@@ -106,14 +106,14 @@ exports.checkID = (req, res, next, val) => {
   
   exports.deletePackingList = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Deleting PackingList Id ${id}`);
+    console.log(`Deleting Packing List Id ${id}`);
   
     try {
       const packingList = await PackingList.findByIdAndDelete(id).then();
   
       res.status(200).json({
         status: 'sucess',
-        message: `Deleted PackingList Id=${id}`,
+        message: `Deleted Packing List Id=${id}`,
         data: { packingList },
       });
     } catch (err) {

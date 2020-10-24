@@ -14,14 +14,14 @@ exports.checkID = (req, res, next, val) => {
   };
   
   exports.getAllPerfomaInvoice = async (req, res, next) => {
-    console.log('Getting All PerfomaInvoice ');
+    console.log('Getting All Perfoma Invoice ');
   
     try {
       const perfomaInvoice  = await PerfomaInvoice .find().then();
   
       res.status(200).json({
         status: 'sucess',
-        message: 'Got All PerfomaInvoice ',
+        message: 'Got All Perfoma Invoice ',
         results: perfomaInvoice .length,
         data: {
           perfomaInvoice ,
@@ -39,13 +39,13 @@ exports.checkID = (req, res, next, val) => {
   
   exports.getPerfomaInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Getting PerfomaInvoice for Id ${id}`);
+    console.log(`Getting Perfoma Invoice for Id ${id}`);
   
     try {
       const perfomaInvoice = await PerfomaInvoice. findById(id).then();
       res.status(200).json({
         status: 'sucess',
-        message: `Got PerfomaInvoice Id=${id}`,
+        message: `Got Perfoma Invoice Id=${id}`,
         Data: { perfomaInvoice },
       });
     } catch (err) {
@@ -59,14 +59,14 @@ exports.checkID = (req, res, next, val) => {
   };
   
   exports.createPerfomaInvoice = async (req, res, next) => {
-    console.log('Creating PerfomaInvoice' );
+    console.log('Creating Perfoma Invoice' );
   
     try {
       const perfomaInvoice = await PerfomaInvoice .create(req.body).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: 'Created PerfomaInvoice' ,
+        message: 'Created Perfoma Invoice' ,
         data: { perfomaInvoice },
       });
     } catch (err) {
@@ -81,7 +81,7 @@ exports.checkID = (req, res, next, val) => {
   
   exports.updatePerfomaInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Updating PerfomaInvoice Id ${id}`);
+    console.log(`Updating Perfoma Invoice Id ${id}`);
   
     try {
       const perfomaInvoice = await PerfomaInvoice .findByIdAndUpdate(id, req.body, {
@@ -90,7 +90,7 @@ exports.checkID = (req, res, next, val) => {
   
       res.status(201).json({
         status: 'sucess',
-        message: `Updated PerfomaInvoice Id=${id}`,
+        message: `Updated Perfoma Invoice Id=${id}`,
         data: { perfomaInvoice },
       });
     } catch (err) {
@@ -105,14 +105,14 @@ exports.checkID = (req, res, next, val) => {
   
   exports.deletePerfomaInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Deleting PerfomaInvoice Id ${id}`);
+    console.log(`Deleting Perfoma Invoice Id ${id}`);
   
     try {
       const perfomaInvoice = await PerfomaInvoice. findByIdAndDelete(id).then();
   
       res.status(200).json({
         status: 'sucess',
-        message: `Deleted PerfomaInvoice Id=${id}`,
+        message: `Deleted Perfoma Invoice Id=${id}`,
         data: { perfomaInvoice },
       });
     } catch (err) {
