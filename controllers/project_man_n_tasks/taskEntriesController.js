@@ -17,12 +17,12 @@ exports.getAllTaskEntries = async (req, res, next) => {
   console.log('Getting All taskEntries');
 
   try {
-    const taskEntriess = await TaskEntries.find().then();
+    const taskEntries = await TaskEntries.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All taskEntries',
-      results: taskEntriess.length,
+      results: taskEntries.length,
       data: {
         taskEntriess,
       },

@@ -14,7 +14,7 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllAnnouncementEntries = async (req, res, next) => {
-  console.log('Getting All announcementEntries');
+  console.log('Getting All Announcement Entries');
 
   try {
     const announcementEntries = await AnnouncementEntries.find().then();
@@ -59,10 +59,10 @@ exports.getAnnouncementEntries = async (req, res, next) => {
 };
 
 exports.createAnnouncementEntries = async (req, res, next) => {
-  console.log('Creating announcementEntries');
+  console.log('Creating Announcement Entries');
 
   try {
-    const announcementEntries= await AnnouncementEntries.create(req.body).then();
+    const announcementEntries = await AnnouncementEntries.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
