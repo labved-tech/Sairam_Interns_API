@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const NewsletterEntries = require('./../../models/newsletter/NewsletterEntriesModel');
+const NewsletterEntries = require('./../../models/newsletter/newsletterEntriesModel');
 
 /* DATABASE */
 
