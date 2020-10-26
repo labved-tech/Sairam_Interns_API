@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Quotation = require('./../../models/sales-finance/quotationModel');
+const Quotation = require('../../models/sales-finance/quotationModel');
 
 /* DATABASE */
 

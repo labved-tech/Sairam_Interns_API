@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const TaxInvoice = require('./../../models/sales-finance/taxInvoiceModel');
+const TaxInvoice = require('../../models/sales-finance/taxInvoiceModel');
 
 /* DATABASE */
 
