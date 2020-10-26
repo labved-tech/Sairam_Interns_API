@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const DirectoryEntries = require('./../../models/direcctory/directoryEntriesModel');
+const DirectoryEntries = require('./../../models/directory/directoryEntriesModel');
 
 /* DATABASE */
 

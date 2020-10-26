@@ -87,11 +87,11 @@ const ticketEntriesRouter = require('./routes/ticket-support/ticketEntriesRoutes
 const ticketProductsRouter = require('./routes/ticket-support/ticketProductsRoutes');
 const ticketResponseRouter = require('./routes/ticket-support/ticketResponseRoutes');
 
-const directoryAttributesRouter = require('./routes/directories/directoryAttributesRoutes');
-const directoryCategoriesRouter = require('./routes/directories/directoryCategoriesRoutes');
-const directoryEntriesRouter = require('./routes/directories/directoryEntriesRoutes');
-const directoryLevelsRouter = require('./routes/directories/directoryLevelsRoutes');
-const directoryRouter = require('./routes/directories/directoryRoutes');
+const directoryAttributesRouter = require('./routes/directory/directoryAttributesGroupsRoutes');
+const directoryCategoriesRouter = require('./routes/directory/directoryCategoriesRoutes');
+const directoryEntriesRouter = require('./routes/directory/directoryEntriesRoutes');
+const directoryLevelsRouter = require('./routes/directory/directoryLevelsRoutes');
+const directoryRouter = require('./routes/directory/directoryRoutes');
 
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));

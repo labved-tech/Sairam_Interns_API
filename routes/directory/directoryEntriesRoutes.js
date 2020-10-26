@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const directoryEntriesController = require('./../../controllers/directories/directoryEntriesController');
+const directoryEntriesController = require('../../controllers/directory/directoryEntriesController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const DirectoryLevels = require('./../../models/direcctory/directoryLevelsModel');
+const DirectoryLevels = require('./../../models/directory/directoryLevelsModel');
 
 /* DATABASE */
 

@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const directoryCategoriesController = require('./../../controllers/directories/directoryCategoriesController');
+const directoryCategoriesController = require('../../controllers/directory/directoryCategoriesController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

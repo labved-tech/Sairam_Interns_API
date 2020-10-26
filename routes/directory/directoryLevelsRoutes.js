@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const directoryLevelsController = require('./../../controllers/directories/directoryLevelsController');
+const directoryLevelsController = require('../../controllers/directory/directoryLevelsController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
