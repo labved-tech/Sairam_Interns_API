@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Ticketproducts = require('../../models/ticketproductsModel');
+const Ticketproducts = require('../../models/ticket-support/ticketproductsModel');
 
 /* DATABASE */
 
@@ -13,7 +13,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTicketproducts = async (req, res, next) => {
+exports.getAllTicketProducts = async (req, res, next) => {
   console.log('Getting All Ticketproducts');
 
   try {
@@ -37,7 +37,7 @@ exports.getAllTicketproducts = async (req, res, next) => {
   next();
 };
 
-exports.getTicketproducts = async (req, res, next) => {
+exports.getTicketProducts = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Ticketproducts for Id ${id}`);
 
@@ -58,7 +58,7 @@ exports.getTicketproducts = async (req, res, next) => {
   next();
 };
 
-exports.createTicketproducts = async (req, res, next) => {
+exports.createTicketProducts = async (req, res, next) => {
   console.log('Creating Ticketproducts');
 
   try {
@@ -79,7 +79,7 @@ exports.createTicketproducts = async (req, res, next) => {
   next();
 };
 
-exports.updateTicketproducts = async (req, res, next) => {
+exports.updateTicketProducts = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Ticketproducts Id ${id}`);
 
@@ -103,7 +103,7 @@ exports.updateTicketproducts = async (req, res, next) => {
   next();
 };
 
-exports.deleteTicketproducts = async (req, res, next) => {
+exports.deleteTicketProducts = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Ticketproducts Id ${id}`);
 

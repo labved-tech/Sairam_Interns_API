@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const EventEntries = require('../../models/eventEntriesModel');
+const EventEntries = require('./../../models/events/eventEntriesModel');
 
 /* DATABASE */
 
@@ -58,7 +58,7 @@ exports.getEventEntries = async (req, res, next) => {
   next();
 };
 
-exports.createeventEntries = async (req, res, next) => {
+exports.createEventEntries = async (req, res, next) => {
   console.log('Creating EventEntries');
 
   try {

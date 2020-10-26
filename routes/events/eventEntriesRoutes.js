@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const eventEntriesController = require('./../../controllers/eventEntriesController');
+const eventEntriesController = require('./../../controllers/events/eventEntriesControllers');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
@@ -16,12 +16,12 @@ router.param('id', eventEntriesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(eventEntriesController.getAlleventEntries)
-  .post(eventEntriesController.createeventEntries);
+  .get(eventEntriesController.getAllEventEntries)
+  .post(eventEntriesController.createEventEntries);
 router
   .route('/:id')
-  .get(eventEntriesController.geteventEntries)
-  .patch(eventEntriesController.updateeventEntries)
-  .delete(eventEntriesController.deleteeventEntries);
+  .get(eventEntriesController.getEventEntries)
+  .patch(eventEntriesController.updateEventEntries)
+  .delete(eventEntriesController.deleteEventEntries);
 
 module.exports = router;

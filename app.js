@@ -80,12 +80,12 @@ const commentEntriesRouter = require('./routes/comments/commentEntriesRoutes');
 const eventEntriesRouter = require('./routes/events/eventEntriesRoutes');
 
 const contractEntriesRouter = require('./routes/contract/contractEntriesRoutes');
-const contractTemplatesRouter = require('./routes/contact/contractTemplatesRoutes');
+const contractTemplatesRouter = require('./routes/contract/contractTemplatesRoutes');
 
-const ticketCategoriesRouter = require('./routes/ticket&support/ticketCategoriesRoutes');
-const ticketEntriesRouter = require('./routes/ticket&support/ticketEntriesRoutes');
-const ticketProductsRouter = require('./routes/cticket&support/ticketProductsRoutes');
-const ticketResponseRouter = require('./routes/ticket&support/ticketResponseRoutes');
+const ticketCategoriesRouter = require('./routes/ticket-support/ticketCategoriesRoutes');
+const ticketEntriesRouter = require('./routes/ticket-support/ticketEntriesRoutes');
+const ticketProductsRouter = require('./routes/ticket-support/ticketProductsRoutes');
+const ticketResponseRouter = require('./routes/ticket-support/ticketResponseRoutes');
 
 const directoryAttributesRouter = require('./routes/directories/directoryAttributesRoutes');
 const directoryCategoriesRouter = require('./routes/directories/directoryCategoriesRoutes');

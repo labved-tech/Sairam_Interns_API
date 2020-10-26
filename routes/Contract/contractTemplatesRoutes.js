@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const contractTemplatesController = require('./../../controllers/contractTemplatesController');
+const contractTemplatesController = require('../../controllers/contract/contractTemplatesControllers');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
@@ -16,12 +16,12 @@ router.param('id', contractTemplatesController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(contractTemplatesController.getAllcontractTemplates)
-  .post(contractTemplatesController.createcontractTemplates);
+  .get(contractTemplatesController.getAllContractTemplates)
+  .post(contractTemplatesController.createContractTemplates);
 router
   .route('/:id')
-  .get(contractTemplatesController.getcontractTemplates)
-  .patch(contractTemplatesController.updatecontractTemplates)
-  .delete(contractTemplatesController.deletecontractTemplates);
+  .get(contractTemplatesController.getContractTemplates)
+  .patch(contractTemplatesController.updateContractTemplates)
+  .delete(contractTemplatesController.deleteContractTemplates);
 
 module.exports = router;

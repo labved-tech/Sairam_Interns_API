@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const ContractTemplates = require('../../models/ContractTemplatesModel');
+const ContractTemplates = require('../../models/contract/contractTemplatesModel');
 
 /* DATABASE */
 
