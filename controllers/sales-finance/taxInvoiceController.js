@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Quotation = require('./../../models/sales & finance/quotationModel');
+const TaxInvoice = require('./../../models/sales-finance/taxInvoiceModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.getAllQuotation = async (req, res, next) => {
-    console.log('Getting All Quotation');
+  exports.getAllTaxInvoice = async (req, res, next) => {
+    console.log('Getting All Tax Invoice');
   
     try {
-      const quotation = await Quotation.find().then();
+      const taxInvoices = await TaxInvoice.find().then();
   
       res.status(200).json({
         status: 'sucess',
-        message: 'Got All Quotation',
-        results: quotation.length,
+        message: 'Got All Tax Invoice',
+        results: taxInvoices.length,
         data: {
-          quotations,
+          taxInvoices,
         },
       });
     } catch (err) {
@@ -37,16 +37,16 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.getQuotation = async (req, res, next) => {
+  exports.getTaxInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Getting Quotation for Id ${id}`);
+    console.log(`Getting Tax Invoice for Id ${id}`);
   
     try {
-      const quotation = await Quotation.findById(id).then();
+      const taxInvoice = await TaxInvoice.findById(id).then();
       res.status(200).json({
         status: 'sucess',
-        message: `Got Quotation Id=${id}`,
-        Data: { quotation },
+        message: `Got Tax Invoice Id=${id}`,
+        Data: { taxInvoice },
       });
     } catch (err) {
       res.status(404).json({
@@ -58,16 +58,16 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.createQuotation = async (req, res, next) => {
-    console.log('Creating Quotation');
+  exports.createTaxInvoice = async (req, res, next) => {
+    console.log('Creating Tax Invoice');
   
     try {
-      const quotation = await Quotation.create(req.body).then();
+      const taxInvoice = await TaxInvoice.create(req.body).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: 'Created Quotation',
-        data: { quotation },
+        message: 'Created Tax Invoice',
+        data: { taxInvoice },
       });
     } catch (err) {
       res.status(400).json({
@@ -79,19 +79,19 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.updateQuotation = async (req, res, next) => {
+  exports.updateTaxInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Updating Quotation Id ${id}`);
+    console.log(`Updating Tax Invoice Id ${id}`);
   
     try {
-      const quotation = await Quotation.findByIdAndUpdate(id, req.body, {
+      const taxInvoice = await TaxInvoice.findByIdAndUpdate(id, req.body, {
         new: true,
       }).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: `Updated Quotation Id=${id}`,
-        data: { Quotation },
+        message: `Updated Tax Invoice Id=${id}`,
+        data: { taxInvoice },
       });
     } catch (err) {
       res.status(400).json({
@@ -103,17 +103,17 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.deleteQuotation = async (req, res, next) => {
+  exports.deleteTaxInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Deleting Quotation Id ${id}`);
+    console.log(`Deleting Tax Invoice Id ${id}`);
   
     try {
-      const quotation = await Quotation.findByIdAndDelete(id).then();
+      const taxInvoice = await TaxInvoice.findByIdAndDelete(id).then();
   
       res.status(200).json({
         status: 'sucess',
-        message: `Deleted Quotation Id=${id}`,
-        data: { quotation },
+        message: `Deleted Tax Invoice Id=${id}`,
+        data: { taxInvoice },
       });
     } catch (err) {
       res.status(400).json({

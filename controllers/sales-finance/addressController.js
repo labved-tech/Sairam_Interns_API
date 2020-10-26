@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Address = require('./../../models/sales & finance/addressModel');
+const Address = require('./../../models/sales-finance/addressModel');
 
 /* DATABASE */
 

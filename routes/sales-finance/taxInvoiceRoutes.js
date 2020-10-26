@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const taxInvoiceController = require('../../controllers/sales-finance/taxInvoiceController');
+const taxInvoiceController = require('./../../controllers/sales-finance/taxInvoiceController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

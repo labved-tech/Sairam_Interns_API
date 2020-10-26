@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const perfomaInvoiceController = require('../../controllers/sales&finance/perfomaInvoiceController');
+const perfomaInvoiceController = require('../../controllers/sales-finance/perfomaInvoiceController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

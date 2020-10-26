@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const packingListController = require('../../controllers/sales&finance/packingListController');
+const packingListController = require('../../controllers/sales-finance/packingListController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

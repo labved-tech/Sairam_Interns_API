@@ -58,12 +58,12 @@ const taskTimersRouter = require('./routes/project_man_n_tasks/taskTimersRoutes'
 const newsletterEntriesRouter = require('./routes/newsletter/newsletterEntriesRoutes');
 const newsletterMessagesRouter = require('./routes/newsletter/newsletterMessagesRoutes');
 
-const addressRouter = require('./routes/sales&finance/addressRoutes');
-const deliveryNoteRouter = require('./routes/sales&finance/deliveryNoteRoutes');
-const packingListRouter = require('./routes/sales&finance/packingListRoutes');
-//const perfomaInvoiceRouter = require('./routes/sales&finance/perfomaInvoiceRoutes');
-const quotationRouter = require('./routes/sales&finance/quotationRoutes');
-const taxInvoiceRouter = require('./routes/sales&finance/taxInvoiceRoutes');
+const addressRouter = require('./routes/sales-finance/addressRoutes');
+const deliveryNoteRouter = require('./routes/sales-finance/deliveryNoteRoutes');
+const packingListRouter = require('./routes/sales-finance/packingListRoutes');
+//const perfomaInvoiceRouter = require('./routes/sales-finance/perfomaInvoiceRoutes');
+const quotationRouter = require('./routes/sales-finance/quotationRoutes');
+const taxInvoiceRouter = require('./routes/sales-finance/taxInvoiceRoutes');
 
 const ratingAttributeGroupsRouter = require('./routes/ratings/ratingAttributeGroupsRoutes');
 const ratingAttributeRouter = require('./routes/ratings/ratingAttributeRoutes');

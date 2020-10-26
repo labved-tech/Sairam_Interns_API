@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const quotationController = require('../../controllers/sales-finance/quotationController');
+const quotationController = require('./../../controllers/sales-finance/quotationController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

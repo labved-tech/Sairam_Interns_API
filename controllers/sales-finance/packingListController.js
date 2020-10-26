@@ -2,9 +2,10 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const TaxInvoice = require('./../../models/sales & finance/taxInvoiceModel');
+const PackingList = require('./../../models/sales-finance/packingListModel');
 
 /* DATABASE */
+
 
 /* CONTROLLERS */
 exports.checkID = (req, res, next, val) => {
@@ -13,18 +14,18 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.getAllTaxInvoice = async (req, res, next) => {
-    console.log('Getting All Tax Invoice');
+  exports.getAllPackingList = async (req, res, next) => {
+    console.log('Getting All Packing List');
   
     try {
-      const taxInvoices = await TaxInvoice.find().then();
+      const packingLists = await PackingList.find().then();
   
       res.status(200).json({
         status: 'sucess',
-        message: 'Got All Tax Invoice',
-        results: taxInvoices.length,
+        message: 'Got All Packing List',
+        results: packingLists.length,
         data: {
-          taxInvoices,
+          packingLists,
         },
       });
     } catch (err) {
@@ -37,16 +38,16 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.getTaxInvoice = async (req, res, next) => {
+  exports.getPackingList = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Getting Tax Invoice for Id ${id}`);
+    console.log(`Getting Packing List for Id ${id}`);
   
     try {
-      const taxInvoice = await TaxInvoice.findById(id).then();
+      const packingList = await PackingList.findById(id).then();
       res.status(200).json({
         status: 'sucess',
-        message: `Got Tax Invoice Id=${id}`,
-        Data: { taxInvoice },
+        message: `Got Packing List Id=${id}`,
+        Data: { packingList },
       });
     } catch (err) {
       res.status(404).json({
@@ -58,16 +59,16 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.createTaxInvoice = async (req, res, next) => {
-    console.log('Creating Tax Invoice');
+  exports.createPackingList = async (req, res, next) => {
+    console.log('Creating PackingList');
   
     try {
-      const taxInvoice = await TaxInvoice.create(req.body).then();
+      const packingList = await PackingList.create(req.body).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: 'Created Tax Invoice',
-        data: { taxInvoice },
+        message: 'Created PackingList',
+        data: { packingList },
       });
     } catch (err) {
       res.status(400).json({
@@ -79,19 +80,19 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.updateTaxInvoice = async (req, res, next) => {
+  exports.updatePackingList = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Updating Tax Invoice Id ${id}`);
+    console.log(`Updating Packing List Id ${id}`);
   
     try {
-      const taxInvoice = await TaxInvoice.findByIdAndUpdate(id, req.body, {
+      const packingList = await PackingList.findByIdAndUpdate(id, req.body, {
         new: true,
       }).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: `Updated Tax Invoice Id=${id}`,
-        data: { taxInvoice },
+        message: `Updated Packing List Id=${id}`,
+        data: { packingList },
       });
     } catch (err) {
       res.status(400).json({
@@ -103,17 +104,17 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.deleteTaxInvoice = async (req, res, next) => {
+  exports.deletePackingList = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Deleting Tax Invoice Id ${id}`);
+    console.log(`Deleting Packing List Id ${id}`);
   
     try {
-      const taxInvoice = await TaxInvoice.findByIdAndDelete(id).then();
+      const packingList = await PackingList.findByIdAndDelete(id).then();
   
       res.status(200).json({
         status: 'sucess',
-        message: `Deleted Tax Invoice Id=${id}`,
-        data: { taxInvoice },
+        message: `Deleted Packing List Id=${id}`,
+        data: { packingList },
       });
     } catch (err) {
       res.status(400).json({
@@ -124,4 +125,5 @@ exports.checkID = (req, res, next, val) => {
   
     next();
   };
+  
   

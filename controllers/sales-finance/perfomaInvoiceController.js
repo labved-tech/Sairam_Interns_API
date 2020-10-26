@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const PerfomaInvoice=require('./../../models/sales & finance/perfomaInvoiceModel');
+const PerfomaInvoice=require('./../../models/sales-finance/perfomaInvoiceModel');
 
 /* DATABASE */
 

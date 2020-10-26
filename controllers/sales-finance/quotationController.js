@@ -2,10 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const PackingList = require('./../../models/sales & finance/packingListModel');
+const Quotation = require('./../../models/sales-finance/quotationModel');
 
 /* DATABASE */
-
 
 /* CONTROLLERS */
 exports.checkID = (req, res, next, val) => {
@@ -14,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.getAllPackingList = async (req, res, next) => {
-    console.log('Getting All Packing List');
+  exports.getAllQuotation = async (req, res, next) => {
+    console.log('Getting All Quotation');
   
     try {
-      const packingLists = await PackingList.find().then();
+      const quotation = await Quotation.find().then();
   
       res.status(200).json({
         status: 'sucess',
-        message: 'Got All Packing List',
-        results: packingLists.length,
+        message: 'Got All Quotation',
+        results: quotation.length,
         data: {
-          packingLists,
+          quotations,
         },
       });
     } catch (err) {
@@ -38,16 +37,16 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.getPackingList = async (req, res, next) => {
+  exports.getQuotation = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Getting Packing List for Id ${id}`);
+    console.log(`Getting Quotation for Id ${id}`);
   
     try {
-      const packingList = await PackingList.findById(id).then();
+      const quotation = await Quotation.findById(id).then();
       res.status(200).json({
         status: 'sucess',
-        message: `Got Packing List Id=${id}`,
-        Data: { packingList },
+        message: `Got Quotation Id=${id}`,
+        Data: { quotation },
       });
     } catch (err) {
       res.status(404).json({
@@ -59,16 +58,16 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.createPackingList = async (req, res, next) => {
-    console.log('Creating PackingList');
+  exports.createQuotation = async (req, res, next) => {
+    console.log('Creating Quotation');
   
     try {
-      const packingList = await PackingList.create(req.body).then();
+      const quotation = await Quotation.create(req.body).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: 'Created PackingList',
-        data: { packingList },
+        message: 'Created Quotation',
+        data: { quotation },
       });
     } catch (err) {
       res.status(400).json({
@@ -80,19 +79,19 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.updatePackingList = async (req, res, next) => {
+  exports.updateQuotation = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Updating Packing List Id ${id}`);
+    console.log(`Updating Quotation Id ${id}`);
   
     try {
-      const packingList = await PackingList.findByIdAndUpdate(id, req.body, {
+      const quotation = await Quotation.findByIdAndUpdate(id, req.body, {
         new: true,
       }).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: `Updated Packing List Id=${id}`,
-        data: { packingList },
+        message: `Updated Quotation Id=${id}`,
+        data: { Quotation },
       });
     } catch (err) {
       res.status(400).json({
@@ -104,17 +103,17 @@ exports.checkID = (req, res, next, val) => {
     next();
   };
   
-  exports.deletePackingList = async (req, res, next) => {
+  exports.deleteQuotation = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Deleting Packing List Id ${id}`);
+    console.log(`Deleting Quotation Id ${id}`);
   
     try {
-      const packingList = await PackingList.findByIdAndDelete(id).then();
+      const quotation = await Quotation.findByIdAndDelete(id).then();
   
       res.status(200).json({
         status: 'sucess',
-        message: `Deleted Packing List Id=${id}`,
-        data: { packingList },
+        message: `Deleted Quotation Id=${id}`,
+        data: { quotation },
       });
     } catch (err) {
       res.status(400).json({
@@ -125,5 +124,4 @@ exports.checkID = (req, res, next, val) => {
   
     next();
   };
-  
   
