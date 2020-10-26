@@ -31,6 +31,6 @@ mongoose
 /* SERVER */
 const port = process.env.PORT;
 
-app.listen(port, '127.0.0.1', (req, res) => {
+app.listen(port, '13.232.2.157', (req, res) => {
   console.log(`Server running on port ${port}`);
 });
