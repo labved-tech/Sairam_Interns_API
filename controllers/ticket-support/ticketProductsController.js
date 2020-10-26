@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Ticketproducts = require('../../models/ticket-support/ticketproductsModel');
+const Ticketproducts = require('../../models/ticket-support/ticketProductsModel');
 
 /* DATABASE */
 
