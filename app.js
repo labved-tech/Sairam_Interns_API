@@ -77,6 +77,22 @@ const ecommerceStockRouter = require('./routes/ecommerce/ecommerceStockRoutes');
 
 const commentEntriesRouter = require('./routes/comments/commentEntriesRoutes');
 
+const eventEntriesRouter = require('./routes/events/eventEntriesRoutes');
+
+const contractEntriesRouter = require('./routes/contract/contractEntriesRoutes');
+const contractTemplatesRouter = require('./routes/contact/contractTemplatesRoutes');
+
+const ticketCategoriesRouter = require('./routes/ticket&support/ticketCategoriesRoutes');
+const ticketEntriesRouter = require('./routes/ticket&support/ticketEntriesRoutes');
+const ticketProductsRouter = require('./routes/cticket&support/ticketProductsRoutes');
+const ticketResponseRouter = require('./routes/ticket&support/ticketResponseRoutes');
+
+const directoryAttributesRouter = require('./routes/directories/directoryAttributesRoutes');
+const directoryCategoriesRouter = require('./routes/directories/directoryCategoriesRoutes');
+const directoryEntriesRouter = require('./routes/directories/directoryEntriesRoutes');
+const directoryLevelsRouter = require('./routes/directories/directoryLevelsRoutes');
+const directoryRouter = require('./routes/directories/directoryRoutes');
+
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
@@ -159,7 +175,7 @@ app.use('/api/v1/tax-invoice', taxInvoiceRouter);
 
 app.use('/api/v1/commentEntries', commentEntriesRouter);
 
-app.use('/api/v1/address', ecommerceAddressRouter);
+app.use('/api/v1/ecommerrceAddress', ecommerceAddressRouter);
 app.use('/api/v1/ecommerceLocations', ecommerceLocationsRouter);
 app.use('/api/v1/ecommerceOrder', ecommerceOrderRouter);
 app.use('/api/v1/ecommerceProducts', ecommerceProductsRouter);
@@ -168,5 +184,24 @@ app.use('/api/v1/ecommerceStock', ecommerceStockRouter);
 app.use('/api/v1/ratingAttributeGroups', ratingAttributeGroupsRouter);
 app.use('/api/v1/ratingAttribute', ratingAttributeRouter);
 app.use('/api/v1/ratingEntries', ratingEntriesRouter);
+
+app.use('/api/v/directoryAttributes', directoryAttributesRouter);
+app.use('/api/v/directoryCategories', directoryCategoriesRouter);
+app.use('/api/v/directoryEntries', directoryEntriesRouter);
+app.use('/api/v/directoryLevels', directoryLevelsRouter);
+app.use('/api/v/directory', directoryRouter);
+
+app.use('/api/v/commentEntries', commentEntriesRouter);
+
+app.use('/api/v/eventEntries', eventEntriesRouter);
+
+app.use('/api/v/contractEntries', contractEntriesRouter);
+app.use('/api/v/contractTemplates', contractTemplatesRouter);
+
+app.use('/api/v/ticketCategories', ticketCategoriesRouter);
+app.use('/api/v/ticketEntries', ticketEntriesRouter);
+app.use('/api/v/ticketProducts', ticketProductsRouter);
+app.use('/api/v/ticketResponse', ticketResponseRouter);
+
 
 module.exports = app;
