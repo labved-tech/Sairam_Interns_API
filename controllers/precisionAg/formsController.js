@@ -17,14 +17,14 @@ exports.getAllForms = async (req, res, next) => {
   console.log('Getting All forms');
 
   try {
-    const formss = await Forms.find().then();
+    const forms = await Forms.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All forms',
-      results: formss.length,
+      results: forms.length,
       data: {
-        formss,
+        forms,
       },
     });
   } catch (err) {

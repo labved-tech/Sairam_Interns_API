@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Charts = require('./../../models/precisionAg/chartsModel');
+const Directory = require('./../../models/direcctory/directoryModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllCharts = async (req, res, next) => {
-  console.log('Getting All charts');
+exports.getAllDirectory = async (req, res, next) => {
+  console.log('Getting All Directory');
 
   try {
-    const charts = await Charts.find().then();
+    const directories = await Directory.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All charts',
-      results: charts.length,
+      message: 'Got All Directory',
+      results: directories.length,
       data: {
-        charts,
+        directories,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllCharts = async (req, res, next) => {
   next();
 };
 
-exports.getCharts = async (req, res, next) => {
+exports.getDirectory = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting charts for Id ${id}`);
+  console.log(`Getting Directory for Id ${id}`);
 
   try {
-    const charts = await Charts.findById(id).then();
+    const directory = await Directory.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got charts Id=${id}`,
-      Data: { charts },
+      message: `Got Directory Id=${id}`,
+      Data: { directory },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getCharts = async (req, res, next) => {
   next();
 };
 
-exports.createCharts = async (req, res, next) => {
-  console.log('Creating charts');
+exports.createDirectory = async (req, res, next) => {
+  console.log('Creating directory');
 
   try {
-    const charts = await Charts.create(req.body).then();
+    const directory = await Directory.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created charts',
-      data: { charts },
+      message: 'Created Directory',
+      data: { directory },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createCharts = async (req, res, next) => {
   next();
 };
 
-exports.updateCharts = async (req, res, next) => {
+exports.updateDirectory = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating charts Id ${id}`);
+  console.log(`Updating Directory Id ${id}`);
 
   try {
-    const charts = await Charts.findByIdAndUpdate(id, req.body, {
+    const directory = await Directory.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated charts Id=${id}`,
-      data: { charts },
+      message: `Updated Directory Id=${id}`,
+      data: { directory },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updateCharts = async (req, res, next) => {
   next();
 };
 
-exports.deleteCharts = async (req, res, next) => {
+exports.deleteDirectory = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting charts Id ${id}`);
+  console.log(`Deleting Directory Id ${id}`);
 
   try {
-    const charts = await Charts.findByIdAndDelete(id).then();
+    const directory = await Directory.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted charts Id=${id}`,
-      data: { charts },
+      message: `Deleted Directory Id=${id}`,
+      data: { directory },
     });
   } catch (err) {
     res.status(400).json({

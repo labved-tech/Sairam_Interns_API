@@ -14,14 +14,14 @@ exports.checkID = (req, res, next, val) => {
   };
   
   exports.getAllTaxInvoice = async (req, res, next) => {
-    console.log('Getting All TaxInvoice');
+    console.log('Getting All Tax Invoice');
   
     try {
       const taxInvoices = await TaxInvoice.find().then();
   
       res.status(200).json({
         status: 'sucess',
-        message: 'Got All TaxInvoice',
+        message: 'Got All Tax Invoice',
         results: taxInvoices.length,
         data: {
           taxInvoices,
@@ -39,13 +39,13 @@ exports.checkID = (req, res, next, val) => {
   
   exports.getTaxInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Getting TaxInvoice for Id ${id}`);
+    console.log(`Getting Tax Invoice for Id ${id}`);
   
     try {
       const taxInvoice = await TaxInvoice.findById(id).then();
       res.status(200).json({
         status: 'sucess',
-        message: `Got TaxInvoice Id=${id}`,
+        message: `Got Tax Invoice Id=${id}`,
         Data: { taxInvoice },
       });
     } catch (err) {
@@ -59,14 +59,14 @@ exports.checkID = (req, res, next, val) => {
   };
   
   exports.createTaxInvoice = async (req, res, next) => {
-    console.log('Creating TaxInvoice');
+    console.log('Creating Tax Invoice');
   
     try {
       const taxInvoice = await TaxInvoice.create(req.body).then();
   
       res.status(201).json({
         status: 'sucess',
-        message: 'Created TaxInvoice',
+        message: 'Created Tax Invoice',
         data: { taxInvoice },
       });
     } catch (err) {
@@ -81,7 +81,7 @@ exports.checkID = (req, res, next, val) => {
   
   exports.updateTaxInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Updating TaxInvoice Id ${id}`);
+    console.log(`Updating Tax Invoice Id ${id}`);
   
     try {
       const taxInvoice = await TaxInvoice.findByIdAndUpdate(id, req.body, {
@@ -90,7 +90,7 @@ exports.checkID = (req, res, next, val) => {
   
       res.status(201).json({
         status: 'sucess',
-        message: `Updated TaxInvoice Id=${id}`,
+        message: `Updated Tax Invoice Id=${id}`,
         data: { taxInvoice },
       });
     } catch (err) {
@@ -105,14 +105,14 @@ exports.checkID = (req, res, next, val) => {
   
   exports.deleteTaxInvoice = async (req, res, next) => {
     const { id } = req.params;
-    console.log(`Deleting TaxInvoice Id ${id}`);
+    console.log(`Deleting Tax Invoice Id ${id}`);
   
     try {
       const taxInvoice = await TaxInvoice.findByIdAndDelete(id).then();
   
       res.status(200).json({
         status: 'sucess',
-        message: `Deleted TaxInvoice Id=${id}`,
+        message: `Deleted Tax Invoice Id=${id}`,
         data: { taxInvoice },
       });
     } catch (err) {

@@ -17,14 +17,14 @@ exports.getAllTaskTimers = async (req, res, next) => {
   console.log('Getting All taskTimers');
 
   try {
-    const taskTimerss = await TaskTimers.find().then();
+    const taskTimers = await TaskTimers.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All taskTimers',
-      results: taskTimerss.length,
+      results: taskTimers.length,
       data: {
-        taskTimerss,
+        taskTimers,
       },
     });
   } catch (err) {

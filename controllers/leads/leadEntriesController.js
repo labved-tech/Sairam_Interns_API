@@ -17,14 +17,14 @@ exports.getAllLeadEntries = async (req, res, next) => {
   console.log('Getting All LeadEntries');
 
   try {
-    const leadEntriess = await LeadEntries.find().then();
+    const leadEntries = await LeadEntries.find().then();
 
     res.status(200).json({
       status: 'sucess',
       message: 'Got All LeadEntries',
-      results: leadEntriess.length,
+      results: leadEntries.length,
       data: {
-        leadEntriess,
+        leadEntries,
       },
     });
   } catch (err) {

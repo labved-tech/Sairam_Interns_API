@@ -148,7 +148,7 @@ app.use('/api/v1/task-reminders', taskRemindersRouter);
 app.use('/api/v1/task-timers', taskTimersRouter);
 
 app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
-app.use('/api/v1/newsletter-entries', newsletterMessagesRouter);
+app.use('/api/v1/newsletter-messages', newsletterMessagesRouter);
 
 app.use('/api/v1/address', addressRouter);
 app.use('/api/v1/delivery-note', deliveryNoteRouter);

@@ -24,7 +24,7 @@ exports.getAllTaskEntries = async (req, res, next) => {
       message: 'Got All taskEntries',
       results: taskEntries.length,
       data: {
-        taskEntriess,
+        taskEntries,
       },
     });
   } catch (err) {

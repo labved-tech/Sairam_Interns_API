@@ -66,7 +66,7 @@ exports.createAnnouncementEntries = async (req, res, next) => {
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created announcementEntries',
+      message: 'Created Announcement Entries',
       data: {announcementEntries},
     });
   } catch (err) {
