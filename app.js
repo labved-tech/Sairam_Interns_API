@@ -23,37 +23,37 @@ const leadEntriesRouter = require('./routes/leads/leadEntriesRoutes');
 const leadCategoriesRouter = require('./routes/leads/leadCategoriesRoutes');
 const leadResponseRouter = require('./routes/leads/leadResponseRoutes');
 
-const analyticsRouter = require('./routes/precisionAg/analyticsRoutes');
+const analyticsRouter = require('./routes/precision-agriculture/analyticsRoutes');
 
-const chartsRouter = require('./routes/precisionAg/chartsRoutes');
+const chartsRouter = require('./routes/precision-agriculture/chartsRoutes');
 
-const farmEntriesRouter = require('./routes/precisionAg/farmEntriesRoutes');
-const farmExportedStrategyRouter = require('./routes/precisionAg/farmExportedStrategyRoutes');
-const farmRegionsRouter = require('./routes/precisionAg/farmRegionsRoutes');
-const farmStrategyRouter = require('./routes/precisionAg/farmStrategyRoutes');
-const formResponseRouter = require('./routes/precisionAg/formResponseRoutes');
-const formsRouter = require('./routes/precisionAg/formsRoutes');
+const farmEntriesRouter = require('./routes/precision-agriculture/farmEntriesRoutes');
+const farmExportedStrategyRouter = require('./routes/precision-agriculture/farmExportedStrategyRoutes');
+const farmRegionsRouter = require('./routes/precision-agriculture/farmRegionsRoutes');
+const farmStrategyRouter = require('./routes/precision-agriculture/farmStrategyRoutes');
+const formResponseRouter = require('./routes/precision-agriculture/formResponseRoutes');
+const formsRouter = require('./routes/precision-agriculture/formsRoutes');
 
-const pagesRouter = require('./routes/precisionAg/pagesRoutes');
-const reportsRouter = require('./routes/precisionAg/reportsRoutes');
+const pagesRouter = require('./routes/precision-agriculture/pagesRoutes');
+const reportsRouter = require('./routes/precision-agriculture/reportsRoutes');
 
-const milestoneRouter = require('./routes/project_man_n_tasks/milestoneRoutes');
+const milestoneRouter = require('./routes/project-management/milestoneRoutes');
 
-const projectActivityRouter = require('./routes/project_man_n_tasks/projectActivityRoutes');
-const projectAdminsRouter = require('./routes/project_man_n_tasks/projectAdminsRoutes');
-const projectDiscussionCommentsRouter = require('./routes/project_man_n_tasks/projectDiscussionCommentsRoutes');
-const projectDiscussionsRouter = require('./routes/project_man_n_tasks/projectDiscussionsRoutes');
-const projectEntriesRouter = require('./routes/project_man_n_tasks/projectEntriesRoutes');
-const projectFilesRouter = require('./routes/project_man_n_tasks/projectFilesRoutes');
-const projectMembersRouter = require('./routes/project_man_n_tasks/projectMembersRoutes');
-const projectNotesRouter = require('./routes/project_man_n_tasks/projectNotesRoutes');
-const projectTaskFilesRouter = require('./routes/project_man_n_tasks/projectTaskFilesRoutes');
-const projectTaskStatusRouter = require('./routes/project_man_n_tasks/projectTaskStatusRoutes');
-const taskChecklistEntriesRouter = require('./routes/project_man_n_tasks/taskChecklistEntriesRoutes');
-const taskChecklistStatusRouter = require('./routes/project_man_n_tasks/taskChecklistStatusRoutes');
-//const taskEntriesRouter = require('./routes/project_man_n_tasks/taskEntriesRoutes');
-const taskRemindersRouter = require('./routes/project_man_n_tasks/taskRemindersRoutes');
-const taskTimersRouter = require('./routes/project_man_n_tasks/taskTimersRoutes');
+const projectActivityRouter = require('./routes/project-management/projectActivityRoutes');
+const projectAdminsRouter = require('./routes/project-management/projectAdminsRoutes');
+const projectDiscussionCommentsRouter = require('./routes/project-management/projectDiscussionCommentsRoutes');
+const projectDiscussionsRouter = require('./routes/project-management/projectDiscussionsRoutes');
+const projectEntriesRouter = require('./routes/project-management/projectEntriesRoutes');
+const projectFilesRouter = require('./routes/project-management/projectFilesRoutes');
+const projectMembersRouter = require('./routes/project-management/projectMembersRoutes');
+const projectNotesRouter = require('./routes/project-management/projectNotesRoutes');
+const projectTaskFilesRouter = require('./routes/project-management/projectTaskFilesRoutes');
+const projectTaskStatusRouter = require('./routes/project-management/projectTaskStatusRoutes');
+const taskChecklistEntriesRouter = require('./routes/project-management/taskChecklistEntriesRoutes');
+const taskChecklistStatusRouter = require('./routes/project-management/taskChecklistStatusRoutes');
+//const taskEntriesRouter = require('./routes/project-management/taskEntriesRoutes');
+const taskRemindersRouter = require('./routes/project-management/taskRemindersRoutes');
+const taskTimersRouter = require('./routes/project-management/taskTimersRoutes');
 
 const newsletterEntriesRouter = require('./routes/newsletter/newsletterEntriesRoutes');
 const newsletterMessagesRouter = require('./routes/newsletter/newsletterMessagesRoutes');
@@ -116,7 +116,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 /* ROUTES */
 
 // PAGE
@@ -127,7 +126,7 @@ app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
-// INTERNS 
+// INTERNS
 app.use('/api/v1/announcement-entries', announcementEntriesRouter);
 app.use('/api/v1/announcement-notify', announcementNotifyRouter);
 
@@ -202,6 +201,5 @@ app.use('/api/v/ticketCategories', ticketCategoriesRouter);
 app.use('/api/v/ticketEntries', ticketEntriesRouter);
 app.use('/api/v/ticketProducts', ticketProductsRouter);
 app.use('/api/v/ticketResponse', ticketResponseRouter);
-
 
 module.exports = app;
