@@ -6,10 +6,10 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectNotesSchema = new Schema({
-    _id:{type:mongoose.ObjectId},
-    _projectId:{type:mongoose.ObjectId},
-    _userId:{type:mongoose.ObjectId},
-    content:{type:String}
+  _id: { type: mongoose.ObjectId },
+  _projectId: { type: mongoose.ObjectId },
+  _userId: { type: mongoose.ObjectId },
+  content: { type: String },
 });
 
 /* MODEL */

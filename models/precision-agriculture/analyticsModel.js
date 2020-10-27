@@ -6,11 +6,11 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const analyticsSchema = new Schema({
-    _id:{type:mongoose.ObjectId},
-    name:{type:String},
-    state:{type:Object},
-    _ownerid:{type:mongoose.ObjectId}, 
-    _reportid:{type:mongoose.ObjectId}
+  _id: { type: mongoose.ObjectId },
+  name: { type: String },
+  state: { type: Object },
+  _ownerid: { type: mongoose.ObjectId },
+  _reportid: { type: mongoose.ObjectId },
 });
 
 /* MODEL */
