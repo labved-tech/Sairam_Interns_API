@@ -6,7 +6,6 @@ const validator = require('validator');
 const { Schema } = mongoose;
 
 /* CHILD SCHEMA */
-const PersonalDetails = require('./personalDetailsModel');
 
 /* SCHEMA */
 const userInformationSchema = new Schema({
@@ -31,12 +30,12 @@ const userInformationSchema = new Schema({
     required: [true, 'Please provide a valid account Type'],
   },
   personalDetails: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.Mixed,
     ref: 'PersonalDetails',
   },
   isOrganisation: { type: Boolean },
   organisationDetails: {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.Mixed,
     ref: 'OrganisationDetails',
   },
   usergroupId: [mongoose.ObjectId],

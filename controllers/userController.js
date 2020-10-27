@@ -61,13 +61,26 @@ exports.getUser = async (req, res, next) => {
 exports.createUser = async (req, res, next) => {
   console.log('Creating User');
 
-  // const { status } = req.body;
-  // const { email } = req.body;
+  // parse through models
+  const doc = new UserInformation(req.body);
 
-  // console.log(status);
+  const dataPersonalDetails = new PersonalDetails(
+    JSON.parse(JSON.stringify(req.body.personalDetails))
+  );
 
+  // validate
+  await dataPersonalDetails.validate();
+
+  // replace doc if necessary
+  doc.personalDetails = dataPersonalDetails;
+
+  // final validation
+  await doc.validate();
+  //console.log(doc);
+
+  // database operation
   try {
-    const user = await UserInformation.create(req.body).then();
+    const user = await UserInformation.create(doc).then();
     res.status(201).json({
       status: 'sucess',
       message: 'Created User',
