@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const LeadEntries = require('./../../models/leads/leadEntriesModel');
+const LeadEntries = require('../../models/leads/leadEntriesModel');
 
 /* DATABASE */
 
@@ -39,7 +39,7 @@ exports.getAllLeadEntries = async (req, res, next) => {
 
 exports.getLeadEntries = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting leadEntries for Id ${id}`);
+  console.log(`Getting Lead Entries for Id ${id}`);
 
   try {
     const leadEntries = await LeadEntries.findById(id).then();
@@ -81,7 +81,7 @@ exports.createLeadEntries = async (req, res, next) => {
 
 exports.updateLeadEntries = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating LeadEntries Id ${id}`);
+  console.log(`Updating Lead Entries Id ${id}`);
 
   try {
     const leadEntries = await LeadEntries.findByIdAndUpdate(id, req.body, {
@@ -105,7 +105,7 @@ exports.updateLeadEntries = async (req, res, next) => {
 
 exports.deleteLeadEntries = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting LeadEntries Id ${id}`);
+  console.log(`Deleting Lead Entries Id ${id}`);
 
   try {
     const leadEntries = await LeadEntries.findByIdAndDelete(id).then();
