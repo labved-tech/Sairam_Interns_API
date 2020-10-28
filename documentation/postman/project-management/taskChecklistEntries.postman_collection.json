@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "bb5ebb15-48f9-4e90-b293-efded021e1a5",
+		"name": "taskChecklistEntries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTaskChecklistEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTaskChecklistEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"_taskId\": \"1\"},\r\n    \"finished\":\"True\",\r\n    \"description\":\"Student\",\r\n    \"dateadded\": \"29-09-2001\",\r\n    \"addedBy\": \"Vicky\",\r\n    \"listOrder\": 10,\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTaskChecklistEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTaskChecklistEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"_taskId\": \"1\"},\r\n    \"finished\":\"True\",\r\n    \"description\":\"Student\",\r\n    \"dateadded\": \"29-09-2001\",\r\n    \"addedBy\": \"Vicky\",\r\n    \"listOrder\": 10,\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTaskChecklistEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

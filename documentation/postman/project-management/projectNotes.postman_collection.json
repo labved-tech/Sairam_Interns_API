@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "d1260379-260e-4391-93ee-c55d0edb55ac",
+		"name": "projectNotes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllProjectNotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProjectNotes",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\",\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProjectNotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProjectNotes",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\",\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectNotes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
