@@ -7,10 +7,10 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const ecommerceAddressSchema = new Schema({
   _id: { type: mongoose.ObjectId },
-  Address1: { type: String },
+  address1: { type: String },
   street: { type: String },
-  City: { type: String },
-  State: { type: String },
+  city: { type: String },
+  state: { type: String },
   country: { type: String },
   postalcode: { type: Number },
 });

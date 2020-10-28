@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "99e6c920-fd33-4c5d-a562-43cbef6d8d4b",
+		"name": "pages",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllPages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/pages/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPages",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\": \"TN\",\r\n    \"_ownerid\": \"1\",\r\n    \"contents\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/pages",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getPages",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/pages/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pages",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePages",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\": \"TN\",\r\n    \"_ownerid\": \"1\",\r\n    \"contents\": [\"2\",\"3\",\"4\",\"5\"],\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/pages/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pages",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePages",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/pages/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"pages",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

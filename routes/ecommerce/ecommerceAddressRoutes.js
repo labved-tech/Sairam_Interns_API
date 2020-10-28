@@ -3,25 +3,25 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const addressController = require('../../controllers/ecommerce/ecommerceAddressController');
+const ecommerceAddressController = require('../../controllers/ecommerce/ecommerceAddressController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in addressRoutes');
+  console.log('We are in Ecommerce Address Routes');
   next();
 });
 
-router.param('id', addressController.checkID);
+router.param('id', ecommerceAddressController.checkID);
 
 /* ROUTES */
 router
   .route('/')
-  .get(addressController.getAllEcommerceAddress)
-  .post(addressController.createEcommerceAddress);
+  .get(ecommerceAddressController.getAllEcommerceAddress)
+  .post(ecommerceAddressController.createEcommerceAddress);
 router
   .route('/:id')
-  .get(addressController.getEcommerceAddress)
-  .patch(addressController.updateEcommerceAddress)
-  .delete(addressController.deleteEcommerceAddress);
+  .get(ecommerceAddressController.getEcommerceAddress)
+  .patch(ecommerceAddressController.updateEcommerceAddress)
+  .delete(ecommerceAddressController.deleteEcommerceAddress);
 
 module.exports = router;
