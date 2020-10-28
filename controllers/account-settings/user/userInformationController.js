@@ -2,9 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const UserInformation = require('../models/userInformationModel');
-const PersonalDetails = require('../models/personalDetailsModel');
-const OrganisationDetails = require('../models/organisationDetailsModel');
+const UserInformation = require('../../../models/account-settings/user/userInformationModel');
+const PersonalDetails = require('../../../models/general/personalDetailsModel');
+const OrganisationDetails = require('../../../models/general/organisationDetailsModel');
 
 /* CONTROLLERS */
 exports.checkID = (req, res, next, val) => {
@@ -67,14 +67,25 @@ exports.createUser = async (req, res, next) => {
     JSON.parse(JSON.stringify(req.body.personalDetails))
   );
 
-  // validate
-  await dataPersonalDetails.validate();
+  // validate seperately sub-documents if necessary
+  //await dataPersonalDetails.validate();
 
   // replace doc if necessary
   doc.personalDetails = dataPersonalDetails;
 
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // saving if there are no sub-documents
+  //doc.save();
+
   // final validation
   await doc.validate();
+
+  // check the doc before doing database operation
   //console.log(doc);
 
   // database operation

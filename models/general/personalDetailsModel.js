@@ -18,14 +18,12 @@ const personalDetailsSchema = new Schema({
   },
   lastName: { type: String },
   middleName: { type: String },
+  dob: { type: Date, required: true },
   mobileNo: {
     type: String,
     required: [true, 'Please provide a valid mobile no'],
   },
   landlineNo: { type: String },
-  aadharNo: { type: String },
-  iecNo: { type: String },
-  panNo: { type: String },
   address1: {
     type: String,
     required: [true, 'Please provide a valid address'],
@@ -49,6 +47,9 @@ const personalDetailsSchema = new Schema({
   },
   location: { type: String },
   verifyDocs: { type: String },
+  aadharNo: { type: String },
+  iecNo: { type: String },
+  panNo: { type: String },
 });
 
 /* MODEL */

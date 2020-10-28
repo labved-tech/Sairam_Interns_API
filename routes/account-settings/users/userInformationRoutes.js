@@ -3,7 +3,7 @@ const express = require('express');
 
 // MIDDLEWARE
 const router = express.Router();
-const userController = require('../controllers/userController');
+const userInformationController = require('../../../controllers/account-settings/user/userInformationController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.param('id', (req, res, next, val) => {
@@ -19,12 +19,12 @@ router.use((req, res, next) => {
 // ROUTES
 router
   .route('/')
-  .get(userController.getAllUser)
-  .post(userController.createUser);
+  .get(userInformationController.getAllUser)
+  .post(userInformationController.createUser);
 router
   .route('/:id')
-  .get(userController.getUser)
-  .patch(userController.updateUser)
-  .delete(userController.deleteUser);
+  .get(userInformationController.getUser)
+  .patch(userInformationController.updateUser)
+  .delete(userInformationController.deleteUser);
 
 module.exports = router;

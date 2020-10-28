@@ -12,7 +12,7 @@ app.use(express.json());
 /* USER DEFINED MIDDLEWARES */
 const viewRouter = require('./routes/viewRoutes');
 const exampleRouter = require('./routes/exampleRoutes');
-const userRouter = require('./routes/userRoutes');
+const userRouter = require('./routes/account-settings/users/userInformationRoutes');
 const menuRouter = require('./routes/menuRoutes');
 
 //INTERNS

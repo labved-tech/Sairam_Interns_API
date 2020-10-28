@@ -15,9 +15,6 @@ const organisationDetailsSchema = new Schema({
   },
   mobileNo: { type: Number },
   landlineNo: { type: Number },
-  aadharNo: { type: String },
-  iecNo: { type: String },
-  panNo: { type: String },
   address1: { type: String },
   address2: { type: String },
   city: { type: String },
@@ -26,6 +23,10 @@ const organisationDetailsSchema = new Schema({
   country: { type: String },
   location: { type: String },
   verifyDocs: { type: String },
+  aadharNo: { type: String },
+  iecNo: { type: String },
+  panNo: { type: String },
+  gstNo: { type: String },
 });
 
 /* MODEL */
