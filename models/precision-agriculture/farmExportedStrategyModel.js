@@ -21,11 +21,11 @@ const farmExportedStrategySchema = new Schema({
   stages: [],
   shareable: { type: Boolean },
   shareableType: { type: String },
-  contractTemplateId: { type: String },
+  _contractTemplateId: { type: mongoose.ObjectId },
   rate: { type: String },
   totalExpense: { type: Number },
   author_notes: { type: String },
-  parentId: { type: String },
+  _parentId: {type: mongoose.ObjectId },
 });
 
 /* MODEL */
