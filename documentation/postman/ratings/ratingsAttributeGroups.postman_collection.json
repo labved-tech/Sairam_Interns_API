@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Name\": \" \",\r\n  \"type\": \" \",\r\n  \"Description\": \" \",\r\n  \"Notes\": \" \",\r\n  \"status\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"_attributId\": \"0\",\r\n  \"status\": \"student\",\r\n  \"Description\": \"college student\",\r\n  \"updatedAt\": \"2-8-01\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-8-01\",\r\n  \"createdBy\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Name\": \" \",\r\n  \"type\": \" \",\r\n  \"Description\": \" \",\r\n  \"Notes\": \" \",\r\n  \"status\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"_attributId\": \"0\",\r\n  \"status\": \"student\",\r\n  \"Description\": \"college student\",\r\n  \"updatedAt\": \"2-8-01\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-8-01\",\r\n  \"createdBy\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

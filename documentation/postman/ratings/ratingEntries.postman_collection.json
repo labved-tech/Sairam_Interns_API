@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"relType\": \" \",\r\n  \"_relId\": \" \",\r\n  \"meta\": [\r\n    {\r\n      \"_attributeId\": \" \",\r\n      \"type\": \" \",\r\n      \"value\": \" \"\r\n    }\r\n  ],\r\n\r\n  \"_userId\": \" \",\r\n  \"status\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"updatedAt\": \" \"\r\n}",
+					"raw": "{\r\n  \"relType\": \"viy\",\r\n  \"_relId\": \"0\",\r\n  \"meta\": [\r\n    {\r\n      \"_attributeId\": \"0\",\r\n      \"type\": \"student\",\r\n      \"value\": \"123\"\r\n    }\r\n  ],\r\n\r\n  \"_userId\": \"0\",\r\n  \"status\": \"high\",\r\n  \"createdAt\": \"1-2-02\",\r\n  \"createdBy\": \"0\",\r\n  \"updatedBy\": \"0\",\r\n  \"updatedAt\": \"8-2-01\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"relType\": \" \",\r\n  \"_relId\": \" \",\r\n  \"meta\": [\r\n    {\r\n      \"_attributeId\": \" \",\r\n      \"type\": \" \",\r\n      \"value\": \" \"\r\n    }\r\n  ],\r\n\r\n  \"_userId\": \" \",\r\n  \"status\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"updatedAt\": \" \"\r\n}",
+					"raw": "{\r\n  \"relType\": \"viy\",\r\n  \"_relId\": \"0\",\r\n  \"meta\": [\r\n    {\r\n      \"_attributeId\": \"0\",\r\n      \"type\": \"student\",\r\n      \"value\": \"123\"\r\n    }\r\n  ],\r\n\r\n  \"_userId\": \"0\",\r\n  \"status\": \"high\",\r\n  \"createdAt\": \"1-2-02\",\r\n  \"createdBy\": \"0\",\r\n  \"updatedBy\": \"0\",\r\n  \"updatedAt\": \"8-2-01\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
