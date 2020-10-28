@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "c9472d21-d6b1-40ec-bfb2-6b031bc22d53",
+		"name": "announcementEntries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllAnnouncementEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/announcement-entries",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"announcement-entries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createAnnouncementEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"status\": \"Active\",\r\n    \"email\": \"bharath.viswanathan@labved.com\",\r\n    \"password\": \"password@123\",\r\n    \"accountType\": \"standalone\",\r\n    \"test\" : \"test\",\r\n    \"personalDetails\": {\r\n        \"firstName\": \"Bharath\",\r\n        \"lastName\": \"Viswanathan\",\r\n        \"middleName\": \"Kumar\",\r\n        \"mobileNo\": \"9884052896\",\r\n        \"landlineNo\": \"04453548262\",\r\n        \"aadharNo\": \"document#\",\r\n        \"iecNo\": \"document#\",\r\n        \"panNo\": \"document#\",\r\n        \"address1\": \"address1\",\r\n        \"address2\": \"address2\",\r\n        \"city\": \"chennai\",\r\n        \"state\": \"Tamil Nadu\",\r\n        \"zipCode\": \"600010\",\r\n        \"country\": \"India\",\r\n        \"location\": \"gps lat\",\r\n        \"verifyDocs\": \" \",\r\n        \"test\" : \"test\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAnnouncementEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"announcement-entries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateAnnouncementEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"announcement-entries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteAnnouncementEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"announcement-entries",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
