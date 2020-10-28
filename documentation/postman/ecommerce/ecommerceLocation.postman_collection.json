@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "ccc2547f-37ff-4556-8714-f4ebfb5a18c3",
+		"name": "ecommerceLocation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllEcommerceLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceLocations",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceLocations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postEcommerceLocation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \" \",\r\n  },\r\n  \"GSTNo\": \" \",\r\n  \"PANNo\": \"\",\r\n  \"licenseNo\": \" \",\r\n  \"status\": \" \",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \" \",\r\n      \"URL\": \" \",\r\n      \"type\": \" \"\r\n    }\r\n  ],\r\n  \"Name\": \" \",\r\n  \"description\": \" \",\r\n  \"notes\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceLocations",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceLocations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEcommerceLocation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceLocations/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceLocations",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchEcommerceLocation",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \" \",\r\n  },\r\n  \"GSTNo\": \" \",\r\n  \"PANNo\": \"\",\r\n  \"licenseNo\": \" \",\r\n  \"status\": \" \",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \" \",\r\n      \"URL\": \" \",\r\n      \"type\": \" \"\r\n    }\r\n  ],\r\n  \"Name\": \" \",\r\n  \"description\": \" \",\r\n  \"notes\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceLocations/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceLocations",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEcommerceLocation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceLocations/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceLocations",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

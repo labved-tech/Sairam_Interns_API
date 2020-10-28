@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "afee08dc-969d-41de-94f7-4730a440ee8c",
+		"name": "ecommerceOrder",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllEcommerceOrder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceOrder",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postEcommerceOrder",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productName\": \" \",\r\n      \"productId\": \" \",\r\n      \"_manufacturerPartId\": \" \",\r\n      \"HSNCode\": \" \",\r\n      \"quanity\": \" \",\r\n      \"unitPrice\": \" \",\r\n      \"meta\": \" \",\r\n      \"discount\": \" \",\r\n      \"tax\": {\r\n        \"CGST\": \" \",\r\n        \"SGST\": \" \",\r\n        \"IGST\": \" \",\r\n        \"calcCGST\": \" \",\r\n        \"calSGST\": \" \",\r\n        \"calcIGST\": \" \",\r\n      },\r\n    },\r\n  ],\r\n  \"numItems\": \" \",\r\n  \"grossTotal\": \" \",\r\n  \"taxTotal\": \" \",\r\n  \"shippingCharges\": \" \",\r\n  \"insuranceCharges\": \" \",\r\n  \"netTotal\": \" \",\r\n  \"status\": \" \",\r\n  \"_userId\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceOrder",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEcommerceOrder",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceOrder/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceOrder",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchEcommerceOrder",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productName\": \" \",\r\n      \"productId\": \" \",\r\n      \"_manufacturerPartId\": \" \",\r\n      \"HSNCode\": \" \",\r\n      \"quanity\": \" \",\r\n      \"unitPrice\": \" \",\r\n      \"meta\": \" \",\r\n      \"discount\": \" \",\r\n      \"tax\": {\r\n        \"CGST\": \" \",\r\n        \"SGST\": \" \",\r\n        \"IGST\": \" \",\r\n        \"calcCGST\": \" \",\r\n        \"calSGST\": \" \",\r\n        \"calcIGST\": \" \",\r\n      },\r\n    },\r\n  ],\r\n  \"numItems\": \" \",\r\n  \"grossTotal\": \" \",\r\n  \"taxTotal\": \" \",\r\n  \"shippingCharges\": \" \",\r\n  \"insuranceCharges\": \" \",\r\n  \"netTotal\": \" \",\r\n  \"status\": \" \",\r\n  \"_userId\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceOrder/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceOrder",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEcommerceOrder",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceOrder/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceOrder",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
