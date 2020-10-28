@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const menuController = require('../controllers/menuController');
+const menuController = require('../../../controllers/account-settings/menu/menuController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

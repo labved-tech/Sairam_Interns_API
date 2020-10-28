@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Forms = require('../../models/precision-agriculture/formsModel');
+const Reports = require('../../models/reports/reportsModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllForms = async (req, res, next) => {
-  console.log('Getting All forms');
+exports.getAllReports = async (req, res, next) => {
+  console.log('Getting All reports');
 
   try {
-    const forms = await Forms.find().then();
+    const reports = await Reports.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All forms',
-      results: forms.length,
+      message: 'Got All reports',
+      results: reports.length,
       data: {
-        forms,
+        reports,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllForms = async (req, res, next) => {
   next();
 };
 
-exports.getForms = async (req, res, next) => {
+exports.getReports = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting forms for Id ${id}`);
+  console.log(`Getting reports for Id ${id}`);
 
   try {
-    const forms = await Forms.findById(id).then();
+    const reports = await Reports.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got forms Id=${id}`,
-      Data: { forms },
+      message: `Got reports Id=${id}`,
+      Data: { reports },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getForms = async (req, res, next) => {
   next();
 };
 
-exports.createForms = async (req, res, next) => {
-  console.log('Creating forms');
+exports.createReports = async (req, res, next) => {
+  console.log('Creating reports');
 
   try {
-    const forms = await Forms.create(req.body).then();
+    const reports = await Reports.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created forms',
-      data: { forms },
+      message: 'Created reports',
+      data: { reports },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createForms = async (req, res, next) => {
   next();
 };
 
-exports.updateForms = async (req, res, next) => {
+exports.updateReports = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating forms Id ${id}`);
+  console.log(`Updating reports Id ${id}`);
 
   try {
-    const forms = await Forms.findByIdAndUpdate(id, req.body, {
+    const reports = await Reports.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated forms Id=${id}`,
-      data: { forms },
+      message: `Updated reports Id=${id}`,
+      data: { reports },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updateForms = async (req, res, next) => {
   next();
 };
 
-exports.deleteForms = async (req, res, next) => {
+exports.deleteReports = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting forms Id ${id}`);
+  console.log(`Deleting reports Id ${id}`);
 
   try {
-    const forms = await Forms.findByIdAndDelete(id).then();
+    const reports = await Reports.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted forms Id=${id}`,
-      data: { forms },
+      message: `Deleted reports Id=${id}`,
+      data: { reports },
     });
   } catch (err) {
     res.status(400).json({

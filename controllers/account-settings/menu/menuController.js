@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Menu = require('../models/menuManagerModel');
+const Menu = require('../../../models/account-settings/menu/menuManagerModel');
 
 /* DATABASE */
 

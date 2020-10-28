@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Analytics = require('../../models/precision-agriculture/analyticsModel');
+const Charts = require('../../models/charts/chartsModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllAnalytics = async (req, res, next) => {
-  console.log('Getting All analytics');
+exports.getAllCharts = async (req, res, next) => {
+  console.log('Getting All charts');
 
   try {
-    const analytics = await Analytics.find().then();
+    const charts = await Charts.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All analytics',
-      results: analytics.length,
+      message: 'Got All charts',
+      results: charts.length,
       data: {
-        analytics,
+        charts,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllAnalytics = async (req, res, next) => {
   next();
 };
 
-exports.getAnalytics = async (req, res, next) => {
+exports.getCharts = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting analytics for Id ${id}`);
+  console.log(`Getting charts for Id ${id}`);
 
   try {
-    const analytics = await Analytics.findById(id).then();
+    const charts = await Charts.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got analytics Id=${id}`,
-      Data: { analytics },
+      message: `Got charts Id=${id}`,
+      Data: { charts },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getAnalytics = async (req, res, next) => {
   next();
 };
 
-exports.createAnalytics = async (req, res, next) => {
-  console.log('Creating analytics');
+exports.createCharts = async (req, res, next) => {
+  console.log('Creating charts');
 
   try {
-    const analytics = await Analytics.create(req.body).then();
+    const charts = await Charts.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created analytics',
-      data: { analytics },
+      message: 'Created charts',
+      data: { charts },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createAnalytics = async (req, res, next) => {
   next();
 };
 
-exports.updateAnalytics = async (req, res, next) => {
+exports.updateCharts = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating analytics Id ${id}`);
+  console.log(`Updating charts Id ${id}`);
 
   try {
-    const analytics = await Analytics.findByIdAndUpdate(id, req.body, {
+    const charts = await Charts.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated analytics Id=${id}`,
-      data: { analytics },
+      message: `Updated charts Id=${id}`,
+      data: { charts },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updateAnalytics = async (req, res, next) => {
   next();
 };
 
-exports.deleteAnalytics = async (req, res, next) => {
+exports.deleteCharts = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting analytics Id ${id}`);
+  console.log(`Deleting charts Id ${id}`);
 
   try {
-    const analytics = await Analytics.findByIdAndDelete(id).then();
+    const charts = await Charts.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted analytics Id=${id}`,
-      data: { analytics },
+      message: `Deleted charts Id=${id}`,
+      data: { charts },
     });
   } catch (err) {
     res.status(400).json({

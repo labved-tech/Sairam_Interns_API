@@ -3,7 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const reportsController = require('../../controllers/precision-agriculture/reportsController');
+const reportsController = require('../../controllers/reports/reportsController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {

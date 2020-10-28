@@ -13,9 +13,20 @@ app.use(express.json());
 const viewRouter = require('./routes/viewRoutes');
 const exampleRouter = require('./routes/exampleRoutes');
 const userRouter = require('./routes/account-settings/users/userInformationRoutes');
-const menuRouter = require('./routes/menuRoutes');
+const menuRouter = require('./routes/account-settings/menu/menuRoutes');
 
 //INTERNS
+const analyticsRouter = require('./routes/analytics/analyticsRoutes');
+
+const formResponseRouter = require('./routes/forms/formResponseRoutes');
+const formsRouter = require('./routes/forms/formsRoutes');
+
+const chartsRouter = require('./routes/charts/chartsRoutes');
+
+const pagesRouter = require('./routes/pages/pagesRoutes');
+
+const reportsRouter = require('./routes/reports/reportsRoutes');
+
 const announcementEntriesRouter = require('./routes/announcement/announcementEntriesRoutes');
 const announcementNotifyRouter = require('./routes/announcement/announcementNotifyRoutes');
 
@@ -23,19 +34,10 @@ const leadEntriesRouter = require('./routes/leads/leadEntriesRoutes');
 const leadCategoriesRouter = require('./routes/leads/leadCategoriesRoutes');
 const leadResponseRouter = require('./routes/leads/leadResponseRoutes');
 
-const analyticsRouter = require('./routes/precision-agriculture/analyticsRoutes');
-
-const chartsRouter = require('./routes/precision-agriculture/chartsRoutes');
-
 const farmEntriesRouter = require('./routes/precision-agriculture/farmEntriesRoutes');
 const farmExportedStrategyRouter = require('./routes/precision-agriculture/farmExportedStrategyRoutes');
 const farmRegionsRouter = require('./routes/precision-agriculture/farmRegionsRoutes');
 const farmStrategyRouter = require('./routes/precision-agriculture/farmStrategyRoutes');
-const formResponseRouter = require('./routes/precision-agriculture/formResponseRoutes');
-const formsRouter = require('./routes/precision-agriculture/formsRoutes');
-
-const pagesRouter = require('./routes/precision-agriculture/pagesRoutes');
-const reportsRouter = require('./routes/precision-agriculture/reportsRoutes');
 
 const milestoneRouter = require('./routes/project-management/milestoneRoutes');
 

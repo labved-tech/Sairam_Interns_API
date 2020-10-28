@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Pages = require('../../models/precision-agriculture/pagesModel');
+const Analytics = require('../../models/analytics/analyticsModel');
 
 /* DATABASE */
 
@@ -13,18 +13,18 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllPages = async (req, res, next) => {
-  console.log('Getting All pages');
+exports.getAllAnalytics = async (req, res, next) => {
+  console.log('Getting All analytics');
 
   try {
-    const pages = await Pages.find().then();
+    const analytics = await Analytics.find().then();
 
     res.status(200).json({
       status: 'sucess',
-      message: 'Got All pages',
-      results: pages.length,
+      message: 'Got All analytics',
+      results: analytics.length,
       data: {
-        pages,
+        analytics,
       },
     });
   } catch (err) {
@@ -37,16 +37,16 @@ exports.getAllPages = async (req, res, next) => {
   next();
 };
 
-exports.getPages = async (req, res, next) => {
+exports.getAnalytics = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting pages for Id ${id}`);
+  console.log(`Getting analytics for Id ${id}`);
 
   try {
-    const pages = await Pages.findById(id).then();
+    const analytics = await Analytics.findById(id).then();
     res.status(200).json({
       status: 'sucess',
-      message: `Got pages Id=${id}`,
-      Data: { pages },
+      message: `Got analytics Id=${id}`,
+      Data: { analytics },
     });
   } catch (err) {
     res.status(404).json({
@@ -58,16 +58,16 @@ exports.getPages = async (req, res, next) => {
   next();
 };
 
-exports.createPages = async (req, res, next) => {
-  console.log('Creating pages');
+exports.createAnalytics = async (req, res, next) => {
+  console.log('Creating analytics');
 
   try {
-    const pages = await Pages.create(req.body).then();
+    const analytics = await Analytics.create(req.body).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: 'Created pages',
-      data: { pages },
+      message: 'Created analytics',
+      data: { analytics },
     });
   } catch (err) {
     res.status(400).json({
@@ -79,19 +79,19 @@ exports.createPages = async (req, res, next) => {
   next();
 };
 
-exports.updatePages = async (req, res, next) => {
+exports.updateAnalytics = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating pages Id ${id}`);
+  console.log(`Updating analytics Id ${id}`);
 
   try {
-    const pages = await Pages.findByIdAndUpdate(id, req.body, {
+    const analytics = await Analytics.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
 
     res.status(201).json({
       status: 'sucess',
-      message: `Updated pages Id=${id}`,
-      data: { pages },
+      message: `Updated analytics Id=${id}`,
+      data: { analytics },
     });
   } catch (err) {
     res.status(400).json({
@@ -103,17 +103,17 @@ exports.updatePages = async (req, res, next) => {
   next();
 };
 
-exports.deletePages = async (req, res, next) => {
+exports.deleteAnalytics = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting pages Id ${id}`);
+  console.log(`Deleting analytics Id ${id}`);
 
   try {
-    const pages = await Pages.findByIdAndDelete(id).then();
+    const analytics = await Analytics.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
-      message: `Deleted pages Id=${id}`,
-      data: { pages },
+      message: `Deleted analytics Id=${id}`,
+      data: { analytics },
     });
   } catch (err) {
     res.status(400).json({

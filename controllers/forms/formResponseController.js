@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const FormResponse = require('../../models/precision-agriculture/formResponseModel');
+const FormResponse = require('../../models/forms/formResponseModel');
 
 /* DATABASE */
 
