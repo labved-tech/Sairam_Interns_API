@@ -1,0 +1,121 @@
+{
+	"info": {
+		"_postman_id": "89b001a7-eb5b-4428-90ce-4f60c64bb8c1",
+		"name": "TicketResponse",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTicketResponse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketResponse",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketResponse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTicketResponse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_ticketId\": \"899634286\",\r\n  \"_responderId\": \"vignesh08\",\r\n  \"responderName\": \"vignesh\" ,\r\n  \"emailSent\": \"true\",\r\n  \"isStatusChange\": \"true\",\r\n  \"body\": \"welcome to postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v/ticketResponse",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketResponse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneTicketResponse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketResponse/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketResponse",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicketResponse",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketResponse",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketResponse"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicketResponse",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketResponse/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketResponse",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

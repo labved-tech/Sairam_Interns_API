@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "fff93b68-9af6-47f3-8062-4dfe39a5afbf",
+		"name": "TicketEntries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTicketEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTicketEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_userId\": \"bharath_viswanathan\",\r\n  \"userName\": \"bharathviswanathan\",\r\n  \"userEmail\": \"bharath.viswanathan@labved.com\",\r\n  \"userPhoneNumber\": \"9865899890\",\r\n  \"category\": \"software\",\r\n  \"product\": \"computers\",\r\n  \"subject\": \"database\",\r\n  \"body\": \"welcome to your company\" ,\r\n  \"status\": \"active\",\r\n  \"lastStatusChange\": \"just now\",\r\n  \"assignedTo\": \"vignesh\",\r\n  \"priority\": \"ready\",\r\n  \"lastActivityDate\": \"29/10/2020\",\r\n  \"lastActivityBy\": \"vignesh\",\r\n  \"_agencyId\": \"9864214398\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v/ticketEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneTicketEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicketEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicketEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketEntries"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
