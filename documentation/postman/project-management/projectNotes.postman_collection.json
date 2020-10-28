@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\",\r\n  }",
+					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\",\r\n  }",
+					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
