@@ -176,11 +176,11 @@ app.use('/api/v1/tax-invoice', taxInvoiceRouter);
 
 app.use('/api/v1/commentEntries', commentEntriesRouter);
 
-app.use('/api/v1/ecommerrceAddress', ecommerceAddressRouter);
-app.use('/api/v1/ecommerceLocations', ecommerceLocationsRouter);
-app.use('/api/v1/ecommerceOrder', ecommerceOrderRouter);
-app.use('/api/v1/ecommerceProducts', ecommerceProductsRouter);
-app.use('/api/v1/ecommerceStock', ecommerceStockRouter);
+app.use('/api/v1/ecommerce-address', ecommerceAddressRouter);
+app.use('/api/v1/ecommerce-locations', ecommerceLocationsRouter);
+app.use('/api/v1/ecommerce-order', ecommerceOrderRouter);
+app.use('/api/v1/ecommerce-products', ecommerceProductsRouter);
+app.use('/api/v1/ecommerce-stock', ecommerceStockRouter);
 
 app.use('/api/v1/ratingAttributeGroups', ratingAttributeGroupsRouter);
 app.use('/api/v1/ratingAttribute', ratingAttributeRouter);
