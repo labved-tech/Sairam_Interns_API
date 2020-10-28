@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "b820fbb8-15ca-44cd-adb0-e9d62a59218a",
+		"name": "commentEntries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllCommentEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/commentEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"commentEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCommentEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "({\r\n  \"_commentorId\": { type: mongoose.ObjectId },\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": { type: mongoose.ObjectId },\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\": { type: mongoose.ObjectId },\r\n      \"createdAt\": \"28/10/2020\",\r\n      \"updatedAt\": \"29/10/2020\",\r\n    },\r\n  ],\r\n  \"status\": \"successfull completed\",\r\n  \"createdAt\":\"30/10/2020\",\r\n  \"updatedAt\": \"31/10/2020\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v/commentEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"commentEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneCommentEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/commentEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"commentEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCommentEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/commentEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"commentEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCommentEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/commentEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"commentEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
