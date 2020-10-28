@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "0bd6f7ff-2dcc-4363-92f5-406bb90d8284",
+		"name": "ratingAttribute",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllRatingAttribute",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createRatingAttribute",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \" \",\r\n  \"_attributId\": \" \",\r\n  \"status\": \" \",\r\n  \"Description\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRatingAttribute",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRatingAttribute",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \" \",\r\n  \"_attributId\": \" \",\r\n  \"status\": \" \",\r\n  \"Description\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRatingAttribute",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

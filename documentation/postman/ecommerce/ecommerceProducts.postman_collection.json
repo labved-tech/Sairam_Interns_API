@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "12a9c879-aa4d-4da2-916c-63f4d15437c7",
+		"name": "ecommerceProducts",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "postEcommerceProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"manufacturerPartNo\": \"\",\r\n  \"name\": \" \",\r\n  \"description\": \" \",\r\n  \"categoryId\": [],\r\n  \"unitPrice\": \" \",\r\n  \"MRP\": \" \",\r\n  \"images\": \"[]\",\r\n  \"note\": \" \",\r\n  \"ranking\": \" \",\r\n  \"maxQuantityPerOrderNumber\": \" \",\r\n  \"_sellerId\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"status\": \" \",\r\n  \"HSNCode\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEcommerceProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceProducts/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceProducts",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchEcommerceProduct",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"manufacturerPartNo\": \"\",\r\n  \"name\": \" \",\r\n  \"description\": \" \",\r\n  \"categoryId\": [],\r\n  \"unitPrice\": \" \",\r\n  \"MRP\": \" \",\r\n  \"images\": \"[]\",\r\n  \"note\": \" \",\r\n  \"ranking\": \" \",\r\n  \"maxQuantityPerOrderNumber\": \" \",\r\n  \"_sellerId\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"status\": \" \",\r\n  \"HSNCode\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceProducts/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceProducts",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllEcommerceProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEcommerceProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceProducts/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceProducts",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

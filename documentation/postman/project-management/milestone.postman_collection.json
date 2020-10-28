@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "056a22cb-07ef-4e4f-bdb5-270b6da9b28e",
+		"name": "milestone",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllMilestone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/milestone/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"milestone",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMilestone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"description\": \"String\",\r\n    \"descriptionVisible\": \"True\",\r\n    \"dueDate\": \"12-09-2001\",\r\n    \"_projectId\": \"1\",\r\n    \"color\":\"Red\",\r\n    \"milestone_order\": \"Done\",\r\n    \"datecreated\": \"12-09-2000\",\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/milestone/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"milestone",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMilestone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/milestone/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"milestone",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateMilestone",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"description\": \"String\",\r\n    \"descriptionVisible\": \"True\",\r\n    \"dueDate\": \"12-09-2001\",\r\n    \"_projectId\": \"1\",\r\n    \"color\":\"Red\",\r\n    \"milestone_order\": \"Done\",\r\n    \"datecreated\": \"12-09-2000\",\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/milestone/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"milestone",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMilestone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/milestone/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"milestone",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

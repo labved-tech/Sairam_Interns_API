@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "0f281b56-4fbd-49ce-86cc-be8bc3c3db44",
+		"name": "ratingsAttributeGroups",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllratingAtributeGroups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttributeGroups",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttributeGroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createratingAtributeGroups",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \" \",\r\n  \"type\": \" \",\r\n  \"Description\": \" \",\r\n  \"Notes\": \" \",\r\n  \"status\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttributeGroups",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttributeGroups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getratingAtributeGroups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttributeGroups/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttributeGroups",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateratingAtributeGroups",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Name\": \" \",\r\n  \"type\": \" \",\r\n  \"Description\": \" \",\r\n  \"Notes\": \" \",\r\n  \"status\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttributeGroups/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttributeGroups",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteratingAtributeGroups",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttributeGroups/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttributeGroups",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
