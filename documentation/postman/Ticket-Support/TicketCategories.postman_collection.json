@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "5e94dcd9-c8f3-4be1-9b3c-665a46924a35",
+		"name": "TicketCategories",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTicketCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketCategories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTicketCategories",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"updatedAt\": \"29/10/2020\",\r\n  \"createdBy\": \"API\",\r\n  \"updatedBy\": \"API\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v/ticketCategories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneTicketCategories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketCategories/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketCategories",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicketCategories",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketCategories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicketCategories",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v/ticketCategories",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketCategories"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
