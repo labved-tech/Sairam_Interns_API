@@ -138,14 +138,15 @@ app.use('/api/v1/lead-categories', leadCategoriesRouter);
 
 app.use('/api/v1/analytics', analyticsRouter);
 app.use('/api/v1/charts', chartsRouter);
+app.use('/api/v1/forms', formsRouter);
+app.use('/api/v1/pages', pagesRouter);
+app.use('/api/v1/reports', reportsRouter);
+
 app.use('/api/v1/farm-entries', farmEntriesRouter);
 app.use('/api/v1/farm-exported-strategy', farmExportedStrategyRouter);
 app.use('/api/v1/farm-regions', farmRegionsRouter);
 app.use('/api/v1/farm-strategy', farmStrategyRouter);
 app.use('/api/v1/form-response', formResponseRouter);
-app.use('/api/v1/forms', formsRouter);
-app.use('/api/v1/pages', pagesRouter);
-app.use('/api/v1/reports', reportsRouter);
 
 app.use('/api/v1/milestone', milestoneRouter);
 app.use('/api/v1/project-activity', projectActivityRouter);
