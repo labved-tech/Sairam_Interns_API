@@ -14,7 +14,7 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllEcommerceAddress = async (req, res, next) => {
-  console.log('Getting All ecommerceAddress');
+  console.log('Getting All Ecommerce Address');
 
   try {
     const ecommerceAddresss = await EcommerceAddress.find().then();
@@ -59,7 +59,7 @@ exports.getEcommerceAddress = async (req, res, next) => {
 };
 
 exports.createEcommerceAddress = async (req, res, next) => {
-  console.log('Creating ecommerceAddress');
+  console.log('Creating Ecommerce Address');
 
   try {
     const ecommerceAddress = await EcommerceAddress.create(req.body).then();
@@ -84,9 +84,13 @@ exports.updateEcommerceAddress = async (req, res, next) => {
   console.log(`Updating ecommerceAddress Id ${id}`);
 
   try {
-    const ecommerceAddress = await EcommerceAddress.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+    const ecommerceAddress = await EcommerceAddress.findByIdAndUpdate(
+      id,
+      req.body,
+      {
+        new: true,
+      }
+    ).then();
 
     res.status(201).json({
       status: 'sucess',
@@ -108,7 +112,9 @@ exports.deleteEcommerceAddress = async (req, res, next) => {
   console.log(`Deleting ecommerceAddress Id ${id}`);
 
   try {
-    const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(id).then();
+    const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(
+      id
+    ).then();
 
     res.status(200).json({
       status: 'sucess',
