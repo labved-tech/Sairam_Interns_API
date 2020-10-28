@@ -41,7 +41,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/user",
+					"raw": "http://localhost:3000/api/v1/announcement-entries",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -50,7 +50,7 @@
 					"path": [
 						"api",
 						"v1",
-						"user"
+						"announcement-entries"
 					]
 				}
 			},
