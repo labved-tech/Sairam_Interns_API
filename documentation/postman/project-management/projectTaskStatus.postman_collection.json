@@ -1,0 +1,133 @@
+{
+	"info": {
+		"_postman_id": "fe61ec4a-ce42-474f-a178-4ef044fb9f16",
+		"name": "projectTaskStatus",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllProjectTaskStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-task-status/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-task-status",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProjectTaskStatus",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"status\": \"Done\",\r\n    \"deadlineNotified\": \"True\",\r\n    \"kanbanOrder\":10,\r\n    \"milestoneOrder\":10,\r\n    \"_taskId\": \"1\"},\r\n    \"_projectId\": \"1\"},\r\n    \"_userId\": \"1\"},\r\n    \"progress\":10,\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-task-status/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-task-status",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProjectTaskStatus",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-task-status/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-task-status",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProjectTaskStatus",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \r\n    \"status\": \"Done\",\r\n    \"deadlineNotified\": \"True\",\r\n    \"kanbanOrder\":10,\r\n    \"milestoneOrder\":10,\r\n    \"_taskId\": \"1\"},\r\n    \"_projectId\": \"1\"},\r\n    \"_userId\": \"1\"},\r\n    \"progress\":10,\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-task-status/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-task-status",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectTaskStatus",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-task-status/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-task-status",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

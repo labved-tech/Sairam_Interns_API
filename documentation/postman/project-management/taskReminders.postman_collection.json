@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "a20be1e4-143e-49cb-8baf-818bb79a0ff8",
+		"name": "taskReminders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllTaskReminders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTaskReminders",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\",\r\n  }  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getTaskReminders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTaskReminders",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\",\r\n  }  "
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTaskReminders",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
