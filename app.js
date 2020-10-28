@@ -176,32 +176,32 @@ app.use('/api/v1/tax-invoice', taxInvoiceRouter);
 
 app.use('/api/v1/commentEntries', commentEntriesRouter);
 
-app.use('/api/v1/ecommerrceAddress', ecommerceAddressRouter);
-app.use('/api/v1/ecommerceLocations', ecommerceLocationsRouter);
-app.use('/api/v1/ecommerceOrder', ecommerceOrderRouter);
-app.use('/api/v1/ecommerceProducts', ecommerceProductsRouter);
-app.use('/api/v1/ecommerceStock', ecommerceStockRouter);
+app.use('/api/v1/ecommerce-address', ecommerceAddressRouter);
+app.use('/api/v1/ecommerce-locations', ecommerceLocationsRouter);
+app.use('/api/v1/ecommerce-order', ecommerceOrderRouter);
+app.use('/api/v1/ecommerce-products', ecommerceProductsRouter);
+app.use('/api/v1/ecommerce-stock', ecommerceStockRouter);
 
 app.use('/api/v1/ratingAttributeGroups', ratingAttributeGroupsRouter);
 app.use('/api/v1/ratingAttribute', ratingAttributeRouter);
 app.use('/api/v1/ratingEntries', ratingEntriesRouter);
 
-app.use('/api/v/directoryAttributes', directoryAttributesRouter);
-app.use('/api/v/directoryCategories', directoryCategoriesRouter);
-app.use('/api/v/directoryEntries', directoryEntriesRouter);
-app.use('/api/v/directoryLevels', directoryLevelsRouter);
-app.use('/api/v/directory', directoryRouter);
+app.use('/api/v1/directoryAttributes', directoryAttributesRouter);
+app.use('/api/v1/directoryCategories', directoryCategoriesRouter);
+app.use('/api/v1/directoryEntries', directoryEntriesRouter);
+app.use('/api/v1/directoryLevels', directoryLevelsRouter);
+app.use('/api/v1/directory', directoryRouter);
 
-app.use('/api/v/commentEntries', commentEntriesRouter);
+app.use('/api/v1/commentEntries', commentEntriesRouter);
 
-app.use('/api/v/eventEntries', eventEntriesRouter);
+app.use('/api/v1/eventEntries', eventEntriesRouter);
 
-app.use('/api/v/contractEntries', contractEntriesRouter);
-app.use('/api/v/contractTemplates', contractTemplatesRouter);
+app.use('/api/v1/contractEntries', contractEntriesRouter);
+app.use('/api/v1/contractTemplates', contractTemplatesRouter);
 
-app.use('/api/v/ticketCategories', ticketCategoriesRouter);
-app.use('/api/v/ticketEntries', ticketEntriesRouter);
-app.use('/api/v/ticketProducts', ticketProductsRouter);
-app.use('/api/v/ticketResponse', ticketResponseRouter);
+app.use('/api/v1/ticketCategories', ticketCategoriesRouter);
+app.use('/api/v1/ticketEntries', ticketEntriesRouter);
+app.use('/api/v1/ticketProducts', ticketProductsRouter);
+app.use('/api/v1/ticketResponse', ticketResponseRouter);
 
 module.exports = app;

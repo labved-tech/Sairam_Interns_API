@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "1bd48e4a-251c-4643-8dfa-8569ba3efc90",
+		"name": "perfomaInvoice",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllPerfomaInvoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/perfoma-invoice",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"perfoma-invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPerfomaInvoice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/perfoma-invoice",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"perfoma-invoice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOnePerfomaInvoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/perfoma-invoice/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"perfoma-invoice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatePerfomaInvoice",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/perfoma-invoice/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"perfoma-invoice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePerfomaInvoice",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/perfoma-invoice/1",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"perfoma-invoice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
