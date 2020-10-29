@@ -14,9 +14,11 @@ const eventEntriesSchema = new Schema({
   meta: [],
   location: { type: Object },
   boundary: { type: Number },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
 
 /* MODEL */
 const EventEntries = mongoose.model('eventEntries', eventEntriesSchema);
