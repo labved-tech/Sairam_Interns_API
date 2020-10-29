@@ -24,10 +24,8 @@ const directoryAttributeGroupsSchema = new Schema({
   ],
   status: { type: String },
   description: { type: String },
-  updatedBy: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
 });
 /* MODEL */
 const DirectoryAttributeGroups = mongoose.model(
