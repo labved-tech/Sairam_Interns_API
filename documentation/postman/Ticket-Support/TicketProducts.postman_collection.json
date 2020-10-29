@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f9b6d7a4-983f-467f-84c7-b3df11c9a481",
+		"_postman_id": "14c59d49-54e4-48df-951c-305878b8422c",
 		"name": "TicketProducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:3000/api/v/ticketProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"ticketProducts"
+					]
 				}
 			},
 			"response": []

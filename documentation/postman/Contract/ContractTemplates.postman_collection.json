@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6ba3b00c-ae8a-4d2f-baf5-460c0e272670",
+		"_postman_id": "9e94d9ca-633d-4802-bbe5-9bb6e2da3285",
 		"name": "ContractTemplates",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -61,7 +61,17 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "localhost:3000/api/v/contractTemplates/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v",
+						"contractTemplates",
+						"0"
+					]
 				}
 			},
 			"response": []

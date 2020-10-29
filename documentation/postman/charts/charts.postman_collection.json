@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerId\":\"1\",\r\n}",
+					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerId\":\"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerId\":\"1\",\r\n}",
+					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerId\":\"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

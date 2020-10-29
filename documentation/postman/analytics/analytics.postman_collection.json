@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerid\": \"0\",\r\n  \"_reportid\": \"1\",\r\n}",
+					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerid\": \"0\",\r\n  \"_reportid\": \"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -79,21 +79,9 @@
 		},
 		{
 			"name": "getAllAnalytics",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerid\": \"0\",\r\n  \"_reportid\": \"1\",\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/analytics/",
 					"host": [
@@ -117,7 +105,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    name:{type:String},\r\n    state:{type:Object},\r\n    _ownerid:{type:mongoose.ObjectId}, \r\n    _reportid:{type:mongoose.ObjectId}\r\n}",
+					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\": \"TN\",\r\n  \"_ownerid\": \"0\",\r\n  \"_reportid\": \"1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

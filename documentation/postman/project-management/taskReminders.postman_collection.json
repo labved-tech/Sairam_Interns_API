@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\",\r\n  }  ",
+					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\"\r\n  }  ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\",\r\n  }  "
+					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\"\r\n  }  "
 				},
 				"url": {
 					"raw": "localhost:3000/api/v1/task-reminders/0",
