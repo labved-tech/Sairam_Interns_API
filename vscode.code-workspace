@@ -18,6 +18,7 @@
 			"xstring": "cpp",
 			"xtree": "cpp",
 			"xutility": "cpp"
-		}
+		},
+		"editor.formatOnSave": true
 	}
 }

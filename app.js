@@ -10,15 +10,14 @@ const app = express();
 app.use(express.json());
 
 /* USER DEFINED MIDDLEWARES */
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController')
 const viewRouter = require('./routes/viewRoutes');
 const apiv1Router = require('./routes/apiv1Routes');
 
 const exampleRouter = require('./routes/exampleRoutes');
 const userRouter = require('./routes/account-settings/users/userInformationRoutes');
 const menuRouter = require('./routes/account-settings/menu/menuRoutes');
-
-//INTERNS
-
 
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
@@ -55,7 +54,11 @@ app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
-// INTERNS
+app.all('*', (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+}); 
+
+app.use(globalErrorHandler);
 
 
 module.exports = app;
