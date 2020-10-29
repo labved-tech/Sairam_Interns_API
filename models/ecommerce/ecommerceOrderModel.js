@@ -16,7 +16,7 @@ const ecommerceOrderSchema = new Schema({
       HSNCode: { type: String },
       quanity: { type: Number },
       unitPrice: { type: Number },
-      meta: { type: Object },
+      meta: { type: mongoose.ObjectId },
       discount: { type: Number },
       tax: {
         _id: { type: mongoose.ObjectId },

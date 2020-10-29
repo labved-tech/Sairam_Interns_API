@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "998fb109-d173-4f28-bb1f-8460cdd0b3f1",
-		"name": "ecommerceAddress",
+		"_postman_id": "91d2379d-7538-4e87-851e-6b928e5a8dfa",
+		"name": "directoryCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllEcommerceAddress",
+			"name": "getAllDirectoryCategories",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceAddress",
+					"raw": "localhost:3000/api/v1/directoryCategories",
 					"host": [
 						"localhost"
 					],
@@ -19,20 +19,20 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceAddress"
+						"directoryCategories"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "postEcommerceAddress",
+			"name": "postDirectoryCategories",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
+					"raw": "{\r\n  \"name\": \"viky\",\r\n  \"slug\": \"abc\",\r\n  \"_attributeGroupsId\": \"0\",\r\n  \"_ratingAttributeGroupId\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceAddress",
+					"raw": "localhost:3000/api/v1/directoryCategories",
 					"host": [
 						"localhost"
 					],
@@ -48,19 +48,19 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceAddress"
+						"directoryCategories"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "getEcommerceAddress",
+			"name": "getDirectoryCategories",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceAddress/0",
+					"raw": "localhost:3000/api/v1/directoryCategories/0",
 					"host": [
 						"localhost"
 					],
@@ -68,7 +68,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceAddress",
+						"directoryCategories",
 						"0"
 					]
 				}
@@ -76,13 +76,13 @@
 			"response": []
 		},
 		{
-			"name": "patchEcommerceAddress",
+			"name": "patchDirectoryCategories",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
+					"raw": "{\r\n  \"name\": \"viky\",\r\n  \"slug\": \"abc\",\r\n  \"_attributeGroupsId\": \"0\",\r\n  \"_ratingAttributeGroupId\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceAddress/0",
+					"raw": "localhost:3000/api/v1/directoryCategories/0",
 					"host": [
 						"localhost"
 					],
@@ -98,7 +98,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceAddress",
+						"directoryCategories",
 						"0"
 					]
 				}
@@ -106,12 +106,12 @@
 			"response": []
 		},
 		{
-			"name": "deleteEcommerceAddress",
+			"name": "deleteDirectoryCategories",
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceAddress/0",
+					"raw": "localhost:3000/api/v1/directoryCategories/0",
 					"host": [
 						"localhost"
 					],
@@ -119,7 +119,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceAddress",
+						"directoryCategories",
 						"0"
 					]
 				}

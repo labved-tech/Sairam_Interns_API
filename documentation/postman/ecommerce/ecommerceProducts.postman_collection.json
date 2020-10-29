@@ -6,35 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "postEcommerceProduct",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"manufacturerPartNo\": \"\",\r\n  \"name\": \" \",\r\n  \"description\": \" \",\r\n  \"categoryId\": [],\r\n  \"unitPrice\": \" \",\r\n  \"MRP\": \" \",\r\n  \"images\": \"[]\",\r\n  \"note\": \" \",\r\n  \"ranking\": \" \",\r\n  \"maxQuantityPerOrderNumber\": \" \",\r\n  \"_sellerId\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"status\": \" \",\r\n  \"HSNCode\": \" \"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceProducts",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerceProducts"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "getEcommerceProduct",
 			"request": {
 				"method": "GET",
@@ -62,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"manufacturerPartNo\": \"\",\r\n  \"name\": \" \",\r\n  \"description\": \" \",\r\n  \"categoryId\": [],\r\n  \"unitPrice\": \" \",\r\n  \"MRP\": \" \",\r\n  \"images\": \"[]\",\r\n  \"note\": \" \",\r\n  \"ranking\": \" \",\r\n  \"maxQuantityPerOrderNumber\": \" \",\r\n  \"_sellerId\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"status\": \" \",\r\n  \"HSNCode\": \" \"\r\n}",
+					"raw": "{\r\n  \"manufacturerPartNo\": \"abc\",\r\n  \"name\": \"sai\",\r\n  \"description\": \"frnd\",\r\n  \"categoryId\": [\"hi\",\"byre\"],\r\n  \"unitPrice\": \"0\",\r\n  \"MRP\": \"0\",\r\n  \"images\": [\"abc\",\"def\"],\r\n  \"note\": \"abc\",\r\n  \"ranking\": \"1\",\r\n  \"maxQuantityPerOrderNumber\": \"0\",\r\n  \"_sellerId\": \" abc\",\r\n  \"_reviewAttributeId\": \"0\",\r\n  \"status\": \"abs\",\r\n  \"HSNCode\": \"mno\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,6 +61,35 @@
 			"request": {
 				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerceProducts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerceProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postEcommerceProduct",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"manufacturerPartNo\": \"abc\",\r\n  \"name\": \"sai\",\r\n  \"description\": \"frnd\",\r\n  \"categoryId\": [\"hi\",\"byre\"],\r\n  \"unitPrice\": \"0\",\r\n  \"MRP\": \"0\",\r\n  \"images\": [\"abc\",\"def\"],\r\n  \"note\": \"abc\",\r\n  \"ranking\": \"1\",\r\n  \"maxQuantityPerOrderNumber\": \"0\",\r\n  \"_sellerId\": \" abc\",\r\n  \"_reviewAttributeId\": \"0\",\r\n  \"status\": \"abs\",\r\n  \"HSNCode\": \"mno\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/ecommerceProducts",
 					"host": [
