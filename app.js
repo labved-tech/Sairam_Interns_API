@@ -55,7 +55,7 @@ app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
 app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+  //next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 }); 
 
 app.use(globalErrorHandler);
