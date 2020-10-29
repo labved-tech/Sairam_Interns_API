@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0f281b56-4fbd-49ce-86cc-be8bc3c3db44",
+		"_postman_id": "5ce515ae-0e1e-43c2-9f5b-edc6c829d9c1",
 		"name": "ratingsAttributeGroups",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"_attributId\": \"0\",\r\n  \"status\": \"student\",\r\n  \"Description\": \"college student\",\r\n  \"updatedAt\": \"2-8-01\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-8-01\",\r\n  \"createdBy\": \"0\"\r\n}",
+					"raw": "{\r\n  \"name\": \"viky\",\r\n  \"_attributId\": \"0\",\r\n  \"status\": \"student\",\r\n  \"description\": \"college student\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdBy\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
