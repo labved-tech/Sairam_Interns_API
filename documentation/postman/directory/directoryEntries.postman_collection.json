@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "cdbe1773-dff1-42be-b1c9-c92042fb755e",
+		"name": "directoryEntries",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllDirectoryEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postDirctoryEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"author\": \"sai\",\r\n  \"date\": \"1-2-3\",\r\n  \"image\": [\"hi\",\"hello\"],\r\n  \"message\": \"hey\",\r\n  \"title\": \"project\",\r\n  \"slug\": \"abc\",\r\n  \"_sellerId\": \"0\",\r\n  \"status\": \"ads\",\r\n  \"address\": {\r\n    \"address1\": \"chennai\",\r\n    \"message\": \"hii\",\r\n    \"Street\": \"xxyyyzzz\",\r\n    \"City\": \"chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"india\",\r\n    \"PostalCode\": \"0\"\r\n  },\r\n  \"location\": \"acdf\",\r\n  \"name\": \"viky\",\r\n  \"_parentId\": \"0\",\r\n  \"commentStatus\": \"abc\",\r\n  \"commentCount\": \"0\",\r\n  \"contactInfo\": [\r\n    {\r\n      \"item\": \"jkl\",\r\n      \"type\": \"pqr\",\r\n      \"isPublic\": \"True\"\r\n    }\r\n  ],\r\n  \"relation\": [\r\n    {\r\n      \"type\": \"0\",\r\n      \"isPublic\": \"0\"\r\n    }\r\n  ],\r\n  \"meta\": \"0\",\r\n  \"directories\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"single\": \"sai\",\r\n      \"plural\": \"sai\",\r\n      \"slug\": \"abc\",\r\n      \"categories\": [\"hi\",\"hello\"]\r\n    }\r\n  ],\r\n  \"categories\": [\"hi\",\"hello\"],\r\n  \"level\": \"xzy\",\r\n  \"logo\": \"rst\",\r\n  \"updatedBy\": \"0\",\r\n  \"updatedAt\": \"1-1-7\",\r\n  \"createdBy\": \"0\",\r\n  \"createdAt\": \"1-1-2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDirectoryEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchDirectoryEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"author\": \"sai\",\r\n  \"date\": \"1-2-3\",\r\n  \"image\": [\"hi\",\"hello\"],\r\n  \"message\": \"hey\",\r\n  \"title\": \"project\",\r\n  \"slug\": \"abc\",\r\n  \"_sellerId\": \"0\",\r\n  \"status\": \"ads\",\r\n  \"address\": {\r\n    \"address1\": \"chennai\",\r\n    \"message\": \"hii\",\r\n    \"Street\": \"xxyyyzzz\",\r\n    \"City\": \"chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"india\",\r\n    \"PostalCode\": \"0\"\r\n  },\r\n  \"location\": \"acdf\",\r\n  \"name\": \"viky\",\r\n  \"_parentId\": \"0\",\r\n  \"commentStatus\": \"abc\",\r\n  \"commentCount\": \"0\",\r\n  \"contactInfo\": [\r\n    {\r\n      \"item\": \"jkl\",\r\n      \"type\": \"pqr\",\r\n      \"isPublic\": \"True\"\r\n    }\r\n  ],\r\n  \"relation\": [\r\n    {\r\n      \"type\": \"0\",\r\n      \"isPublic\": \"0\"\r\n    }\r\n  ],\r\n  \"meta\": \"0\",\r\n  \"directories\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"single\": \"sai\",\r\n      \"plural\": \"sai\",\r\n      \"slug\": \"abc\",\r\n      \"categories\": [\"hi\",\"hello\"]\r\n    }\r\n  ],\r\n  \"categories\": [\"hi\",\"hello\"],\r\n  \"level\": \"xzy\",\r\n  \"logo\": \"rst\",\r\n  \"updatedBy\": \"0\",\r\n  \"updatedAt\": \"1-1-7\",\r\n  \"createdBy\": \"0\",\r\n  \"createdAt\": \"1-1-2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteDirectoryEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
