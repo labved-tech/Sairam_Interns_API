@@ -19,11 +19,11 @@ const ratingEntriesSchema = new Schema({
 
   _userId: { type: mongoose.ObjectId },
   status: { type: String },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-  updatedBy: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const RatingEntries = mongoose.model('ratingEntries', ratingEntriesSchema);

@@ -12,11 +12,11 @@ const ratingAttributeSchema = new Schema({
   Description: { type: String },
   Notes: { type: String },
   status: { type: String },
-  updatedAt: { type: Date },
-  updatedBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const RatingAttribute = mongoose.model(

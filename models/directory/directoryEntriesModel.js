@@ -18,11 +18,11 @@ const directoryEntriesSchema = new Schema({
   address: {
     address1: { type: String },
     message: { type: String },
-    Street: { type: String },
-    City: { type: String },
-    State: { type: String },
-    Country: { type: String },
-    PostalCode: { type: String },
+    street: { type: String },
+    city: { type: String },
+    state: { type: String },
+    country: { type: String },
+    postalCode: { type: String },
   },
   location: { type: Map },
   name: { type: String },
@@ -58,12 +58,11 @@ const directoryEntriesSchema = new Schema({
   categories: [],
   level: { type: String },
   logo: { type: String },
-  updatedBy: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-});
-
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 /* MODEL */
 const DirectoryEntries = mongoose.model(
   'directoryEntries',

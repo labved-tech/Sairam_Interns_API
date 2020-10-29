@@ -11,11 +11,11 @@ const ratingAttributeGroupsSchema = new Schema({
   _attributId: { type: mongoose.ObjectId },
   status: { type: String },
   Description: { type: String },
-  updatedAt: { type: Date },
-  updatedBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const RatingAttributeGroups = mongoose.model(

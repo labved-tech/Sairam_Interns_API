@@ -13,7 +13,7 @@ const directoryAttributeGroupsSchema = new Schema({
       _id: { type: mongoose.ObjectId },
       name: { type: String },
       type: { type: String },
-      Description: { type: String },
+      description: { type: String },
       notes: { type: String },
       status: { type: String },
       createdBy: { type: mongoose.ObjectId, required: true },

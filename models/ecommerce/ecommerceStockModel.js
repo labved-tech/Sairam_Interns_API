@@ -16,8 +16,8 @@ const ecommerceStockSchema = new Schema({
       createdBy: { type: String },
       discountVol: { type: Number },
       discountPercent: { type: Number },
-      Name: { type: String },
-      Description: { type: String },
+      name: { type: String },
+      description: { type: String },
     },
   ],
   availableStock: { type: Number },
@@ -29,17 +29,19 @@ const ecommerceStockSchema = new Schema({
       IGST: { type: String },
     },
   ],
-  Name: { type: String },
-  Description: { type: String },
-  Notes: { type: String },
+  name: { type: String },
+  description: { type: String },
+  notes: { type: String },
   _locationId: { type: mongoose.ObjectId },
   status: { type: String },
-  updatedAt: { type: Date },
-  updatedBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
   maxQuantityPerOrderNumber: { type: Number },
-});
+},
+{ timestamps: true }
+);
+ 
+
 
 /* MODEL */
 const EcommerceStock = mongoose.model('ecommerceStock', ecommerceStockSchema);
