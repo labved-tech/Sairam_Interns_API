@@ -43,10 +43,10 @@ const farmStrategySchema = new Schema({
       ],
       stageOrder: { type: Number },
       editable: { type: Boolean },
-      createdBy: { type: mongoose.ObjectId },
-      createdAt: { type: Date },
-      updatedAt: { type: Date },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
     },
+    { timestamps: true }
   ],
   _contractId: { type: mongoose.ObjectId },
   exportedStrategyId: { type: String },

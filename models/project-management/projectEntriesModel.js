@@ -18,11 +18,11 @@ const projectEntriesSchema = new Schema({
   type: { type: String },
   _farmId: { type: mongoose.ObjectId },
   _farmRegionId: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  _createdbyId: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-  _updatedbyId: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const ProjectEntries = mongoose.model('projectEntries', projectEntriesSchema);

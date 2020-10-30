@@ -25,11 +25,11 @@ const farmEntriesSchema = new Schema({
     units: { type: String },
   },
   documents: [],
-  createdBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  updatedBy: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const FarmEntries = mongoose.model('farmEntries', farmEntriesSchema);
