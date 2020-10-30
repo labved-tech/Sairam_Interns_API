@@ -20,10 +20,13 @@ const announcementEntriesSchema = new Schema({
   ],
   expires: { type: Number },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
+
+  
 
 /* MODEL */
 const AnnouncementEntries = mongoose.model(

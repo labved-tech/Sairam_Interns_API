@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ccc2547f-37ff-4556-8714-f4ebfb5a18c3",
+		"_postman_id": "e6d7f28f-2077-4517-be0d-d158e4abcf23",
 		"name": "ecommerceLocation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceLocations",
+					"raw": "localhost:3000/api/v1/ecommerce-locations",
 					"host": [
 						"localhost"
 					],
@@ -19,7 +19,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceLocations"
+						"ecommerce-locations"
 					]
 				}
 			},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \" \",\r\n  },\r\n  \"GSTNo\": \" \",\r\n  \"PANNo\": \"\",\r\n  \"licenseNo\": \" \",\r\n  \"status\": \" \",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \" \",\r\n      \"URL\": \" \",\r\n      \"type\": \" \"\r\n    }\r\n  ],\r\n  \"Name\": \" \",\r\n  \"description\": \" \",\r\n  \"notes\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \",\r\n}",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"0\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdBy\": \"0\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,7 +40,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceLocations",
+					"raw": "localhost:3000/api/v1/ecommerce-locations",
 					"host": [
 						"localhost"
 					],
@@ -48,7 +48,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceLocations"
+						"ecommerce-locations"
 					]
 				}
 			},
@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceLocations/0",
+					"raw": "localhost:3000/api/v1/ecommerce-locations/0",
 					"host": [
 						"localhost"
 					],
@@ -68,7 +68,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceLocations",
+						"ecommerce-locations",
 						"0"
 					]
 				}
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \" \",\r\n  },\r\n  \"GSTNo\": \" \",\r\n  \"PANNo\": \"\",\r\n  \"licenseNo\": \" \",\r\n  \"status\": \" \",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \" \",\r\n      \"URL\": \" \",\r\n      \"type\": \" \"\r\n    }\r\n  ],\r\n  \"Name\": \" \",\r\n  \"description\": \" \",\r\n  \"notes\": \" \",\r\n  \"_reviewAttributeId\": \" \",\r\n  \"updatedAt\": \" \",\r\n  \"updatedBy\": \" \",\r\n  \"createdAt\": \" \",\r\n  \"createdBy\": \" \"\r\n}",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"Name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"0\",\r\n  \"updatedAt\": \"1-2-3\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-3-04\",\r\n  \"createdBy\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceLocations/0",
+					"raw": "localhost:3000/api/v1/ecommerce-locations/0",
 					"host": [
 						"localhost"
 					],
@@ -98,7 +98,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceLocations",
+						"ecommerce-locations",
 						"0"
 					]
 				}
@@ -111,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerceLocations/0",
+					"raw": "localhost:3000/api/v1/ecommerce-locations/0",
 					"host": [
 						"localhost"
 					],
@@ -119,7 +119,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerceLocations",
+						"ecommerce-locations",
 						"0"
 					]
 				}

@@ -13,22 +13,21 @@ const directoryAttributeGroupsSchema = new Schema({
       _id: { type: mongoose.ObjectId },
       name: { type: String },
       type: { type: String },
-      Description: { type: String },
+      description: { type: String },
       notes: { type: String },
       status: { type: String },
-      updatedBy: { type: mongoose.ObjectId },
-      updatedAt: { type: Date },
-      createdBy: { type: mongoose.ObjectId },
-      createdAt: { type: Date },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
     },
+    { timestamps: true },
   ],
   status: { type: String },
   description: { type: String },
-  updatedBy: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 /* MODEL */
 const DirectoryAttributeGroups = mongoose.model(
   'directoryAttributeGroups',

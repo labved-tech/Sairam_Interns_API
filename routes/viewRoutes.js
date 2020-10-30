@@ -1,5 +1,4 @@
 /* DEPENDENCIES */
-const { Router } = require('express');
 const express = require('express');
 
 /* MIDDLEWARE */

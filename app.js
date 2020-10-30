@@ -10,90 +10,14 @@ const app = express();
 app.use(express.json());
 
 /* USER DEFINED MIDDLEWARES */
+const AppError = require('./utils/appError');
+const globalErrorHandler = require('./controllers/errorController')
 const viewRouter = require('./routes/viewRoutes');
+const apiv1Router = require('./routes/apiv1Routes');
+
 const exampleRouter = require('./routes/exampleRoutes');
 const userRouter = require('./routes/account-settings/users/userInformationRoutes');
 const menuRouter = require('./routes/account-settings/menu/menuRoutes');
-
-//INTERNS
-const analyticsRouter = require('./routes/analytics/analyticsRoutes');
-
-const formResponseRouter = require('./routes/forms/formResponseRoutes');
-const formsRouter = require('./routes/forms/formsRoutes');
-
-const chartsRouter = require('./routes/charts/chartsRoutes');
-
-const pagesRouter = require('./routes/pages/pagesRoutes');
-
-const reportsRouter = require('./routes/reports/reportsRoutes');
-
-const announcementEntriesRouter = require('./routes/announcement/announcementEntriesRoutes');
-const announcementNotifyRouter = require('./routes/announcement/announcementNotifyRoutes');
-
-const leadEntriesRouter = require('./routes/leads/leadEntriesRoutes');
-const leadCategoriesRouter = require('./routes/leads/leadCategoriesRoutes');
-const leadResponseRouter = require('./routes/leads/leadResponseRoutes');
-
-const farmEntriesRouter = require('./routes/precision-agriculture/farmEntriesRoutes');
-const farmExportedStrategyRouter = require('./routes/precision-agriculture/farmExportedStrategyRoutes');
-const farmRegionsRouter = require('./routes/precision-agriculture/farmRegionsRoutes');
-const farmStrategyRouter = require('./routes/precision-agriculture/farmStrategyRoutes');
-
-const milestoneRouter = require('./routes/project-management/milestoneRoutes');
-
-const projectActivityRouter = require('./routes/project-management/projectActivityRoutes');
-const projectAdminsRouter = require('./routes/project-management/projectAdminsRoutes');
-const projectDiscussionCommentsRouter = require('./routes/project-management/projectDiscussionCommentsRoutes');
-const projectDiscussionsRouter = require('./routes/project-management/projectDiscussionsRoutes');
-const projectEntriesRouter = require('./routes/project-management/projectEntriesRoutes');
-const projectFilesRouter = require('./routes/project-management/projectFilesRoutes');
-const projectMembersRouter = require('./routes/project-management/projectMembersRoutes');
-const projectNotesRouter = require('./routes/project-management/projectNotesRoutes');
-const projectTaskFilesRouter = require('./routes/project-management/projectTaskFilesRoutes');
-const projectTaskStatusRouter = require('./routes/project-management/projectTaskStatusRoutes');
-const taskChecklistEntriesRouter = require('./routes/project-management/taskChecklistEntriesRoutes');
-const taskChecklistStatusRouter = require('./routes/project-management/taskChecklistStatusRoutes');
-//const taskEntriesRouter = require('./routes/project-management/taskEntriesRoutes');
-const taskRemindersRouter = require('./routes/project-management/taskRemindersRoutes');
-const taskTimersRouter = require('./routes/project-management/taskTimersRoutes');
-
-const newsletterEntriesRouter = require('./routes/newsletter/newsletterEntriesRoutes');
-const newsletterMessagesRouter = require('./routes/newsletter/newsletterMessagesRoutes');
-
-const addressRouter = require('./routes/sales-finance/addressRoutes');
-const deliveryNoteRouter = require('./routes/sales-finance/deliveryNoteRoutes');
-const packingListRouter = require('./routes/sales-finance/packingListRoutes');
-//const perfomaInvoiceRouter = require('./routes/sales-finance/perfomaInvoiceRoutes');
-const quotationRouter = require('./routes/sales-finance/quotationRoutes');
-const taxInvoiceRouter = require('./routes/sales-finance/taxInvoiceRoutes');
-
-const ratingAttributeGroupsRouter = require('./routes/ratings/ratingAttributeGroupsRoutes');
-const ratingAttributeRouter = require('./routes/ratings/ratingAttributeRoutes');
-const ratingEntriesRouter = require('./routes/ratings/ratingEntriesRoutes');
-
-const ecommerceAddressRouter = require('./routes/ecommerce/ecommerceAddressRoutes');
-const ecommerceLocationsRouter = require('./routes/ecommerce/ecommerceLocationsRoutes');
-const ecommerceProductsRouter = require('./routes/ecommerce/ecommerceProductsRoutes');
-const ecommerceOrderRouter = require('./routes/ecommerce/ecommerceOrderRoutes');
-const ecommerceStockRouter = require('./routes/ecommerce/ecommerceStockRoutes');
-
-const commentEntriesRouter = require('./routes/comments/commentEntriesRoutes');
-
-const eventEntriesRouter = require('./routes/events/eventEntriesRoutes');
-
-const contractEntriesRouter = require('./routes/contract/contractEntriesRoutes');
-const contractTemplatesRouter = require('./routes/contract/contractTemplatesRoutes');
-
-const ticketCategoriesRouter = require('./routes/ticket-support/ticketCategoriesRoutes');
-const ticketEntriesRouter = require('./routes/ticket-support/ticketEntriesRoutes');
-const ticketProductsRouter = require('./routes/ticket-support/ticketProductsRoutes');
-const ticketResponseRouter = require('./routes/ticket-support/ticketResponseRoutes');
-
-const directoryAttributesRouter = require('./routes/directory/directoryAttributesGroupsRoutes');
-const directoryCategoriesRouter = require('./routes/directory/directoryCategoriesRoutes');
-const directoryEntriesRouter = require('./routes/directory/directoryEntriesRoutes');
-const directoryLevelsRouter = require('./routes/directory/directoryLevelsRoutes');
-const directoryRouter = require('./routes/directory/directoryRoutes');
 
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
@@ -124,85 +48,17 @@ app.use((req, res, next) => {
 app.use('/', viewRouter);
 
 // API
+app.use('/api/v1', apiv1Router);
+
 app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
-// INTERNS
-app.use('/api/v1/announcement-entries', announcementEntriesRouter);
-app.use('/api/v1/announcement-notify', announcementNotifyRouter);
+app.all('*', (req, res, next) => {
+  //next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+}); 
 
-app.use('/api/v1/lead-entries', leadEntriesRouter);
-app.use('/api/v1/lead-response', leadResponseRouter);
-app.use('/api/v1/lead-categories', leadCategoriesRouter);
+app.use(globalErrorHandler);
 
-app.use('/api/v1/analytics', analyticsRouter);
-app.use('/api/v1/charts', chartsRouter);
-app.use('/api/v1/forms', formsRouter);
-app.use('/api/v1/pages', pagesRouter);
-app.use('/api/v1/reports', reportsRouter);
-
-app.use('/api/v1/farm-entries', farmEntriesRouter);
-app.use('/api/v1/farm-exported-strategy', farmExportedStrategyRouter);
-app.use('/api/v1/farm-regions', farmRegionsRouter);
-app.use('/api/v1/farm-strategy', farmStrategyRouter);
-app.use('/api/v1/form-response', formResponseRouter);
-
-app.use('/api/v1/milestone', milestoneRouter);
-app.use('/api/v1/project-activity', projectActivityRouter);
-app.use('/api/v1/project-admins', projectAdminsRouter);
-app.use('/api/v1/project-discussion-comments', projectDiscussionCommentsRouter);
-app.use('/api/v1/project-discussions', projectDiscussionsRouter);
-app.use('/api/v1/project-entries', projectEntriesRouter);
-app.use('/api/v1/project-files', projectFilesRouter);
-app.use('/api/v1/project-members', projectMembersRouter);
-app.use('/api/v1/project-notes', projectNotesRouter);
-app.use('/api/v1/project-task-files', projectTaskFilesRouter);
-app.use('/api/v1/project-task-status', projectTaskStatusRouter);
-app.use('/api/v1/task-checklist-entries', taskChecklistEntriesRouter);
-app.use('/api/v1/task-checklist-status', taskChecklistStatusRouter);
-//app.use('/api/v1/task-entries',taskEntriesRouter);
-app.use('/api/v1/task-reminders', taskRemindersRouter);
-app.use('/api/v1/task-timers', taskTimersRouter);
-
-app.use('/api/v1/newsletter-entries', newsletterEntriesRouter);
-app.use('/api/v1/newsletter-messages', newsletterMessagesRouter);
-
-app.use('/api/v1/address', addressRouter);
-app.use('/api/v1/delivery-note', deliveryNoteRouter);
-app.use('/api/v1/packing-list', packingListRouter);
-//app.use('/api/v1/perfoma-invoice', perfomaInvoiceRouter);
-app.use('/api/v1/quotation', quotationRouter);
-app.use('/api/v1/tax-invoice', taxInvoiceRouter);
-
-app.use('/api/v1/commentEntries', commentEntriesRouter);
-
-app.use('/api/v1/ecommerce-address', ecommerceAddressRouter);
-app.use('/api/v1/ecommerce-locations', ecommerceLocationsRouter);
-app.use('/api/v1/ecommerce-order', ecommerceOrderRouter);
-app.use('/api/v1/ecommerce-products', ecommerceProductsRouter);
-app.use('/api/v1/ecommerce-stock', ecommerceStockRouter);
-
-app.use('/api/v1/ratingAttributeGroups', ratingAttributeGroupsRouter);
-app.use('/api/v1/ratingAttribute', ratingAttributeRouter);
-app.use('/api/v1/ratingEntries', ratingEntriesRouter);
-
-app.use('/api/v1/directoryAttributes', directoryAttributesRouter);
-app.use('/api/v1/directoryCategories', directoryCategoriesRouter);
-app.use('/api/v1/directoryEntries', directoryEntriesRouter);
-app.use('/api/v1/directoryLevels', directoryLevelsRouter);
-app.use('/api/v1/directory', directoryRouter);
-
-app.use('/api/v1/commentEntries', commentEntriesRouter);
-
-app.use('/api/v1/eventEntries', eventEntriesRouter);
-
-app.use('/api/v1/contractEntries', contractEntriesRouter);
-app.use('/api/v1/contractTemplates', contractTemplatesRouter);
-
-app.use('/api/v1/ticketCategories', ticketCategoriesRouter);
-app.use('/api/v1/ticketEntries', ticketEntriesRouter);
-app.use('/api/v1/ticketProducts', ticketProductsRouter);
-app.use('/api/v1/ticketResponse', ticketResponseRouter);
 
 module.exports = app;

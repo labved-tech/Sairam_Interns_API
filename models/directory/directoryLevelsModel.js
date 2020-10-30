@@ -20,7 +20,7 @@ const directoryLevelsSchema = new Schema({
   map: { type: Boolean },
   mapMakers: { type: Boolean },
   logoEnabled: { type: Boolean },
-  ImageLimit: { type: Number },
+  imageLimit: { type: Number },
   updatedAt: { type: Date },
   videoLimit: { type: Number },
   contentFields: { type: Object },

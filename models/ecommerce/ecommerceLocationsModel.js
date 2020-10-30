@@ -28,15 +28,15 @@ const ecommerceLocationsSchema = new Schema({
       type: { type: String },
     },
   ],
-  Name: { type: String },
+  name: { type: String },
   description: { type: String },
   notes: { type: String },
   _reviewAttributeId: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-  updatedBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const EcommerceLocations = mongoose.model(

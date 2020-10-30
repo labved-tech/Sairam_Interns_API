@@ -4,6 +4,7 @@ const express = require('express');
 // MIDDLEWARE
 const router = express.Router();
 const userInformationController = require('../../../controllers/account-settings/user/userInformationController');
+const authController = require('../../../controllers/authController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.param('id', (req, res, next, val) => {
@@ -17,6 +18,8 @@ router.use((req, res, next) => {
 });
 
 // ROUTES
+router.post('/signup', authController.signup);
+
 router
   .route('/')
   .get(userInformationController.getAllUser)

@@ -11,8 +11,11 @@ const directoryCategoriesSchema = new Schema({
   slug: { type: String },
   _attributeGroupsId: { type: mongoose.ObjectId },
   _ratingAttributeGroupId: { type: mongoose.ObjectId },
-});
-
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 /* MODEL */
 const DirectoryCategories = mongoose.model(
   'directoryCategories',

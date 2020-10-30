@@ -16,7 +16,7 @@ const ecommerceOrderSchema = new Schema({
       HSNCode: { type: String },
       quanity: { type: Number },
       unitPrice: { type: Number },
-      meta: { type: Object },
+      meta: { type: mongoose.ObjectId },
       discount: { type: Number },
       tax: {
         _id: { type: mongoose.ObjectId },
@@ -37,11 +37,11 @@ const ecommerceOrderSchema = new Schema({
   netTotal: { type: Number },
   status: { type: String },
   _userId: { type: mongoose.ObjectId },
-  updatedAt: { type: Date },
-  updatedBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const EcommerceOrder = mongoose.model('ecommerceOrder', ecommerceOrderSchema);
