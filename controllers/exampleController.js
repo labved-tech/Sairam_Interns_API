@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const catchAsync = require('./../utils/catchAsync');
+const catchAsync = require('../utils/catchAsync');
 const Example = require('../models/exampleModel');
 
 /* DATABASE */
@@ -26,7 +26,7 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
     data: {
       examples,
     },
-  })
+  });
 });
 
 exports.getExample = catchAsync(async (req, res, next) => {
@@ -41,18 +41,16 @@ exports.getExample = catchAsync(async (req, res, next) => {
   });
 });
 
-
-
 exports.createExample = catchAsync(async (req, res, next) => {
   console.log('Creating Example');
 
   const example = await Example.create(req.body).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created Example',
-      data: { example },
-    });
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created Example',
+    data: { example },
+  });
 });
 
 exports.updateExample = catchAsync(async (req, res, next) => {
@@ -68,7 +66,6 @@ exports.updateExample = catchAsync(async (req, res, next) => {
     message: `Updated Example Id=${id}`,
     data: { example },
   });
-
 });
 
 exports.deleteExample = catchAsync(async (req, res, next) => {
