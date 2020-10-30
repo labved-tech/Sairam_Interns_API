@@ -1,10 +1,106 @@
 {
 	"info": {
-		"_postman_id": "4f9676f9-fce3-4735-b4b9-364d0e868b99",
+		"_postman_id": "f9b15ee7-6bb4-4765-beb1-3524f1bdb1ac",
 		"name": "eventEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "patcheventEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"success\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": \"23/10/2020\",\r\n  \"type\": \"database\",\r\n  \"meta\": [],\r\n  \"location\": \"Chennai\",\r\n  \"boundary\": \"63245\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"createdBy\": \"1\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/eventEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"eventEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteeventEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/eventEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"eventEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "geteventEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/eventEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"eventEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "posteventEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"status\": \"success\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": \"23/10/2020\",\r\n  \"type\": \"database\",\r\n  \"meta\": [],\r\n  \"location\": \"Chennai\",\r\n  \"boundary\": \"63245\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"createdBy\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/eventEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"eventEntries"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getAlleventEntries",
 			"protocolProfileBehavior": {
@@ -30,100 +126,8 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"eventEntries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "posteventEntries",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"success\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": \"23/10/2020\",\r\n  \"type\": \"database\",\r\n  \"meta\": [],\r\n  \"location\": \"Chennai\",\r\n  \"boundary\": \"63245\",\r\n  \"createdAt\": \"28/10/2020\"},\r\n  \"createdBy\": { type: mongoose.ObjectId }\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/eventEntries",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v",
-						"eventEntries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "geteventEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/eventEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v",
-						"eventEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "patcheventEntries",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/eventEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v",
-						"eventEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteeventEntries",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/eventEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v",
-						"eventEntries",
-						"0"
 					]
 				}
 			},

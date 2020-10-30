@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "14c59d49-54e4-48df-951c-305878b8422c",
+		"_postman_id": "4c0538a7-07df-420a-be78-351d288dc1bc",
 		"name": "TicketProducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,7 +18,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketProducts"
 					]
 				}
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"updatedAt\": \"29/10/2020\",\r\n  \"createdBy\": \"API\",\r\n  \"updatedBy\": \"API\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -47,7 +47,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketProducts"
 					]
 				}
@@ -67,7 +67,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketProducts",
 						"0"
 					]
@@ -80,6 +80,10 @@
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\"\r\n}"
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/ticketProducts/0",
 					"host": [
@@ -88,7 +92,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketProducts",
 						"0"
 					]
@@ -109,7 +113,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketProducts",
 						"0"
 					]

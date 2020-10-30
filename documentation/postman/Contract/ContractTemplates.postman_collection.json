@@ -11,14 +11,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v/contractTemplates",
+					"raw": "localhost:3000/api/v1/contractTemplates",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"contractTemplates"
 					]
 				}
@@ -40,35 +40,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v/contractTemplates/0",
+					"raw": "localhost:3000/api/v1/contractTemplates/0",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
-						"contractTemplates",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOnecontractTemplates",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v/contractTemplates/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v",
+						"v1",
 						"contractTemplates",
 						"0"
 					]
@@ -82,14 +61,14 @@
 				"method": "PATCH",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v/contractTemplates/0",
+					"raw": "localhost:3000/api/v1/contractTemplates/0",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"contractTemplates",
 						"0"
 					]
@@ -101,6 +80,27 @@
 			"name": "deletecontractTemplates",
 			"request": {
 				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/contractTemplates/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contractTemplates",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOnecontractTemplates",
+			"request": {
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v/contractTemplates/0",

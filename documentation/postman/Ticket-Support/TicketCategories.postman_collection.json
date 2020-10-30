@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5e94dcd9-c8f3-4be1-9b3c-665a46924a35",
+		"_postman_id": "7db4e6da-7711-4f6a-abf8-78860755107e",
 		"name": "TicketCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,7 +18,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketCategories"
 					]
 				}
@@ -47,7 +47,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketCategories"
 					]
 				}
@@ -67,7 +67,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketCategories",
 						"0"
 					]
@@ -80,6 +80,10 @@
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"updatedAt\": \"29/10/2020\",\r\n  \"createdBy\": \"API\",\r\n  \"updatedBy\": \"API\"\r\n}"
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/ticketCategories",
 					"host": [
@@ -88,7 +92,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketCategories"
 					]
 				}
@@ -108,7 +112,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketCategories"
 					]
 				}
