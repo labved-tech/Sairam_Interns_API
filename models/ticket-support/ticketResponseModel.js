@@ -13,8 +13,11 @@ const ticketResponseSchema = new Schema({
   emailSent: { type: Boolean },
   isStatusChange: { type: Boolean },
   body: { type: String },
-});
-
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 /* MODEL */
 const TicketResponse = mongoose.model('ticketResponse', ticketResponseSchema);
 

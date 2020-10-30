@@ -31,7 +31,11 @@ const contractEntriesSchema = new Schema({
   signedContractUploaded: { type: String },
   termsAndConditions: [],
   status: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const ContractEntries = mongoose.model(

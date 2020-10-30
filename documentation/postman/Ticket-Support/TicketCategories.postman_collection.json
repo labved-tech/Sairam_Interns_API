@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"updatedAt\": \"29/10/2020\",\r\n  \"createdBy\": \"API\",\r\n  \"updatedBy\": \"API\"\r\n}",
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\",\r\n  \"createdAt\": \"28/10/2020\",\r\n  \"updatedAt\": \"29/10/2020\",\r\n  \"createdBy\": \"API\",\r\n  \"updatedBy\": \"API\"\r\n}"
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\"\r\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/api/v1/ticketCategories",
