@@ -24,7 +24,11 @@ const directoryLevelsSchema = new Schema({
   updatedAt: { type: Date },
   videoLimit: { type: Number },
   contentFields: { type: Object },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const DirectoryLevels = mongoose.model(
