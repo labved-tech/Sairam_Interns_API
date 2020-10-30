@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../../utils/catchAsync');
 const UserInformation = require('../../../models/account-settings/user/userInformationModel');
 const PersonalDetails = require('../../../models/general/personalDetailsModel');
 const OrganisationDetails = require('../../../models/general/organisationDetailsModel');
@@ -58,7 +59,7 @@ exports.getUser = async (req, res, next) => {
   next();
 };
 
-exports.createUser = async (req, res, next) => {
+exports.createUser = catchAsync(async (req, res, next) => {
   console.log('Creating User');
 
   // parse through models
@@ -89,23 +90,13 @@ exports.createUser = async (req, res, next) => {
   //console.log(doc);
 
   // database operation
-  try {
-    const user = await UserInformation.create(doc).then();
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created User',
-      data: { user },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
-  next();
-};
-
+  const user = await UserInformation.create(doc).then();
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created User',
+    data: { user },
+  });
+});
 exports.updateUser = async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating User Id ${id}`);

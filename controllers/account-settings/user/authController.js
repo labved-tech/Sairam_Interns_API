@@ -1,4 +1,5 @@
 /* DEPENDENCIES */
+const bcrypt = require('bcryptjs');
 
 /* MIDDLEWARES */
 const Users = require('../../../models/account-settings/user/userInformationModel');
