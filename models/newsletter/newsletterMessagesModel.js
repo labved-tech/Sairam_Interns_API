@@ -14,7 +14,11 @@ const newsletterMessagesSchema = new Schema({
   sent: { type: Boolean },
   visited: { type: Boolean },
   lastVisited: { type: Boolean },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
 
 /* MODEL */
 const NewsletterMessages = mongoose.model(

@@ -20,7 +20,12 @@ const announcementNotifySchema = new Schema({
       sentAt: { type: Date },
     },
   ],
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
+
 
 /* MODEL */
 const AnnouncementNotify = mongoose.model(

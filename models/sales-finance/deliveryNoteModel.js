@@ -26,7 +26,12 @@ const deliveryNoteSchema = new Schema({
   shippingNotes: { type: String },
   receivedBy: { type: String },
   fileProof: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
+
 
 /* MODEL */
 const DeliveryNote = mongoose.model('deliveryNote', deliveryNoteSchema);

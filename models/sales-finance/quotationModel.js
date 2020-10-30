@@ -34,7 +34,12 @@ const quotationSchema = new Schema({
     meta: { type: Object },
   },
   QuotationNumber: { type: Number },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
+
 
 /* MODEL */
 const Quotation = mongoose.model('quotation', quotationSchema);

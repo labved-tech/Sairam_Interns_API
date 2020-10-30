@@ -74,7 +74,12 @@ const perfomaInvoiceSchema = new Schema({
   meta: { type: Object },
   source: { type: String },
   perfomaInvoiceNumber: { type: Number },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
+
 
 /* MODEL */
 const PerfomaInvoice = mongoose.model('perfomaInvoice', perfomaInvoiceSchema);

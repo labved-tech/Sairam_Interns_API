@@ -51,7 +51,11 @@ const packingListSchema = new Schema({
   carrierTrackingNumber: { type: Number },
   shippingNotes: { type: String },
   fileProof: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
 
 /* MODEL */
 const PackingList = mongoose.model('packingList', packingListSchema);
