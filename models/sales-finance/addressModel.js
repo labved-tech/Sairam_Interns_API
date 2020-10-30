@@ -11,7 +11,11 @@ const addressSchema = new Schema({
   state: { type: String },
   country: { type: String },
   pinCode: { type: Number },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
 
 /* MODEL */
 const Address = mongoose.model('address', addressSchema);
