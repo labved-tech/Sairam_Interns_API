@@ -13,7 +13,12 @@ const ecommerceAddressSchema = new Schema({
   state: { type: String },
   country: { type: String },
   postalcode: { type: Number },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true },
+);
+
 
 /* MODEL */
 const EcommerceAddress = mongoose.model(

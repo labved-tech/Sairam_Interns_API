@@ -11,8 +11,13 @@ const directorySchema = new Schema({
     single:{type:String},
     plural:{type:String},
     slug:{type:String},
-    categories:[]
-});
+    categories:[],
+    createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
+    },
+    { timestamps: true }
+);
+
 
 /* MODEL */
 const Directory = mongoose.model('directory', directorySchema);

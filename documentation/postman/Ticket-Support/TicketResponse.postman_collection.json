@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "89b001a7-eb5b-4428-90ce-4f60c64bb8c1",
+		"_postman_id": "ef48773b-ca76-4e64-b078-e51fe44a3e8e",
 		"name": "TicketResponse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -18,7 +18,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketResponse"
 					]
 				}
@@ -47,7 +47,7 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketResponse"
 					]
 				}
@@ -67,7 +67,32 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
+						"ticketResponse",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTicketResponse",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_ticketId\": \"899634286\",\r\n  \"_responderId\": \"vignesh08\",\r\n  \"responderName\": \"vignesh\" ,\r\n  \"emailSent\": \"true\",\r\n  \"isStatusChange\": \"true\",\r\n  \"body\": \"welcome to postman\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ticketResponse/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
 						"ticketResponse",
 						"0"
 					]
@@ -88,29 +113,8 @@
 					"port": "3000",
 					"path": [
 						"api",
-						"v",
+						"v1",
 						"ticketResponse"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateTicketResponse",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ticketResponse/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v",
-						"ticketResponse",
-						"0"
 					]
 				}
 			},

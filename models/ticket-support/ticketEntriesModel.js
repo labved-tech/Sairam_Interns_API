@@ -22,7 +22,11 @@ const ticketEntriesSchema = new Schema({
   lastActivityDate: { type: Date },
   lastActivityBy: { type: String },
   _agencyId: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 /* MODEL */
 const TicketEntries = mongoose.model('ticketEntries', ticketEntriesSchema);
 

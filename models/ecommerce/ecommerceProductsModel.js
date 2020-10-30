@@ -21,7 +21,11 @@ const ecommerceProductsSchema = new Schema({
   _reviewAttributeId: { type: mongoose.ObjectId },
   status: { type: String },
   HSNCode: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const EcommerceProducts = mongoose.model(

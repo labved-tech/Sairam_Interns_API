@@ -11,11 +11,11 @@ const ticketProductsSchema = new Schema({
   description: { type: String },
   notes: { type: String },
   status: { type: String },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-  updatedBy: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 /* MODEL */
 const TicketProducts = mongoose.model('ticketProducts', ticketProductsSchema);
 

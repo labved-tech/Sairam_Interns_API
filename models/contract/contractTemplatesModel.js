@@ -28,11 +28,10 @@ const contractTemplatesSchema = new Schema({
       _id: { type: mongoose.ObjectId },
       name: { type: String },
       type: { type: String },
-      createdAt: { type: Date },
-      createdBy: { type: mongoose.ObjectId },
-      updatedAt: { type: Date },
-      updatedBy: { type: mongoose.ObjectId },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
     },
+    { timestamps: true }
   ],
   terms: [
     {
@@ -41,10 +40,11 @@ const contractTemplatesSchema = new Schema({
     },
   ],
   validity: { type: Number },
-  createdBy: { type: mongoose.ObjectId },
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const ContractTemplates = mongoose.model(

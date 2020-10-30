@@ -72,6 +72,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"success\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": \"sucess\",\n  \"visited\":\"yes\",\n  \"lastVisited\": \"29/10/20\"\n} ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/newsletter-messages",
 					"host": [
