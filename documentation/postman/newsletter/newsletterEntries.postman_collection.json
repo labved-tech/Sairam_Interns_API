@@ -60,7 +60,12 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": ""
+					"raw": "{\n    \"fromEmail\": \"gowri@gmail.com\",\n  \"description\": \"student\",\n  \"newsletterType\": \"newsletter\",\n  \"list\": \n  [\n    {\n      \n     \" name\": \"gowri\",\n      \"description\": \"female\",\n      \"emails\": [],\n      \"notes\": \" \",\n      \"status\": \"success\"\n    }  \n  ]   \n}   \n  \n  ",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "localhost:3000/api/v1/newsletter-entries",

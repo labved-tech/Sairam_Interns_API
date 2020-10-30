@@ -30,6 +30,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n     \"priority \" : \"1\",\n     \"recipient\": [\n     { \n      \"recipentName\": \"gowri\",\n      \"recipentEmail\": \"gowri@gmail.com\",\n      \"isEmailSent\": \"yes\",\n      \"seenAt\": \"29/10/20\",\n      \"sentAt\": \"28/10/20\"}\n     ]\n }\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/announcement-notify",
 					"host": [
