@@ -24,11 +24,6 @@ const newsletterEntriesSchema = new Schema({
       updatedBy: { type: mongoose.ObjectId },
     },
   ],
-  createdAt: { type: Date },
-  updatedAt: { type: Date },
-  createdBy: { type: mongoose.ObjectId },
-  updatedBy: { type: mongoose.ObjectId },
-});
   createdBy: { type: mongoose.ObjectId, required: true },
   updatedBy: { type: mongoose.ObjectId, required: true },
 },
