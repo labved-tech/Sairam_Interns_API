@@ -1,13 +1,13 @@
 const doc = {
   name: 'aside-menu',
-  content: 'This content is from dashboard.pug',
+  content: 'This content is from dashboard1.pug',
   sectionItems: [
     {
       sectionName: 'Module Management',
       isSection: false,
-      priority : 1,
+      priority: 1,
       menuItemsNo: 11,
-      menuItems:  [
+      menuItems: [
         {
           name: 'Announcements',
           route: 'announcements',
@@ -243,7 +243,7 @@ const doc = {
     {
       sectionName: 'Administration',
       isSection: false,
-      priority : 2,
+      priority: 2,
       menuItemsNo: 1,
       menuItems: [
         {
@@ -252,7 +252,7 @@ const doc = {
           priority: 1,
           subItems1No: 6,
           subItems1: [
-            { 
+            {
               name: 'Subscription',
               route: 'subscription',
               priority: 1,
@@ -378,30 +378,30 @@ exports.getSignUp = (req, res) => {
   console.log('We are in Sign-Up Page');
 
   res.status(200).render('./pages/signup');
-}
+};
 exports.getSignIn = (req, res) => {
   console.log('We are in Sign-In Page');
 
   res.status(200).render('./pages/signin');
-}
+};
 exports.getForgot = (req, res) => {
   console.log('We are in Forgot Password Page');
 
   res.status(200).render('./pages/forgot');
-}
+};
 exports.getError = (req, res) => {
   console.log('We are in Error Page');
 
   res.status(200).render('./pages/error');
-}
+};
 
 // ACCOUNT SETTINGS RELATED CONTROLLER
 exports.getAllUser = (req, res) => {
   console.log('We are in All Users Page');
 
   res.status(200).render('./../views/pages/all-users', doc);
-}
+};
 exports.getAddUser = (req, res) => {
   console.log('We are in Add Users Page');
   res.status(200).render(`./../views/pages/add-user`, doc);
-}
+};
