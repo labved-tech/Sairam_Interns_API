@@ -29,6 +29,11 @@ const newsletterEntriesSchema = new Schema({
   createdBy: { type: mongoose.ObjectId },
   updatedBy: { type: mongoose.ObjectId },
 });
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{timestamps: true}
+);
 
 /* MODEL */
 const NewsletterEntries = mongoose.model(
