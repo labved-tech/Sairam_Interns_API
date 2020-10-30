@@ -16,7 +16,6 @@ const viewRouter = require('./routes/viewRoutes');
 const apiv1Router = require('./routes/apiv1Routes');
 
 const exampleRouter = require('./routes/exampleRoutes');
-const userRouter = require('./routes/account-settings/users/userInformationRoutes');
 const menuRouter = require('./routes/account-settings/menu/menuRoutes');
 
 /* ENVIRONMENT */
@@ -51,7 +50,6 @@ app.use('/', viewRouter);
 app.use('/api/v1', apiv1Router);
 
 app.use('/api/v1/example', exampleRouter);
-app.use('/api/v1/user', userRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
 /* app.all('*', (req, res, next) => {

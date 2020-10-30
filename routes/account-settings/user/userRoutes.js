@@ -3,8 +3,8 @@ const express = require('express');
 
 // MIDDLEWARE
 const router = express.Router();
-const userInformationController = require('../../../controllers/account-settings/user/userInformationController');
-const authController = require('../../../controllers/authController');
+const userInformationController = require('../../../controllers/account-settings/user/userController');
+const authController = require('../../../controllers/account-settings/user/authController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.param('id', (req, res, next, val) => {

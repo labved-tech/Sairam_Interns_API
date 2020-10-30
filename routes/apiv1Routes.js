@@ -4,6 +4,7 @@ const express = require('express');
 /* MIDDLEWARE */
 const router = express.Router();
 
+const userRouter = require('./account-settings/user/userRoutes');
 
 const analyticsRouter = require('./analytics/analyticsRoutes');
 
@@ -87,6 +88,11 @@ const directoryRouter = require('./directory/directoryRoutes');
 /* GLOBAL MIDDLEWARE USAGE*/
 
 /* ROUTES */
+
+// USERS
+router.use('/users', userRouter);
+
+// ANNOUNCEMENT
 router.use('/announcement-entries', announcementEntriesRouter);
 router.use('/announcement-notify', announcementNotifyRouter);
 

@@ -1,6 +1,7 @@
 /* DEPENDENCIES */
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
 
 /* SCHEMA CONSTRUCTOR */
 const { Schema } = mongoose;
@@ -24,9 +25,20 @@ const userInformationSchema = new Schema(
     },
     password: {
       type: String,
-      required: [true, 'Please provide a valid password'],
+      required: [1, 'Please provide a valid password'],
       minlength: 8,
       trim: true,
+    },
+    passwordConfirm: {
+      type: String,
+      required: [true, 'Please provide a valid password'],
+      validate: {
+        // this only works on CREATE and SAVE!!!
+        validator: function (el) {
+          return el === this.password;
+        },
+        message: 'Password are not the same!',
+      },
     },
     accountType: {
       type: String,
@@ -49,6 +61,18 @@ const userInformationSchema = new Schema(
   },
   { timestamps: true }
 );
+
+userInformationSchema.pre('save', function (next) {
+  // Only run this function if password was actually modified
+  if (!this.isModified('password')) return next();
+
+  // Hash the password with cost of 12
+  this.password = bcrypt.hash(this.password, 12);
+
+  // Delete passwordConfirm field
+  this.passwordConfirm = undefined;
+  next();
+});
 
 /* MODEL */
 const UserInformation = mongoose.model(
