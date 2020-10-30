@@ -1,5 +1,6 @@
 /* DEPENDENCIES */
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 
 /* MIDDLEWARES */
 const catchAsync = require('../../../utils/catchAsync');
