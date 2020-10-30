@@ -35,14 +35,22 @@ const directoryEntriesSchema = new Schema({
       item: { type: String },
       type: { type: String },
       isPublic: { type: Boolean },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
     },
+    { timestamps: true }
+   
   ],
   relation: [
     {
       _id: { type: mongoose.ObjectId },
       type: { type: Number },
       isPublic: { type: Number },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
     },
+    { timestamps: true }
+    
   ],
   meta: { type: Object },
   directories: [
@@ -53,7 +61,10 @@ const directoryEntriesSchema = new Schema({
       plural: { type: String },
       slug: { type: String },
       categories: [],
-    },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },  
+    },{timestamps: true }
+ 
   ],
   categories: [],
   level: { type: String },
