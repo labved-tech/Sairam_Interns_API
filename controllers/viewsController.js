@@ -1,6 +1,6 @@
 const doc = {
   name: 'aside-menu',
-  content: 'This content is from dashboard1.pug',
+  content: 'This content is from dashboard.pug',
   sectionItems: [
     {
       sectionName: 'Module Management',
