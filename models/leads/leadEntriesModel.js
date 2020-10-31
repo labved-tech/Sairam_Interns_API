@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const leadEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   title: { type: String },
   _categoryId: { type: mongoose.ObjectId },
@@ -29,8 +28,8 @@ const leadEntriesSchema = new Schema({
       item: { type: String },
       type: { type: String },
       isPublic: { type: Boolean },
-      createdBy: { type: mongoose.ObjectId, required: true },
-      updatedBy: { type: mongoose.ObjectId, required: true },
+      createdBy: { type: mongoose.ObjectId, required: 1  },
+      updatedBy: { type: mongoose.ObjectId, required: 1  },
     },
       { timestamps: true }
   ],
@@ -55,8 +54,8 @@ const leadEntriesSchema = new Schema({
   lastLeadStatus: { type: String },
   lastStatusChange: { type: Date },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId, required: 1 },
+  updatedBy: { type: mongoose.ObjectId, required: 1 },
 },
 { timestamps: true }
 );
