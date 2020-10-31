@@ -52,10 +52,12 @@ app.use('/api/v1', apiv1Router);
 app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
-/* app.all('*', (req, res, next) => {
+// Global can't find routes
+app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
-}); */
+});
 
+// Global error handler message
 app.use(globalErrorHandler);
 
 module.exports = app;

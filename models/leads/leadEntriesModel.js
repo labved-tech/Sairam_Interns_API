@@ -16,12 +16,12 @@ const leadEntriesSchema = new Schema({
   website: { type: String },
   address: {
     _id: { type: mongoose.ObjectId },
-    Address1: { type: String },
-    Street: { type: String },
-    City: { type: String },
-    State: { type: String },
-    Country: { type: String },
-    PostalCode: { type: String },
+    address1: { type: String },
+    street: { type: String },
+    city: { type: String },
+    state: { type: String },
+    country: { type: String },
+    postalCode: { type: String },
   },
   contactInformation: [
     {
@@ -29,7 +29,10 @@ const leadEntriesSchema = new Schema({
       item: { type: String },
       type: { type: String },
       isPublic: { type: Boolean },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
     },
+      { timestamps: true }
   ],
   assignedTo: { type: String },
   source: {

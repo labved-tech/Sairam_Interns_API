@@ -4,7 +4,8 @@ const bcrypt = require('bcryptjs');
 
 /* MIDDLEWARES */
 const catchAsync = require('../../../utils/catchAsync');
-const UserInformation = require('../../../models/account-settings/user/userInformationModel');
+const AppError = require('../../../utils/appError');
+const User = require('../../../models/account-settings/user/userInformationModel');
 const PersonalDetails = require('../../../models/general/personalDetailsModel');
 const OrganisationDetails = require('../../../models/general/organisationDetailsModel');
 
@@ -15,56 +16,41 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllUser = async (req, res, next) => {
+exports.getAllUser = catchAsync(async (req, res, next) => {
   console.log('Getting All User');
+  const users = await User.find().then();
 
-  try {
-    const users = await UserInformation.find().then();
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All Users',
+    results: users.length,
+    data: {
+      users,
+    },
+  });
+});
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All Users',
-      results: users.length,
-      data: {
-        users,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
-  next();
-};
-
-exports.getUser = async (req, res, next) => {
+exports.getUser = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting User for Id ${id}`);
+  const user = await User.findById(id).then();
 
-  try {
-    const user = await UserInformation.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got User Id=${id}`,
-      Data: { user },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
+  if (!user) {
+    return next(new AppError('No user found with that ID', 404));
   }
 
-  next();
-};
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got User Id=${id}`,
+    Data: { user },
+  });
+});
 
 exports.createUser = catchAsync(async (req, res, next) => {
   console.log('Creating User');
 
   // parse through models
-  const doc = new UserInformation(req.body);
+  const doc = new User(req.body);
   const dataPersonalDetails = new PersonalDetails(
     JSON.parse(JSON.stringify(req.body.personalDetails))
   );
@@ -91,55 +77,38 @@ exports.createUser = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   // database operation
-  const user = await UserInformation.create(doc).then();
+  const user = await User.create(doc).then();
   res.status(201).json({
     status: 'sucess',
     message: 'Created User',
     data: { user },
   });
 });
-exports.updateUser = async (req, res, next) => {
+
+exports.updateUser = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating User Id ${id}`);
 
-  try {
-    const user = await UserInformation.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+  const user = await User.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated User Id=${id}`,
-      data: { user },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated User Id=${id}`,
+    data: { user },
+  });
+});
 
-  next();
-};
-
-exports.deleteUser = async (req, res, next) => {
+exports.deleteUser = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting User Id ${id}`);
 
-  try {
-    const user = await UserInformation.findByIdAndDelete(id).then();
+  const user = await User.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted User Id=${id}`,
-      data: { user },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
-  next();
-};
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted User Id=${id}`,
+    data: { user },
+  });
+});
