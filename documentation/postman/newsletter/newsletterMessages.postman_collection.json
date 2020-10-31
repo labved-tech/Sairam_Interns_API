@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "df4c192f-3a1b-472b-a7d3-9ccae0ebfb13",
+		"_postman_id": "c3c0cfd6-7e5f-45e2-8fb7-257872b8de0d",
 		"name": "newsletterMessages",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -74,7 +74,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"success\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": \"sucess\",\n  \"visited\":\"yes\",\n  \"lastVisited\": \"29/10/20\"\n} ",
+					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":\"yes\",\n  \"lastVisited\": true\n} ",
 					"options": {
 						"raw": {
 							"language": "json"
