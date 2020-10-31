@@ -28,6 +28,7 @@ const userInformationSchema = new Schema(
       required: [1, 'Please provide a valid password'],
       minlength: 8,
       trim: true,
+      select: false,
     },
     passwordConfirm: {
       type: String,
@@ -56,8 +57,8 @@ const userInformationSchema = new Schema(
     usergroupId: [mongoose.ObjectId],
     userGroups: [],
     surveyNo: { type: String },
-    createdBy: { type: mongoose.ObjectId},
-    updatedBy: { type: mongoose.ObjectId},
+    createdBy: { type: mongoose.ObjectId },
+    updatedBy: { type: mongoose.ObjectId },
   },
   { timestamps: true }
 );
@@ -73,6 +74,13 @@ userInformationSchema.pre('save', async function (next) {
   this.passwordConfirm = undefined;
   next();
 });
+
+userInformationSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 /* MODEL */
 const UserInformation = mongoose.model(
