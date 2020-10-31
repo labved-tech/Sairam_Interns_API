@@ -72,7 +72,7 @@ exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const projectDiscussions = await ProjectDiscussions.create(req.body).then();
+    const projectDiscussions = await ProjectDiscussions.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

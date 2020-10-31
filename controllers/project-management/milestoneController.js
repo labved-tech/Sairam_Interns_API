@@ -73,7 +73,7 @@ exports.createMilestone = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const milestone = await Milestone.create(req.body).then();
+    const milestone = await Milestone.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

@@ -72,7 +72,7 @@ exports.createTaskTimers = catchAsync(async (req, res, next) => {
   
   // check the doc before doing database operation
   //console.log(doc);   
-    const taskTimers = await TaskTimers.create(req.body).then();
+    const taskTimers = await TaskTimers.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

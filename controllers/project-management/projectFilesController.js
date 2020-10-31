@@ -72,7 +72,7 @@ exports.createProjectFiles = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const projectFiles = await ProjectFiles.create(req.body).then();
+    const projectFiles = await ProjectFiles.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

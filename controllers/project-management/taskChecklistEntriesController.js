@@ -72,7 +72,7 @@ exports.createTaskChecklistEntries = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const taskChecklistEntries = await TaskChecklistEntries.create(req.body).then();
+    const taskChecklistEntries = await TaskChecklistEntries.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

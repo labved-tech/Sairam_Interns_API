@@ -72,7 +72,7 @@ exports.createProjectActivity = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const projectActivity = await ProjectActivity.create(req.body).then();
+    const projectActivity = await ProjectActivity.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

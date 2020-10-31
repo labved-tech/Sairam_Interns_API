@@ -72,7 +72,7 @@ exports.createTaskReminders = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const taskReminders = await TaskReminders.create(req.body).then();
+    const taskReminders = await TaskReminders.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

@@ -72,7 +72,7 @@ exports.createTaskEntries = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc); 
   
-    const taskEntries = await TaskEntries.create(req.body).then();
+    const taskEntries = await TaskEntries.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',

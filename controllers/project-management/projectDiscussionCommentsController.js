@@ -75,7 +75,7 @@ exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
   //console.log(doc); 
   
     const projectDiscussionComments = await ProjectDiscussionComments.create(
-      req.body
+      doc
     ).then();
 
     res.status(201).json({
