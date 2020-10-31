@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTaskChecklistEntries = async (req, res, next) => {
+exports.getAllTaskChecklistEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All taskChecklistEntries');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllTaskChecklistEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getTaskChecklistEntries = async (req, res, next) => {
+exports.getTaskChecklistEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskChecklistEntries for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getTaskChecklistEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createTaskChecklistEntries = async (req, res, next) => {
+exports.createTaskChecklistEntries = catchAsync(async (req, res, next) => {
   console.log('Creating taskChecklistEntries');
 
   try {
@@ -79,9 +79,9 @@ exports.createTaskChecklistEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateTaskChecklistEntries = async (req, res, next) => {
+exports.updateTaskChecklistEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskChecklistEntries Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateTaskChecklistEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteTaskChecklistEntries = async (req, res, next) => {
+exports.deleteTaskChecklistEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskChecklistEntries Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteTaskChecklistEntries = async (req, res, next) => {
   }
 
   next();
-};
+});

@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTaskReminders = async (req, res, next) => {
+exports.getAllTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Getting All taskReminders');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllTaskReminders = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getTaskReminders = async (req, res, next) => {
+exports.getTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskReminders for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getTaskReminders = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createTaskReminders = async (req, res, next) => {
+exports.createTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Creating taskReminders');
 
   try {
@@ -79,9 +79,9 @@ exports.createTaskReminders = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateTaskReminders = async (req, res, next) => {
+exports.updateTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskReminders Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateTaskReminders = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteTaskReminders = async (req, res, next) => {
+exports.deleteTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskReminders Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteTaskReminders = async (req, res, next) => {
   }
 
   next();
-};
+});

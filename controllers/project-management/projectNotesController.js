@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectNotes = async (req, res, next) => {
+exports.getAllProjectNotes = catchAsync(async (req, res, next) => {
   console.log('Getting All projectNotes');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllProjectNotes = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getProjectNotes = async (req, res, next) => {
+exports.getProjectNotes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectNotes for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getProjectNotes = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createProjectNotes = async (req, res, next) => {
+exports.createProjectNotes = catchAsync(async (req, res, next) => {
   console.log('Creating projectNotes');
 
   try {
@@ -79,9 +79,9 @@ exports.createProjectNotes = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateProjectNotes = async (req, res, next) => {
+exports.updateProjectNotes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectNotes Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateProjectNotes = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteProjectNotes = async (req, res, next) => {
+exports.deleteProjectNotes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectNotes Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteProjectNotes = async (req, res, next) => {
   }
 
   next();
-};
+});

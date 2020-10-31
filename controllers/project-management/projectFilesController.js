@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectFiles = async (req, res, next) => {
+exports.getAllProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Getting All projectFiles');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllProjectFiles = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getProjectFiles = async (req, res, next) => {
+exports.getProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectFiles for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getProjectFiles = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createProjectFiles = async (req, res, next) => {
+exports.createProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Creating projectFiles');
 
   try {
@@ -79,9 +79,9 @@ exports.createProjectFiles = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateProjectFiles = async (req, res, next) => {
+exports.updateProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectFiles Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateProjectFiles = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteProjectFiles = async (req, res, next) => {
+exports.deleteProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectFiles Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteProjectFiles = async (req, res, next) => {
   }
 
   next();
-};
+});

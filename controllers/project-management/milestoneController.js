@@ -16,7 +16,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllMilestone = async (req, res, next) => {
+exports.getAllMilestone = catchAsync(async (req, res, next) => {
   console.log('Getting All milestone');
 
   try {
@@ -38,9 +38,9 @@ exports.getAllMilestone = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getMilestone = async (req, res, next) => {
+exports.getMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting milestone for Id ${id}`);
 
@@ -59,9 +59,9 @@ exports.getMilestone = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createMilestone = async (req, res, next) => {
+exports.createMilestone = catchAsync(async (req, res, next) => {
   console.log('Creating milestone');
 
   try {
@@ -80,9 +80,9 @@ exports.createMilestone = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateMilestone = async (req, res, next) => {
+exports.updateMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating milestone Id ${id}`);
 
@@ -104,9 +104,9 @@ exports.updateMilestone = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteMilestone = async (req, res, next) => {
+exports.deleteMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting milestone Id ${id}`);
 
@@ -126,4 +126,4 @@ exports.deleteMilestone = async (req, res, next) => {
   }
 
   next();
-};
+});

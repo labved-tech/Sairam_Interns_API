@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTaskChecklistStatus = async (req, res, next) => {
+exports.getAllTaskChecklistStatus = catchAsync(async (req, res, next) => {
   console.log('Getting All taskChecklistStatus');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllTaskChecklistStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getTaskChecklistStatus = async (req, res, next) => {
+exports.getTaskChecklistStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskChecklistStatus for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getTaskChecklistStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createTaskChecklistStatus = async (req, res, next) => {
+exports.createTaskChecklistStatus = catchAsync(async (req, res, next) => {
   console.log('Creating taskChecklistStatus');
 
   try {
@@ -79,9 +79,9 @@ exports.createTaskChecklistStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateTaskChecklistStatus = async (req, res, next) => {
+exports.updateTaskChecklistStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskChecklistStatus Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateTaskChecklistStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteTaskChecklistStatus = async (req, res, next) => {
+exports.deleteTaskChecklistStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskChecklistStatus Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteTaskChecklistStatus = async (req, res, next) => {
   }
 
   next();
-};
+});

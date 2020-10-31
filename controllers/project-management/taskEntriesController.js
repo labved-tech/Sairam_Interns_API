@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTaskEntries = async (req, res, next) => {
+exports.getAllTaskEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All taskEntries');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllTaskEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getTaskEntries = async (req, res, next) => {
+exports.getTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskEntries for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getTaskEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createTaskEntries = async (req, res, next) => {
+exports.createTaskEntries = catchAsync(async (req, res, next) => {
   console.log('Creating taskEntries');
 
   try {
@@ -79,9 +79,9 @@ exports.createTaskEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateTaskEntries = async (req, res, next) => {
+exports.updateTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskEntries Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateTaskEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteTaskEntries = async (req, res, next) => {
+exports.deleteTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskEntries Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteTaskEntries = async (req, res, next) => {
   }
 
   next();
-};
+});

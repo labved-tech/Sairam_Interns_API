@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectTaskStatus = async (req, res, next) => {
+exports.getAllProjectTaskStatus = catchAsync(async (req, res, next) => {
   console.log('Getting All projectTaskStatus');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllProjectTaskStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getProjectTaskStatus = async (req, res, next) => {
+exports.getProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectTaskStatus for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getProjectTaskStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createProjectTaskStatus = async (req, res, next) => {
+exports.createProjectTaskStatus = catchAsync(async (req, res, next) => {
   console.log('Creating projectTaskStatus');
 
   try {
@@ -79,9 +79,9 @@ exports.createProjectTaskStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateProjectTaskStatus = async (req, res, next) => {
+exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectTaskStatus Id ${id}`);
 
@@ -107,9 +107,9 @@ exports.updateProjectTaskStatus = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteProjectTaskStatus = async (req, res, next) => {
+exports.deleteProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectTaskStatus Id ${id}`);
 
@@ -131,4 +131,4 @@ exports.deleteProjectTaskStatus = async (req, res, next) => {
   }
 
   next();
-};
+});

@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectDiscussions = async (req, res, next) => {
+exports.getAllProjectDiscussions = catchAsync(async (req, res, next) => {
   console.log('Getting All projectDiscussions');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllProjectDiscussions = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getProjectDiscussions = async (req, res, next) => {
+exports.getProjectDiscussions = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectDiscussions for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getProjectDiscussions = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createProjectDiscussions = async (req, res, next) => {
+exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussions');
 
   try {
@@ -79,9 +79,9 @@ exports.createProjectDiscussions = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateProjectDiscussions = async (req, res, next) => {
+exports.updateProjectDiscussions = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectDiscussions Id ${id}`);
 
@@ -107,9 +107,9 @@ exports.updateProjectDiscussions = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteProjectDiscussions = async (req, res, next) => {
+exports.deleteProjectDiscussions = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectDiscussions Id ${id}`);
 
@@ -131,4 +131,4 @@ exports.deleteProjectDiscussions = async (req, res, next) => {
   }
 
   next();
-};
+});

@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectEntries = async (req, res, next) => {
+exports.getAllProjectEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All projectEntries');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllProjectEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getProjectEntries = async (req, res, next) => {
+exports.getProjectEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectEntries for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getProjectEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createProjectEntries = async (req, res, next) => {
+exports.createProjectEntries = catchAsync(async (req, res, next) => {
   console.log('Creating projectEntries');
 
   try {
@@ -79,9 +79,9 @@ exports.createProjectEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateProjectEntries = async (req, res, next) => {
+exports.updateProjectEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectEntries Id ${id}`);
 
@@ -107,9 +107,9 @@ exports.updateProjectEntries = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteProjectEntries = async (req, res, next) => {
+exports.deleteProjectEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectEntries Id ${id}`);
 
@@ -129,4 +129,4 @@ exports.deleteProjectEntries = async (req, res, next) => {
   }
 
   next();
-};
+});

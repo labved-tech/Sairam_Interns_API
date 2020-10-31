@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectDiscussionComments = async (req, res, next) => {
+exports.getAllProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Getting All projectDiscussionComments');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllProjectDiscussionComments = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getProjectDiscussionComments = async (req, res, next) => {
+exports.getProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectDiscussionComments for Id ${id}`);
 
@@ -60,9 +60,9 @@ exports.getProjectDiscussionComments = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createProjectDiscussionComments = async (req, res, next) => {
+exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussionComments');
 
   try {
@@ -83,9 +83,9 @@ exports.createProjectDiscussionComments = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateProjectDiscussionComments = async (req, res, next) => {
+exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectDiscussionComments Id ${id}`);
 
@@ -111,9 +111,9 @@ exports.updateProjectDiscussionComments = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteProjectDiscussionComments = async (req, res, next) => {
+exports.deleteProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectDiscussionComments Id ${id}`);
 
@@ -135,4 +135,4 @@ exports.deleteProjectDiscussionComments = async (req, res, next) => {
   }
 
   next();
-};
+});

@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTaskTimers = async (req, res, next) => {
+exports.getAllTaskTimers = catchAsync(async (req, res, next) => {
   console.log('Getting All taskTimers');
 
   try {
@@ -37,9 +37,9 @@ exports.getAllTaskTimers = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.getTaskTimers = async (req, res, next) => {
+exports.getTaskTimers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskTimers for Id ${id}`);
 
@@ -58,9 +58,9 @@ exports.getTaskTimers = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.createTaskTimers = async (req, res, next) => {
+exports.createTaskTimers = catchAsync(async (req, res, next) => {
   console.log('Creating taskTimers');
 
   try {
@@ -79,9 +79,9 @@ exports.createTaskTimers = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.updateTaskTimers = async (req, res, next) => {
+exports.updateTaskTimers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskTimers Id ${id}`);
 
@@ -103,9 +103,9 @@ exports.updateTaskTimers = async (req, res, next) => {
   }
 
   next();
-};
+});
 
-exports.deleteTaskTimers = async (req, res, next) => {
+exports.deleteTaskTimers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskTimers Id ${id}`);
 
@@ -125,4 +125,4 @@ exports.deleteTaskTimers = async (req, res, next) => {
   }
 
   next();
-};
+});
