@@ -2,7 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const AnnouncementEntries = require('./../../models/announcement/announcementEntriesModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const AnnouncementEntries = require('../../models/announcement/announcementEntriesModel');
 
 /* DATABASE */
 
@@ -13,114 +15,104 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllAnnouncementEntries = async (req, res, next) => {
+exports.getAllAnnouncementEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All Announcement Entries');
 
-  try {
-    const announcementEntries = await AnnouncementEntries.find().then();
+  const announcementEntries = await AnnouncementEntries.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All Announcement Entries',
-      results: announcementEntries.length,
-      data: {
-        announcementEntries,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All Announcement Entries',
+    results: announcementEntries.length,
+    data: {
+      announcementEntries,
+    },
+  });
   next();
-};
+});
 
-exports.getAnnouncementEntries = async (req, res, next) => {
+exports.getAnnouncementEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Announcement Entries for Id ${id}`);
 
-  try {
-    const announcementEntries = await AnnouncementEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got Announcement Entries Id=${id}`,
-      Data: { announcementEntries },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  const announcementEntries = await AnnouncementEntries.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got Announcement Entries Id=${id}`,
+    Data: { announcementEntries },
+  });
 
   next();
-};
+});
 
-exports.createAnnouncementEntries = async (req, res, next) => {
+exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Entries');
 
-  try {
-    const announcementEntries = await AnnouncementEntries.create(req.body).then();
+  // parse through models
+  const doc = new AnnouncementEntries(req.body);
+  console.log(doc);
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created Announcement Entries',
-      data: {announcementEntries},
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+  const announcementEntries = await AnnouncementEntries.create(doc).then();
+
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created Announcement Entries',
+    data: { announcementEntries },
+  });
 
   next();
-};
+});
 
-exports.updateAnnouncementEntries= async (req, res, next) => {
+exports.updateAnnouncementEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Announcement Entries Id ${id}`);
 
-  try {
-    const announcementEntries= await AnnouncementEntries.findByIdAndUpdate(id, req.body, {
+  const announcementEntries = await AnnouncementEntries.findByIdAndUpdate(
+    id,
+    req.body,
+    {
       new: true,
-    }).then();
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated Announcement Entries Id=${id}`,
-      data: { announcementEntries},
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated Announcement Entries Id=${id}`,
+    data: { announcementEntries },
+  });
 
   next();
-};
+});
 
-exports.deleteAnnouncementEntries= async (req, res, next) => {
+exports.deleteAnnouncementEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Announcement Entries Id ${id}`);
 
-  try {
-    const announcementEntries= await AnnouncementEntries.findByIdAndDelete(id).then();
+  const announcementEntries = await AnnouncementEntries.findByIdAndDelete(
+    id
+  ).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted Announcement Entries Id =${id}`,
-      data: { announcementEntries},
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted Announcement Entries Id =${id}`,
+    data: { announcementEntries },
+  });
 
   next();
-};
+});

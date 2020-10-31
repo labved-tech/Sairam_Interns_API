@@ -51,6 +51,8 @@ exports.createUser = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new User(req.body);
+  console.log(doc);
+
   const dataPersonalDetails = new PersonalDetails(
     JSON.parse(JSON.stringify(req.body.personalDetails))
   );
