@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const farmStrategySchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   description: { type: String },
   _zoneId: { type: mongoose.ObjectId },
@@ -39,7 +38,10 @@ const farmStrategySchema = new Schema({
           deliveryNotes: { type: Array },
           packingLists: { type: Array },
           ecommOrders: { type: Array },
+          createdBy: { type: mongoose.ObjectId, required: true },
+          updatedBy: { type: mongoose.ObjectId, required: true }
         },
+        { timestamps: true }
       ],
       stageOrder: { type: Number },
       editable: { type: Boolean },
@@ -57,7 +59,11 @@ const farmStrategySchema = new Schema({
   updatedAt: { type: Date },
   authorsNote: { type: String },
   _parentId: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true }
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const FarmStrategy = mongoose.model('farmStrategy', farmStrategySchema);
