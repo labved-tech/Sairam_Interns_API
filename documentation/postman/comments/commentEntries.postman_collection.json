@@ -1,85 +1,19 @@
 {
 	"info": {
-		"_postman_id": "21a60db9-2c07-4531-8ef4-f2721e5684c4",
+		"_postman_id": "1f97f8bf-ae5f-4b20-a2bb-f79abc7cccaf",
 		"name": "commentEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllCommentEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"commentEntries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createCommentEntries",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"_commentorId\": \"1\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"1\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"1\",\r\n      \"createdAt\": \"28/10/2020\",\r\n      \"updatedAt\": \"29/10/2020\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\",\r\n  \"createdAt\":\"30/10/2020\",\r\n  \"updatedAt\": \"31/10/2020\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"commentEntries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOneCommentEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"commentEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateCommentEntries",
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_commentorId\": \"1\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"1\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"1\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/commentEntries/0",
 					"host": [
@@ -112,6 +46,76 @@
 						"v1",
 						"commentEntries",
 						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneCommentEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/commentEntries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"commentEntries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCommentEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/commentEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"commentEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createCommentEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_commentorId\": \"1\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"1\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"1\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/commentEntries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"commentEntries"
 					]
 				}
 			},
