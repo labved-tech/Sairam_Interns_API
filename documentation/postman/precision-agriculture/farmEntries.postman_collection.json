@@ -1,24 +1,15 @@
 {
 	"info": {
-		"_postman_id": "53025e68-75fa-447d-9ab8-06185a34b4d4",
+		"_postman_id": "9d205914-3a26-443e-be6f-a147ddee9c2c",
 		"name": "farmEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "createFarmEntries",
+			"name": "getAllFarmEntries",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"_ownerId\": \"1\",\r\n  \"admins\": [\r\n    {\r\n      \"_adminId\": \"1\",\r\n      \"permissions\":\"Allow\",\r\n    },\r\n  ],\r\n  \"name\":\"Vicky\",\r\n  \"description\":\"Student\",\r\n  \"notes\":\"College\",\r\n  \"status\":\"Single\",\r\n  \"address\": \"Tambaram\",\r\n  \"gpsCoordinates\": \"Tambaram\",\r\n  \"size\": {\r\n    \"size\": 10,\r\n    \"units\":\"\"\r\n  },\r\n  \"documents\": [\"2\",\"3\",\"4\",\"5\"] ,\r\n  \"createdBy\": \"1\",\r\n  \"createdAt\": \"22-09-2000\",\r\n  \"updatedBy\": \"1\",\r\n  \"updatedAt\": \"22-09-2000\",\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/farm-entries/",
 					"host": [
@@ -36,10 +27,19 @@
 			"response": []
 		},
 		{
-			"name": "getAllFarmEntries",
+			"name": "createFarmEntries",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_ownerId\": \"1\",\r\n  \"admins\": [\r\n    {\r\n      \"_adminId\": \"1\",\r\n      \"permissions\":\"Allow\"\r\n    }\r\n  ],\r\n  \"name\":\"Vicky\",\r\n  \"description\":\"Student\",\r\n  \"notes\":\"College\",\r\n  \"status\":\"Single\",\r\n  \"address\": \"Tambaram\",\r\n  \"gpsCoordinates\": \"Tambaram\",\r\n  \"size\": {\r\n    \"size\": 10,\r\n    \"units\":\"\"\r\n  },\r\n  \"documents\": [\"2\",\"3\",\"4\",\"5\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/farm-entries/",
 					"host": [
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_ownerId\": \"1\",\r\n  \"admins\": [\r\n    {\r\n      \"_adminId\": \"1\",\r\n      \"permissions\":\"Allow\",\r\n    },\r\n  ],\r\n  \"name\":\"Vicky\",\r\n  \"description\":\"Student\",\r\n  \"notes\":\"College\",\r\n  \"status\":\"Single\",\r\n  \"address\": \"Tambaram\",\r\n  \"gpsCoordinates\": \"Tambaram\",\r\n  \"size\": {\r\n    \"size\": 10,\r\n    \"units\":\"\"\r\n  },\r\n  \"documents\": [\"2\",\"3\",\"4\",\"5\"],\r\n  \"createdBy\": \"1\",\r\n  \"createdAt\": \"22-09-2000\",\r\n  \"updatedBy\": \"1\",\r\n  \"updatedAt\": \"22-09-2000\",\r\n}",
+					"raw": "{\r\n  \"_ownerId\": \"1\",\r\n  \"admins\": [\r\n    {\r\n      \"_adminId\": \"1\",\r\n      \"permissions\":\"Allow\"\r\n    }\r\n  ],\r\n  \"name\":\"Vicky\",\r\n  \"description\":\"Student\",\r\n  \"notes\":\"College\",\r\n  \"status\":\"Single\",\r\n  \"address\": \"Tambaram\",\r\n  \"gpsCoordinates\": \"Tambaram\",\r\n  \"size\": {\r\n    \"size\": 10,\r\n    \"units\":\"\"\r\n  },\r\n  \"documents\": [\"2\",\"3\",\"4\",\"5\"] \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

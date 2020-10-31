@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "79e9af76-fcbe-41e5-94f8-3f18c69e71e8",
+		"_postman_id": "84e39282-d456-42f7-9399-7611db9a02cc",
 		"name": "TicketEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -85,7 +85,7 @@
 					"raw": "{\r\n  \"_userId\": \"bharath_viswanathan\",\r\n  \"userName\": \"bharathviswanathan\",\r\n  \"userEmail\": \"bharath.viswanathan@labved.com\",\r\n  \"userPhoneNumber\": \"9865899890\",\r\n  \"category\": \"software\",\r\n  \"product\": \"computers\",\r\n  \"subject\": \"database\",\r\n  \"body\": \"welcome to your company\" ,\r\n  \"status\": \"active\",\r\n  \"lastStatusChange\": \"just now\",\r\n  \"assignedTo\": \"vignesh\",\r\n  \"priority\": \"ready\",\r\n  \"lastActivityDate\": \"29/10/2020\",\r\n  \"lastActivityBy\": \"vignesh\",\r\n  \"_agencyId\": \"9864214398\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ticketEntries",
+					"raw": "localhost:3000/api/v1/ticketEntries/0",
 					"host": [
 						"localhost"
 					],
@@ -93,7 +93,8 @@
 					"path": [
 						"api",
 						"v1",
-						"ticketEntries"
+						"ticketEntries",
+						"0"
 					]
 				}
 			},
@@ -105,7 +106,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ticketEntries",
+					"raw": "localhost:3000/api/v1/ticketEntries/0",
 					"host": [
 						"localhost"
 					],
@@ -113,7 +114,8 @@
 					"path": [
 						"api",
 						"v1",
-						"ticketEntries"
+						"ticketEntries",
+						"0"
 					]
 				}
 			},

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ef48773b-ca76-4e64-b078-e51fe44a3e8e",
+		"_postman_id": "cefe64b3-9105-47e9-9bb5-9e42ce0f300f",
 		"name": "TicketResponse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -106,7 +106,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ticketResponse",
+					"raw": "localhost:3000/api/v1/ticketResponse/0",
 					"host": [
 						"localhost"
 					],
@@ -114,7 +114,8 @@
 					"path": [
 						"api",
 						"v1",
-						"ticketResponse"
+						"ticketResponse",
+						"0"
 					]
 				}
 			},
