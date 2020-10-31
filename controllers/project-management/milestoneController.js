@@ -53,7 +53,25 @@ exports.getMilestone = catchAsync(async (req, res, next) => {
 
 exports.createMilestone = catchAsync(async (req, res, next) => {
   console.log('Creating milestone');
-
+    // parse through models
+    const doc = new Milestone(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
   
     const milestone = await Milestone.create(req.body).then();
 

@@ -52,7 +52,25 @@ exports.getProjectDiscussions = catchAsync(async (req, res, next) => {
 
 exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussions');
-
+    // parse through models
+    const doc = new ProjectDiscussion(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
   
     const projectDiscussions = await ProjectDiscussions.create(req.body).then();
 
