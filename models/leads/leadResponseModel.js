@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const leadResponseSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _leadId: { type: mongoose.ObjectId },
   _responderId: { type: mongoose.ObjectId },
   emailSent: { type: Boolean },
