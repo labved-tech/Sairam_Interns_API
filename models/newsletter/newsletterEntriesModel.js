@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const newsletterEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
+  
   fromEmail: { type: String },
   description: { type: String },
   newsletterType: { type: String },
