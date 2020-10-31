@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectDiscussionCommentsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _discussionId: { type: mongoose.ObjectId },
   discussionType: { type: String },
   parent: { type: String },
@@ -18,7 +17,12 @@ const projectDiscussionCommentsSchema = new Schema({
   fileName: { type: String },
   fileType: { type: String },
   _projectId: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const ProjectDiscussionComments = mongoose.model(

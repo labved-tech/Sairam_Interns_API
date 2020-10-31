@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ProjectDiscussions = require('../../models/project-management/projectDiscussionsModel');
 
 /* DATABASE */

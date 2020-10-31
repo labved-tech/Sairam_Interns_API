@@ -6,14 +6,17 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectDiscussionsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _projectId: { type: mongoose.ObjectId },
   subject: { type: String },
   description: { type: String },
   datecreated: { type: Date },
   lastActivity: { type: Date },
   startedBy: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const ProjectsDiscussions = mongoose.model(

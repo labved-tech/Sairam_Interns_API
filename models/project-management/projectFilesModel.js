@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectFilesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   fileName: { type: String },
   fileType: { type: String },
   subject: { type: String },
@@ -16,7 +15,12 @@ const projectFilesSchema = new Schema({
   _userId: { type: mongoose.ObjectId },
   external: { type: String },
   thumbnailLink: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const ProjectFiles = mongoose.model('projectFiles', projectFilesSchema);

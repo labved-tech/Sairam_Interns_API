@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectTaskStatusSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   status: { type: String },
   deadlineNotified: { type: Boolean },
   kanbanOrder: { type: Number },
@@ -15,7 +14,12 @@ const projectTaskStatusSchema = new Schema({
   _projectId: { type: mongoose.ObjectId },
   _userId: { type: mongoose.ObjectId },
   progress: { type: Number },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const ProjectTaskStatus = mongoose.model(
