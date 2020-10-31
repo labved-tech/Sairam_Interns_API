@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectTaskStatus = catchAsync(async (req, res, next) => {
   console.log('Getting All projectTaskStatus');
 
-  try {
+  
     const projectTaskStatuss = await ProjectTaskStatus.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllProjectTaskStatus = catchAsync(async (req, res, next) => {
         projectTaskStatuss,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectTaskStatus for Id ${id}`);
 
-  try {
+  
     const projectTaskStatus = await ProjectTaskStatus.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectTaskStatus Id=${id}`,
       Data: { projectTaskStatus },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getProjectTaskStatus = catchAsync(async (req, res, next) => {
 exports.createProjectTaskStatus = catchAsync(async (req, res, next) => {
   console.log('Creating projectTaskStatus');
 
-  try {
+  
     const projectTaskStatus = await ProjectTaskStatus.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createProjectTaskStatus = catchAsync(async (req, res, next) => {
       message: 'Created projectTaskStatus',
       data: { projectTaskStatus },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectTaskStatus Id ${id}`);
 
-  try {
+  
     const projectTaskStatus = await ProjectTaskStatus.findByIdAndUpdate(
       id,
       req.body,
@@ -99,12 +84,7 @@ exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
       message: `Updated projectTaskStatus Id=${id}`,
       data: { projectTaskStatus },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -113,7 +93,7 @@ exports.deleteProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectTaskStatus Id ${id}`);
 
-  try {
+  
     const projectTaskStatus = await ProjectTaskStatus.findByIdAndDelete(
       id
     ).then();
@@ -123,12 +103,7 @@ exports.deleteProjectTaskStatus = catchAsync(async (req, res, next) => {
       message: `Deleted projectTaskStatus Id=${id}`,
       data: { projectTaskStatus },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

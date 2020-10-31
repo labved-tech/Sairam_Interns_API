@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectNotes = catchAsync(async (req, res, next) => {
   console.log('Getting All projectNotes');
 
-  try {
+  
     const projectNotes = await ProjectNotes.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllProjectNotes = catchAsync(async (req, res, next) => {
         projectNotes,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getProjectNotes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectNotes for Id ${id}`);
 
-  try {
+  
     const projectNotes = await ProjectNotes.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectNotes Id=${id}`,
       Data: { projectNotes },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getProjectNotes = catchAsync(async (req, res, next) => {
 exports.createProjectNotes = catchAsync(async (req, res, next) => {
   console.log('Creating projectNotes');
 
-  try {
+  
     const projectNotes = await ProjectNotes.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createProjectNotes = catchAsync(async (req, res, next) => {
       message: 'Created projectNotes',
       data: { projectNotes },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateProjectNotes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectNotes Id ${id}`);
 
-  try {
+  
     const projectNotes = await ProjectNotes.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,12 +80,7 @@ exports.updateProjectNotes = catchAsync(async (req, res, next) => {
       message: `Updated projectNotes Id=${id}`,
       data: { projectNotes },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -109,7 +89,7 @@ exports.deleteProjectNotes = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectNotes Id ${id}`);
 
-  try {
+  
     const projectNotes = await ProjectNotes.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +97,7 @@ exports.deleteProjectNotes = catchAsync(async (req, res, next) => {
       message: `Deleted projectNotes Id=${id}`,
       data: { projectNotes },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

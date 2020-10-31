@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Getting All projectDiscussionComments');
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllProjectDiscussionComments = catchAsync(async (req, res, next) => {
         projectDiscussionComments,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,7 +38,7 @@ exports.getProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectDiscussionComments for Id ${id}`);
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.findById(
       id
     ).then();
@@ -52,12 +47,7 @@ exports.getProjectDiscussionComments = catchAsync(async (req, res, next) => {
       message: `Got projectDiscussionComments Id=${id}`,
       Data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -65,7 +55,7 @@ exports.getProjectDiscussionComments = catchAsync(async (req, res, next) => {
 exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussionComments');
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.create(
       req.body
     ).then();
@@ -75,12 +65,7 @@ exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
       message: 'Created projectDiscussionComments',
       data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -89,7 +74,7 @@ exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectDiscussionComments Id ${id}`);
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndUpdate(
       id,
       req.body,
@@ -103,12 +88,7 @@ exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
       message: `Updated projectDiscussionComments Id=${id}`,
       data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -117,7 +97,7 @@ exports.deleteProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectDiscussionComments Id ${id}`);
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndDelete(
       id
     ).then();
@@ -127,12 +107,7 @@ exports.deleteProjectDiscussionComments = catchAsync(async (req, res, next) => {
       message: `Deleted projectDiscussionComments Id=${id}`,
       data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

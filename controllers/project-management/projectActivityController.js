@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectActivity = catchAsync(async (req, res, next) => {
   console.log('Getting All projectActivity');
 
-  try {
+  
     const projectActivitys = await ProjectActivity.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllProjectActivity = catchAsync(async (req, res, next) => {
         projectActivitys,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectActivityfor Id ${id}`);
 
-  try {
+  
     const projectActivity = await ProjectActivity.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectActivityId=${id}`,
       Data: { projectActivity },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getProjectActivity = catchAsync(async (req, res, next) => {
 exports.createProjectActivity = catchAsync(async (req, res, next) => {
   console.log('Creating projectActivity');
 
-  try {
+  
     const projectActivity = await ProjectActivity.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createProjectActivity = catchAsync(async (req, res, next) => {
       message: 'Created projectActivity',
       data: { projectActivity },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectActivityId ${id}`);
 
-  try {
+  
     const projectActivity = await ProjectActivity.findByIdAndUpdate(
       id,
       req.body,
@@ -99,12 +84,7 @@ exports.updateProjectActivity = catchAsync(async (req, res, next) => {
       message: `Updated projectActivityId=${id}`,
       data: { projectActivity },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -113,7 +93,7 @@ exports.deleteProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectActivityId ${id}`);
 
-  try {
+  
     const projectActivity = await ProjectActivity.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -121,12 +101,7 @@ exports.deleteProjectActivity = catchAsync(async (req, res, next) => {
       message: `Deleted projectActivityId=${id}`,
       data: { projectActivity },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

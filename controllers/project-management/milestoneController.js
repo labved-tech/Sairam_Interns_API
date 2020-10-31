@@ -19,7 +19,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllMilestone = catchAsync(async (req, res, next) => {
   console.log('Getting All milestone');
 
-  try {
+  
     const milestones = await Milestone.find().then();
 
     res.status(200).json({
@@ -30,12 +30,7 @@ exports.getAllMilestone = catchAsync(async (req, res, next) => {
         milestones,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -44,19 +39,14 @@ exports.getMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting milestone for Id ${id}`);
 
-  try {
+  
     const milestone = await Milestone.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got milestone Id=${id}`,
       Data: { milestone },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -64,7 +54,7 @@ exports.getMilestone = catchAsync(async (req, res, next) => {
 exports.createMilestone = catchAsync(async (req, res, next) => {
   console.log('Creating milestone');
 
-  try {
+  
     const milestone = await Milestone.create(req.body).then();
 
     res.status(201).json({
@@ -72,12 +62,7 @@ exports.createMilestone = catchAsync(async (req, res, next) => {
       message: 'Created milestone',
       data: { milestone },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -86,7 +71,7 @@ exports.updateMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating milestone Id ${id}`);
 
-  try {
+  
     const milestone = await Milestone.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -96,12 +81,7 @@ exports.updateMilestone = catchAsync(async (req, res, next) => {
       message: `Updated milestone Id=${id}`,
       data: { milestone },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -110,7 +90,7 @@ exports.deleteMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting milestone Id ${id}`);
 
-  try {
+  
     const milestone = await Milestone.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -118,12 +98,7 @@ exports.deleteMilestone = catchAsync(async (req, res, next) => {
       message: `Deleted milestone Id=${id}`,
       data: { milestone },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

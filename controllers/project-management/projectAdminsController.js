@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Getting All projectAdmins');
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllProjectAdmins = catchAsync(async (req, res, next) => {
         projectAdmins,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectAdmins for Id ${id}`);
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectAdmins Id=${id}`,
       Data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getProjectAdmins = catchAsync(async (req, res, next) => {
 exports.createProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Creating projectAdmins');
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createProjectAdmins = catchAsync(async (req, res, next) => {
       message: 'Created projectAdmins',
       data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectAdmins Id ${id}`);
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,12 +80,7 @@ exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
       message: `Updated projectAdmins Id=${id}`,
       data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -109,7 +89,7 @@ exports.deleteProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectAdmins Id ${id}`);
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +97,7 @@ exports.deleteProjectAdmins = catchAsync(async (req, res, next) => {
       message: `Deleted projectAdmins Id=${id}`,
       data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

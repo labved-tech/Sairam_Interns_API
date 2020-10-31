@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Getting All projectFiles');
 
-  try {
+  
     const projectFiles = await ProjectFiles.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllProjectFiles = catchAsync(async (req, res, next) => {
         projectFiles,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectFiles for Id ${id}`);
 
-  try {
+  
     const projectFiles = await ProjectFiles.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectFiles Id=${id}`,
       Data: { projectFiles },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getProjectFiles = catchAsync(async (req, res, next) => {
 exports.createProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Creating projectFiles');
 
-  try {
+  
     const projectFiles = await ProjectFiles.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createProjectFiles = catchAsync(async (req, res, next) => {
       message: 'Created projectFiles',
       data: { projectFiles },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectFiles Id ${id}`);
 
-  try {
+  
     const projectFiles = await ProjectFiles.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,12 +80,7 @@ exports.updateProjectFiles = catchAsync(async (req, res, next) => {
       message: `Updated projectFiles Id=${id}`,
       data: { projectFiles },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -109,7 +89,7 @@ exports.deleteProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectFiles Id ${id}`);
 
-  try {
+  
     const projectFiles = await ProjectFiles.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +97,7 @@ exports.deleteProjectFiles = catchAsync(async (req, res, next) => {
       message: `Deleted projectFiles Id=${id}`,
       data: { projectFiles },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

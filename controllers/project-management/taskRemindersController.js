@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Getting All taskReminders');
 
-  try {
+  
     const taskReminders = await TaskReminders.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllTaskReminders = catchAsync(async (req, res, next) => {
         taskReminders,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskReminders for Id ${id}`);
 
-  try {
+  
     const taskReminders = await TaskReminders.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got taskReminders Id=${id}`,
       Data: { taskReminders },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getTaskReminders = catchAsync(async (req, res, next) => {
 exports.createTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Creating taskReminders');
 
-  try {
+  
     const taskReminders = await TaskReminders.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createTaskReminders = catchAsync(async (req, res, next) => {
       message: 'Created taskReminders',
       data: { taskReminders },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskReminders Id ${id}`);
 
-  try {
+  
     const taskReminders = await TaskReminders.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,12 +80,7 @@ exports.updateTaskReminders = catchAsync(async (req, res, next) => {
       message: `Updated taskReminders Id=${id}`,
       data: { taskReminders },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -109,7 +89,7 @@ exports.deleteTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskReminders Id ${id}`);
 
-  try {
+  
     const taskReminders = await TaskReminders.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +97,7 @@ exports.deleteTaskReminders = catchAsync(async (req, res, next) => {
       message: `Deleted taskReminders Id=${id}`,
       data: { taskReminders },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });

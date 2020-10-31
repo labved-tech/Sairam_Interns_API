@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllTaskEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All taskEntries');
 
-  try {
+  
     const taskEntries = await TaskEntries.find().then();
 
     res.status(200).json({
@@ -29,12 +29,7 @@ exports.getAllTaskEntries = catchAsync(async (req, res, next) => {
         taskEntries,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -43,19 +38,14 @@ exports.getTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskEntries for Id ${id}`);
 
-  try {
+  
     const taskEntries = await TaskEntries.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got taskEntries Id=${id}`,
       Data: { taskEntries },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -63,7 +53,7 @@ exports.getTaskEntries = catchAsync(async (req, res, next) => {
 exports.createTaskEntries = catchAsync(async (req, res, next) => {
   console.log('Creating taskEntries');
 
-  try {
+  
     const taskEntries = await TaskEntries.create(req.body).then();
 
     res.status(201).json({
@@ -71,12 +61,7 @@ exports.createTaskEntries = catchAsync(async (req, res, next) => {
       message: 'Created taskEntries',
       data: { taskEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -85,7 +70,7 @@ exports.updateTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskEntries Id ${id}`);
 
-  try {
+  
     const taskEntries = await TaskEntries.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,12 +80,7 @@ exports.updateTaskEntries = catchAsync(async (req, res, next) => {
       message: `Updated taskEntries Id=${id}`,
       data: { taskEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
@@ -109,7 +89,7 @@ exports.deleteTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskEntries Id ${id}`);
 
-  try {
+  
     const taskEntries = await TaskEntries.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +97,7 @@ exports.deleteTaskEntries = catchAsync(async (req, res, next) => {
       message: `Deleted taskEntries Id=${id}`,
       data: { taskEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
 });
