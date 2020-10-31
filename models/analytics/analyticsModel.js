@@ -11,7 +11,11 @@ const analyticsSchema = new Schema({
   state: { type: Object },
   _ownerid: { type: mongoose.ObjectId },
   _reportid: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true }
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const Analytics = mongoose.model('analytics', analyticsSchema);

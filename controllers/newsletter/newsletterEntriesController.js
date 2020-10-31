@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const appError = require('../../utils/appError');
 const NewsletterEntries = require('./../../models/newsletter/newsletterEntriesModel');
 
 /* DATABASE */
@@ -13,11 +15,9 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllNewsletterEntries = async (req, res, next) => {
+exports.getAllNewsletterEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All Newsletter Entries');
-
-  try {
-    const newsletterEntriess = await NewsletterEntries.find().then();
+  const newsletterEntriess = await NewsletterEntries.find();
 
     res.status(200).json({
       status: 'sucess',
@@ -27,101 +27,78 @@ exports.getAllNewsletterEntries = async (req, res, next) => {
         newsletterEntriess,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
   next();
-};
+});
 
-exports.getNewsletterEntries = async (req, res, next) => {
+exports.getNewsletterEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Newsletter Entries for Id ${id}`);
-
-  try {
-    const newsletterEntries = await NewsletterEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got Newsletter Entries Id=${id}`,
-      Data: { newsletterEntries },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  const newsletterEntries = await NewsletterEntries.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got Newsletter Entries Id=${id}`,
+    Data: { newsletterEntries },
+  });
   next();
-};
+});
 
-exports.createNewsletterEntries = async (req, res, next) => {
+exports.createNewsletterEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Newsletter Entries');
+  // parse through models
+  const doc = new NewsletterEntries(req.body);
+  console.log(doc);
 
-  try {
-    const newsletterEntries = await NewsletterEntries.create(req.body).then();
+  // validate seperately sub-documents if necessary
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created Newsletter Entries',
-      data: { newsletterEntries },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  // replace doc if necessary
 
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+  const newsletterEntries = await NewsletterEntries.create(doc).then();
+
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created Newsletter Entries',
+    data: { newsletterEntries },
+  });
   next();
-};
+});
 
-exports.updateNewsletterEntries = async (req, res, next) => {
+exports.updateNewsletterEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Newsletter Entries Id ${id}`);
+  const newsletterEntries = await NewsletterEntries.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-  try {
-    const newsletterEntries = await NewsletterEntries.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
-
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated Newsletter Entries Id=${id}`,
-      data: { newsletterEntries },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated Newsletter Entries Id=${id}`,
+    data: { newsletterEntries },
+  });
   next();
-};
+});
 
-exports.deleteNewsletterEntries = async (req, res, next) => {
+exports.deleteNewsletterEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Newsletter Entries Id ${id}`);
+  const newsletterEntries = await NewsletterEntries.findByIdAndDelete(id).then();
 
-  try {
-    const newsletterEntries = await NewsletterEntries.findByIdAndDelete(id).then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted Newsletter Entries Id=${id}`,
-      data: { newsletterEntries },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted Newsletter Entries Id=${id}`,
+    data: { newsletterEntries },
+  });
   next();
-};
+});
 

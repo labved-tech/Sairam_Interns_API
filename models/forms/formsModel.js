@@ -12,7 +12,11 @@ const formsSchema = new Schema({
   aliveTill: { type: Date },
   accountInclude: [],
   accountExclude: [],
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true }
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const Forms = mongoose.model('forms', formsSchema);

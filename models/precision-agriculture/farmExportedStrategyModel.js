@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const farmExportedStrategySchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   description: { type: String },
   _zoneId: { type: mongoose.ObjectId },
@@ -26,8 +25,11 @@ const farmExportedStrategySchema = new Schema({
   totalExpense: { type: Number },
   author_notes: { type: String },
   _parentId: {type: mongoose.ObjectId },
-});
-
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true }
+},
+{ timestamps: true }
+);
 /* MODEL */
 const FarmExportedStrategy = mongoose.model(
   'fofarmExportedStrategy',
