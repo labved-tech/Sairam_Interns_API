@@ -53,9 +53,9 @@ app.use('/api/v1/example', exampleRouter);
 app.use('/api/v1/menu-manager', menuRouter);
 
 // Global can't find routes
-app.all('*', (req, res, next) => {
-  next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
-});
+// app.all('*', (req, res, next) => {
+//   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+// });
 
 // Global error handler message
 app.use(globalErrorHandler);
