@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ce1e8ce9-7fb7-4145-9f6b-30e7a0b8cc43",
+		"_postman_id": "a97178e2-3a75-4954-9d4d-4af4c6645089",
 		"name": "projectTaskStatus",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"status\": \"Done\",\r\n    \"deadlineNotified\": \"True\",\r\n    \"kanbanOrder\":10,\r\n    \"milestoneOrder\":10,\r\n    \"_taskId\": \"1\",\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"progress\":10\r\n  }\r\n",
+					"raw": "{\r\n   \r\n    \"status\": \"Done\",\r\n    \"deadlineNotified\":true,\r\n    \"kanbanOrder\":10,\r\n    \"milestoneOrder\":10,\r\n    \"_taskId\": \"1\",\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"progress\":10\r\n  }\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \r\n    \"status\": \"Done\",\r\n    \"deadlineNotified\": \"True\",\r\n    \"kanbanOrder\":10,\r\n    \"milestoneOrder\":10,\r\n    \"_taskId\": \"1\",\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"progress\":10\r\n  }\r\n",
+					"raw": "{\r\n   \r\n    \"status\": \"Done\",\r\n    \"deadlineNotified\":true,\r\n    \"kanbanOrder\":10,\r\n    \"milestoneOrder\":10,\r\n    \"_taskId\": \"1\",\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"progress\":10\r\n  }\r\n",
 					"options": {
 						"raw": {
 							"language": "json"

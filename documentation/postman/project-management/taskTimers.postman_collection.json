@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "013ba200-e875-43be-998a-48eef9e411c5",
+		"_postman_id": "f0ff0ee6-ffa1-4fe2-b7a1-a42bae95a0e2",
 		"name": "taskTimers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllTaskTimers",
+			"name": "deleteTaskTimers",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/",
+					"raw": "localhost:3000/api/v1/task-timers/0",
 					"host": [
 						"localhost"
 					],
@@ -20,26 +20,17 @@
 						"api",
 						"v1",
 						"task-timers",
-						""
+						"0"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "createTaskTimers",
+			"name": "getAllTaskTimers",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"_taskId\": \"1\",\r\n    \"startTime\": \"22-09-2000\",\r\n    \"endTime\": \"22-09-2001\",\r\n    \"timeSpend\":10,\r\n    \"note\": \"Compulsory\",\r\n    \"_userId\": \"1\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/task-timers/",
 					"host": [
@@ -108,12 +99,21 @@
 			"response": []
 		},
 		{
-			"name": "deleteTaskTimers",
+			"name": "createTaskTimers",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_taskId\": \"1\",\r\n    \"startTime\": \"22-09-2000\",\r\n    \"endTime\": \"22-09-2001\",\r\n    \"timeSpend\":10,\r\n    \"note\": \"Compulsory\",\r\n    \"_userId\": \"1\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/0",
+					"raw": "localhost:3000/api/v1/task-timers/",
 					"host": [
 						"localhost"
 					],
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"task-timers",
-						"0"
+						""
 					]
 				}
 			},

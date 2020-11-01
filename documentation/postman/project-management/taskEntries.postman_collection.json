@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cb5cf3b1-7fd7-45e5-9f07-64bbd972fdab",
+		"_postman_id": "97fa27ef-f946-484e-be41-8463eb25e9b9",
 		"name": "taskEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {    \"_projectId\": \"1\",\r\n    \"name\": \"Vicky\",\r\n    \"taskType\": \"Easy\",\r\n    \"description\": \"Student\",\r\n    \"status\": \"NA\",\r\n    \"dateFinished\": \"22-09-2005\",\r\n    \"isRepeat\": \"True\",\r\n    \"repeatFromDate\": \"22-09-2000\",\r\n    \"repeatLastDate\": \"22-09-2004\",\r\n    \"repeatInterval\": 10,\r\n    \"repeatIntervalType\": \"NA\",\r\n    \"currentRepeatNumber\": 10,\r\n    \"totalRepeatAllowed\": 10,\r\n    \"deadlineNotified\": \"True\",\r\n    \"milestone\": \"NA\",\r\n    \"milestoneOrder\": 10,\r\n    \"kanbanOrder\": 10,\r\n    \"taskFormURL\": \"NA\",\r\n    \"startDate\": \"22-09-2000\",\r\n    \"dateadded\": \"22-09-2001\",\r\n    \"dueDate\": \"22-09-2005\",\r\n    \"assignedTo\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }\r\n",
+					"raw": "  {    \"_projectId\": \"1\",\r\n    \"name\": \"Vicky\",\r\n    \"taskType\": \"Easy\",\r\n    \"description\": \"Student\",\r\n    \"status\": \"NA\",\r\n    \"dateFinished\": \"22-09-2005\",\r\n    \"isRepeat\": true,\r\n    \"repeatFromDate\": \"22-09-2000\",\r\n    \"repeatLastDate\": \"22-09-2004\",\r\n    \"repeatInterval\": 10,\r\n    \"repeatIntervalType\": \"NA\",\r\n    \"currentRepeatNumber\": 10,\r\n    \"totalRepeatAllowed\": 10,\r\n    \"deadlineNotified\": true,\r\n    \"milestone\": \"NA\",\r\n    \"milestoneOrder\": 10,\r\n    \"kanbanOrder\": 10,\r\n    \"taskFormURL\": \"NA\",\r\n    \"startDate\": \"22-09-2000\",\r\n    \"dateadded\": \"22-09-2001\",\r\n    \"dueDate\": \"22-09-2005\",\r\n    \"assignedTo\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {    \"_projectId\": \"1\",\r\n    \"name\": \"Vicky\",\r\n    \"taskType\": \"Easy\",\r\n    \"description\": \"Student\",\r\n    \"status\": \"NA\",\r\n    \"dateFinished\": \"22-09-2005\",\r\n    \"isRepeat\": \"True\",\r\n    \"repeatFromDate\": \"22-09-2000\",\r\n    \"repeatLastDate\": \"22-09-2004\",\r\n    \"repeatInterval\": 10,\r\n    \"repeatIntervalType\": \"NA\",\r\n    \"currentRepeatNumber\": 10,\r\n    \"totalRepeatAllowed\": 10,\r\n    \"deadlineNotified\": \"True\",\r\n    \"milestone\": \"NA\",\r\n    \"milestoneOrder\": 10,\r\n    \"kanbanOrder\": 10,\r\n    \"taskFormURL\": \"NA\",\r\n    \"startDate\": \"22-09-2000\",\r\n    \"dateadded\": \"22-09-2001\",\r\n    \"dueDate\": \"22-09-2005\",\r\n    \"assignedTo\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }\r\n",
+					"raw": "  {    \"_projectId\": \"1\",\r\n    \"name\": \"Vicky\",\r\n    \"taskType\": \"Easy\",\r\n    \"description\": \"Student\",\r\n    \"status\": \"NA\",\r\n    \"dateFinished\": \"22-09-2005\",\r\n    \"isRepeat\": true,\r\n    \"repeatFromDate\": \"22-09-2000\",\r\n    \"repeatLastDate\": \"22-09-2004\",\r\n    \"repeatInterval\": 10,\r\n    \"repeatIntervalType\": \"NA\",\r\n    \"currentRepeatNumber\": 10,\r\n    \"totalRepeatAllowed\": 10,\r\n    \"deadlineNotified\": true,\r\n    \"milestone\": \"NA\",\r\n    \"milestoneOrder\": 10,\r\n    \"kanbanOrder\": 10,\r\n    \"taskFormURL\": \"NA\",\r\n    \"startDate\": \"22-09-2000\",\r\n    \"dateadded\": \"22-09-2001\",\r\n    \"dueDate\": \"22-09-2005\",\r\n    \"assignedTo\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
