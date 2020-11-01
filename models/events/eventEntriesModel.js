@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const eventEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   status: { type: String },
   priority: { type: String },
   expires: { type: Number },
