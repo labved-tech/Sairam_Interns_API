@@ -27,6 +27,48 @@
 			"response": []
 		},
 		{
+			"name": "getProjectActivity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-activity/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-activity",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectActivity",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-activity/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-activity",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createProjectActivity",
 			"request": {
 				"method": "POST",
@@ -57,27 +99,6 @@
 			"response": []
 		},
 		{
-			"name": "getProjectActivity",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-activity/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-activity",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateProjectActivity",
 			"request": {
 				"method": "PATCH",
@@ -91,27 +112,6 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-activity/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-activity",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteProjectActivity",
-			"request": {
-				"method": "DELETE",
-				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/project-activity/0",
 					"host": [

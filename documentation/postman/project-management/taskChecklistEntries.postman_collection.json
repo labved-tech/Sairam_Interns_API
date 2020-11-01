@@ -6,6 +6,48 @@
 	},
 	"item": [
 		{
+			"name": "getTaskChecklistEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTaskChecklistEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-checklist-entries",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getAllTaskChecklistEntries",
 			"request": {
 				"method": "GET",
@@ -57,27 +99,6 @@
 			"response": []
 		},
 		{
-			"name": "getTaskChecklistEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"task-checklist-entries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateTaskChecklistEntries",
 			"request": {
 				"method": "PATCH",
@@ -91,27 +112,6 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"task-checklist-entries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteTaskChecklistEntries",
-			"request": {
-				"method": "DELETE",
-				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
 					"host": [
