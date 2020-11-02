@@ -96,16 +96,42 @@ router.use('/users', userRouter);
 router.use('/announcement-entries', announcementEntriesRouter);
 router.use('/announcement-notify', announcementNotifyRouter);
 
-router.use('/lead-entries', leadEntriesRouter);
-router.use('/lead-response', leadResponseRouter);
-router.use('/lead-categories', leadCategoriesRouter);
+// RATINGS MODULE
+router.use('/ratingAttributeGroups', ratingAttributeGroupsRouter);
+router.use('/ratingAttribute', ratingAttributeRouter);
+router.use('/ratingEntries', ratingEntriesRouter);
 
+// TICKETS & SUPPORT MODULE
+router.use('/ticketCategories', ticketCategoriesRouter);
+router.use('/ticketEntries', ticketEntriesRouter);
+router.use('/ticketProducts', ticketProductsRouter);
+router.use('/ticketResponse', ticketResponseRouter);
+
+// NEWSLETTER MODULE
+router.use('/newsletter-entries', newsletterEntriesRouter);
+router.use('/newsletter-messages', newsletterMessagesRouter);
+
+// SALES-FINANCE MODULE
+router.use('/address', addressRouter);
+router.use('/delivery-note', deliveryNoteRouter);
+router.use('/packing-list', packingListRouter);
+//router.use('/perfoma-invoice', perfomaInvoiceRouter);
+router.use('/quotation', quotationRouter);
+router.use('/tax-invoice', taxInvoiceRouter);
+
+// OTHER MODULE
 router.use('/analytics', analyticsRouter);
 router.use('/charts', chartsRouter);
 router.use('/forms', formsRouter);
 router.use('/pages', pagesRouter);
 router.use('/reports', reportsRouter);
 
+// LEADS MODULE
+router.use('/lead-entries', leadEntriesRouter);
+router.use('/lead-response', leadResponseRouter);
+router.use('/lead-categories', leadCategoriesRouter);
+
+// Farm MODULE
 router.use('/farm-entries', farmEntriesRouter);
 router.use('/farm-exported-strategy', farmExportedStrategyRouter);
 router.use('/farm-regions', farmRegionsRouter);
@@ -113,6 +139,8 @@ router.use('/farm-strategy', farmStrategyRouter);
 router.use('/form-response', formResponseRouter);
 
 router.use('/milestone', milestoneRouter);
+
+// PROJECT MODULE
 router.use('/project-activity', projectActivityRouter);
 router.use('/project-admins', projectAdminsRouter);
 router.use('/project-discussion-comments', projectDiscussionCommentsRouter);
@@ -129,44 +157,28 @@ router.use('/task-checklist-status', taskChecklistStatusRouter);
 router.use('/task-reminders', taskRemindersRouter);
 router.use('/task-timers', taskTimersRouter);
 
-router.use('/newsletter-entries', newsletterEntriesRouter);
-router.use('/newsletter-messages', newsletterMessagesRouter);
-
-router.use('/address', addressRouter);
-router.use('/delivery-note', deliveryNoteRouter);
-router.use('/packing-list', packingListRouter);
-//router.use('/perfoma-invoice', perfomaInvoiceRouter);
-router.use('/quotation', quotationRouter);
-router.use('/tax-invoice', taxInvoiceRouter);
-
+// COMMENTS MODULE
 router.use('/commentEntries', commentEntriesRouter);
 
+// ECOMMERCE MODULE
 router.use('/ecommerce-address', ecommerceAddressRouter);
 router.use('/ecommerce-locations', ecommerceLocationsRouter);
 router.use('/ecommerce-order', ecommerceOrderRouter);
 router.use('/ecommerce-products', ecommerceProductsRouter);
 router.use('/ecommerce-stock', ecommerceStockRouter);
 
-router.use('/ratingAttributeGroups', ratingAttributeGroupsRouter);
-router.use('/ratingAttribute', ratingAttributeRouter);
-router.use('/ratingEntries', ratingEntriesRouter);
-
+// DIRECTORY MODULE
 router.use('/directoryAttributes', directoryAttributesRouter);
 router.use('/directoryCategories', directoryCategoriesRouter);
 router.use('/directoryEntries', directoryEntriesRouter);
 router.use('/directoryLevels', directoryLevelsRouter);
 router.use('/directory', directoryRouter);
 
-router.use('/commentEntries', commentEntriesRouter);
-
+// EVENTS MODULE
 router.use('/eventEntries', eventEntriesRouter);
 
+// CONTRACT MODULE
 router.use('/contractEntries', contractEntriesRouter);
 router.use('/contractTemplates', contractTemplatesRouter);
-
-router.use('/ticketCategories', ticketCategoriesRouter);
-router.use('/ticketEntries', ticketEntriesRouter);
-router.use('/ticketProducts', ticketProductsRouter);
-router.use('/ticketResponse', ticketResponseRouter);
 
 module.exports = router;
