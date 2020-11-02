@@ -4,6 +4,7 @@ const express = require('express');
 /* MIDDLEWARE */
 const router = express.Router();
 const exampleController = require('../controllers/exampleController');
+const authController = require('../controllers/user/authController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
@@ -16,12 +17,16 @@ router.param('id', exampleController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(exampleController.getAllExample)
-  .post(exampleController.createExample);
+  .get(authController.protect, exampleController.getAllExample)
+  .post(authController.protect, exampleController.createExample);
 router
   .route('/:id')
-  .get(exampleController.getExample)
-  .patch(exampleController.updateExample)
-  .delete(exampleController.deleteExample);
+  .get(authController.protect, exampleController.getExample)
+  .patch(authController.protect, exampleController.updateExample)
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    exampleController.deleteExample
+  );
 
 module.exports = router;

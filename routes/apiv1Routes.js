@@ -4,7 +4,7 @@ const express = require('express');
 /* MIDDLEWARE */
 const router = express.Router();
 
-const userRouter = require('./account-settings/user/userRoutes');
+const userRouter = require('./user/userRoutes');
 
 const analyticsRouter = require('./analytics/analyticsRoutes');
 
