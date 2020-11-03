@@ -17,7 +17,6 @@ const directorySchema = new Schema({
     { timestamps: true }
 );
 
-
 /* MODEL */
 const Directory = mongoose.model('directory', directorySchema);
 
