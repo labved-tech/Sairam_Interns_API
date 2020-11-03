@@ -13,10 +13,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllDirectoryCategories = async (req, res, next) => {
+exports.getAllDirectoryCategories = catchAsync(async (req, res, next)=> {
   console.log('Getting All DirectoryCategories');
 
-  try {
+  
     const directories = await DirectoryCategories.find().then();
 
     res.status(200).json({
@@ -27,63 +27,66 @@ exports.getAllDirectoryCategories = async (req, res, next) => {
         directories,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getDirectoryCategories = async (req, res, next) => {
+exports.getDirectoryCategories = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Getting DirectoryCategories for Id ${id}`);
 
-  try {
+  
     const directoryCategories = await DirectoryCategories.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got DirectoryCategories Id=${id}`,
       Data: { directoryCategories },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createDirectoryCategories = async (req, res, next) => {
+exports.createDirectoryCategories = catchAsync(async (req, res, next)=> {
   console.log('Creating directoryCategories');
+  // parse through models
+  const doc = new DirectoryCategories(req.body);
+  console.log(doc);
 
-  try {
-    const directoryCategories = await DirectoryCategories.create(req.body).then();
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+  
+    const directoryCategories = await DirectoryCategories.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created DirectoryCategories',
       data: { directoryCategories },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateDirectoryCategories = async (req, res, next) => {
+exports.updateDirectoryCategories = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Updating DirectoryCategories Id ${id}`);
 
-  try {
+  
     const directoryCategories = await DirectoryCategories.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +96,16 @@ exports.updateDirectoryCategories = async (req, res, next) => {
       message: `Updated DirectoryCategories Id=${id}`,
       data: { directoryCategories },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteDirectoryCategories = async (req, res, next) => {
+exports.deleteDirectoryCategories = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Deleting DirectoryCategories Id ${id}`);
 
-  try {
+  
     const directoryCategories = await DirectoryCategories.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +113,7 @@ exports.deleteDirectoryCategories = async (req, res, next) => {
       message: `Deleted DirectoryCategories Id=${id}`,
       data: { directoryCategories },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
