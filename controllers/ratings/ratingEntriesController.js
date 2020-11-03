@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const RatingEntries = require('../../models/ratings/ratingEntriesModel');
 
 /* DATABASE */
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllRatingEntries = catchAsync(async (req, res, next)=> {
+exports.getAllRatingEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All RatingEntries');
 
-  
-    const ratingEntriess = await RatingEntries.find().then();
+  const ratingEntriess = await RatingEntries.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All RatingEntries',
-      results: ratingEntriess.length,
-      data: {
-        ratingEntriess,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All RatingEntries',
+    results: ratingEntriess.length,
+    data: {
+      ratingEntriess,
+    },
+  });
 
   next();
 });
 
-exports.getRatingEntries = catchAsync(async (req, res, next)=> {
+exports.getRatingEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting RatingEntries for Id ${id}`);
 
-  
-    const ratingEntries = await RatingEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got RatingEntries Id=${id}`,
-      Data: { ratingEntries },
-    });
-
+  const ratingEntries = await RatingEntries.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got RatingEntries Id=${id}`,
+    Data: { ratingEntries },
+  });
 
   next();
 });
 
-exports.createRatingEntries = catchAsync(async (req, res, next)=> {
+exports.createRatingEntries = catchAsync(async (req, res, next) => {
   console.log('Creating RatingEntries');
   // parse through models
   const doc = new RatingEntries(req.body);
@@ -69,51 +67,46 @@ exports.createRatingEntries = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const ratingEntries = await RatingEntries.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created RatingEntries',
-      data: { ratingEntries },
-    });
+  const ratingEntries = await RatingEntries.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created RatingEntries',
+    data: { ratingEntries },
+  });
 
   next();
 });
 
-exports.updateRatingEntries = catchAsync(async (req, res, next)=> {
+exports.updateRatingEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating RatingEntries Id ${id}`);
 
-  
-    const ratingEntries = await RatingEntries.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+  const ratingEntries = await RatingEntries.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated RatingEntries Id=${id}`,
-      data: { ratingEntries },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated RatingEntries Id=${id}`,
+    data: { ratingEntries },
+  });
 
   next();
 });
 
-exports.deleteRatingEntries = catchAsync(async (req, res, next)=> {
+exports.deleteRatingEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting RatingEntries Id ${id}`);
 
-  
-    const ratingEntries = await RatingEntries.findByIdAndDelete(id).then();
+  const ratingEntries = await RatingEntries.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted RatingEntries Id=${id}`,
-      data: { ratingEntries },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted RatingEntries Id=${id}`,
+    data: { ratingEntries },
+  });
 
   next();
 });

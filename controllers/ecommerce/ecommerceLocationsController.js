@@ -2,7 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const EcommerceLocations = require('./../../models/ecommerce/ecommerceLocationsModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const EcommerceLocations = require('../../models/ecommerce/ecommerceLocationsModel');
 
 /* DATABASE */
 
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllEcommerceLocations = catchAsync(async (req, res, next)=> {
+exports.getAllEcommerceLocations = catchAsync(async (req, res, next) => {
   console.log('Getting All EcommerceLocations');
 
-  
-    const ecommerceLocationss = await EcommerceLocations.find().then();
+  const ecommerceLocationss = await EcommerceLocations.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All EcommerceLocations',
-      results: ecommerceLocationss.length,
-      data: {
-        ecommerceLocationss,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All EcommerceLocations',
+    results: ecommerceLocationss.length,
+    data: {
+      ecommerceLocationss,
+    },
+  });
 
   next();
 });
 
-exports.getEcommerceLocations = catchAsync(async (req, res, next)=> {
+exports.getEcommerceLocations = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting EcommerceLocations for Id ${id}`);
 
-  
-    const ecommerceLocations = await EcommerceLocations.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got EcommerceLocations Id=${id}`,
-      Data: { ecommerceLocations },
-    });
-
+  const ecommerceLocations = await EcommerceLocations.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got EcommerceLocations Id=${id}`,
+    Data: { ecommerceLocations },
+  });
 
   next();
 });
 
-exports.createEcommerceLocations = catchAsync(async (req, res, next)=> {
+exports.createEcommerceLocations = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceLocations');
   // parse through models
   const doc = new EcommerceLocations(req.body);
@@ -69,51 +67,52 @@ exports.createEcommerceLocations = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const ecommerceLocations = await EcommerceLocations.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created EcommerceLocations',
-      data: { ecommerceLocations },
-    });
+  const ecommerceLocations = await EcommerceLocations.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created EcommerceLocations',
+    data: { ecommerceLocations },
+  });
 
   next();
 });
 
-exports.updateEcommerceLocations = catchAsync(async (req, res, next)=> {
+exports.updateEcommerceLocations = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating EcommerceLocations Id ${id}`);
 
-  
-    const ecommerceLocations = await EcommerceLocations.findByIdAndUpdate(id, req.body, {
+  const ecommerceLocations = await EcommerceLocations.findByIdAndUpdate(
+    id,
+    req.body,
+    {
       new: true,
-    }).then();
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated EcommerceLocations Id=${id}`,
-      data: { ecommerceLocations },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated EcommerceLocations Id=${id}`,
+    data: { ecommerceLocations },
+  });
 
   next();
 });
 
-exports.deleteEcommerceLocations = catchAsync(async (req, res, next)=> {
+exports.deleteEcommerceLocations = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting EcommerceLocations Id ${id}`);
 
-  
-    const ecommerceLocations = await EcommerceLocations.findByIdAndDelete(id).then();
+  const ecommerceLocations = await EcommerceLocations.findByIdAndDelete(
+    id
+  ).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted EcommerceLocations Id=${id}`,
-      data: { ecommerceLocations },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted EcommerceLocations Id=${id}`,
+    data: { ecommerceLocations },
+  });
 
   next();
 });

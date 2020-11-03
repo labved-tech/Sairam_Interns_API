@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const RatingAttributeGroup = require('../../models/ratings/ratingAttributeGroupsModel');
 
 /* DATABASE */

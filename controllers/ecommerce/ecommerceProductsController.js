@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const EcommerceProducts = require('../../models/ecommerce/ecommerceProductsModel');
 
 /* DATABASE */
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllEcommerceProducts = catchAsync(async (req, res, next)=> {
+exports.getAllEcommerceProducts = catchAsync(async (req, res, next) => {
   console.log('Getting All EcommerceProducts');
 
-  
-    const ecommerceProductss = await EcommerceProducts.find().then();
+  const ecommerceProductss = await EcommerceProducts.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All EcommerceProducts',
-      results: ecommerceProductss.length,
-      data: {
-        ecommerceProductss,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All EcommerceProducts',
+    results: ecommerceProductss.length,
+    data: {
+      ecommerceProductss,
+    },
+  });
 
   next();
 });
 
-exports.getEcommerceProducts = catchAsync(async (req, res, next)=> {
+exports.getEcommerceProducts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting EcommerceProducts for Id ${id}`);
 
-  
-    const ecommerceProducts = await EcommerceProducts.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got EcommerceProducts Id=${id}`,
-      Data: { ecommerceProducts },
-    });
-
+  const ecommerceProducts = await EcommerceProducts.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got EcommerceProducts Id=${id}`,
+    Data: { ecommerceProducts },
+  });
 
   next();
 });
 
-exports.createEcommerceProducts = catchAsync(async (req, res, next)=> {
+exports.createEcommerceProducts = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceProducts');
   // parse through models
   const doc = new EcommerceProduct(req.body);
@@ -69,51 +67,52 @@ exports.createEcommerceProducts = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const ecommerceProducts = await EcommerceProducts.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created EcommerceProducts',
-      data: { ecommerceProducts },
-    });
+  const ecommerceProducts = await EcommerceProducts.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created EcommerceProducts',
+    data: { ecommerceProducts },
+  });
 
   next();
 });
 
-exports.updateEcommerceProducts = catchAsync(async (req, res, next)=> {
+exports.updateEcommerceProducts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating EcommerceProducts Id ${id}`);
 
-  
-    const ecommerceProducts = await EcommerceProducts.findByIdAndUpdate(id, req.body, {
+  const ecommerceProducts = await EcommerceProducts.findByIdAndUpdate(
+    id,
+    req.body,
+    {
       new: true,
-    }).then();
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated EcommerceProducts Id=${id}`,
-      data: { ecommerceProducts },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated EcommerceProducts Id=${id}`,
+    data: { ecommerceProducts },
+  });
 
   next();
 });
 
-exports.deleteEcommerceProducts = catchAsync(async (req, res, next)=> {
+exports.deleteEcommerceProducts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting EcommerceProducts Id ${id}`);
 
-  
-    const ecommerceProducts = await EcommerceProducts.findByIdAndDelete(id).then();
+  const ecommerceProducts = await EcommerceProducts.findByIdAndDelete(
+    id
+  ).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted EcommerceProducts Id=${id}`,
-      data: { ecommerceProducts },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted EcommerceProducts Id=${id}`,
+    data: { ecommerceProducts },
+  });
 
   next();
 });

@@ -2,7 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const DirectoryLevels = require('./../../models/directory/directoryLevelsModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const DirectoryLevels = require('../../models/directory/directoryLevelsModel');
 
 /* DATABASE */
 
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllDirectoryLevels = catchAsync(async (req, res, next)=> {
+exports.getAllDirectoryLevels = catchAsync(async (req, res, next) => {
   console.log('Getting All DirectoryLevels');
 
-  
-    const directories = await DirectoryLevels.find().then();
+  const directories = await DirectoryLevels.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All DirectoryLevels',
-      results: directories.length,
-      data: {
-        directories,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All DirectoryLevels',
+    results: directories.length,
+    data: {
+      directories,
+    },
+  });
 
   next();
 });
 
-exports.getDirectoryLevels = catchAsync(async (req, res, next)=> {
+exports.getDirectoryLevels = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting DirectoryLevels for Id ${id}`);
 
-  
-    const directoryLevels = await DirectoryLevels.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got DirectoryLevels Id=${id}`,
-      Data: { directoryLevels },
-    });
-
+  const directoryLevels = await DirectoryLevels.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got DirectoryLevels Id=${id}`,
+    Data: { directoryLevels },
+  });
 
   next();
 });
 
-exports.createDirectoryLevels = catchAsync(async (req, res, next)=> {
+exports.createDirectoryLevels = catchAsync(async (req, res, next) => {
   console.log('Creating directoryLevels');
   // parse through models
   const doc = new DirectoryLevels(req.body);
@@ -69,51 +67,50 @@ exports.createDirectoryLevels = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const directoryLevels = await DirectoryLevels.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created DirectoryLevels',
-      data: { directoryLevels },
-    });
+  const directoryLevels = await DirectoryLevels.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created DirectoryLevels',
+    data: { directoryLevels },
+  });
 
   next();
 });
 
-exports.updateDirectoryLevels = catchAsync(async (req, res, next)=> {
+exports.updateDirectoryLevels = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating DirectoryLevels Id ${id}`);
 
-  
-    const directoryLevels = await DirectoryLevels.findByIdAndUpdate(id, req.body, {
+  const directoryLevels = await DirectoryLevels.findByIdAndUpdate(
+    id,
+    req.body,
+    {
       new: true,
-    }).then();
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated DirectoryLevels Id=${id}`,
-      data: { directoryLevels },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated DirectoryLevels Id=${id}`,
+    data: { directoryLevels },
+  });
 
   next();
 });
 
-exports.deleteDirectoryLevels = catchAsync(async (req, res, next)=> {
+exports.deleteDirectoryLevels = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting DirectoryLevels Id ${id}`);
 
-  
-    const directoryLevels = await DirectoryLevels.findByIdAndDelete(id).then();
+  const directoryLevels = await DirectoryLevels.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted DirectoryLevels Id=${id}`,
-      data: { directoryLevels },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted DirectoryLevels Id=${id}`,
+    data: { directoryLevels },
+  });
 
   next();
 });

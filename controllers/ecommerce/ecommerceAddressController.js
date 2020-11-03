@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const EcommerceAddress = require('../../models/ecommerce/ecommerceAddressModel');
 
 /* DATABASE */
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllEcommerceAddress = catchAsync(async (req, res, next)=> {
+exports.getAllEcommerceAddress = catchAsync(async (req, res, next) => {
   console.log('Getting All Ecommerce Address');
 
-  
-    const ecommerceAddresss = await EcommerceAddress.find().then();
+  const ecommerceAddresss = await EcommerceAddress.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All ecommerceAddress',
-      results: ecommerceAddresss.length,
-      data: {
-        ecommerceAddresss,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All ecommerceAddress',
+    results: ecommerceAddresss.length,
+    data: {
+      ecommerceAddresss,
+    },
+  });
 
   next();
 });
 
-exports.getEcommerceAddress = catchAsync(async (req, res, next)=> {
+exports.getEcommerceAddress = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting ecommerceAddress for Id ${id}`);
 
-  
-    const ecommerceAddress = await EcommerceAddress.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got ecommerceAddress Id=${id}`,
-      Data: { ecommerceAddress },
-    });
-
+  const ecommerceAddress = await EcommerceAddress.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got ecommerceAddress Id=${id}`,
+    Data: { ecommerceAddress },
+  });
 
   next();
 });
 
-exports.createEcommerceAddress = catchAsync(async (req, res, next)=> {
+exports.createEcommerceAddress = catchAsync(async (req, res, next) => {
   console.log('Creating Ecommerce Address');
   // parse through models
   const doc = new EcommerceAddress(req.body);
@@ -69,57 +67,50 @@ exports.createEcommerceAddress = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const ecommerceAddress = await EcommerceAddress.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created ecommerceAddress',
-      data: { ecommerceAddress },
-    });
+  const ecommerceAddress = await EcommerceAddress.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created ecommerceAddress',
+    data: { ecommerceAddress },
+  });
 
   next();
 });
 
-exports.updateEcommerceAddress = catchAsync(async (req, res, next)=> {
+exports.updateEcommerceAddress = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating ecommerceAddress Id ${id}`);
 
-  
-    const ecommerceAddress = await EcommerceAddress.findByIdAndUpdate(
-      id,
-      req.body,
-      {
-        new: true,
-      }
-    ).then();
+  const ecommerceAddress = await EcommerceAddress.findByIdAndUpdate(
+    id,
+    req.body,
+    {
+      new: true,
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated ecommerceAddress Id=${id}`,
-      data: { ecommerceAddress },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated ecommerceAddress Id=${id}`,
+    data: { ecommerceAddress },
+  });
 
   next();
 });
 
-exports.deleteEcommerceAddress = catchAsync(async (req, res, next)=> {
+exports.deleteEcommerceAddress = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting ecommerceAddress Id ${id}`);
 
-  
-    const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(
-      id
-    ).then();
+  const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted ecommerceAddress Id=${id}`,
-      data: { ecommerceAddress },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted ecommerceAddress Id=${id}`,
+    data: { ecommerceAddress },
+  });
 
   next();
 });

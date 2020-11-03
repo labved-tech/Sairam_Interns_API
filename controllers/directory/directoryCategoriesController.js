@@ -2,7 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const DirectoryCategories = require('./../../models/directory/directoryCategoriesModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const DirectoryCategories = require('../../models/directory/directoryCategoriesModel');
 
 /* DATABASE */
 
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllDirectoryCategories = catchAsync(async (req, res, next)=> {
+exports.getAllDirectoryCategories = catchAsync(async (req, res, next) => {
   console.log('Getting All DirectoryCategories');
 
-  
-    const directories = await DirectoryCategories.find().then();
+  const directories = await DirectoryCategories.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All DirectoryCategories',
-      results: directories.length,
-      data: {
-        directories,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All DirectoryCategories',
+    results: directories.length,
+    data: {
+      directories,
+    },
+  });
 
   next();
 });
 
-exports.getDirectoryCategories = catchAsync(async (req, res, next)=> {
+exports.getDirectoryCategories = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting DirectoryCategories for Id ${id}`);
 
-  
-    const directoryCategories = await DirectoryCategories.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got DirectoryCategories Id=${id}`,
-      Data: { directoryCategories },
-    });
-
+  const directoryCategories = await DirectoryCategories.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got DirectoryCategories Id=${id}`,
+    Data: { directoryCategories },
+  });
 
   next();
 });
 
-exports.createDirectoryCategories = catchAsync(async (req, res, next)=> {
+exports.createDirectoryCategories = catchAsync(async (req, res, next) => {
   console.log('Creating directoryCategories');
   // parse through models
   const doc = new DirectoryCategories(req.body);
@@ -69,51 +67,52 @@ exports.createDirectoryCategories = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const directoryCategories = await DirectoryCategories.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created DirectoryCategories',
-      data: { directoryCategories },
-    });
+  const directoryCategories = await DirectoryCategories.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created DirectoryCategories',
+    data: { directoryCategories },
+  });
 
   next();
 });
 
-exports.updateDirectoryCategories = catchAsync(async (req, res, next)=> {
+exports.updateDirectoryCategories = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating DirectoryCategories Id ${id}`);
 
-  
-    const directoryCategories = await DirectoryCategories.findByIdAndUpdate(id, req.body, {
+  const directoryCategories = await DirectoryCategories.findByIdAndUpdate(
+    id,
+    req.body,
+    {
       new: true,
-    }).then();
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated DirectoryCategories Id=${id}`,
-      data: { directoryCategories },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated DirectoryCategories Id=${id}`,
+    data: { directoryCategories },
+  });
 
   next();
 });
 
-exports.deleteDirectoryCategories = catchAsync(async (req, res, next)=> {
+exports.deleteDirectoryCategories = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting DirectoryCategories Id ${id}`);
 
-  
-    const directoryCategories = await DirectoryCategories.findByIdAndDelete(id).then();
+  const directoryCategories = await DirectoryCategories.findByIdAndDelete(
+    id
+  ).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted DirectoryCategories Id=${id}`,
-      data: { directoryCategories },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted DirectoryCategories Id=${id}`,
+    data: { directoryCategories },
+  });
 
   next();
 });

@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const EcommerceOrder = require('../../models/ecommerce/ecommerceOrderModel');
 
 /* DATABASE */
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllEcommerceOrder = catchAsync(async (req, res, next)=> {
+exports.getAllEcommerceOrder = catchAsync(async (req, res, next) => {
   console.log('Getting All EcommerceOrder');
 
-  
-    const ecommerceOrders = await EcommerceOrder.find().then();
+  const ecommerceOrders = await EcommerceOrder.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All EcommerceOrder',
-      results: ecommerceOrders.length,
-      data: {
-        ecommerceOrders,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All EcommerceOrder',
+    results: ecommerceOrders.length,
+    data: {
+      ecommerceOrders,
+    },
+  });
 
   next();
 });
 
-exports.getEcommerceOrder = catchAsync(async (req, res, next)=> {
+exports.getEcommerceOrder = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting EcommerceOrder for Id ${id}`);
 
-  
-    const ecommerceOrder = await EcommerceOrder.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got EcommerceOrder Id=${id}`,
-      Data: { ecommerceOrder },
-    });
-
+  const ecommerceOrder = await EcommerceOrder.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got EcommerceOrder Id=${id}`,
+    Data: { ecommerceOrder },
+  });
 
   next();
 });
 
-exports.createEcommerceOrder = catchAsync(async (req, res, next)=> {
+exports.createEcommerceOrder = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceOrder');
 
   // parse through models
@@ -69,51 +67,46 @@ exports.createEcommerceOrder = catchAsync(async (req, res, next)=> {
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc); 
-    const ecommerceOrder = await EcommerceOrder.create(doc).then();
+  //console.log(doc);
+  const ecommerceOrder = await EcommerceOrder.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created EcommerceOrder',
-      data: { ecommerceOrder },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created EcommerceOrder',
+    data: { ecommerceOrder },
+  });
 
   next();
 });
 
-exports.updateEcommerceOrder = catchAsync(async (req, res, next)=> {
+exports.updateEcommerceOrder = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating EcommerceOrder Id ${id}`);
 
-  
-    const ecommerceOrder = await EcommerceOrder.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+  const ecommerceOrder = await EcommerceOrder.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated EcommerceOrder Id=${id}`,
-      data: { ecommerceOrder },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated EcommerceOrder Id=${id}`,
+    data: { ecommerceOrder },
+  });
 
   next();
 });
 
-exports.deleteEcommerceOrder = catchAsync(async (req, res, next)=> {
+exports.deleteEcommerceOrder = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting EcommerceOrder Id ${id}`);
 
-  
-    const ecommerceOrder = await EcommerceOrder.findByIdAndDelete(id).then();
+  const ecommerceOrder = await EcommerceOrder.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted EcommerceOrder Id=${id}`,
-      data: { ecommerceOrder },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted EcommerceOrder Id=${id}`,
+    data: { ecommerceOrder },
+  });
 
   next();
 });

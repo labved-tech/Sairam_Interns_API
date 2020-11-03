@@ -2,7 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const Directory = require('./../../models/directory/directoryModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const Directory = require('../../models/directory/directoryModel');
 
 /* DATABASE */
 
@@ -13,42 +15,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllDirectory = catchAsync(async (req, res, next)=> {
+exports.getAllDirectory = catchAsync(async (req, res, next) => {
   console.log('Getting All Directory');
 
-  
-    const directories = await Directory.find().then();
+  const directories = await Directory.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All Directory',
-      results: directories.length,
-      data: {
-        directories,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All Directory',
+    results: directories.length,
+    data: {
+      directories,
+    },
+  });
 
   next();
 });
 
-exports.getDirectory = catchAsync(async (req, res, next)=> {
+exports.getDirectory = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Directory for Id ${id}`);
 
-  
-    const directory = await Directory.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got Directory Id=${id}`,
-      Data: { directory },
-    });
-
+  const directory = await Directory.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got Directory Id=${id}`,
+    Data: { directory },
+  });
 
   next();
 });
 
-exports.createDirectory = catchAsync(async (req, res, next)=> {
+exports.createDirectory = catchAsync(async (req, res, next) => {
   console.log('Creating directory');
   // parse through models
   const doc = new AnnouncementEntries(req.body);
@@ -69,51 +67,46 @@ exports.createDirectory = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const directory = await Directory.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created Directory',
-      data: { directory },
-    });
+  const directory = await Directory.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created Directory',
+    data: { directory },
+  });
 
   next();
 });
 
-exports.updateDirectory = catchAsync(async (req, res, next)=> {
+exports.updateDirectory = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Directory Id ${id}`);
 
-  
-    const directory = await Directory.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+  const directory = await Directory.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated Directory Id=${id}`,
-      data: { directory },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated Directory Id=${id}`,
+    data: { directory },
+  });
 
   next();
 });
 
-exports.deleteDirectory = catchAsync(async (req, res, next)=> {
+exports.deleteDirectory = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Directory Id ${id}`);
 
-  
-    const directory = await Directory.findByIdAndDelete(id).then();
+  const directory = await Directory.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted Directory Id=${id}`,
-      data: { directory },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted Directory Id=${id}`,
+    data: { directory },
+  });
 
   next();
 });
