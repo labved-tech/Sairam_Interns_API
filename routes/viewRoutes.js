@@ -20,9 +20,11 @@ router.get('/sign-in', viewsController.getSignIn);
 router.get('/forgot', viewsController.getForgot);
 router.get('/error', viewsController.getError);
 
-// ACCOUNT SETTINGS RELATED ROUTES
+// USERS RELATED ROUTES
 router.get('/account-settings/users/view-all', viewsController.getAllUser);
 router.get('/account-settings/users/add-new', viewsController.getAddUser);
 
+// EXAMPLE RELATED ROUTES
+router.get('/example', viewsController.example);
 
 module.exports = router;
