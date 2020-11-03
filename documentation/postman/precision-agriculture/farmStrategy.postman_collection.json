@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "fe82bf6e-29eb-4f1e-8a23-5c5699bfd182",
+		"_postman_id": "1f4d7dd8-ba88-4d7b-b7e1-a966a4304cd0",
 		"name": "farmStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -27,12 +27,21 @@
 			"response": []
 		},
 		{
-			"name": "deleteFarmStrategy",
+			"name": "createFarmStrategy",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"description\": \"Student\",\r\n    \"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_regionId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"expectedYeild\": 10,\r\n    \"expectedYeildUnit\":\"NA\",\r\n    \"actualYeild\": 10,\r\n    \"actualYeildUnit\":\"NA\",\r\n    \"start\":\"2000-09-22\",\r\n    \"expectedEnd\":\"2000-09-22\",\r\n    \"stages\": [\r\n      {\r\n        \"name\": \"Vicky\",\r\n        \"description\": \"Student\",\r\n        \"start\":\"2000-09-22\",\r\n        \"end\":\"2000-09-22\",\r\n        \"commodities\": [\r\n          {\r\n            \"type\":\"NA\",\r\n            \"name\": \"Vicky\",\r\n            \"quantity\": 10,\r\n            \"unitOfMeasurement\":\"NA\",\r\n            \"editable\":true,\r\n            \"quotations\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"proformaInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"taxInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"deliveryNotes\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"packingLists\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"ecommOrders\":[\"2\",\"3\",\"4\",\"5\"]\r\n          }\r\n        ],\r\n        \"stageOrder\": 10,\r\n        \"editable\":true\r\n      }\r\n    ],\r\n    \"_contractId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_exportedStrategyId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"rate\":\"NA\",\r\n    \"totalExpense\": 10,\r\n    \"authorsNote\":\"NA\",\r\n    \"_parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/0",
+					"raw": "localhost:3000/api/v1/farm-strategy/",
 					"host": [
 						"localhost"
 					],
@@ -41,7 +50,7 @@
 						"api",
 						"v1",
 						"farm-strategy",
-						"0"
+						""
 					]
 				}
 			},
@@ -75,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"description\": \"Student\",\r\n    \"_zoneId\": \"1\",\r\n    \"_cropId\": \"1\",\r\n    \"_regionId\": \"1\",\r\n    \"expectedYeild\": 10,\r\n    \"expectedYeildUnit\":\"NA\",\r\n    \"actualYeild\": 10,\r\n    \"actualYeildUnit\":\"NA\",\r\n    \"start\":\"22-10-2010\",\r\n    \"expectedEnd\":\"22-10-2010\",\r\n    \"stages\": [\r\n      {\r\n        \"name\": \"Vicky\",\r\n        \"description\": \"Student\",\r\n        \"start\":\"22-10-2010\",\r\n        \"end\":\"22-10-2010\",\r\n        \"commodities\": [\r\n          {\r\n            \"type\":\"NA\",\r\n            \"name\": \"Vicky\",\r\n            \"quantity\": 10,\r\n            \"unitOfMeasurement\":\"NA\",\r\n            \"editable\":true,\r\n            \"quotations\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"proformaInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"taxInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"deliveryNotes\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"packingLists\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"ecommOrders\":[\"2\",\"3\",\"4\",\"5\"]\r\n          }\r\n        ],\r\n        \"stageOrder\": 10,\r\n        \"editable\":true,\r\n        \"createdBy\": \"1\",\r\n        \"createdAt\":\"22-10-2010\",\r\n        \"updatedAt\":\"22-10-2010\"\r\n      }\r\n    ],\r\n    \"_contractId\": \"1\",\r\n    \"exportedStrategyId\":\"NA\",\r\n    \"rate\":\"NA\",\r\n    \"totalExpense\": 10,\r\n    \"authorsNote\":\"NA\",\r\n    \"_parentId\": \"1\"\r\n  }",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"description\": \"Student\",\r\n    \"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_regionId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"expectedYeild\": 10,\r\n    \"expectedYeildUnit\":\"NA\",\r\n    \"actualYeild\": 10,\r\n    \"actualYeildUnit\":\"NA\",\r\n    \"start\":\"2000-09-22\",\r\n    \"expectedEnd\":\"2000-09-22\",\r\n    \"stages\": [\r\n      {\r\n        \"name\": \"Vicky\",\r\n        \"description\": \"Student\",\r\n        \"start\":\"2000-09-22\",\r\n        \"end\":\"2000-09-22\",\r\n        \"commodities\": [\r\n          {\r\n            \"type\":\"NA\",\r\n            \"name\": \"Vicky\",\r\n            \"quantity\": 10,\r\n            \"unitOfMeasurement\":\"NA\",\r\n            \"editable\":true,\r\n            \"quotations\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"proformaInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"taxInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"deliveryNotes\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"packingLists\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"ecommOrders\":[\"2\",\"3\",\"4\",\"5\"]\r\n          }\r\n        ],\r\n        \"stageOrder\": 10,\r\n        \"editable\":true\r\n      }\r\n    ],\r\n    \"_contractId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_exportedStrategyId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"rate\":\"NA\",\r\n    \"totalExpense\": 10,\r\n    \"authorsNote\":\"NA\",\r\n    \"_parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,21 +108,12 @@
 			"response": []
 		},
 		{
-			"name": "createFarmStrategy",
+			"name": "deleteFarmStrategy",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"description\": \"Student\",\r\n    \"_zoneId\": \"1\",\r\n    \"_cropId\": \"1\",\r\n    \"_regionId\": \"1\",\r\n    \"expectedYeild\": 10,\r\n    \"expectedYeildUnit\":\"NA\",\r\n    \"actualYeild\": 10,\r\n    \"actualYeildUnit\":\"NA\",\r\n    \"start\":\"22-10-2010\",\r\n    \"expectedEnd\":\"22-10-2010\",\r\n    \"stages\": [\r\n      {\r\n        \"name\": \"Vicky\",\r\n        \"description\": \"Student\",\r\n        \"start\":\"22-10-2010\",\r\n        \"end\":\"22-10-2010\",\r\n        \"commodities\": [\r\n          {\r\n            \"type\":\"NA\",\r\n            \"name\": \"Vicky\",\r\n            \"quantity\": 10,\r\n            \"unitOfMeasurement\":\"NA\",\r\n            \"editable\":true,\r\n            \"quotations\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"proformaInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"taxInvoices\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"deliveryNotes\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"packingLists\":[\"2\",\"3\",\"4\",\"5\"],\r\n            \"ecommOrders\":[\"2\",\"3\",\"4\",\"5\"]\r\n          }\r\n        ],\r\n        \"stageOrder\": 10,\r\n        \"editable\":true,\r\n        \"createdBy\": \"1\",\r\n        \"createdAt\":\"22-10-2010\",\r\n        \"updatedAt\":\"22-10-2010\"\r\n      }\r\n    ],\r\n    \"_contractId\": \"1\",\r\n    \"exportedStrategyId\":\"NA\",\r\n    \"rate\":\"NA\",\r\n    \"totalExpense\": 10,\r\n    \"authorsNote\":\"NA\",\r\n    \"_parentId\": \"1\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/",
+					"raw": "localhost:3000/api/v1/farm-strategy/0",
 					"host": [
 						"localhost"
 					],
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"farm-strategy",
-						""
+						"0"
 					]
 				}
 			},
