@@ -15,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllForms = async (req, res, next) => {
+exports.getAllForms = catchAsync(async (req, res, next) => {
   console.log('Getting All forms');
 
-  try {
+
     const forms = await Forms.find().then();
 
     res.status(200).json({
@@ -29,63 +29,66 @@ exports.getAllForms = async (req, res, next) => {
         forms,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getForms = async (req, res, next) => {
+exports.getForms = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting forms for Id ${id}`);
 
-  try {
+
     const forms = await Forms.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got forms Id=${id}`,
       Data: { forms },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createForms = async (req, res, next) => {
+exports.createForms = catchAsync(async (req, res, next) => {
   console.log('Creating forms');
+    // parse through models
+    const doc = new Forms(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc);
 
-  try {
-    const forms = await Forms.create(req.body).then();
+    const forms = await Forms.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created forms',
       data: { forms },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateForms = async (req, res, next) => {
+exports.updateForms = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating forms Id ${id}`);
 
-  try {
+
     const forms = await Forms.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,21 +98,16 @@ exports.updateForms = async (req, res, next) => {
       message: `Updated forms Id=${id}`,
       data: { forms },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteForms = async (req, res, next) => {
+exports.deleteForms = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting forms Id ${id}`);
 
-  try {
+
     const forms = await Forms.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +115,7 @@ exports.deleteForms = async (req, res, next) => {
       message: `Deleted forms Id=${id}`,
       data: { forms },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

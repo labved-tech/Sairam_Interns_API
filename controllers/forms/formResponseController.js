@@ -15,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllFormResponse = async (req, res, next) => {
+exports.getAllFormResponse = catchAsync(async (req, res, next) => {
   console.log('Getting All formResponse');
 
-  try {
+
     const formResponses = await FormResponse.find().then();
 
     res.status(200).json({
@@ -29,63 +29,66 @@ exports.getAllFormResponse = async (req, res, next) => {
         formResponses,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getFormResponse = async (req, res, next) => {
+exports.getFormResponse = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting formResponse for Id ${id}`);
 
-  try {
+
     const formResponse = await FormResponse.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got formResponse Id=${id}`,
       Data: { formResponse },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createFormResponse = async (req, res, next) => {
+exports.createFormResponse = catchAsync(async (req, res, next) => {
   console.log('Creating formResponse');
+    // parse through models
+    const doc = new FormResponse(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc);
 
-  try {
-    const formResponse = await FormResponse.create(req.body).then();
+    const formResponse = await FormResponse.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created formResponse',
       data: { formResponse },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateFormResponse = async (req, res, next) => {
+exports.updateFormResponse = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating formResponse Id ${id}`);
 
-  try {
+
     const formResponse = await FormResponse.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,21 +98,16 @@ exports.updateFormResponse = async (req, res, next) => {
       message: `Updated formResponse Id=${id}`,
       data: { formResponse },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteFormResponse = async (req, res, next) => {
+exports.deleteFormResponse = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting formResponse Id ${id}`);
 
-  try {
+
     const formResponse = await FormResponse.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +115,7 @@ exports.deleteFormResponse = async (req, res, next) => {
       message: `Deleted formResponse Id=${id}`,
       data: { formResponse },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
