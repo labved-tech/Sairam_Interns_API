@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "99e6c920-fd33-4c5d-a562-43cbef6d8d4b",
+		"_postman_id": "8b6e6cac-93b0-4a5c-8535-3a5d7d6011f0",
 		"name": "pages",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\": \"TN\",\r\n    \"_ownerid\": \"1\",\r\n    \"contents\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\":{ },\r\n    \"_ownerid\": \"1\",\r\n    \"contents\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,7 +83,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\": \"TN\",\r\n    \"_ownerid\": \"1\",\r\n    \"contents\": [\"2\",\"3\",\"4\",\"5\"]\r\n  }",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\":{ },\r\n    \"_ownerid\": \"1\",\r\n    \"contents\":[\"2\",\"3\",\"4\",\"5\"]\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
