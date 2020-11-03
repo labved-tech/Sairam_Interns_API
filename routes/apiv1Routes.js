@@ -85,6 +85,10 @@ const directoryEntriesRouter = require('./directory/directoryEntriesRoutes');
 const directoryLevelsRouter = require('./directory/directoryLevelsRoutes');
 const directoryRouter = require('./directory/directoryRoutes');
 
+const menuRouter = require('./menu/menuRoutes');
+
+const exampleRouter = require('./example/exampleRoutes');
+
 /* GLOBAL MIDDLEWARE USAGE*/
 
 /* ROUTES */
@@ -180,5 +184,11 @@ router.use('/eventEntries', eventEntriesRouter);
 // CONTRACT MODULE
 router.use('/contractEntries', contractEntriesRouter);
 router.use('/contractTemplates', contractTemplatesRouter);
+
+// MENU MODULE
+router.use('/menu', menuRouter);
+
+// EXAMPLE MODULE
+router.use('/api/v1/example', exampleRouter);
 
 module.exports = router;

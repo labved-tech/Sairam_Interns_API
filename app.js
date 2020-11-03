@@ -15,9 +15,6 @@ const globalErrorHandler = require('./controllers/errorController');
 const viewRouter = require('./routes/viewRoutes');
 const apiv1Router = require('./routes/apiv1Routes');
 
-const exampleRouter = require('./routes/exampleRoutes');
-const menuRouter = require('./routes/account-settings/menu/menuRoutes');
-
 /* ENVIRONMENT */
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
@@ -50,9 +47,6 @@ app.use('/', viewRouter);
 
 // API
 app.use('/api/v1', apiv1Router);
-
-app.use('/api/v1/example', exampleRouter);
-app.use('/api/v1/menu-manager', menuRouter);
 
 // Global can't find routes
 //app.all('*', (req, res, next) => {

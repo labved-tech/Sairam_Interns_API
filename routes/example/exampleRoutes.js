@@ -3,8 +3,8 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
-const exampleController = require('../controllers/exampleController');
-const authController = require('../controllers/user/authController');
+const authController = require('../../controllers/user/authController');
+const exampleController = require('../../controllers/example/exampleController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
