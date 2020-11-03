@@ -32,12 +32,14 @@ app.use(express.static(path.join(__dirname, 'assets')));
 
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
-    //console.log(req.url);
+    /*     //console.log(req.url);
     //console.log(url.parse(req.url, true));
     const { query, pathname } = url.parse(req.url, true);
     console.log(`URL Pathname is ${pathname}`);
-    console.log(`URL Query Id is ${query.id}`);
+    console.log(`URL Query Id is ${query.id}`); */
+    req.requestTime = new Date().toISOString();
   }
+  console.log(req.headers);
   next();
 });
 
@@ -54,7 +56,7 @@ app.use('/api/v1/menu-manager', menuRouter);
 
 // Global can't find routes
 //app.all('*', (req, res, next) => {
-  //next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+//next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
 //});
 
 // Global error handler message

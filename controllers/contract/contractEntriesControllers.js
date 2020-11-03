@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ContractEntries = require('../../models/contract/contractEntriesModel');
 
 /* DATABASE */
@@ -13,114 +15,99 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllContractEntries = async (req, res, next) => {
+exports.getAllContractEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All ContractEntries');
 
-  try {
-    const contractEntries = await ContractEntries.find().then();
+  const contractEntries = await ContractEntries.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All ContractEntries',
-      results: contractEntries.length,
-      data: {
-        contractEntries,
-      },
-    });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All ContractEntries',
+    results: contractEntries.length,
+    data: {
+      contractEntries,
+    },
+  });
 
   next();
-};
+});
 
-exports.getContractEntries = async (req, res, next) => {
+exports.getContractEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting ContractEntries for Id ${id}`);
 
-  try {
-    const contractEntries = await ContractEntries.findById(id).then();
+  const contractEntries = await ContractEntries.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got ContractEntries Id=${id}`,
       Data: { contractEntries },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  
   next();
-};
+});
 
-exports.createContractEntries = async (req, res, next) => {
+exports.createContractEntries = catchAsync(async (req, res, next) => {
   console.log('Creating ContractEntries');
 
-  try {
-    const contractEntries = await ContractEntries.create(req.body).then();
+  // parse through models
+  const doc = new EventEntries(req.body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+  const contractEntries = await ContractEntries.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created ContractEntries',
       data: { contractEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+    
   next();
-};
+});
 
-exports.updateContractEntries = async (req, res, next) => {
+exports.updateContractEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating ContractEntries Id ${id}`);
 
-  try {
-    const contractEntries = await ContractEntries.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+  const contractEntries = await ContractEntries.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated ContractEntries Id=${id}`,
-      data: { contractEntries },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated ContractEntries Id=${id}`,
+    data: { contractEntries },
+  });
 
   next();
-};
+});
 
-exports.deleteContractEntries = async (req, res, next) => {
+exports.deleteContractEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting ContractEntries Id ${id}`);
 
-  try {
-    const contractEntries = await ContractEntries.findByIdAndDelete(id).then();
+  const contractEntries = await ContractEntries.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
       message: `Deleted ContractEntries Id=${id}`,
       data: { contractEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
 
   next();
-};
+});

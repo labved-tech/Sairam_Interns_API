@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const Ticketproducts = require('../../models/ticket-support/ticketProductsModel');
 
 /* DATABASE */
@@ -13,11 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTicketProducts = async (req, res, next) => {
+exports.getAllTicketProducts = catchAsync(async (req, res, next) => {
   console.log('Getting All Ticketproducts');
 
-  try {
-    const ticketproducts = await Ticketproducts.find().then();
+  const ticketproducts = await Ticketproducts.find().then();
 
     res.status(200).json({
       status: 'sucess',
@@ -27,100 +28,85 @@ exports.getAllTicketProducts = async (req, res, next) => {
         ticketproducts,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  
   next();
-};
+});
 
-exports.getTicketProducts = async (req, res, next) => {
+exports.getTicketProducts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Ticketproducts for Id ${id}`);
 
-  try {
-    const ticketproducts = await Ticketproducts.findById(id).then();
+  const ticketproducts = await Ticketproducts.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got Ticketproducts Id=${id}`,
       Data: { ticketproducts },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
 
   next();
-};
+});
 
-exports.createTicketProducts = async (req, res, next) => {
+exports.createTicketProducts = catchAsync(async (req, res, next) => {
   console.log('Creating Ticketproducts');
 
-  try {
-    const ticketproducts = await Ticketproducts.create(req.body).then();
+    // parse through models
+    const doc = new EventEntries(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+    // final validation
+    await doc.validate();
+  
+    // check the doc before doing database operation
+    //console.log(doc);
+  const ticketproducts = await Ticketproducts.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created Ticketproducts',
       data: { ticketproducts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
 
   next();
-};
+});
 
-exports.updateTicketProducts = async (req, res, next) => {
+exports.updateTicketProducts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Ticketproducts Id ${id}`);
+  
+  const ticketproducts = await Ticketproducts.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
 
-  try {
-    const ticketproducts = await Ticketproducts.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
-
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated Ticketproducts Id=${id}`,
-      data: { ticketproducts },
-    });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated Ticketproducts Id=${id}`,
+    data: { ticketproducts },
+  }); 
+  
   next();
-};
+});
 
-exports.deleteTicketProducts = async (req, res, next) => {
+exports.deleteTicketProducts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Ticketproducts Id ${id}`);
 
-  try {
-    const ticketproducts = await Ticketproducts.findByIdAndDelete(id).then();
+  const ticketproducts = await Ticketproducts.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
       message: `Deleted Ticketproducts Id=${id}`,
       data: { ticketproducts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
-
+ 
   next();
-};
+});

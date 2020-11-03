@@ -104,9 +104,7 @@ exports.deleteAnnouncementNotify = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Announcement Notify Id ${id}`);
 
-  const announcementNotify = await AnnouncementNotify.findByIdAndDelete(
-    id
-  ).then();
+  const announcementNotify = await AnnouncementNotify.findByIdAndDelete(id).then();
 
   res.status(200).json({
     status: 'sucess',
