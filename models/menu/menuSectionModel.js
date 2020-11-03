@@ -5,12 +5,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const menuItemsSchema = new Schema(
+const menuSectionSchema = new Schema(
   {
     name: { type: String, unique: [true, 'Already exists'] },
-    _menuId: { type: mongoose.ObjectId },
-    _sectionId: { type: mongoose.ObjectId },
-    route: { type: String, unique: [true, 'Already exists'] },
+    description: { type: String },
     priority: { type: Number, unique: [true, 'Already exists'] },
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
@@ -19,10 +17,10 @@ const menuItemsSchema = new Schema(
 );
 
 /* MODEL */
-const MenuItems = mongoose.model(
-  'menuItems', // collection name
-  menuItemsSchema // schema name
+const MenuSection = mongoose.model(
+  'menu-section', // collection name
+  menuSectionSchema // schema name
 );
 
 /* EXPORT */
-module.exports = MenuItems;
+module.exports = MenuSection;

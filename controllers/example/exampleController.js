@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
-const catchAsync = require('../utils/catchAsync');
-const AppError = require('../utils/appError');
-const Example = require('../models/example/exampleModel');
-const ExtObject = require('../models/example/extObjectModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const Example = require('../../models/example/exampleModel');
+const ExtObject = require('../../models/example/extObjectModel');
 
 /* DATABASE */
 
