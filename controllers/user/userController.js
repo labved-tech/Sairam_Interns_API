@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 /* MIDDLEWARES */
-const catchAsync = require('../../../utils/catchAsync');
-const AppError = require('../../../utils/appError');
-const User = require('../../../models/account-settings/user/userInformationModel');
-const PersonalDetails = require('../../../models/general/personalDetailsModel');
-const OrganisationDetails = require('../../../models/general/organisationDetailsModel');
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
+const User = require('../../models/account-settings/user/userInformationModel');
+const PersonalDetails = require('../../models/general/personalDetailsModel');
+const OrganisationDetails = require('../../models/general/organisationDetailsModel');
 
 /* CONTROLLERS */
 exports.checkID = (req, res, next, val) => {

@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const Reports = require('../../models/reports/reportsModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllReports = async (req, res, next) => {
+exports.getAllReports = catchAsync(async (req, res, next) => {
   console.log('Getting All reports');
 
-  try {
+
     const reports = await Reports.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllReports = async (req, res, next) => {
         reports,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getReports = async (req, res, next) => {
+exports.getReports = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting reports for Id ${id}`);
 
-  try {
+
     const reports = await Reports.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got reports Id=${id}`,
       Data: { reports },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createReports = async (req, res, next) => {
+exports.createReports = catchAsync(async (req, res, next) => {
   console.log('Creating reports');
+    // parse through models
+    const doc = new Reports(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc);
 
-  try {
-    const reports = await Reports.create(req.body).then();
+    const reports = await Reports.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created reports',
       data: { reports },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateReports = async (req, res, next) => {
+exports.updateReports = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating reports Id ${id}`);
 
-  try {
+
     const reports = await Reports.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +98,16 @@ exports.updateReports = async (req, res, next) => {
       message: `Updated reports Id=${id}`,
       data: { reports },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteReports = async (req, res, next) => {
+exports.deleteReports = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting reports Id ${id}`);
 
-  try {
+
     const reports = await Reports.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +115,7 @@ exports.deleteReports = async (req, res, next) => {
       message: `Deleted reports Id=${id}`,
       data: { reports },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

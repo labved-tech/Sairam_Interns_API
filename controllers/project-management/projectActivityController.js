@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ProjectActivity = require('../../models/project-management/projectActivityModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectActivity = async (req, res, next) => {
+exports.getAllProjectActivity = catchAsync(async (req, res, next) => {
   console.log('Getting All projectActivity');
 
-  try {
+  
     const projectActivitys = await ProjectActivity.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllProjectActivity = async (req, res, next) => {
         projectActivitys,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getProjectActivity = async (req, res, next) => {
+exports.getProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectActivityfor Id ${id}`);
 
-  try {
+  
     const projectActivity = await ProjectActivity.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectActivityId=${id}`,
       Data: { projectActivity },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createProjectActivity = async (req, res, next) => {
+exports.createProjectActivity = catchAsync(async (req, res, next) => {
   console.log('Creating projectActivity');
-
-  try {
-    const projectActivity = await ProjectActivity.create(req.body).then();
+    // parse through models
+    const doc = new ProjectActivity(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
+    const projectActivity = await ProjectActivity.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created projectActivity',
       data: { projectActivity },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateProjectActivity = async (req, res, next) => {
+exports.updateProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectActivityId ${id}`);
 
-  try {
+  
     const projectActivity = await ProjectActivity.findByIdAndUpdate(
       id,
       req.body,
@@ -97,21 +102,16 @@ exports.updateProjectActivity = async (req, res, next) => {
       message: `Updated projectActivityId=${id}`,
       data: { projectActivity },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteProjectActivity = async (req, res, next) => {
+exports.deleteProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectActivityId ${id}`);
 
-  try {
+  
     const projectActivity = await ProjectActivity.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -119,12 +119,7 @@ exports.deleteProjectActivity = async (req, res, next) => {
       message: `Deleted projectActivityId=${id}`,
       data: { projectActivity },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

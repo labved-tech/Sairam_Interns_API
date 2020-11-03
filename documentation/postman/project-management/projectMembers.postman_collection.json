@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4501fe4f-dca8-48a9-b54d-99bba8fd9d2a",
+		"_postman_id": "614d3e76-a554-4211-84ec-cff0c9a626b1",
 		"name": "projectMembers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,36 +10,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-members/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-members",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createProjectMembers",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"status\": \"Done\",\r\n    \"createdAt\": \"22-09-2000\",\r\n    \"updatedAt\":\"22-09-2001\",\r\n    \"createdBy\":\"1\",\r\n    \"updatedBy\":\"1\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-members/",
 					"host": [
@@ -78,19 +48,10 @@
 			"response": []
 		},
 		{
-			"name": "updateProjectMembers",
+			"name": "deleteProjectMembers",
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"status\": \"Done\",\r\n    \"createdAt\": \"22-09-2000\",\r\n    \"updatedAt\":\"22-09-2001\",\r\n    \"createdBy\":\"1\",\r\n    \"updatedBy\":\"1\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-members/0",
 					"host": [
@@ -108,10 +69,49 @@
 			"response": []
 		},
 		{
-			"name": "deleteProjectMembers",
+			"name": "createProjectMembers",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"status\": \"Done\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-members/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-members",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProjectMembers",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"status\": \"Done\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-members/0",
 					"host": [

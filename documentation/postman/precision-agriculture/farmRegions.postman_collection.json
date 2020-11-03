@@ -1,10 +1,31 @@
 {
 	"info": {
-		"_postman_id": "e307c670-2226-43d2-bf76-45253d099498",
+		"_postman_id": "5926d7f5-b31d-41be-a22d-2b352d2d44de",
 		"name": "farmRegions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "getAllFarmRegions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/farm-regions/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"farm-regions",
+						""
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "createFarmRegions",
 			"request": {
@@ -51,27 +72,6 @@
 						"v1",
 						"farm-regions",
 						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getAllFarmRegions",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/farm-regions/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"farm-regions",
-						""
 					]
 				}
 			},

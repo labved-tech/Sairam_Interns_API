@@ -6,13 +6,12 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const leadCategoriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   description: { type: String },
   notes: { type: String },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId, reqired:1 },
+  updatedBy: { type: mongoose.ObjectId, reqired:1},
 },
 { timestamps: true }
 );

@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ProjectDiscussions = require('../../models/project-management/projectDiscussionsModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectDiscussions = async (req, res, next) => {
+exports.getAllProjectDiscussions = catchAsync(async (req, res, next) => {
   console.log('Getting All projectDiscussions');
 
-  try {
+  
     const projectDiscussions = await ProjectDiscussions.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllProjectDiscussions = async (req, res, next) => {
         projectDiscussions,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getProjectDiscussions = async (req, res, next) => {
+exports.getProjectDiscussions = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectDiscussions for Id ${id}`);
 
-  try {
+  
     const projectDiscussions = await ProjectDiscussions.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectDiscussions Id=${id}`,
       Data: { projectDiscussions },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createProjectDiscussions = async (req, res, next) => {
+exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussions');
-
-  try {
-    const projectDiscussions = await ProjectDiscussions.create(req.body).then();
+    // parse through models
+    const doc = new ProjectDiscussion(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
+    const projectDiscussions = await ProjectDiscussions.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created projectDiscussions',
       data: { projectDiscussions },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateProjectDiscussions = async (req, res, next) => {
+exports.updateProjectDiscussions = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectDiscussions Id ${id}`);
 
-  try {
+  
     const projectDiscussions = await ProjectDiscussions.findByIdAndUpdate(
       id,
       req.body,
@@ -97,21 +102,16 @@ exports.updateProjectDiscussions = async (req, res, next) => {
       message: `Updated projectDiscussions Id=${id}`,
       data: { projectDiscussions },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteProjectDiscussions = async (req, res, next) => {
+exports.deleteProjectDiscussions = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectDiscussions Id ${id}`);
 
-  try {
+  
     const projectDiscussions = await ProjectDiscussions.findByIdAndDelete(
       id
     ).then();
@@ -121,12 +121,7 @@ exports.deleteProjectDiscussions = async (req, res, next) => {
       message: `Deleted projectDiscussions Id=${id}`,
       data: { projectDiscussions },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

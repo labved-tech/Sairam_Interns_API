@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d883ef14-5e7f-4d02-b0ee-a42bbdb2ff36",
+		"_postman_id": "60450503-5509-4944-a66d-2c4bf80773e5",
 		"name": "taskChecklistStatus",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -27,21 +27,12 @@
 			"response": []
 		},
 		{
-			"name": "createTaskChecklistStatus",
+			"name": "deleteTaskChecklistStatus",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"_taskId\": \"1\",\r\n    \"finished\":\"True\",\r\n    \"_taskChecklistId\": \"1\",\r\n    \"dateadded\":\"29-09-2001\",\r\n    \"addedBy\": \"Vicky\",\r\n    \"listOrder\":10\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-status/",
+					"raw": "localhost:3000/api/v1/task-checklist-status/0",
 					"host": [
 						"localhost"
 					],
@@ -50,7 +41,7 @@
 						"api",
 						"v1",
 						"task-checklist-status",
-						""
+						"0"
 					]
 				}
 			},
@@ -78,13 +69,13 @@
 			"response": []
 		},
 		{
-			"name": "updateTaskChecklistStatus",
+			"name": "createTaskChecklistStatus",
 			"request": {
-				"method": "PATCH",
+				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"_taskId\": \"1\",\r\n    \"finished\":\"True\",\r\n    \"_taskChecklistId\": \"1\",\r\n    \"dateadded\":\"29-09-2001\",\r\n    \"addedBy\": \"Vicky\",\r\n    \"listOrder\":10\r\n  }",
+					"raw": "{\r\n    \"_taskId\": \"1\",\r\n    \"finished\":true,\r\n    \"_taskChecklistId\": \"1\",\r\n    \"dateadded\":\"29-09-2001\",\r\n    \"addedBy\": \"Vicky\",\r\n    \"listOrder\":10\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +83,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-status/0",
+					"raw": "localhost:3000/api/v1/task-checklist-status/",
 					"host": [
 						"localhost"
 					],
@@ -101,17 +92,26 @@
 						"api",
 						"v1",
 						"task-checklist-status",
-						"0"
+						""
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteTaskChecklistStatus",
+			"name": "updateTaskChecklistStatus",
 			"request": {
-				"method": "DELETE",
+				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_taskId\": \"1\",\r\n    \"finished\":true,\r\n    \"_taskChecklistId\": \"1\",\r\n    \"dateadded\":\"29-09-2001\",\r\n    \"addedBy\": \"Vicky\",\r\n    \"listOrder\":10\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/task-checklist-status/0",
 					"host": [

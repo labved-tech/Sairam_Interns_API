@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const taskEntriesSchema = new Schema({
-  _id: { type: mongoose.objectId },
   _projectId: { type: mongoose.ObjectId },
   name: { type: String },
   taskType: { type: String },
@@ -29,7 +28,12 @@ const taskEntriesSchema = new Schema({
   dateadded: { type: Date },
   dueDate: { type: Date },
   assignedTo: { type: Array },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const TaskEntries = mongoose.model('taskEntries', taskEntriesSchema);

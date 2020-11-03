@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const TaskChecklistStatus = require('./../../models/project-management/taskChecklistStatusModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTaskChecklistStatus = async (req, res, next) => {
+exports.getAllTaskChecklistStatus = catchAsync(async (req, res, next) => {
   console.log('Getting All taskChecklistStatus');
 
-  try {
+  
     const taskChecklistStatuss = await TaskChecklistStatus.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllTaskChecklistStatus = async (req, res, next) => {
         taskChecklistStatuss,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getTaskChecklistStatus = async (req, res, next) => {
+exports.getTaskChecklistStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskChecklistStatus for Id ${id}`);
 
-  try {
+  
     const taskChecklistStatus = await TaskChecklistStatus.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got taskChecklistStatus Id=${id}`,
       Data: { taskChecklistStatus },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createTaskChecklistStatus = async (req, res, next) => {
+exports.createTaskChecklistStatus = catchAsync(async (req, res, next) => {
   console.log('Creating taskChecklistStatus');
-
-  try {
-    const taskChecklistStatus = await TaskChecklistStatus.create(req.body).then();
+    // parse through models
+    const doc = new TaskChecklistStatus(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
+    const taskChecklistStatus = await TaskChecklistStatus.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created taskChecklistStatus',
       data: { taskChecklistStatus },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateTaskChecklistStatus = async (req, res, next) => {
+exports.updateTaskChecklistStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating taskChecklistStatus Id ${id}`);
 
-  try {
+  
     const taskChecklistStatus = await TaskChecklistStatus.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +98,16 @@ exports.updateTaskChecklistStatus = async (req, res, next) => {
       message: `Updated taskChecklistStatus Id=${id}`,
       data: { taskChecklistStatus },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteTaskChecklistStatus = async (req, res, next) => {
+exports.deleteTaskChecklistStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskChecklistStatus Id ${id}`);
 
-  try {
+  
     const taskChecklistStatus = await TaskChecklistStatus.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +115,7 @@ exports.deleteTaskChecklistStatus = async (req, res, next) => {
       message: `Deleted taskChecklistStatus Id=${id}`,
       data: { taskChecklistStatus },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

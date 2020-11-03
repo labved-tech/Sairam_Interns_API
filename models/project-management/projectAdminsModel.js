@@ -6,10 +6,14 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectAdminsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _projectId: { type: mongoose.ObjectId },
   _userId: { type: mongoose.ObjectId },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const ProjectAdmins = mongoose.model('projectAdmins', projectAdminsSchema);

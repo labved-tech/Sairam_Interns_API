@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const farmEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _ownerId: { type: mongoose.ObjectId },
   admins: [
     {

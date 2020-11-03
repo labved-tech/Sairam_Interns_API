@@ -2,6 +2,9 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const Milestone = require(`./../../models/project-management/milestoneModel`);
 
 /* DATABASE */
@@ -13,10 +16,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllMilestone = async (req, res, next) => {
+exports.getAllMilestone = catchAsync(async (req, res, next) => {
   console.log('Getting All milestone');
 
-  try {
+  
     const milestones = await Milestone.find().then();
 
     res.status(200).json({
@@ -27,63 +30,66 @@ exports.getAllMilestone = async (req, res, next) => {
         milestones,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getMilestone = async (req, res, next) => {
+exports.getMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting milestone for Id ${id}`);
 
-  try {
+  
     const milestone = await Milestone.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got milestone Id=${id}`,
       Data: { milestone },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createMilestone = async (req, res, next) => {
+exports.createMilestone = catchAsync(async (req, res, next) => {
   console.log('Creating milestone');
-
-  try {
-    const milestone = await Milestone.create(req.body).then();
+    // parse through models
+    const doc = new Milestone(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
+    const milestone = await Milestone.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created milestone',
       data: { milestone },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateMilestone = async (req, res, next) => {
+exports.updateMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating milestone Id ${id}`);
 
-  try {
+  
     const milestone = await Milestone.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +99,16 @@ exports.updateMilestone = async (req, res, next) => {
       message: `Updated milestone Id=${id}`,
       data: { milestone },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteMilestone = async (req, res, next) => {
+exports.deleteMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting milestone Id ${id}`);
 
-  try {
+  
     const milestone = await Milestone.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +116,7 @@ exports.deleteMilestone = async (req, res, next) => {
       message: `Deleted milestone Id=${id}`,
       data: { milestone },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

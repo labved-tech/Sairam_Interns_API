@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const Pages = require('../../models/pages/pagesModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllPages = async (req, res, next) => {
+exports.getAllPages = catchAsync(async (req, res, next) => {
   console.log('Getting All pages');
 
-  try {
+
     const pages = await Pages.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllPages = async (req, res, next) => {
         pages,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getPages = async (req, res, next) => {
+exports.getPages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting pages for Id ${id}`);
 
-  try {
+
     const pages = await Pages.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got pages Id=${id}`,
       Data: { pages },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createPages = async (req, res, next) => {
+exports.createPages = catchAsync(async (req, res, next) => {
   console.log('Creating pages');
+    // parse through models
+    const doc = new Pages(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc);
 
-  try {
-    const pages = await Pages.create(req.body).then();
+    const pages = await Pages.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created pages',
       data: { pages },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updatePages = async (req, res, next) => {
+exports.updatePages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating pages Id ${id}`);
 
-  try {
+
     const pages = await Pages.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +98,16 @@ exports.updatePages = async (req, res, next) => {
       message: `Updated pages Id=${id}`,
       data: { pages },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deletePages = async (req, res, next) => {
+exports.deletePages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting pages Id ${id}`);
 
-  try {
+
     const pages = await Pages.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +115,7 @@ exports.deletePages = async (req, res, next) => {
       message: `Deleted pages Id=${id}`,
       data: { pages },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

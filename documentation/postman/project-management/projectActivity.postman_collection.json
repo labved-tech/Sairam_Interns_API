@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "010a0b4d-6595-4e1e-a2a6-6443b8a119b6",
+		"_postman_id": "a6dda897-4644-446e-b9fc-0697ab405c18",
 		"name": "projectActivity",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,36 +10,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-activity/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-activity",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createProjectActivity",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": \"True\",\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"12-09-2000\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-activity/",
 					"host": [
@@ -78,19 +48,10 @@
 			"response": []
 		},
 		{
-			"name": "updateProjectActivity",
+			"name": "deleteProjectActivity",
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": \"True\",\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"12-09-2000\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-activity/0",
 					"host": [
@@ -108,10 +69,49 @@
 			"response": []
 		},
 		{
-			"name": "deleteProjectActivity",
+			"name": "createProjectActivity",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"12-09-2000\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-activity/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-activity",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProjectActivity",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"12-09-2000\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-activity/0",
 					"host": [

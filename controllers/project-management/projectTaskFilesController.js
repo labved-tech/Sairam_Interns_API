@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ProjectTaskFiles = require('./../../models/project-management/projectTaskFilesModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectTaskFiles = async (req, res, next) => {
+exports.getAllProjectTaskFiles = catchAsync(async (req, res, next) => {
   console.log('Getting All projectTaskFiles');
 
-  try {
+  
     const projectTaskFiles = await ProjectTaskFiles.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllProjectTaskFiles = async (req, res, next) => {
         projectTaskFiles,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getProjectTaskFiles = async (req, res, next) => {
+exports.getProjectTaskFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectTaskFiles for Id ${id}`);
 
-  try {
+  
     const projectTaskFiles = await ProjectTaskFiles.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectTaskFiles Id=${id}`,
       Data: { projectTaskFiles },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createProjectTaskFiles = async (req, res, next) => {
+exports.createProjectTaskFiles = catchAsync(async (req, res, next) => {
   console.log('Creating projectTaskFiles');
-
-  try {
-    const projectTaskFiles = await ProjectTaskFiles.create(req.body).then();
+    // parse through models
+    const doc = new ProjectTaskFiles(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
+    const projectTaskFiles = await ProjectTaskFiles.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created projectTaskFiles',
       data: { projectTaskFiles },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateProjectTaskFiles = async (req, res, next) => {
+exports.updateProjectTaskFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectTaskFiles Id ${id}`);
 
-  try {
+  
     const projectTaskFiles = await ProjectTaskFiles.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +98,16 @@ exports.updateProjectTaskFiles = async (req, res, next) => {
       message: `Updated projectTaskFiles Id=${id}`,
       data: { projectTaskFiles },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteProjectTaskFiles = async (req, res, next) => {
+exports.deleteProjectTaskFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectTaskFiles Id ${id}`);
 
-  try {
+  
     const projectTaskFiles = await ProjectTaskFiles.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +115,7 @@ exports.deleteProjectTaskFiles = async (req, res, next) => {
       message: `Deleted projectTaskFiles Id=${id}`,
       data: { projectTaskFiles },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

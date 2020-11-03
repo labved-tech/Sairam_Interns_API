@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f8a261d4-c30c-41e8-8c71-67e54eed5f34",
+		"_postman_id": "6cbe2c46-02e1-4a72-8b2c-41cd9126c4a0",
 		"name": "leadCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"name\":\"sai\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\",\r\n    \"createdBy\":\"ObjectId('56cb91bdc3464f14678934ca')\",\r\n    \"updatedBy\":\"ObjectId('56cb91bdc3464f14678934ca')\"\r\n}",
+					"raw": " {\r\n    \"name\":\"sai\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"name\":\"sai\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\",\r\n    \"createdBy\":\"ObjectId('56cb91bdc3464f14678934ca')\",\r\n    \"updatedBy\":\"ObjectId('56cb91bdc3464f14678934ca')\"\r\n}",
+					"raw": " {\r\n    \"name\":\"sai\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

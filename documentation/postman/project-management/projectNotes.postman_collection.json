@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d1260379-260e-4391-93ee-c55d0edb55ac",
+		"_postman_id": "2dcf39cd-14b0-4a75-a100-aaff4de79d60",
 		"name": "projectNotes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,6 +21,48 @@
 						"v1",
 						"project-notes",
 						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectNotes",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProjectNotes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-notes/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-notes",
+						"0"
 					]
 				}
 			},
@@ -57,27 +99,6 @@
 			"response": []
 		},
 		{
-			"name": "getProjectNotes",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-notes",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateProjectNotes",
 			"request": {
 				"method": "PATCH",
@@ -91,27 +112,6 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-notes",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteProjectNotes",
-			"request": {
-				"method": "DELETE",
-				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/project-notes/0",
 					"host": [

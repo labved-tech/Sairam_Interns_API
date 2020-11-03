@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const projectTaskFilesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   fileName: { type: String },
   fileType: { type: String },
   dateadded: { type: Date },
@@ -15,7 +14,12 @@ const projectTaskFilesSchema = new Schema({
   _userId: { type: mongoose.ObjectId },
   external: { type: String },
   thumbnailLink: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const ProjectTaskFiles = mongoose.model(

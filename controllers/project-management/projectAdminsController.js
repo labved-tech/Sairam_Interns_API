@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ProjectAdmins = require('../../models/project-management/projectAdminsModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectAdmins = async (req, res, next) => {
+exports.getAllProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Getting All projectAdmins');
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllProjectAdmins = async (req, res, next) => {
         projectAdmins,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getProjectAdmins = async (req, res, next) => {
+exports.getProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectAdmins for Id ${id}`);
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got projectAdmins Id=${id}`,
       Data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createProjectAdmins = async (req, res, next) => {
+exports.createProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Creating projectAdmins');
-
-  try {
-    const projectAdmins = await ProjectAdmins.create(req.body).then();
+    // parse through models
+    const doc = new ProjectAdmins(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
+    const projectAdmins = await ProjectAdmins.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created projectAdmins',
       data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateProjectAdmins = async (req, res, next) => {
+exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectAdmins Id ${id}`);
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +98,16 @@ exports.updateProjectAdmins = async (req, res, next) => {
       message: `Updated projectAdmins Id=${id}`,
       data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteProjectAdmins = async (req, res, next) => {
+exports.deleteProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectAdmins Id ${id}`);
 
-  try {
+  
     const projectAdmins = await ProjectAdmins.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +115,7 @@ exports.deleteProjectAdmins = async (req, res, next) => {
       message: `Deleted projectAdmins Id=${id}`,
       data: { projectAdmins },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

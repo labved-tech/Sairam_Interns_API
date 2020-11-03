@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const ProjectDiscussionComments = require('../../models/project-management/projectDiscussionCommentsModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllProjectDiscussionComments = async (req, res, next) => {
+exports.getAllProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Getting All projectDiscussionComments');
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.find().then();
 
     res.status(200).json({
@@ -27,21 +29,16 @@ exports.getAllProjectDiscussionComments = async (req, res, next) => {
         projectDiscussionComments,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getProjectDiscussionComments = async (req, res, next) => {
+exports.getProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectDiscussionComments for Id ${id}`);
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.findById(
       id
     ).then();
@@ -50,22 +47,35 @@ exports.getProjectDiscussionComments = async (req, res, next) => {
       message: `Got projectDiscussionComments Id=${id}`,
       Data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createProjectDiscussionComments = async (req, res, next) => {
+exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussionComments');
-
-  try {
+    // parse through models
+    const doc = new ProjectDiscussionComments(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc); 
+  
     const projectDiscussionComments = await ProjectDiscussionComments.create(
-      req.body
+      doc
     ).then();
 
     res.status(201).json({
@@ -73,21 +83,16 @@ exports.createProjectDiscussionComments = async (req, res, next) => {
       message: 'Created projectDiscussionComments',
       data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateProjectDiscussionComments = async (req, res, next) => {
+exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating projectDiscussionComments Id ${id}`);
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndUpdate(
       id,
       req.body,
@@ -101,21 +106,16 @@ exports.updateProjectDiscussionComments = async (req, res, next) => {
       message: `Updated projectDiscussionComments Id=${id}`,
       data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteProjectDiscussionComments = async (req, res, next) => {
+exports.deleteProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectDiscussionComments Id ${id}`);
 
-  try {
+  
     const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndDelete(
       id
     ).then();
@@ -125,12 +125,7 @@ exports.deleteProjectDiscussionComments = async (req, res, next) => {
       message: `Deleted projectDiscussionComments Id=${id}`,
       data: { projectDiscussionComments },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

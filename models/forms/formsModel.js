@@ -6,13 +6,16 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const formsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   _ownerid: { type: mongoose.ObjectId },
   aliveTill: { type: Date },
   accountInclude: [],
   accountExclude: [],
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true }
+},
+{ timestamps: true }
+);
 
 /* MODEL */
 const Forms = mongoose.model('forms', formsSchema);

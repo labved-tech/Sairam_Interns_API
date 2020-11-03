@@ -395,13 +395,19 @@ exports.getError = (req, res) => {
   res.status(200).render('./pages/error');
 };
 
-// ACCOUNT SETTINGS RELATED CONTROLLER
+// USERS RELATED CONTROLLER
 exports.getAllUser = (req, res) => {
   console.log('We are in All Users Page');
 
-  res.status(200).render('./../views/pages/all-users', doc);
+  res.status(200).render('./../views/pages/users/all-users', doc);
 };
 exports.getAddUser = (req, res) => {
   console.log('We are in Add Users Page');
-  res.status(200).render(`./../views/pages/add-user`, doc);
+  res.status(200).render(`./../views/pages/users/add-user`, doc);
+};
+
+// EXAMPLE RELATED CONTROLLER
+exports.example = (req, res) => {
+  console.log('We are in Add Users Page');
+  res.status(200).render(`./../views/pages/example/example`, doc);
 };

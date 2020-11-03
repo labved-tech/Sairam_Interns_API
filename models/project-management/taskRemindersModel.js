@@ -6,14 +6,18 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const taskRemindersSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   description: { type: String },
   date: { type: Date },
   isNotified: { type: Boolean },
   _taskId: { type: mongoose.ObjectId },
   notifyByEmail: { type: Boolean },
   creator: { type: String },
-});
+  createdBy: { type: mongoose.ObjectId, required: true },
+  updatedBy: { type: mongoose.ObjectId, required: true },
+},
+{ timestamps: true }
+);
+
 
 /* MODEL */
 const TaskReminders = mongoose.model('taskReminders', taskRemindersSchema);

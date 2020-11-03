@@ -2,6 +2,8 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
+const AppError = require('../../utils/appError');
 const Charts = require('../../models/charts/chartsModel');
 
 /* DATABASE */
@@ -13,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllCharts = async (req, res, next) => {
+exports.getAllCharts = catchAsync(async (req, res, next) => {
   console.log('Getting All charts');
 
-  try {
+
     const charts = await Charts.find().then();
 
     res.status(200).json({
@@ -27,63 +29,66 @@ exports.getAllCharts = async (req, res, next) => {
         charts,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getCharts = async (req, res, next) => {
+exports.getCharts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting charts for Id ${id}`);
 
-  try {
+
     const charts = await Charts.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got charts Id=${id}`,
       Data: { charts },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createCharts = async (req, res, next) => {
+exports.createCharts = catchAsync(async (req, res, next) => {
   console.log('Creating charts');
+    // parse through models
+    const doc = new Charts(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc);
 
-  try {
-    const charts = await Charts.create(req.body).then();
+    const charts = await Charts.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created charts',
       data: { charts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateCharts = async (req, res, next) => {
+exports.updateCharts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating charts Id ${id}`);
 
-  try {
+
     const charts = await Charts.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +98,16 @@ exports.updateCharts = async (req, res, next) => {
       message: `Updated charts Id=${id}`,
       data: { charts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteCharts = async (req, res, next) => {
+exports.deleteCharts = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting charts Id ${id}`);
 
-  try {
+
     const charts = await Charts.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +115,7 @@ exports.deleteCharts = async (req, res, next) => {
       message: `Deleted charts Id=${id}`,
       data: { charts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

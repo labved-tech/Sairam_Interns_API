@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../utils/catchAsync');
 const AppError = require('../utils/appError');
-const Example = require('../models/exampleModel');
+const Example = require('../models/example/exampleModel');
+const ExtObject = require('../models/example/extObjectModel');
 
 /* DATABASE */
 
@@ -45,7 +46,36 @@ exports.getExample = catchAsync(async (req, res, next) => {
 exports.createExample = catchAsync(async (req, res, next) => {
   console.log('Creating Example');
 
-  const example = await Example.create(req.body).then();
+  // parse through models
+  const doc = new Example(req.body);
+  console.log(doc);
+
+  const dataExtRefObject = new ExtObject(
+    JSON.parse(JSON.stringify(req.body.extRefObject))
+  );
+
+  // validate seperately sub-documents if necessary
+  await dataExtRefObject.validate();
+
+  // replace doc if necessary
+  doc.extRefObject = dataExtRefObject;
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // saving if there are no sub-documents
+  //doc.save();
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+  const example = await Example.create(doc).then();
 
   res.status(201).json({
     status: 'sucess',
@@ -56,11 +86,42 @@ exports.createExample = catchAsync(async (req, res, next) => {
 
 exports.updateExample = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating Example Id ${id}`);
 
-  const example = await Example.findByIdAndUpdate(id, req.body, {
+  // parse through models
+  const exampleToUpdate = new Example(body);
+  const doc = exampleToUpdate.toObject();
+  delete doc._id;
+
+  if (exampleToUpdate.extRefObject) {
+    const dataExtRefObject = new ExtObject(
+      JSON.parse(JSON.stringify(exampleToUpdate.extRefObject))
+    );
+
+    // validate seperately sub-documents if necessary
+    await dataExtRefObject.validate();
+
+    // replace doc if necessary
+    doc.extRefObject = dataExtRefObject;
+  }
+
+  if (exampleToUpdate.arrayOfString) {
+    const len = exampleToUpdate.arrayOfString.length;
+    console.log(len);
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  console.log(doc);
+
+  const example = await Example.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
+  console.log(example);
 
   res.status(201).json({
     status: 'sucess',

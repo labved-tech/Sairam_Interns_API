@@ -1,10 +1,31 @@
 {
 	"info": {
-		"_postman_id": "7f2e8dc5-dbab-43f3-bd6a-77094fd82c45",
+		"_postman_id": "27efa962-7204-45a7-889f-df17fe346c19",
 		"name": "projectTaskFiles",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "getProjectTaskFiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-task-files/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-task-files",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getAllProjectTaskFiles",
 			"request": {
@@ -27,39 +48,9 @@
 			"response": []
 		},
 		{
-			"name": "createProjectTaskFiles",
+			"name": "deleteProjectTaskFiles",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n    \"fileName\": \"Vicky\",\r\n    \"fileType\": \"NA\",\r\n    \"dateadded\": \"20-09-2000\",\r\n    \"_projectId\":\"1\",\r\n    \"_taskId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"external\": \"NA\",\r\n    \"thumbnailLink\": \"NA\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-task-files/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-task-files",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getProjectTaskFiles",
-			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/project-task-files/0",
@@ -108,12 +99,21 @@
 			"response": []
 		},
 		{
-			"name": "deleteProjectTaskFiles",
+			"name": "createProjectTaskFiles",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"fileName\": \"Vicky\",\r\n    \"fileType\": \"NA\",\r\n    \"dateadded\": \"20-09-2000\",\r\n    \"_projectId\":\"1\",\r\n    \"_taskId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"external\": \"NA\",\r\n    \"thumbnailLink\": \"NA\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-task-files/0",
+					"raw": "localhost:3000/api/v1/project-task-files/",
 					"host": [
 						"localhost"
 					],
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"project-task-files",
-						"0"
+						""
 					]
 				}
 			},
