@@ -7,7 +7,7 @@ const viewsController = require('../controllers/viewsController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in viewRoutes');
+  console.log('We are in VIEW PAGES ROUTER');
   next();
 });
 
@@ -25,6 +25,6 @@ router.get('/account-settings/users/view-all', viewsController.getAllUser);
 router.get('/account-settings/users/add-new', viewsController.getAddUser);
 
 // EXAMPLE RELATED ROUTES
-router.get('/example', viewsController.example);
+//router.get('/example', viewsController.example);
 
 module.exports = router;

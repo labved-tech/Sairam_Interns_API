@@ -4,6 +4,8 @@ const express = require('express');
 /* MIDDLEWARE */
 const router = express.Router();
 
+const exampleRouter = require('./example/exampleRoutes');
+
 const userRouter = require('./user/userRoutes');
 
 const analyticsRouter = require('./analytics/analyticsRoutes');
@@ -87,13 +89,17 @@ const directoryRouter = require('./directory/directoryRoutes');
 
 const menuRouter = require('./menu/menuRoutes');
 
-const exampleRouter = require('./example/exampleRoutes');
-
 /* GLOBAL MIDDLEWARE USAGE*/
-
+router.use((req, res, next) => {
+  console.log('We are in API V1 ROUTES');
+  next();
+});
 /* ROUTES */
 
-// USERS
+// EXAMPLE
+router.use('/example', exampleRouter);
+
+// USERS MODULE
 router.use('/users', userRouter);
 
 // ANNOUNCEMENT
@@ -187,8 +193,5 @@ router.use('/contractTemplates', contractTemplatesRouter);
 
 // MENU MODULE
 router.use('/menu', menuRouter);
-
-// EXAMPLE MODULE
-router.use('/api/v1/example', exampleRouter);
 
 module.exports = router;

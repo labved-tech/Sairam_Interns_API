@@ -9,7 +9,7 @@ const sendEmail = require('../../utils/email');
 const catchAsync = require('../../utils/catchAsync');
 
 const AppError = require('../../utils/appError');
-const User = require('../../models/account-settings/user/userInformationModel');
+const User = require('../../models/user/userModel');
 const PersonalDetails = require('../../models/general/personalDetailsModel');
 const OrganisationDetails = require('../../models/general/organisationDetailsModel');
 
@@ -136,7 +136,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const resetToken = user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
 
-  // 3) Send it to user's email
+  /*   // 3) Send it to user's email
   const resetURL = `${req.protocol}://${req.get(
     'host'
   )}/api/v1/users/resetPassword/${resetToken}`;
@@ -163,7 +163,7 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       new AppError('There was an error sending the email. Try again later!'),
       500
     );
-  }
+  } */
 });
 
 exports.resetPassword = catchAsync(async (req, res, next) => {

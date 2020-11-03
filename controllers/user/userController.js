@@ -5,7 +5,7 @@ const bcrypt = require('bcryptjs');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const User = require('../../models/account-settings/user/userInformationModel');
+const User = require('../../models/user/userModel');
 const PersonalDetails = require('../../models/general/personalDetailsModel');
 const OrganisationDetails = require('../../models/general/organisationDetailsModel');
 
