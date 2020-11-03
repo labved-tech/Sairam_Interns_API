@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
 const DirectoryAttributesGroups = require('../../models/directory/directoryAttributesGroupsModel');
 
