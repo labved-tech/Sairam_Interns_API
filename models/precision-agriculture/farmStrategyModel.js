@@ -51,7 +51,7 @@ const farmStrategySchema = new Schema({
     { timestamps: true }
   ],
   _contractId: { type: mongoose.ObjectId },
-  exportedStrategyId: { type: String },
+  _exportedStrategyId: { type: mongoose.ObjectId },
   rate: { type: String },
   totalExpense: { type: Number },
   createdBy: { type: mongoose.ObjectId },

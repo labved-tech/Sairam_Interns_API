@@ -27,12 +27,21 @@
 			"response": []
 		},
 		{
-			"name": "deleteProjectNotes",
+			"name": "createProjectNotes",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"content\": \"Educational\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/0",
+					"raw": "localhost:3000/api/v1/project-notes/",
 					"host": [
 						"localhost"
 					],
@@ -41,7 +50,7 @@
 						"api",
 						"v1",
 						"project-notes",
-						"0"
+						""
 					]
 				}
 			},
@@ -69,13 +78,13 @@
 			"response": []
 		},
 		{
-			"name": "createProjectNotes",
+			"name": "updateProjectNotes",
 			"request": {
-				"method": "POST",
+				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\"\r\n  }",
+					"raw": " {\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"content\": \"Educational\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -83,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/",
+					"raw": "localhost:3000/api/v1/project-notes/0",
 					"host": [
 						"localhost"
 					],
@@ -92,26 +101,17 @@
 						"api",
 						"v1",
 						"project-notes",
-						""
+						"0"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "updateProjectNotes",
+			"name": "deleteProjectNotes",
 			"request": {
-				"method": "PATCH",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": " {\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"content\": \"Educational\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-notes/0",
 					"host": [

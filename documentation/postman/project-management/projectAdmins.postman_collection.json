@@ -6,27 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "getProjectAdmins",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-admins",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "getAllProjectAdmins",
 			"request": {
 				"method": "GET",
@@ -48,34 +27,13 @@
 			"response": []
 		},
 		{
-			"name": "deleteProjectAdmins",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-admins",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "createProjectAdmins",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n  \"_projectId\": \"1\",\r\n  \"_userId\": \"1\"\r\n}",
+					"raw": "  {\r\n  \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_userId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,19 +57,61 @@
 			"response": []
 		},
 		{
+			"name": "getProjectAdmins",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-admins/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-admins",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updateProjectAdmins",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n  \"_projectId\": \"1\",\r\n  \"_userId\": \"1\"\r\n}",
+					"raw": "  {\r\n  \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_userId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-admins/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-admins",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectAdmins",
+			"request": {
+				"method": "DELETE",
+				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/project-admins/0",
 					"host": [
