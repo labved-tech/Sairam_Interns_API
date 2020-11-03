@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const catchAsync = require('../../utils/catchAsync');
 const RatingAttributeGroup = require('../../models/ratings/ratingAttributeGroupsModel');
 
 /* DATABASE */
@@ -13,42 +14,38 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllRatingAttributeGroup = catchAsync(async (req, res, next)=> {
+exports.getAllRatingAttributeGroup = catchAsync(async (req, res, next) => {
   console.log('Getting All RatingAttributeGroup');
 
-  
-    const ratingAttributeGroups = await RatingAttributeGroup.find().then();
+  const ratingAttributeGroups = await RatingAttributeGroup.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All RatingAttributeGroup',
-      results: ratingAttributeGroups.length,
-      data: {
-        ratingAttributeGroups,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All RatingAttributeGroup',
+    results: ratingAttributeGroups.length,
+    data: {
+      ratingAttributeGroups,
+    },
+  });
 
   next();
 });
 
-exports.getRatingAttributeGroup = catchAsync(async (req, res, next)=> {
+exports.getRatingAttributeGroup = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting RatingAttributeGroup for Id ${id}`);
 
-  
-    const ratingAttributeGroups = await RatingAttributeGroup.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got RatingAttributeGroup Id=${id}`,
-      Data: { ratingAttributeGroups },
-    });
-
+  const ratingAttributeGroups = await RatingAttributeGroup.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got RatingAttributeGroup Id=${id}`,
+    Data: { ratingAttributeGroups },
+  });
 
   next();
 });
 
-exports.createRatingAttributeGroup = catchAsync(async (req, res, next)=> {
+exports.createRatingAttributeGroup = catchAsync(async (req, res, next) => {
   console.log('Creating RatingAttributeGroup');
   // parse through models
   const doc = new RatingAttributeGroups(req.body);
@@ -69,51 +66,52 @@ exports.createRatingAttributeGroup = catchAsync(async (req, res, next)=> {
 
   // check the doc before doing database operation
   //console.log(doc);
-  
-    const ratingAttributeGroups = await RatingAttributeGroup.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created RatingAttributeGroup',
-      data: { ratingAttributeGroups },
-    });
+  const ratingAttributeGroups = await RatingAttributeGroup.create(doc).then();
 
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created RatingAttributeGroup',
+    data: { ratingAttributeGroups },
+  });
 
   next();
 });
 
-exports.updateRatingAttributeGroup = catchAsync(async (req, res, next)=> {
+exports.updateRatingAttributeGroup = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating RatingAttributeGroup Id ${id}`);
 
-  
-    const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndUpdate(id, req.body, {
+  const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndUpdate(
+    id,
+    req.body,
+    {
       new: true,
-    }).then();
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated RatingAttributeGroup Id=${id}`,
-      data: { ratingAttributeGroups },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated RatingAttributeGroup Id=${id}`,
+    data: { ratingAttributeGroups },
+  });
 
   next();
 });
 
-exports.deleteRatingAttributeGroup = catchAsync(async (req, res, next)=> {
+exports.deleteRatingAttributeGroup = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting RatingAttributeGroup Id ${id}`);
 
-  
-    const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndDelete(id).then();
+  const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndDelete(
+    id
+  ).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted RatingAttributeGroup Id=${id}`,
-      data: { ratingAttributeGroups },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted RatingAttributeGroup Id=${id}`,
+    data: { ratingAttributeGroups },
+  });
 
   next();
 });
