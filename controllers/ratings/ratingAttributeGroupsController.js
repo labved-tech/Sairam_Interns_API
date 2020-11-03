@@ -13,10 +13,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllRatingAttributeGroup = async (req, res, next) => {
+exports.getAllRatingAttributeGroup = catchAsync(async (req, res, next)=> {
   console.log('Getting All RatingAttributeGroup');
 
-  try {
+  
     const ratingAttributeGroups = await RatingAttributeGroup.find().then();
 
     res.status(200).json({
@@ -27,63 +27,66 @@ exports.getAllRatingAttributeGroup = async (req, res, next) => {
         ratingAttributeGroups,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getRatingAttributeGroup = async (req, res, next) => {
+exports.getRatingAttributeGroup = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Getting RatingAttributeGroup for Id ${id}`);
 
-  try {
+  
     const ratingAttributeGroups = await RatingAttributeGroup.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got RatingAttributeGroup Id=${id}`,
       Data: { ratingAttributeGroups },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createRatingAttributeGroup = async (req, res, next) => {
+exports.createRatingAttributeGroup = catchAsync(async (req, res, next)=> {
   console.log('Creating RatingAttributeGroup');
+  // parse through models
+  const doc = new RatingAttributeGroups(req.body);
+  console.log(doc);
 
-  try {
-    const ratingAttributeGroups = await RatingAttributeGroup.create(req.body).then();
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+  
+    const ratingAttributeGroups = await RatingAttributeGroup.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created RatingAttributeGroup',
       data: { ratingAttributeGroups },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateRatingAttributeGroup = async (req, res, next) => {
+exports.updateRatingAttributeGroup = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Updating RatingAttributeGroup Id ${id}`);
 
-  try {
+  
     const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +96,16 @@ exports.updateRatingAttributeGroup = async (req, res, next) => {
       message: `Updated RatingAttributeGroup Id=${id}`,
       data: { ratingAttributeGroups },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteRatingAttributeGroup = async (req, res, next) => {
+exports.deleteRatingAttributeGroup = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Deleting RatingAttributeGroup Id ${id}`);
 
-  try {
+  
     const ratingAttributeGroups = await RatingAttributeGroup.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +113,7 @@ exports.deleteRatingAttributeGroup = async (req, res, next) => {
       message: `Deleted RatingAttributeGroup Id=${id}`,
       data: { ratingAttributeGroups },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

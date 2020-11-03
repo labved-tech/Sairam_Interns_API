@@ -13,10 +13,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllEcommerceProducts = async (req, res, next) => {
+exports.getAllEcommerceProducts = catchAsync(async (req, res, next)=> {
   console.log('Getting All EcommerceProducts');
 
-  try {
+  
     const ecommerceProductss = await EcommerceProducts.find().then();
 
     res.status(200).json({
@@ -27,63 +27,66 @@ exports.getAllEcommerceProducts = async (req, res, next) => {
         ecommerceProductss,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getEcommerceProducts = async (req, res, next) => {
+exports.getEcommerceProducts = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Getting EcommerceProducts for Id ${id}`);
 
-  try {
+  
     const ecommerceProducts = await EcommerceProducts.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got EcommerceProducts Id=${id}`,
       Data: { ecommerceProducts },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createEcommerceProducts = async (req, res, next) => {
+exports.createEcommerceProducts = catchAsync(async (req, res, next)=> {
   console.log('Creating EcommerceProducts');
+  // parse through models
+  const doc = new EcommerceProduct(req.body);
+  console.log(doc);
 
-  try {
-    const ecommerceProducts = await EcommerceProducts.create(req.body).then();
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+  
+    const ecommerceProducts = await EcommerceProducts.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created EcommerceProducts',
       data: { ecommerceProducts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateEcommerceProducts = async (req, res, next) => {
+exports.updateEcommerceProducts = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Updating EcommerceProducts Id ${id}`);
 
-  try {
+  
     const ecommerceProducts = await EcommerceProducts.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +96,16 @@ exports.updateEcommerceProducts = async (req, res, next) => {
       message: `Updated EcommerceProducts Id=${id}`,
       data: { ecommerceProducts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteEcommerceProducts = async (req, res, next) => {
+exports.deleteEcommerceProducts = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Deleting EcommerceProducts Id ${id}`);
 
-  try {
+  
     const ecommerceProducts = await EcommerceProducts.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +113,7 @@ exports.deleteEcommerceProducts = async (req, res, next) => {
       message: `Deleted EcommerceProducts Id=${id}`,
       data: { ecommerceProducts },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

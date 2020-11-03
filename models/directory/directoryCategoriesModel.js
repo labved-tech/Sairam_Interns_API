@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const directoryCategoriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   slug: { type: String },
   _attributeGroupsId: { type: mongoose.ObjectId },

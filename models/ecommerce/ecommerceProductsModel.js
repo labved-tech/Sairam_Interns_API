@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ecommerceProductsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   manufacturerPartNo: { type: String },
   name: { type: String },
   description: { type: String },

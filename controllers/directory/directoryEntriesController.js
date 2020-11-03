@@ -13,10 +13,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllDirectoryEntries = async (req, res, next) => {
+exports.getAllDirectoryEntries = catchAsync(async (req, res, next)=> {
   console.log('Getting All DirectoryEntries');
 
-  try {
+  
     const directories = await DirectoryEntries.find().then();
 
     res.status(200).json({
@@ -27,63 +27,66 @@ exports.getAllDirectoryEntries = async (req, res, next) => {
         directories,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getDirectoryEntries = async (req, res, next) => {
+exports.getDirectoryEntries = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Getting DirectoryEntries for Id ${id}`);
 
-  try {
+  
     const directoryEntries = await DirectoryEntries.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got DirectoryEntries Id=${id}`,
       Data: { directoryEntries },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createDirectoryEntries = async (req, res, next) => {
+exports.createDirectoryEntries = catchAsync(async (req, res, next)=> {
   console.log('Creating directoryEntries');
+  // parse through models
+  const doc = new DirectoryEntries(req.body);
+  console.log(doc);
 
-  try {
-    const directoryEntries = await DirectoryEntries.create(req.body).then();
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+  
+    const directoryEntries = await DirectoryEntries.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created DirectoryEntries',
       data: { directoryEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateDirectoryEntries = async (req, res, next) => {
+exports.updateDirectoryEntries = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Updating DirectoryEntries Id ${id}`);
 
-  try {
+  
     const directoryEntries = await DirectoryEntries.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -93,21 +96,16 @@ exports.updateDirectoryEntries = async (req, res, next) => {
       message: `Updated DirectoryEntries Id=${id}`,
       data: { directoryEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteDirectoryEntries = async (req, res, next) => {
+exports.deleteDirectoryEntries = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Deleting DirectoryEntries Id ${id}`);
 
-  try {
+  
     const directoryEntries = await DirectoryEntries.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -115,12 +113,7 @@ exports.deleteDirectoryEntries = async (req, res, next) => {
       message: `Deleted DirectoryEntries Id=${id}`,
       data: { directoryEntries },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});

@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const directoryLevelsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   description: { type: String },
   activePeriod: { type: Number },

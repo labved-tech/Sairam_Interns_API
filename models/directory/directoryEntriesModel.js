@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const directoryEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   author: { type: String },
   date: { type: Date },
   image: [],

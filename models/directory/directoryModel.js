@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const directorySchema = new Schema({
-    _id:{type:mongoose.ObjectId},
     name:{type:String},   
     single:{type:String},
     plural:{type:String},
@@ -17,7 +16,6 @@ const directorySchema = new Schema({
     },
     { timestamps: true }
 );
-
 
 /* MODEL */
 const Directory = mongoose.model('directory', directorySchema);

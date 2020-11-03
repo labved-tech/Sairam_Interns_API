@@ -13,10 +13,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllEcommerceAddress = async (req, res, next) => {
+exports.getAllEcommerceAddress = catchAsync(async (req, res, next)=> {
   console.log('Getting All Ecommerce Address');
 
-  try {
+  
     const ecommerceAddresss = await EcommerceAddress.find().then();
 
     res.status(200).json({
@@ -27,63 +27,66 @@ exports.getAllEcommerceAddress = async (req, res, next) => {
         ecommerceAddresss,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getEcommerceAddress = async (req, res, next) => {
+exports.getEcommerceAddress = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Getting ecommerceAddress for Id ${id}`);
 
-  try {
+  
     const ecommerceAddress = await EcommerceAddress.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got ecommerceAddress Id=${id}`,
       Data: { ecommerceAddress },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createEcommerceAddress = async (req, res, next) => {
+exports.createEcommerceAddress = catchAsync(async (req, res, next)=> {
   console.log('Creating Ecommerce Address');
+  // parse through models
+  const doc = new EcommerceAddress(req.body);
+  console.log(doc);
 
-  try {
-    const ecommerceAddress = await EcommerceAddress.create(req.body).then();
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(doc);
+  
+    const ecommerceAddress = await EcommerceAddress.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created ecommerceAddress',
       data: { ecommerceAddress },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateEcommerceAddress = async (req, res, next) => {
+exports.updateEcommerceAddress = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Updating ecommerceAddress Id ${id}`);
 
-  try {
+  
     const ecommerceAddress = await EcommerceAddress.findByIdAndUpdate(
       id,
       req.body,
@@ -97,21 +100,16 @@ exports.updateEcommerceAddress = async (req, res, next) => {
       message: `Updated ecommerceAddress Id=${id}`,
       data: { ecommerceAddress },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteEcommerceAddress = async (req, res, next) => {
+exports.deleteEcommerceAddress = catchAsync(async (req, res, next)=> {
   const { id } = req.params;
   console.log(`Deleting ecommerceAddress Id ${id}`);
 
-  try {
+  
     const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(
       id
     ).then();
@@ -121,12 +119,7 @@ exports.deleteEcommerceAddress = async (req, res, next) => {
       message: `Deleted ecommerceAddress Id=${id}`,
       data: { ecommerceAddress },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
