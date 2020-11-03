@@ -15,10 +15,10 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllAnalytics = async (req, res, next) => {
+exports.getAllAnalytics = catchAsync(async (req, res, next) => {
   console.log('Getting All analytics');
 
-  try {
+
     const analytics = await Analytics.find().then();
 
     res.status(200).json({
@@ -29,63 +29,66 @@ exports.getAllAnalytics = async (req, res, next) => {
         analytics,
       },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.getAnalytics = async (req, res, next) => {
+exports.getAnalytics = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting analytics for Id ${id}`);
 
-  try {
+
     const analytics = await Analytics.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got analytics Id=${id}`,
       Data: { analytics },
     });
-  } catch (err) {
-    res.status(404).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.createAnalytics = async (req, res, next) => {
+exports.createAnalytics = catchAsync(async (req, res, next) => {
   console.log('Creating analytics');
+    // parse through models
+    const doc = new Analytics(req.body);
+    console.log(doc);
+  
+    // validate seperately sub-documents if necessary
+  
+    // replace doc if necessary
+  
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
+  
+  // final validation
+  await doc.validate();
+  
+  // check the doc before doing database operation
+  //console.log(doc);
 
-  try {
-    const analytics = await Analytics.create(req.body).then();
+    const analytics = await Analytics.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created analytics',
       data: { analytics },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.updateAnalytics = async (req, res, next) => {
+exports.updateAnalytics = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating analytics Id ${id}`);
 
-  try {
+
     const analytics = await Analytics.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();
@@ -95,21 +98,16 @@ exports.updateAnalytics = async (req, res, next) => {
       message: `Updated analytics Id=${id}`,
       data: { analytics },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
 
-exports.deleteAnalytics = async (req, res, next) => {
+exports.deleteAnalytics = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting analytics Id ${id}`);
 
-  try {
+
     const analytics = await Analytics.findByIdAndDelete(id).then();
 
     res.status(200).json({
@@ -117,12 +115,7 @@ exports.deleteAnalytics = async (req, res, next) => {
       message: `Deleted analytics Id=${id}`,
       data: { analytics },
     });
-  } catch (err) {
-    res.status(400).json({
-      status: 'fail',
-      message: err,
-    });
-  }
+
 
   next();
-};
+});
