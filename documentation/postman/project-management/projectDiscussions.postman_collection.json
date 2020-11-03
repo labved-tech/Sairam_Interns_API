@@ -6,48 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "deleteProjectDiscussions",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussions",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getProjectDiscussions",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussions",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "getAllProjectDiscussions",
 			"request": {
 				"method": "GET",
@@ -75,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n    \"_projectId\":\"1\",\r\n    \"subject\": \"Humanities\",\r\n    \"description\":\"Student\",\r\n    \"datecreated\":\"22-09-2001\",\r\n    \"lastActivity\":\"22-09-2003\",\r\n    \"startedBy\": \"Vicky\"\r\n  }",
+					"raw": "{\r\n\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"subject\": \"Humanities\",\r\n    \"description\":\"Student\",\r\n    \"datecreated\":\"2000-09-22\",\r\n    \"lastActivity\":\"2003-09-22\",\r\n    \"startedBy\": \"Vicky\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,19 +57,61 @@
 			"response": []
 		},
 		{
+			"name": "getProjectDiscussions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-discussions/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-discussions",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updateProjectDiscussions",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\r\n    \"_projectId\":\"1\",\r\n    \"subject\": \"Humanities\",\r\n    \"description\":\"Student\",\r\n    \"datecreated\":\"22-09-2001\",\r\n    \"lastActivity\":\"22-09-2003\",\r\n    \"startedBy\": \"Vicky\"\r\n  }",
+					"raw": "{\r\n\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"subject\": \"Humanities\",\r\n    \"description\":\"Student\",\r\n    \"datecreated\":\"2000-09-22\",\r\n    \"lastActivity\":\"2003-09-22\",\r\n    \"startedBy\": \"Vicky\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-discussions/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-discussions",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectDiscussions",
+			"request": {
+				"method": "DELETE",
+				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/project-discussions/0",
 					"host": [

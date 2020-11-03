@@ -6,13 +6,34 @@
 	},
 	"item": [
 		{
+			"name": "getAllTaskReminders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createTaskReminders",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":true,\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":true,\r\n    \"creator\": \"Vicky\"\r\n  }  ",
+					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"2000-09-22\",\r\n    \"isNotified\":true,\r\n    \"_taskId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"notifyByEmail\":true,\r\n    \"creator\": \"Vicky\"\r\n  }  ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -36,13 +57,34 @@
 			"response": []
 		},
 		{
+			"name": "getTaskReminders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/task-reminders/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"task-reminders",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updateTaskReminders",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"22-09-2000\",\r\n    \"isNotified\":\"True\",\r\n    \"_taskId\": \"1\",\r\n    \"notifyByEmail\":\"True\",\r\n    \"creator\": \"Vicky\"\r\n  }  ",
+					"raw": "\r\n  {\r\n    \"description\":\"Student\",\r\n    \"date\": \"2000-09-22\",\r\n    \"isNotified\":true,\r\n    \"_taskId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"notifyByEmail\":true,\r\n    \"creator\": \"Vicky\"\r\n  } ",
 					"options": {
 						"raw": {}
 					}
@@ -79,48 +121,6 @@
 						"v1",
 						"task-reminders",
 						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getTaskReminders",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"task-reminders",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getAllTaskReminders",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"task-reminders",
-						""
 					]
 				}
 			},
