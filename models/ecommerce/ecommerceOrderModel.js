@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ecommerceOrderSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   items: [
     {
       _id: { type: mongoose.ObjectId },

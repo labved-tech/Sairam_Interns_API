@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ratingEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   relType: { type: String },
   _relId: { type: mongoose.ObjectId },
   meta: [

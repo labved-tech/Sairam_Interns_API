@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ecommerceLocationsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   address: { type: Object },
   gpsCoordinates: { type: Object },
   landlineNumber: { type: String },

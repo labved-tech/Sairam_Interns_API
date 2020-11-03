@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const directoryAttributeGroupsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   attributes: [
     {
