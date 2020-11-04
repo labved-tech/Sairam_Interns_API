@@ -1,0 +1,1725 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+			"name": "users",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"8e85fbe8-4fd9-4029-ac65-104842881b34",
+				"d88e1a27-1909-4b0c-abe5-4557d4b7623f",
+				"a7f38390-86d4-4102-b2e1-926a15e387bd",
+				"affd550d-5074-468d-aad4-bd165bddd352",
+				"840eb8ee-ca5b-4221-ac70-e01c71beb43f",
+				"1667dd4b-e37d-4a6d-9dcc-cd7a1a877f68",
+				"240bef96-b950-4e7b-8490-5010461005be",
+				"99df646c-c3fb-472f-9429-0796b91e8dd8"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "1667dd4b-e37d-4a6d-9dcc-cd7a1a877f68",
+					"name": "resetPassword",
+					"url": "{{URL}}/api/v1/users/resetPassword/57045efa02e563d48442157a6bcb6edd2f6b830d42e30a4200b3af97555d49d1",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"enabled": false,
+							"key": "autho",
+							"type": "text",
+							"value": ""
+						}
+					],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6a493c6-1673-49ba-8bfb-dc174208f229",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"rawModeData": "{\r\n    \"password\" : \"password\",\r\n    \"passwordConfirm\" : \"password\"\r\n}",
+					"headers": "//autho: \n",
+					"pathVariables": {}
+				},
+				{
+					"id": "240bef96-b950-4e7b-8490-5010461005be",
+					"name": "updateMyPassword",
+					"url": "{{URL}}/api/v1/users/updateMyPassword/",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17d5b66e-d02b-4092-a5d3-b9edb4c09be8",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"rawModeData": "{\r\n    \"passwordCurrent\":\"password\",\r\n    \"password\":\"password@123\",\r\n    \"passwordConfirm\": \"password@123\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "840eb8ee-ca5b-4221-ac70-e01c71beb43f",
+					"name": "forgotPassword",
+					"url": "{{URL}}/api/v1/users/forgotPassword",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"enabled": false,
+							"key": "autho",
+							"type": "text",
+							"value": ""
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1971d725-679c-4f74-92d5-914869f88f44",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"rawModeData": "{\r\n    \"email\":\"admin@gmail.com\"\r\n}",
+					"headers": "//autho: \n",
+					"pathVariables": {}
+				},
+				{
+					"id": "8e85fbe8-4fd9-4029-ac65-104842881b34",
+					"name": "getAllUsers",
+					"url": "{{URL}}/api/v1/users?sort=createdAt",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "sort",
+							"value": "createdAt",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ee6fd7ce-4b29-4adc-903f-1de022ed701a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "99df646c-c3fb-472f-9429-0796b91e8dd8",
+					"name": "updateMe",
+					"url": "{{URL}}/api/v1/users/updateMe/",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2cebecb3-8821-4686-82f1-91489c5a7e33",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"rawModeData": "{\r\n    \"role\" : \"user\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a7f38390-86d4-4102-b2e1-926a15e387bd",
+					"name": "userSignup",
+					"url": "{{URL}}/api/v1/users/signup",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0165c4c6-0f60-4c5d-85ba-1adcbd895ee2",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"rawModeData": "{\r\n    \"name\":\"user2\",\r\n    \"email\":\"user2@gmail.com\",\r\n    \"password\":\"password@123\",\r\n    \"passwordConfirm\": \"password@123\",\r\n    \"accountType\":\"standard\",\r\n    \"role\" :\"user\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "affd550d-5074-468d-aad4-bd165bddd352",
+					"name": "userLogin",
+					"url": "{{URL}}/api/v1/users/login",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "autho",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"enabled": false
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c7462e81-9a28-49b9-a064-9c15bc844041",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"rawModeData": "{\r\n    \"email\":\"user1@gmail.com\",\r\n    \"password\":\"password@123\"\r\n}",
+					"headers": "//autho: \n",
+					"pathVariables": {}
+				},
+				{
+					"id": "d88e1a27-1909-4b0c-abe5-4557d4b7623f",
+					"name": "getUser",
+					"url": "{{URL}}/api/v1/users/5fa15ad5f9afde4a800898f1",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b4879886-f10f-43a6-b8df-0c160accfc7a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": null,
+					"preRequestScript": null,
+					"tests": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "0b6a53f9-6e3c-4786-a935-d99b583c8db2",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "5b251645-1729-45ad-84bf-35df548de42b",
+			"name": "directoryEntries",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"4d6faff2-3c40-470b-a157-4410ff557ff2",
+				"d9197349-b0f3-43d8-b75f-c42a13d94b45",
+				"dd9c73e8-f40e-4835-b9c0-2d2f21b21479",
+				"3052f743-a7af-499c-a184-c56a4dd747bb",
+				"60208294-c2f9-4180-94c4-c43cff67b0de"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "3052f743-a7af-499c-a184-c56a4dd747bb",
+					"name": "postDirctoryEntries",
+					"url": "localhost:3000/api/v1/directoryEntries",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5b251645-1729-45ad-84bf-35df548de42b",
+					"rawModeData": "{\r\n  \"author\": \"vignesh\",\r\n  \"date\": \"1-2-3\",\r\n  \"image\": [\"hi\",\"hello\"],\r\n  \"message\": \"hey\",\r\n  \"title\": \"project\",\r\n  \"slug\": \"abc\",\r\n  \"_sellerId\": \"5fa25b81bf571c3f60cd6504\",\r\n  \"status\": \"ads\",\r\n  \"address\": {\r\n    \"address1\": \"chennai\",\r\n    \"message\": \"hii\",\r\n    \"Street\": \"xxyyyzzz\",\r\n    \"City\": \"chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"india\",\r\n    \"PostalCode\": \"0\"\r\n  },\r\n  \"location\": \"acdf\",\r\n  \"name\": \"viky\",\r\n  \"_parentId\": \"5fa25b81bf571c3f60cd6504\",\r\n  \"commentStatus\": \"abc\",\r\n  \"commentCount\": \"0\",\r\n  \"contactInfo\": [\r\n    {\r\n      \"item\": \"jkl\",\r\n      \"type\": \"pqr\",\r\n      \"isPublic\": true\r\n    }\r\n  ],\r\n  \"relation\": [\r\n    {\r\n      \"type\": \"0\",\r\n      \"isPublic\": \"0\"\r\n    }\r\n  ],\r\n  \"meta\": \"0\",\r\n  \"directories\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"single\": \"sai\",\r\n      \"plural\": \"sai\",\r\n      \"slug\": \"abc\",\r\n      \"categories\": [\"hi\",\"hello\"]\r\n    }\r\n  ],\r\n  \"categories\": [\"hi\",\"hello\"],\r\n  \"level\": \"xzy\",\r\n  \"logo\": \"rst\",\r\n  \"updatedBy\": \"0\",\r\n   \"createdBy\": \"0\"\r\n\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "4d6faff2-3c40-470b-a157-4410ff557ff2",
+					"name": "getDirectoryEntries",
+					"url": "localhost:3000/api/v1/directoryEntries/5fa28c483336013ad06207dc",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5b251645-1729-45ad-84bf-35df548de42b",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "60208294-c2f9-4180-94c4-c43cff67b0de",
+					"name": "patchDirectoryEntries",
+					"url": "localhost:3000/api/v1/directoryEntries/0",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5b251645-1729-45ad-84bf-35df548de42b",
+					"rawModeData": "{\r\n  \"author\": \"sai\",\r\n  \"date\": \"1-2-3\",\r\n  \"image\": [\"hi\",\"hello\"],\r\n  \"message\": \"hey\",\r\n  \"title\": \"project\",\r\n  \"slug\": \"abc\",\r\n  \"_sellerId\": \"0\",\r\n  \"status\": \"ads\",\r\n  \"address\": {\r\n    \"address1\": \"chennai\",\r\n    \"message\": \"hii\",\r\n    \"Street\": \"xxyyyzzz\",\r\n    \"City\": \"chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"india\",\r\n    \"PostalCode\": \"0\"\r\n  },\r\n  \"location\": \"acdf\",\r\n  \"name\": \"viky\",\r\n  \"_parentId\": \"0\",\r\n  \"commentStatus\": \"abc\",\r\n  \"commentCount\": \"0\",\r\n  \"contactInfo\": [\r\n    {\r\n      \"item\": \"jkl\",\r\n      \"type\": \"pqr\",\r\n      \"isPublic\": \"True\"\r\n    }\r\n  ],\r\n  \"relation\": [\r\n    {\r\n      \"type\": \"0\",\r\n      \"isPublic\": \"0\"\r\n    }\r\n  ],\r\n  \"meta\": \"0\",\r\n  \"directories\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"single\": \"sai\",\r\n      \"plural\": \"sai\",\r\n      \"slug\": \"abc\",\r\n      \"categories\": [\"hi\",\"hello\"]\r\n    }\r\n  ],\r\n  \"categories\": [\"hi\",\"hello\"],\r\n  \"level\": \"xzy\",\r\n  \"logo\": \"rst\",\r\n  \"updatedBy\": \"0\",\r\n  \"updatedAt\": \"1-1-7\",\r\n  \"createdBy\": \"0\",\r\n  \"createdAt\": \"1-1-2\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "d9197349-b0f3-43d8-b75f-c42a13d94b45",
+					"name": "getAllDirectoryEntries",
+					"url": "localhost:3000/api/v1/directoryEntries",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5b251645-1729-45ad-84bf-35df548de42b",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "dd9c73e8-f40e-4835-b9c0-2d2f21b21479",
+					"name": "deleteDirectoryEntries",
+					"url": "localhost:3000/api/v1/directoryEntries/0",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "5b251645-1729-45ad-84bf-35df548de42b",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "7f096d9e-4750-482b-86a1-393e54aa3657",
+			"name": "example",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"4f085a04-b307-4e95-957d-8c15ba3e9c64",
+				"328e5865-4bb1-481e-b3bd-ee284613394f",
+				"bcfc38d7-5164-478e-8733-cba823002505",
+				"84915c46-db95-4935-8a47-0cf9736b542f",
+				"4f2fe23d-d508-4991-befb-e7beed8f005a"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "328e5865-4bb1-481e-b3bd-ee284613394f",
+					"name": "createExample",
+					"url": "{{URL}}/api/v1/example",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [],
+					"folder": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "7f096d9e-4750-482b-86a1-393e54aa3657",
+					"rawModeData": "{\r\n    \"name\": \"test1\",\r\n    \"email\": \"test@test.com\",\r\n    \"mobNo\": 987654321,\r\n    \"test\" : \"test\",\r\n    \"inLineObject\": {\r\n        \"email\": \"test@test.com\",\r\n        \"mobNo\": 987654321,\r\n        \"test\": \"Test\"\r\n    },\r\n    \"extRefObject\": {\r\n        \"email\": \"test@test.com\",\r\n        \"mobNo\": 987654321,\r\n        \"test\": \"Test\"\r\n    },\r\n    \"arrayOfString\": [\r\n        {\r\n            \"name\": \"test1\",\r\n            \"test\": \"Test\"\r\n        },\r\n        {\r\n            \"name\": \"test2\"\r\n        }\r\n    ],\r\n    \"arrayOfObject\": [\r\n        {\r\n            \"email\": \"test@test.com\",\r\n            \"mobNo\": 987654321,\r\n            \"test\" : \"test\"\r\n        },\r\n        {\r\n            \"email\": \"test@test.com\",\r\n            \"mobNo\": 987654321\r\n        }\r\n    ]\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "4f085a04-b307-4e95-957d-8c15ba3e9c64",
+					"name": "getAllExample",
+					"url": "{{URL}}/api/v1/example",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [],
+					"folder": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "7f096d9e-4750-482b-86a1-393e54aa3657",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "4f2fe23d-d508-4991-befb-e7beed8f005a",
+					"name": "deleteExample",
+					"url": "{{URL}}/api/v1/example/5f8564ef759bbf4aac31d79e",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [],
+					"folder": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "7f096d9e-4750-482b-86a1-393e54aa3657",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "84915c46-db95-4935-8a47-0cf9736b542f",
+					"name": "updateExample",
+					"url": "{{URL}}/api/v1/example/5f856561fa40dc41145f05a5",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [],
+					"folder": null,
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "7f096d9e-4750-482b-86a1-393e54aa3657",
+					"rawModeData": "{\r\n    \"name\": \"Sai\",\r\n    \"extRefObject\": {\r\n        \"email\": \"sai@test.com\",\r\n        \"mobNo\": 987654321,\r\n        \"test\": \"Test\"\r\n    },\r\n    \"arrayOfString\": [\r\n        {\r\n            \"name\": \"test1\",\r\n            \"test\": \"Test1\"\r\n        },\r\n        {\r\n            \"name\": \"test2\",\r\n            \"test\": \"Test2\"\r\n        },\r\n        {\r\n            \"name\": \"test3\",\r\n            \"test\": \"Test3\"\r\n        },\r\n        {\r\n            \"name\": \"test4\",\r\n            \"test\": \"Test4\"\r\n        },\r\n        {\r\n            \"name\": \"test5\",\r\n            \"test\": \"Test5\"\r\n        }\r\n    ]\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "bcfc38d7-5164-478e-8733-cba823002505",
+					"name": "getExample",
+					"url": "{{URL}}/api/v1/example/5f856561fa40dc41145f05a5",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [],
+					"folder": null,
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "7f096d9e-4750-482b-86a1-393e54aa3657",
+					"rawModeData": "",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "c1a4e6ed-a4b2-4b22-bd2a-41a0ac30e599",
+			"name": "eventEntries",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"1266a2be-d0ec-4ae5-aaba-7254fda9bc5e",
+				"b0d3997e-a3a2-43e4-a21f-17056afe8856",
+				"2065f773-07da-47b1-a722-9220a72f9b26",
+				"52cead96-338d-4d81-aabc-ab378d5e50aa",
+				"f7af29bc-6910-4d48-a8f4-1f87fce7bcc0"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "1266a2be-d0ec-4ae5-aaba-7254fda9bc5e",
+					"name": "getEventEntries",
+					"url": "localhost:3000/api/v1/eventEntries/5fa2865769f8e547c44fe555",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c1a4e6ed-a4b2-4b22-bd2a-41a0ac30e599",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "2065f773-07da-47b1-a722-9220a72f9b26",
+					"name": "updateEventEntries",
+					"url": "localhost:3000/api/v1/eventEntries/5fa2865769f8e547c44fe555",
+					"description": null,
+					"data": [],
+					"dataOptions": null,
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c1a4e6ed-a4b2-4b22-bd2a-41a0ac30e599",
+					"rawModeData": "{\r\n  \"status\": \"failed\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": 10,\r\n  \"type\": \"database\",\r\n  \"meta\": [],\r\n  \"location\": \"Chennai\",\r\n  \"boundary\": \"63245\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "52cead96-338d-4d81-aabc-ab378d5e50aa",
+					"name": "createEventEntries",
+					"url": "localhost:3000/api/v1/eventEntries",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c1a4e6ed-a4b2-4b22-bd2a-41a0ac30e599",
+					"rawModeData": "{\r\n  \"status\": \"success\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": 10,\r\n  \"type\": \"database\",\r\n  \"meta\": [],\r\n  \"location\": \"Chennai\",\r\n  \"boundary\": \"63245\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "b0d3997e-a3a2-43e4-a21f-17056afe8856",
+					"name": "deleteEventEntries",
+					"url": "localhost:3000/api/v1/eventEntries/5fa2865769f8e547c44fe555",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c1a4e6ed-a4b2-4b22-bd2a-41a0ac30e599",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "f7af29bc-6910-4d48-a8f4-1f87fce7bcc0",
+					"name": "getAllEventEntries",
+					"url": "localhost:3000/api/v1/eventEntries",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "c1a4e6ed-a4b2-4b22-bd2a-41a0ac30e599",
+					"rawModeData": "",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+			"name": "commentEntries",
+			"description": null,
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [
+				"1830e4a0-d334-4e5a-9c12-bf7a4e89e73f",
+				"b4613694-0af6-4320-a8d2-91e7c372b6be",
+				"e7451d67-ff25-4c2f-a497-4e2d551d7818",
+				"3c7dcc8a-c9bf-4e0b-9f30-2993c9dd6786",
+				"bc7d4b81-c744-4b9f-8dda-eb2d9d4fe816"
+			],
+			"folders_order": [],
+			"protocolProfileBehavior": {},
+			"folders": [],
+			"requests": [
+				{
+					"id": "1830e4a0-d334-4e5a-9c12-bf7a4e89e73f",
+					"name": "getAllCommentEntries",
+					"url": "localhost:3000/api/v1/commentEntries",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "3c7dcc8a-c9bf-4e0b-9f30-2993c9dd6786",
+					"name": "updateCommentEntries",
+					"url": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
+					"description": null,
+					"data": [],
+					"dataOptions": null,
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+					"rawModeData": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"test\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"test\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "b4613694-0af6-4320-a8d2-91e7c372b6be",
+					"name": "deleteCommentEntries",
+					"url": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "bc7d4b81-c744-4b9f-8dda-eb2d9d4fe816",
+					"name": "createCommentEntries",
+					"url": "localhost:3000/api/v1/commentEntries",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+					"rawModeData": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": 4,\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "e7451d67-ff25-4c2f-a497-4e2d551d7818",
+					"name": "getOneCommentEntries",
+					"url": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		},
+		{
+			"id": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+			"name": "menu",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [],
+			"folders_order": [
+				"60bac518-74d5-49af-8ce8-4c22cc7b3d65",
+				"134424ff-a920-4ad6-a0e6-629c180a1f1d",
+				"1d5ffd1a-27c2-403c-90ee-513059d18f3a",
+				"96657dff-8be5-4146-8bd2-223f072f6f23",
+				"09d091a6-6dcb-4d03-9bd6-64e682f72eba"
+			],
+			"protocolProfileBehavior": {},
+			"folders": [
+				{
+					"id": "1d5ffd1a-27c2-403c-90ee-513059d18f3a",
+					"name": "Menu Items",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folder": null,
+					"order": [
+						"e1c3c730-b8c8-4bbe-969a-86c85ac0516a",
+						"bb9f70f3-7887-497d-8d7e-ff456960663c",
+						"6cfb1f55-fcc4-42eb-9e61-229302b2538b"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folderId": "1d5ffd1a-27c2-403c-90ee-513059d18f3a"
+				},
+				{
+					"id": "60bac518-74d5-49af-8ce8-4c22cc7b3d65",
+					"name": "Menu Manager",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folder": null,
+					"order": [
+						"5c93f47f-305e-4aa6-8782-3d71e9152c9d",
+						"284237ef-2d2b-4bcd-96b2-e4109b34fdc3",
+						"d58daf10-e7b6-4566-af98-0370757ba68c"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folderId": "60bac518-74d5-49af-8ce8-4c22cc7b3d65"
+				},
+				{
+					"id": "134424ff-a920-4ad6-a0e6-629c180a1f1d",
+					"name": "Menu Section",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folder": null,
+					"order": [
+						"d239017d-9749-4d03-b226-94afae37e4ca",
+						"1e5a27f1-4eec-480e-863f-98c5201be9d3"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folderId": "134424ff-a920-4ad6-a0e6-629c180a1f1d"
+				},
+				{
+					"id": "96657dff-8be5-4146-8bd2-223f072f6f23",
+					"name": "Menu Sub-Items1",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folder": null,
+					"order": [
+						"a2d65740-6e35-41c5-92ec-383e6e02bc80",
+						"72247736-d29e-4eab-aaa7-f2bcbfc36b8e",
+						"a00c193b-1163-4ff3-9387-f8db5c9fbcbd"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folderId": "96657dff-8be5-4146-8bd2-223f072f6f23"
+				},
+				{
+					"id": "09d091a6-6dcb-4d03-9bd6-64e682f72eba",
+					"name": "Menu Sub-Items2",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folder": null,
+					"order": [],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"folderId": "09d091a6-6dcb-4d03-9bd6-64e682f72eba"
+				}
+			],
+			"requests": [
+				{
+					"id": "1e5a27f1-4eec-480e-863f-98c5201be9d3",
+					"name": "createMenuSection",
+					"url": "{{URL}}/api/v1/menu/section",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "60e5f318-8a9e-4575-85dc-c96f2ae8720f",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "134424ff-a920-4ad6-a0e6-629c180a1f1d",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"name\": \"Administration\",\r\n    \"description\" : \"All administration related goes under here\",\r\n    \"priority\": 1\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "284237ef-2d2b-4bcd-96b2-e4109b34fdc3",
+					"name": "createMenu",
+					"url": "{{URL}}/api/v1/menu/manager",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ccbe660b-63cb-4569-a8ee-ff0d77d2e150",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "60bac518-74d5-49af-8ce8-4c22cc7b3d65",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"name\":\"aside\",\r\n    \"description\" : \"menu that appears in the left sidebar\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "5c93f47f-305e-4aa6-8782-3d71e9152c9d",
+					"name": "getAllMenu",
+					"url": "{{URL}}/api/v1/menu/manager",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"type": "bearer",
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						]
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0ae1ac7-f3b2-4e57-a0a1-946497348389",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "60bac518-74d5-49af-8ce8-4c22cc7b3d65",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "6cfb1f55-fcc4-42eb-9e61-229302b2538b",
+					"name": "createMenuItem Copy",
+					"url": "{{URL}}/api/v1/menu/items/5fa112ac0cbbcd51f405b53c",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fed71b0b-caee-4145-b4d8-ed9fa916115f",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "1d5ffd1a-27c2-403c-90ee-513059d18f3a",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"route\": \"/users\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "72247736-d29e-4eab-aaa7-f2bcbfc36b8e",
+					"name": "createMenuSubItem1",
+					"url": "{{URL}}/api/v1/menu/subItems1",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f2e46b7-5b82-4b09-b842-b70d1250c160",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "96657dff-8be5-4146-8bd2-223f072f6f23",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"name\": \"View All Users\",\r\n    \"_parentId\": \"5fa112ac0cbbcd51f405b53c\",\r\n    \"route\": \"/view-all\",\r\n    \"priority\": 2\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a00c193b-1163-4ff3-9387-f8db5c9fbcbd",
+					"name": "updateMenuSubItem1",
+					"url": "{{URL}}/api/v1/menu/subItems1/5fa114e6350dc1502cdb3cdd",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3fa9f13-0c5b-4727-b8ba-277ea17f9921",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "96657dff-8be5-4146-8bd2-223f072f6f23",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"route\": \"users/view-all\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "a2d65740-6e35-41c5-92ec-383e6e02bc80",
+					"name": "getAllMenuSubItem1",
+					"url": "{{URL}}/api/v1/menu/subItems1",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb8f47c7-cf11-4eef-a255-427aa3946401",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "96657dff-8be5-4146-8bd2-223f072f6f23",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "bb9f70f3-7887-497d-8d7e-ff456960663c",
+					"name": "createMenuItem",
+					"url": "{{URL}}/api/v1/menu/items",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c3f44a6-7c46-45c7-954c-51c2d1aabbef",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "1d5ffd1a-27c2-403c-90ee-513059d18f3a",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"name\": \"Users\",\r\n    \"_menuId\": \"5fa10d1b70df97035c46c601\",\r\n    \"_sectionId\": \"5fa10f8501ce974c8ce18f6d\",\r\n    \"route\": \"users\",\r\n    \"priority\": 1\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "d239017d-9749-4d03-b226-94afae37e4ca",
+					"name": "getAllMenuSection",
+					"url": "{{URL}}/api/v1/menu/section",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb23af36-0765-4d9c-a37c-5895c9f3bfb3",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "134424ff-a920-4ad6-a0e6-629c180a1f1d",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "d58daf10-e7b6-4566-af98-0370757ba68c",
+					"name": "updateMenu",
+					"url": "{{URL}}/api/v1/menu/manager/5fa10d1b70df97035c46c601",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [],
+					"method": "PATCH",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37fc785c-f648-4a02-b1dd-f0a8f0355fb7",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "60bac518-74d5-49af-8ce8-4c22cc7b3d65",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"rawModeData": "{\r\n    \"name\":\"aside\",\r\n    \"description\" : \"menu that appears in the left sidebar\",\r\n    \"test\" : \"test\"\r\n}",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "e1c3c730-b8c8-4bbe-969a-86c85ac0516a",
+					"name": "getAllMenuItem",
+					"url": "{{URL}}/api/v1/menu/items",
+					"description": "",
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": {
+						"bearer": [
+							{
+								"key": "token",
+								"value": "{{jwt}}"
+							}
+						],
+						"type": "bearer"
+					},
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1ea77417-f85a-4741-a1ea-15f3e56d1771",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "1d5ffd1a-27c2-403c-90ee-513059d18f3a",
+					"preRequestScript": null,
+					"tests": "pm.environment.set(\"jwt\", pm.response.json().token);",
+					"currentHelper": "bearerAuth",
+					"helperAttributes": {
+						"id": "bearer",
+						"token": "{{jwt}}"
+					},
+					"collectionId": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+					"headers": "",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "03652cd0-d01c-4bcb-9cda-c7cfe4a61a72",
+			"name": "Dev : Framework",
+			"values": [
+				{
+					"key": "URL",
+					"value": "http://127.0.0.1:3000",
+					"enabled": true
+				},
+				{
+					"key": "jwt",
+					"value": "",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "fefd96a3-e0f1-48a7-bccf-1bde9ab2f392",
+			"name": "Prod : Framework",
+			"values": [
+				{
+					"key": "URL",
+					"value": "framework.io",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "f5d403fd-c358-4509-93a0-290431680371",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}

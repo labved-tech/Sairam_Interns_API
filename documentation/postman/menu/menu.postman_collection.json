@@ -1,0 +1,567 @@
+{
+	"info": {
+		"_postman_id": "d71ff5f4-217d-4281-83e2-72c29d6650ba",
+		"name": "menu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Menu Manager",
+			"item": [
+				{
+					"name": "getAllMenu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c0ae1ac7-f3b2-4e57-a0a1-946497348389",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/manager",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"manager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMenu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ccbe660b-63cb-4569-a8ee-ff0d77d2e150",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"aside\",\r\n    \"description\" : \"menu that appears in the left sidebar\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/manager",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"manager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMenu",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37fc785c-f648-4a02-b1dd-f0a8f0355fb7",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"aside\",\r\n    \"description\" : \"menu that appears in the left sidebar\",\r\n    \"test\" : \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/manager/5fa10d1b70df97035c46c601",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"manager",
+								"5fa10d1b70df97035c46c601"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Menu Section",
+			"item": [
+				{
+					"name": "getAllMenuSection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fb23af36-0765-4d9c-a37c-5895c9f3bfb3",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/section",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"section"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMenuSection",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "60e5f318-8a9e-4575-85dc-c96f2ae8720f",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Administration\",\r\n    \"description\" : \"All administration related goes under here\",\r\n    \"priority\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/section",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"section"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Menu Items",
+			"item": [
+				{
+					"name": "getAllMenuItem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1ea77417-f85a-4741-a1ea-15f3e56d1771",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/items",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMenuItem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c3f44a6-7c46-45c7-954c-51c2d1aabbef",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Users\",\r\n    \"_menuId\": \"5fa10d1b70df97035c46c601\",\r\n    \"_sectionId\": \"5fa10f8501ce974c8ce18f6d\",\r\n    \"route\": \"users\",\r\n    \"priority\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/items",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMenuItem Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "fed71b0b-caee-4145-b4d8-ed9fa916115f",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"route\": \"/users\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/items/5fa112ac0cbbcd51f405b53c",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"items",
+								"5fa112ac0cbbcd51f405b53c"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Menu Sub-Items1",
+			"item": [
+				{
+					"name": "getAllMenuSubItem1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cb8f47c7-cf11-4eef-a255-427aa3946401",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/subItems1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"subItems1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createMenuSubItem1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f2e46b7-5b82-4b09-b842-b70d1250c160",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"View All Users\",\r\n    \"_parentId\": \"5fa112ac0cbbcd51f405b53c\",\r\n    \"route\": \"/view-all\",\r\n    \"priority\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/subItems1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"subItems1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMenuSubItem1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f3fa9f13-0c5b-4727-b8ba-277ea17f9921",
+								"exec": [
+									"pm.environment.set(\"jwt\", pm.response.json().token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"route\": \"users/view-all\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/menu/subItems1/5fa114e6350dc1502cdb3cdd",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"menu",
+								"subItems1",
+								"5fa114e6350dc1502cdb3cdd"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Menu Sub-Items2",
+			"item": [],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
