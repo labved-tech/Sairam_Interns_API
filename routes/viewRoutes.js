@@ -15,9 +15,9 @@ router.use((req, res, next) => {
 router.get('/', viewsController.getOverview);
 
 // LOGIN RELATED ROUTES
-router.get('/sign-up', viewsController.getSignUp);
-router.get('/sign-in', viewsController.getSignIn);
-router.get('/forgot', viewsController.getForgot);
+router.get('/signup', viewsController.getSignUp);
+router.get('/login', viewsController.getLoginForm);
+router.get('/forgotpassword', viewsController.getForgot);
 router.get('/error', viewsController.getError);
 
 // USERS RELATED ROUTES

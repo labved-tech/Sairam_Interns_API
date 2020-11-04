@@ -4,10 +4,13 @@ const express = require('express');
 const morgan = require('morgan');
 const url = require('url');
 const slugify = require('slugify');
+const rateLimit = require('express-rate-limit');
+const helmet = require('helmet');
+const mongoSanitize = require('express-mongo-sanitize');
+const xss = require('xss-clean');
+const hpp = require('hpp');
 
 /* MIDDLEWARES */
-const app = express();
-app.use(express.json());
 
 /* USER DEFINED MIDDLEWARES */
 const AppError = require('./utils/appError');
@@ -16,17 +19,44 @@ const viewRouter = require('./routes/viewRoutes');
 const apiv1Router = require('./routes/apiv1Routes');
 
 /* ENVIRONMENT */
-if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
-
-app.set('view engine', 'pug');
-app.set('views', path.join(__dirname, 'views'));
 
 /* GLOBAL MIDDLEWARE USAGE*/
+const app = express();
+
+// Set Secutiry HTTP headers
+app.use(helmet());
+
+// Development Logging
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+
+// Limit requests from same API
+const limiter = rateLimit({
+  max: 100,
+  windowMs: 60 * 60 * 1000,
+  message: 'Too many requests from this IP, please try again in an hour !',
+});
+app.use('/api', limiter);
+
+// Body Parser, reading data from body into req.body
+app.use(express.json({ limit: '10kb' }));
+
+// Data Santization against NoSQL Query injection
+app.use(mongoSanitize());
+
+// Data Santization against XSS
+app.use(xss());
+
+// Prevent parameter Pollution
+app.use(hpp());
 
 // Serving Static Files
-console.log(`Directory Name: ${__dirname}`);
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'assets')));
 
+// Template Engine
+app.set('view engine', 'pug');
+
+// Test Middleware
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
     /*     //console.log(req.url);

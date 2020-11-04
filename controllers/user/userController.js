@@ -9,6 +9,14 @@ const User = require('../../models/user/userModel');
 const PersonalDetails = require('../../models/general/personalDetailsModel');
 const OrganisationDetails = require('../../models/general/organisationDetailsModel');
 
+const filterObj = (obj, ...allowedFields) => {
+  const newObj = {};
+  Object.keys(obj).forEach((el) => {
+    if (allowedFields.includes(el)) newObj[el] = obj[el];
+  });
+  return newObj;
+};
+
 /* CONTROLLERS */
 exports.checkID = (req, res, next, val) => {
   const { id } = req.params.id;
@@ -42,7 +50,7 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   }
 
   // 2) Filtered out unwanted fields names that are not allowed to be updated
-  const filteredBody = filterObj(req.body, 'name', 'email');
+  const filteredBody = filterObj(req.body, 'email');
 
   // 3) Update user document
   const updatedUser = await User.findByIdAndUpdate(req.user.id, filteredBody, {

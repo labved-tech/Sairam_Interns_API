@@ -1,6 +1,6 @@
 const doc = {
   name: 'aside-menu',
-  content: 'This content is from dashboard.pug',
+  content: 'This content is from overview.pug',
   sectionItems: [
     {
       sectionName: 'Module Management',
@@ -370,19 +370,23 @@ const doc = {
 exports.getOverview = (req, res) => {
   console.log('We are in viewsController');
 
-  res.status(200).render('./pages/dashboard', doc);
+  res.status(200).render('./pages/overview', doc);
 };
 
 // LOGIN RELATED CONTROLLER
 exports.getSignUp = (req, res) => {
   console.log('We are in Sign-Up Page');
 
-  res.status(200).render('./pages/signup');
+  res.status(200).render('./pages/users/signUp', {
+    title: `Sign up`,
+  });
 };
-exports.getSignIn = (req, res) => {
-  console.log('We are in Sign-In Page');
+exports.getLoginForm = (req, res) => {
+  console.log('We are in Login Page');
 
-  res.status(200).render('./pages/signin');
+  res.status(200).render('./pages/users/login', {
+    title: 'Sign In',
+  });
 };
 exports.getForgot = (req, res) => {
   console.log('We are in Forgot Password Page');

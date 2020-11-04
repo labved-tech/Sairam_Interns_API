@@ -42,12 +42,14 @@ const userSchema = new Schema(
         message: 'Password are not the same!',
       },
     },
-    passwordChangedAt: Date,
-    passwordResetToken: String,
-    passwordResetExpires: Date,
     accountType: {
       type: String,
       required: [true, 'Please provide a valid account Type'],
+    },
+    role: {
+      type: String,
+      enum: ['user', 'guide', 'lead-guide', 'admin'],
+      default: 'user',
     },
     personalDetails: {
       type: Schema.Types.Mixed,
@@ -63,6 +65,9 @@ const userSchema = new Schema(
     surveyNo: { type: String },
     createdBy: { type: mongoose.ObjectId },
     updatedBy: { type: mongoose.ObjectId },
+    passwordChangedAt: { type: Date },
+    passwordResetToken: { type: String },
+    passwordResetExpires: { type: Date },
   },
   { timestamps: true }
 );
