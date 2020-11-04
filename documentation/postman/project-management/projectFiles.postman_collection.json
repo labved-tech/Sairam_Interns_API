@@ -6,10 +6,91 @@
 	},
 	"item": [
 		{
+			"name": "getAllProjectFiles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-files/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProjectFiles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"fileName\":\"Vicky\",\r\n    \"fileType\":\"NA\",\r\n    \"subject\":\"NA\",\r\n    \"description\":\"Student\",\r\n    \"dateadded\":\"2000-09-22\",\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"external\":\"NA\",\r\n    \"thumbnailLink\":\"NA\"\r\n  }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-files/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-files",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "getProjectFiles",
 			"request": {
 				"method": "GET",
 				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-files/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-files",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateProjectFiles",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"fileName\":\"Vicky\",\r\n    \"fileType\":\"NA\",\r\n    \"subject\":\"NA\",\r\n    \"description\":\"Student\",\r\n    \"dateadded\":\"2000-09-22\",\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"external\":\"NA\",\r\n    \"thumbnailLink\":\"NA\"\r\n  }\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/project-files/0",
 					"host": [
@@ -42,87 +123,6 @@
 						"v1",
 						"project-files",
 						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getAllProjectFiles",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-files/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-files",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateProjectFiles",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n    \"fileName\":\"Vicky\",\r\n    \"fileType\":\"NA\",\r\n    \"subject\":\"NA\",\r\n    \"description\":\"Student\",\r\n    \"dateadded\":\"22-09-2000\",\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"external\":\"NA\",\r\n    \"thumbnailLink\":\"NA\"\r\n  }\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-files/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-files",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createProjectFiles",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n    \"fileName\":\"Vicky\",\r\n    \"fileType\":\"NA\",\r\n    \"subject\":\"NA\",\r\n    \"description\":\"Student\",\r\n    \"dateadded\":\"22-09-2000\",\r\n    \"_projectId\":\"1\",\r\n    \"_userId\":\"1\",\r\n    \"external\":\"NA\",\r\n    \"thumbnailLink\":\"NA\"\r\n  }\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-files/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-files",
-						""
 					]
 				}
 			},

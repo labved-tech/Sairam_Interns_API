@@ -65,7 +65,19 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
 await doc.validate();
 
 // check the doc before doing database operation
-//console.log(doc);  
+//console.log(doc);
+const LeadArray = new LeadEntries(body)
+if (LeadArray.contactInformation) {
+  const len = LeadArray.contactInformation.length;
+  const docs= LeadArray.contactInformation.toObject();
+  for ( i=0;i<=len;i++){
+    docs.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    docs.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    docs.createdAt;
+    docs.updatedAt;
+  }
+
+}  
   
   const leadEntries = await LeadEntries.create(doc).then();
 

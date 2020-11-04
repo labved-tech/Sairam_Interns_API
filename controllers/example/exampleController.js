@@ -48,7 +48,6 @@ exports.createExample = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new Example(req.body);
-  console.log(doc);
 
   const dataExtRefObject = new ExtObject(
     JSON.parse(JSON.stringify(req.body.extRefObject))
@@ -91,6 +90,7 @@ exports.updateExample = catchAsync(async (req, res, next) => {
 
   // parse through models
   const exampleToUpdate = new Example(body);
+  console.log(body);
   const doc = exampleToUpdate.toObject();
   delete doc._id;
 
@@ -116,17 +116,16 @@ exports.updateExample = catchAsync(async (req, res, next) => {
   doc.updatedAt;
 
   // check the doc before doing database operation
-  console.log(doc);
+  //console.log(doc);
 
   const example = await Example.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
-  console.log(example);
 
   res.status(201).json({
     status: 'sucess',
     message: `Updated Example Id=${id}`,
-    data: { example },
+    example,
   });
 });
 

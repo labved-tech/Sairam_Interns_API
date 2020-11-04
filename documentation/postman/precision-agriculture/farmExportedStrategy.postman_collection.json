@@ -1,31 +1,10 @@
 {
 	"info": {
-		"_postman_id": "9173dbde-1277-451d-89de-de65b4cf0292",
+		"_postman_id": "01cde343-fe4c-4f90-9c7f-f1a6599a3a4a",
 		"name": "farmExportedStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "getFarmExportedStrategy",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"farm-exported-strategy",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "getAllFarmExportedStrategy",
 			"request": {
@@ -48,9 +27,39 @@
 			"response": []
 		},
 		{
-			"name": "deleteFarmExportedStrategy",
+			"name": "createFarmExportedStrategy",
 			"request": {
-				"method": "DELETE",
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_farmId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"expectedYeild\": 10,\r\n\"expectedYeildUnit\": \"500\",\r\n\"actualYeild\": 10,\r\n\"actualYeildUnit\": \"NA\",\r\n\"start\":\"2000-09-22\",\r\n\"expectedEnd\":\"2000-09-22\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"author_notes\": \"Well Done\",\r\n\"parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/farm-exported-strategy/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"farm-exported-strategy",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getFarmExportedStrategy",
+			"request": {
+				"method": "GET",
 				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/farm-exported-strategy/0",
@@ -75,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"1\",\r\n\"_cropId\": \"1\",\r\n\"_farmId\": \"1\",\r\n\"expectedYeild\": 10,\r\n\"expectedYeildUnit\": \"500\",\r\n\"actualYeild\": 10,\r\n\"actualYeildUnit\": \"NA\",\r\n\"start\":\"22-09-2000\",\r\n\"expectedEnd\":\"22-09-2000\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"1\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"author_notes\": \"Well Done\",\r\n\"parentId\": \"1\"\r\n  }",
+					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_farmId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"expectedYeild\": 10,\r\n\"expectedYeildUnit\": \"500\",\r\n\"actualYeild\": 10,\r\n\"actualYeildUnit\": \"NA\",\r\n\"start\":\"2000-09-22\",\r\n\"expectedEnd\":\"2000-09-22\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"author_notes\": \"Well Done\",\r\n\"parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,21 +108,12 @@
 			"response": []
 		},
 		{
-			"name": "createFarmExportedStrategy",
+			"name": "deleteFarmExportedStrategy",
 			"request": {
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"1\",\r\n\"_cropId\": \"1\",\r\n\"_farmId\": \"1\",\r\n\"expectedYeild\": 10,\r\n\"expectedYeildUnit\": \"500\",\r\n\"actualYeild\": 10,\r\n\"actualYeildUnit\": \"NA\",\r\n\"start\":\"22-09-2000\",\r\n\"expectedEnd\":\"22-09-2000\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"1\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"author_notes\": \"Well Done\",\r\n\"parentId\": \"1\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/",
+					"raw": "localhost:3000/api/v1/farm-exported-strategy/0",
 					"host": [
 						"localhost"
 					],
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"farm-exported-strategy",
-						""
+						"0"
 					]
 				}
 			},

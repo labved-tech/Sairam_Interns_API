@@ -1,4 +1,5 @@
 /* DEPENDENCIES */
+const crypto = require('crypto');
 const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
@@ -9,7 +10,7 @@ const { Schema } = mongoose;
 /* CHILD SCHEMA */
 
 /* SCHEMA */
-const userInformationSchema = new Schema(
+const userSchema = new Schema(
   {
     _parentId: {
       type: mongoose.ObjectId,
@@ -65,8 +66,7 @@ const userInformationSchema = new Schema(
   },
   { timestamps: true }
 );
-
-userInformationSchema.pre('save', async function (next) {
+userSchema.pre('save', async function (next) {
   // Only run this function if password was actually modified
   if (!this.isModified('password')) return next();
 
@@ -78,14 +78,27 @@ userInformationSchema.pre('save', async function (next) {
   next();
 });
 
-userInformationSchema.methods.correctPassword = async function (
+userSchema.pre('save', function (next) {
+  if (!this.isModified('password') || this.isNew) return next();
+
+  this.passwordChangedAt = Date.now() - 1000;
+  next();
+});
+
+userSchema.pre(/^find/, function (next) {
+  // this points to the current query
+  this.find({ active: { $ne: false } });
+  next();
+});
+
+userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-userInformationSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
+userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
       this.passwordChangedAt.getTime() / 1000,
@@ -99,7 +112,7 @@ userInformationSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   return false;
 };
 
-userInformationSchema.methods.createPasswordResetToken = function () {
+userSchema.methods.createPasswordResetToken = function () {
   const resetToken = crypto.randomBytes(32).toString('hex');
 
   this.passwordResetToken = crypto
@@ -115,10 +128,10 @@ userInformationSchema.methods.createPasswordResetToken = function () {
 };
 
 /* MODEL */
-const UserInformation = mongoose.model(
-  'userInformation', // collection name
-  userInformationSchema // schema name
+const User = mongoose.model(
+  'user', // collection name
+  userSchema // schema name
 );
 
 /* EXPORT */
-module.exports = UserInformation;
+module.exports = User;

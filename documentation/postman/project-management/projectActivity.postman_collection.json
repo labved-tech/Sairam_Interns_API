@@ -27,55 +27,13 @@
 			"response": []
 		},
 		{
-			"name": "getProjectActivity",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-activity/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-activity",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteProjectActivity",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-activity/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-activity",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "createProjectActivity",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"12-09-2000\"\r\n  }",
+					"raw": "  {\r\n    \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"2000-09-22\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -99,19 +57,61 @@
 			"response": []
 		},
 		{
+			"name": "getProjectActivity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/project-activity/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-activity",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updateProjectActivity",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n    \"_projectId\": \"1\",\r\n    \"_userId\": \"1\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"12-09-2000\"\r\n  }",
+					"raw": "  {\r\n    \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"2000-09-22\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
 						}
 					}
 				},
+				"url": {
+					"raw": "localhost:3000/api/v1/project-activity/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-activity",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectActivity",
+			"request": {
+				"method": "DELETE",
+				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/project-activity/0",
 					"host": [
