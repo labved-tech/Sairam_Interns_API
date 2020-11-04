@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const EventEntries = require('./../../models/events/eventEntriesModel');
+const EventEntries = require('../../models/events/eventEntriesModel');
 
 /* DATABASE */
 
@@ -19,15 +19,15 @@ exports.getAllEventEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All EventEntries');
 
   const eventEntries = await EventEntries.find().then();
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All EventEntries',
-      results: eventEntries.length,
-      data: {
-        eventEntries,
-      },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All EventEntries',
+    results: eventEntries.length,
+    data: {
+      eventEntries,
+    },
+  });
+
   next();
 });
 
@@ -36,19 +36,19 @@ exports.getEventEntries = catchAsync(async (req, res, next) => {
   console.log(`Getting EventEntries for Id ${id}`);
 
   const eventEntries = await EventEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got EventEntries Id=${id}`,
-      Data: { eventEntries },
-    });
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got EventEntries Id=${id}`,
+    Data: { eventEntries },
+  });
 
   next();
 });
 
-exports.createEventEntries =catchAsync(async (req, res, next) => {
+exports.createEventEntries = catchAsync(async (req, res, next) => {
   console.log('Creating EventEntries');
 
-// parse through models
+  // parse through models
   const doc = new EventEntries(req.body);
   console.log(doc);
 
@@ -69,11 +69,11 @@ exports.createEventEntries =catchAsync(async (req, res, next) => {
   //console.log(doc);
   const eventEntries = await EventEntries.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created EventEntries',
-      data: { eventEntries },
-    });
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created Event Entries',
+    data: { eventEntries },
+  });
 
   next();
 });
@@ -91,7 +91,7 @@ exports.updateEventEntries = catchAsync(async (req, res, next) => {
     message: `Updated EventEntries Id=${id}`,
     data: { eventEntries },
   });
-  
+
   next();
 });
 
@@ -101,11 +101,11 @@ exports.deleteEventEntries = catchAsync(async (req, res, next) => {
 
   const eventEntries = await EventEntries.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted EventEntries Id=${id}`,
-      data: { eventEntries },
-    });
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted EventEntries Id=${id}`,
+    data: { eventEntries },
+  });
 
   next();
 });

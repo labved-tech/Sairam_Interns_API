@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1f97f8bf-ae5f-4b20-a2bb-f79abc7cccaf",
+		"_postman_id": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
 		"name": "commentEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -12,10 +12,10 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_commentorId\": \"1\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"1\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"1\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
+					"raw": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"test\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"test\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/0",
+					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
 					"host": [
 						"localhost"
 					],
@@ -24,7 +24,7 @@
 						"api",
 						"v1",
 						"commentEntries",
-						"0"
+						"5fa289d543c20d2dac0f4488"
 					]
 				}
 			},
@@ -36,7 +36,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/0",
+					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
 					"host": [
 						"localhost"
 					],
@@ -45,7 +45,7 @@
 						"api",
 						"v1",
 						"commentEntries",
-						"0"
+						"5fa289d543c20d2dac0f4488"
 					]
 				}
 			},
@@ -57,7 +57,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/0",
+					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
 					"host": [
 						"localhost"
 					],
@@ -66,7 +66,7 @@
 						"api",
 						"v1",
 						"commentEntries",
-						"0"
+						"5fa289d543c20d2dac0f4488"
 					]
 				}
 			},
@@ -99,7 +99,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_commentorId\": \"1\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"1\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"1\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}",
+					"raw": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": 4,\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
