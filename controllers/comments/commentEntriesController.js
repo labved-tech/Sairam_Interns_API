@@ -18,17 +18,17 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllCommentEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All CommentEntries');
 
-  const commentEntriess = await CommentEntries.find().then();
+  const commentEntries = await CommentEntries.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All CommentEntries',
-      results: commentEntriess.length,
-      data: {
-        commentEntries,
-      },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All CommentEntries',
+    results: commentEntries.length,
+    data: {
+      commentEntries,
+    },
+  });
+
   next();
 });
 
@@ -37,12 +37,12 @@ exports.getCommentEntries = catchAsync(async (req, res, next) => {
   console.log(`Getting CommentEntries for Id ${id}`);
 
   const commentEntries = await CommentEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got CommentEntries Id=${id}`,
-      Data: { commentEntries },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got CommentEntries Id=${id}`,
+    Data: { commentEntries },
+  });
+
   next();
 });
 
@@ -50,8 +50,8 @@ exports.createCommentEntries = catchAsync(async (req, res, next) => {
   console.log('Creating CommentEntries');
 
   //parse through models
-  const doc = new EventEntries(req.body);
-  console.log(doc);
+  const doc = new CommentEntries(req.body);
+  //console.log(doc);
 
   // validate seperately sub-documents if necessary
 
@@ -70,12 +70,12 @@ exports.createCommentEntries = catchAsync(async (req, res, next) => {
   //console.log(doc);
   const commentEntries = await CommentEntries.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created CommentEntries',
-      data: { commentEntries },
-    });
-  
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created CommentEntries',
+    data: { commentEntries },
+  });
+
   next();
 });
 
@@ -92,7 +92,7 @@ exports.updateCommentEntries = catchAsync(async (req, res, next) => {
     message: `Updated CommentEntries Id=${id}`,
     data: { commentEntries },
   });
-  
+
   next();
 });
 
@@ -102,11 +102,11 @@ exports.deleteCommentEntries = catchAsync(async (req, res, next) => {
 
   const commentEntries = await CommentEntries.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted commentEntries Id=${id}`,
-      data: { commentEntries },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted commentEntries Id=${id}`,
+    data: { commentEntries },
+  });
+
   next();
 });
