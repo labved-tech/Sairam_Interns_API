@@ -51,7 +51,7 @@ exports.getDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
 exports.createDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   console.log('Creating directoryAttributesGroups');
   // parse through models
-  const doc = new DirectoryAtributesGroups(req.body);
+  const doc = new DirectoryAttributesGroups(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary

@@ -49,7 +49,7 @@ exports.getRatingAttributeGroup = catchAsync(async (req, res, next) => {
 exports.createRatingAttributeGroup = catchAsync(async (req, res, next) => {
   console.log('Creating RatingAttributeGroup');
   // parse through models
-  const doc = new RatingAttributeGroups(req.body);
+  const doc = new RatingAttributeGroup(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary
