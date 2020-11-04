@@ -49,7 +49,7 @@ exports.getDirectory = catchAsync(async (req, res, next) => {
 exports.createDirectory = catchAsync(async (req, res, next) => {
   console.log('Creating directory');
   // parse through models
-  const doc = new AnnouncementEntries(req.body);
+  const doc = new Directory(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary
