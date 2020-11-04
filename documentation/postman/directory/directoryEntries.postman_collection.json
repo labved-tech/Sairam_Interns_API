@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f087a113-af8f-46e1-b0f8-4455740f6ded",
+		"_postman_id": "5b251645-1729-45ad-84bf-35df548de42b",
 		"name": "directoryEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"author\": \"sai\",\r\n  \"date\": \"1-2-3\",\r\n  \"image\": [\"hi\",\"hello\"],\r\n  \"message\": \"hey\",\r\n  \"title\": \"project\",\r\n  \"slug\": \"abc\",\r\n  \"_sellerId\": \"0\",\r\n  \"status\": \"ads\",\r\n  \"address\": {\r\n    \"address1\": \"chennai\",\r\n    \"message\": \"hii\",\r\n    \"Street\": \"xxyyyzzz\",\r\n    \"City\": \"chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"india\",\r\n    \"PostalCode\": \"0\"\r\n  },\r\n  \"location\": \"acdf\",\r\n  \"name\": \"viky\",\r\n  \"_parentId\": \"0\",\r\n  \"commentStatus\": \"abc\",\r\n  \"commentCount\": \"0\",\r\n  \"contactInfo\": [\r\n    {\r\n      \"item\": \"jkl\",\r\n      \"type\": \"pqr\",\r\n      \"isPublic\": \"True\"\r\n    }\r\n  ],\r\n  \"relation\": [\r\n    {\r\n      \"type\": \"0\",\r\n      \"isPublic\": \"0\"\r\n    }\r\n  ],\r\n  \"meta\": \"0\",\r\n  \"directories\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"single\": \"sai\",\r\n      \"plural\": \"sai\",\r\n      \"slug\": \"abc\",\r\n      \"categories\": [\"hi\",\"hello\"]\r\n    }\r\n  ],\r\n  \"categories\": [\"hi\",\"hello\"],\r\n  \"level\": \"xzy\",\r\n  \"logo\": \"rst\",\r\n  \"updatedBy\": \"0\",\r\n   \"createdBy\": \"0\"\r\n\r\n}",
+					"raw": "{\r\n  \"author\": \"vignesh\",\r\n  \"date\": \"1-2-3\",\r\n  \"image\": [\"hi\",\"hello\"],\r\n  \"message\": \"hey\",\r\n  \"title\": \"project\",\r\n  \"slug\": \"abc\",\r\n  \"_sellerId\": \"5fa25b81bf571c3f60cd6504\",\r\n  \"status\": \"ads\",\r\n  \"address\": {\r\n    \"address1\": \"chennai\",\r\n    \"message\": \"hii\",\r\n    \"Street\": \"xxyyyzzz\",\r\n    \"City\": \"chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"india\",\r\n    \"PostalCode\": \"0\"\r\n  },\r\n  \"location\": \"acdf\",\r\n  \"name\": \"viky\",\r\n  \"_parentId\": \"5fa25b81bf571c3f60cd6504\",\r\n  \"commentStatus\": \"abc\",\r\n  \"commentCount\": \"0\",\r\n  \"contactInfo\": [\r\n    {\r\n      \"item\": \"jkl\",\r\n      \"type\": \"pqr\",\r\n      \"isPublic\": true\r\n    }\r\n  ],\r\n  \"relation\": [\r\n    {\r\n      \"type\": \"0\",\r\n      \"isPublic\": \"0\"\r\n    }\r\n  ],\r\n  \"meta\": \"0\",\r\n  \"directories\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"single\": \"sai\",\r\n      \"plural\": \"sai\",\r\n      \"slug\": \"abc\",\r\n      \"categories\": [\"hi\",\"hello\"]\r\n    }\r\n  ],\r\n  \"categories\": [\"hi\",\"hello\"],\r\n  \"level\": \"xzy\",\r\n  \"logo\": \"rst\",\r\n  \"updatedBy\": \"0\",\r\n   \"createdBy\": \"0\"\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryEntries/0",
+					"raw": "localhost:3000/api/v1/directoryEntries/5fa28c483336013ad06207dc",
 					"host": [
 						"localhost"
 					],
@@ -69,7 +69,7 @@
 						"api",
 						"v1",
 						"directoryEntries",
-						"0"
+						"5fa28c483336013ad06207dc"
 					]
 				}
 			},

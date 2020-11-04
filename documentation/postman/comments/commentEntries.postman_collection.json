@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_commentorId\": \"1\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"1\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"1\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
+					"raw": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"test\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"test\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
 				},
 				"url": {
 					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",

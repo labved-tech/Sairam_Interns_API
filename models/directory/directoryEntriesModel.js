@@ -24,7 +24,7 @@ const directoryEntriesSchema = new Schema(
       country: { type: String },
       postalCode: { type: String },
     },
-    location: { type: Map },
+    location: { type: String },
     name: { type: String },
     _parentId: { type: mongoose.ObjectId },
     commentStatus: { type: String },
