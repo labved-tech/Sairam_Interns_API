@@ -83,6 +83,19 @@ exports.updateAnnouncementEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Announcement Entries Id ${id}`);
 
+// parse through models
+const announcementEntriesToUpdate = new AnnouncementEntries(body);
+console.log(body);
+const doc = announcementEntriesToUpdate.toObject();
+delete doc._id;
+
+// update timestamps & Id's
+doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+doc.updatedAt;
+
+// check the doc before doing database operation
+//console.log(doc);
+
   const announcementEntries = await AnnouncementEntries.findByIdAndUpdate(
     id,
     req.body,

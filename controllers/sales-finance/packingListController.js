@@ -81,6 +81,19 @@ exports.checkID = (req, res, next, val) => {
   exports.updatePackingList = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     console.log(`Updating Packing List Id ${id}`);
+     // parse through models
+   const packingListToUpdate = new PackingList(body);
+   console.log(body);
+   const doc =  packingListToUpdate.toObject();
+   delete doc._id;
+ 
+ 
+   // update timestamps & Id's
+   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+   doc.updatedAt;
+ 
+   // check the doc before doing database operation
+   //console.log(doc);
     const packingList = await PackingList.findByIdAndUpdate(id, req.body, {
       new: true,
     }).then();

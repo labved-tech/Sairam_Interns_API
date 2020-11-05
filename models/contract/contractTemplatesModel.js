@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const contractTemplatesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   billingType: { type: String },
   value: { type: Number },
   tax: {
@@ -28,8 +27,8 @@ const contractTemplatesSchema = new Schema({
       _id: { type: mongoose.ObjectId },
       name: { type: String },
       type: { type: String },
-      createdBy: { type: mongoose.ObjectId, required: true },
-      updatedBy: { type: mongoose.ObjectId, required: true },
+      createdBy: { type: mongoose.ObjectId},
+      updatedBy: { type: mongoose.ObjectId},
     },
     { timestamps: true }
   ],

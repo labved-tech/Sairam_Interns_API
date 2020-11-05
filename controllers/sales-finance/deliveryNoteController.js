@@ -82,6 +82,19 @@ exports.createDeliveryNote = catchAsync(async (req, res, next) => {
 exports.updateDeliveryNote = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Delivery Note Id ${id}`);
+  // parse through models
+  const deliveryNoteToUpdate = new DeliveryNote(body);
+  console.log(body);
+  const doc = deliveryNoteToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const deliveryNote = await DeliveryNote.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();

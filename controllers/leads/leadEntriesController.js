@@ -49,9 +49,21 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new LeadEntries(req.body);
-  console.log(doc);
+  //console.log(doc);
 
   // validate seperately sub-documents if necessary
+  if (doc.contactInformation) {
+    const contactInformationLength = doc.contactInformation.length;
+    console.log(`contact information array length ${contactInformationLength}`);
+
+    for (let i = 0; i < contactInformationLength; i++) {
+      mongoose.set('debug', true);
+      doc.contactInformation[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInformation[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInformation[i].createdAt = Date.now();
+      doc.contactInformation[i].updatedAt = Date.now();
+    }
+  }
 
   // replace doc if necessary
 
@@ -61,24 +73,12 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
   doc.createdAt;
   doc.updatedAt;
 
-// final validation
-await doc.validate();
+  // final validation
+  await doc.validate();
 
-// check the doc before doing database operation
-//console.log(doc);
-const LeadArray = new LeadEntries(body)
-if (LeadArray.contactInformation) {
-  const len = LeadArray.contactInformation.length;
-  const docs= LeadArray.contactInformation.toObject();
-  for ( i=0;i<=len;i++){
-    docs.i.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    docs.i.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    docs.i.createdAt;
-    docs.i.updatedAt;
-  }
+  // check the doc before doing database operation
+  //console.log(doc);
 
-}  
-  
   const leadEntries = await LeadEntries.create(doc).then();
 
   res.status(201).json({

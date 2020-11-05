@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1c4df78a-07a4-4b5e-b1eb-56876d6c1494",
+		"_postman_id": "b888c46a-a6c2-43a5-8a3f-53de61a7bbeb",
 		"name": "milestone",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -71,7 +71,7 @@
 						"api",
 						"v1",
 						"milestone",
-						"0"
+						"5fa3819a189389291cb25bf3"
 					]
 				}
 			},
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"milestone",
-						"0"
+						"5fa3819a189389291cb25bf3"
 					]
 				}
 			},
