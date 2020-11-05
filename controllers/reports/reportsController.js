@@ -86,10 +86,25 @@ exports.createReports = catchAsync(async (req, res, next) => {
 
 exports.updateReports = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating reports Id ${id}`);
+  const { body } = req;
+  console.log(`Updating Reports Id ${id}`);
+
+  // parse through models
+  const ReportsToUpdate = new Reports(body);
+  console.log(body);
+  const doc = ReportsToUpdate.toObject();
+  delete doc._id;
 
 
-    const reports = await Reports.findByIdAndUpdate(id, req.body, {
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+
+    const reports = await Reports.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 
