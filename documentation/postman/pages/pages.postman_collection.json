@@ -61,7 +61,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/pages/0",
+					"raw": "localhost:3000/api/v1/pages/5fa142195046464e244d02aa",
 					"host": [
 						"localhost"
 					],
@@ -70,7 +70,7 @@
 						"api",
 						"v1",
 						"pages",
-						"0"
+						"5fa142195046464e244d02aa"
 					]
 				}
 			},
@@ -112,7 +112,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/pages/0",
+					"raw": "localhost:3000/api/v1/pages/5fa142195046464e244d02aa",
 					"host": [
 						"localhost"
 					],
@@ -121,7 +121,7 @@
 						"api",
 						"v1",
 						"pages",
-						"0"
+						"5fa142195046464e244d02aa"
 					]
 				}
 			},

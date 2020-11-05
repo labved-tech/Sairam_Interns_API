@@ -77,6 +77,19 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
 exports.updateNewsletterMessages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Newsletter Messages Id ${id}`);
+  // parse through models
+  const newsletterMessagesToUpdate = new NewsletterMessages(body);
+  console.log(body);
+  const doc = newsletterMessagesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const newsletterMessages = await NewsletterMessages.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
