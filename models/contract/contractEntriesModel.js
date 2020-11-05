@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const contractEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
+  //_id: { type: mongoose.ObjectId },
   _contractOwnerId: { type: mongoose.ObjectId },
   _clientId: { type: mongoose.ObjectId },
   clientAccepted: { type: Boolean },

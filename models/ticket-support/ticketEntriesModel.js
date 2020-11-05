@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ticketEntriesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _userId: { type: mongoose.ObjectId },
   userName: { type: String },
   userEmail: { type: String },

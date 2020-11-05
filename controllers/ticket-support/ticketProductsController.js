@@ -50,13 +50,13 @@ exports.createTicketProducts = catchAsync(async (req, res, next) => {
   console.log('Creating Ticketproducts');
 
     // parse through models
-    const doc = new EventEntries(req.body);
+    const doc = new Ticketproducts(req.body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary
   
     // replace doc if necessary
-  
+
     // update timestamps & Id's
     doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
     doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
