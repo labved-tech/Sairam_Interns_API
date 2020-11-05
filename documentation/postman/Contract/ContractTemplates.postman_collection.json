@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "9832bef6-8b09-4c0b-96e4-c3350a879347",
+		"_postman_id": "e6a88415-343f-4cb4-b60b-ac11f2f5d46a",
 		"name": "ContractTemplates",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllcontractTemplates",
+			"name": "getOnecontractTemplates",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates",
+					"raw": "localhost:3000/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -19,7 +19,50 @@
 					"path": [
 						"api",
 						"v1",
-						"contractTemplates"
+						"contractTemplates",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletecontractTemplates",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contractTemplates",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllcontractTemplates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/contractTemplates/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contractTemplates",
+						""
 					]
 				}
 			},
@@ -32,7 +75,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"billingType\": \"UPI\",\r\n  \"value\": \"9980898\",\r\n  \"tax\": {\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\",\r\n    \"HSNCode\": \"Infosys9899\"\r\n  },\r\n  \"_contractOwnerId\": \"Infosys_it\" ,\r\n  \"contractFileTemplateURL\":  \"www.Infosysit/labved\",\r\n  \"isRepeat\": \"no\",\r\n  \"repeatInterval\": \"9898989\",\r\n  \"repeatIntervalType\": \"repeat\",\r\n  \"currentRepeatNumber\": \"8865\",\r\n  \"totalRepeatNumber\": \"98\",\r\n  \"totalRepeatAllowed\": \"2\",\r\n  \"additionalAttributesIds\": [\r\n    {\r\n      \"name\": \"bharathviswanathan\",\r\n      \"type\": \"it\"\r\n    }\r\n  ],\r\n  \"terms\": [\r\n    {\r\n      \"title\": \"database project\",\r\n      \"text\": \"work completed\"\r\n    }\r\n  ],\r\n  \"validity\": 2\r\n}",
+					"raw": "{\r\n  \"billingType\": \"UPI\",\r\n  \"value\": \"9980898\",\r\n  \"tax\": {\r\n    \"CGSTRate\": 9,\r\n    \"SGSTRate\": 8,\r\n    \"IGSTRate\": 6,\r\n    \"HSNCode\": \"Infosys\"\r\n  },\r\n  \"_contractOwnerId\": \"5f990bb3c727e952a076f3b7\" ,\r\n  \"contractFileTemplateURL\": \"www.Infosysit/labved\",\r\n  \"isRepeat\": \"no\",\r\n  \"repeatInterval\": \"9898989\",\r\n  \"repeatIntervalType\": \"repeat\",\r\n  \"currentRepeatNumber\": \"8865\",\r\n  \"totalRepeatNumber\": 98,\r\n  \"totalRepeatAllowed\": 2,\r\n  \"additionalAttributesIds\": [\r\n    {\r\n      \"name\": \"bharathviswanathan\",\r\n      \"type\": \"it\"\r\n    }\r\n  ],\r\n  \"terms\": [\r\n    {\r\n      \"title\": \"database project\",\r\n      \"text\": \"work completed\"\r\n    }\r\n  ],\r\n  \"validity\": 2\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,37 +98,19 @@
 			"response": []
 		},
 		{
-			"name": "getOnecontractTemplates",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"contractTemplates",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updatecontractTemplates",
 			"request": {
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"billingType\": \"UPI\",\r\n  \"value\": \"9980898\",\r\n  \"tax\": {\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\",\r\n    \"HSNCode\": \"Infosys9899\"\r\n  },\r\n  \"_contractOwnerId\": \"Infosys_it\" ,\r\n  \"contractFileTemplateURL\":  \"www.Infosysit/labved\",\r\n  \"isRepeat\": \"no\",\r\n  \"repeatInterval\": \"9898989\",\r\n  \"repeatIntervalType\": \"repeat\",\r\n  \"currentRepeatNumber\": \"8865\",\r\n  \"totalRepeatNumber\": \"98\",\r\n  \"totalRepeatAllowed\": \"2\",\r\n  \"additionalAttributesIds\": [\r\n    {\r\n      \"name\": \"bharathviswanathan\",\r\n      \"type\": \"it\"\r\n    }\r\n  ],\r\n  \"terms\": [\r\n    {\r\n      \"title\": \"database project\",\r\n      \"text\": \"work completed\"\r\n    }\r\n  ],\r\n  \"validity\": 2\r\n}"
+					"raw": "{\r\n  \"billingType\": \"UPI\",\r\n  \"value\": \"9980898\",\r\n  \"tax\": {\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\",\r\n    \"HSNCode\": \"Infosys9899\"\r\n  },\r\n  \"_contractOwnerId\": \"Infosys_it\" ,\r\n  \"contractFileTemplateURL\":  \"www.Infosysit/labved\",\r\n  \"isRepeat\": \"no\",\r\n  \"repeatInterval\": \"9898989\",\r\n  \"repeatIntervalType\": \"repeat\",\r\n  \"currentRepeatNumber\": \"8865\",\r\n  \"totalRepeatNumber\": \"98\",\r\n  \"totalRepeatAllowed\": \"2\",\r\n  \"additionalAttributesIds\": [\r\n    {\r\n      \"name\": \"bharathviswanathan\",\r\n      \"type\": \"it\"\r\n    }\r\n  ],\r\n  \"terms\": [\r\n    {\r\n      \"title\": \"database project\",\r\n      \"text\": \"work completed\"\r\n    }\r\n  ],\r\n  \"validity\": 2\r\n}",
+					"options": {
+						"raw": {}
+					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/0",
+					"raw": "localhost:3000/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -94,28 +119,7 @@
 						"api",
 						"v1",
 						"contractTemplates",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deletecontractTemplates",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"contractTemplates",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
