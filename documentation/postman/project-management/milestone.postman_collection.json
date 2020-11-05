@@ -62,7 +62,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/milestone/0",
+					"raw": "localhost:3000/api/v1/milestone/5fa3819a189389291cb25bf3",
 					"host": [
 						"localhost"
 					],
@@ -113,7 +113,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/milestone/0",
+					"raw": "localhost:3000/api/v1/milestone/5fa3819a189389291cb25bf3",
 					"host": [
 						"localhost"
 					],
