@@ -49,7 +49,7 @@ exports.checkID = (req, res, next, val) => {
     console.log('Creating PackingList');
 
   // parse through models
-  const doc = new AnnouncementEntries(req.body);
+  const doc = new PackingList(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary
