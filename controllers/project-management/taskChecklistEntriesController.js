@@ -105,7 +105,7 @@ exports.updateTaskChecklistEntries = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const taskChecklistEntries = await TaskChecklistEntries.findByIdAndUpdate(id, req.body, {
+    const taskChecklistEntries = await TaskChecklistEntries.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

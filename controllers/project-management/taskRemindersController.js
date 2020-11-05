@@ -105,7 +105,7 @@ exports.updateTaskReminders = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const taskReminders = await TaskReminders.findByIdAndUpdate(id, req.body, {
+    const taskReminders = await TaskReminders.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

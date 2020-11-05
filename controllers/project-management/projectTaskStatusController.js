@@ -106,8 +106,7 @@ exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
 
   
     const projectTaskStatus = await ProjectTaskStatus.findByIdAndUpdate(
-      id,
-      req.body,
+      id, doc,
       {
         new: true,
       }

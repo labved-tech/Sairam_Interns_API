@@ -106,8 +106,7 @@ exports.updateProjectEntries = catchAsync(async (req, res, next) => {
 
   
     const projectEntries = await ProjectEntries.findByIdAndUpdate(
-      id,
-      req.body,
+      id, doc,
       {
         new: true,
       }

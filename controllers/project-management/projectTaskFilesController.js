@@ -105,7 +105,7 @@ exports.updateProjectTaskFiles = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const projectTaskFiles = await ProjectTaskFiles.findByIdAndUpdate(id, req.body, {
+    const projectTaskFiles = await ProjectTaskFiles.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

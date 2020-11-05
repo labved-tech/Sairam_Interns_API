@@ -106,8 +106,7 @@ exports.updateProjectMembers = catchAsync(async (req, res, next) => {
 
   
     const projectMembers = await ProjectMembers.findByIdAndUpdate(
-      id,
-      req.body,
+      id, doc,
       {
         new: true,
       }

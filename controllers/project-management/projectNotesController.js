@@ -105,7 +105,7 @@ exports.updateProjectNotes = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const projectNotes = await ProjectNotes.findByIdAndUpdate(id, req.body, {
+    const projectNotes = await ProjectNotes.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

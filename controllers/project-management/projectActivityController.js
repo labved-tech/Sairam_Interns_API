@@ -104,8 +104,7 @@ exports.updateProjectActivity = catchAsync(async (req, res, next) => {
   //console.log(doc);
   
     const projectActivity = await ProjectActivity.findByIdAndUpdate(
-      id,
-      req.body,
+      id, doc,
       {
         new: true,
       }

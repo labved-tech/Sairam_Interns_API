@@ -110,8 +110,7 @@ exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
 
   
     const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndUpdate(
-      id,
-      req.body,
+      id, doc,
       {
         new: true,
       }

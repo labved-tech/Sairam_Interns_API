@@ -105,7 +105,7 @@ exports.updateMilestone = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
   
-    const milestone = await Milestone.findByIdAndUpdate(id, req.body, {
+    const milestone = await Milestone.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

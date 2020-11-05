@@ -105,7 +105,7 @@ exports.updateTaskTimers = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const taskTimers = await TaskTimers.findByIdAndUpdate(id, req.body, {
+    const taskTimers = await TaskTimers.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

@@ -105,7 +105,7 @@ exports.updateProjectFiles = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const projectFiles = await ProjectFiles.findByIdAndUpdate(id, req.body, {
+    const projectFiles = await ProjectFiles.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

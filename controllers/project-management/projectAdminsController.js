@@ -105,7 +105,7 @@ exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, req.body, {
+    const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

@@ -105,7 +105,7 @@ exports.updateTaskEntries = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   
-    const taskEntries = await TaskEntries.findByIdAndUpdate(id, req.body, {
+    const taskEntries = await TaskEntries.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 
