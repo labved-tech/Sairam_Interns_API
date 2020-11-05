@@ -1,10 +1,31 @@
 {
 	"info": {
-		"_postman_id": "6b85cf3c-6d0c-4f37-aecc-099354b9c6f2",
+		"_postman_id": "4c4e0207-d1ba-44b1-a7b2-502692884912",
 		"name": "ContractEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "deletecontractEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/contractEntries/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contractEntries",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getAllcontractEntries",
 			"request": {
@@ -26,13 +47,59 @@
 			"response": []
 		},
 		{
+			"name": "getOnecontractEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/contractEntries/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contractEntries",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updatecontractEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_contractOwnerId\": \"Infosys_it\" ,\r\n  \"_clientId\": \"labved_bharathkumar\",\r\n  \"clientAccepted\": \"yes\",\r\n  \"acceptedDate\": \"20/10/2020\",\r\n  \"contractNumber\": \"934560896\",\r\n  \"_contractTemplateId\": \"Infosys_89\",\r\n  \"rel\": \"Infosys\",\r\n  \"_relId\": \"Infosys_1989\",\r\n  \"validFrom\": \"29/10/2020\",\r\n  \"validTill\": \"29/10/2021\",\r\n  \"validity\": \"2021\",\r\n  \"billingType\": \"20/09/2021\",\r\n  \"rate\": \"8.3\",\r\n  \"tax\": {\r\n    \"HSNCode\": \"Infosys9899\",\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\"\r\n  },\r\n  \"contractFileURL\": \"www.Infosysit/labved\",\r\n  \"additionalAttributes\": \"software,database\",\r\n  \"signedContractUploaded\": \"Infosys \",\r\n  \"termsAndConditions\": [],\r\n  \"status\": \"success\"\r\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/contractEntries/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contractEntries",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createcontractEntries",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_contractOwnerId\": \"Infosys_it\" ,\r\n  \"_clientId\": \"labved_bharathkumar\",\r\n  \"clientAccepted\": \"yes\",\r\n  \"acceptedDate\": \"20/10/2020\",\r\n  \"contractNumber\": \"934560896\",\r\n  \"_contractTemplateId\": \"Infosys_89\",\r\n  \"rel\": \"Infosys\",\r\n  \"_relId\": \"Infosys_1989\",\r\n  \"validFrom\": \"29/10/2020\",\r\n  \"validTill\": \"29/10/2021\",\r\n  \"validity\": \"2021\",\r\n  \"billingType\": \"20/09/2021\",\r\n  \"rate\": \"8.3\",\r\n  \"tax\": {\r\n    \"HSNCode\": \"Infosys9899\",\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\"\r\n  },\r\n  \"contractFileURL\": \"www.Infosysit/labved\",\r\n  \"additionalAttributes\": \"software,database\",\r\n  \"signedContractUploaded\": \"Infosys \",\r\n  \"termsAndConditions\": [],\r\n  \"status\": \"success\"\r\n}",
+					"raw": "{\r\n  \"_contractOwnerId\": \"5f990bb3c727e952a076f3b7\" ,\r\n  \"_clientId\": \"labved_bharathkumar\",\r\n  \"clientAccepted\": \"yes\",\r\n  \"acceptedDate\": \"20/10/2020\",\r\n  \"contractNumber\": \"934560896\",\r\n  \"_contractTemplateId\": \"Infosys_89\",\r\n  \"rel\": \"Infosys\",\r\n  \"_relId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"validFrom\": \"29/10/2020\",\r\n  \"validTill\": \"29/10/2021\",\r\n  \"validity\": \"2021\",\r\n  \"billingType\": \"20/09/2021\",\r\n  \"rate\": \"8.3\",\r\n  \"tax\": {\r\n    \"HSNCode\": \"Infosys9899\",\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\"\r\n  },\r\n  \"contractFileURL\": \"www.Infosysit/labved\",\r\n  \"additionalAttributes\": \"software,database\",\r\n  \"signedContractUploaded\": \"Infosys \",\r\n  \"termsAndConditions\": [],\r\n  \"status\": \"success\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,73 +116,6 @@
 						"api",
 						"v1",
 						"contractEntries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOnecontractEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/contractEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"contractEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updatecontractEntries",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"_contractOwnerId\": \"Infosys_it\" ,\r\n  \"_clientId\": \"labved_bharathkumar\",\r\n  \"clientAccepted\": \"yes\",\r\n  \"acceptedDate\": \"20/10/2020\",\r\n  \"contractNumber\": \"934560896\",\r\n  \"_contractTemplateId\": \"Infosys_89\",\r\n  \"rel\": \"Infosys\",\r\n  \"_relId\": \"Infosys_1989\",\r\n  \"validFrom\": \"29/10/2020\",\r\n  \"validTill\": \"29/10/2021\",\r\n  \"validity\": \"2021\",\r\n  \"billingType\": \"20/09/2021\",\r\n  \"rate\": \"8.3\",\r\n  \"tax\": {\r\n    \"HSNCode\": \"Infosys9899\",\r\n    \"CGSTRate\": \"9.85%\",\r\n    \"SGSTRate\": \"8.86%\",\r\n    \"IGSTRate\": \"6.98%\"\r\n  },\r\n  \"contractFileURL\": \"www.Infosysit/labved\",\r\n  \"additionalAttributes\": \"software,database\",\r\n  \"signedContractUploaded\": \"Infosys \",\r\n  \"termsAndConditions\": [],\r\n  \"status\": \"success\"\r\n}"
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/contractEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"contractEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deletecontractEntries",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/contractEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"contractEntries",
-						"0"
 					]
 				}
 			},

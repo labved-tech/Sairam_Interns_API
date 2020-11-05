@@ -46,11 +46,13 @@ exports.getTicketEntries = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.createTicketEntries = catchAsync(async (req, res, next) => {
+exports.createTicketEntries = 
+
+(async (req, res, next) => {
   console.log('Creating TicketEntries');
 
   // parse through models
-  const doc = new EventEntries(req.body);
+  const doc = new TicketEntries(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary
@@ -109,3 +111,4 @@ exports.deleteTicketEntries = catchAsync(async (req, res, next) => {
   });
   next();
 });
+ 
