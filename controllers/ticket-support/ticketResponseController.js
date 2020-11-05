@@ -48,9 +48,8 @@ exports.getTicketResponse = catchAsync(async (req, res, next) => {
 
 exports.createTicketResponse = catchAsync(async (req, res, next) => {
   console.log('Creating TicketResponse');
-
   // parse through models
-  const doc = new EventEntries(req.body);
+  const doc = new TicketResponse(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cefe64b3-9105-47e9-9bb5-9e42ce0f300f",
+		"_postman_id": "724f399e-2079-4639-b3bc-b88be15b7ec0",
 		"name": "TicketResponse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -26,13 +26,55 @@
 			"response": []
 		},
 		{
+			"name": "getOneTicketResponse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ticketResponse/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ticketResponse",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicketResponse",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ticketResponse/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ticketResponse",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createTicketResponse",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_ticketId\": \"899634286\",\r\n  \"_responderId\": \"vignesh08\",\r\n  \"responderName\": \"vignesh\" ,\r\n  \"emailSent\": \"true\",\r\n  \"isStatusChange\": \"true\",\r\n  \"body\": \"welcome to postman\"\r\n}",
+					"raw": "{\r\n  \"_ticketId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"_responderId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"responderName\": \"Bhaarath Viswanthan\" ,\r\n  \"emailSent\": \"true\",\r\n  \"isStatusChange\": \"true\",\r\n  \"body\": \"welcome to postman\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,27 +97,6 @@
 			"response": []
 		},
 		{
-			"name": "getOneTicketResponse",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ticketResponse/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ticketResponse",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateTicketResponse",
 			"request": {
 				"method": "PATCH",
@@ -85,7 +106,7 @@
 					"raw": "{\r\n  \"_ticketId\": \"899634286\",\r\n  \"_responderId\": \"vignesh08\",\r\n  \"responderName\": \"vignesh\" ,\r\n  \"emailSent\": \"true\",\r\n  \"isStatusChange\": \"true\",\r\n  \"body\": \"welcome to postman\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ticketResponse/0",
+					"raw": "localhost:3000/api/v1/ticketResponse/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -94,28 +115,7 @@
 						"api",
 						"v1",
 						"ticketResponse",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteTicketResponse",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ticketResponse/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ticketResponse",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

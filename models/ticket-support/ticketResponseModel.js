@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ticketResponseSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   _ticketId: { type: mongoose.ObjectId },
   _responderId: { type: mongoose.ObjectId },
   responderName: { type: String },

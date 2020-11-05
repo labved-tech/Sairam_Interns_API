@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const contractTemplatesSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   billingType: { type: String },
   value: { type: Number },
   tax: {
