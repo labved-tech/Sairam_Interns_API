@@ -80,6 +80,19 @@ exports.createAddress = catchAsync(async (req, res, next) => {
 exports.updateAddress = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Address Id ${id}`);
+   // parse through models
+   const addressToUpdate = new Address(body);
+   console.log(body);
+   const doc = addressToUpdate.toObject();
+   delete doc._id;
+ 
+ 
+   // update timestamps & Id's
+   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+   doc.updatedAt;
+ 
+   // check the doc before doing database operation
+   //console.log(doc);
   const address = await Address.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
