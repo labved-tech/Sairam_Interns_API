@@ -86,8 +86,22 @@ exports.createProjectActivity = catchAsync(async (req, res, next) => {
 
 exports.updateProjectActivity = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating projectActivityId ${id}`);
+  const { body } = req;
+  console.log(`Updating ProjectActivity Id ${id}`);
 
+
+  // parse through models
+  const ProjectActivityToUpdate = new ProjectActivity(body);
+  console.log(body);
+  const doc = ProjectActivityToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   
     const projectActivity = await ProjectActivity.findByIdAndUpdate(
       id,

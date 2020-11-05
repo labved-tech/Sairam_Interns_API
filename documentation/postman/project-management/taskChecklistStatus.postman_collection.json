@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-status/0",
+					"raw": "localhost:3000/api/v1/task-checklist-status/5fa14aa49e8faa3b74a01968",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"task-checklist-status",
-						"0"
+						"5fa14aa49e8faa3b74a01968"
 					]
 				}
 			},

@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n    \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"2000-09-22\"\r\n  }",
+					"raw": "  {\r\n    \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"fullName\":\"santosh\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"2000-09-22\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "  {\r\n    \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"fullName\":\"Vicky\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"2000-09-22\"\r\n  }",
+					"raw": "  {\r\n    \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"fullName\":\"sai\",\r\n    \"visibleToUser\": true,\r\n    \"descriptionKey\":\"NA\",\r\n    \"additionalData\": \"NA\",\r\n    \"dateadded\": \"2000-09-22\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-activity/0",
+					"raw": "localhost:3000/api/v1/project-activity/5fa14264903cd66284e31169",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-activity",
-						"0"
+						"5fa14264903cd66284e31169"
 					]
 				}
 			},

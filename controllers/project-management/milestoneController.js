@@ -87,8 +87,23 @@ exports.createMilestone = catchAsync(async (req, res, next) => {
 
 exports.updateMilestone = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
+
   console.log(`Updating milestone Id ${id}`);
 
+
+  // parse through models
+  const MilestoneToUpdate = new Milestone(body);
+  console.log(body);
+  const doc = MilestoneToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   
     const milestone = await Milestone.findByIdAndUpdate(id, req.body, {
       new: true,

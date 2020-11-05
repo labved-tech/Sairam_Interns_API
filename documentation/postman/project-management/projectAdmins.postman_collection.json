@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/0",
+					"raw": "localhost:3000/api/v1/project-admins/5fa142aae90a6926cce36d93",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-admins",
-						"0"
+						"5fa142aae90a6926cce36d93"
 					]
 				}
 			},
@@ -113,7 +113,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/0",
+					"raw": "localhost:3000/api/v1/project-admins/5fa142aae90a6926cce36d93",
 					"host": [
 						"localhost"
 					],
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"project-admins",
-						"0"
+						"5fa142aae90a6926cce36d93"
 					]
 				}
 			},

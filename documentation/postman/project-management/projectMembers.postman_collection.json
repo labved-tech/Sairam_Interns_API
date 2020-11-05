@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-members/0",
+					"raw": "localhost:3000/api/v1/project-members/5fa1454141411524c07b1997",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-members",
-						"0"
+						"5fa1454141411524c07b1997"
 					]
 				}
 			},

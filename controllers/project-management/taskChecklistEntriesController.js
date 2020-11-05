@@ -86,7 +86,23 @@ exports.createTaskChecklistEntries = catchAsync(async (req, res, next) => {
 
 exports.updateTaskChecklistEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating taskChecklistEntries Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating TaskChecklistEntries Id ${id}`);
+
+
+  // parse through models
+  const TaskChecklistEntriesToUpdate = new TaskChecklistEntries(body);
+  console.log(body);
+  const doc = TaskChecklistEntriesToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
     const taskChecklistEntries = await TaskChecklistEntries.findByIdAndUpdate(id, req.body, {

@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/0",
+					"raw": "localhost:3000/api/v1/project-discussions/5fa143da1d903442ccf68896",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-discussions",
-						"0"
+						"5fa143da1d903442ccf68896"
 					]
 				}
 			},

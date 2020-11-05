@@ -86,7 +86,23 @@ exports.createProjectTaskFiles = catchAsync(async (req, res, next) => {
 
 exports.updateProjectTaskFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating projectTaskFiles Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating ProjectTaskFiles Id ${id}`);
+
+
+  // parse through models
+  const ProjectTaskFilesToUpdate = new ProjectTaskFiles(body);
+  console.log(body);
+  const doc = ProjectTaskFilesToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
     const projectTaskFiles = await ProjectTaskFiles.findByIdAndUpdate(id, req.body, {

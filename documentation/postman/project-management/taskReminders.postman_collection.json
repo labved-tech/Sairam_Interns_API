@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/0",
+					"raw": "localhost:3000/api/v1/task-reminders/5fa14b553e05ae67787ccf51",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +99,7 @@
 						"api",
 						"v1",
 						"task-reminders",
-						"0"
+						"5fa14b553e05ae67787ccf51"
 					]
 				}
 			},
