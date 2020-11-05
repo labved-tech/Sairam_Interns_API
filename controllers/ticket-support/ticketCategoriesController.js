@@ -50,7 +50,7 @@ exports.createTicketCategories =catchAsync( async (req, res, next) => {
   console.log('Creating TicketCategories');
 
   //parse through models
-  const doc = new EventEntries(req.body);
+  const doc = new TicketCategories(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary
