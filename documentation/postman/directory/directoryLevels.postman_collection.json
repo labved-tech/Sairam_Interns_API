@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e2310ec6-e713-4efd-b6a4-83e1ce5c6ce0",
+		"_postman_id": "34aec9da-6394-4efe-9a9b-f1345542ee22",
 		"name": "directoryLevels",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -20,6 +20,94 @@
 						"api",
 						"v1",
 						"directoryLevels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDirectoryLevels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryLevels/0",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryLevels",
+						"0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteDirectoryLevels",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryLevels/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryLevels",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchDirectoryLevels",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"gokul\",\r\n  \"description\": \"abd\",\r\n  \"activePeriod\": 4,\r\n  \"changeLevelId\": \"ijkl\",\r\n  \"listingsInPackage\": 0,\r\n  \"riseUpEnabled\": true,\r\n  \"sticky\": true,\r\n  \"featured\": true,\r\n  \"ownPage\": true,\r\n  \"unlimitedCategories\": true,\r\n  \"map\": true,\r\n  \"mapMakers\": true,\r\n  \"logoEnabled\": true,\r\n  \"ImageLimit\": \"0\",\r\n  \"updatedAt\": \"10-2-3\",\r\n  \"videoLimit\": \"0\",\r\n  \"contentFields\": \"0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryLevels/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryLevels",
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -49,78 +137,6 @@
 						"api",
 						"v1",
 						"directoryLevels"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getDirectoryLevels",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"directoryLevels",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "patchDirectoryLevels",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"gokul\",\r\n  \"description\": \"abd\",\r\n  \"activePeriod\": \"asdf\",\r\n  \"changeLevelId\": \"ijkl\",\r\n  \"listingsInPackage\": \"0\",\r\n  \"riseUpEnabled\": \"True\",\r\n  \"sticky\": \"False\",\r\n  \"featured\": \"True\",\r\n  \"ownPage\": \"False\",\r\n  \"unlimitedCategories\": \"True\",\r\n  \"map\": \"True\",\r\n  \"mapMakers\": \"True\",\r\n  \"logoEnabled\": \"False\",\r\n  \"ImageLimit\": \"0\",\r\n  \"updatedAt\": \"10-2-3\",\r\n  \"videoLimit\": \"0\",\r\n  \"contentFields\": \"0\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"directoryLevels",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteDirectoryLevels",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"directoryLevels",
-						"0"
 					]
 				}
 			},

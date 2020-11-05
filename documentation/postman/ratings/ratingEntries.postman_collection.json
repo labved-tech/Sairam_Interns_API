@@ -1,10 +1,31 @@
 {
 	"info": {
-		"_postman_id": "9a9f055d-3608-4b60-b910-fa717e53fe5a",
+		"_postman_id": "0881799e-adb0-4752-b0b2-f2df28db52d5",
 		"name": "ratingEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "getRatingsEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingEntries/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingEntries",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getAllRatingsEntries",
 			"request": {
@@ -20,6 +41,57 @@
 						"api",
 						"v1",
 						"ratingEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRatingsEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingEntries/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingEntries",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateRatingsEntries",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"relType\": \"viy\",\r\n  \"_relId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"meta\": [\r\n    {\r\n      \"_attributeId\": \"5f990bb3c727e952a076f3b7\",\r\n      \"type\": \"student\",\r\n      \"value\": \"123\"\r\n    }\r\n  ],\r\n\r\n  \"_userId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"high\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingEntries/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingEntries",
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -49,78 +121,6 @@
 						"api",
 						"v1",
 						"ratingEntries"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getRatingsEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ratingEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateRatingsEntries",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"relType\": \"viy\",\r\n  \"_relId\": \"0\",\r\n  \"meta\": [\r\n    {\r\n      \"_attributeId\": \"0\",\r\n      \"type\": \"student\",\r\n      \"value\": \"123\"\r\n    }\r\n  ],\r\n\r\n  \"_userId\": \"0\",\r\n  \"status\": \"high\",\r\n  \"createdAt\": \"1-2-02\",\r\n  \"createdBy\": \"0\",\r\n  \"updatedBy\": \"0\",\r\n  \"updatedAt\": \"8-2-01\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ratingEntries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteRatingsEntries",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ratingEntries",
-						"0"
 					]
 				}
 			},

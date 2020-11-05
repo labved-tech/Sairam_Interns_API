@@ -13,8 +13,8 @@ const ratingEntriesSchema = new Schema({
       _attributeId: { type: mongoose.ObjectId },
       type: { type: String },
       value: { type: String },
-      createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+      createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
     

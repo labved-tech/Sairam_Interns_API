@@ -49,7 +49,7 @@ exports.getEcommerceProducts = catchAsync(async (req, res, next) => {
 exports.createEcommerceProducts = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceProducts');
   // parse through models
-  const doc = new EcommerceProduct(req.body);
+  const doc = new EcommerceProducts(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary

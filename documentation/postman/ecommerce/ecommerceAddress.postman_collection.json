@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0e22b30f-5d46-4410-bed0-31dc6318c73b",
+		"_postman_id": "998fb109-d173-4f28-bb1f-8460cdd0b3f1",
 		"name": "ecommerceAddress",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"city\": \"chennai\",\r\n  \"state\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": 600116\r\n}",
+					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,11 +56,23 @@
 		},
 		{
 			"name": "getEcommerceAddress",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/0",
+					"raw": "localhost:3000/api/v1/ecommerce-address/",
 					"host": [
 						"localhost"
 					],
@@ -69,7 +81,7 @@
 						"api",
 						"v1",
 						"ecommerce-address",
-						"0"
+						""
 					]
 				}
 			},
@@ -90,7 +102,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/0",
+					"raw": "localhost:3000/api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +111,7 @@
 						"api",
 						"v1",
 						"ecommerce-address",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -111,7 +123,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/0",
+					"raw": "localhost:3000/api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -120,7 +132,7 @@
 						"api",
 						"v1",
 						"ecommerce-address",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

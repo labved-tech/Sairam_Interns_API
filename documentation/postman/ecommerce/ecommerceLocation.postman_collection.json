@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e6d7f28f-2077-4517-be0d-d158e4abcf23",
+		"_postman_id": "ccc2547f-37ff-4556-8714-f4ebfb5a18c3",
 		"name": "ecommerceLocation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"0\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdBy\": \"0\"\r\n}\r\n",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \"abc\",\r\n  \"landlineNumber\": \"abc\",\r\n  \"mobileNumber\": \"abc\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"Name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations/0",
+					"raw": "localhost:3000/api/v1/ecommerce-locations/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -69,7 +69,7 @@
 						"api",
 						"v1",
 						"ecommerce-locations",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \" \",\r\n  \"landlineNumber\": \" \",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"Name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"0\",\r\n  \"updatedAt\": \"1-2-3\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-3-04\",\r\n  \"createdBy\": \"0\"\r\n}",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \"abc\",\r\n  \"landlineNumber\": \"abc\",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"Name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations/0",
+					"raw": "localhost:3000/api/v1/ecommerce-locations/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +99,7 @@
 						"api",
 						"v1",
 						"ecommerce-locations",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -111,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations/0",
+					"raw": "localhost:3000/api/v1/ecommerce-locations/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -120,7 +120,7 @@
 						"api",
 						"v1",
 						"ecommerce-locations",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

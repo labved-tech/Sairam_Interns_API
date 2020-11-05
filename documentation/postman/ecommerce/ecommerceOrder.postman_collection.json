@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "11e3d129-8cd3-4c48-a069-dccfbdd3395a",
+		"_postman_id": "afee08dc-969d-41de-94f7-4730a440ee8c",
 		"name": "ecommerceOrder",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"apple\",\r\n      \"productId\": \"0\",\r\n      \"_manufacturerPartId\": \"0\",\r\n      \"HSNCode\": \"abc\",\r\n      \"quanity\": \"0\",\r\n      \"unitPrice\": \"0\",\r\n      \"meta\": \"0\",\r\n      \"discount\": \"0\",\r\n      \"tax\": {\r\n        \"CGST\": \"abc\",\r\n        \"SGST\": \"abc\",\r\n        \"IGST\": \"abc\",\r\n        \"calcCGST\": \"0\",\r\n        \"calSGST\": \"0\",\r\n        \"calcIGST\": \"0\"\r\n      }\r\n    }\r\n  ],\r\n  \"numItems\": \"0\",\r\n  \"grossTotal\": \"0\",\r\n  \"taxTotal\": \"0\",\r\n  \"shippingCharges\": \"0\",\r\n  \"insuranceCharges\": \"0\",\r\n  \"netTotal\": \"0\",\r\n  \"status\": \" low\",\r\n  \"_userId\": \"0\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdBy\": \"0\"\r\n}",
+					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"apple\",\r\n      \"productId\": \"0\",\r\n      \"_manufacturerPartId\": \"5f990bb3c727e952a076f3b7\",\r\n      \"HSNCode\": \"abc\",\r\n      \"quanity\": 8,\r\n      \"unitPrice\": 8,\r\n      \"meta\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discount\": 8,\r\n      \"tax\": {\r\n        \"CGST\": \"abc\",\r\n        \"SGST\": \"abc\",\r\n        \"IGST\": \"abc\",\r\n        \"calcCGST\": 8,\r\n        \"calSGST\": 8,\r\n        \"calcIGST\": 8\r\n      }\r\n    }\r\n  ],\r\n  \"numItems\": 8,\r\n  \"grossTotal\": 8,\r\n  \"taxTotal\": 5,\r\n  \"shippingCharges\": 2,\r\n  \"insuranceCharges\": 28,\r\n  \"netTotal\": 24,\r\n  \"status\": \" low\",\r\n  \"_userId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/0",
+					"raw": "localhost:3000/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -69,7 +69,7 @@
 						"api",
 						"v1",
 						"ecommerce-order",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"apple\",\r\n      \"productId\": \"0\",\r\n      \"_manufacturerPartId\": \"0\",\r\n      \"HSNCode\": \"abc\",\r\n      \"quanity\": \"0\",\r\n      \"unitPrice\": \"0\",\r\n      \"meta\": \"0\",\r\n      \"discount\": \"0\",\r\n      \"tax\": {\r\n        \"CGST\": \"abc\",\r\n        \"SGST\": \"abc\",\r\n        \"IGST\": \"abc\",\r\n        \"calcCGST\": \"0\",\r\n        \"calSGST\": \"0\",\r\n        \"calcIGST\": \"0\"\r\n      }\r\n    }\r\n  ],\r\n  \"numItems\": \"0\",\r\n  \"grossTotal\": \"0\",\r\n  \"taxTotal\": \"0\",\r\n  \"shippingCharges\": \"0\",\r\n  \"insuranceCharges\": \"0\",\r\n  \"netTotal\": \"0\",\r\n  \"status\": \" low\",\r\n  \"_userId\": \"0\",\r\n  \"updatedAt\": \" 3-9-03\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"3-9-8\",\r\n  \"createdBy\": \"0\"\r\n}",
+					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productName\": \"apple\",\r\n      \"productId\": \"0\",\r\n      \"_manufacturerPartId\": \"5f990bb3c727e952a076f3b7\",\r\n      \"HSNCode\": \"abc\",\r\n      \"quanity\": 8,\r\n      \"unitPrice\": 8,\r\n      \"meta\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discount\": 8,\r\n      \"tax\": {\r\n        \"CGST\": \"abc\",\r\n        \"SGST\": \"abc\",\r\n        \"IGST\": \"abc\",\r\n        \"calcCGST\": 8,\r\n        \"calSGST\": 8,\r\n        \"calcIGST\": 8\r\n      }\r\n    }\r\n  ],\r\n  \"numItems\": 8,\r\n  \"grossTotal\": 8,\r\n  \"taxTotal\": 5,\r\n  \"shippingCharges\": 2,\r\n  \"insuranceCharges\": 28,\r\n  \"netTotal\": 24,\r\n  \"status\": \" low\",\r\n  \"_userId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/0",
+					"raw": "localhost:3000/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +99,7 @@
 						"api",
 						"v1",
 						"ecommerce-order",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -111,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/0",
+					"raw": "localhost:3000/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -120,7 +120,7 @@
 						"api",
 						"v1",
 						"ecommerce-order",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0bd6f7ff-2dcc-4363-92f5-406bb90d8284",
+		"_postman_id": "140f9de5-7956-4240-b2a5-daa7dc801379",
 		"name": "ratingAttribute",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"type\": \"sudent\",\r\n  \"Description\": \"college student\",\r\n  \"Notes\": \"english\",\r\n  \"status\": \"high\",\r\n  \"updatedAt\": \"28-12-01\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-12-01\",\r\n  \"createdBy\": \"0\"\r\n}",
+					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"type\": \"sudent\",\r\n  \"Description\": \"college student\",\r\n  \"Notes\": \"english\",\r\n  \"status\": \"high\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -60,7 +60,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/0",
+					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -69,7 +69,7 @@
 						"api",
 						"v1",
 						"ratingAttribute",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -82,7 +82,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"type\": \"sudent\",\r\n  \"Description\": \"college student\",\r\n  \"Notes\": \"english\",\r\n  \"status\": \"high\",\r\n  \"updatedAt\": \"28-12-01\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdAt\": \"2-12-01\",\r\n  \"createdBy\": \"0\"\r\n}",
+					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"type\": \"sudent\",\r\n  \"Description\": \"college student\",\r\n  \"Notes\": \"english\",\r\n  \"status\": \"high\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/0",
+					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +99,7 @@
 						"api",
 						"v1",
 						"ratingAttribute",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -111,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/0",
+					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -120,7 +120,7 @@
 						"api",
 						"v1",
 						"ratingAttribute",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
