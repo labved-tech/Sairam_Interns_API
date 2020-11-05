@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"_discussionId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"discussionType\":\"Group\",\r\n\"parent\": \"Father\",\r\n\"created\":\"2000-09-22\",\r\n\"modified\":\"2000-09-22\",\r\n\"content\": \"Studies\",\r\n\"_commenterId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"fullname\": \"Vicky\",\r\n\"fileName\": \"Student\",\r\n\"fileType\": \"Confidential\",\r\n\"_projectId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
+					"raw": "{\r\n\"_discussionId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"discussionType\":\"Group\",\r\n\"parent\": \"Mother\",\r\n\"created\":\"2000-09-22\",\r\n\"modified\":\"2000-09-22\",\r\n\"content\": \"Studies\",\r\n\"_commenterId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"fullname\": \"Vicky\",\r\n\"fileName\": \"Student\",\r\n\"fileType\": \"Confidential\",\r\n\"_projectId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussion-comments/0",
+					"raw": "localhost:3000/api/v1/project-discussion-comments/5fa1431c61165d64384fdef5",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-discussion-comments",
-						"0"
+						"5fa1431c61165d64384fdef5"
 					]
 				}
 			},

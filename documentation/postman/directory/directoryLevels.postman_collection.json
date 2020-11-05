@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4e14d3cb-99dc-4587-b622-6f26f95f2442",
+		"_postman_id": "e2310ec6-e713-4efd-b6a4-83e1ce5c6ce0",
 		"name": "directoryLevels",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"gokul\",\r\n  \"description\": \"abd\",\r\n  \"activePeriod\": \"asdf\",\r\n  \"changeLevelId\": \"ijkl\",\r\n  \"listingsInPackage\": \"0\",\r\n  \"riseUpEnabled\": \"True\",\r\n  \"sticky\": \"False\",\r\n  \"featured\": \"True\",\r\n  \"ownPage\": \"False\",\r\n  \"unlimitedCategories\": \"True\",\r\n  \"map\": \"True\",\r\n  \"mapMakers\": \"True\",\r\n  \"logoEnabled\": \"False\",\r\n  \"imageLimit\": \"0\",\r\n  \"updatedAt\": \"10-2-3\",\r\n  \"videoLimit\": \"0\",\r\n  \"contentFields\": \"0\"\r\n}",
+					"raw": "{\r\n  \"name\": \"gokul\",\r\n  \"description\": \"abd\",\r\n  \"activePeriod\": \"8\",\r\n  \"changeLevelId\": \"ijkl\",\r\n  \"listingsInPackage\": \"0\",\r\n  \"riseUpEnabled\": true,\r\n  \"sticky\": true,\r\n  \"featured\": true,\r\n  \"ownPage\": true,\r\n  \"unlimitedCategories\": true,\r\n  \"map\": true,\r\n  \"mapMakers\": true,\r\n  \"logoEnabled\": true,\r\n  \"ImageLimit\": \"0\",\r\n  \"updatedAt\": \"10-2-3\",\r\n  \"videoLimit\": \"0\",\r\n  \"contentFields\": \"0\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

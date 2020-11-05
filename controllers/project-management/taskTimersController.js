@@ -86,10 +86,26 @@ exports.createTaskTimers = catchAsync(async (req, res, next) => {
 
 exports.updateTaskTimers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating taskTimers Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating TaskTimers Id ${id}`);
+
+
+  // parse through models
+  const TaskTimersToUpdate = new TaskTimers(body);
+  console.log(body);
+  const doc = TaskTimersToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
-    const taskTimers = await TaskTimers.findByIdAndUpdate(id, req.body, {
+    const taskTimers = await TaskTimers.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e307a207-05c8-4609-8b44-74749f9c60bf",
+		"_postman_id": "d6dd1afb-5863-4dc5-9e02-ff0434a36748",
 		"name": "directoryAttributeGroups",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"viky\",\r\n  \"attributes\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"type\": \"low\",\r\n      \"description\": \"class\",\r\n      \"notes\": \"xyz\",\r\n      \"status\": \"uio\",\r\n      \"updatedBy\": \"0\",\r\n      \"createdBy\": \"0\"\r\n      \r\n    }\r\n  ],\r\n  \"status\": \"asd\",\r\n  \"description\": \"dfg\",\r\n  \"updatedBy\": \"0\",\r\n  \"createdBy\": \"0\"\r\n  \r\n}",
+					"raw": "{\r\n  \"name\": \"viky\",\r\n  \"attributes\": [\r\n    {\r\n      \"name\": \"viky\",\r\n      \"type\": \"low\",\r\n      \"Description\": \"class\",\r\n      \"notes\": \"xyz\",\r\n      \"status\": \"uio\"\r\n    }\r\n  ],\r\n  \"status\": \"asd\",\r\n  \"description\": \"dfg\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

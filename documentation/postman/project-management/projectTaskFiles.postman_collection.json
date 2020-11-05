@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-task-files/0",
+					"raw": "localhost:3000/api/v1/project-task-files/5fa14620d7c3a31470e666fe",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-task-files",
-						"0"
+						"5fa14620d7c3a31470e666fe"
 					]
 				}
 			},

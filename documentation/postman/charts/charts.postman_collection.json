@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": { },\r\n  \"_ownerId\":\"5f9d4cad0cc36e2a44c325b9\"\r\n}",
+					"raw": "{\r\n  \"name\": \"santosh\",\r\n  \"state\": { },\r\n  \"_ownerId\":\"5f9d4cad0cc36e2a44c325b9\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/charts/0",
+					"raw": "localhost:3000/api/v1/charts/5fa13f935d25215804d681ee",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"charts",
-						"0"
+						"5fa13f935d25215804d681ee"
 					]
 				}
 			},

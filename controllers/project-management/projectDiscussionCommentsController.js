@@ -90,12 +90,27 @@ exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
 
 exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating projectDiscussionComments Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating ProjectDiscussionComments Id ${id}`);
+
+
+  // parse through models
+  const ProjectDiscussionCommentsToUpdate = new ProjectDiscussionComments(body);
+  console.log(body);
+  const doc = ProjectDiscussionCommentsToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
     const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndUpdate(
-      id,
-      req.body,
+      id, doc,
       {
         new: true,
       }

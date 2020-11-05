@@ -86,10 +86,26 @@ exports.createTaskReminders = catchAsync(async (req, res, next) => {
 
 exports.updateTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating taskReminders Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating TaskReminders Id ${id}`);
+
+
+  // parse through models
+  const TaskRemindersToUpdate = new TaskReminders(body);
+  console.log(body);
+  const doc = TaskRemindersToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
-    const taskReminders = await TaskReminders.findByIdAndUpdate(id, req.body, {
+    const taskReminders = await TaskReminders.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

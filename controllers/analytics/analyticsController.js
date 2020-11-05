@@ -86,10 +86,25 @@ exports.createAnalytics = catchAsync(async (req, res, next) => {
 
 exports.updateAnalytics = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating analytics Id ${id}`);
+  const { body } = req;
+  console.log(`Updating Analytics Id ${id}`);
+
+  // parse through models
+  const AnalyticsToUpdate = new Analytics(body);
+  console.log(body);
+  const doc = AnalyticsToUpdate.toObject();
+  delete doc._id;
 
 
-    const analytics = await Analytics.findByIdAndUpdate(id, req.body, {
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+
+    const analytics = await Analytics.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

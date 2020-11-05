@@ -86,10 +86,26 @@ exports.createTaskEntries = catchAsync(async (req, res, next) => {
 
 exports.updateTaskEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating taskEntries Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating TaskEntries Id ${id}`);
+
+
+  // parse through models
+  const TaskEntriesToUpdate = new TaskEntries(body);
+  console.log(body);
+  const doc = TaskEntriesToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
-    const taskEntries = await TaskEntries.findByIdAndUpdate(id, req.body, {
+    const taskEntries = await TaskEntries.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

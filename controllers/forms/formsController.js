@@ -86,10 +86,25 @@ exports.createForms = catchAsync(async (req, res, next) => {
 
 exports.updateForms = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating forms Id ${id}`);
+  const { body } = req;
+  console.log(`Updating Forms Id ${id}`);
+
+  // parse through models
+  const FormsToUpdate = new Forms(body);
+  console.log(body);
+  const doc = FormsToUpdate.toObject();
+  delete doc._id;
 
 
-    const forms = await Forms.findByIdAndUpdate(id, req.body, {
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+
+    const forms = await Forms.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

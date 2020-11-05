@@ -86,10 +86,26 @@ exports.createProjectAdmins = catchAsync(async (req, res, next) => {
 
 exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating projectAdmins Id ${id}`);
+  const { body } = req;
+
+  console.log(`Updating ProjectAdmins Id ${id}`);
+
+
+  // parse through models
+  const ProjectAdminsToUpdate = new ProjectAdmins(body);
+  console.log(body);
+  const doc = ProjectAdminsToUpdate.toObject();
+  delete doc._id;
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   
-    const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, req.body, {
+    const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

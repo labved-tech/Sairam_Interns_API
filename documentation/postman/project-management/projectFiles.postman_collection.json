@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-files/0",
+					"raw": "localhost:3000/api/v1/project-files/5fa144ee5b47ad41f03057eb",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"project-files",
-						"0"
+						"5fa144ee5b47ad41f03057eb"
 					]
 				}
 			},
