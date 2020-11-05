@@ -80,8 +80,23 @@ exports.createLeadCategories = catchAsync(async (req, res, next) => {
 
 exports.updateLeadCategories = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating leadCategories Id ${id}`);
-  const leadCategories = await LeadCategories.findByIdAndUpdate(id, req.body, {
+  const { body } = req;
+  console.log(`Updating LeadCategories Id ${id}`);
+
+  // parse through models
+  const LeadCategoriesToUpdate = new LeadCategories(body);
+  console.log(body);
+  const doc = LeadCategoriesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+  const leadCategories = await LeadCategories.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
