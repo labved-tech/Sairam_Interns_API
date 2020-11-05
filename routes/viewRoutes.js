@@ -12,7 +12,7 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
-router.get('/', viewsController.getOverview);
+router.get('/overview', viewsController.getOverview);
 
 // LOGIN RELATED ROUTES
 router.get('/signup', viewsController.getSignUp);
