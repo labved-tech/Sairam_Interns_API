@@ -45,36 +45,45 @@ exports.getExample = catchAsync(async (req, res, next) => {
 
 exports.createExample = catchAsync(async (req, res, next) => {
   console.log('Creating Example');
+  const { body } = req;
 
   // parse through models
-  const doc = new Example(req.body);
+  const doc = new Example(body);
 
+  // extRefObject
   const dataExtRefObject = new ExtObject(
-    JSON.parse(JSON.stringify(req.body.extRefObject))
+    JSON.parse(JSON.stringify(body.extRefObject))
   );
 
-  // validate seperately sub-documents if necessary
-  await dataExtRefObject.validate();
-
-  // replace doc if necessary
-  doc.extRefObject = dataExtRefObject;
-
   // update timestamps & Id's
-  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  dataExtRefObject.createdBy = '5f990bb3c727e952a076f3b7';
+  dataExtRefObject.updatedBy = '5f990bb3c727e952a076f3b7';
+  dataExtRefObject.createdAt = Date.now();
+  dataExtRefObject.updatedAt = Date.now();
 
-  // saving if there are no sub-documents
-  //doc.save();
+  await dataExtRefObject.validate();
+  doc.extRefObject = dataExtRefObject; // replace doc if necessary
+
+  //  arrayOfObjects
+  if (doc.arrayOfObject) {
+    const arrayOfObjectLength = doc.arrayOfObject.length;
+    console.log(`Array of objects length ${arrayOfObjectLength}`);
+
+    for (let i = 0; i < arrayOfObjectLength; i++) {
+      doc.arrayOfObject[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.arrayOfObject[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.arrayOfObject[i].createdAt = Date.now();
+      doc.arrayOfObject[i].updatedAt = Date.now();
+    }
+  }
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(doc);
 
-  const example = await Example.create(doc).then();
+  const example = await Example.create(doc).then(); //doc.save();
 
   res.status(201).json({
     status: 'sucess',
@@ -118,7 +127,9 @@ exports.updateExample = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  const example = await Example.findByIdAndUpdate(id, doc,{new: true,}).then();
+  const example = await Example.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
   res.status(201).json({
     status: 'sucess',

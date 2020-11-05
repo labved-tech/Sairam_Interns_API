@@ -12,10 +12,19 @@ const exampleSchema = new Schema(
     mobNo: Number,
     inLineObject: { email: String, mobNo: Number },
     extRefObject: { type: Schema.Types.Mixed, ref: 'ExtObject' },
-    arrayOfString: [String ],
-    arrayOfObject: [{ email: String, mobNo: Number }],
-    createdBy: { type: mongoose.ObjectId, required: true },
-    updatedBy: { type: mongoose.ObjectId, required: true },
+    arrayOfString: [String],
+    arrayOfObject: [
+      {
+        email: String,
+        mobNo: Number,
+        createdBy: { type: mongoose.ObjectId },
+        updatedBy: { type: mongoose.ObjectId },
+        createdAt: { type: Date },
+        updatedAt: { type: Date },
+      },
+    ],
+    createdBy: { type: mongoose.ObjectId },
+    updatedBy: { type: mongoose.ObjectId },
   },
   { timestamps: true }
 );
