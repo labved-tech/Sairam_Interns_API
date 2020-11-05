@@ -45,7 +45,7 @@ exports.checkID = (req, res, next, val) => {
   exports.createQuotation = catchAsync(async (req, res, next) => {
     console.log('Creating Quotation');
     // parse through models
-  const doc = new AnnouncementEntries(req.body);
+  const doc = new Quotation(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary
