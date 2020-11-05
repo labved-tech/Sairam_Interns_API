@@ -71,10 +71,10 @@ if (LeadArray.contactInformation) {
   const len = LeadArray.contactInformation.length;
   const docs= LeadArray.contactInformation.toObject();
   for ( i=0;i<=len;i++){
-    docs.createdBy.i = '5f990bb3c727e952a076f3b7'; // user id
-    docs.updatedBy.i = '5f990bb3c727e952a076f3b7'; // user id
-    docs.createdAt.i;
-    docs.updatedAt.i;
+    docs.i.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    docs.i.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    docs.i.createdAt;
+    docs.i.updatedAt;
   }
 
 }  
