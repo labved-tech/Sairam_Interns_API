@@ -36,11 +36,11 @@ exports.getContractTemplates = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting ContractTemplates for Id ${id}`);
   
-  const ContractTemplates = await ContractTemplates.findById(id).then();
+  const contractTemplates = await ContractTemplates.findById(id).then();
     res.status(200).json({
       status: 'sucess',
       message: `Got ContractTemplates Id=${id}`,
-      Data: { ContractTemplates },
+      Data: { contractTemplates },
     });
  
   next();
@@ -68,12 +68,12 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
 
   // check the doc before doing database operation
   //console.log(doc);
-  const ContractTemplates = await ContractTemplates.create(doc).then();
+  const contractTemplates = await ContractTemplates.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created ContractTemplates',
-      data: { ContractTemplates },
+      data: { contractTemplates },
     });
 
   next();
@@ -83,14 +83,14 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating ContractTemplates Id ${id}`);
 
-  const ContractTemplates = await ContractTemplates.findByIdAndUpdate(id, req.body, {
+  const contractTemplates = await ContractTemplates.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
 
   res.status(201).json({
     status: 'sucess',
     message: `Updated ContractTemplates Id=${id}`,
-    data: { ContractTemplates },
+    data: { contractTemplates },
   });
 
   next();
@@ -100,12 +100,12 @@ exports.deleteContractTemplates = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting ContractTemplates Id ${id}`);
 
-  const ContractTemplates = await ContractTemplates.findByIdAndDelete(id).then();
+  const contractTemplates = await ContractTemplates.findByIdAndDelete(id).then();
 
     res.status(200).json({
       status: 'sucess',
       message: `Deleted ContractTemplates Id=${id}`,
-      data: { ContractTemplates },
+      data: { contractTemplates },
     });
   
   next();
