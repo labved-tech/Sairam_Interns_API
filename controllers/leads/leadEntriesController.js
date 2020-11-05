@@ -50,8 +50,19 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
   // parse through models
   const doc = new LeadEntries(req.body);
   console.log(doc);
-
+  
   // validate seperately sub-documents if necessary
+  contactInformationLength = doc.contactInformation.length
+  console.log(`contact information array lenth ${contactInformationLength}`)
+  let contactInformation
+  var i;
+  for(i=0;i<contactInformationLength;i++) {
+    doc.contactInformation.createdBy.push('5f990bb3c727e952a076f3b7') ;
+    contactInformation.i.updatedBy = '5f990bb3c727e952a076f3b7';
+    contactInformation.i.createdAt;
+    contactInformation.options[i].updatedAt;
+  }
+  
 
   // replace doc if necessary
 
@@ -66,7 +77,7 @@ await doc.validate();
 
 // check the doc before doing database operation
 //console.log(doc);
-const LeadArray = new LeadEntries(body)
+/* const LeadArray = new LeadEntries(body)
 if (LeadArray.contactInformation) {
   const len = LeadArray.contactInformation.length;
   const docs= LeadArray.contactInformation.toObject();
@@ -75,9 +86,9 @@ if (LeadArray.contactInformation) {
     docs.i.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
     docs.i.createdAt;
     docs.i.updatedAt;
-  }
+  } 
 
-}  
+}  */
   
   const leadEntries = await LeadEntries.create(doc).then();
 

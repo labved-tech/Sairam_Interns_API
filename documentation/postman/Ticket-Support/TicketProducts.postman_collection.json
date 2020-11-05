@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "4c0538a7-07df-420a-be78-351d288dc1bc",
+		"_postman_id": "1cb05df8-6bac-49cd-93b9-0acd3237d436",
 		"name": "TicketProducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -20,6 +20,48 @@
 						"api",
 						"v1",
 						"ticketProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneTicketProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ticketProducts/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ticketProducts",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicketProducts",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ticketProducts/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ticketProducts",
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -55,27 +97,6 @@
 			"response": []
 		},
 		{
-			"name": "getOneTicketProducts",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ticketProducts/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ticketProducts",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateTicketProducts",
 			"request": {
 				"method": "PATCH",
@@ -85,7 +106,7 @@
 					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ticketProducts/0",
+					"raw": "localhost:3000/api/v1/ticketProducts/5f990bb3c727e952a076f3b7",
 					"host": [
 						"localhost"
 					],
@@ -94,28 +115,7 @@
 						"api",
 						"v1",
 						"ticketProducts",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteTicketProducts",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ticketProducts/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ticketProducts",
-						"0"
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

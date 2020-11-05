@@ -45,7 +45,7 @@ const projectTaskFilesRouter = require('./project-management/projectTaskFilesRou
 const projectTaskStatusRouter = require('./project-management/projectTaskStatusRoutes');
 const taskChecklistEntriesRouter = require('./project-management/taskChecklistEntriesRoutes');
 const taskChecklistStatusRouter = require('./project-management/taskChecklistStatusRoutes');
-//const taskEntriesRouter = require('./project-management/taskEntriesRoutes');
+const taskEntriesRouter = require('./project-management/taskEntriesRoutes');
 const taskRemindersRouter = require('./project-management/taskRemindersRoutes');
 const taskTimersRouter = require('./project-management/taskTimersRoutes');
 
@@ -164,7 +164,7 @@ router.use('/project-task-files', projectTaskFilesRouter);
 router.use('/project-task-status', projectTaskStatusRouter);
 router.use('/task-checklist-entries', taskChecklistEntriesRouter);
 router.use('/task-checklist-status', taskChecklistStatusRouter);
-//router.use('/task-entries',taskEntriesRouter);
+router.use('/task-entries',taskEntriesRouter);
 router.use('/task-reminders', taskRemindersRouter);
 router.use('/task-timers', taskTimersRouter);
 

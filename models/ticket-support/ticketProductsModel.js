@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const ticketProductsSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   name: { type: String },
   description: { type: String },
   notes: { type: String },
