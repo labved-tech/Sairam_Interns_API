@@ -18,7 +18,7 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllContractTemplates = catchAsync(async (req, res, next) => {
   console.log('Getting All ContractTemplates');
 
-  const ContractTemplates = await ContractTemplates.find().then();
+  const contractTemplates = await ContractTemplates.find().then();
 
     res.status(200).json({
       status: 'sucess',
