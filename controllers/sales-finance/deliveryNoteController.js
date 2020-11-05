@@ -48,7 +48,7 @@ exports.getDeliveryNote = catchAsync(async (req, res, next) => {
 exports.createDeliveryNote = catchAsync(async (req, res, next) => {
   console.log('Creating Delivery Note');
   // parse through models
-  const doc = new AnnouncementEntries(req.body);
+  const doc = new DeliveryNote(req.body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary

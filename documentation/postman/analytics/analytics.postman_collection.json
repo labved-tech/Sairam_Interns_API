@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/analytics/0",
+					"raw": "localhost:3000/api/v1/analytics/5fa13ed65fb7d25ae8fec000",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"analytics",
-						"0"
+						"5fa13ed65fb7d25ae8fec000"
 					]
 				}
 			},

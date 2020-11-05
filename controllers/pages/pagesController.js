@@ -86,10 +86,25 @@ exports.createPages = catchAsync(async (req, res, next) => {
 
 exports.updatePages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating pages Id ${id}`);
+  const { body } = req;
+  console.log(`Updating Pages Id ${id}`);
+
+  // parse through models
+  const PagesToUpdate = new Pages(body);
+  console.log(body);
+  const doc = PagesToUpdate.toObject();
+  delete doc._id;
 
 
-    const pages = await Pages.findByIdAndUpdate(id, req.body, {
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+
+    const pages = await Pages.findByIdAndUpdate(id, doc, {
       new: true,
     }).then();
 

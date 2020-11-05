@@ -80,11 +80,25 @@ exports.createFarmExportedStrategy = catchAsync(async (req, res, next) => {
 
 exports.updateFarmExportedStrategy = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating farmExportedStrategy Id ${id}`);
+  const { body } = req;
+  console.log(`Updating FarmExportedStrategy Id ${id}`);
+
+  // parse through models
+  const FarmExportedStrategyToUpdate = new FarmExportedStrategy(body);
+  console.log(body);
+  const doc = FarmExportedStrategyToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const farmExportedStrategy = await FarmExportedStrategy.findByIdAndUpdate(
-    id,
-    req.body,
+  id, doc,
     {
       new: true,
     }

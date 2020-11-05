@@ -78,9 +78,24 @@ exports.createFarmRegions = async (req, res, next) => {
 
 exports.updateFarmRegions = async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating farmRegions Id ${id}`);
+  const { body } = req;
+  console.log(`Updating FarmRegions Id ${id}`);
 
-  const farmRegions = await FarmRegions.findByIdAndUpdate(id, req.body, {
+  // parse through models
+  const FarmRegionsToUpdate = new FarmRegions(body);
+  console.log(body);
+  const doc = FarmRegionsToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+  const farmRegions = await FarmRegions.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 

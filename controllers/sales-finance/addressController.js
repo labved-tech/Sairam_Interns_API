@@ -46,8 +46,9 @@ exports.getAddress = catchAsync(async (req, res, next) => {
 
 exports.createAddress = catchAsync(async (req, res, next) => {
   console.log('Creating Address');
+
    // parse through models
-   const doc = new AnnouncementEntries(req.body);
+   const doc = new Address(req.body);
    console.log(doc);
  
    // validate seperately sub-documents if necessary

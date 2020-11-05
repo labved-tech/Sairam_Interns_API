@@ -78,9 +78,24 @@ await doc.validate();
 
 exports.updateLeadResponse = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating LeadResponse Id ${id}`);
 
-  const leadResponse = await LeadResponse.findByIdAndUpdate(id, req.body, {
+  // parse through models
+  const LeadResponseToUpdate = new LeadResponse(body);
+  console.log(body);
+  const doc = LeadResponseToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
+  const leadResponse = await LeadResponse.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
