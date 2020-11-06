@@ -19,6 +19,7 @@
 			"xtree": "cpp",
 			"xutility": "cpp"
 		},
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
+		"prettier.configPath": "/prettier.rc"
 	}
 }
