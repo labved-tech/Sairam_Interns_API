@@ -48,7 +48,35 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
   console.log('Creating LeadEntries');
   const { body } = req;
 
+  // parse through models
   const doc = new LeadEntries(body);
+
+  // extRefObject
+  
+  //  contactInformation
+  if (doc.contactInformation) {
+    const contactInformationLength = doc.contactInformation.length;
+    console.log(`Array of objects length ${contactInformationLength}`);
+
+    for (let i = 0; i < contactInformationLength; i++) {
+      doc.contactInformation[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInformation[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInformation[i].createdAt = Date.now();
+      doc.contactInformation[i].updatedAt = Date.now();
+    }
+  }
+
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
+
+  // final validation
+  await doc.validate();
+
+  // check the doc before doing database operation
+  //console.log(`After Validation :${doc}`);
+
+  //const LeadEntries = await doc.save({ validateBeforeSave: false });
+
 
   const leadEntries = await LeadEntries.create(doc).then();
 
@@ -62,7 +90,27 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
 
 exports.updateLeadEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating Lead Entries Id ${id}`);
+  const { body } = req;
+  console.log(`Updating LeadEntries Id ${id}`);
+
+  // parse through models
+  const LeadEntriesToUpdate = new LeadEntries(body);
+  console.log(body);
+  const doc = LeadEntriesToUpdate.toObject();
+  delete doc._id;
+
+  if (LeadEntriesToUpdate.contactInformation) {
+    const len = LeadEntriesToUpdate.contactInformation.length;
+    console.log(len);
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
+
 
   const leadEntries = await LeadEntries.findByIdAndUpdate(id, req.body, {
     new: true,

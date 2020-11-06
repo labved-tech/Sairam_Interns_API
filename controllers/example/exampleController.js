@@ -55,14 +55,12 @@ exports.createExample = catchAsync(async (req, res, next) => {
   if (doc.extRefObject) {
     // parse through models
     const dataExtRefObject = new ExtObject(
-      JSON.parse(JSON.stringify(body.extRefObject))
+      JSON.parse(JSON.stringify(body.extRefObject)),
     );
 
     // update timestamps & Id's
     dataExtRefObject.createdBy = '5f990bb3c727e952a076f3b7';
-    dataExtRefObject.updatedBy = '5f990bb3c727e952a076f3b7';
     dataExtRefObject.createdAt = Date.now();
-    dataExtRefObject.updatedAt = Date.now();
 
     await dataExtRefObject.validate();
     doc.extRefObject = dataExtRefObject; // replace doc if necessary
@@ -75,20 +73,17 @@ exports.createExample = catchAsync(async (req, res, next) => {
 
     for (let i = 0; i < arrayOfObjectLength; i++) {
       doc.arrayOfObject[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.arrayOfObject[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.arrayOfObject[i].createdAt = Date.now();
-      doc.arrayOfObject[i].updatedAt = Date.now();
     }
   }
 
   doc.createdBy = '5f990bb3c727e952a076f3b7';
-  doc.updatedBy = '5f990bb3c727e952a076f3b7';
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(`After Validation :${doc}`);
+  console.log(`After Validation :${doc}`);
 
   //const example = await doc.save({ validateBeforeSave: false });
 
@@ -114,7 +109,7 @@ exports.updateExample = catchAsync(async (req, res, next) => {
 
   if (exampleToUpdate.extRefObject) {
     const dataExtRefObject = new ExtObject(
-      JSON.parse(JSON.stringify(exampleToUpdate.extRefObject))
+      JSON.parse(JSON.stringify(exampleToUpdate.extRefObject)),
     );
 
     // validate seperately sub-documents if necessary

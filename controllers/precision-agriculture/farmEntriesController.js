@@ -46,27 +46,38 @@ exports.getFarmEntries = catchAsync(async (req, res, next) => {
 });
 
 exports.createFarmEntries = catchAsync(async (req, res, next) => {
-  console.log('Creating farmEntries');
+  console.log('Creating FarmEntries');
+  const { body } = req;
 
-    // parse through models
-    const doc = new FarmEntries(req.body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new FarmEntries(body);
+
+  // extRefObject
+
+  //  adminss
+  if (doc.admins) {
+    const adminsLength = doc.admins.length;
+    console.log(`Array of objects length ${adminsLength}`);
+
+    for (let i = 0; i < adminsLength; i++) {
+      doc.admins[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.admins[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.admins[i].createdAt = Date.now();
+      doc.admins[i].updatedAt = Date.now();
+    }
+  }
+
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
+  //console.log(`After Validation :${doc}`);
+
+  //const FarmEntries = await doc.save({ validateBeforeSave: false });
+ 
   const farmEntries = await FarmEntries.create(doc).then();
 
   res.status(201).json({
@@ -80,8 +91,28 @@ exports.createFarmEntries = catchAsync(async (req, res, next) => {
 
 exports.updateFarmEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating farmEntries Id ${id}`);
+  const { body } = req;
+  console.log(`Updating FarmEntries Id ${id}`);
 
+  // parse through models
+  const FarmEntriesToUpdate = new FarmEntries(body);
+  console.log(body);
+  const doc = FarmEntriesToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (FarmEntriesToUpdate.arrayOfString) {
+    const len = FarmEntriesToUpdate.arrayOfString.length;
+    console.log(len);
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const farmEntries = await FarmEntries.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();

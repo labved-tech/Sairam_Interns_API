@@ -48,26 +48,35 @@ exports.getCommentEntries = catchAsync(async (req, res, next) => {
 
 exports.createCommentEntries = catchAsync(async (req, res, next) => {
   console.log('Creating CommentEntries');
+  const { body } = req;
 
   //parse through models
-  const doc = new CommentEntries(req.body);
-  //console.log(doc);
+  const doc = new CommentEntries(body);
 
-  // validate seperately sub-documents if necessary
+  //  commentReplies
+  if (doc.commentReplies) {
+    const commentRepliesLength = doc.commentReplies.length;
+    console.log(`commentReplies length ${commentRepliesLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < commentRepliesLength; i++) {
+      doc.commentReplies[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.commentReplies[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.commentReplies[i].createdAt = Date.now();
+      doc.commentReplies[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
-  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(`After Validation :${doc}`);
+
+  //const example = await doc.save({ validateBeforeSave: false });
+
   const commentEntries = await CommentEntries.create(doc).then();
 
   res.status(201).json({

@@ -19,14 +19,15 @@ const commentEntriesSchema = new Schema(
         _commentorId: { type: mongoose.ObjectId },
         createdBy: { type: mongoose.ObjectId },
         updatedBy: { type: mongoose.ObjectId },
+        createdAt: { type: Date },
+        updatedAt: { type: Date },
       },
-      { timestamps: true },
     ],
     status: { type: String },
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 /* MODEL */
