@@ -45,26 +45,50 @@ exports.getFarmStrategy = catchAsync(async (req, res, next) => {
 });
 
 exports.createFarmStrategy = catchAsync(async (req, res, next) => {
-  console.log('Creating farmStrategy');
-    // parse through models
-    const doc = new FarmStrategy(req.body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  console.log('Creating FarmStrategy');
+  const { body } = req;
+
+  // parse through models
+  const doc = new FarmStrategy(body);
+
+  // extRefObject
+
+  //  Stages
+  if (doc.stages) {
+    const commoditiesLength = doc.stages.commodities.length;
+    console.log(`Array of objects length ${commoditiesLength}`);
+
+    for (let i = 0; i < commoditiesLength; i++) {
+      //commodities
+      if (doc.stages.commodities) {
+        const commoditiesLength = doc.stages.commodities.length;
+        console.log(`Array of objects length ${commoditiesLength}`);
+    
+        for (let j = 0; j < commoditiesLength; j++) {
+          doc.stages.commodities[j].createdBy = '5f990bb3c727e952a076f3b7';
+          doc.stages.commodities[j].updatedBy = '5f990bb3c727e952a076f3b7';
+          doc.stages.commodities[j].createdAt = Date.now();
+          doc.stages.commodities[j].updatedAt = Date.now();
+        }
+      }
+      doc.stages[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.stages[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.stages[i].createdAt = Date.now();
+      doc.stages[i].updatedAt = Date.now();
+    }
+  }
+
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
+  //console.log(`After Validation :${doc}`);
+
+  //const FarmStrategy = await doc.save({ validateBeforeSave: false });
+ 
   const farmStrategy = await FarmStrategy.create(req.body).then();
 
   res.status(201).json({

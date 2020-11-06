@@ -11,6 +11,10 @@ const farmEntriesSchema = new Schema({
     {
       _adminId: { type: mongoose.ObjectId },
       permissions: { type: String },
+      createdBy: { type: mongoose.ObjectId, required: true },
+      updatedBy: { type: mongoose.ObjectId, required: true },
+      createdAt: { type: Date, required: true },
+      updatedAt: { type: Date, required: true }
     },
   ],
   name: { type: String },

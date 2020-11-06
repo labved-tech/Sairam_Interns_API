@@ -23,7 +23,7 @@ const farmStrategySchema = new Schema({
       name: { type: String },
       description: { type: String },
       start: { type: Date },
-      end: { type: Date },
+      end: { type: Date },  
       commodities: [
         {
           _id: { type: mongoose.ObjectId },
@@ -39,16 +39,18 @@ const farmStrategySchema = new Schema({
           packingLists: { type: Array },
           ecommOrders: { type: Array },
           createdBy: { type: mongoose.ObjectId, required: true },
-          updatedBy: { type: mongoose.ObjectId, required: true }
-        },
-        { timestamps: true }
+          updatedBy: { type: mongoose.ObjectId, required: true },
+          createdAt: { type: Date, required: true },
+          updatedAt: { type: Date, required: true }
+        }
       ],
       stageOrder: { type: Number },
       editable: { type: Boolean },
       createdBy: { type: mongoose.ObjectId, required: true },
       updatedBy: { type: mongoose.ObjectId, required: true },
-    },
-    { timestamps: true }
+      createdAt: { type: Date, required: true },
+      updatedAt: { type: Date, required: true }
+    }
   ],
   _contractId: { type: mongoose.ObjectId },
   _exportedStrategyId: { type: mongoose.ObjectId },
