@@ -105,7 +105,10 @@ const KTLogin = (function () {
       .on('core.form.valid', function () {
         // Show loading state on button
         KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        console.log(form.querySelector('[name="username"]').value, form.querySelector('[name="password"]').value);
+        console.log(
+          form.querySelector('[name="email"]').value,
+          form.querySelector('[name="password"]').value
+        );
 
         // Simulate Ajax request
         /*        setTimeout(function () {
@@ -117,7 +120,7 @@ const KTLogin = (function () {
           .fetch(formSubmitUrl, {
             method: 'POST',
             dataType: 'json',
-            params: {
+            data: {
               name: form.querySelector('[name="email"]').value,
               email: form.querySelector('[name="password"]').value,
             },
@@ -463,13 +466,20 @@ const KTLogin = (function () {
   return {
     init: function () {
       _handleFormSignin();
-      _handleFormForgot();
-      _handleFormSignup();
+      //_handleFormForgot();
+      //_handleFormSignup();
     },
   };
 })();
 
 // Class Initialization
-jQuery(document).ready(function () {
+/* jQuery(document).ready(function () {
+  console.log('All assets are loaded');
+
+  KTLogin.init();
+}); */
+
+$(window).on('load', function () {
+  console.log('All assets are loaded');
   KTLogin.init();
 });
