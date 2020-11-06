@@ -118,7 +118,7 @@ const KTLogin = (function () {
             method: 'POST',
             dataType: 'json',
             params: {
-              name: form.querySelector('[name="username"]').value,
+              name: form.querySelector('[name="email"]').value,
               email: form.querySelector('[name="password"]').value,
             },
           })
