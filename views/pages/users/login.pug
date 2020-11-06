@@ -86,7 +86,7 @@ html(lang='en')
 								// begin::Form group
 								div(class='form-group')
 									label(class='font-size-h6 font-weight-bolder text-dark') Your Email
-									input(class='form-control h-auto py-7 px-6 rounded-lg border-0' type='text' name='username' autocomplete='off')
+									input(class='form-control h-auto py-7 px-6 rounded-lg border-0' type='text' name='email' autocomplete='off')
 								// end::Form group
 								// begin::Form group
 								div(class='form-group')
@@ -118,12 +118,14 @@ html(lang='en')
 		// end::Main
 		// begin::Global Config(global config for global JS scripts)
 		// end::Global Config
-		// begin::Global Theme Bundle(used by all pages)
-		script(src='/plugins/global/plugins.bundle.js')
-		script(src='/plugins/custom/prismjs/prismjs.bundle.js')
-		script(src='/js/scripts.bundle.js')
-		// end::Global Theme Bundle
+
 		// begin::Page Scripts(used by this page)
+<<<<<<< Updated upstream
 		script(src='/js/pages/custom/login/login-3.js')
+=======
+		block js-files
+			script(src='js/login.js')
+		//script(src='/js/pages/custom/login/login-3.js')
+>>>>>>> Stashed changes
 		// end::Page Scripts
 	// end::Body
