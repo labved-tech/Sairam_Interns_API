@@ -20,6 +20,6 @@
 			"xutility": "cpp"
 		},
 		"editor.formatOnSave": true,
-		"prettier.configPath": "/prettier.rc"
+		"prettier.embeddedLanguageFormatting": "off"
 	}
 }

@@ -1,0 +1,188 @@
+{
+	"info": {
+		"_postman_id": "7f096d9e-4750-482b-86a1-393e54aa3657",
+		"name": "example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAllExample",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/example",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"example"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createExample",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"sai\",\r\n    \"email\": \"test@test.com\",\r\n    \"mobNo\": 987654321,\r\n    \"test\": \"test\",\r\n    \"inLineObject\": {\r\n        \"email\": \"test@test.com\",\r\n        \"mobNo\": 987654321,\r\n        \"test\": \"Test\"\r\n    },\r\n    \"extRefObject\": {\r\n        \"email\": \"test@test.com\",\r\n        \"mobNo\": 987654321,\r\n        \"test\": \"Test\"\r\n    },\r\n    \"arrayOfString\": [\r\n        \"tag1\",\r\n        \"tag2\"\r\n    ],\r\n    \"arrayOfObject\": [\r\n        {\r\n            \"email\": \"test@test.com\",\r\n            \"mobNo\": 9884052896,\r\n            \"test\": \"Test\"\r\n        },\r\n        {\r\n            \"email\": \"test@test.com\",\r\n            \"mobNo\": 9884052896,\r\n            \"test\": \"Test\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/example",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"example"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getExample",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/example/5f856561fa40dc41145f05a5",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"example",
+						"5f856561fa40dc41145f05a5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateExample",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Sai\",\r\n    \"extRefObject\": {\r\n        \"email\": \"sai@test.com\",\r\n        \"mobNo\": 987654321,\r\n        \"test\": \"Test\"\r\n    },\r\n    \"arrayOfString\": [\r\n        {\r\n            \"name\": \"test1\",\r\n            \"test\": \"Test1\"\r\n        },\r\n        {\r\n            \"name\": \"test2\",\r\n            \"test\": \"Test2\"\r\n        },\r\n        {\r\n            \"name\": \"test3\",\r\n            \"test\": \"Test3\"\r\n        },\r\n        {\r\n            \"name\": \"test4\",\r\n            \"test\": \"Test4\"\r\n        },\r\n        {\r\n            \"name\": \"test5\",\r\n            \"test\": \"Test5\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/example/5f856561fa40dc41145f05a5",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"example",
+						"5f856561fa40dc41145f05a5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteExample",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/example/5f8564ef759bbf4aac31d79e",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"example",
+						"5f8564ef759bbf4aac31d79e"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
