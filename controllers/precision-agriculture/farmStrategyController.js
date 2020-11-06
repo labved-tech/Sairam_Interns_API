@@ -55,20 +55,20 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
 
   //  Stages
   if (doc.stages) {
-    const commoditiesLength = doc.stages.commodities.length;
-    console.log(`Array of objects length ${commoditiesLength}`);
+    const stagesLength = doc.stages.length;
+    console.log(`Array of objects  length ${stagesLength}`);
 
-    for (let i = 0; i <commoditiesLength; i++) {
+    for (let i = 0; i <stagesLength; i++) {
       //commodities
       if (doc.stages.commodities) {
         const commoditiesLength = doc.stages.commodities.length;
         console.log(`Array of objects length ${commoditiesLength}`);
     
         for (let j = 0; j < commoditiesLength; j++) {
-          doc.stages.commodities[j].createdBy = '5f990bb3c727e952a076f3b7';
-          doc.stages.commodities[j].updatedBy = '5f990bb3c727e952a076f3b7';
-          doc.stages.commodities[j].createdAt = Date.now();
-          doc.stages.commodities[j].updatedAt = Date.now();
+          doc.stages[i].commodities[j].createdBy = '5f990bb3c727e952a076f3b7';
+          doc.stages[i].commodities[j].updatedBy = '5f990bb3c727e952a076f3b7';
+          doc.stages[i].commodities[j].createdAt = Date.now();
+          doc.stages[i].commodities[j].updatedAt = Date.now();
         }
       }
       doc.stages[i].createdBy = '5f990bb3c727e952a076f3b7';
