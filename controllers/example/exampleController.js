@@ -47,10 +47,11 @@ exports.getExample = catchAsync(async (req, res, next) => {
 exports.createExample = catchAsync(async (req, res, next) => {
   console.log('Creating Example');
   const { body } = req;
+  console.log(body)
 
   // parse through models
   const doc = new Example(body);
-
+  console.log(doc)
   // extRefObject
   if (doc.extRefObject) {
     // parse through models
