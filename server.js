@@ -1,7 +1,6 @@
 /* DEPENDENCIES */
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const http = require('http');
 
 /* MIDDLEWARES */
 dotenv.config({ path: './config.env' });

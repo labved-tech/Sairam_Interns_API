@@ -1,5 +1,6 @@
 {
     "eslint.format.enable": true,
     "editor.formatOnSave": true,
-    "prettier.embeddedLanguageFormatting": "off"
+    "prettier.embeddedLanguageFormatting": "off",
+    "prettier.enable": false
 }
