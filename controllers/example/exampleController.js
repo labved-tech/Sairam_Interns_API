@@ -6,6 +6,7 @@ const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
 const Example = require('../../models/example/exampleModel');
 const ExtObject = require('../../models/example/extObjectModel');
+const User = require('../../models/user/userModel');
 
 /* DATABASE */
 
@@ -51,18 +52,21 @@ exports.createExample = catchAsync(async (req, res, next) => {
   const doc = new Example(body);
 
   // extRefObject
-  const dataExtRefObject = new ExtObject(
-    JSON.parse(JSON.stringify(body.extRefObject))
-  );
+  if (doc.extRefObject) {
+    // parse through models
+    const dataExtRefObject = new ExtObject(
+      JSON.parse(JSON.stringify(body.extRefObject))
+    );
 
-  // update timestamps & Id's
-  dataExtRefObject.createdBy = '5f990bb3c727e952a076f3b7';
-  dataExtRefObject.updatedBy = '5f990bb3c727e952a076f3b7';
-  dataExtRefObject.createdAt = Date.now();
-  dataExtRefObject.updatedAt = Date.now();
+    // update timestamps & Id's
+    dataExtRefObject.createdBy = '5f990bb3c727e952a076f3b7';
+    dataExtRefObject.updatedBy = '5f990bb3c727e952a076f3b7';
+    dataExtRefObject.createdAt = Date.now();
+    dataExtRefObject.updatedAt = Date.now();
 
-  await dataExtRefObject.validate();
-  doc.extRefObject = dataExtRefObject; // replace doc if necessary
+    await dataExtRefObject.validate();
+    doc.extRefObject = dataExtRefObject; // replace doc if necessary
+  }
 
   //  arrayOfObjects
   if (doc.arrayOfObject) {
@@ -77,13 +81,18 @@ exports.createExample = catchAsync(async (req, res, next) => {
     }
   }
 
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
+
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  console.log(doc);
+  //console.log(`After Validation :${doc}`);
 
-  const example = await Example.create(doc).then(); //doc.save();
+  //const example = await doc.save({ validateBeforeSave: false });
+
+  const example = await Example.create(doc).then();
 
   res.status(201).json({
     status: 'sucess',
