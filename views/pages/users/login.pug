@@ -75,7 +75,7 @@ html(lang='en')
 						// begin::Signin
 						div(class='login-form')
 							// begin::Form
-							form#kt_login_singin_form(class='form' action='/api/v1/users/login')
+							form#kt_login_singin_form(class='form' action='http://localhost:3000/api/v1/users/login')
 								// begin::Title
 								div(class='pb-5 pb-lg-15')
 									h3(class='font-weight-bolder text-dark font-size-h2 font-size-h1-lg') Sign In
@@ -124,7 +124,6 @@ html(lang='en')
 		script(src='/js/scripts.bundle.js')
 		// end::Global Theme Bundle
 		// begin::Page Scripts(used by this page)
-		//script(src='js/login.js')
 		script(src='/js/pages/custom/login/login-3.js')
 		// end::Page Scripts
 	// end::Body

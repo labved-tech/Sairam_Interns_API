@@ -105,6 +105,7 @@ const KTLogin = (function () {
       .on('core.form.valid', function () {
         // Show loading state on button
         KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
+        console.log(form.querySelector('[name="username"]').value, form.querySelector('[name="password"]').value);
 
         // Simulate Ajax request
         /*        setTimeout(function () {
