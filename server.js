@@ -9,7 +9,7 @@ const app = require('./app');
 
 /* ENVIRONMENT */
 // console.log(app.get('env'));
-//console.log(process.env);
+// console.log(process.env);
 console.log(process.env.NODE_ENV);
 let DB = process.env.DATABASE_LOCAL;
 
@@ -25,7 +25,7 @@ mongoose
   })
   .then((con) => {
     console.log('Connection to database sucessfull');
-    //console.log(con.connections);
+    // console.log(con.connections);
   });
 
 /* SERVER */
@@ -49,3 +49,6 @@ process.on('SIGTERM', () => {
     console.log('💥 Process terminated!');
   });
 });
+
+const x = 33;
+x = 66;
