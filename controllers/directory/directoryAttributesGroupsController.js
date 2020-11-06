@@ -50,24 +50,34 @@ exports.getDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
 
 exports.createDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   console.log('Creating directoryAttributesGroups');
+  const { body } = req;
+
   // parse through models
-  const doc = new DirectoryAttributesGroups(req.body);
-  console.log(doc);
+  const doc = new DirectoryAttributesGroups(body);
 
-  // validate seperately sub-documents if necessary
+  //  directoryAttributes
+  if (doc.directoryAttributes) {
+    const directoryAttributesLength = doc.directoryAttributes.length;
+    console.log(`directoryAttributes length ${directoryAttributesLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < commentRepliesLength; i++) {
+      doc.directoryAttributes[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.directoryAttributes[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.directoryAttributes[i].createdAt = Date.now();
+      doc.directoryAttributes[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
+  console.log(`After Validation :${doc}`);
+
   //console.log(doc);
 
   const directoryAttributesGroups = await DirectoryAttributesGroups.create(

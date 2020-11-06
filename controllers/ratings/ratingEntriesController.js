@@ -48,25 +48,35 @@ exports.getRatingEntries = catchAsync(async (req, res, next) => {
 
 exports.createRatingEntries = catchAsync(async (req, res, next) => {
   console.log('Creating RatingEntries');
+  const { body } = req;
+
   // parse through models
   const doc = new RatingEntries(req.body);
-  console.log(doc);
 
-  // validate seperately sub-documents if necessary
+  //  ratingEntries
+  if (doc.ratingEntries) {
+    const ratingEntriesLength = doc.ratingEntries.length;
+    console.log(`ratingEntries length ${ratingEntries}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < ratingEntriesLength; i++) {
+      doc.ratingEntries[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.ratingEntries[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.ratingEntries[i].createdAt = Date.now();
+      doc.ratingEntries[i].updatedAt = Date.now();
+    }
+  }
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(`After Validation :${doc}`);
+
+
 
   const ratingEntries = await RatingEntries.create(doc).then();
 
