@@ -1,7 +1,6 @@
 /* DEPENDENCIES */
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
-const http = require('http');
 
 /* MIDDLEWARES */
 dotenv.config({ path: './config.env' });
@@ -49,3 +48,6 @@ process.on('SIGTERM', () => {
     console.log('💥 Process terminated!');
   });
 });
+
+const x = 32;
+x = 65;
