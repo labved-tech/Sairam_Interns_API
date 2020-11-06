@@ -48,6 +48,3 @@ process.on('SIGTERM', () => {
     console.log('💥 Process terminated!');
   });
 });
-
-const x = 32;
-x = 65;
