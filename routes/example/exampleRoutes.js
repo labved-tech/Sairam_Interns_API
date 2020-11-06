@@ -17,16 +17,16 @@ router.param('id', exampleController.checkID);
 /* ROUTES */
 router
   .route('/')
-  .get(authController.protect, exampleController.getAllExample)
-  .post(authController.protect, exampleController.createExample);
+  .get(exampleController.getAllExample)
+  .post(exampleController.createExample);
 router
   .route('/:id')
-  .get(authController.protect, exampleController.getExample)
-  .patch(authController.protect, exampleController.updateExample)
+  .get(exampleController.getExample)
+  .patch(exampleController.updateExample)
   .delete(
     authController.protect,
     authController.restrictTo('admin'),
-    exampleController.deleteExample
+    exampleController.deleteExample,
   );
 
 module.exports = router;

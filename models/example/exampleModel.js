@@ -17,16 +17,16 @@ const exampleSchema = new Schema(
       {
         email: String,
         mobNo: Number,
-        createdBy: { type: mongoose.ObjectId, required: true },
-        updatedBy: { type: mongoose.ObjectId, required: true },
-        createdAt: { type: Date, required: true },
-        updatedAt: { type: Date, required: true },
+        createdBy: { type: mongoose.ObjectId },
+        updatedBy: { type: mongoose.ObjectId },
+        createdAt: { type: Date },
+        updatedAt: { type: Date },
       },
     ],
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
 /* MODEL */

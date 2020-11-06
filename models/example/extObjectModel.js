@@ -8,16 +8,16 @@ const { Schema } = mongoose;
 const extObjectSchema = new Schema({
   email: String,
   mobNo: Number,
-  createdBy: { type: mongoose.ObjectId, required: 1 },
-  updatedBy: { type: mongoose.ObjectId, required: 1 },
-  createdAt: { type: Date, required: 1 },
-  updatedAt: { type: Date, required: 1 },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
+  createdAt: { type: Date },
+  updatedAt: { type: Date },
 });
 
 /* MODEL */
 const ExtObject = mongoose.model(
   'extObject', // collection name
-  extObjectSchema // schema name
+  extObjectSchema, // schema name
 );
 
 /* EXPORT */
