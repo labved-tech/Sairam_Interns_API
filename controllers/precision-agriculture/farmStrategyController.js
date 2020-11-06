@@ -58,7 +58,7 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
     const commoditiesLength = doc.stages.commodities.length;
     console.log(`Array of objects length ${commoditiesLength}`);
 
-    for (let i = 0; i < commoditiesLength; i++) {
+    for (let i = 0; i <commoditiesLength; i++) {
       //commodities
       if (doc.stages.commodities) {
         const commoditiesLength = doc.stages.commodities.length;

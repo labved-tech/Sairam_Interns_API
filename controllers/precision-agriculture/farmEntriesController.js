@@ -102,8 +102,8 @@ exports.updateFarmEntries = catchAsync(async (req, res, next) => {
 
 
 
-  if (FarmEntriesToUpdate.arrayOfString) {
-    const len = FarmEntriesToUpdate.arrayOfString.length;
+  if (FarmEntriesToUpdate.admins) {
+    const len = FarmEntriesToUpdate.admins.length;
     console.log(len);
   }
 
@@ -113,14 +113,14 @@ exports.updateFarmEntries = catchAsync(async (req, res, next) => {
 
   // check the doc before doing database operation
   //console.log(doc);
-  const farmEntries = await FarmEntries.findByIdAndUpdate(id, req.body, {
+  const farmEntries = await FarmEntries.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
   res.status(201).json({
     status: 'sucess',
     message: `Updated farmEntries Id=${id}`,
-    data: { farmEntries },
+    data:  { farmEntries },
   });
   next();
 });

@@ -112,7 +112,7 @@ exports.updateLeadEntries = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
 
-  const leadEntries = await LeadEntries.findByIdAndUpdate(id, req.body, {
+  const leadEntries = await LeadEntries.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
