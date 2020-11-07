@@ -10,8 +10,8 @@ const pagesSchema = new Schema({
   state: { type: Object },
   _ownerid: { type: mongoose.ObjectId },
   contents: [],
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true }
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId}
 },
 { timestamps: true }
 );

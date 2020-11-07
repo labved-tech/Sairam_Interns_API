@@ -11,8 +11,8 @@ const formsSchema = new Schema({
   aliveTill: { type: Date },
   accountInclude: [],
   accountExclude: [],
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true }
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId}
 },
 { timestamps: true }
 );

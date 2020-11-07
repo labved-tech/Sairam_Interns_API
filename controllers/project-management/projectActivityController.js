@@ -52,8 +52,10 @@ exports.getProjectActivity = catchAsync(async (req, res, next) => {
 
 exports.createProjectActivity = catchAsync(async (req, res, next) => {
   console.log('Creating projectActivity');
+  const { body } = req;
+
     // parse through models
-    const doc = new ProjectActivity(req.body);
+    const doc = new ProjectActivity(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

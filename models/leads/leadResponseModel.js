@@ -12,8 +12,8 @@ const leadResponseSchema = new Schema({
   isStatusChange: { type: Boolean },
   message: { type: String },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

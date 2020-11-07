@@ -11,10 +11,10 @@ const farmEntriesSchema = new Schema({
     {
       _adminId: { type: mongoose.ObjectId },
       permissions: { type: String },
-      createdBy: { type: mongoose.ObjectId, required: true },
-      updatedBy: { type: mongoose.ObjectId, required: true },
-      createdAt: { type: Date, required: true },
-      updatedAt: { type: Date, required: true }
+      createdBy: { type: mongoose.ObjectId},
+      updatedBy: { type: mongoose.ObjectId},
+      createdAt: { type: Date},
+      updatedAt: { type: Date}
     },
   ],
   name: { type: String },
@@ -28,8 +28,8 @@ const farmEntriesSchema = new Schema({
     units: { type: String },
   },
   documents: [],
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

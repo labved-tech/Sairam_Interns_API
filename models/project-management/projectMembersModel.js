@@ -9,8 +9,8 @@ const projectMembersSchema = new Schema({
   _projectId: { type: mongoose.ObjectId },
   _userId: { type: mongoose.ObjectId },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

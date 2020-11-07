@@ -52,8 +52,9 @@ exports.getReports = catchAsync(async (req, res, next) => {
 
 exports.createReports = catchAsync(async (req, res, next) => {
   console.log('Creating reports');
+  const { body } = req;
     // parse through models
-    const doc = new Reports(req.body);
+    const doc = new Reports(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

@@ -9,8 +9,8 @@ const farmRegionsSchema = new Schema({
   _farmId: { type: mongoose.ObjectId },
   _zoneId: { type: mongoose.ObjectId },
   consultant: [],
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true }
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId}
 },
 { timestamps: true }
 );

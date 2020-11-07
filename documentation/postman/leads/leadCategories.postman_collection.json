@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"name\":\"sai\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\"\r\n}",
+					"raw": " {\r\n    \"name\":\"Vicky\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,7 +62,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-categories/0",
+					"raw": "localhost:3000/api/v1/lead-categories/5fa6355656ba456cb48f93ba",
 					"host": [
 						"localhost"
 					],
@@ -71,7 +71,7 @@
 						"api",
 						"v1",
 						"lead-categories",
-						"0"
+						"5fa6355656ba456cb48f93ba"
 					]
 				}
 			},
@@ -84,7 +84,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": " {\r\n    \"name\":\"sai\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\"\r\n}",
+					"raw": " {\r\n    \"name\":\"Vicky\",\r\n    \"description\":\"I'm a student\",\r\n    \"notes\":\"In College\",\r\n    \"status\":\"Student\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +92,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-categories/0",
+					"raw": "localhost:3000/api/v1/lead-categories/5fa6355656ba456cb48f93ba",
 					"host": [
 						"localhost"
 					],
@@ -101,7 +101,7 @@
 						"api",
 						"v1",
 						"lead-categories",
-						"0"
+						"5fa6355656ba456cb48f93ba"
 					]
 				}
 			},
@@ -113,7 +113,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-categories/0",
+					"raw": "localhost:3000/api/v1/lead-categories/5fa6355656ba456cb48f93ba",
 					"host": [
 						"localhost"
 					],
@@ -122,7 +122,7 @@
 						"api",
 						"v1",
 						"lead-categories",
-						"0"
+						"5fa6355656ba456cb48f93ba"
 					]
 				}
 			},

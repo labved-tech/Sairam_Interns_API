@@ -52,8 +52,10 @@ exports.getProjectAdmins = catchAsync(async (req, res, next) => {
 
 exports.createProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Creating projectAdmins');
+  const { body } = req;
+
     // parse through models
-    const doc = new ProjectAdmins(req.body);
+    const doc = new ProjectAdmins(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

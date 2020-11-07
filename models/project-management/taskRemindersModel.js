@@ -12,8 +12,8 @@ const taskRemindersSchema = new Schema({
   _taskId: { type: mongoose.ObjectId },
   notifyByEmail: { type: Boolean },
   creator: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );
