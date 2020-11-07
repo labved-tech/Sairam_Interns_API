@@ -48,24 +48,32 @@ exports.getDirectoryEntries = catchAsync(async (req, res, next) => {
 
 exports.createDirectoryEntries = catchAsync(async (req, res, next) => {
   console.log('Creating directoryEntries');
+  const { body } = req;
+
   // parse through models
   const doc = new DirectoryEntries(req.body);
-  console.log(doc);
 
-  // validate seperately sub-documents if necessary
+  //  commentReplies
+  if (doc.directoryEntries) {
+    const directoryEntriesLength = doc.directoryEntries.length;
+    console.log(`directoryEntries length ${directoryEntriesLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < directoryEntriesLength; i++) {
+      doc.directoryEntries[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.directoryEntries[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.directoryEntries[i].createdAt = Date.now();
+      doc.directoryEntries[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
-  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
+  console.log(`After Validation :${doc}`);
   //console.log(doc);
 
   const directoryEntries = await DirectoryEntries.create(doc).then();
