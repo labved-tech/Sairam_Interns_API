@@ -14,8 +14,8 @@ const milestoneSchema = new Schema({
   color: { type: String },
   milestone_order: { type: String },
   datecreated: { type: Date },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

@@ -52,9 +52,10 @@ exports.getTaskTimers = catchAsync(async (req, res, next) => {
 
 exports.createTaskTimers = catchAsync(async (req, res, next) => {
   console.log('Creating taskTimers');
-
+  const { body } = req;
+  
     // parse through models
-    const doc = new TaskTimers(req.body);
+    const doc = new TaskTimers(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

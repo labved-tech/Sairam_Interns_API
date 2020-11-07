@@ -52,8 +52,10 @@ exports.getTaskEntries = catchAsync(async (req, res, next) => {
 
 exports.createTaskEntries = catchAsync(async (req, res, next) => {
   console.log('Creating taskEntries');
+  const { body } = req;
+
     // parse through models
-    const doc = new TaskEntries(req.body);
+    const doc = new TaskEntries(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

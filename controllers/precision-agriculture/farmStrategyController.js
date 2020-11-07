@@ -51,8 +51,6 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
   // parse through models
   const doc = new FarmStrategy(body);
 
-  // extRefObject
-
   //  Stages
   if (doc.stages) {
     const stagesLength = doc.stages.length;
@@ -89,7 +87,7 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
 
   //const FarmStrategy = await doc.save({ validateBeforeSave: false });
  
-  const farmStrategy = await FarmStrategy.create(req.body).then();
+  const farmStrategy = await FarmStrategy.create(doc).then();
 
   res.status(201).json({
     status: 'sucess',
@@ -104,7 +102,7 @@ exports.updateFarmStrategy = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating farmStrategy Id ${id}`);
 
-  const farmStrategy = await FarmStrategy.findByIdAndUpdate(id, req.body, {
+  const farmStrategy = await FarmStrategy.findByIdAndUpdate(id,doc, {
     new: true,
   }).then();
 

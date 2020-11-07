@@ -52,8 +52,10 @@ exports.getTaskChecklistEntries = catchAsync(async (req, res, next) => {
 
 exports.createTaskChecklistEntries = catchAsync(async (req, res, next) => {
   console.log('Creating taskChecklistEntries');
+  const { body } = req;
+
     // parse through models
-    const doc = new TaskChecklistEntries(req.body);
+    const doc = new TaskChecklistEntries(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

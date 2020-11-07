@@ -51,17 +51,15 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
   // parse through models
   const doc = new LeadEntries(body);
 
-  // extRefObject
-  
   //  contactInformation
   if (doc.contactInformation) {
     const contactInformationLength = doc.contactInformation.length;
-    console.log(`Array of objects length ${contactInformationLength}`);
+    console.log(`Contact Information length ${contactInformationLength}`);
 
     for (let i = 0; i < contactInformationLength; i++) {
       doc.contactInformation[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.contactInformation[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.contactInformation[i].createdAt = Date.now();
+      doc.contactInformation[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.contactInformation[i].updatedAt = Date.now();
     }
   }
@@ -75,7 +73,7 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(`After Validation :${doc}`);
 
-  //const LeadEntries = await doc.save({ validateBeforeSave: false });
+  //const leadEntries = await doc.save({ validateBeforeSave: false });
 
 
   const leadEntries = await LeadEntries.create(doc).then();
@@ -89,32 +87,43 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
 });
 
 exports.updateLeadEntries = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
+  const { id } = req.param;
+
+  const doc = await LeadEntries.findById(id);
+  console.log(doc)
+
   const { body } = req;
   console.log(`Updating LeadEntries Id ${id}`);
 
   // parse through models
-  const LeadEntriesToUpdate = new LeadEntries(body);
-  console.log(body);
-  const doc = LeadEntriesToUpdate.toObject();
-  delete doc._id;
+  updatedDoc = new LeadEntries(body);
+  //updatedDoc = updatedDoc.toObject();
+  //delete updatedDoc._id;
 
-  if (LeadEntriesToUpdate.contactInformation) {
-    const len = LeadEntriesToUpdate.contactInformation.length;
-    console.log(len);
+  if (updatedDoc.contactInformation) {
+    const contactInformationLength = updatedDoc.contactInformation.length;
+    console.log(contactInformationLength);
+    for (let i = 0; i < contactInformationLength; i++) {
+      updatedDoc.contactInformation[i].UpdatedBy = '5f990bb3c727e952a076f3b7';
+      updatedDoc.contactInformation[i].UpdatedAt = Date.now();
+    }
   }
 
   // update timestamps & Id's
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedAt;
+  updatedDoc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  updatedDoc.updatedAt = Date.now();
+
+  // replace if necessarry
+  //doc = updatedDoc ;
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(doc);
 
+  //const leadEntries = await doc.save();
 
   const leadEntries = await LeadEntries.findByIdAndUpdate(id, doc, {
-    new: true,
-  }).then();
+     new: true,
+   }).then();
 
   res.status(201).json({
     status: 'sucess',

@@ -12,8 +12,8 @@ const taskChecklistEntriesSchema = new Schema({
   dateadded: { type: Date },
   addedBy: { type: String },
   listOrder: { type: Number },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

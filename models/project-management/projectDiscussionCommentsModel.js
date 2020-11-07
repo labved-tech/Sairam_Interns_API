@@ -17,8 +17,8 @@ const projectDiscussionCommentsSchema = new Schema({
   fileName: { type: String },
   fileType: { type: String },
   _projectId: { type: mongoose.ObjectId },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

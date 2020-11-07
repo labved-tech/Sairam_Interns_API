@@ -52,8 +52,9 @@ exports.getAnalytics = catchAsync(async (req, res, next) => {
 
 exports.createAnalytics = catchAsync(async (req, res, next) => {
   console.log('Creating analytics');
+  const { body } = req;
     // parse through models
-    const doc = new Analytics(req.body);
+    const doc = new Analytics(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

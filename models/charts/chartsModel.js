@@ -9,8 +9,8 @@ const chartsSchema = new Schema({
   name: { type: String },
   state: { type: Object },
   _ownerId: { type: mongoose.ObjectId },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true }
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId}
 },
 { timestamps: true }
 );

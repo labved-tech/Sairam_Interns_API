@@ -17,8 +17,8 @@ const projectEntriesSchema = new Schema({
   type: { type: String },
   _farmId: { type: mongoose.ObjectId },
   _farmRegionId: { type: mongoose.ObjectId },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

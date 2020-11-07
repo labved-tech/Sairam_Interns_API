@@ -13,8 +13,8 @@ const projectActivitySchema = new Schema({
   descriptionKey: { type: String },
   additionalData: { type: String },
   dateadded: { type: Date },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

@@ -52,8 +52,10 @@ exports.getProjectTaskStatus = catchAsync(async (req, res, next) => {
 
 exports.createProjectTaskStatus = catchAsync(async (req, res, next) => {
   console.log('Creating projectTaskStatus');
+  const { body } = req;
+
     // parse through models
-    const doc = new ProjectTaskStatus(req.body);
+    const doc = new ProjectTaskStatus(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

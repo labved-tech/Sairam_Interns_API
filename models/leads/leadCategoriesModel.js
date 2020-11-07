@@ -10,8 +10,8 @@ const leadCategoriesSchema = new Schema({
   description: { type: String },
   notes: { type: String },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId, reqired:1 },
-  updatedBy: { type: mongoose.ObjectId, reqired:1},
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId},
 },
 { timestamps: true }
 );

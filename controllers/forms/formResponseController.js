@@ -52,8 +52,9 @@ exports.getFormResponse = catchAsync(async (req, res, next) => {
 
 exports.createFormResponse = catchAsync(async (req, res, next) => {
   console.log('Creating formResponse');
+  const { body } = req;
     // parse through models
-    const doc = new FormResponse(req.body);
+    const doc = new FormResponse(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary
