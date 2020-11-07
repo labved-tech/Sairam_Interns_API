@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cdc43e3e-340c-4648-a9c2-809cf3e4ae50",
+		"_postman_id": "9b25e315-101f-4e9e-87e0-c75e859e3d27",
 		"name": "quotation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -47,10 +47,48 @@
 			"response": []
 		},
 		{
+			"name": "createQuotation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n  \"moduleReferance\":\"reference\" ,\n  \"header\": \"header\",\n  \"date\": \"\",\n  \"_buyerId\": 23,\n  \"buyerName\": \"jane\",\n  \"buyerAddress\": \"\",\n  \"buyerEmail\": \"jane@email.com\",\n  \"buyerContactNumber\": 99997790,\n  \"buyerContactNumbertype\": \"mobile\",\n  \"_sellerId\": \"\",\n  \"sellerName\": \"joy\",\n  \"sellerAttentionName\": \"joywoods\",\n  \"sellerAddress\": \"\",\n  \"sellerEmail\": \"joy@email.com\",\n  \"sellerContactNumber\": 1004288,\n  \"sellerContactNumbertype\": \"mobile\",\n  \"subject\": \"sellerinfo\",\n  \"body\": \"\",\n  \"itemTable\": [],\n  \"termsAndConditions\": \"no returns\",\n  \"footer\": \"\",\n  \"paymentMethods\": {\n    \n    \"type\": \"type\",\n    \"meta\": \"\"\n  },\n  \"QuotationNumber\": 789\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/quotation",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"quotation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updateQuotation",
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n  \"moduleReferance\":\"reference\" ,\n  \"header\": \"header\",\n  \"date\": \"\",\n  \"_buyerId\": 23,\n  \"buyerName\": \"jane\",\n  \"buyerAddress\": \"\",\n  \"buyerEmail\": \"jane@email.com\",\n  \"buyerContactNumber\": 99997790,\n  \"buyerContactNumbertype\": \"mobile\",\n  \"_sellerId\": \"\",\n  \"sellerName\": \"joy\",\n  \"sellerAttentionName\": \"joywoods\",\n  \"sellerAddress\": \"\",\n  \"sellerEmail\": \"joy@email.com\",\n  \"sellerContactNumber\": 1004288,\n  \"sellerContactNumbertype\": \"mobile\",\n  \"subject\": \"sellerinfo\",\n  \"body\": \"\",\n  \"itemTable\": [],\n  \"termsAndConditions\": \"no returns\",\n  \"footer\": \"\",\n  \"paymentMethods\": {\n    \n    \"type\": \"type\",\n    \"meta\": \"\"\n  },\n  \"QuotationNumber\": 789\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/quotation/1",
 					"host": [
@@ -62,26 +100,6 @@
 						"v1",
 						"quotation",
 						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createQuotation",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/quotation",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"quotation"
 					]
 				}
 			},

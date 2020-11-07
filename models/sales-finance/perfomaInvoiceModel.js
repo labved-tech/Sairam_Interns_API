@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const perfomaInvoiceSchema = new Schema({
   _id: { type: mongoose.ObjectId },
-  profomaInvoiceNo: { type: String },
+  perfomaInvoiceNo: { type: String },
   moduleReferance: { type: String },
   header: { type: String },
   Date: { type: Date },
@@ -47,7 +47,7 @@ const perfomaInvoiceSchema = new Schema({
   itemTable: [
     {
       serialNo: { type: String },
-      itemCode: { tyoe: String },
+      itemCode: { type: String },
       name: { type: String },
       quantity: { type: Number },
       unitofMeasurement: { type: String },
