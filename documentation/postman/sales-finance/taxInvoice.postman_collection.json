@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "13296d41-84da-433e-b65c-a9e6f011cd04",
+		"_postman_id": "b1810fce-c1d2-46d9-94d7-abd97e806a11",
 		"name": "taxInvoice",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -51,6 +51,15 @@
 			"request": {
 				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"taxInvoiceNo\": \"shf786\",\n  \"moduleReferance\": \"reference\",\n  \"header\": \"header\",\n  \"Date\": \"6/11/20\",\n  \"_orderId\": 5,\n \" orderDate\": \"5/11/20\",\n  \"_buyerId\": 50,\n   \"billingName\": \"yash\",\n  \"billingAddress\": \" \",\n  \"billingEmail\": \"ash@email.com\",\n  \"contactNumber\": \"7888\",\n  \"billingGSTIN\": \"\",\n   \"consigneeName\": \"ted\",\n  \"consigneeAddress\": \"\",\n  \"consigneeContactNumber\": \"67899\",\n  \"_sellerId\": \"woodpecker\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": \"\",\n  \"sellerContactNumber\": \"698300032\",\n \" carrierTrackingNo\": \"7890\",\n  \"carrierCharges\": 100,\n \" paymentMeta\": {\n    \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n  },\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\n\n \"totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": \"\",\n  \"footer\": \"\",\n  \"meta\": \"\",\n  \"source\": \"local\",\n  \"taxInvoiceNumber\": 9000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/tax-invoice",
 					"host": [
@@ -71,6 +80,15 @@
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"taxInvoiceNo\": \"shf786\",\n  \"moduleReferance\": \"reference\",\n  \"header\": \"header\",\n  \"Date\": \"6/11/20\",\n  \"_orderId\": 5,\n \" orderDate\": \"5/11/20\",\n  \"_buyerId\": 50,\n   \"billingName\": \"yash\",\n  \"billingAddress\": \" \",\n  \"billingEmail\": \"ash@email.com\",\n  \"contactNumber\": \"7888\",\n  \"billingGSTIN\": \"\",\n   \"consigneeName\": \"ted\",\n  \"consigneeAddress\": \"\",\n  \"consigneeContactNumber\": \"67899\",\n  \"_sellerId\": \"woodpecker\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": \"\",\n  \"sellerContactNumber\": \"698300032\",\n \" carrierTrackingNo\": \"7890\",\n  \"carrierCharges\": 100,\n \" paymentMeta\": {\n    \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n  },\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\n\n \"totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": \"\",\n  \"footer\": \"\",\n  \"meta\": \"\",\n  \"source\": \"local\",\n  \"taxInvoiceNumber\": 9000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/tax-invoice/2",
 					"host": [

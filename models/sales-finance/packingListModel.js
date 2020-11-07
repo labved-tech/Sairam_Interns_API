@@ -10,12 +10,12 @@ const packingListSchema = new Schema({
   packingListNumber: { type: Number },
   taxInvoiceNumber: { type: Number },
   source: { type: String },
-  sourceAddress: { type: mongoose.ObjectId },
+  sourceAddress: { type: Object },
   sourceEmail: { type: String },
   sourceContactNumber: { type: String },
   sourceGSTIN: { type: Number },
   consignee: { type: String },
-  consigneeAddress: { type: mongoose.ObjectId },
+  consigneeAddress: { type: Object },
   consigneeEmail: { type: String },
   consigneeContactNumber: { type: String },
   consigneeGSTIN: { type: String },
@@ -24,7 +24,7 @@ const packingListSchema = new Schema({
       boxNumber: { type: Number },
       dimensions: [
         {
-          length: { tyoe: Number },
+          length: { type: Number },
           bredth: { type: Number },
           width: { type: Number },
           units: { type: Number },
@@ -51,8 +51,8 @@ const packingListSchema = new Schema({
   carrierTrackingNumber: { type: Number },
   shippingNotes: { type: String },
   fileProof: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
 },
 {timestamps: true}
 );

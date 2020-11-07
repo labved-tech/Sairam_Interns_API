@@ -34,8 +34,8 @@ const quotationSchema = new Schema({
     meta: { type: Object },
   },
   QuotationNumber: { type: Number },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId  },
+  updatedBy: { type: mongoose.ObjectId },
 },
 {timestamps: true}
 );
