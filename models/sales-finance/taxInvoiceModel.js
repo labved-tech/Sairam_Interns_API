@@ -62,7 +62,7 @@ const taxInvoiceSchema = new Schema({
   footer: { type: String },
   meta: { type: Object },
   source: { type: String },
-  perfomaInvoiceNumber: { type: Number },
+  taxInvoiceNumber: { type: Number },
   createdBy: { type: mongoose.ObjectId, required: true },
   updatedBy: { type: mongoose.ObjectId, required: true },
 },
