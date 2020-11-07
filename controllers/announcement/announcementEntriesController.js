@@ -49,9 +49,9 @@ exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Entries');
   const { body } = req;
 
-  // parse through models
-  const doc = new AnnouncementEntries(body);
-
+// parse through models
+const doc = new AnnouncementEntries(body);
+console.log(body);
 
   // targetConditions
   if (doc.targetConditions) {

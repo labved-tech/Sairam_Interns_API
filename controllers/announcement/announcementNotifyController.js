@@ -48,9 +48,10 @@ exports.getAnnouncementNotify = catchAsync(async (req, res, next) => {
 
 exports.createAnnouncementNotify = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Notify');
-const {body} = req;
+  const {body} = req;
   // parse through models
   const doc = new AnnouncementNotify(body);
+  console.log(body);
   
 
 //recipient

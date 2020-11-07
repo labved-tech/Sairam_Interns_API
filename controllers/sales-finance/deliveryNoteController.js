@@ -51,6 +51,7 @@ exports.createDeliveryNote = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new DeliveryNote(body);
+  console.log(body);
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id

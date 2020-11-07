@@ -48,6 +48,7 @@ exports.checkID = (req, res, next, val) => {
 
     // parse through models
   const doc = new TaxInvoice(body);
+  console.log(body);
  
   //itemTable
   if (doc.itemTable) {

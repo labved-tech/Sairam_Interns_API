@@ -48,6 +48,7 @@ exports.createNewsletterEntries = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new NewsletterEntries(body);
+  console.log(body);
 
   //extRefObject
 

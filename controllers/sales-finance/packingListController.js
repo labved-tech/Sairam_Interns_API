@@ -51,10 +51,8 @@ exports.checkID = (req, res, next, val) => {
 
   // parse through models
   const doc = new PackingList(body);
+  console.log(body);
   
-
-  // extRefObject
-
   // box
   if (doc.box) {
     const boxLength = doc.box.length;

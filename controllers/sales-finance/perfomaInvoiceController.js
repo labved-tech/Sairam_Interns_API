@@ -49,9 +49,7 @@ exports.createPerfomaInvoice = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new PerfomaInvoice(body);
-
-
-  // extRefObject
+  console.log(body);
 
   //paymentMethods
   if (doc.paymentMethods) {
