@@ -38,18 +38,18 @@ const farmStrategySchema = new Schema({
           deliveryNotes: { type: Array },
           packingLists: { type: Array },
           ecommOrders: { type: Array },
-          createdBy: { type: mongoose.ObjectId, required: true },
-          updatedBy: { type: mongoose.ObjectId, required: true },
-          createdAt: { type: Date, required: true },
-          updatedAt: { type: Date, required: true }
+          createdBy: { type: mongoose.ObjectId},
+          updatedBy: { type: mongoose.ObjectId},
+          createdAt: { type: Date},
+          updatedAt: { type: Date}
         }
       ],
       stageOrder: { type: Number },
       editable: { type: Boolean },
-      createdBy: { type: mongoose.ObjectId, required: true },
-      updatedBy: { type: mongoose.ObjectId, required: true },
-      createdAt: { type: Date, required: true },
-      updatedAt: { type: Date, required: true }
+      createdBy: { type: mongoose.ObjectId},
+      updatedBy: { type: mongoose.ObjectId},
+      createdAt: { type: Date},
+      updatedAt: { type: Date}
     }
   ],
   _contractId: { type: mongoose.ObjectId },
@@ -61,8 +61,8 @@ const farmStrategySchema = new Schema({
   updatedAt: { type: Date },
   authorsNote: { type: String },
   _parentId: { type: mongoose.ObjectId },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true }
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId}
 },
 { timestamps: true }
 );

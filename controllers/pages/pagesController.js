@@ -52,8 +52,9 @@ exports.getPages = catchAsync(async (req, res, next) => {
 
 exports.createPages = catchAsync(async (req, res, next) => {
   console.log('Creating pages');
+  const { body } = req;
     // parse through models
-    const doc = new Pages(req.body);
+    const doc = new Pages(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

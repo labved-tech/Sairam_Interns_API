@@ -52,8 +52,10 @@ exports.getProjectFiles = catchAsync(async (req, res, next) => {
 
 exports.createProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Creating projectFiles');
+  const { body } = req;
+
     // parse through models
-    const doc = new ProjectFiles(req.body);
+    const doc = new ProjectFiles(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

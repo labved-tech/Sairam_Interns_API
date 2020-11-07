@@ -52,8 +52,6 @@ exports.createFarmEntries = catchAsync(async (req, res, next) => {
   // parse through models
   const doc = new FarmEntries(body);
 
-  // extRefObject
-
   //  adminss
   if (doc.admins) {
     const adminsLength = doc.admins.length;
@@ -61,9 +59,7 @@ exports.createFarmEntries = catchAsync(async (req, res, next) => {
 
     for (let i = 0; i < adminsLength; i++) {
       doc.admins[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.admins[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.admins[i].createdAt = Date.now();
-      doc.admins[i].updatedAt = Date.now();
     }
   }
 
@@ -103,8 +99,13 @@ exports.updateFarmEntries = catchAsync(async (req, res, next) => {
 
 
   if (FarmEntriesToUpdate.admins) {
-    const len = FarmEntriesToUpdate.admins.length;
-    console.log(len);
+    const adminsLength = doc.admins.length;
+    console.log(`Array of objects length ${adminsLength}`);
+
+    for (let i = 0; i < adminsLength; i++) {
+      doc.admins[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.admins[i].updatedAt = Date.now();
+    }
   }
 
   // update timestamps & Id's

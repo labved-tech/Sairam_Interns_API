@@ -44,20 +44,27 @@ exports.getNewsletterEntries = catchAsync(async (req, res, next) => {
 
 exports.createNewsletterEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Newsletter Entries');
+  const {body} = req;
+
   // parse through models
-  const doc = new NewsletterEntries(req.body);
-  console.log(doc);
+  const doc = new NewsletterEntries(body);
 
-  // validate seperately sub-documents if necessary
+  //extRefObject
 
-  // replace doc if necessary
+  //lists
+  if (doc.lists) {
+    const listsLength = doc.lists.length;
+    console.log(`Array of objects length ${listsLength}`);
 
-  // update timestamps & Id's
+    for (let i = 0; i < listsLength; i++) {
+      doc.lists[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.lists[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.lists[i].createdAt = Date.now();
+      doc.lists[i].updatedAt = Date.now();
+    }
+  }
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
-
+  
   // final validation
   await doc.validate();
 
@@ -77,18 +84,24 @@ exports.createNewsletterEntries = catchAsync(async (req, res, next) => {
 exports.updateNewsletterEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Newsletter Entries Id ${id}`);
+
   // parse through models
   const newsletterEntriesToUpdate = new NewsletterEntries(body);
   console.log(body);
   const doc = newsletterEntriesToUpdate.toObject();
   delete doc._id;
-
+  
+  if (NewsletterEntriesToUpdate.lists) {
+    const len = NewsletterEntriesToUpdate.lists.length;
+    console.log(len);
+  }
+  
 
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
 
-  // check the doc before doing database operation
+
   //console.log(doc);
   const newsletterEntries = await NewsletterEntries.findByIdAndUpdate(id, req.body, {
     new: true,

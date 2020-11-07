@@ -47,32 +47,24 @@ exports.getLeadCategories = catchAsync(async (req, res, next) => {
 
 exports.createLeadCategories = catchAsync(async (req, res, next) => {
   console.log('Creating leadCategories');
-
+  const { body } = req;
+  
   // parse through models
-    const doc = new LeadCategories(req.body);
+    const doc = new LeadCategories(body);
     console.log(doc);
-
-  // validate seperately sub-documents if necessary
-
-  // replace doc if necessary
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.createdAt;
-  doc.updatedAt;
 
   // final validation
   await doc.validate();
-
-  // check the doc before doing database operation
-  //console.log(doc);
 
   const leadCategories = await LeadCategories.create(doc).then();
 
   res.status(201).json({
     status: 'sucess',
-    message: 'Created leadCategories',
+    message: 'Created lead Categories',
     data: { leadCategories },
   });
   next();
@@ -94,8 +86,6 @@ exports.updateLeadCategories = catchAsync(async (req, res, next) => {
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
 
-  // check the doc before doing database operation
-  //console.log(doc);
   const leadCategories = await LeadCategories.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();

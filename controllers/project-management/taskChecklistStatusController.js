@@ -52,8 +52,10 @@ exports.getTaskChecklistStatus = catchAsync(async (req, res, next) => {
 
 exports.createTaskChecklistStatus = catchAsync(async (req, res, next) => {
   console.log('Creating taskChecklistStatus');
+  const { body } = req;
+
     // parse through models
-    const doc = new TaskChecklistStatus(req.body);
+    const doc = new TaskChecklistStatus(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

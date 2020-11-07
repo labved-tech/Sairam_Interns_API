@@ -45,19 +45,42 @@ exports.getPerfomaInvoice = catchAsync(async (req, res, next) => {
 
 exports.createPerfomaInvoice = catchAsync(async (req, res, next) => {
   console.log('Creating Perfoma Invoice');
+  const {body} = req;
+
   // parse through models
-  const doc = new AnnouncementEntries(req.body);
-  console.log(doc);
+  const doc = new AnnouncementEntries(body);
 
-  // validate seperately sub-documents if necessary
 
-  // replace doc if necessary
+  // extRefObject
 
-  // update timestamps & Id's
+  //paymentMethods
+  if (doc.paymentMethods) {
+    const paymentMethodsLength = doc.paymentMethods.length;
+    console.log(`Array of objects length ${paymentMethodsLength}`);
+
+    for (let i = 0; i < paymentMethodsLength; i++) {
+      doc.paymentMethods[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.paymentMethods[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.paymentMethods[i].createdAt = Date.now();
+      doc.paymentMethods[i].updatedAt = Date.now();
+    }
+  }
+//itemTable
+if (doc.itemTable) {
+  const itemTableLength = doc.itemTable.length;
+  console.log(`Array of objects length ${itemTableLength}`);
+
+  for (let i = 0; i < itemTableLength; i++) {
+    doc.itemTable[i].createdBy = '5f990bb3c727e952a076f3b7';
+    doc.itemTable[i].updatedBy = '5f990bb3c727e952a076f3b7';
+    doc.itemTable[i].createdAt = Date.now();
+    doc.itemTable[i].updatedAt = Date.now();
+  }
+}
+
+  
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  
 
   // final validation
   await doc.validate();

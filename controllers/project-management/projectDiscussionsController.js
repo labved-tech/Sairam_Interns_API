@@ -52,8 +52,10 @@ exports.getProjectDiscussions = catchAsync(async (req, res, next) => {
 
 exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussions');
+  const { body } = req;
+
     // parse through models
-    const doc = new ProjectDiscussions(req.body);
+    const doc = new ProjectDiscussions(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

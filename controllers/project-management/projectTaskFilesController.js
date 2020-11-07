@@ -52,8 +52,10 @@ exports.getProjectTaskFiles = catchAsync(async (req, res, next) => {
 
 exports.createProjectTaskFiles = catchAsync(async (req, res, next) => {
   console.log('Creating projectTaskFiles');
+  const { body } = req;
+
     // parse through models
-    const doc = new ProjectTaskFiles(req.body);
+    const doc = new ProjectTaskFiles(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary

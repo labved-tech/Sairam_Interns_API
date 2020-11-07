@@ -52,8 +52,10 @@ exports.getTaskReminders = catchAsync(async (req, res, next) => {
 
 exports.createTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Creating taskReminders');
+  const { body } = req;
+
     // parse through models
-    const doc = new TaskReminders(req.body);
+    const doc = new TaskReminders(body);
     console.log(doc);
   
     // validate seperately sub-documents if necessary
