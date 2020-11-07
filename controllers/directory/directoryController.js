@@ -48,13 +48,11 @@ exports.getDirectory = catchAsync(async (req, res, next) => {
 
 exports.createDirectory = catchAsync(async (req, res, next) => {
   console.log('Creating directory');
+  const { body } = req;
+
   // parse through models
-  const doc = new Directory(req.body);
+  const doc = new Directory(body);
   console.log(doc);
-
-  // validate seperately sub-documents if necessary
-
-  // replace doc if necessary
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id

@@ -37,8 +37,9 @@ const directoryEntriesSchema = new Schema(
         isPublic: { type: Boolean },
         createdBy: { type: mongoose.ObjectId },
         updatedBy: { type: mongoose.ObjectId },
+        createdAt: { type: Date },
+        updatedAt: { type: Date },
       },
-      { timestamps: true },
     ],
     relation: [
       {

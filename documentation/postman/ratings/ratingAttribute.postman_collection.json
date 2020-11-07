@@ -1,10 +1,52 @@
 {
 	"info": {
-		"_postman_id": "140f9de5-7956-4240-b2a5-daa7dc801379",
+		"_postman_id": "9bf87409-6e58-4664-8495-a98cc5856452",
 		"name": "ratingAttribute",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "getRatingAttribute",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute/5fa6574d564cd01840c6cfd9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute",
+						"5fa6574d564cd01840c6cfd9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteRatingAttribute",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ratingAttribute/5fa6574d564cd01840c6cfd9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ratingAttribute",
+						"5fa6574d564cd01840c6cfd9"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getAllRatingAttribute",
 			"request": {
@@ -32,7 +74,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Name\": \"viky\",\r\n  \"type\": \"sudent\",\r\n  \"Description\": \"college student\",\r\n  \"Notes\": \"english\",\r\n  \"status\": \"high\"\r\n}",
+					"raw": "{\r\n  \"name\": \"test\",\r\n  \"type\": \"sudent\",\r\n  \"description\": \"college student\",\r\n  \"notes\": \"english\",\r\n  \"status\": \"high\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -55,27 +97,6 @@
 			"response": []
 		},
 		{
-			"name": "getRatingAttribute",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ratingAttribute",
-						"5f990bb3c727e952a076f3b7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateRatingAttribute",
 			"request": {
 				"method": "PATCH",
@@ -89,27 +110,6 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ratingAttribute",
-						"5f990bb3c727e952a076f3b7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteRatingAttribute",
-			"request": {
-				"method": "DELETE",
-				"header": [],
 				"url": {
 					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
 					"host": [

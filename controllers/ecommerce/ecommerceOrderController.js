@@ -48,25 +48,32 @@ exports.getEcommerceOrder = catchAsync(async (req, res, next) => {
 
 exports.createEcommerceOrder = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceOrder');
+  const { body } = req;
 
   // parse through models
   const doc = new EcommerceOrder(req.body);
-  console.log(doc);
 
-  // validate seperately sub-documents if necessary
+  //  arrayOfObject
+  if (doc.arrayOfObject) {
+    const arrayOfObjectLength = doc.arrayOfObject.length;
+    console.log(`arrayOfObject length ${arrayOfObjectLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < arrayOfObjectLength; i++) {
+      doc.arrayOfObject[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.arrayOfObject[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.arrayOfObject[i].createdAt = Date.now();
+      doc.arrayOfObject[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
+  console.log(`After Validation :${doc}`);
   //console.log(doc);
   const ecommerceOrder = await EcommerceOrder.create(doc).then();
 

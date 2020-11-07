@@ -25,8 +25,8 @@ const ecommerceOrderSchema = new Schema({
         calcCGST: { type: Number },
         calSGST: { type: Number },
         calcIGST: { type: Number },
-        createdBy: { type: mongoose.ObjectId},
-        updatedBy: { type: mongoose.ObjectId}, 
+        createdBy: { type: mongoose.ObjectId },
+        updatedBy: { type: mongoose.ObjectId },
       },
     },
     { timestamps: true },
@@ -39,10 +39,10 @@ const ecommerceOrderSchema = new Schema({
   netTotal: { type: Number },
   status: { type: String },
   _userId: { type: mongoose.ObjectId },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
 },
-{ timestamps: true }
+  { timestamps: true }
 );
 
 /* MODEL */

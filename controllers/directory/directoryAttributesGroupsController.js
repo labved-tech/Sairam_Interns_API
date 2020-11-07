@@ -56,29 +56,26 @@ exports.createDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   const doc = new DirectoryAttributesGroups(body);
 
   //  directoryAttributes
-  if (doc.directoryAttributes) {
-    const directoryAttributesLength = doc.directoryAttributes.length;
+  if (doc.attributes) {
+    const directoryAttributesLength = doc.attributes.length;
     console.log(`directoryAttributes length ${directoryAttributesLength}`);
 
-    for (let i = 0; i < commentRepliesLength; i++) {
-      doc.directoryAttributes[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.directoryAttributes[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.directoryAttributes[i].createdAt = Date.now();
-      doc.directoryAttributes[i].updatedAt = Date.now();
+    for (let i = 0; i < directoryAttributesLength; i++) {
+      doc.attributes[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.attributes[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.attributes[i].createdAt = Date.now();
+      doc.attributes[i].updatedAt = Date.now();
     }
   }
 
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
 
-
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
   console.log(`After Validation :${doc}`);
-
-  //console.log(doc);
 
   const directoryAttributesGroups = await DirectoryAttributesGroups.create(
     doc

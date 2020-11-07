@@ -51,18 +51,18 @@ exports.createRatingEntries = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   // parse through models
-  const doc = new RatingEntries(req.body);
+  const doc = new RatingEntries(body);
 
   //  ratingEntries
-  if (doc.ratingEntries) {
-    const ratingEntriesLength = doc.ratingEntries.length;
-    console.log(`ratingEntries length ${ratingEntries}`);
+  if (doc.meta) {
+    const metaLength = doc.meta.length;
+    console.log(`ratingEntries length ${metaLength}`);
 
-    for (let i = 0; i < ratingEntriesLength; i++) {
-      doc.ratingEntries[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.ratingEntries[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.ratingEntries[i].createdAt = Date.now();
-      doc.ratingEntries[i].updatedAt = Date.now();
+    for (let i = 0; i < metaLength; i++) {
+      doc.meta[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.meta[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.meta[i].createdAt = Date.now();
+      doc.meta[i].updatedAt = Date.now();
     }
   }
 
@@ -75,8 +75,6 @@ exports.createRatingEntries = catchAsync(async (req, res, next) => {
 
   // check the doc before doing database operation
   console.log(`After Validation :${doc}`);
-
-
 
   const ratingEntries = await RatingEntries.create(doc).then();
 

@@ -15,17 +15,18 @@ const directoryAttributeGroupsSchema = new Schema({
       description: { type: String },
       notes: { type: String },
       status: { type: String },
-      createdBy: { type: mongoose.ObjectId},
-      updatedBy: { type: mongoose.ObjectId},
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date },
     },
-    { timestamps: true },
   ],
   status: { type: String },
   description: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
 },
-{ timestamps: true }
+  { timestamps: true }
 );
 /* MODEL */
 const DirectoryAttributeGroups = mongoose.model(

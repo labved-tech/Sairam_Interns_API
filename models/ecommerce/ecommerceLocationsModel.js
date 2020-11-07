@@ -25,8 +25,8 @@ const ecommerceLocationsSchema = new Schema({
       name: { type: String },
       URL: { type: String },
       type: { type: String },
-      createdBy: { type: mongoose.ObjectId,},
-      updatedBy: { type: mongoose.ObjectId},
+      createdBy: { type: mongoose.ObjectId, },
+      updatedBy: { type: mongoose.ObjectId },
     },
     { timestamps: true }
   ],
@@ -34,10 +34,10 @@ const ecommerceLocationsSchema = new Schema({
   description: { type: String },
   notes: { type: String },
   _reviewAttributeId: { type: mongoose.ObjectId },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
 },
-{ timestamps: true }
+  { timestamps: true }
 );
 
 /* MODEL */

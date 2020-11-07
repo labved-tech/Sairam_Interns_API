@@ -1,15 +1,22 @@
 {
 	"info": {
-		"_postman_id": "998fb109-d173-4f28-bb1f-8460cdd0b3f1",
+		"_postman_id": "deaa0648-09a1-417c-93e1-4a2b7a85ff39",
 		"name": "ecommerceAddress",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
 			"name": "getAllEcommerceAddress",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/ecommerce-address",
 					"host": [
@@ -20,6 +27,57 @@
 						"api",
 						"v1",
 						"ecommerce-address"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEcommerceAddress",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerce-address/5fa3ffe05cf0f234ccc48dc5",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-address",
+						"5fa3ffe05cf0f234ccc48dc5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchEcommerceAddress",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-address",
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -72,7 +130,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/",
+					"raw": "localhost:3000/api/v1/ecommerce-address/5fa66196ca57092e80724161",
 					"host": [
 						"localhost"
 					],
@@ -81,58 +139,7 @@
 						"api",
 						"v1",
 						"ecommerce-address",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "patchEcommerceAddress",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-address",
-						"5f990bb3c727e952a076f3b7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteEcommerceAddress",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-address",
-						"5f990bb3c727e952a076f3b7"
+						"5fa66196ca57092e80724161"
 					]
 				}
 			},

@@ -53,16 +53,42 @@ exports.createDirectoryEntries = catchAsync(async (req, res, next) => {
   // parse through models
   const doc = new DirectoryEntries(req.body);
 
-  //  commentReplies
-  if (doc.directoryEntries) {
-    const directoryEntriesLength = doc.directoryEntries.length;
-    console.log(`directoryEntries length ${directoryEntriesLength}`);
+  //  contactInfo
+  if (doc.contactInfo) {
+    const contactInfoLength = doc.contactInfo.length;
+    console.log(`contactInfo length ${contactInfoLength}`);
 
-    for (let i = 0; i < directoryEntriesLength; i++) {
-      doc.directoryEntries[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.directoryEntries[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.directoryEntries[i].createdAt = Date.now();
-      doc.directoryEntries[i].updatedAt = Date.now();
+    for (let i = 0; i < contactInfoLength; i++) {
+      doc.contactInfo[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInfo[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInfo[i].createdAt = Date.now();
+      doc.contactInfo[i].updatedAt = Date.now();
+    }
+  }
+
+  // relation
+  if (doc.relation) {
+    const relationLength = doc.relation.length;
+    console.log(`relation length ${relationLength}`);
+
+    for (let i = 0; i < relationLength; i++) {
+      doc.relation[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.relation[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.relation[i].createdAt = Date.now();
+      doc.relation[i].updatedAt = Date.now();
+    }
+  }
+
+  // directories
+  if (doc.directories) {
+    const directoriesLength = doc.directories.length;
+    console.log(`directories length ${directoriesLength}`);
+
+    for (let i = 0; i < directoriesLength; i++) {
+      doc.directories[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.directories[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.directories[i].createdAt = Date.now();
+      doc.directories[i].updatedAt = Date.now();
     }
   }
 

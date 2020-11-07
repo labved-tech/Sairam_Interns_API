@@ -48,24 +48,47 @@ exports.getEcommerceStock = catchAsync(async (req, res, next) => {
 
 exports.createEcommerceStock = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceStock');
+  const { body } = req;
+
   // parse through models
   const doc = new EcommerceStock(req.body);
-  console.log(doc);
 
-  // validate seperately sub-documents if necessary
+  //  discount
+  if (doc.discount) {
+    const discountLength = doc.discount.length;
+    console.log(`discount length ${discountLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < discountLength; i++) {
+      doc.discount[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.discount[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.discount[i].createdAt = Date.now();
+      doc.discount[i].updatedAt = Date.now();
+    }
+  }
+
+  // tax
+  if (doc.tax) {
+    const taxLength = doc.tax.length;
+    console.log(`tax length ${taxLength}`);
+
+    for (let i = 0; i < taxLength; i++) {
+      doc.tax[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.tax[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.tax[i].createdAt = Date.now();
+      doc.tax[i].updatedAt = Date.now();
+    }
+  }
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
+  console.log(`After Validation :${doc}`);
   //console.log(doc);
 
   const ecommerceStock = await EcommerceStock.create(doc).then();

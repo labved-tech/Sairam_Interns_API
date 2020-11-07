@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "34aec9da-6394-4efe-9a9b-f1345542ee22",
+		"_postman_id": "70cebf01-74c2-4fdd-876d-8ff7577aab77",
 		"name": "directoryLevels",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -20,64 +20,6 @@
 						"api",
 						"v1",
 						"directoryLevels"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getDirectoryLevels",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"directoryLevels",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteDirectoryLevels",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"directoryLevels",
-						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -137,6 +79,64 @@
 						"api",
 						"v1",
 						"directoryLevels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteDirectoryLevels",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryLevels/5fa6537d27c5d517783be3ed",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryLevels",
+						"5fa6537d27c5d517783be3ed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDirectoryLevels",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/directoryLevels/5fa6537d27c5d517783be3ed",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directoryLevels",
+						"5fa6537d27c5d517783be3ed"
 					]
 				}
 			},

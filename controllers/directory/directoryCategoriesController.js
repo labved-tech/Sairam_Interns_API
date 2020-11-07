@@ -52,15 +52,10 @@ exports.createDirectoryCategories = catchAsync(async (req, res, next) => {
   const doc = new DirectoryCategories(req.body);
   console.log(doc);
 
-  // validate seperately sub-documents if necessary
-
-  // replace doc if necessary
-
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+
 
   // final validation
   await doc.validate();

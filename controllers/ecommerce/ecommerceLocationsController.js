@@ -48,25 +48,33 @@ exports.getEcommerceLocations = catchAsync(async (req, res, next) => {
 
 exports.createEcommerceLocations = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceLocations');
+  const { body } = req;
+
   // parse through models
   const doc = new EcommerceLocations(req.body);
-  console.log(doc);
 
-  // validate seperately sub-documents if necessary
+  //  verifyDocuments
+  if (doc.verifyDocuments) {
+    const verifyDocumentsLength = doc.verifyDocuments.length;
+    console.log(`verifyDocuments length ${verifyDocumentsLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < verifyDocumentsLength; i++) {
+      doc.verifyDocuments[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.verifyDocuments[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.verifyDocuments[i].createdAt = Date.now();
+      doc.verifyDocuments[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
-  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  doc.updatedBy = '5f990bb3c727e952a076f3b7';
+
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(`After Validation :${doc}`);
 
   const ecommerceLocations = await EcommerceLocations.create(doc).then();
 

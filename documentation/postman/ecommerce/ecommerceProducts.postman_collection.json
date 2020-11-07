@@ -1,10 +1,51 @@
 {
 	"info": {
-		"_postman_id": "12a9c879-aa4d-4da2-916c-63f4d15437c7",
+		"_postman_id": "8d6d2ae7-19cc-4b8c-bb4d-b0ac2034a110",
 		"name": "ecommerceProducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "getAllEcommerceProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerce-products",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEcommerceProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerce-products/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-products",
+						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getEcommerceProduct",
 			"request": {
@@ -57,26 +98,6 @@
 			"response": []
 		},
 		{
-			"name": "getAllEcommerceProduct",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-products",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "postEcommerceProduct",
 			"request": {
 				"method": "POST",
@@ -100,27 +121,6 @@
 						"api",
 						"v1",
 						"ecommerce-products"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteEcommerceProduct",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-products/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-products",
-						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

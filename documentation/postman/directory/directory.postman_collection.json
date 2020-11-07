@@ -1,10 +1,30 @@
 {
 	"info": {
-		"_postman_id": "a27e1c69-89e7-4837-9185-2636b249e82b",
+		"_postman_id": "7ea8dafa-e121-4d6a-bccb-fe0c1cc1b688",
 		"name": "directory",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "getAllDirectory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/directory",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"directory"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "deleteDirectory",
 			"request": {
@@ -32,7 +52,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directory/5f990bb3c727e952a076f3b7",
+					"raw": "localhost:3000/api/v1/directory/5fa65462f317d72ee8d95c08",
 					"host": [
 						"localhost"
 					],
@@ -41,17 +61,26 @@
 						"api",
 						"v1",
 						"directory",
-						"5f990bb3c727e952a076f3b7"
+						"5fa65462f317d72ee8d95c08"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "getAllDirectory",
+			"name": "postDirectory",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"viky\",   \r\n    \"single\":\"sai\",\r\n    \"plural\":\"abd\",\r\n    \"slug\":\"jkl\",\r\n    \"categories\":[\"hi\",\"helo\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "localhost:3000/api/v1/directory",
 					"host": [
@@ -92,35 +121,6 @@
 						"v1",
 						"directory",
 						"5f990bb3c727e952a076f3b7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "postDirectory",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"viky\",   \r\n    \"single\":\"sai\",\r\n    \"plural\":\"abd\",\r\n    \"slug\":\"jkl\",\r\n    \"categories\":[\"hi\",\"helo\"]\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/directory",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"directory"
 					]
 				}
 			},
