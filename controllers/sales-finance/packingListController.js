@@ -47,20 +47,29 @@ exports.checkID = (req, res, next, val) => {
   
   exports.createPackingList = catchAsync(async (req, res, next) => {
     console.log('Creating PackingList');
+    const {body} = req;
 
   // parse through models
-  const doc = new PackingList(req.body);
-  console.log(doc);
+  const doc = new PackingList(body);
+  
 
-  // validate seperately sub-documents if necessary
+  // extRefObject
 
-  // replace doc if necessary
+  // box
+  if (doc.box) {
+    const boxLength = doc.box.length;
+    console.log(`Array of objects length ${boxLength}`);
 
-  // update timestamps & Id's
+    for (let i = 0; i < boxLength; i++) {
+      doc.box[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.box[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.box[i].createdAt = Date.now();
+      doc.box[i].updatedAt = Date.now();
+    }
+  }
+  
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  
 
   // final validation
   await doc.validate();
@@ -81,13 +90,19 @@ exports.checkID = (req, res, next, val) => {
   exports.updatePackingList = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     console.log(`Updating Packing List Id ${id}`);
+
      // parse through models
    const packingListToUpdate = new PackingList(body);
    console.log(body);
    const doc =  packingListToUpdate.toObject();
    delete doc._id;
- 
- 
+
+   if (packingListToUpdate.box) {
+    const len = packingListToUpdate.box.length;
+    console.log(len);
+  }
+  
+
    // update timestamps & Id's
    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
    doc.updatedAt;

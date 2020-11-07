@@ -44,19 +44,27 @@ exports.checkID = (req, res, next, val) => {
   
   exports.createTaxInvoice = catchAsync(async (req, res, next) => {
     console.log('Creating Tax Invoice');
+    const {body} = req;
     // parse through models
-  const doc = new AnnouncementEntries(req.body);
-  console.log(doc);
+  const doc = new taxInvoice(body);
+ 
+  // extRefObject
 
-  // validate seperately sub-documents if necessary
+  //itemTable
+  if (doc.itemTable) {
+    const itemTableLength = doc.itemTable.length;
+    console.log(`Array of objects length ${itemTableLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < itemTableLength; i++) {
+      doc.itemTable[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.itemTable[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.itemTable[i].createdAt = Date.now();
+      doc.itemTable[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+  
 
   // final validation
   await doc.validate();
@@ -83,6 +91,12 @@ exports.checkID = (req, res, next, val) => {
    console.log(body);
    const doc = taxInvoiceToUpdate.toObject();
    delete doc._id;
+
+
+if (taxInvoiceToUpdate.itemTable) {
+  const len = taxInvoiceToUpdate.itemTable.length;
+  console.log(len);
+}
  
  
    // update timestamps & Id's

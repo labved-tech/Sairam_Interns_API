@@ -47,21 +47,30 @@ exports.getAnnouncementEntries = catchAsync(async (req, res, next) => {
 
 exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Entries');
+  const {body} = req;
 
   // parse through models
-  const doc = new AnnouncementEntries(req.body);
-  console.log(doc);
+  const doc = new AnnouncementEntries(body);
+ 
+  // extRefObject
 
-  // validate seperately sub-documents if necessary
+  // targetConditions
+  if (doc.targetConditions) {
+    const targetConditionsLength = doc.targetConditions.length;
+    console.log(`Array of objects length ${targetConditionsLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < targetConditionsLength; i++) {
+      doc.targetConditions[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.targetConditions[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.targetConditions[i].createdAt = Date.now();
+      doc.targetConditions[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
-  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
 
+  doc.createdBy = '5f990bb3c727e952a076f3b7';
+  
+  
   // final validation
   await doc.validate();
 
@@ -88,6 +97,12 @@ const announcementEntriesToUpdate = new AnnouncementEntries(body);
 console.log(body);
 const doc = announcementEntriesToUpdate.toObject();
 delete doc._id;
+
+if (AnnouncementEntriesToUpdate.targetConditions) {
+  const len = AnnouncementEntriesToUpdate.targetConditions.length;
+  console.log(len);
+}
+
 
 // update timestamps & Id's
 doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
