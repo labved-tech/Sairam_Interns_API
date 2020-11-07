@@ -48,20 +48,27 @@ exports.getAnnouncementNotify = catchAsync(async (req, res, next) => {
 
 exports.createAnnouncementNotify = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Notify');
-
+const {body} = req;
   // parse through models
-  const doc = new AnnouncementNotify(req.body);
+  const doc = new AnnouncementNotify(body);
+//extRefObject
 
-  // validate seperately sub-documents if necessary
+//recipient
 
-  // replace doc if necessary
+if (doc.recipient) {
+  const recipientLength = doc.recipient.length;
+  console.log(`Array of objects length ${recipientLength}`);
 
-  // update timestamps & Id's
+  for (let i = 0; i < recipientLength; i++) {
+    doc.recipient[i].createdBy = '5f990bb3c727e952a076f3b7';
+    doc.recipient[i].updatedBy = '5f990bb3c727e952a076f3b7';
+    doc.recipient[i].createdAt = Date.now();
+    doc.recipient[i].updatedAt = Date.now();
+  }
+}
+
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
-
+  
   // final validation
   await doc.validate();
 
@@ -88,6 +95,11 @@ const announcementNotifyToUpdate = new AnnouncementNotify(body);
 console.log(body);
 const doc = announcementNotifyToUpdate.toObject();
 delete doc._id;
+
+if (AnnouncementNotifyToUpdate.announcementNotify) {
+  const len = AnnouncementNotifyToUpdate.announcementNotify.length;
+  console.log(len);
+}
 
 // update timestamps & Id's
 doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id

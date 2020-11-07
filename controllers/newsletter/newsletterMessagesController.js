@@ -77,6 +77,7 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
 exports.updateNewsletterMessages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Newsletter Messages Id ${id}`);
+  const {body} = req;
   // parse through models
   const newsletterMessagesToUpdate = new NewsletterMessages(body);
   console.log(body);
