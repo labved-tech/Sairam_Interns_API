@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const PerfomaInvoice = require('../../models/sales-finance/perfomaInvoiceModel');
+const PerfomaInvoice = require('./../../models/sales-finance/perfomaInvoiceModel');
 
 /* DATABASE */
 
@@ -27,7 +27,7 @@ exports.getAllPerfomaInvoice = catchAsync(async (req, res, next) => {
       perfomaInvoice,
     },
   });
-  
+
   next();
 });
 
@@ -45,10 +45,10 @@ exports.getPerfomaInvoice = catchAsync(async (req, res, next) => {
 
 exports.createPerfomaInvoice = catchAsync(async (req, res, next) => {
   console.log('Creating Perfoma Invoice');
-  const {body} = req;
+  const { body } = req;
 
   // parse through models
-  const doc = new AnnouncementEntries(body);
+  const doc = new PerfomaInvoice(body);
 
 
   // extRefObject
@@ -65,22 +65,22 @@ exports.createPerfomaInvoice = catchAsync(async (req, res, next) => {
       doc.paymentMethods[i].updatedAt = Date.now();
     }
   }
-//itemTable
-if (doc.itemTable) {
-  const itemTableLength = doc.itemTable.length;
-  console.log(`Array of objects length ${itemTableLength}`);
+  //itemTable
+  if (doc.itemTable) {
+    const itemTableLength = doc.itemTable.length;
+    console.log(`Array of objects length ${itemTableLength}`);
 
-  for (let i = 0; i < itemTableLength; i++) {
-    doc.itemTable[i].createdBy = '5f990bb3c727e952a076f3b7';
-    doc.itemTable[i].updatedBy = '5f990bb3c727e952a076f3b7';
-    doc.itemTable[i].createdAt = Date.now();
-    doc.itemTable[i].updatedAt = Date.now();
+    for (let i = 0; i < itemTableLength; i++) {
+      doc.itemTable[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.itemTable[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.itemTable[i].createdAt = Date.now();
+      doc.itemTable[i].updatedAt = Date.now();
+    }
   }
-}
 
-  
+
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  
+
 
   // final validation
   await doc.validate();
@@ -98,23 +98,24 @@ if (doc.itemTable) {
   next();
 });
 
-exports.updatePerfomaInvoice = catchAsync( async (req, res, next) => {
+exports.updatePerfomaInvoice = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Perfoma Invoice Id ${id}`);
+  const { body } = req;
 
-   // parse through models
-   const perfomaInvoiceToUpdate = new PerfomaInvoice(body);
-   console.log(body);
-   const doc = perfomaInvoiceToUpdate.toObject();
-   delete doc._id;
- 
- 
-   // update timestamps & Id's
-   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-   doc.updatedAt;
- 
-   // check the doc before doing database operation
-   //console.log(doc);
+  // parse through models
+  const perfomaInvoiceToUpdate = new PerfomaInvoice(body);
+  console.log(body);
+  const doc = perfomaInvoiceToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const perfomaInvoice = await PerfomaInvoice.findByIdAndUpdate(
     id,
     req.body,
@@ -128,7 +129,7 @@ exports.updatePerfomaInvoice = catchAsync( async (req, res, next) => {
     message: `Updated Perfoma Invoice Id=${id}`,
     data: { perfomaInvoice },
   });
-  
+
   next();
 });
 
@@ -142,6 +143,6 @@ exports.deletePerfomaInvoice = catchAsync(async (req, res, next) => {
     message: `Deleted Perfoma Invoice Id=${id}`,
     data: { perfomaInvoice },
   });
-  
+
   next();
 });

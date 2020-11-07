@@ -1,17 +1,17 @@
 {
 	"info": {
-		"_postman_id": "49147689-e3be-4157-abe5-af0819207ebd",
+		"_postman_id": "a6b89487-2831-433c-964c-56e607f78858",
 		"name": "deliveryNote",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getOneDeliverynote",
+			"name": "getAllDeliverynote",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note/1",
+					"raw": "localhost:3000/api/v1/delivery-note",
 					"host": [
 						"localhost"
 					],
@@ -19,8 +19,7 @@
 					"path": [
 						"api",
 						"v1",
-						"delivery-note",
-						"1"
+						"delivery-note"
 					]
 				}
 			},
@@ -33,7 +32,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyz\",\n  \"sourceAddress\": \"xyzstreet\",\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\" \",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": \" \",\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \" \",\n  \"box\": \"[x,y]\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n \" shippingNotes\": \"package\",\n \" receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
+					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyz\",\n  \"sourceAddress\":{ \n      \"street\":\"xyzstreet\"\n      },\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\"333\",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": {\n      \"address\": \"beach road\"\n  },\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \"666\",\n  \"box\": \"x,y\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n  \"shippingNotes\": \"package\",\n  \"receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -50,6 +49,27 @@
 						"api",
 						"v1",
 						"delivery-note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneDeliverynote",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/delivery-note/5fa6bfe5e31ecf664493d641",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"delivery-note",
+						"5fa6bfe5e31ecf664493d641"
 					]
 				}
 			},
@@ -70,7 +90,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note/2",
+					"raw": "localhost:3000/api/v1/delivery-note/5fa6bfe5e31ecf664493d641",
 					"host": [
 						"localhost"
 					],
@@ -79,7 +99,7 @@
 						"api",
 						"v1",
 						"delivery-note",
-						"2"
+						"5fa6bfe5e31ecf664493d641"
 					]
 				}
 			},
@@ -91,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note/2",
+					"raw": "localhost:3000/api/v1/delivery-note/5fa6bfe5e31ecf664493d641",
 					"host": [
 						"localhost"
 					],
@@ -100,27 +120,7 @@
 						"api",
 						"v1",
 						"delivery-note",
-						"2"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getAllDeliverynote",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"delivery-note"
+						"5fa6bfe5e31ecf664493d641"
 					]
 				}
 			},

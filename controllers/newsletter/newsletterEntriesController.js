@@ -83,7 +83,9 @@ exports.createNewsletterEntries = catchAsync(async (req, res, next) => {
 
 exports.updateNewsletterEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const {body} = req;
   console.log(`Updating Newsletter Entries Id ${id}`);
+  
 
   // parse through models
   const newsletterEntriesToUpdate = new NewsletterEntries(body);
@@ -91,12 +93,11 @@ exports.updateNewsletterEntries = catchAsync(async (req, res, next) => {
   const doc = newsletterEntriesToUpdate.toObject();
   delete doc._id;
   
-  if (NewsletterEntriesToUpdate.lists) {
-    const len = NewsletterEntriesToUpdate.lists.length;
+  if (newsletterEntriesToUpdate.lists) {
+    const len = newsletterEntriesToUpdate.lists.length;
     console.log(len);
   }
   
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;

@@ -47,12 +47,11 @@ exports.getAnnouncementEntries = catchAsync(async (req, res, next) => {
 
 exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Entries');
-  const {body} = req;
+  const { body } = req;
 
   // parse through models
   const doc = new AnnouncementEntries(body);
- 
-  // extRefObject
+
 
   // targetConditions
   if (doc.targetConditions) {
@@ -69,8 +68,8 @@ exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
 
 
   doc.createdBy = '5f990bb3c727e952a076f3b7';
-  
-  
+
+
   // final validation
   await doc.validate();
 
@@ -91,25 +90,26 @@ exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
 exports.updateAnnouncementEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Announcement Entries Id ${id}`);
+  const { body } = req;
 
-// parse through models
-const announcementEntriesToUpdate = new AnnouncementEntries(body);
-console.log(body);
-const doc = announcementEntriesToUpdate.toObject();
-delete doc._id;
+  // parse through models
+  const announcementEntriesToUpdate = new AnnouncementEntries(body);
+  console.log(body);
+  const doc = announcementEntriesToUpdate.toObject();
+  delete doc._id;
 
-if (AnnouncementEntriesToUpdate.targetConditions) {
-  const len = AnnouncementEntriesToUpdate.targetConditions.length;
-  console.log(len);
-}
+  if (announcementEntriesToUpdate.targetConditions) {
+    const len = announcementEntriesToUpdate.targetConditions.length;
+    console.log(len);
+  }
 
 
-// update timestamps & Id's
-doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-doc.updatedAt;
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
 
-// check the doc before doing database operation
-//console.log(doc);
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const announcementEntries = await AnnouncementEntries.findByIdAndUpdate(
     id,

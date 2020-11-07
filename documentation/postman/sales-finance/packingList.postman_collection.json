@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1172e342-a14d-48fd-b517-1a2c7df41976",
+		"_postman_id": "1cb4ade4-8a7d-4a7e-a270-fdc0fbbb3d22",
 		"name": "packingList",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -26,34 +26,13 @@
 			"response": []
 		},
 		{
-			"name": "getOnePackinglist",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/packing-list/1",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"packing-list",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "createPackinglist",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n \"source\": \"xyz\",\n  \"sourceAddress\": \" \",\n   \"sourceEmail\": \"source@email.com\",\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\" \",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": \" \",\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \" \",\n \" box\": [\n    {\n      \"boxNumber\": \"456\",\n     \" dimensions\": [\n        {\n          \"length\": 60,\n          \"bredth\": 34,\n         \" width\": 65,\n          \"units\": 34\n        }\n      ],\n\n     \" weight\": 3,\n      \"weightUnit\": \"kiolgram\",\n     \" items\": [\n        {\n          \"_serialNo\": \"abgh678\",\n          \"itemCode\": \"867thg\",\n          \"name\": \"box\",\n          \"quantity\": 2,\n          \"unitOfMeasurement\": \"SI\",\n          \"boxmeta\": \"\"\n        }\n      ]\n    }\n  ],\n\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n \" shippingNotes\": \"package\",\n \" receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
+					"raw": "{\n \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n \"source\": \"xyz\",\n  \"sourceAddress\": {\n      \"address\": \"local\"\n  },\n   \"sourceEmail\": \"source@email.com\",\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\" 33\",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": {\n      \"address\":\"local\"\n      },\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \"777 \",\n \" box\": [\n    {\n      \"boxNumber\": \"456\",\n     \" dimensions\": [\n        {\n          \"length\": 60,\n          \"bredth\": 34,\n         \" width\": 65,\n          \"units\": 34\n        }\n      ],\n\n     \" weight\": 3,\n      \"weightUnit\": \"kiolgram\",\n     \" items\": [\n        {\n          \"_serialNo\": \"abgh678\",\n          \"itemCode\": \"867thg\",\n          \"name\": \"box\",\n          \"quantity\": 2,\n          \"unitOfMeasurement\": \"SI\",\n          \"boxmeta\": \"\"\n        }\n      ]\n    }\n  ],\n\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n \" shippingNotes\": \"package\",\n \" receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +69,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/packing-list/1",
+					"raw": "localhost:3000/api/v1/packing-list/5fa6c0bff11e236688adbe9f",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +78,28 @@
 						"api",
 						"v1",
 						"packing-list",
-						"1"
+						"5fa6c0bff11e236688adbe9f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOnePackinglist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/packing-list/5fa6c0bff11e236688adbe9f",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"packing-list",
+						"5fa6c0bff11e236688adbe9f"
 					]
 				}
 			},
@@ -111,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/packing-list/1",
+					"raw": "localhost:3000/api/v1/packing-list/5fa6c0bff11e236688adbe9f",
 					"host": [
 						"localhost"
 					],
@@ -120,7 +120,7 @@
 						"api",
 						"v1",
 						"packing-list",
-						"1"
+						"5fa6c0bff11e236688adbe9f"
 					]
 				}
 			},

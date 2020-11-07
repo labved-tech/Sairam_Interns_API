@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const taxInvoiceSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
+ 
   taxInvoiceNo: { type: String },
   header: { type: String },
   date: { type: Date },
@@ -50,6 +50,10 @@ const taxInvoiceSchema = new Schema({
       IGSTRate: { type: Number },
       IGSTAmount: { type: Number },
       totalPrice: { type: Number },
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date },
     },
   ],
 
@@ -63,8 +67,8 @@ const taxInvoiceSchema = new Schema({
   meta: { type: Object },
   source: { type: String },
   taxInvoiceNumber: { type: Number },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
 },
 {timestamps: true}
 );

@@ -80,6 +80,7 @@ exports.createAddress = catchAsync(async (req, res, next) => {
 exports.updateAddress = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Address Id ${id}`);
+  const { body } = req;
     
    // parse through models
    const addressToUpdate = new Address(body);

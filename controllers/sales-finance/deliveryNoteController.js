@@ -47,13 +47,10 @@ exports.getDeliveryNote = catchAsync(async (req, res, next) => {
 
 exports.createDeliveryNote = catchAsync(async (req, res, next) => {
   console.log('Creating Delivery Note');
+  const { body } = req;
+
   // parse through models
-  const doc = new DeliveryNote(req.body);
-  console.log(doc);
-
-  // validate seperately sub-documents if necessary
-
-  // replace doc if necessary
+  const doc = new DeliveryNote(body);
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -82,6 +79,8 @@ exports.createDeliveryNote = catchAsync(async (req, res, next) => {
 exports.updateDeliveryNote = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Delivery Note Id ${id}`);
+  const { body } = req;
+  
   // parse through models
   const deliveryNoteToUpdate = new DeliveryNote(body);
   console.log(body);

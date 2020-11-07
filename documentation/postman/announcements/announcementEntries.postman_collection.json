@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c615e8e0-3a4b-4ac6-a274-c2d4985832f3",
+		"_postman_id": "d9146245-2214-445a-9dce-af908355d003",
 		"name": "announcementEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -33,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"status\": \"Active\",\r\n    \"email\": \"bharath.viswanathan@labved.com\",\r\n    \"password\": \"password@123\",\r\n    \"accountType\": \"standalone\",\r\n    \"test\" : \"test\",\r\n    \"personalDetails\": {\r\n        \"firstName\": \"Bharath\",\r\n        \"lastName\": \"Viswanathan\",\r\n        \"middleName\": \"Kumar\",\r\n        \"mobileNo\": \"9884052896\",\r\n        \"landlineNo\": \"04453548262\",\r\n        \"aadharNo\": \"document#\",\r\n        \"iecNo\": \"document#\",\r\n        \"panNo\": \"document#\",\r\n        \"address1\": \"address1\",\r\n        \"address2\": \"address2\",\r\n        \"city\": \"chennai\",\r\n        \"state\": \"Tamil Nadu\",\r\n        \"zipCode\": \"600010\",\r\n        \"country\": \"India\",\r\n        \"location\": \"gps lat\",\r\n        \"verifyDocs\": \" \",\r\n        \"test\" : \"test\"\r\n  }\r\n}",
+					"raw": "{\r\n   \"title\":\"AnnouncementEntries\",\r\n    \"message\": \"\",\r\n   \"from\": \"xyz\",\r\n    \"isEmailReq\": true,\r\n   \"priority\": 1,\r\n    \"targetConditions\": [\r\n      {\r\n        \r\n        \"condition\": {\r\n            \"name\":\"test\"\r\n\r\n        }\r\n      }\r\n    ],\r\n    \"expires\": 30,\r\n    \"status\": \"active\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -62,7 +62,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
+					"raw": "http://localhost:3000/api/v1/announcement-entries/5fa6993eafafa160203333c5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -72,7 +72,7 @@
 						"api",
 						"v1",
 						"announcement-entries",
-						"1"
+						"5fa6993eafafa160203333c5"
 					]
 				}
 			},
@@ -85,7 +85,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"status\": \"Active\",\n    \"email\": \"bharath.viswanathan@labved.com\",\n    \"password\": \"password@123\",\n    \"accountType\": \"standalone\",\n    \"test\" : \"test\",\n    \"personalDetails\": {\n        \"firstName\": \"Bharath\",\n        \"lastName\": \"Viswanathan\",\n        \"middleName\": \"Kumar\",\n        \"mobileNo\": \"9884052896\",\n        \"landlineNo\": \"04453548262\",\n        \"aadharNo\": \"document#\",\n        \"iecNo\": \"document#\",\n        \"panNo\": \"document#\",\n        \"address1\": \"address1\",\n        \"address2\": \"address2\",\n        \"city\": \"chennai\",\n        \"state\": \"Tamil Nadu\",\n        \"zipCode\": \"600010\",\n        \"country\": \"India\",\n        \"location\": \"gps lat\",\n        \"verifyDocs\": \" \",\n        \"test\" : \"test\"\n  }\n}",
+					"raw": "{\n   \"title\":\"AnnouncementEntries\",\n    \"message\": \"\",\n   \"from\": \"xyz\",\n    \"isEmailReq\": true,\n   \"priority\": 1,\n    \"targetConditions\": [\n      {\n        \n        \"condition\": {\n            \"name\":\"test1\"\n\n        }\n      }\n    ],\n    \"expires\": 30,\n    \"status\": \"active\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -93,7 +93,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
+					"raw": "http://localhost:3000/api/v1/announcement-entries/5fa6993eafafa160203333c5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -103,7 +103,7 @@
 						"api",
 						"v1",
 						"announcement-entries",
-						"1"
+						"5fa6993eafafa160203333c5"
 					]
 				}
 			},
@@ -115,7 +115,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
+					"raw": "http://localhost:3000/api/v1/announcement-entries/5fa6993eafafa160203333c5",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -125,7 +125,7 @@
 						"api",
 						"v1",
 						"announcement-entries",
-						"1"
+						"5fa6993eafafa160203333c5"
 					]
 				}
 			},

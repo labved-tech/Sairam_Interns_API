@@ -90,6 +90,7 @@ exports.checkID = (req, res, next, val) => {
   exports.updatePackingList = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     console.log(`Updating Packing List Id ${id}`);
+    const { body } = req;
 
      // parse through models
    const packingListToUpdate = new PackingList(body);
