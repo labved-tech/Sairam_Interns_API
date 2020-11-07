@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7e8002f5-611e-42ad-8c94-ad579e8f7d38",
+		"_postman_id": "c615e8e0-3a4b-4ac6-a274-c2d4985832f3",
 		"name": "announcementEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -83,6 +83,15 @@
 			"request": {
 				"method": "PATCH",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": \"Active\",\n    \"email\": \"bharath.viswanathan@labved.com\",\n    \"password\": \"password@123\",\n    \"accountType\": \"standalone\",\n    \"test\" : \"test\",\n    \"personalDetails\": {\n        \"firstName\": \"Bharath\",\n        \"lastName\": \"Viswanathan\",\n        \"middleName\": \"Kumar\",\n        \"mobileNo\": \"9884052896\",\n        \"landlineNo\": \"04453548262\",\n        \"aadharNo\": \"document#\",\n        \"iecNo\": \"document#\",\n        \"panNo\": \"document#\",\n        \"address1\": \"address1\",\n        \"address2\": \"address2\",\n        \"city\": \"chennai\",\n        \"state\": \"Tamil Nadu\",\n        \"zipCode\": \"600010\",\n        \"country\": \"India\",\n        \"location\": \"gps lat\",\n        \"verifyDocs\": \" \",\n        \"test\" : \"test\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
 					"raw": "http://localhost:3000/api/v1/announcement-entries/1",
 					"protocol": "http",
