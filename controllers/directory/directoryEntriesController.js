@@ -115,8 +115,51 @@ exports.createDirectoryEntries = catchAsync(async (req, res, next) => {
 
 exports.updateDirectoryEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating DirectoryEntries Id ${id}`);
 
+  // parse through models
+  const DirectoryEntriesToUpdate = new DirectoryEntries(body);
+  console.log(body);
+  const doc = DirectoryEntriesToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (DirectoryEntriesToUpdate.contactInfo) {
+    const contactInfoLength = doc.contactInfo.length;
+    console.log(`Array of objects length ${contactInfoLength}`);
+
+    for (let i = 0; i < contactInfoLength; i++) {
+      doc.contactInfo[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.contactInfo[i].updatedAt = Date.now();
+    }
+  }
+  if (DirectoryEntriesToUpdate.relation) {
+    const relationLength = doc.relation.length;
+    console.log(`Array of objects length ${relationLength}`);
+
+    for (let i = 0; i < relationLength; i++) {
+      doc.relation[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.relation[i].updatedAt = Date.now();
+    }
+  }
+  if (DirectoryEntriesToUpdate.directories) {
+    const directoriesLength = doc.directories.length;
+    console.log(`Array of objects length ${directoriesLength}`);
+
+    for (let i = 0; i < directoriesLength; i++) {
+      doc.directories[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.directories[i].updatedAt = Date.now();
+    }
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const directoryEntries = await DirectoryEntries.findByIdAndUpdate(
     id,
     req.body,
