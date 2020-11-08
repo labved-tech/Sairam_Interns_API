@@ -76,7 +76,22 @@ exports.createDirectoryCategories = catchAsync(async (req, res, next) => {
 
 exports.updateDirectoryCategories = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating DirectoryCategories Id ${id}`);
+
+  // parse through models
+  const DirectoryCategoriesToUpdate = new DirectoryCategories(body);
+  console.log(body);
+  const doc = DirectoryCategoriesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const directoryCategories = await DirectoryCategories.findByIdAndUpdate(
     id,

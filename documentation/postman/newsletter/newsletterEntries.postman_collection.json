@@ -1,44 +1,17 @@
 {
 	"info": {
-		"_postman_id": "8a6d6db7-824a-492b-8bdd-d8f0fbca2265",
+		"_postman_id": "fb5ae77a-2f43-4b23-a2a0-a70ea97c2cd8",
 		"name": "newsletterEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "getAllNewsletterEntries",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-entries",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"newsletter-entries"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "getOneNewsletterEntries",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-entries/1",
+					"raw": "localhost:3000/api/v1/newsletter-entries/5f9d4b2a45edc019929d37b7",
 					"host": [
 						"localhost"
 					],
@@ -47,7 +20,7 @@
 						"api",
 						"v1",
 						"newsletter-entries",
-						"1"
+						"5f9d4b2a45edc019929d37b7"
 					]
 				}
 			},
@@ -60,7 +33,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"fromEmail\": \"gowri@gmail.com\",\n  \"description\": \"student\",\n  \"newsletterType\": \"newsletter\",\n  \"list\": \n  [\n    {\n      \n     \" name\": \"gowri\",\n      \"description\": \"female\",\n      \"emails\": [],\n      \"notes\": \" \",\n      \"status\": \"success\"\n    }  \n  ]   \n}   \n  \n  ",
+					"raw": "{\n \"fromEmail\": \"gowri@gmail.com\",\n  \"description\": \"student\",\n  \"newsletterType\": \"newsletter\",\n  \"list\": \n  [\n    {\n      \n     \"name\": \"gowri\",\n      \"description\": \"female\",\n      \"emails\": \"[]\",\n      \"notes\": \" newsletter\",\n      \"status\": \"success\"\n    }  \n  ]   \n}   \n  \n  ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,7 +70,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-entries/2",
+					"raw": "localhost:3000/api/v1/newsletter-entries/5f9d4b2a45edc019929d37b7",
 					"host": [
 						"localhost"
 					],
@@ -106,7 +79,34 @@
 						"api",
 						"v1",
 						"newsletter-entries",
-						"2"
+						"5f9d4b2a45edc019929d37b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllNewsletterEntries",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/newsletter-entries",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"newsletter-entries"
 					]
 				}
 			},
@@ -118,7 +118,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-entries/2",
+					"raw": "localhost:3000/api/v1/newsletter-entries/5f9d4b2a45edc019929d37b7",
 					"host": [
 						"localhost"
 					],
@@ -127,7 +127,7 @@
 						"api",
 						"v1",
 						"newsletter-entries",
-						"2"
+						"5f9d4b2a45edc019929d37b7"
 					]
 				}
 			},

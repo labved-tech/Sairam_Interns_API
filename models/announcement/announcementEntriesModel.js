@@ -14,8 +14,11 @@ const announcementEntriesSchema = new Schema(
     priority: { type: Number },
     targetConditions: [
       {
-        _id: { type: mongoose.ObjectId },
         condition: { type: Object },
+        createdBy: { type: mongoose.ObjectId },
+        updatedBy: { type: mongoose.ObjectId },
+        createdAt: { type: Date },
+        updatedAt: { type: Date },
       },
     ],
     expires: { type: Number },

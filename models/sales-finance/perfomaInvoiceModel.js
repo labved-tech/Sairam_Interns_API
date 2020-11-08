@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const perfomaInvoiceSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   perfomaInvoiceNo: { type: String },
   moduleReferance: { type: String },
   header: { type: String },
@@ -15,15 +14,15 @@ const perfomaInvoiceSchema = new Schema({
   orderDate: { type: Date },
   _buyerId: { type: mongoose.ObjectId },
   billingName: { type: String },
-  billingAddress: { type: mongoose.ObjectId },
+  billingAddress: { type: Object },
   billingEmail: { type: String },
   billingContactNumber: { type: String },
   consigneeName: { type: String },
-  consigneeAddress: { type: mongoose.objectId },
+  consigneeAddress: { type: Object },
   consigneeContactNumber: { type: String },
   _sellerId: { type: String },
   sellerName: { type: String },
-  sellerAddress: { type: mongoose.ObjectId },
+  sellerAddress: { type: Object },
   sellerContactNumber: { type: String },
   sellerBankDetails: {
     accountNo: { type: String },
@@ -74,10 +73,10 @@ const perfomaInvoiceSchema = new Schema({
   meta: { type: Object },
   source: { type: String },
   perfomaInvoiceNumber: { type: Number },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId},
+  updatedBy: { type: mongoose.ObjectId},
 },
-{timestamps: true}
+  { timestamps: true }
 );
 
 

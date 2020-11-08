@@ -48,10 +48,11 @@ exports.getAnnouncementNotify = catchAsync(async (req, res, next) => {
 
 exports.createAnnouncementNotify = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Notify');
-const {body} = req;
+  const {body} = req;
   // parse through models
   const doc = new AnnouncementNotify(body);
-//extRefObject
+  console.log(body);
+  
 
 //recipient
 
@@ -89,15 +90,15 @@ if (doc.recipient) {
 exports.updateAnnouncementNotify = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Announcement Notify Id ${id}`);
-
+  const {body} = req;
 // parse through models
 const announcementNotifyToUpdate = new AnnouncementNotify(body);
 console.log(body);
 const doc = announcementNotifyToUpdate.toObject();
 delete doc._id;
 
-if (AnnouncementNotifyToUpdate.announcementNotify) {
-  const len = AnnouncementNotifyToUpdate.announcementNotify.length;
+if (announcementNotifyToUpdate.announcementNotify) {
+  const len = announcementNotifyToUpdate.announcementNotify.length;
   console.log(len);
 }
 

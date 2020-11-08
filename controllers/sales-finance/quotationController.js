@@ -24,7 +24,7 @@ exports.checkID = (req, res, next, val) => {
       message: 'Got All Quotation',
       results: quotation.length,
       data: {
-        quotations,
+        quotations:"message",
       },
     });
     next();
@@ -77,6 +77,7 @@ exports.checkID = (req, res, next, val) => {
   exports.updateQuotation = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     console.log(`Updating Quotation Id ${id}`);
+    const { body } = req;
    
    // parse through models
    const quotationToUpdate = new Quotation(body);

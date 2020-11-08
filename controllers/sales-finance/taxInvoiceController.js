@@ -45,11 +45,11 @@ exports.checkID = (req, res, next, val) => {
   exports.createTaxInvoice = catchAsync(async (req, res, next) => {
     console.log('Creating Tax Invoice');
     const {body} = req;
-    // parse through models
-  const doc = new taxInvoice(body);
- 
-  // extRefObject
 
+    // parse through models
+  const doc = new TaxInvoice(body);
+  console.log(body);
+ 
   //itemTable
   if (doc.itemTable) {
     const itemTableLength = doc.itemTable.length;
@@ -85,6 +85,7 @@ exports.checkID = (req, res, next, val) => {
   exports.updateTaxInvoice = catchAsync(async (req, res, next) => {
     const { id } = req.params;
     console.log(`Updating Tax Invoice Id ${id}`);
+    const { body } = req;
    
    // parse through models
    const taxInvoiceToUpdate = new TaxInvoice(body);

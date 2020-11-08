@@ -92,8 +92,33 @@ exports.createDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
 
 exports.updateDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating DirectoryAttributesGroups Id ${id}`);
 
+  // parse through models
+  const DirectoryAttributesGroupsToUpdate = new DirectoryAttributesGroups(body);
+  console.log(body);
+  const doc = DirectoryAttributesGroupsToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (DirectoryAttributesGroupsToUpdate.attributes) {
+    const attributesLength = doc.attributes.length;
+    console.log(`Array of objects length ${attributesLength}`);
+
+    for (let i = 0; i < attributesLength; i++) {
+      doc.attributes[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.attributes[i].updatedAt = Date.now();
+    }
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const directoryAttributesGroups = await DirectoryAttributesGroups.findByIdAndUpdate(
     id,
     req.body,

@@ -45,14 +45,12 @@ exports.getNewsletterMessages = catchAsync(async (req, res, next) => {
 
 exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
   console.log('Creating Newsletter Messages');
+  const { body } = req;
+
   // parse through models
-  const doc = new NewsletterMessages(req.body);
-  console.log(doc);
-
-  // validate seperately sub-documents if necessary
-
-  // replace doc if necessary
-
+  const doc = new NewsletterMessages(body);
+  console.log(body);
+  
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -64,7 +62,7 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
 
   // check the doc before doing database operation
   //console.log(doc);
-  constnewsletterMessages = await NewsletterMessages.create(doc).then();
+  const newsletterMessages = await NewsletterMessages.create(doc).then();
 
   res.status(201).json({
     status: 'sucess',

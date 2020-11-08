@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9b25e315-101f-4e9e-87e0-c75e859e3d27",
+		"_postman_id": "9177b200-d600-45d1-b805-7f291d28a65c",
 		"name": "quotation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -26,34 +26,13 @@
 			"response": []
 		},
 		{
-			"name": "getOneQuotation",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/quotation/1",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"quotation",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "createQuotation",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\n  \"moduleReferance\":\"reference\" ,\n  \"header\": \"header\",\n  \"date\": \"\",\n  \"_buyerId\": 23,\n  \"buyerName\": \"jane\",\n  \"buyerAddress\": \"\",\n  \"buyerEmail\": \"jane@email.com\",\n  \"buyerContactNumber\": 99997790,\n  \"buyerContactNumbertype\": \"mobile\",\n  \"_sellerId\": \"\",\n  \"sellerName\": \"joy\",\n  \"sellerAttentionName\": \"joywoods\",\n  \"sellerAddress\": \"\",\n  \"sellerEmail\": \"joy@email.com\",\n  \"sellerContactNumber\": 1004288,\n  \"sellerContactNumbertype\": \"mobile\",\n  \"subject\": \"sellerinfo\",\n  \"body\": \"\",\n  \"itemTable\": [],\n  \"termsAndConditions\": \"no returns\",\n  \"footer\": \"\",\n  \"paymentMethods\": {\n    \n    \"type\": \"type\",\n    \"meta\": \"\"\n  },\n  \"QuotationNumber\": 789\n}",
+					"raw": "{\n\n  \"moduleReferance\":\"reference\" ,\n  \"header\": \"header\",\n  \"date\": \"\",\n  \"buyerName\": \"jane\",\n  \"buyerAddress\": \"\",\n  \"buyerEmail\": \"jane@email.com\",\n  \"buyerContactNumber\": 99997790,\n  \"buyerContactNumbertype\": \"mobile\",\n  \"sellerName\": \"joy\",\n  \"sellerAttentionName\": \"joywoods\",\n  \"sellerAddress\": \"\",\n  \"sellerEmail\": \"joy@email.com\",\n  \"sellerContactNumber\": 1004288,\n  \"sellerContactNumbertype\": \"mobile\",\n  \"subject\": \"sellerinfo\",\n  \"body\": \"\",\n  \"itemTable\": [],\n  \"termsAndConditions\": \"no returns\",\n  \"footer\": \"\",\n  \"paymentMethods\": { \n    \"type\": \"type\",\n    \"meta\": \"\"\n  },\n  \"QuotationNumber\": 789\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,7 +61,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\n  \"moduleReferance\":\"reference\" ,\n  \"header\": \"header\",\n  \"date\": \"\",\n  \"_buyerId\": 23,\n  \"buyerName\": \"jane\",\n  \"buyerAddress\": \"\",\n  \"buyerEmail\": \"jane@email.com\",\n  \"buyerContactNumber\": 99997790,\n  \"buyerContactNumbertype\": \"mobile\",\n  \"_sellerId\": \"\",\n  \"sellerName\": \"joy\",\n  \"sellerAttentionName\": \"joywoods\",\n  \"sellerAddress\": \"\",\n  \"sellerEmail\": \"joy@email.com\",\n  \"sellerContactNumber\": 1004288,\n  \"sellerContactNumbertype\": \"mobile\",\n  \"subject\": \"sellerinfo\",\n  \"body\": \"\",\n  \"itemTable\": [],\n  \"termsAndConditions\": \"no returns\",\n  \"footer\": \"\",\n  \"paymentMethods\": {\n    \n    \"type\": \"type\",\n    \"meta\": \"\"\n  },\n  \"QuotationNumber\": 789\n}",
+					"raw": "{\n\n  \"moduleReferance\":\"reference\" ,\n  \"header\": \"header\",\n  \"date\": \"\",\n  \"buyerName\": \"jane\",\n  \"buyerAddress\": \"\",\n  \"buyerEmail\": \"jane@email.com\",\n  \"buyerContactNumber\": 99997790,\n  \"buyerContactNumbertype\": \"mobile\",\n  \"sellerName\": \"joy\",\n  \"sellerAttentionName\": \"joywoods\",\n  \"sellerAddress\": \"\",\n  \"sellerEmail\": \"joy@email.com\",\n  \"sellerContactNumber\": 1004288,\n  \"sellerContactNumbertype\": \"mobile\",\n  \"subject\": \"sellerinfo\",\n  \"body\": \"\",\n  \"itemTable\": [],\n  \"termsAndConditions\": \"no returns\",\n  \"footer\": \"\",\n  \"paymentMethods\": { \n    \"type\": \"type\",\n    \"meta\": \"\"\n  },\n  \"QuotationNumber\": 789\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,7 +69,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/quotation/1",
+					"raw": "localhost:3000/api/v1/quotation/5fa6ca9214dd886941f2b856",
 					"host": [
 						"localhost"
 					],
@@ -99,7 +78,28 @@
 						"api",
 						"v1",
 						"quotation",
-						"1"
+						"5fa6ca9214dd886941f2b856"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneQuotation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/quotation/5fa6ca9214dd886941f2b856",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"quotation",
+						"5fa6ca9214dd886941f2b856"
 					]
 				}
 			},
@@ -111,7 +111,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/quotation/1",
+					"raw": "localhost:3000/api/v1/quotation/5fa6ca9214dd886941f2b856",
 					"host": [
 						"localhost"
 					],
@@ -120,7 +120,7 @@
 						"api",
 						"v1",
 						"quotation",
-						"1"
+						"5fa6ca9214dd886941f2b856"
 					]
 				}
 			},

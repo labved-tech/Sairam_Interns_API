@@ -6,7 +6,6 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const deliveryNoteSchema = new Schema({
-  _id: { type: mongoose.ObjectId },
   packingListnumber: { type: Number },
   taxInvoiceNumber: { type: Number },
   packingListNumber: { type: Number },

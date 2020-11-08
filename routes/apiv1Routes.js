@@ -56,7 +56,7 @@ const newsletterMessagesRouter = require('./newsletter/newsletterMessagesRoutes'
 const addressRouter = require('./sales-finance/addressRoutes');
 const deliveryNoteRouter = require('./sales-finance/deliveryNoteRoutes');
 const packingListRouter = require('./sales-finance/packingListRoutes');
-//const perfomaInvoiceRouter = require('./sales-finance/perfomaInvoiceRoutes');
+const perfomaInvoiceRouter = require('./sales-finance/perfomaInvoiceRoutes');
 const quotationRouter = require('./sales-finance/quotationRoutes');
 const taxInvoiceRouter = require('./sales-finance/taxInvoiceRoutes');
 
@@ -126,7 +126,7 @@ router.use('/newsletter-messages', newsletterMessagesRouter);
 router.use('/address', addressRouter);
 router.use('/delivery-note', deliveryNoteRouter);
 router.use('/packing-list', packingListRouter);
-//router.use('/perfoma-invoice', perfomaInvoiceRouter);
+router.use('/perfoma-invoice', perfomaInvoiceRouter);
 router.use('/quotation', quotationRouter);
 router.use('/tax-invoice', taxInvoiceRouter);
 

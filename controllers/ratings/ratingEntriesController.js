@@ -89,7 +89,26 @@ exports.createRatingEntries = catchAsync(async (req, res, next) => {
 
 exports.updateRatingEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating RatingEntries Id ${id}`);
+
+  // parse through models
+  const RatingEntriesToUpdate = new RatingEntries(body);
+  console.log(body);
+  const doc = RatingEntriesToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (RatingEntriesToUpdate.meta) {
+    const metaLength = doc.meta.length;
+    console.log(`Array of objects length ${metaLength}`);
+
+    for (let i = 0; i < metaLength; i++) {
+      doc.meta[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.meta[i].updatedAt = Date.now();
+    }
+  }
 
   const ratingEntries = await RatingEntries.findByIdAndUpdate(id, req.body, {
     new: true,
