@@ -4,6 +4,7 @@ const express = require('express');
 /* MIDDLEWARE */
 const router = express.Router();
 const viewsController = require('../controllers/viewsController');
+const authController = require('../controllers/user/authController');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
@@ -12,7 +13,7 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
-router.get('/overview', viewsController.getOverview);
+router.get('/overview', authController.protect, viewsController.getOverview);
 
 // LOGIN RELATED ROUTES
 router.get('/signup', viewsController.getSignUp);

@@ -59,7 +59,6 @@ var KTAppSettings = {
   'font-family': 'Poppins',
 };
 
-
 const login = async (email, password) => {
   console.log(email, password)
 
@@ -72,9 +71,9 @@ const login = async (email, password) => {
         password
       }
     });
-    console.log(email, password)
+    console.log(res);
   } catch (err) {
-    console.log(err);
+    console.log(err.response.data);
   }
   
 }

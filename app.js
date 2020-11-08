@@ -2,13 +2,14 @@
 const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
-const url = require('url');
-const slugify = require('slugify');
 const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const slugify = require('slugify');
+const url = require('url');
+const cookieParser = require('cookie-parser');
 
 /* MIDDLEWARES */
 
@@ -39,6 +40,7 @@ app.use('/api', limiter);
 
 // Body Parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
+app.use(cookieParser());
 
 // Data Santization against NoSQL Query injection
 app.use(mongoSanitize());
@@ -59,14 +61,15 @@ app.set('view engine', 'pug');
 // Test Middleware
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
-    /*     //console.log(req.url);
+  /*//console.log(req.url);
     //console.log(url.parse(req.url, true));
     const { query, pathname } = url.parse(req.url, true);
     console.log(`URL Pathname is ${pathname}`);
     console.log(`URL Query Id is ${query.id}`); */
     req.requestTime = new Date().toISOString();
+    //console.log(req.cookies);
   }
-  console.log(req.headers);
+
   next();
 });
 
