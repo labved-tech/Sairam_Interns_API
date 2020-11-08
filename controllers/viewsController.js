@@ -384,7 +384,7 @@ exports.getSignUp = (req, res) => {
 exports.getLoginForm = (req, res) => {
   console.log('We are in Login Page');
 
-  res.status(200).render('./pages/users/login', {
+  res.status(200).render('./pages/users/login copy', {
     title: 'Sign In',
   });
 };

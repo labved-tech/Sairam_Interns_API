@@ -121,8 +121,8 @@ const KTLogin = (function () {
             method: 'POST',
             dataType: 'json',
             data: {
-              name: form.querySelector('[name="email"]').value,
-              email: form.querySelector('[name="password"]').value,
+              email: form.querySelector('[name="email"]').value,
+              password: form.querySelector('[name="password"]').value,
             },
           })
           .then(function (response) {
@@ -473,13 +473,13 @@ const KTLogin = (function () {
 })();
 
 // Class Initialization
-/* jQuery(document).ready(function () {
+jQuery(document).ready(function () {
   console.log('All assets are loaded');
 
+  KTLogin.init();
+}); 
+
+/* $(window).on('load', function () {
+  console.log('All assets are loaded');
   KTLogin.init();
 }); */
-
-$(window).on('load', function () {
-  console.log('All assets are loaded');
-  KTLogin.init();
-});
