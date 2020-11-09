@@ -20,15 +20,15 @@ exports.getAllTicketCategories = catchAsync(async (req, res, next) => {
 
   const ticketCategories = await TicketCategories.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All TicketCategories',
-      results: ticketCategories.length,
-      data: {
-        ticketCategories,
-      },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All TicketCategories',
+    results: ticketCategories.length,
+    data: {
+      ticketCategories,
+    },
+  });
+
   next();
 });
 
@@ -37,16 +37,16 @@ exports.getTicketCategories = catchAsync(async (req, res, next) => {
   console.log(`Getting TicketCategories for Id ${id}`);
 
   const ticketCategories = await TicketCategories.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got TicketCategories Id=${id}`,
-      Data: { ticketCategories },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got TicketCategories Id=${id}`,
+    Data: { ticketCategories },
+  });
+
   next();
 });
 
-exports.createTicketCategories =catchAsync( async (req, res, next) => {
+exports.createTicketCategories = catchAsync(async (req, res, next) => {
   console.log('Creating TicketCategories');
 
   //parse through models
@@ -70,17 +70,32 @@ exports.createTicketCategories =catchAsync( async (req, res, next) => {
   //console.log(doc);
   const ticketCategories = await TicketCategories.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created TicketCategories',
-      data: { ticketCategories },
-    });
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created TicketCategories',
+    data: { ticketCategories },
+  });
   next();
 });
 
 exports.updateTicketCategories = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating TicketCategories Id ${id}`);
+
+  // parse through models
+  const TicketCategoriesToUpdate = new TicketCategories(body);
+  console.log(body);
+  const doc = TicketCategoriesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const ticketCategories = await TicketCategories.findByIdAndUpdate(id, req.body, {
     new: true,
@@ -91,7 +106,7 @@ exports.updateTicketCategories = catchAsync(async (req, res, next) => {
     message: `Updated TicketCategories Id=${id}`,
     data: { ticketCategories },
   });
- 
+
   next();
 });
 
@@ -101,11 +116,11 @@ exports.deleteTicketCategories = catchAsync(async (req, res, next) => {
 
   const ticketCategories = await TicketCategories.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted TicketCategories Id=${id}`,
-      data: { ticketCategories },
-    });
- 
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted TicketCategories Id=${id}`,
+    data: { ticketCategories },
+  });
+
   next();
 });

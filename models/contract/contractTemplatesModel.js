@@ -27,8 +27,8 @@ const contractTemplatesSchema = new Schema({
       _id: { type: mongoose.ObjectId },
       name: { type: String },
       type: { type: String },
-      createdBy: { type: mongoose.ObjectId},
-      updatedBy: { type: mongoose.ObjectId},
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId },
     },
     { timestamps: true }
   ],
@@ -42,7 +42,7 @@ const contractTemplatesSchema = new Schema({
   createdBy: { type: mongoose.ObjectId, required: true },
   updatedBy: { type: mongoose.ObjectId, required: true },
 },
-{ timestamps: true }
+  { timestamps: true }
 );
 
 /* MODEL */

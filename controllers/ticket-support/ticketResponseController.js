@@ -20,14 +20,14 @@ exports.getAllTicketResponse = catchAsync(async (req, res, next) => {
 
   const ticketResponse = await TicketResponse.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All TicketResponse',
-      results: ticketResponse.length,
-      data: {
-        ticketResponse,
-      },
-    });
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All TicketResponse',
+    results: ticketResponse.length,
+    data: {
+      ticketResponse,
+    },
+  });
 
   next();
 });
@@ -37,11 +37,11 @@ exports.getTicketResponse = catchAsync(async (req, res, next) => {
   console.log(`Getting TicketResponse for Id ${id}`);
 
   const ticketResponse = await TicketResponse.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got TicketResponse Id=${id}`,
-      Data: { ticketResponse },
-    });
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got TicketResponse Id=${id}`,
+    Data: { ticketResponse },
+  });
 
   next();
 });
@@ -69,18 +69,33 @@ exports.createTicketResponse = catchAsync(async (req, res, next) => {
   //console.log(doc);
   const ticketResponse = await TicketResponse.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created TicketResponse',
-      data: { ticketResponse },
-    });
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created TicketResponse',
+    data: { ticketResponse },
+  });
 
   next();
 });
 
 exports.updateTicketResponse = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating TicketResponse Id ${id}`);
+
+  // parse through models
+  const TicketResponseToUpdate = new TicketResponse(body);
+  console.log(body);
+  const doc = TicketResponseToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const ticketResponse = await TicketResponse.findByIdAndUpdate(id, req.body, {
     new: true,
