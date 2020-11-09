@@ -105,10 +105,41 @@ const KTLogin = (function () {
       .on('core.form.valid', function () {
         // Show loading state on button
         KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        console.log(
-          form.querySelector('[name="email"]').value,
-          form.querySelector('[name="password"]').value
-        );
+
+        axios({
+            method: 'post',
+            url: 'http://localhost:3000/api/v1/users/login',
+            data: {
+              email: form.querySelector('[name="email"]').value,
+              password: form.querySelector('[name="password"]').value,
+            },
+        }).then(function(response) {
+          // Return valid JSON
+          // Release button
+          KTUtil.btnRelease(formSubmitButton);
+          console.log(response);
+
+          if (
+            response &&
+            typeof response === 'object' &&
+            response.status &&
+            response.status == 'success'
+          ) {
+            console.log(response)
+            Swal.fire({
+              text: 'All is cool! Now you submit this form',
+              icon: 'success',
+              buttonsStyling: false,
+              confirmButtonText: 'Ok, got it!',
+              customClass: {
+                confirmButton: 'btn font-weight-bold btn-light-primary',
+              },
+            }).then(function () {
+              KTUtil.scrollTop();
+            });
+          } 
+        });
+      })
 
         // Simulate Ajax request
         /*        setTimeout(function () {
@@ -116,10 +147,9 @@ const KTLogin = (function () {
         }, 2000); */
 
         // Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
-        FormValidation.utils
-          .fetch(formSubmitUrl, {
+       /*   FormValidation.utils
+         .fetch(formSubmitUrl, {
             method: 'POST',
-            dataType: 'json',
             data: {
               email: form.querySelector('[name="email"]').value,
               password: form.querySelector('[name="password"]').value,
@@ -129,7 +159,7 @@ const KTLogin = (function () {
             // Return valid JSON
             // Release button
             KTUtil.btnRelease(formSubmitButton);
-
+            console.log(response)
             if (
               response &&
               typeof response === 'object' &&
@@ -161,7 +191,7 @@ const KTLogin = (function () {
               });
             }
           });
-      })
+      */ 
       .on('core.form.invalid', function () {
         Swal.fire({
           text:
