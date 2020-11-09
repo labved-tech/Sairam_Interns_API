@@ -37,12 +37,12 @@ exports.getContractEntries = catchAsync(async (req, res, next) => {
   console.log(`Getting ContractEntries for Id ${id}`);
 
   const contractEntries = await ContractEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got ContractEntries Id=${id}`,
-      Data: { contractEntries },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got ContractEntries Id=${id}`,
+    Data: { contractEntries },
+  });
+
   next();
 });
 
@@ -71,18 +71,33 @@ exports.createContractEntries = catchAsync(async (req, res, next) => {
 
   const contractEntries = await ContractEntries.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created ContractEntries',
-      data: { contractEntries },
-    });
-    
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created ContractEntries',
+    data: { contractEntries },
+  });
+
   next();
 });
 
 exports.updateContractEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating ContractEntries Id ${id}`);
+
+  // parse through models
+  const ContractEntriesToUpdate = new ContractEntries(body);
+  console.log(body);
+  const doc = ContractEntriesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const contractEntries = await ContractEntries.findByIdAndUpdate(id, req.body, {
     new: true,
@@ -103,11 +118,11 @@ exports.deleteContractEntries = catchAsync(async (req, res, next) => {
 
   const contractEntries = await ContractEntries.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted ContractEntries Id=${id}`,
-      data: { contractEntries },
-    });
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted ContractEntries Id=${id}`,
+    data: { contractEntries },
+  });
 
   next();
 });

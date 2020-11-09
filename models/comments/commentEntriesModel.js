@@ -14,7 +14,6 @@ const commentEntriesSchema = new Schema(
     message: { type: String },
     commentReplies: [
       {
-        _id: { type: mongoose.ObjectId },
         message: { type: String },
         _commentorId: { type: mongoose.ObjectId },
         createdBy: { type: mongoose.ObjectId },
@@ -24,8 +23,8 @@ const commentEntriesSchema = new Schema(
       },
     ],
     status: { type: String },
-    createdBy: { type: mongoose.ObjectId, required: true },
-    updatedBy: { type: mongoose.ObjectId, required: true },
+    createdBy: { type: mongoose.ObjectId },
+    updatedBy: { type: mongoose.ObjectId },
   },
   { timestamps: true },
 );
