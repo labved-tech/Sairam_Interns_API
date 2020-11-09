@@ -72,7 +72,7 @@ exports.createFarmEntries = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(`After Validation :${doc}`);
 
-  //const FarmEntries = await doc.save({ validateBeforeSave: false });
+  //const farmEntries = await doc.save({ validateBeforeSave: false });
  
   const farmEntries = await FarmEntries.create(doc).then();
 
