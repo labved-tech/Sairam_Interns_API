@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bd5c4802-5b9a-4787-bd0a-472cf03e2185",
+		"_postman_id": "99448003-708f-4bc9-be6c-8abb88ae0910",
 		"name": "eventEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -131,10 +131,15 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"status\": \"success\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": 10,\r\n  \"type\": \"database\",\r\n  \"meta\": [1,1,1],\r\n  \"location\": {\"location\":\"Chennai\"},\r\n  \"boundary\": \"63245\"\r\n}"
+					"raw": "{\r\n  \"status\": \"success\",\r\n  \"priority\": \"completed\",\r\n  \"expires\": 10,\r\n  \"type\": \"database\",\r\n  \"meta\": [1,1,1],\r\n  \"location\": {\"location\":\"Chennai\"},\r\n  \"boundary\": \"63245\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/eventEntries/5fa2865769f8e547c44fe555",
+					"raw": "{{URL}}/api/v1/eventEntries/5fa93fdf7f743d1c64c402a7",
 					"host": [
 						"{{URL}}"
 					],
@@ -142,7 +147,7 @@
 						"api",
 						"v1",
 						"eventEntries",
-						"5fa2865769f8e547c44fe555"
+						"5fa93fdf7f743d1c64c402a7"
 					]
 				}
 			},
