@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2b59f918-f1dc-4c1e-b466-46f6a99367c1",
+		"_postman_id": "5ed1950a-85f7-4a3a-9b47-5b54fa629acb",
 		"name": "analytics",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllAnalytics",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/analytics/",
+					"raw": "{{URL}}/api/v1/analytics/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,11 +38,21 @@
 		{
 			"name": "createAnalytics",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\":{},\r\n  \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_reportid\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
+					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\":{\"test\" : \"test\"},\r\n  \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_reportid\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/analytics/",
+					"raw": "{{URL}}/api/v1/analytics/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +77,28 @@
 		{
 			"name": "getAnalytics",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/analytics/0",
+					"raw": "{{URL}}/api/v1/analytics/5fa92064cff6f652644266de",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"analytics",
-						"0"
+						"5fa92064cff6f652644266de"
 					]
 				}
 			},
@@ -80,6 +107,16 @@
 		{
 			"name": "updateAnalytics",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,16 +129,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/analytics/5fa13ed65fb7d25ae8fec000",
+					"raw": "{{URL}}/api/v1/analytics/5fa92064cff6f652644266de",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"analytics",
-						"5fa13ed65fb7d25ae8fec000"
+						"5fa92064cff6f652644266de"
 					]
 				}
 			},
@@ -110,19 +146,28 @@
 		{
 			"name": "deleteAnalytics",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/analytics/0",
+					"raw": "{{URL}}/api/v1/analytics/5fa92064cff6f652644266de",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"analytics",
-						"0"
+						"5fa92064cff6f652644266de"
 					]
 				}
 			},
