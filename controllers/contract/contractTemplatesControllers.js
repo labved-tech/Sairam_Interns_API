@@ -20,68 +20,125 @@ exports.getAllContractTemplates = catchAsync(async (req, res, next) => {
 
   const contractTemplates = await ContractTemplates.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All ContractTemplates',
-      results: ContractTemplates.length,
-      data: {
-        ContractTemplates,
-      },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All ContractTemplates',
+    results: ContractTemplates.length,
+    data: {
+      ContractTemplates,
+    },
+  });
+
   next();
 });
 
 exports.getContractTemplates = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting ContractTemplates for Id ${id}`);
-  
+
   const contractTemplates = await ContractTemplates.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got ContractTemplates Id=${id}`,
-      Data: { contractTemplates },
-    });
- 
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got ContractTemplates Id=${id}`,
+    Data: { contractTemplates },
+  });
+
   next();
 });
 
 exports.createContractTemplates = catchAsync(async (req, res, next) => {
   console.log('Creating ContractTemplates');
+  const { body } = req;
 
   // parse through models
   const doc = new ContractTemplates(req.body);
   console.log(doc);
 
-  // validate seperately sub-documents if necessary
+  //additionalAttributesIds
+  if (doc.additionalAttributesIds) {
+    const additionalAttributesIdsLength = doc.additionalAttributesIds.length;
+    console.log(`additionalAttributesIds length ${additionalAttributesIdsLength}`);
 
-  // replace doc if necessary
+    for (let i = 0; i < additionalAttributesIdsLength; i++) {
+      doc.additionalAttributesIds[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.additionalAttributesIds[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.additionalAttributesIds[i].createdAt = Date.now();
+      doc.additionalAttributesIds[i].updatedAt = Date.now();
+    }
+  }
 
-  // update timestamps & Id's
+  //terms
+  if (doc.terms) {
+    const termsLength = doc.terms.length;
+    console.log(`terms length ${termsLength}`);
+
+    for (let i = 0; i < termsLength; i++) {
+      doc.termsLength[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.termsLength[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.termsLength[i].createdAt = Date.now();
+      doc.termsLength[i].updatedAt = Date.now();
+    }
+  }
+
+
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(`After Validation :${doc}`);
+
+  //const example = await doc.save({ validateBeforeSave: false });
+
   const contractTemplates = await ContractTemplates.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created ContractTemplates',
-      data: { contractTemplates },
-    });
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created ContractTemplates',
+    data: { contractTemplates },
+  });
 
   next();
 });
 
 exports.updateContractTemplates = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating ContractTemplates Id ${id}`);
+
+  // parse through models
+  const ContractTemplatesToUpdate = new ContractTemplates(body);
+  console.log(body);
+  const doc = ContractTemplatesToUpdate.toObject();
+  delete doc._id;
+
+  if (ContractTemplatesToUpdate.additionalAttributesIds) {
+    const additionalAttributesIdsLength = doc.additionalAttributesIds.length;
+    console.log(`Array of objects length ${additionalAttributesIdsLength}`);
+
+    for (let i = 0; i < additionalAttributesIdsLength; i++) {
+      doc.additionalAttributesIds[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.additionalAttributesIds[i].updatedAt = Date.now();
+    }
+  }
+
+  if (ContractTemplatesToUpdate.terms) {
+    const termsLength = doc.terms.length;
+    console.log(`Array of objects length ${termsLength}`);
+
+    for (let i = 0; i < termsLength; i++) {
+      doc.terms[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[i].updatedAt = Date.now();
+    }
+  }
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const contractTemplates = await ContractTemplates.findByIdAndUpdate(id, req.body, {
     new: true,
@@ -102,11 +159,11 @@ exports.deleteContractTemplates = catchAsync(async (req, res, next) => {
 
   const contractTemplates = await ContractTemplates.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted ContractTemplates Id=${id}`,
-      data: { contractTemplates },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted ContractTemplates Id=${id}`,
+    data: { contractTemplates },
+  });
+
   next();
 });
