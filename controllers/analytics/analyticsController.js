@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllAnalytics = catchAsync(async (req, res, next) => {
   console.log('Getting All analytics');
 
+  const analytics = await Analytics.find().then();
 
-    const analytics = await Analytics.find().then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All analytics',
-      results: analytics.length,
-      data: {
-        analytics,
-      },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All analytics',
+    results: analytics.length,
+    data: {
+      analytics,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getAnalytics = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting analytics for Id ${id}`);
 
-
-    const analytics = await Analytics.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got analytics Id=${id}`,
-      Data: { analytics },
-    });
-
+  const analytics = await Analytics.findById(id).then();
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got analytics Id=${id}`,
+    Data: { analytics },
+  });
 
   next();
 });
@@ -53,34 +49,33 @@ exports.getAnalytics = catchAsync(async (req, res, next) => {
 exports.createAnalytics = catchAsync(async (req, res, next) => {
   console.log('Creating analytics');
   const { body } = req;
-    // parse through models
-    const doc = new Analytics(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new Analytics(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
   //console.log(doc);
 
-    const analytics = await Analytics.create(doc).then();
+  const analytics = await Analytics.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created analytics',
-      data: { analytics },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: 'Created analytics',
+    data: { analytics },
+  });
 
   next();
 });
@@ -96,7 +91,6 @@ exports.updateAnalytics = catchAsync(async (req, res, next) => {
   const doc = AnalyticsToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -104,17 +98,15 @@ exports.updateAnalytics = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
+  const analytics = await Analytics.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    const analytics = await Analytics.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
-
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated analytics Id=${id}`,
-      data: { analytics },
-    });
-
+  res.status(201).json({
+    status: 'sucess',
+    message: `Updated analytics Id=${id}`,
+    data: { analytics },
+  });
 
   next();
 });
@@ -123,15 +115,13 @@ exports.deleteAnalytics = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting analytics Id ${id}`);
 
+  const analytics = await Analytics.findByIdAndDelete(id).then();
 
-    const analytics = await Analytics.findByIdAndDelete(id).then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted analytics Id=${id}`,
-      data: { analytics },
-    });
-
+  res.status(200).json({
+    status: 'sucess',
+    message: `Deleted analytics Id=${id}`,
+    data: { analytics },
+  });
 
   next();
 });

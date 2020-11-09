@@ -36,6 +36,7 @@ const createSendToken = (user, statusCode, res) => {
 
   res.status(statusCode).json({
     status: 'success',
+    message: 'You have sucessfully logged in',
     token,
     data: {
       user,

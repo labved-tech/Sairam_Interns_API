@@ -1,65 +1,6 @@
 /* eslint-disable */
 'use strict';
 
-var KTAppSettings = {
-  breakpoints: {
-    sm: 576,
-    md: 768,
-    lg: 992,
-    xl: 1200,
-    xxl: 1400,
-  },
-  colors: {
-    theme: {
-      base: {
-        white: '#ffffff',
-        primary: '#3699FF',
-        secondary: '#E5EAEE',
-        success: '#1BC5BD',
-        info: '#8950FC',
-        warning: '#FFA800',
-        danger: '#F64E60',
-        light: '#E4E6EF',
-        dark: '#181C32',
-      },
-      light: {
-        white: '#ffffff',
-        primary: '#E1F0FF',
-        secondary: '#EBEDF3',
-        success: '#C9F7F5',
-        info: '#EEE5FF',
-        warning: '#FFF4DE',
-        danger: '#FFE2E5',
-        light: '#F3F6F9',
-        dark: '#D6D6E0',
-      },
-      inverse: {
-        white: '#ffffff',
-        primary: '#ffffff',
-        secondary: '#3F4254',
-        success: '#ffffff',
-        info: '#ffffff',
-        warning: '#ffffff',
-        danger: '#ffffff',
-        light: '#464E5F',
-        dark: '#ffffff',
-      },
-    },
-    gray: {
-      'gray-100': '#F3F6F9',
-      'gray-200': '#EBEDF3',
-      'gray-300': '#E4E6EF',
-      'gray-400': '#D1D3E0',
-      'gray-500': '#B5B5C3',
-      'gray-600': '#7E8299',
-      'gray-700': '#5E6278',
-      'gray-800': '#3F4254',
-      'gray-900': '#181C32',
-    },
-  },
-  'font-family': 'Poppins',
-};
-
 // Class Definition
 const KTLogin = (function () {
   const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
@@ -105,93 +46,47 @@ const KTLogin = (function () {
       .on('core.form.valid', function () {
         // Show loading state on button
         KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
+        console.log(form.querySelector('[name="email"]').value, form.querySelector('[name="password"]').value,)
         axios({
-            method: 'post',
-            url: 'http://localhost:3000/api/v1/users/login',
-            data: {
-              email: form.querySelector('[name="email"]').value,
-              password: form.querySelector('[name="password"]').value,
-            },
-        }).then(function(response) {
+          method: 'post',
+          url: 'http://localhost:3000/api/v1/users/login',
+          data: {
+            email: form.querySelector('[name="email"]').value,
+            password: form.querySelector('[name="password"]').value,
+          },
+        }).then(function (response) {
           // Return valid JSON
           // Release button
           KTUtil.btnRelease(formSubmitButton);
           console.log(response);
 
-          if (
-            response &&
-            typeof response === 'object' &&
-            response.status &&
-            response.status == 'success'
-          ) {
-            console.log(response)
+          if (response.data.status == 'success') {
             Swal.fire({
-              text: 'All is cool! Now you submit this form',
+              text: response.data.message,
               icon: 'success',
               buttonsStyling: false,
-              confirmButtonText: 'Ok, got it!',
+              confirmButtonText: 'OK',
               customClass: {
                 confirmButton: 'btn font-weight-bold btn-light-primary',
               },
             }).then(function () {
               KTUtil.scrollTop();
             });
-          } 
-        });
+          } else {
+            Swal.fire({
+              text: response.data.message,
+              icon: 'error',
+              buttonsStyling: false,
+              confirmButtonText: 'Retry',
+              customClass: {
+                confirmButton: 'btn font-weight-bold btn-light-primary',
+              },
+            }).then(function () {
+              KTUtil.scrollTop();
+            });
+          }
+        })
       })
-
-        // Simulate Ajax request
-        /*        setTimeout(function () {
-          KTUtil.btnRelease(formSubmitButton);
-        }, 2000); */
-
-        // Form Validation & Ajax Submission: https://formvalidation.io/guide/examples/using-ajax-to-submit-the-form
-       /*   FormValidation.utils
-         .fetch(formSubmitUrl, {
-            method: 'POST',
-            data: {
-              email: form.querySelector('[name="email"]').value,
-              password: form.querySelector('[name="password"]').value,
-            },
-          })
-          .then(function (response) {
-            // Return valid JSON
-            // Release button
-            KTUtil.btnRelease(formSubmitButton);
-            console.log(response)
-            if (
-              response &&
-              typeof response === 'object' &&
-              response.status &&
-              response.status == 'success'
-            ) {
-              Swal.fire({
-                text: 'All is cool! Now you submit this form',
-                icon: 'success',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok, got it!',
-                customClass: {
-                  confirmButton: 'btn font-weight-bold btn-light-primary',
-                },
-              }).then(function () {
-                KTUtil.scrollTop();
-              });
-            } else {
-              Swal.fire({
-                text: 'Sorry, something went wrong, please try again.',
-                icon: 'error',
-                buttonsStyling: false,
-                confirmButtonText: 'Ok, got it!',
-                customClass: {
-                  confirmButton: 'btn font-weight-bold btn-light-primary',
-                },
-              }).then(function () {
-                KTUtil.scrollTop();
-              });
-            }
-          });
-      */ 
       .on('core.form.invalid', function () {
         Swal.fire({
           text:
@@ -496,18 +391,18 @@ const KTLogin = (function () {
   return {
     init: function () {
       _handleFormSignin();
-      //_handleFormForgot();
-      //_handleFormSignup();
+      _handleFormForgot();
+      _handleFormSignup();
     },
   };
 })();
 
 // Class Initialization
-jQuery(document).ready(function () {
+ jQuery(document).ready(function () {
   console.log('All assets are loaded');
 
   KTLogin.init();
-}); 
+ });
 
 /* $(window).on('load', function () {
   console.log('All assets are loaded');
