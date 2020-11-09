@@ -17,8 +17,8 @@ const ecommerceStockSchema = new Schema({
       discountPercent: { type: Number },
       name: { type: String },
       description: { type: String },
-      createdBy: { type: mongoose.ObjectId},
-      updatedBy: { type: mongoose.ObjectId},
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId },
     },
     { timestamps: true }
   ],
@@ -29,8 +29,8 @@ const ecommerceStockSchema = new Schema({
       CGST: { type: String },
       SGST: { type: String },
       IGST: { type: String },
-      createdBy: { type: mongoose.ObjectId},
-      updatedBy: { type: mongoose.ObjectId},
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId },
     },
     { timestamps: true }
   ],
@@ -39,13 +39,13 @@ const ecommerceStockSchema = new Schema({
   notes: { type: String },
   _locationId: { type: mongoose.ObjectId },
   status: { type: String },
-  createdBy: { type: mongoose.ObjectId, required: true },
-  updatedBy: { type: mongoose.ObjectId, required: true },
+  createdBy: { type: mongoose.ObjectId },
+  updatedBy: { type: mongoose.ObjectId },
   maxQuantityPerOrderNumber: { type: Number },
 },
-{ timestamps: true }
+  { timestamps: true }
 );
- 
+
 
 
 /* MODEL */

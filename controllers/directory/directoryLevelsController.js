@@ -79,7 +79,22 @@ exports.createDirectoryLevels = catchAsync(async (req, res, next) => {
 
 exports.updateDirectoryLevels = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating DirectoryLevels Id ${id}`);
+
+  // parse through models
+  const DirectoryLevelsToUpdate = new DirectoryLevels(body);
+  console.log(body);
+  const doc = DirectoryLevelsToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const directoryLevels = await DirectoryLevels.findByIdAndUpdate(
     id,

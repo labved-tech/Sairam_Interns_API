@@ -89,8 +89,33 @@ exports.createEcommerceLocations = catchAsync(async (req, res, next) => {
 
 exports.updateEcommerceLocations = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating EcommerceLocations Id ${id}`);
 
+  // parse through models
+  const EcommerceLocationsToUpdate = new EcommerceLocations(body);
+  console.log(body);
+  const doc = EcommerceLocationsToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (EcommerceLocationsToUpdate.admins) {
+    const verifyDocumentsLength = doc.verifyDocuments.length;
+    console.log(`Array of objects length ${verifyDocumentsLength}`);
+
+    for (let i = 0; i < verifyDocumentsLength; i++) {
+      doc.verifyDocuments[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.verifyDocuments[i].updatedAt = Date.now();
+    }
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const ecommerceLocations = await EcommerceLocations.findByIdAndUpdate(
     id,
     req.body,

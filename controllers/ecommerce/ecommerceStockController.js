@@ -104,8 +104,42 @@ exports.createEcommerceStock = catchAsync(async (req, res, next) => {
 
 exports.updateEcommerceStock = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating EcommerceStock Id ${id}`);
 
+  // parse through models
+  const EcommerceStockToUpdate = new EcommerceStock(body);
+  console.log(body);
+  const doc = EcommerceStockToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (EcommerceStockToUpdate.discount) {
+    const discountLength = doc.discount.length;
+    console.log(`Array of objects length ${discountLength}`);
+
+    for (let i = 0; i < discountLength; i++) {
+      doc.discount[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.discount[i].updatedAt = Date.now();
+    }
+  }
+  if (EcommerceStockToUpdate.tax) {
+    const taxLength = doc.tax.length;
+    console.log(`Array of objects length ${taxLength}`);
+
+    for (let i = 0; i < taxLength; i++) {
+      doc.tax[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.tax[i].updatedAt = Date.now();
+    }
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const ecommerceStock = await EcommerceStock.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();

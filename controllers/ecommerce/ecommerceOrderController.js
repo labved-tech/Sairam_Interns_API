@@ -88,8 +88,33 @@ exports.createEcommerceOrder = catchAsync(async (req, res, next) => {
 
 exports.updateEcommerceOrder = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating EcommerceOrder Id ${id}`);
 
+  // parse through models
+  const EcommerceOrderToUpdate = new EcommerceOrder(body);
+  console.log(body);
+  const doc = EcommerceOrderToUpdate.toObject();
+  delete doc._id;
+
+
+
+  if (EcommerceOrderToUpdate.items) {
+    const itemsLength = doc.items.length;
+    console.log(`Array of objects length ${itemsLength}`);
+
+    for (let i = 0; i < itemsLength; i++) {
+      doc.items[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.items[i].updatedAt = Date.now();
+    }
+  }
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const ecommerceOrder = await EcommerceOrder.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
