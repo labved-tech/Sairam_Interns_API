@@ -20,15 +20,15 @@ exports.getAllTicketEntries = catchAsync(async (req, res, next) => {
 
   const ticketEntries = await TicketEntries.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All TicketEntries',
-      results: ticketEntries.length,
-      data: {
-        ticketEntries,
-      },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: 'Got All TicketEntries',
+    results: ticketEntries.length,
+    data: {
+      ticketEntries,
+    },
+  });
+
   next();
 });
 
@@ -37,54 +37,68 @@ exports.getTicketEntries = catchAsync(async (req, res, next) => {
   console.log(`Getting TicketEntries for Id ${id}`);
 
   const ticketEntries = await TicketEntries.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got TicketEntries Id=${id}`,
-      Data: { ticketEntries },
-    });
-  
+  res.status(200).json({
+    status: 'sucess',
+    message: `Got TicketEntries Id=${id}`,
+    Data: { ticketEntries },
+  });
+
   next();
 });
 
-exports.createTicketEntries = 
+exports.createTicketEntries =
 
-(async (req, res, next) => {
-  console.log('Creating TicketEntries');
+  (async (req, res, next) => {
+    console.log('Creating TicketEntries');
 
-  // parse through models
-  const doc = new TicketEntries(req.body);
-  console.log(doc);
+    // parse through models
+    const doc = new TicketEntries(req.body);
+    console.log(doc);
 
-  // validate seperately sub-documents if necessary
+    // validate seperately sub-documents if necessary
 
-  // replace doc if necessary
+    // replace doc if necessary
 
-  // update timestamps & Id's
-  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-  doc.createdAt;
-  doc.updatedAt;
+    // update timestamps & Id's
+    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+    doc.createdAt;
+    doc.updatedAt;
 
-  // final validation
-  await doc.validate();
+    // final validation
+    await doc.validate();
 
-  // check the doc before doing database operation
-  //console.log(doc);
-  const ticketEntries = await TicketEntries.create(doc).then();
+    // check the doc before doing database operation
+    //console.log(doc);
+    const ticketEntries = await TicketEntries.create(doc).then();
 
     res.status(201).json({
       status: 'sucess',
       message: 'Created TicketEntries',
       data: { ticketEntries },
     });
-  
-  next();
-});
+
+    next();
+  });
 
 exports.updateTicketEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating TicketEntries Id ${id}`);
-  
+
+  // parse through models
+  const TicketEntriesToUpdate = new TicketEntries(body);
+  console.log(body);
+  const doc = TicketEntriesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
   const ticketEntries = await TicketEntries.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
@@ -111,4 +125,3 @@ exports.deleteTicketEntries = catchAsync(async (req, res, next) => {
   });
   next();
 });
- 

@@ -1,10 +1,52 @@
 {
 	"info": {
-		"_postman_id": "86ec5595-14c9-4a25-b426-40259007a34d",
+		"_postman_id": "9e60461e-c8b4-4324-8978-67b0479efbfb",
 		"name": "leadEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "deleteLeadEntries",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/lead-entries/5fa926f63995ec48a881c042",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"lead-entries",
+						"5fa926f63995ec48a881c042"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getLeadEntries",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/v1/lead-entries/5fa926f63995ec48a881c042",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"lead-entries",
+						"5fa926f63995ec48a881c042"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "getAllLeadEntries",
 			"request": {
@@ -57,27 +99,6 @@
 			"response": []
 		},
 		{
-			"name": "getLeadEntries",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"lead-entries",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateLeadEntries",
 			"request": {
 				"method": "PATCH",
@@ -92,7 +113,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/5fa638a7f99a002a50a59084",
+					"raw": "localhost:3000/api/v1/lead-entries/5fa9438ed0733d0c2030c535",
 					"host": [
 						"localhost"
 					],
@@ -101,28 +122,7 @@
 						"api",
 						"v1",
 						"lead-entries",
-						"5fa638a7f99a002a50a59084"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteLeadEntries",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/5fa637a431507b52fc8f493a",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"lead-entries",
-						"5fa637a431507b52fc8f493a"
+						"5fa9438ed0733d0c2030c535"
 					]
 				}
 			},

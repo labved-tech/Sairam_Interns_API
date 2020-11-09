@@ -80,7 +80,22 @@ exports.createEventEntries = catchAsync(async (req, res, next) => {
 
 exports.updateEventEntries = catchAsync(async (req, res, next) => {
   const { id } = req.params;
+  const { body } = req;
   console.log(`Updating EventEntries Id ${id}`);
+
+  // parse through models
+  const EventEntriesToUpdate = new EventEntries(body);
+  console.log(body);
+  const doc = EventEntriesToUpdate.toObject();
+  delete doc._id;
+
+
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
+
+  // check the doc before doing database operation
+  //console.log(doc);
 
   const eventEntries = await EventEntries.findByIdAndUpdate(id, req.body, {
     new: true,
