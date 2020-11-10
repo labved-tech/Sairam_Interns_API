@@ -1,26 +1,35 @@
 {
 	"info": {
-		"_postman_id": "9e60461e-c8b4-4324-8978-67b0479efbfb",
+		"_postman_id": "f5bc7ae8-4973-4fc4-8bb7-5c76ad5fe970",
 		"name": "leadEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "deleteLeadEntries",
+			"name": "getAllLeadEntries",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/5fa926f63995ec48a881c042",
+					"raw": "{{URL}}/api/v1/lead-entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"lead-entries",
-						"5fa926f63995ec48a881c042"
+						""
 					]
 				}
 			},
@@ -48,12 +57,12 @@
 			"response": []
 		},
 		{
-			"name": "getAllLeadEntries",
+			"name": "deleteLeadEntries",
 			"request": {
-				"method": "GET",
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/",
+					"raw": "localhost:3000/api/v1/lead-entries/5fa926f63995ec48a881c042",
 					"host": [
 						"localhost"
 					],
@@ -62,37 +71,7 @@
 						"api",
 						"v1",
 						"lead-entries",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createLeadEntries",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"title\": \" Student\",\r\n  \"_categoryId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"company\": \" Labved\",\r\n  \"description\": \"NA \",\r\n  \"email\": \"sample@gmail.com \",\r\n  \"website\": \"sample.com\",\r\n  \"address\": {\r\n    \"Address1\": \"Tambaram\",\r\n    \"Street\": \"NA\",\r\n    \"City\": \"Chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"IN\",\r\n    \"PostalCode\": \"Na\"\r\n  },\r\n  \"contactInformation\": [\r\n    {\r\n      \"item\": \"NA\",\r\n      \"type\": \"Personal\",\r\n      \"isPublic\":true\r\n    }\r\n  ],\r\n  \"assignedTo\": \"Myself\",\r\n  \"source\": {\r\n    \"name\": \"Vicky\"\r\n  },\r\n  \"_sourceId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n  \"leadStatus\": {\r\n    \"name\": \"Vicky\",\r\n    \"statusOrder\": \"NA\",\r\n    \"colour\": \"Red\",\r\n    \"isDefault\": \"Yes\",\r\n    \"notes\":\"NA\"\r\n  },\r\n  \"lastContact\":\"2000-09-22\",\r\n  \"priority\": 10,\r\n  \"dateConverted\": \"2000-09-22\",\r\n  \"lost\":true,\r\n  \"lastLeadStatus\":\"NA\",\r\n  \"lastStatusChange\": \"2000-09-22\",\r\n  \"status\":\"NA\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"lead-entries",
-						""
+						"5fa926f63995ec48a881c042"
 					]
 				}
 			},
@@ -123,6 +102,36 @@
 						"v1",
 						"lead-entries",
 						"5fa9438ed0733d0c2030c535"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createLeadEntries",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"title\": \" Student\",\r\n  \"_categoryId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"company\": \" Labved\",\r\n  \"description\": \"NA \",\r\n  \"email\": \"sample@gmail.com \",\r\n  \"website\": \"sample.com\",\r\n  \"address\": {\r\n    \"Address1\": \"Tambaram\",\r\n    \"Street\": \"NA\",\r\n    \"City\": \"Chennai\",\r\n    \"State\": \"TN\",\r\n    \"Country\": \"IN\",\r\n    \"PostalCode\": \"Na\"\r\n  },\r\n  \"contactInformation\": [\r\n    {\r\n      \"item\": \"NA\",\r\n      \"type\": \"Personal\",\r\n      \"isPublic\":true\r\n    }\r\n  ],\r\n  \"assignedTo\": \"Myself\",\r\n  \"source\": {\r\n    \"name\": \"Vicky\"\r\n  },\r\n  \"_sourceId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n  \"leadStatus\": {\r\n    \"name\": \"Vicky\",\r\n    \"statusOrder\": \"NA\",\r\n    \"colour\": \"Red\",\r\n    \"isDefault\": \"Yes\",\r\n    \"notes\":\"NA\"\r\n  },\r\n  \"lastContact\":\"2000-09-22\",\r\n  \"priority\": 10,\r\n  \"dateConverted\": \"2000-09-22\",\r\n  \"lost\":true,\r\n  \"lastLeadStatus\":\"NA\",\r\n  \"lastStatusChange\": \"2000-09-22\",\r\n  \"status\":\"NA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/lead-entries/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"lead-entries",
+						""
 					]
 				}
 			},

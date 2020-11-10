@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8b6e6cac-93b0-4a5c-8535-3a5d7d6011f0",
+		"_postman_id": "f395b826-f4a5-41d9-a831-c48f7a18e3a1",
 		"name": "pages",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllPages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/pages/",
+					"raw": "{{URL}}/api/v1/pages/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -27,8 +36,78 @@
 			"response": []
 		},
 		{
+			"name": "getPages",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/pages/5faa79f8152e242dbc43d007",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pages",
+						"5faa79f8152e242dbc43d007"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deletePages",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/pages/5faa79f8152e242dbc43d007",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"pages",
+						"5faa79f8152e242dbc43d007"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createPages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +120,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/pages",
+					"raw": "{{URL}}/api/v1/pages",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -56,29 +134,18 @@
 			"response": []
 		},
 		{
-			"name": "getPages",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/pages/5fa142195046464e244d02aa",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"pages",
-						"5fa142195046464e244d02aa"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updatePages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -91,37 +158,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/pages/5fa142195046464e244d02aa",
+					"raw": "{{URL}}/api/v1/pages/5faa79f8152e242dbc43d007",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"pages",
-						"5fa142195046464e244d02aa"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deletePages",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/pages/5fa142195046464e244d02aa",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"pages",
-						"5fa142195046464e244d02aa"
+						"5faa79f8152e242dbc43d007"
 					]
 				}
 			},

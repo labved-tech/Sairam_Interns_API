@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5ee4af58-68ce-4ffa-aebc-a2961722284c",
+		"_postman_id": "09f8e15b-bf2a-4402-94eb-57c04e521f46",
 		"name": "formResponse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllFormResponse",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/form-response/",
+					"raw": "{{URL}}/api/v1/form-response/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -27,50 +36,60 @@
 			"response": []
 		},
 		{
-			"name": "createFormResponse",
+			"name": "getFormResponse",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"_formId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"response\":{ }\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "GET",
+				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/form-response",
+					"raw": "{{URL}}/api/v1/form-response/5faa7761152e242dbc43d002",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
-						"form-response"
+						"form-response",
+						"5faa7761152e242dbc43d002"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "getFormResponse",
+			"name": "deleteFormResponse",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/form-response/5fa13fba6ba9a554d08daaed",
+					"raw": "{{URL}}/api/v1/form-response/5faa7761152e242dbc43d002",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"form-response",
-						"5fa13fba6ba9a554d08daaed"
+						"5faa7761152e242dbc43d002"
 					]
 				}
 			},
@@ -79,6 +98,16 @@
 		{
 			"name": "updateFormResponse",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -91,37 +120,53 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/form-response/5fa13fba6ba9a554d08daaed",
+					"raw": "{{URL}}/api/v1/form-response/5faa7761152e242dbc43d002",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"form-response",
-						"5fa13fba6ba9a554d08daaed"
+						"5faa7761152e242dbc43d002"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteFormResponse",
+			"name": "createFormResponse",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_formId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"response\":{ }\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/form-response/5fa13fba6ba9a554d08daaed",
+					"raw": "{{URL}}/api/v1/form-response",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
-						"form-response",
-						"5fa13fba6ba9a554d08daaed"
+						"form-response"
 					]
 				}
 			},

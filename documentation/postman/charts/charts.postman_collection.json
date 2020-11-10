@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "143dde82-b8d1-4909-b1a2-ce4f0f5b4478",
+		"_postman_id": "41f58c2f-0fe2-4a94-a326-b7464d0fa014",
 		"name": "charts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -27,30 +27,30 @@
 			"response": []
 		},
 		{
-			"name": "createCharts",
+			"name": "deleteCharts",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": { },\r\n  \"_ownerId\":\"5f9d4cad0cc36e2a44c325b9\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "DELETE",
+				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/charts/",
+					"raw": "{{URL}}/api/v1/charts/5faa75f1ba55c04430766be4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"charts",
-						""
+						"5faa75f1ba55c04430766be4"
 					]
 				}
 			},
@@ -59,19 +59,28 @@
 		{
 			"name": "getCharts",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/charts/0",
+					"raw": "{{URL}}/api/v1/charts/5faa75f1ba55c04430766be4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"charts",
-						"0"
+						"5faa75f1ba55c04430766be4"
 					]
 				}
 			},
@@ -80,6 +89,16 @@
 		{
 			"name": "updateCharts",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,37 +111,54 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/charts/5fa13f935d25215804d681ee",
+					"raw": "{{URL}}/api/v1/charts/5faa75f1ba55c04430766be4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"charts",
-						"5fa13f935d25215804d681ee"
+						"5faa75f1ba55c04430766be4"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteCharts",
+			"name": "createCharts",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Vicky\",\r\n  \"state\": { },\r\n  \"_ownerId\":\"5f9d4cad0cc36e2a44c325b9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/charts/0",
+					"raw": "{{URL}}/api/v1/charts/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"charts",
-						"0"
+						""
 					]
 				}
 			},

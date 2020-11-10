@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "dea7b7ed-9d21-4f46-8056-e5e0dbd926fe",
+		"_postman_id": "8368fd20-aaf4-4f6d-8004-60d5146bfad6",
 		"name": "reports",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllReports",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/reports/",
+					"raw": "{{URL}}/api/v1/reports/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

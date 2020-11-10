@@ -1,21 +1,60 @@
 {
 	"info": {
-		"_postman_id": "0dc478c7-0c05-4522-ba30-10b8a488506d",
+		"_postman_id": "b7092225-7c7b-4286-b5cc-569202f70681",
 		"name": "forms",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllForms",
+			"name": "getForms",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/forms/",
+					"raw": "{{URL}}/api/v1/forms/5faa789d152e242dbc43d005",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"forms",
+						"5faa789d152e242dbc43d005"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllForms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/forms/",
+					"host": [
+						"{{URL}}"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -27,50 +66,30 @@
 			"response": []
 		},
 		{
-			"name": "createForms",
+			"name": "deleteForms",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Vicky\",\r\n    \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"aliveTill\": \"2000-09-22\",\r\n    \"accountInclude\": [\"2\",\"3\",\"4\",\"5\"],\r\n    \"accountExclude\": [\"2\",\"3\",\"4\",\"5\"]\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/forms",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"forms"
 					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getForms",
-			"request": {
-				"method": "GET",
+				},
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/forms/5fa13f235fb7d25ae8fec002",
+					"raw": "{{URL}}/api/v1/forms/5faa789d152e242dbc43d005",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"forms",
-						"5fa13f235fb7d25ae8fec002"
+						"5faa789d152e242dbc43d005"
 					]
 				}
 			},
@@ -79,6 +98,16 @@
 		{
 			"name": "updateForms",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -91,37 +120,53 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/forms/5fa13f235fb7d25ae8fec002",
+					"raw": "{{URL}}/api/v1/forms/5faa789d152e242dbc43d005",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"forms",
-						"5fa13f235fb7d25ae8fec002"
+						"5faa789d152e242dbc43d005"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteForms",
+			"name": "createForms",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Vicky\",\r\n    \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"aliveTill\": \"2000-09-22\",\r\n    \"accountInclude\": [\"2\",\"3\",\"4\",\"5\"],\r\n    \"accountExclude\": [\"2\",\"3\",\"4\",\"5\"]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/forms/5fa13f235fb7d25ae8fec002",
+					"raw": "{{URL}}/api/v1/forms",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
-						"forms",
-						"5fa13f235fb7d25ae8fec002"
+						"forms"
 					]
 				}
 			},

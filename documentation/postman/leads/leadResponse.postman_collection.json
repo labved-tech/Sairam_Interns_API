@@ -1,56 +1,35 @@
 {
 	"info": {
-		"_postman_id": "34cbfe77-4f2c-4633-84c1-2f713e72299d",
+		"_postman_id": "3eea09a4-1147-4bd5-9ffd-a344291f4422",
 		"name": "leadResponse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllLeadResponse",
+			"name": "deleteLeadResponse",
 			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/lead-response/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"lead-response",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createLeadResponse",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"_leadId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_responderId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n  \"emailSent\":false,\r\n  \"isStatusChange\":false,\r\n  \"message\":\"Hello\",\r\n  \"status\":\"Done\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "DELETE",
+				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-response/",
+					"raw": "{{URL}}/api/v1/lead-response/5faa9ca3152e242dbc43d02f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"lead-response",
-						""
+						"5faa9ca3152e242dbc43d02f"
 					]
 				}
 			},
@@ -59,19 +38,58 @@
 		{
 			"name": "getLeadResponse",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-response/5fa63e24d4c93a68fc0adf21",
+					"raw": "{{URL}}/api/v1/lead-response/5faa9ca3152e242dbc43d02f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"lead-response",
-						"5fa63e24d4c93a68fc0adf21"
+						"5faa9ca3152e242dbc43d02f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllLeadResponse",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/lead-response/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"lead-response",
+						""
 					]
 				}
 			},
@@ -80,6 +98,16 @@
 		{
 			"name": "updateLeadResponse",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,37 +120,54 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-response/5fa63e24d4c93a68fc0adf21",
+					"raw": "{{URL}}/api/v1/lead-response/5faa9ca3152e242dbc43d02f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"lead-response",
-						"5fa63e24d4c93a68fc0adf21"
+						"5faa9ca3152e242dbc43d02f"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteLeadResponse",
+			"name": "createLeadResponse",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_leadId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_responderId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n  \"emailSent\":false,\r\n  \"isStatusChange\":false,\r\n  \"message\":\"Hello\",\r\n  \"status\":\"Done\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-response/5fa63e24d4c93a68fc0adf21",
+					"raw": "{{URL}}/api/v1/lead-response/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"lead-response",
-						"5fa63e24d4c93a68fc0adf21"
+						""
 					]
 				}
 			},
