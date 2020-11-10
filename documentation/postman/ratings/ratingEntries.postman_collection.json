@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "185a8c58-c77d-497b-bfeb-5aeff921a05e",
+		"_postman_id": "38882ed6-dfcc-406d-a32e-cd0c1e4c3acf",
 		"name": "ratingEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getRatingsEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries/5fa65640bcf66c01186c1ee5",
+					"raw": "{{URL}}/api/v1/ratingEntries/5fa65640bcf66c01186c1ee5",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,14 +38,23 @@
 		{
 			"name": "getAllRatingsEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries",
+					"raw": "{{URL}}/api/v1/ratingEntries",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -49,14 +67,23 @@
 		{
 			"name": "deleteRatingsEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries/5fa65640bcf66c01186c1ee5",
+					"raw": "{{URL}}/api/v1/ratingEntries/5fa65640bcf66c01186c1ee5",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -70,6 +97,16 @@
 		{
 			"name": "updateRatingsEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -82,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ratingEntries/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -100,6 +136,16 @@
 		{
 			"name": "createRatingsEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -112,11 +158,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingEntries",
+					"raw": "{{URL}}/api/v1/ratingEntries",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
