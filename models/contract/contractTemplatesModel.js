@@ -28,9 +28,9 @@ const contractTemplatesSchema = new Schema({
       name: { type: String },
       type: { type: String },
       createdBy: { type: mongoose.ObjectId },
-        updatedBy: { type: mongoose.ObjectId },
-        createdAt: { type: Date },
-        updatedAt: { type: Date },
+      updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date }
     }
   ],
   terms: [
