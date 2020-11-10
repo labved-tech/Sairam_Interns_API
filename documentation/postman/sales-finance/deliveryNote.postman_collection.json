@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a6b89487-2831-433c-964c-56e607f78858",
+		"_postman_id": "43cbbb89-1958-4e5b-8dc0-c591556a4c27",
 		"name": "deliveryNote",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,43 +8,23 @@
 		{
 			"name": "getAllDeliverynote",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note",
+					"raw": "{{URL}}/api/v1/delivery-note",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"delivery-note"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createDeliverynote",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyz\",\n  \"sourceAddress\":{ \n      \"street\":\"xyzstreet\"\n      },\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\"333\",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": {\n      \"address\": \"beach road\"\n  },\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \"666\",\n  \"box\": \"x,y\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n  \"shippingNotes\": \"package\",\n  \"receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -57,49 +37,28 @@
 		{
 			"name": "getOneDeliverynote",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note/5fa6bfe5e31ecf664493d641",
+					"raw": "{{URL}}/api/v1/delivery-note/5faa73a9acf7051e201fc043",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"delivery-note",
-						"5fa6bfe5e31ecf664493d641"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateDeliverynote",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyz\",\n  \"sourceAddress\": \"xyzstreet\",\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\" \",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": \" \",\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \" \",\n  \"box\": \"[x,y]\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n \" shippingNotes\": \"package\",\n \" receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note/5fa6bfe5e31ecf664493d641",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"delivery-note",
-						"5fa6bfe5e31ecf664493d641"
+						"5faa73a9acf7051e201fc043"
 					]
 				}
 			},
@@ -108,19 +67,105 @@
 		{
 			"name": "deleteDeliverynote",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/delivery-note/5fa6bfe5e31ecf664493d641",
+					"raw": "{{URL}}/api/v1/delivery-note/5faa73a9acf7051e201fc043",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"delivery-note",
-						"5fa6bfe5e31ecf664493d641"
+						"5faa73a9acf7051e201fc043"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createDeliverynote",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyz\",\n  \"sourceAddress\":{ \n      \"street\":\"xyzstreet\"\n      },\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\"333\",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": {\n      \"address\": \"beach road\"\n  },\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \"666\",\n  \"box\": \"x,y\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n  \"shippingNotes\": \"package\",\n  \"receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/delivery-note",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delivery-note"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateDeliverynote",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyyz\",\n  \"sourceAddress\": \"xyzstreet\",\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\" \",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": \" \",\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \" \",\n  \"box\": \"[x,y]\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n \" shippingNotes\": \"package\",\n \" receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/delivery-note/5faa73a9acf7051e201fc043",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"delivery-note",
+						"5faa73a9acf7051e201fc043"
 					]
 				}
 			},

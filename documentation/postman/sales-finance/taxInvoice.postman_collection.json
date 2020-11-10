@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8f22d695-de46-429d-aa80-34b097e933b9",
+		"_postman_id": "b56be1c3-342b-4c6b-90fa-59b3ca25c76d",
 		"name": "taxInvoice",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllTaxInvoice",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/tax-invoice",
+					"raw": "{{URL}}/api/v1/tax-invoice",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -26,8 +35,117 @@
 			"response": []
 		},
 		{
+			"name": "deleteTaxInvoice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/tax-invoice/5faa7672acf7051e201fc058",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tax-invoice",
+						"5faa7672acf7051e201fc058"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneTaxInvoice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/tax-invoice/5faa7672acf7051e201fc058",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tax-invoice",
+						"5faa7672acf7051e201fc058"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateTaxInvoice",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"taxInvoiceNo\": \"shf786\",\n  \"header\": \"header\",\n  \"Date\": \"6/11/20\",\n  \"orderDate\": \"5/11/20\",\n  \"billingName\": \"yashh\",\n  \"billingAddress\": {},\n  \"billingEmail\": \"ash@email.com\",\n  \"contactNumber\": \"7888\",\n  \"billingGSTIN\": \"333\",\n   \"consigneeName\": \"ted\",\n  \"consigneeAddress\": {},\n  \"consigneeContactNumber\": \"67899\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": {},\n  \"sellerContactNumber\": \"698300032\",\n \" carrierTrackingNo\": \"7890\",\n  \"carrierCharges\": 100,\n \" paymentMeta\": {\n    \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n  },\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\n\n \"totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": \"\",\n  \"footer\": \"\",\n  \"meta\": \"\",\n  \"source\": \"local\",\n  \"taxInvoiceNumber\": 9000\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/tax-invoice/5faa7672acf7051e201fc058",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"tax-invoice",
+						"5faa7672acf7051e201fc058"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createTaxInvoice",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -40,87 +158,14 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/tax-invoice",
+					"raw": "{{URL}}/api/v1/tax-invoice",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"tax-invoice"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOneTaxInvoice",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/tax-invoice/5fa6cfa09a47216a3ad3b4c9",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"tax-invoice",
-						"5fa6cfa09a47216a3ad3b4c9"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateTaxInvoice",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n \"taxInvoiceNo\": \"shf786\",\n  \"header\": \"header\",\n  \"Date\": \"6/11/20\",\n  \"orderDate\": \"5/11/20\",\n  \"billingName\": \"yash\",\n  \"billingAddress\": {},\n  \"billingEmail\": \"ash@email.com\",\n  \"contactNumber\": \"7888\",\n  \"billingGSTIN\": \"333\",\n   \"consigneeName\": \"ted\",\n  \"consigneeAddress\": {},\n  \"consigneeContactNumber\": \"67899\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": {},\n  \"sellerContactNumber\": \"698300032\",\n \" carrierTrackingNo\": \"7890\",\n  \"carrierCharges\": 100,\n \" paymentMeta\": {\n    \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n  },\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\n\n \"totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": \"\",\n  \"footer\": \"\",\n  \"meta\": \"\",\n  \"source\": \"local\",\n  \"taxInvoiceNumber\": 9000\n\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/tax-invoice/5fa6cfa09a47216a3ad3b4c9",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"tax-invoice",
-						"5fa6cfa09a47216a3ad3b4c9"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteTaxInvoice",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/tax-invoice/5fa6cfa09a47216a3ad3b4c9",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"tax-invoice",
-						"5fa6cfa09a47216a3ad3b4c9"
 					]
 				}
 			},

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "69e0126e-486c-4f3e-972e-cb3ed8d48320",
+		"_postman_id": "5aa9a80f-06ef-4b68-b24a-020676c279d2",
 		"name": "address",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllAddress",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/address",
+					"raw": "{{URL}}/api/v1/address",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -26,8 +35,78 @@
 			"response": []
 		},
 		{
+			"name": "deleteAddress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/address/5f9bb18e99f9ae2c704e0f67",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"address",
+						"5f9bb18e99f9ae2c704e0f67"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneAddress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/address/5f9bb18e99f9ae2c704e0f67",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"address",
+						"5f9bb18e99f9ae2c704e0f67"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createAddress",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -40,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/address",
+					"raw": "{{URL}}/api/v1/address",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -55,34 +133,23 @@
 			"response": []
 		},
 		{
-			"name": "getOneAddress",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/address/5f969b47bf04be91e34553ae",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"address",
-						"5f969b47bf04be91e34553ae"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateAddress",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"address1\": \"Nehru Street\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamilnadu\",\n  \"country\": \"India\",\n  \"pinCode\": 600041\n}",
+					"raw": "{\n\"address1\": \"Nehru Street\",\n  \"city\": \"Chennai\",\n  \"state\": \"Tamilnadu\",\n  \"country\": \"India\",\n  \"pinCode\": 600042\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,37 +157,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/address/5f969b47bf04be91e34553ae",
+					"raw": "{{URL}}/api/v1/address/5f9bb18e99f9ae2c704e0f67",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"address",
-						"5f969b47bf04be91e34553ae"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteAddress",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/address/5f969b47bf04be91e34553ae",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"address",
-						"5f969b47bf04be91e34553ae"
+						"5f9bb18e99f9ae2c704e0f67"
 					]
 				}
 			},

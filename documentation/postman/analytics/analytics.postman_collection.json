@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5ed1950a-85f7-4a3a-9b47-5b54fa629acb",
+		"_postman_id": "3ab815c3-b3cb-4d2d-b578-5ced44b317b0",
 		"name": "analytics",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -36,7 +36,7 @@
 			"response": []
 		},
 		{
-			"name": "createAnalytics",
+			"name": "deleteAnalytics",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -48,19 +48,10 @@
 						}
 					]
 				},
-				"method": "POST",
+				"method": "DELETE",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\":{\"test\" : \"test\"},\r\n  \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_reportid\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{URL}}/api/v1/analytics/",
+					"raw": "{{URL}}/api/v1/analytics/5fa92064cff6f652644266de",
 					"host": [
 						"{{URL}}"
 					],
@@ -68,7 +59,7 @@
 						"api",
 						"v1",
 						"analytics",
-						""
+						"5fa92064cff6f652644266de"
 					]
 				}
 			},
@@ -144,7 +135,7 @@
 			"response": []
 		},
 		{
-			"name": "deleteAnalytics",
+			"name": "createAnalytics",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -156,10 +147,19 @@
 						}
 					]
 				},
-				"method": "DELETE",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\":\"Vicky\",\r\n  \"state\":{\"test\" : \"test\"},\r\n  \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_reportid\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{URL}}/api/v1/analytics/5fa92064cff6f652644266de",
+					"raw": "{{URL}}/api/v1/analytics/",
 					"host": [
 						"{{URL}}"
 					],
@@ -167,7 +167,7 @@
 						"api",
 						"v1",
 						"analytics",
-						"5fa92064cff6f652644266de"
+						""
 					]
 				}
 			},
