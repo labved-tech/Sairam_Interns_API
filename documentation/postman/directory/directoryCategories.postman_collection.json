@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "abdab8b0-5a58-4d0e-b144-e1095bfe0b54",
+		"_postman_id": "c654ba14-66fd-463d-8286-8db4c3a10127",
 		"name": "directoryCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "deleteDirectoryCategories",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryCategories/5fa2ae7c13fb1b2890cd62b4",
+					"raw": "{{URL}}/api/v1/directoryCategories/5fa2ae7c13fb1b2890cd62b4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,14 +38,23 @@
 		{
 			"name": "getAllDirectoryCategories",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryCategories",
+					"raw": "{{URL}}/api/v1/directoryCategories",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -49,14 +67,23 @@
 		{
 			"name": "getDirectoryCategories",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryCategories/5fa6503c667bcc0eec996d9f",
+					"raw": "{{URL}}/api/v1/directoryCategories/5fa6503c667bcc0eec996d9f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -70,6 +97,16 @@
 		{
 			"name": "patchDirectoryCategories",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -82,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryCategories/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/directoryCategories/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -100,6 +136,16 @@
 		{
 			"name": "postDirectoryCategories",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -112,11 +158,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryCategories",
+					"raw": "{{URL}}/api/v1/directoryCategories",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
