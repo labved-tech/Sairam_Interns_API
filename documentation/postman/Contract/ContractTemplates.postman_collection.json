@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "47a923ac-aa84-4c5c-b167-99fb06998863",
+		"_postman_id": "a07bb270-d5ac-493f-a5b1-d15d04312a97",
 		"name": "ContractTemplates",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -89,7 +89,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/5faa725f8cad6367c062ee89",
+					"raw": "{{URL}}/api/v1/contractTemplates/5faa7d46bc592b624098c769",
 					"host": [
 						"{{URL}}"
 					],
@@ -97,7 +97,7 @@
 						"api",
 						"v1",
 						"contractTemplates",
-						"5faa725f8cad6367c062ee89"
+						"5faa7d46bc592b624098c769"
 					]
 				}
 			},
@@ -120,7 +120,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"billingType\": \"UPI\",\r\n  \"value\": 9980898,\r\n  \"tax\": {\r\n    \"CGSTRate\": 9,\r\n    \"SGSTRate\": 8,\r\n    \"IGSTRate\": 6,\r\n    \"HSNCode\": \"Infosys\"\r\n  },\r\n  \"_contractOwnerId\": \"5f990bb3c727e952a076f3b7\" ,\r\n  \"contractFileTemplateURL\": \"www.Infosysit/labved\",\r\n  \"isRepeat\":false,\r\n  \"repeatInterval\": 989898,\r\n  \"repeatIntervalType\": \"repeat\",\r\n  \"currentRepeatNumber\": 8865,\r\n  \"totalRepeatNumber\": 98,\r\n  \"totalRepeatAllowed\": 2,\r\n  \"additionalAttributesIds\": [\r\n    {\r\n      \"_id\":\"5f990bb3c727e952a076f3b7\",\r\n      \"name\": \"bharathviswanathan\",\r\n      \"type\": \"it\"\r\n    }\r\n  ],\r\n  \"terms\": [\r\n    {\r\n      \"title\": \"database project\",\r\n      \"text\": \"work completed\"\r\n    }\r\n  ],\r\n  \"validity\": 10\r\n}",
+					"raw": "{\r\n  \"billingType\": \"UPI\",\r\n  \"value\": 9980898,\r\n  \"tax\": {\r\n    \"CGSTRate\": 9,\r\n    \"SGSTRate\": 8,\r\n    \"IGSTRate\": 6,\r\n    \"HSNCode\": \"Infosys\"\r\n  },\r\n  \"_contractOwnerId\": \"5f990bb3c727e952a076f3b7\" ,\r\n  \"contractFileTemplateURL\": \"www.Infosysit/labved\",\r\n  \"isRepeat\":true,\r\n  \"repeatInterval\": 989898,\r\n  \"repeatIntervalType\": \"repeat\",\r\n  \"currentRepeatNumber\": 8865,\r\n  \"totalRepeatNumber\": 98,\r\n  \"totalRepeatAllowed\": 2,\r\n  \"additionalAttributesIds\": [\r\n    {\r\n      \"_id\":\"5f990bb3c727e952a076f3b7\",\r\n      \"name\": \"bharathviswanathan\",\r\n      \"type\": \"it\"\r\n    }\r\n  ],\r\n  \"terms\": [\r\n    {\r\n      \"title\": \"database project\",\r\n      \"text\": \"work not completed\"\r\n    }\r\n  ],\r\n  \"validity\": 20\r\n\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -128,7 +128,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/5faa725f8cad6367c062ee89",
+					"raw": "{{URL}}/api/v1/contractTemplates/5faa7d46bc592b624098c769",
 					"host": [
 						"{{URL}}"
 					],
@@ -136,7 +136,7 @@
 						"api",
 						"v1",
 						"contractTemplates",
-						"5faa725f8cad6367c062ee89"
+						"5faa7d46bc592b624098c769"
 					]
 				}
 			},
@@ -158,7 +158,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/5faa71900af5f2420c3abfa8",
+					"raw": "{{URL}}/api/v1/contractTemplates/5faa7d46bc592b624098c769",
 					"host": [
 						"{{URL}}"
 					],
@@ -166,7 +166,7 @@
 						"api",
 						"v1",
 						"contractTemplates",
-						"5faa71900af5f2420c3abfa8"
+						"5faa7d46bc592b624098c769"
 					]
 				}
 			},

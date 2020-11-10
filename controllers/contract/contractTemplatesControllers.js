@@ -51,7 +51,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   // parse through models
-  const doc = new ContractTemplates(req.body);
+  const doc = new ContractTemplates(body);
   console.log(doc);
 
   //additionalAttributesIds
@@ -61,9 +61,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
 
     for (let i = 0; i < additionalAttributesIdsLength; i++) {
       doc.additionalAttributesIds[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.additionalAttributesIds[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.additionalAttributesIds[i].createdAt = Date.now();
-      doc.additionalAttributesIds[i].updatedAt = Date.now();
     }
   }
 
@@ -72,11 +70,9 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
     const termsLength = doc.terms.length;
     console.log(`terms length ${termsLength}`);
 
-    for (let i = 0; i < termsLength; i++) {
-      doc.terms[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.terms[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.terms[i].createdAt = Date.now();
-      doc.terms[i].updatedAt = Date.now();
+    for (let j = 0; j < termsLength; j++) {
+      doc.terms[j].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[j].createdAt = Date.now();
     }
   }
 
@@ -88,7 +84,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  console.log(`After Validation :${doc}`);
+  //console.log(`After Validation :${doc}`);
 
   //const example = await doc.save({ validateBeforeSave: false });
 
@@ -130,9 +126,9 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
     const termsLength = doc.terms.length;
     console.log(`Array of objects length ${termsLength}`);
 
-    for (let i = 0; i < termsLength; i++) {
-      doc.terms[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.terms[i].updatedAt = Date.now();
+    for (let j = 0; j < termsLength; j++) {
+      doc.terms[j].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[j].updatedAt = Date.now();
     }
   }
 
