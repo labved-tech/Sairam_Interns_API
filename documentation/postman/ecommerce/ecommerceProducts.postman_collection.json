@@ -1,30 +1,10 @@
 {
 	"info": {
-		"_postman_id": "8d6d2ae7-19cc-4b8c-bb4d-b0ac2034a110",
+		"_postman_id": "3908aabe-1403-42f1-a3a9-28c8c9dce825",
 		"name": "ecommerceProducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "getAllEcommerceProduct",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-products",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-products"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "deleteEcommerceProduct",
 			"request": {
@@ -68,21 +48,12 @@
 			"response": []
 		},
 		{
-			"name": "patchEcommerceProduct",
+			"name": "getAllEcommerceProduct",
 			"request": {
-				"method": "PATCH",
+				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"manufacturerPartNo\": \"abc\",\r\n  \"name\": \"sai\",\r\n  \"description\": \"frnd\",\r\n  \"categoryId\": [\"hi\",\"bye\"],\r\n  \"unitPrice\": 8,\r\n  \"MRP\": 8,\r\n  \"images\": [\"abc\",\"def\"],\r\n  \"note\": \"abc\",\r\n  \"ranking\": 1,\r\n  \"maxQuantityPerOrderNumber\": 0,\r\n  \"_sellerId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"abs\",\r\n  \"HSNCode\": \"mno\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-products/5f990bb3c727e952a076f3b7",
+					"raw": "localhost:3000/api/v1/ecommerce-products",
 					"host": [
 						"localhost"
 					],
@@ -90,8 +61,7 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-products",
-						"5f990bb3c727e952a076f3b7"
+						"ecommerce-products"
 					]
 				}
 			},
@@ -121,6 +91,36 @@
 						"api",
 						"v1",
 						"ecommerce-products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "patchEcommerceProduct",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"manufacturerPartNo\": \"abc\",\r\n  \"name\": \"sai\",\r\n  \"description\": \"frnd\",\r\n  \"categoryId\": [\"hi\",\"bye\"],\r\n  \"unitPrice\": 8,\r\n  \"MRP\": 8,\r\n  \"images\": [\"abc\",\"def\"],\r\n  \"note\": \"abc\",\r\n  \"ranking\": 1,\r\n  \"maxQuantityPerOrderNumber\": 0,\r\n  \"_sellerId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"abs\",\r\n  \"HSNCode\": \"mno\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerce-products/5f990bb3c727e952a076f3b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-products",
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},

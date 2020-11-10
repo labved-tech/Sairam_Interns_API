@@ -1,37 +1,10 @@
 {
 	"info": {
-		"_postman_id": "deaa0648-09a1-417c-93e1-4a2b7a85ff39",
+		"_postman_id": "210cf938-7849-4967-8615-6af853dd24f6",
 		"name": "ecommerceAddress",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "getAllEcommerceAddress",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-address"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "deleteEcommerceAddress",
 			"request": {
@@ -68,7 +41,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
+					"raw": "localhost:3000/api/v1/ecommerce-address/5fa3df80a2c546352c3eec7a",
 					"host": [
 						"localhost"
 					],
@@ -77,25 +50,23 @@
 						"api",
 						"v1",
 						"ecommerce-address",
-						"5f990bb3c727e952a076f3b7"
+						"5fa3df80a2c546352c3eec7a"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "postEcommerceAddress",
+			"name": "getAllEcommerceAddress",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					"raw": ""
 				},
 				"url": {
 					"raw": "localhost:3000/api/v1/ecommerce-address",
@@ -140,6 +111,35 @@
 						"v1",
 						"ecommerce-address",
 						"5fa66196ca57092e80724161"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postEcommerceAddress",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"Address1\": \"i am in chennai\",\r\n  \"street\": \"street\",\r\n  \"City\": \"chennai\",\r\n  \"State\": \"tamil nadu\",\r\n  \"country\": \"india\",\r\n  \"postalcode\": \"600116\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/v1/ecommerce-address",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-address"
 					]
 				}
 			},
