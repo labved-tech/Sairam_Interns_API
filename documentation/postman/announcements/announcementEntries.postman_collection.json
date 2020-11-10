@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d9146245-2214-445a-9dce-af908355d003",
+		"_postman_id": "28531090-b6d7-45ef-9ef1-32dd804b1999",
 		"name": "announcementEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,15 +8,23 @@
 		{
 			"name": "getAllAnnouncementEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries",
-					"protocol": "http",
+					"raw": "{{URL}}/api/v1/announcement-entries",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +37,16 @@
 		{
 			"name": "createAnnouncementEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,12 +59,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries",
-					"protocol": "http",
+					"raw": "{{URL}}/api/v1/announcement-entries",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,20 +75,28 @@
 		{
 			"name": "getAnnouncementEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries/5fa6993eafafa160203333c5",
-					"protocol": "http",
+					"raw": "{{URL}}/api/v1/announcement-entries/5faa6e71515f59084cda80a5",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"announcement-entries",
-						"5fa6993eafafa160203333c5"
+						"5faa6e71515f59084cda80a5"
 					]
 				}
 			},
@@ -81,11 +105,21 @@
 		{
 			"name": "updateAnnouncementEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n   \"title\":\"AnnouncementEntries\",\n    \"message\": \"\",\n   \"from\": \"xyz\",\n    \"isEmailReq\": true,\n   \"priority\": 1,\n    \"targetConditions\": [\n      {\n        \n        \"condition\": {\n            \"name\":\"test1\"\n\n        }\n      }\n    ],\n    \"expires\": 30,\n    \"status\": \"active\"\n}",
+					"raw": "{\n   \"title\":\"AnnouncementEntries\",\n    \"message\": \"\",\n   \"from\": \"xyz\",\n    \"isEmailReq\": false,\n   \"priority\": 1,\n    \"targetConditions\": [\n      {\n        \n        \"condition\": {\n            \"name\":\"test1\"\n\n        }\n      }\n    ],\n    \"expires\": 30,\n    \"status\": \"active\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -93,17 +127,15 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries/5fa6993eafafa160203333c5",
-					"protocol": "http",
+					"raw": "{{URL}}/api/v1/announcement-entries/5faa6e71515f59084cda80a5",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"announcement-entries",
-						"5fa6993eafafa160203333c5"
+						"5faa6e71515f59084cda80a5"
 					]
 				}
 			},
@@ -112,20 +144,28 @@
 		{
 			"name": "deleteAnnouncementEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/v1/announcement-entries/5fa6993eafafa160203333c5",
-					"protocol": "http",
+					"raw": "{{URL}}/api/v1/announcement-entries/5faa6e71515f59084cda80a5",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"announcement-entries",
-						"5fa6993eafafa160203333c5"
+						"5faa6e71515f59084cda80a5"
 					]
 				}
 			},

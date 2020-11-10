@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "50a25840-2206-4b6a-91cb-31901f8d5287",
+		"_postman_id": "275ed1d3-7d8d-4130-ae5e-9a32e4047e77",
 		"name": "announcementNotify",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,6 +11,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -35,6 +45,16 @@
 		{
 			"name": "createAnnouncementNotify",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -47,11 +67,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/announcement-notify",
+					"raw": "{{URL}}/api/v1/announcement-notify",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -64,19 +83,28 @@
 		{
 			"name": "getOneAnnouncementNotify",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/announcement-notify/5fa69dc277715060c0896b45",
+					"raw": "{{URL}}/api/v1/announcement-notify/5faa6f9c435609069ca89f51",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"announcement-notify",
-						"5fa69dc277715060c0896b45"
+						"5faa6f9c435609069ca89f51"
 					]
 				}
 			},
@@ -85,11 +113,21 @@
 		{
 			"name": "updateAnnouncementNotify",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n     \"priority\" : 2,\n     \"recipient\": [\n     { \n      \"recipentName\": \"gowri\",\n      \"recipentEmail\": \"gowri@gmail.com\",\n      \"isEmailSent\": \"yes\",\n      \"seenAt\": \"\",\n      \"sentAt\": \"\"}\n     ]\n }\n",
+					"raw": "{\n     \"priority\" : 2,\n     \"recipient\": [\n     { \n      \"recipentName\": \"gowrii\",\n      \"recipentEmail\": \"gowri@gmail.com\",\n      \"isEmailSent\": \"yes\",\n      \"seenAt\": \"\",\n      \"sentAt\": \"\"}\n     ]\n }\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -97,16 +135,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/announcement-notify/5fa69dc277715060c0896b45",
+					"raw": "{{URL}}/api/v1/announcement-notify/5faa6f9c435609069ca89f51",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"announcement-notify",
-						"5fa69dc277715060c0896b45"
+						"5faa6f9c435609069ca89f51"
 					]
 				}
 			},
@@ -115,19 +152,28 @@
 		{
 			"name": "deleteAnnouncementNotify",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/announcement-notify/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/announcement-notify/5faa6f9c435609069ca89f51",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"announcement-notify",
-						"5f990bb3c727e952a076f3b7"
+						"5faa6f9c435609069ca89f51"
 					]
 				}
 			},

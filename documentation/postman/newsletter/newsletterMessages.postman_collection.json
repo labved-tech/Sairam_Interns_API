@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "dcfc90e3-d492-46c2-a965-0d1d66c3fb08",
+		"_postman_id": "70fd9ed1-ffdb-40d6-ad26-f70e48467413",
 		"name": "newsletterMessages",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllNewsletterMessages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-messages",
+					"raw": "{{URL}}/api/v1/newsletter-messages",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -28,6 +37,16 @@
 		{
 			"name": "createNewsletterMessages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -40,11 +59,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-messages",
+					"raw": "{{URL}}/api/v1/newsletter-messages",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -57,19 +75,28 @@
 		{
 			"name": "getOneNewsletterMessages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-messages/5fa6bb20a2f9c6651459c8a5",
+					"raw": "{{URL}}/api/v1/newsletter-messages/5faa71a458c5742f8095cca4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"newsletter-messages",
-						"5fa6bb20a2f9c6651459c8a5"
+						"5faa71a458c5742f8095cca4"
 					]
 				}
 			},
@@ -78,11 +105,21 @@
 		{
 			"name": "updateNewsletterMessages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":\"yes\",\n  \"lastVisited\": true\n} ",
+					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"hi\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":\"yes\",\n  \"lastVisited\": true\n} ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -90,16 +127,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-messages/5fa6bb20a2f9c6651459c8a5",
+					"raw": "{{URL}}/api/v1/newsletter-messages/5faa71a458c5742f8095cca4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"newsletter-messages",
-						"5fa6bb20a2f9c6651459c8a5"
+						"5faa71a458c5742f8095cca4"
 					]
 				}
 			},
@@ -108,19 +144,28 @@
 		{
 			"name": "deleteNewsletterMessages",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/newsletter-messages/5fa6bb20a2f9c6651459c8a5",
+					"raw": "{{URL}}/api/v1/newsletter-messages/5faa71a458c5742f8095cca4",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"newsletter-messages",
-						"5fa6bb20a2f9c6651459c8a5"
+						"5faa71a458c5742f8095cca4"
 					]
 				}
 			},
