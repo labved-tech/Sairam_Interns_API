@@ -366,11 +366,18 @@ const doc = {
     },
   ],
 };
-
+// OVERVIEW RELATED CONTROLLER
 exports.getOverview = (req, res) => {
   console.log('We are in viewsController');
 
   res.status(200).render('./pages/overview', doc);
+};
+
+// EXAMPLE RELATED CONTROLLER
+exports.getExample = (req, res) => {
+  console.log('We are in exampleController');
+
+  res.status(200).render('./../views/pages/example/example', doc);
 };
 
 // LOGIN RELATED CONTROLLER

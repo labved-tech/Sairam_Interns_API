@@ -15,6 +15,9 @@ router.use((req, res, next) => {
 /* ROUTES */
 router.get('/overview', authController.protect, viewsController.getOverview);
 
+// EXAMPLE RELATED ROUTES
+router.get('/example', viewsController.getExample);
+
 // LOGIN RELATED ROUTES
 router.get('/signup', viewsController.getSignUp);
 router.get('/login', viewsController.getLoginForm);
@@ -24,8 +27,5 @@ router.get('/error', viewsController.getError);
 // USERS RELATED ROUTES
 router.get('/account-settings/users/view-all', viewsController.getAllUser);
 router.get('/account-settings/users/add-new', viewsController.getAddUser);
-
-// EXAMPLE RELATED ROUTES
-//router.get('/example', viewsController.example);
 
 module.exports = router;
