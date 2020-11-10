@@ -1,104 +1,10 @@
 {
 	"info": {
-		"_postman_id": "d33f9433-7fbb-4bb3-82a4-c910a59df002",
+		"_postman_id": "0eb89208-870b-4abe-902b-a3aae8842f7a",
 		"name": "commentEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "updateCommentEntries",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{jwt}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"test\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"test\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
-				},
-				"url": {
-					"raw": "{{URL}}/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"commentEntries",
-						"5fa289d543c20d2dac0f4488"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteCommentEntries",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{jwt}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"commentEntries",
-						"5fa289d543c20d2dac0f4488"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOneCommentEntries",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{jwt}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"commentEntries",
-						"5fa289d543c20d2dac0f4488"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "getAllCommentEntries",
 			"request": {
@@ -161,6 +67,105 @@
 						"api",
 						"v1",
 						"commentEntries"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getOneCommentEntries",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/commentEntries/5faa7649bf26706380d8d705",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"commentEntries",
+						"5faa7649bf26706380d8d705"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateCommentEntries",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"Bharath Viswanthan\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": 4,\r\n  \"message\": \"welcome to labved\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull Not completed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/commentEntries/5faa7649bf26706380d8d705",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"commentEntries",
+						"5faa7649bf26706380d8d705"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteCommentEntries",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/commentEntries/5faa7649bf26706380d8d705",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"commentEntries",
+						"5faa7649bf26706380d8d705"
 					]
 				}
 			},

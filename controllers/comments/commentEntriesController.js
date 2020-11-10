@@ -94,10 +94,12 @@ exports.updateCommentEntries = catchAsync(async (req, res, next) => {
   console.log(`Updating CommentEntries Id ${id}`);
 
   // parse through models
-  const CommentEntriesToupdate = new CommentEntries(body);
+  const CommentEntriesToUpdate = new CommentEntries(body);
   console.log(body);
-  const doc = CommentEntriesToupdate.toObject();
+  const doc = CommentEntriesToUpdate.toObject();
   delete doc._id;
+
+
 
   if (CommentEntriesToUpdate.commentReplies) {
     const commentRepliesLength = doc.commentReplies.length;
@@ -109,14 +111,13 @@ exports.updateCommentEntries = catchAsync(async (req, res, next) => {
     }
   }
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
 
   // check the doc before doing database operation
   //console.log(doc);
-  const commentEntries = await CommentEntries.findByIdAndUpdate(id, req.body, {
+  const commentEntries = await CommentEntries.findByIdAndUpdate(id,doc, {
     new: true,
   }).then();
 
