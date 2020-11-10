@@ -1,50 +1,60 @@
 {
 	"info": {
-		"_postman_id": "547ec35d-447f-4a58-97b7-2074c6fb2afb",
+		"_postman_id": "715e9d20-3ec5-41d7-a7cc-db97ab03eb73",
 		"name": "ecommerceStock",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllEcommerceStock",
+			"name": "deleteEcommerceStock",
 			"request": {
-				"method": "GET",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-stock",
+					"raw": "{{URL}}/api/v1/ecommerce-stock/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-stock"
+						"ecommerce-stock",
+						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "postEcommerceStock",
+			"name": "getAllEcommerceStock",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"_productId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"type\": \"abc\",\r\n  \"unitPrice\": 5,\r\n  \"discount\": [\r\n    {\r\n      \"createdBy\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discountVol\": 8,\r\n      \"discountPercent\": 5,\r\n      \"Name\": \"viky\",\r\n      \"Description\": \"man\"\r\n    }\r\n  ],\r\n  \"availableStock\": 6,\r\n  \"tax\": [\r\n    {\r\n      \"CGST\": \"abcc\",\r\n      \"SGST\": \" def\",\r\n      \"IGST\": \" ijk\"\r\n    }\r\n  ],\r\n  \"Name\": \"ghu\",\r\n  \"Description\": \"xxyyzz\",\r\n  \"Notes\":\"done\",\r\n  \"_locationId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"pqr\",\r\n  \"maxQuantityPerOrderNumber\": 6\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "GET",
+				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-stock",
+					"raw": "{{URL}}/api/v1/ecommerce-stock",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -57,14 +67,23 @@
 		{
 			"name": "getEcommerceStock",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-stock/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce-stock/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -76,8 +95,56 @@
 			"response": []
 		},
 		{
+			"name": "postEcommerceStock",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"_productId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"type\": \"abc\",\r\n  \"unitPrice\": 5,\r\n  \"discount\": [\r\n    {\r\n      \"createdBy\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discountVol\": 8,\r\n      \"discountPercent\": 5,\r\n      \"Name\": \"viky\",\r\n      \"Description\": \"man\"\r\n    }\r\n  ],\r\n  \"availableStock\": 6,\r\n  \"tax\": [\r\n    {\r\n      \"CGST\": \"abcc\",\r\n      \"SGST\": \" def\",\r\n      \"IGST\": \" ijk\"\r\n    }\r\n  ],\r\n  \"Name\": \"ghu\",\r\n  \"Description\": \"xxyyzz\",\r\n  \"Notes\":\"done\",\r\n  \"_locationId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"pqr\",\r\n  \"maxQuantityPerOrderNumber\": 6\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/ecommerce-stock",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-stock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "patchEcommerceStock",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -90,32 +157,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-stock/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce-stock/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-stock",
-						"5f990bb3c727e952a076f3b7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteEcommerceStock",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-stock/5f990bb3c727e952a076f3b7",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

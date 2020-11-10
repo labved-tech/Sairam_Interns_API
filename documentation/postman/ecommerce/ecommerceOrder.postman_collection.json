@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8ab96531-d017-4442-b5d0-fd11b7bc72c0",
+		"_postman_id": "d43c0057-1bf5-4428-b617-8f7c4e4dc3db",
 		"name": "ecommerceOrder",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,35 +8,23 @@
 		{
 			"name": "deleteEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
+					"raw": "{{URL}}/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-order",
-						"5fa404a6a12c91117020d067"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getEcommerceOrder",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -50,14 +38,23 @@
 		{
 			"name": "getAllEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order",
+					"raw": "{{URL}}/api/v1/ecommerce-order",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -68,29 +65,30 @@
 			"response": []
 		},
 		{
-			"name": "postEcommerceOrder",
+			"name": "getEcommerceOrder",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"items\": [\r\n      {\r\n      \"productName\": \"apple\",\r\n      \"productId\": \"0\",\r\n      \"_manufacturerPartId\": \"5f990bb3c727e952a076f3b7\",\r\n      \"HSNCode\": \"abc\",\r\n      \"quanity\": 8,\r\n      \"unitPrice\": 8,\r\n      \"meta\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discount\": 8,\r\n      \"tax\": {\r\n        \"CGST\": \"abc\",\r\n        \"SGST\": \"abc\",\r\n        \"IGST\": \"abc\",\r\n        \"calcCGST\": 8,\r\n        \"calSGST\": 8,\r\n        \"calcIGST\": 8\r\n      }\r\n    }\r\n  ],\r\n  \"numItems\": 8,\r\n  \"grossTotal\": 8,\r\n  \"taxTotal\": 5,\r\n  \"shippingCharges\": 2,\r\n  \"insuranceCharges\": 28,\r\n  \"netTotal\": 24,\r\n  \"status\": \" low\",\r\n  \"_userId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "GET",
+				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order",
+					"raw": "{{URL}}/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-order"
+						"ecommerce-order",
+						"5fa404a6a12c91117020d067"
 					]
 				}
 			},
@@ -99,6 +97,16 @@
 		{
 			"name": "patchEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -111,16 +119,53 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"ecommerce-order",
 						"5f990bb3c727e952a076f3b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "postEcommerceOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n      {\r\n      \"productName\": \"apple\",\r\n      \"productId\": \"0\",\r\n      \"_manufacturerPartId\": \"5f990bb3c727e952a076f3b7\",\r\n      \"HSNCode\": \"abc\",\r\n      \"quanity\": 8,\r\n      \"unitPrice\": 8,\r\n      \"meta\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discount\": 8,\r\n      \"tax\": {\r\n        \"CGST\": \"abc\",\r\n        \"SGST\": \"abc\",\r\n        \"IGST\": \"abc\",\r\n        \"calcCGST\": 8,\r\n        \"calSGST\": 8,\r\n        \"calcIGST\": 8\r\n      }\r\n    }\r\n  ],\r\n  \"numItems\": 8,\r\n  \"grossTotal\": 8,\r\n  \"taxTotal\": 5,\r\n  \"shippingCharges\": 2,\r\n  \"insuranceCharges\": 28,\r\n  \"netTotal\": 24,\r\n  \"status\": \" low\",\r\n  \"_userId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/ecommerce-order",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-order"
 					]
 				}
 			},

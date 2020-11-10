@@ -1,21 +1,90 @@
 {
 	"info": {
-		"_postman_id": "8ec91b66-93c6-4c63-97a8-f8a5af269724",
+		"_postman_id": "60d7522c-b605-452a-9f7e-9a980aacdbc7",
 		"name": "ecommerceLocation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllEcommerceLocation",
+			"name": "deleteEcommerceLocation",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/ecommerce-locations/5fa666572e919323b40c322f",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-locations",
+						"5fa666572e919323b40c322f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEcommerceLocation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations",
+					"raw": "{{URL}}/api/v1/ecommerce-locations/5fa666572e919323b40c322f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-locations",
+						"5fa666572e919323b40c322f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllEcommerceLocation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/ecommerce-locations",
+					"host": [
+						"{{URL}}"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -26,50 +95,18 @@
 			"response": []
 		},
 		{
-			"name": "getEcommerceLocation",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations/5fa666572e919323b40c322f",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-locations",
-						"5fa666572e919323b40c322f"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteEcommerceLocation",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations/5fa666572e919323b40c322f",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-locations",
-						"5fa666572e919323b40c322f"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "postEcommerceLocation",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -82,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations",
+					"raw": "{{URL}}/api/v1/ecommerce-locations",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -99,6 +135,16 @@
 		{
 			"name": "patchEcommerceLocation",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -111,11 +157,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-locations/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce-locations/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

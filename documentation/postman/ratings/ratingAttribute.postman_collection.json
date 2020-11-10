@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9bf87409-6e58-4664-8495-a98cc5856452",
+		"_postman_id": "f93acbfb-fdab-4833-a49e-b8d8b1b2e4eb",
 		"name": "ratingAttribute",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getRatingAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/5fa6574d564cd01840c6cfd9",
+					"raw": "{{URL}}/api/v1/ratingAttribute/5fa6574d564cd01840c6cfd9",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,14 +38,23 @@
 		{
 			"name": "deleteRatingAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/5fa6574d564cd01840c6cfd9",
+					"raw": "{{URL}}/api/v1/ratingAttribute/5fa6574d564cd01840c6cfd9",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -50,14 +68,23 @@
 		{
 			"name": "getAllRatingAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute",
+					"raw": "{{URL}}/api/v1/ratingAttribute",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -70,6 +97,16 @@
 		{
 			"name": "createRatingAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -82,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute",
+					"raw": "{{URL}}/api/v1/ratingAttribute",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -99,6 +135,16 @@
 		{
 			"name": "updateRatingAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -111,11 +157,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ratingAttribute/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

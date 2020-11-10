@@ -48,6 +48,8 @@ exports.getEcommerceAddress = catchAsync(async (req, res, next) => {
 
 exports.createEcommerceAddress = catchAsync(async (req, res, next) => {
   console.log('Creating Ecommerce Address');
+  const { body } = req;
+
   // parse through models
   const doc = new EcommerceAddress(req.body);
   console.log(doc);
@@ -82,7 +84,7 @@ exports.updateEcommerceAddress = catchAsync(async (req, res, next) => {
   console.log(`Updating ecommerceAddress Id ${id}`);
 
   // parse through models
-  const ecommerceAddressToUpdate = new ecommerceAddress(body);
+  const ecommerceAddressToUpdate = new EcommerceAddress(body);
   console.log(body);
   const doc = ecommerceAddressToUpdate.toObject();
   delete doc._id;

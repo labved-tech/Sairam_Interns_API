@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "70cebf01-74c2-4fdd-876d-8ff7577aab77",
+		"_postman_id": "4947e090-8665-4318-bb73-affc3a7d5f67",
 		"name": "directoryLevels",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllDirectoryLevels",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels",
+					"raw": "{{URL}}/api/v1/directoryLevels",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -28,6 +37,16 @@
 		{
 			"name": "patchDirectoryLevels",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -40,11 +59,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/directoryLevels/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -58,6 +76,16 @@
 		{
 			"name": "postDirectoryLevels",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -70,11 +98,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels",
+					"raw": "{{URL}}/api/v1/directoryLevels",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -87,6 +114,16 @@
 		{
 			"name": "deleteDirectoryLevels",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"body": {
@@ -94,11 +131,10 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/5fa6537d27c5d517783be3ed",
+					"raw": "{{URL}}/api/v1/directoryLevels/5fa6537d27c5d517783be3ed",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -115,6 +151,16 @@
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"body": {
@@ -127,11 +173,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryLevels/5fa6537d27c5d517783be3ed",
+					"raw": "{{URL}}/api/v1/directoryLevels/5fa6537d27c5d517783be3ed",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
