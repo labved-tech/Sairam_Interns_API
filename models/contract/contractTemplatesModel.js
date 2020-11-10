@@ -9,9 +9,9 @@ const contractTemplatesSchema = new Schema({
   billingType: { type: String },
   value: { type: Number },
   tax: {
-    CGSTRate: { type: String },
-    SGSTRate: { type: String },
-    IGSTRate: { type: String },
+    CGSTRate: { type: Number },
+    SGSTRate: { type: Number },
+    IGSTRate: { type: Number },
     HSNCode: { type: String },
   },
   _contractOwnerId: { type: mongoose.ObjectId },
@@ -29,13 +29,18 @@ const contractTemplatesSchema = new Schema({
       type: { type: String },
       createdBy: { type: mongoose.ObjectId },
       updatedBy: { type: mongoose.ObjectId },
-    },
-    { timestamps: true }
+      createdAt: { type: Date },
+      updatedAt: { type: Date }
+    }
   ],
   terms: [
     {
       title: { type: String },
       text: { type: String },
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date }
     },
   ],
   validity: { type: Number },

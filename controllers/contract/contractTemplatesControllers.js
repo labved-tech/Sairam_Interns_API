@@ -23,9 +23,9 @@ exports.getAllContractTemplates = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'sucess',
     message: 'Got All ContractTemplates',
-    results: ContractTemplates.length,
+    results: contractTemplates.length,
     data: {
-      ContractTemplates,
+      contractTemplates,
     },
   });
 
@@ -51,7 +51,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   // parse through models
-  const doc = new ContractTemplates(req.body);
+  const doc = new ContractTemplates(body);
   console.log(doc);
 
   //additionalAttributesIds
@@ -61,9 +61,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
 
     for (let i = 0; i < additionalAttributesIdsLength; i++) {
       doc.additionalAttributesIds[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.additionalAttributesIds[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.additionalAttributesIds[i].createdAt = Date.now();
-      doc.additionalAttributesIds[i].updatedAt = Date.now();
     }
   }
 
@@ -72,11 +70,9 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
     const termsLength = doc.terms.length;
     console.log(`terms length ${termsLength}`);
 
-    for (let i = 0; i < termsLength; i++) {
-      doc.termsLength[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.termsLength[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.termsLength[i].createdAt = Date.now();
-      doc.termsLength[i].updatedAt = Date.now();
+    for (let j = 0; j < termsLength; j++) {
+      doc.terms[j].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[j].createdAt = Date.now();
     }
   }
 
@@ -88,7 +84,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  console.log(`After Validation :${doc}`);
+  //console.log(`After Validation :${doc}`);
 
   //const example = await doc.save({ validateBeforeSave: false });
 
@@ -114,6 +110,8 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
   const doc = ContractTemplatesToUpdate.toObject();
   delete doc._id;
 
+
+
   if (ContractTemplatesToUpdate.additionalAttributesIds) {
     const additionalAttributesIdsLength = doc.additionalAttributesIds.length;
     console.log(`Array of objects length ${additionalAttributesIdsLength}`);
@@ -128,11 +126,12 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
     const termsLength = doc.terms.length;
     console.log(`Array of objects length ${termsLength}`);
 
-    for (let i = 0; i < termsLength; i++) {
-      doc.terms[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.terms[i].updatedAt = Date.now();
+    for (let j = 0; j < termsLength; j++) {
+      doc.terms[j].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[j].updatedAt = Date.now();
     }
   }
+
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
