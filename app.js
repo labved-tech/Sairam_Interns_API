@@ -61,7 +61,7 @@ app.set('view engine', 'pug');
 // Test Middleware
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
-  /*//console.log(req.url);
+    /*//console.log(req.url);
     //console.log(url.parse(req.url, true));
     const { query, pathname } = url.parse(req.url, true);
     console.log(`URL Pathname is ${pathname}`);

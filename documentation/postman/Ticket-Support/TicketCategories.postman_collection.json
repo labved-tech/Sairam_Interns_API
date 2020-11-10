@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "91cf7763-4285-499c-9e64-165be450403e",
+		"_postman_id": "231727fa-fb50-4c19-a266-e04c6b692745",
 		"name": "TicketCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -29,66 +29,6 @@
 						"api",
 						"v1",
 						"ticketCategories"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteTicketCategories",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{jwt}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories/5f990bb3c727e952a076f3b7",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"ticketCategories",
-						"5f990bb3c727e952a076f3b7"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getOneTicketCategories",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{jwt}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories/5f990bb3c727e952a076f3b7",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"ticketCategories",
-						"5f990bb3c727e952a076f3b7"
 					]
 				}
 			},
@@ -133,6 +73,36 @@
 			"response": []
 		},
 		{
+			"name": "getOneTicketCategories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/ticketCategories/5fa9370d3617484774cf2dd6",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticketCategories",
+						"5fa9370d3617484774cf2dd6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "updateTicketCategories",
 			"request": {
 				"auth": {
@@ -149,10 +119,15 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"success\"\r\n}"
+					"raw": "{\r\n  \"name\": \"Bharath kumar\",\r\n  \"description\": \"welcome to database\",\r\n  \"notes\": \"welcome to tickets\" ,\r\n  \"status\": \"failed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ticketCategories/5fa9370d3617484774cf2dd6",
 					"host": [
 						"{{URL}}"
 					],
@@ -160,7 +135,37 @@
 						"api",
 						"v1",
 						"ticketCategories",
-						"5f990bb3c727e952a076f3b7"
+						"5fa9370d3617484774cf2dd6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteTicketCategories",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/ticketCategories/5fa9370d3617484774cf2dd6",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"ticketCategories",
+						"5fa9370d3617484774cf2dd6"
 					]
 				}
 			},

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bd9ccfc4-8323-4ead-8a0f-88b16687463b",
+		"_postman_id": "478966ef-9e86-48e4-a9b8-e8eeb6662177",
 		"name": "directoryAttributeGroups",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllRatingAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryAttributes",
+					"raw": "{{URL}}/api/v1/directoryAttributes",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -28,14 +37,23 @@
 		{
 			"name": "deleteDirectoryAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryAttributes/5fa65290e85fa52874471d02",
+					"raw": "{{URL}}/api/v1/directoryAttributes/5fa65290e85fa52874471d02",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -49,14 +67,23 @@
 		{
 			"name": "getDirectoryAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryAttributes/5fa65290e85fa52874471d02",
+					"raw": "{{URL}}/api/v1/directoryAttributes/5fa65290e85fa52874471d02",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -70,6 +97,16 @@
 		{
 			"name": "patchDirectoryAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -82,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryAttributes/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/directoryAttributes/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -100,6 +136,16 @@
 		{
 			"name": "postDirectoryAttribute",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -112,11 +158,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/directoryAttributes",
+					"raw": "{{URL}}/api/v1/directoryAttributes",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

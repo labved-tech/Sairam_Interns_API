@@ -1,41 +1,30 @@
 {
 	"info": {
-		"_postman_id": "6ae824e2-8552-437a-849f-bd232826fb61",
+		"_postman_id": "d43c0057-1bf5-4428-b617-8f7c4e4dc3db",
 		"name": "ecommerceOrder",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllEcommerceOrder",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"ecommerce-order"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "deleteEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
+					"raw": "{{URL}}/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -47,16 +36,54 @@
 			"response": []
 		},
 		{
-			"name": "getEcommerceOrder",
+			"name": "getAllEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
+					"raw": "{{URL}}/api/v1/ecommerce-order",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ecommerce-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEcommerceOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
+					"host": [
+						"{{URL}}"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -70,6 +97,16 @@
 		{
 			"name": "patchEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -82,11 +119,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -100,6 +136,16 @@
 		{
 			"name": "postEcommerceOrder",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -112,11 +158,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/ecommerce-order",
+					"raw": "{{URL}}/api/v1/ecommerce-order",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
