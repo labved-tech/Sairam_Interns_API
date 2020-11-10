@@ -8,6 +8,16 @@
 		{
 			"name": "updateCommentEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -15,11 +25,10 @@
 					"raw": "{\r\n  \"_commentorId\": \"5fa288504452ad6944ebea61\",\r\n  \"relName\": \"test\",\r\n  \"_relId\": \"5fa288504452ad6944ebea61\",\r\n  \"rating\": \"four star\",\r\n  \"message\": \"test\",\r\n  \"commentReplies\": [\r\n    {\r\n      \"message\": \"Hi guys\",\r\n      \"_commentorId\":\"5fa288504452ad6944ebea61\"\r\n    }\r\n  ],\r\n  \"status\": \"successfull completed\"\r\n}"
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
+					"raw": "{{URL}}/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -33,14 +42,23 @@
 		{
 			"name": "deleteCommentEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
+					"raw": "{{URL}}/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -54,14 +72,23 @@
 		{
 			"name": "getOneCommentEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
+					"raw": "{{URL}}/api/v1/commentEntries/5fa289d543c20d2dac0f4488",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -75,14 +102,23 @@
 		{
 			"name": "getAllCommentEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries",
+					"raw": "{{URL}}/api/v1/commentEntries",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -95,6 +131,16 @@
 		{
 			"name": "createCommentEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -107,11 +153,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/commentEntries",
+					"raw": "{{URL}}/api/v1/commentEntries",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

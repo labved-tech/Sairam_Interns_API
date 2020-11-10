@@ -8,14 +8,23 @@
 		{
 			"name": "getOnecontractTemplates",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,14 +38,23 @@
 		{
 			"name": "deletecontractTemplates",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -50,14 +68,23 @@
 		{
 			"name": "getAllcontractTemplates",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/",
+					"raw": "{{URL}}/api/v1/contractTemplates/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -71,6 +98,16 @@
 		{
 			"name": "createcontractTemplates",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -83,11 +120,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates",
+					"raw": "{{URL}}/api/v1/contractTemplates",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -100,6 +136,16 @@
 		{
 			"name": "updatecontractTemplates",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -110,11 +156,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/contractTemplates/5f990bb3c727e952a076f3b7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
