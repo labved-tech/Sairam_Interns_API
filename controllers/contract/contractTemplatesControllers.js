@@ -23,9 +23,9 @@ exports.getAllContractTemplates = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'sucess',
     message: 'Got All ContractTemplates',
-    results: ContractTemplates.length,
+    results: contractTemplates.length,
     data: {
-      ContractTemplates,
+      contractTemplates,
     },
   });
 
@@ -73,10 +73,10 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
     console.log(`terms length ${termsLength}`);
 
     for (let i = 0; i < termsLength; i++) {
-      doc.termsLength[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.termsLength[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.termsLength[i].createdAt = Date.now();
-      doc.termsLength[i].updatedAt = Date.now();
+      doc.terms[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.terms[i].createdAt = Date.now();
+      doc.terms[i].updatedAt = Date.now();
     }
   }
 
@@ -114,6 +114,8 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
   const doc = ContractTemplatesToUpdate.toObject();
   delete doc._id;
 
+
+
   if (ContractTemplatesToUpdate.additionalAttributesIds) {
     const additionalAttributesIdsLength = doc.additionalAttributesIds.length;
     console.log(`Array of objects length ${additionalAttributesIdsLength}`);
@@ -133,6 +135,7 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
       doc.terms[i].updatedAt = Date.now();
     }
   }
+
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
