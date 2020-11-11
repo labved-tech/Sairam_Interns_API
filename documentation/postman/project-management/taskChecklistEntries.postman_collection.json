@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "515ef42b-e310-4682-836b-2ffb5b61ef76",
+		"_postman_id": "cccfe992-553f-4d67-b606-ad79a7815508",
 		"name": "taskChecklistEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -110,19 +110,28 @@
 		{
 			"name": "deleteTaskChecklistEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"raw": "{{URL}}/api/v1/task-checklist-entries/5fab62ca34231a4e8c157105",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"task-checklist-entries",
-						"0"
+						"5fab62ca34231a4e8c157105"
 					]
 				}
 			},

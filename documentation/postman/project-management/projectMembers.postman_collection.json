@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "614d3e76-a554-4211-84ec-cff0c9a626b1",
+		"_postman_id": "78a02826-8a7d-4779-89d0-d7a8c0d64ddf",
 		"name": "projectMembers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -110,19 +110,28 @@
 		{
 			"name": "deleteProjectMembers",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-members/0",
+					"raw": "{{URL}}/api/v1/project-members/5fab5d5b34231a4e8c1570ed",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-members",
-						"0"
+						"5fab5d5b34231a4e8c1570ed"
 					]
 				}
 			},

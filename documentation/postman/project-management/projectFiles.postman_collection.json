@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8541bd9e-2c44-47f3-952d-5846ece5e026",
+		"_postman_id": "e2a2596c-7450-44bc-8176-2cfd91a9acbe",
 		"name": "projectFiles",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllProjectFiles",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-files/",
+					"raw": "{{URL}}/api/v1/project-files/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

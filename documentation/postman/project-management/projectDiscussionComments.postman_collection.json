@@ -1,21 +1,90 @@
 {
 	"info": {
-		"_postman_id": "e445156c-718c-463c-9916-54a14ca29665",
+		"_postman_id": "0b46ab82-ebdd-4daa-9e0d-a3337515596a",
 		"name": "projectDiscussionComments",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllProjectDiscussionComments",
+			"name": "getProjectDiscussionComments",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussion-comments/",
+					"raw": "{{URL}}/api/v1/project-discussion-comments/5faac9a4cd270546d8415dfa",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-discussion-comments",
+						"5faac9a4cd270546d8415dfa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectDiscussionComments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/project-discussion-comments/5faac9a4cd270546d8415dfa",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"project-discussion-comments",
+						"5faac9a4cd270546d8415dfa"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProjectDiscussionComments",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/project-discussion-comments/",
+					"host": [
+						"{{URL}}"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +98,16 @@
 		{
 			"name": "createProjectDiscussionComments",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +120,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussion-comments/",
+					"raw": "{{URL}}/api/v1/project-discussion-comments/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -57,29 +135,18 @@
 			"response": []
 		},
 		{
-			"name": "getProjectDiscussionComments",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussion-comments/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussion-comments",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "updateProjectDiscussionComments",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,37 +159,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussion-comments/5fa1431c61165d64384fdef5",
+					"raw": "{{URL}}/api/v1/project-discussion-comments/5faac9a4cd270546d8415dfa",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-discussion-comments",
-						"5fa1431c61165d64384fdef5"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteProjectDiscussionComments",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussion-comments/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussion-comments",
-						"0"
+						"5faac9a4cd270546d8415dfa"
 					]
 				}
 			},

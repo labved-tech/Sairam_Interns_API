@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f0ff0ee6-ffa1-4fe2-b7a1-a42bae95a0e2",
+		"_postman_id": "eaa085ca-3584-4200-8fd9-abccb249dc2f",
 		"name": "taskTimers",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllTaskTimers",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/",
+					"raw": "{{URL}}/api/v1/task-timers/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -27,25 +36,25 @@
 			"response": []
 		},
 		{
-			"name": "createTaskTimers",
+			"name": "deleteTaskTimers",
 			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"_taskId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"startTime\": \"2000-09-22\",\r\n    \"endTime\": \"2000-09-22\",\r\n    \"timeSpend\":10,\r\n    \"note\": \"Compulsory\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
 						}
-					}
+					]
 				},
+				"method": "DELETE",
+				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/",
+					"raw": "{{URL}}0/api/v1/task-timers/",
 					"host": [
-						"localhost"
+						"{{URL}}0"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +68,67 @@
 		{
 			"name": "getTaskTimers",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/5fa14ba33d6b7609b45bc028",
+					"raw": "{{URL}}/api/v1/task-timers/5fab67b034231a4e8c157119",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"task-timers",
-						"5fa14ba33d6b7609b45bc028"
+						"5fab67b034231a4e8c157119"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createTaskTimers",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_taskId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n    \"startTime\": \"2000-09-22\",\r\n    \"endTime\": \"2000-09-22\",\r\n    \"timeSpend\":10,\r\n    \"note\": \"Compulsory\",\r\n    \"_userId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/task-timers/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"task-timers",
+						""
 					]
 				}
 			},
@@ -80,6 +137,16 @@
 		{
 			"name": "updateTaskTimers",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,37 +159,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/5fa14ba33d6b7609b45bc028",
+					"raw": "{{URL}}/api/v1/task-timers/5fab67b034231a4e8c157119",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"task-timers",
-						"5fa14ba33d6b7609b45bc028"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteTaskTimers",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/task-timers/5fa14ba33d6b7609b45bc028",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"task-timers",
-						"5fa14ba33d6b7609b45bc028"
+						"5fab67b034231a4e8c157119"
 					]
 				}
 			},

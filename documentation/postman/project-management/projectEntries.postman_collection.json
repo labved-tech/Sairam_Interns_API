@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ddad0987-a5ee-4cdc-b1d1-d08ae2c00b4f",
+		"_postman_id": "8609d48b-b840-4e5d-b5f8-1863d8b0fe4e",
 		"name": "projectEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -59,19 +59,28 @@
 		{
 			"name": "getProjectEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-categories/0",
+					"raw": "{{URL}}/api/v1/lead-categories/5fab51e164ab1740f83ebe76",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"lead-categories",
-						"0"
+						"5fab51e164ab1740f83ebe76"
 					]
 				}
 			},

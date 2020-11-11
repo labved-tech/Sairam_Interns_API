@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2dcf39cd-14b0-4a75-a100-aaff4de79d60",
+		"_postman_id": "9a5c27b3-b09c-490b-b133-b6a27ece2ebc",
 		"name": "projectNotes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -59,19 +59,28 @@
 		{
 			"name": "getProjectNotes",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/0",
+					"raw": "{{URL}}/api/v1/project-notes/5fab5ece34231a4e8c1570f3",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-notes",
-						"0"
+						"5fab5ece34231a4e8c1570f3"
 					]
 				}
 			},

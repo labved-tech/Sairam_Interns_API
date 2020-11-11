@@ -1,21 +1,90 @@
 {
 	"info": {
-		"_postman_id": "bd412479-f053-4c82-af0b-7358d576e803",
+		"_postman_id": "b627812b-9cd9-4ee8-8a26-809152bedd0e",
 		"name": "projectDiscussions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "getAllProjectDiscussions",
+			"name": "deleteProjectDiscussions",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/project-discussions/5fab512364ab1740f83ebe71",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"project-discussions",
+						"5fab512364ab1740f83ebe71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getProjectDiscussions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/",
+					"raw": "{{URL}}/api/v1/project-discussions/5fab512364ab1740f83ebe71",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"project-discussions",
+						"5fab512364ab1740f83ebe71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProjectDiscussions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/project-discussions/",
+					"host": [
+						"{{URL}}"
+					],
 					"path": [
 						"api",
 						"v1",
@@ -27,8 +96,57 @@
 			"response": []
 		},
 		{
+			"name": "updateProjectDiscussions",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"subject\": \"Humanities\",\r\n    \"description\":\"Student\",\r\n    \"datecreated\":\"2000-09-22\",\r\n    \"lastActivity\":\"2003-09-22\",\r\n    \"startedBy\": \"Vicky\"\r\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/v1/project-discussions/5fab512364ab1740f83ebe71",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"project-discussions",
+						"5fab512364ab1740f83ebe71"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "createProjectDiscussions",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,88 +159,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/",
+					"raw": "{{URL}}/api/v1/project-discussions/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-discussions",
 						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "getProjectDiscussions",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussions",
-						"0"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "updateProjectDiscussions",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n\r\n    \"_projectId\":\"5f9d4cad0cc36e2a44c325b9\",\r\n    \"subject\": \"Humanities\",\r\n    \"description\":\"Student\",\r\n    \"datecreated\":\"2000-09-22\",\r\n    \"lastActivity\":\"2003-09-22\",\r\n    \"startedBy\": \"Vicky\"\r\n  }",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/5fa143da1d903442ccf68896",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussions",
-						"5fa143da1d903442ccf68896"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "deleteProjectDiscussions",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "localhost:3000/api/v1/project-discussions/0",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-discussions",
-						"0"
 					]
 				}
 			},

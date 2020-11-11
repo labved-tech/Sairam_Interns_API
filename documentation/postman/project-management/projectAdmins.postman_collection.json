@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ecb90584-a7e2-4c8a-ad18-1f0c65c14626",
+		"_postman_id": "02157e7f-210c-42bc-9ae6-8def139e26b8",
 		"name": "projectAdmins",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,44 +8,23 @@
 		{
 			"name": "getAllProjectAdmins",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/",
+					"raw": "{{URL}}/api/v1/project-admins/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
-					"path": [
-						"api",
-						"v1",
-						"project-admins",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "createProjectAdmins",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "  {\r\n  \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_userId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/",
-					"host": [
-						"localhost"
-					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +38,58 @@
 		{
 			"name": "getProjectAdmins",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/0",
+					"raw": "{{URL}}/api/v1/project-admins/5faac8e6cd270546d8415df7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-admins",
-						"0"
+						"5faac8e6cd270546d8415df7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteProjectAdmins",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/project-admins/5faac8e6cd270546d8415df7",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"project-admins",
+						"5faac8e6cd270546d8415df7"
 					]
 				}
 			},
@@ -80,6 +98,16 @@
 		{
 			"name": "updateProjectAdmins",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,37 +120,54 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/5fa142aae90a6926cce36d93",
+					"raw": "{{URL}}/api/v1/project-admins/5faac8e6cd270546d8415df7",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-admins",
-						"5fa142aae90a6926cce36d93"
+						"5faac8e6cd270546d8415df7"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "deleteProjectAdmins",
+			"name": "createProjectAdmins",
 			"request": {
-				"method": "DELETE",
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n  \"_projectId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n  \"_userId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-admins/5fa142aae90a6926cce36d93",
+					"raw": "{{URL}}/api/v1/project-admins/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-admins",
-						"5fa142aae90a6926cce36d93"
+						""
 					]
 				}
 			},
