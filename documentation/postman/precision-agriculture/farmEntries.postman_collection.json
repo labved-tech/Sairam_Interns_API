@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9eeaacc9-7993-4e9c-88b1-0c2b61ca2742",
+		"_postman_id": "5a447621-2d39-485c-88e7-1a8b76cfd34e",
 		"name": "farmEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllFarmEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-entries/",
+					"raw": "{{URL}}/api/v1/farm-entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +38,16 @@
 		{
 			"name": "createFarmEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-entries/",
+					"raw": "{{URL}}/api/v1/farm-entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +77,28 @@
 		{
 			"name": "getFarmEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-entries/0",
+					"raw": "{{URL}}/api/v1/farm-entries/5fab9d98b4e15209b0e3a881",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-entries",
-						"0"
+						"5fab9d98b4e15209b0e3a881"
 					]
 				}
 			},
@@ -80,6 +107,16 @@
 		{
 			"name": "updateFarmEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,16 +129,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-entries/5fa66b3a6850241d48e541ae",
+					"raw": "{{URL}}/api/v1/farm-entries/5fab9d98b4e15209b0e3a881",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-entries",
-						"5fa66b3a6850241d48e541ae"
+						"5fab9d98b4e15209b0e3a881"
 					]
 				}
 			},
@@ -110,19 +146,28 @@
 		{
 			"name": "deleteFarmEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-entries/5fa650a8ec31a84f60a0dfd6",
+					"raw": "{{URL}}/api/v1/farm-entries/5fab9d98b4e15209b0e3a881",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-entries",
-						"5fa650a8ec31a84f60a0dfd6"
+						"5fab9d98b4e15209b0e3a881"
 					]
 				}
 			},

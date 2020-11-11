@@ -38,14 +38,23 @@
 		{
 			"name": "getLeadEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/5fa926f63995ec48a881c042",
+					"raw": "{{URL}}/api/v1/lead-entries/5fa926f63995ec48a881c042",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,14 +68,23 @@
 		{
 			"name": "deleteLeadEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/5fa926f63995ec48a881c042",
+					"raw": "{{URL}}/api/v1/lead-entries/5fa926f63995ec48a881c042",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -80,6 +98,16 @@
 		{
 			"name": "updateLeadEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,11 +120,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/5fa9438ed0733d0c2030c535",
+					"raw": "{{URL}}/api/v1/lead-entries/5fa9438ed0733d0c2030c535",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -110,6 +137,16 @@
 		{
 			"name": "createLeadEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -122,11 +159,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/lead-entries/",
+					"raw": "{{URL}}/api/v1/lead-entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

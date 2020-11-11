@@ -8,14 +8,23 @@
 		{
 			"name": "getAllTaskReminders",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/",
+					"raw": "{{URL}}/api/v1/task-reminders/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +38,16 @@
 		{
 			"name": "createTaskReminders",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/",
+					"raw": "{{URL}}/api/v1/task-reminders/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +77,28 @@
 		{
 			"name": "getTaskReminders",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/0",
+					"raw": "{{URL}}/api/v1/task-reminders/5fa14b553e05ae67787ccf51",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"task-reminders",
-						"0"
+						"5fa14b553e05ae67787ccf51"
 					]
 				}
 			},
@@ -80,6 +107,16 @@
 		{
 			"name": "updateTaskReminders",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -90,13 +127,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-reminders/5fa14b553e05ae67787ccf51",
+					"raw": "{{URL}}api/v1/task-reminders/5fa14b553e05ae67787ccf51",
 					"host": [
-						"localhost"
+						"{{URL}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"v1",
 						"task-reminders",
 						"5fa14b553e05ae67787ccf51"

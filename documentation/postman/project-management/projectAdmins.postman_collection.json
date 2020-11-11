@@ -6,36 +6,6 @@
 	},
 	"item": [
 		{
-			"name": "getAllProjectAdmins",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{jwt}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{URL}}/api/v1/project-admins/",
-					"host": [
-						"{{URL}}"
-					],
-					"path": [
-						"api",
-						"v1",
-						"project-admins",
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "getProjectAdmins",
 			"request": {
 				"auth": {
@@ -60,6 +30,36 @@
 						"v1",
 						"project-admins",
 						"5faac8e6cd270546d8415df7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllProjectAdmins",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/v1/project-admins/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"project-admins",
+						""
 					]
 				}
 			},
