@@ -31,4 +31,6 @@ router.get('/account-settings/users/add-new', viewsController.getAddUser);
 // ANNOUNCEMENT RELATED ROUTES
 router.get('/announcement-entries', viewsController.announcementEntries);
 
+// ANALYTICS RELATED ROUTES
+router.get('/analytics', viewsController.analytics);
 module.exports = router;
