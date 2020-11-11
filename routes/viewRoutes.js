@@ -28,4 +28,7 @@ router.get('/error', viewsController.getError);
 router.get('/account-settings/users/view-all', viewsController.getAllUser);
 router.get('/account-settings/users/add-new', viewsController.getAddUser);
 
+// ANNOUNCEMENT RELATED ROUTES
+router.get('/announcement-entries', viewsController.announcementEntries);
+
 module.exports = router;

@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Getting All projectDiscussionComments');
 
-  
-    const projectDiscussionComments = await ProjectDiscussionComments.find().then();
+  const projectDiscussionComments = await ProjectDiscussionComments.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All projectDiscussionComments',
-      results: projectDiscussionComments.length,
-      data: {
-        projectDiscussionComments,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All projectDiscussionComments',
+    results: projectDiscussionComments.length,
+    data: {
+      projectDiscussionComments,
+    },
+  });
 
   next();
 });
@@ -38,16 +36,14 @@ exports.getProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectDiscussionComments for Id ${id}`);
 
-  
-    const projectDiscussionComments = await ProjectDiscussionComments.findById(
-      id
-    ).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got projectDiscussionComments Id=${id}`,
-      Data: { projectDiscussionComments },
-    });
-
+  const projectDiscussionComments = await ProjectDiscussionComments.findById(
+    id
+  ).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got projectDiscussionComments Id=${id}`,
+    Data: { projectDiscussionComments },
+  });
 
   next();
 });
@@ -56,36 +52,35 @@ exports.createProjectDiscussionComments = catchAsync(async (req, res, next) => {
   console.log('Creating projectDiscussionComments');
   const { body } = req;
 
-    // parse through models
-    const doc = new ProjectDiscussionComments(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new ProjectDiscussionComments(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
-  
-    const projectDiscussionComments = await ProjectDiscussionComments.create(
-      doc
-    ).then();
+  //console.log(doc);
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created projectDiscussionComments',
-      data: { projectDiscussionComments },
-    });
+  const projectDiscussionComments = await ProjectDiscussionComments.create(
+    doc
+  ).then();
 
+  res.status(201).json({
+    status: 'success',
+    message: 'Created projectDiscussionComments',
+    data: { projectDiscussionComments },
+  });
 
   next();
 });
@@ -95,7 +90,6 @@ exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   console.log(`Updating ProjectDiscussionComments Id ${id}`);
-
 
   // parse through models
   const ProjectDiscussionCommentsToUpdate = new ProjectDiscussionComments(body);
@@ -110,20 +104,19 @@ exports.updateProjectDiscussionComments = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  
-    const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndUpdate(
-      id, doc,
-      {
-        new: true,
-      }
-    ).then();
+  const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndUpdate(
+    id,
+    doc,
+    {
+      new: true,
+    }
+  ).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated projectDiscussionComments Id=${id}`,
-      data: { projectDiscussionComments },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated projectDiscussionComments Id=${id}`,
+    data: { projectDiscussionComments },
+  });
 
   next();
 });
@@ -132,17 +125,15 @@ exports.deleteProjectDiscussionComments = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectDiscussionComments Id ${id}`);
 
-  
-    const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndDelete(
-      id
-    ).then();
+  const projectDiscussionComments = await ProjectDiscussionComments.findByIdAndDelete(
+    id
+  ).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted projectDiscussionComments Id=${id}`,
-      data: { projectDiscussionComments },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted projectDiscussionComments Id=${id}`,
+    data: { projectDiscussionComments },
+  });
 
   next();
 });

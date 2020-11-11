@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Getting All projectAdmins');
 
-  
-    const projectAdmins = await ProjectAdmins.find().then();
+  const projectAdmins = await ProjectAdmins.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All projectAdmins',
-      results: projectAdmins.length,
-      data: {
-        projectAdmins,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All projectAdmins',
+    results: projectAdmins.length,
+    data: {
+      projectAdmins,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectAdmins for Id ${id}`);
 
-  
-    const projectAdmins = await ProjectAdmins.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got projectAdmins Id=${id}`,
-      Data: { projectAdmins },
-    });
-
+  const projectAdmins = await ProjectAdmins.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got projectAdmins Id=${id}`,
+    Data: { projectAdmins },
+  });
 
   next();
 });
@@ -54,34 +50,33 @@ exports.createProjectAdmins = catchAsync(async (req, res, next) => {
   console.log('Creating projectAdmins');
   const { body } = req;
 
-    // parse through models
-    const doc = new ProjectAdmins(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new ProjectAdmins(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
-  
-    const projectAdmins = await ProjectAdmins.create(doc).then();
+  //console.log(doc);
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created projectAdmins',
-      data: { projectAdmins },
-    });
+  const projectAdmins = await ProjectAdmins.create(doc).then();
 
+  res.status(201).json({
+    status: 'success',
+    message: 'Created projectAdmins',
+    data: { projectAdmins },
+  });
 
   next();
 });
@@ -91,7 +86,6 @@ exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   console.log(`Updating ProjectAdmins Id ${id}`);
-
 
   // parse through models
   const ProjectAdminsToUpdate = new ProjectAdmins(body);
@@ -106,17 +100,15 @@ exports.updateProjectAdmins = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  
-    const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
+  const projectAdmins = await ProjectAdmins.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated projectAdmins Id=${id}`,
-      data: { projectAdmins },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated projectAdmins Id=${id}`,
+    data: { projectAdmins },
+  });
 
   next();
 });
@@ -125,15 +117,13 @@ exports.deleteProjectAdmins = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectAdmins Id ${id}`);
 
-  
-    const projectAdmins = await ProjectAdmins.findByIdAndDelete(id).then();
+  const projectAdmins = await ProjectAdmins.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted projectAdmins Id=${id}`,
-      data: { projectAdmins },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted projectAdmins Id=${id}`,
+    data: { projectAdmins },
+  });
 
   next();
 });

@@ -375,9 +375,9 @@ exports.getOverview = (req, res) => {
 
 // EXAMPLE RELATED CONTROLLER
 exports.getExample = (req, res) => {
-  console.log('We are in exampleController');
+  console.log('We are in Example Page');
 
-  res.status(200).render('./../views/pages/example/example', doc);
+  res.status(200).render('./../views/pages/example/form', doc);
 };
 
 // LOGIN RELATED CONTROLLER
@@ -421,4 +421,12 @@ exports.getAddUser = (req, res) => {
 exports.example = (req, res) => {
   console.log('We are in Add Users Page');
   res.status(200).render(`./../views/pages/example/example`, doc);
+};
+
+// ANNOUNCEMENT RELATED CONTROLLER
+exports.announcementEntries = (req, res) => {
+  console.log('We are in Announcement Entries Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementEntries', doc);
 };

@@ -28,18 +28,21 @@ block content
                                 div(class='col-xl-8')
                                     div(class='my-5')
                                         h3(class=' text-dark font-weight-bold mb-10') Section1
+                                        // textbox
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Email
                                                 span(class='text-danger')  *
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='email' placeholder='Enter your email')
                                                 span(class='form-text text-muted') We'll never share your email with anyone else.                                   
+                                        // password
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Password
                                                 span(class='text-danger')  *
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='password' placeholder='password')
                                                 span(class='form-text text-muted') minimum 8 characters                                   
+                                        // dropdown list box
                                         div(class='form-group row')
                                             label(class='col-3' for='exampleSelect1')
                                                 | Dropdown List Box
@@ -51,6 +54,7 @@ block content
                                                     option 3
                                                     option 4
                                                     option 5
+                                        // dropdown list multiple box
                                         div(class='form-group row')
                                             label(class='col-3' for='exampleSelect2')
                                                 | Dropdown List Box - Multiple
@@ -62,12 +66,14 @@ block content
                                                     option 3
                                                     option 4
                                                     option 5
+                                        // Text Area
                                         div(class='form-group row mb-1')
                                             label(class='col-3' for='exampleTextarea')
                                                 | Example textarea 
                                                 span(class='text-danger') *
                                             div(class='col-9')
                                                 textarea#exampleTextarea(class='form-control' rows='3')
+                                        // Inline Check Box
                                         div(class='form-group row')
                                             label(class='col-3') Inline Checkboxes
                                             div(class='col-9')
@@ -84,6 +90,7 @@ block content
                                                         input(type='checkbox' name='Checkboxes2')
                                                         span
                                                         | Option 3
+                                        // Inline Radio Buttons
                                         div(class='form-group row')
                                             label(class='col-3') Inline radios
                                             div(class='col-9')
@@ -101,6 +108,7 @@ block content
                                                         span
                                                         |                                 Option 3
                                                 span(class='form-text text-muted') Some help text goes here
+                                        // Boolean
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label') Default Switch
                                             div(class='col-9')

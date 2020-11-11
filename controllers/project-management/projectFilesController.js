@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Getting All projectFiles');
 
-  
-    const projectFiles = await ProjectFiles.find().then();
+  const projectFiles = await ProjectFiles.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All projectFiles',
-      results: projectFiles.length,
-      data: {
-        projectFiles,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All projectFiles',
+    results: projectFiles.length,
+    data: {
+      projectFiles,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting projectFiles for Id ${id}`);
 
-  
-    const projectFiles = await ProjectFiles.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got projectFiles Id=${id}`,
-      Data: { projectFiles },
-    });
-
+  const projectFiles = await ProjectFiles.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got projectFiles Id=${id}`,
+    Data: { projectFiles },
+  });
 
   next();
 });
@@ -54,34 +50,33 @@ exports.createProjectFiles = catchAsync(async (req, res, next) => {
   console.log('Creating projectFiles');
   const { body } = req;
 
-    // parse through models
-    const doc = new ProjectFiles(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new ProjectFiles(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
-  
-    const projectFiles = await ProjectFiles.create(doc).then();
+  //console.log(doc);
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created projectFiles',
-      data: { projectFiles },
-    });
+  const projectFiles = await ProjectFiles.create(doc).then();
 
+  res.status(201).json({
+    status: 'success',
+    message: 'Created projectFiles',
+    data: { projectFiles },
+  });
 
   next();
 });
@@ -91,7 +86,6 @@ exports.updateProjectFiles = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   console.log(`Updating ProjectFiles Id ${id}`);
-
 
   // parse through models
   const ProjectFilesToUpdate = new ProjectFiles(body);
@@ -106,17 +100,15 @@ exports.updateProjectFiles = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  
-    const projectFiles = await ProjectFiles.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
+  const projectFiles = await ProjectFiles.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated projectFiles Id=${id}`,
-      data: { projectFiles },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated projectFiles Id=${id}`,
+    data: { projectFiles },
+  });
 
   next();
 });
@@ -125,15 +117,13 @@ exports.deleteProjectFiles = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting projectFiles Id ${id}`);
 
-  
-    const projectFiles = await ProjectFiles.findByIdAndDelete(id).then();
+  const projectFiles = await ProjectFiles.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted projectFiles Id=${id}`,
-      data: { projectFiles },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted projectFiles Id=${id}`,
+    data: { projectFiles },
+  });
 
   next();
 });
