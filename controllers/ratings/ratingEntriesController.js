@@ -21,7 +21,7 @@ exports.getAllRatingEntries = catchAsync(async (req, res, next) => {
   const ratingEntriess = await RatingEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All RatingEntries',
     results: ratingEntriess.length,
     data: {
@@ -38,7 +38,7 @@ exports.getRatingEntries = catchAsync(async (req, res, next) => {
 
   const ratingEntries = await RatingEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got RatingEntries Id=${id}`,
     Data: { ratingEntries },
   });
@@ -79,7 +79,7 @@ exports.createRatingEntries = catchAsync(async (req, res, next) => {
   const ratingEntries = await RatingEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created RatingEntries',
     data: { ratingEntries },
   });
@@ -98,8 +98,6 @@ exports.updateRatingEntries = catchAsync(async (req, res, next) => {
   const doc = RatingEntriesToUpdate.toObject();
   delete doc._id;
 
-
-
   if (RatingEntriesToUpdate.meta) {
     const metaLength = doc.meta.length;
     console.log(`Array of objects length ${metaLength}`);
@@ -115,7 +113,7 @@ exports.updateRatingEntries = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated RatingEntries Id=${id}`,
     data: { ratingEntries },
   });
@@ -130,7 +128,7 @@ exports.deleteRatingEntries = catchAsync(async (req, res, next) => {
   const ratingEntries = await RatingEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted RatingEntries Id=${id}`,
     data: { ratingEntries },
   });

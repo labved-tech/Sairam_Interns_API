@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const Quotation = require('./../../models/sales-finance/quotationModel');
+const Quotation = require('../../models/sales-finance/quotationModel');
 
 /* DATABASE */
 
@@ -20,7 +20,7 @@ exports.getAllQuotation = catchAsync(async (req, res, next) => {
   const quotation = await Quotation.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Quotation',
     results: quotation.length,
     data: {
@@ -35,7 +35,7 @@ exports.getQuotation = catchAsync(async (req, res, next) => {
   console.log(`Getting Quotation for Id ${id}`);
   const quotation = await Quotation.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Quotation Id=${id}`,
     Data: { quotation },
   });
@@ -67,7 +67,7 @@ exports.createQuotation = catchAsync(async (req, res, next) => {
   const quotation = await Quotation.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Quotation',
     data: { quotation },
   });
@@ -85,7 +85,6 @@ exports.updateQuotation = catchAsync(async (req, res, next) => {
   const doc = quotationToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -97,7 +96,7 @@ exports.updateQuotation = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Quotation Id=${id}`,
     data: { quotation },
   });
@@ -110,7 +109,7 @@ exports.deleteQuotation = catchAsync(async (req, res, next) => {
   const quotation = await Quotation.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Quotation Id=${id}`,
     data: { quotation },
   });

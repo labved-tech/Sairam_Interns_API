@@ -1,0 +1,122 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/js/KTAppSettings.js')
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/example/FormControls.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Example Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#kt_form_1(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+                                        h3(class=' text-dark font-weight-bold mb-10') Section1
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Email
+                                                span(class='text-danger')  *
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='email' placeholder='Enter your email')
+                                                span(class='form-text text-muted') We'll never share your email with anyone else.                                   
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Password
+                                                span(class='text-danger')  *
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='password' placeholder='password')
+                                                span(class='form-text text-muted') minimum 8 characters                                   
+                                        div(class='form-group row')
+                                            label(class='col-3' for='exampleSelect1')
+                                                | Dropdown List Box
+                                                span(class='text-danger') *
+                                            div(class='col-9')
+                                                select#exampleSelect1(class='form-control')
+                                                    option 1
+                                                    option 2
+                                                    option 3
+                                                    option 4
+                                                    option 5
+                                        div(class='form-group row')
+                                            label(class='col-3' for='exampleSelect2')
+                                                | Dropdown List Box - Multiple
+                                                span(class='text-danger') *
+                                            div(class='col-9')
+                                                select#exampleSelect2(multiple='' class='form-control')
+                                                    option 1
+                                                    option 2
+                                                    option 3
+                                                    option 4
+                                                    option 5
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3' for='exampleTextarea')
+                                                | Example textarea 
+                                                span(class='text-danger') *
+                                            div(class='col-9')
+                                                textarea#exampleTextarea(class='form-control' rows='3')
+                                        div(class='form-group row')
+                                            label(class='col-3') Inline Checkboxes
+                                            div(class='col-9')
+                                                div(class='checkbox-inline')
+                                                    label(class='checkbox')
+                                                        input(type='checkbox' name='Checkboxes2')
+                                                        span
+                                                        | Option 1
+                                                    label(class='checkbox')
+                                                        input(type='checkbox' name='Checkboxes2')
+                                                        span
+                                                        | Option 2
+                                                    label(class='checkbox')
+                                                        input(type='checkbox' name='Checkboxes2')
+                                                        span
+                                                        | Option 3
+                                        div(class='form-group row')
+                                            label(class='col-3') Inline radios
+                                            div(class='col-9')
+                                                div(class='radio-inline')
+                                                    label(class='radio')
+                                                        input(type='radio' name='radios2')
+                                                        span
+                                                        |                                 Option 1
+                                                    label(class='radio')
+                                                        input(type='radio' name='radios2')
+                                                        span
+                                                        |                                 Option 2
+                                                    label(class='radio')
+                                                        input(type='radio' name='radios2')
+                                                        span
+                                                        |                                 Option 3
+                                                span(class='form-text text-muted') Some help text goes here
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label') Default Switch
+                                            div(class='col-9')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input(type='checkbox' checked='checked' name='select')
+                                                        span
+                            div(class='card-footer text-right')
+                                div(class='row')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+    // end::Entry
+
+
+

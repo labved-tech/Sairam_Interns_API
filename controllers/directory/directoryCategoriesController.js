@@ -21,7 +21,7 @@ exports.getAllDirectoryCategories = catchAsync(async (req, res, next) => {
   const directories = await DirectoryCategories.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All DirectoryCategories',
     results: directories.length,
     data: {
@@ -38,7 +38,7 @@ exports.getDirectoryCategories = catchAsync(async (req, res, next) => {
 
   const directoryCategories = await DirectoryCategories.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got DirectoryCategories Id=${id}`,
     Data: { directoryCategories },
   });
@@ -66,7 +66,7 @@ exports.createDirectoryCategories = catchAsync(async (req, res, next) => {
   const directoryCategories = await DirectoryCategories.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created DirectoryCategories',
     data: { directoryCategories },
   });
@@ -102,7 +102,7 @@ exports.updateDirectoryCategories = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated DirectoryCategories Id=${id}`,
     data: { directoryCategories },
   });
@@ -119,7 +119,7 @@ exports.deleteDirectoryCategories = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted DirectoryCategories Id=${id}`,
     data: { directoryCategories },
   });

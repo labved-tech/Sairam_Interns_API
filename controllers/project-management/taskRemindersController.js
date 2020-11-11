@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const TaskReminders = require('./../../models/project-management/taskRemindersModel');
+const TaskReminders = require('../../models/project-management/taskRemindersModel');
 
 /* DATABASE */
 
@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Getting All taskReminders');
 
-  
-    const taskReminders = await TaskReminders.find().then();
+  const taskReminders = await TaskReminders.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All taskReminders',
-      results: taskReminders.length,
-      data: {
-        taskReminders,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All taskReminders',
+    results: taskReminders.length,
+    data: {
+      taskReminders,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskReminders for Id ${id}`);
 
-  
-    const taskReminders = await TaskReminders.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got taskReminders Id=${id}`,
-      Data: { taskReminders },
-    });
-
+  const taskReminders = await TaskReminders.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got taskReminders Id=${id}`,
+    Data: { taskReminders },
+  });
 
   next();
 });
@@ -54,34 +50,33 @@ exports.createTaskReminders = catchAsync(async (req, res, next) => {
   console.log('Creating taskReminders');
   const { body } = req;
 
-    // parse through models
-    const doc = new TaskReminders(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new TaskReminders(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
-  
-    const taskReminders = await TaskReminders.create(doc).then();
+  //console.log(doc);
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created taskReminders',
-      data: { taskReminders },
-    });
+  const taskReminders = await TaskReminders.create(doc).then();
 
+  res.status(201).json({
+    status: 'success',
+    message: 'Created taskReminders',
+    data: { taskReminders },
+  });
 
   next();
 });
@@ -91,7 +86,6 @@ exports.updateTaskReminders = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   console.log(`Updating TaskReminders Id ${id}`);
-
 
   // parse through models
   const TaskRemindersToUpdate = new TaskReminders(body);
@@ -106,17 +100,15 @@ exports.updateTaskReminders = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  
-    const taskReminders = await TaskReminders.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
+  const taskReminders = await TaskReminders.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated taskReminders Id=${id}`,
-      data: { taskReminders },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated taskReminders Id=${id}`,
+    data: { taskReminders },
+  });
 
   next();
 });
@@ -125,15 +117,13 @@ exports.deleteTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskReminders Id ${id}`);
 
-  
-    const taskReminders = await TaskReminders.findByIdAndDelete(id).then();
+  const taskReminders = await TaskReminders.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted taskReminders Id=${id}`,
-      data: { taskReminders },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted taskReminders Id=${id}`,
+    data: { taskReminders },
+  });
 
   next();
 });

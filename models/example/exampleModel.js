@@ -23,10 +23,10 @@ const exampleSchema = new Schema(
         updatedAt: { type: Date },
       },
     ],
-    createdBy: { type: mongoose.ObjectId},
-    updatedBy: { type: mongoose.ObjectId},
+    createdBy: { type: mongoose.ObjectId },
+    updatedBy: { type: mongoose.ObjectId },
   },
-  { timestamps: true },
+  { timestamps: true }
 );
 
 /* MODEL */

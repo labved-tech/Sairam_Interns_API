@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const appError = require('../../utils/appError');
-const NewsletterMessages = require('./../../models/newsletter/newsletterMessagesModel');
+const NewsletterMessages = require('../../models/newsletter/newsletterMessagesModel');
 
 /* DATABASE */
 
@@ -20,7 +20,7 @@ exports.getAllNewsletterMessages = catchAsync(async (req, res, next) => {
   const newsletterMessagess = await NewsletterMessages.find();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Newsletter Messages',
     results: newsletterMessagess.length,
     data: {
@@ -35,11 +35,11 @@ exports.getNewsletterMessages = catchAsync(async (req, res, next) => {
   console.log(`Getting Newsletter Messages for Id ${id}`);
   const newsletterMessages = await NewsletterMessages.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Newsletter Messages Id=${id}`,
     Data: { newsletterMessages },
   });
-  
+
   next();
 });
 
@@ -50,7 +50,7 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
   // parse through models
   const doc = new NewsletterMessages(body);
   console.log(body);
-  
+
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -65,7 +65,7 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
   const newsletterMessages = await NewsletterMessages.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Newsletter Messages',
     data: { newsletterMessages },
   });
@@ -75,13 +75,12 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
 exports.updateNewsletterMessages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Newsletter Messages Id ${id}`);
-  const {body} = req;
+  const { body } = req;
   // parse through models
   const newsletterMessagesToUpdate = new NewsletterMessages(body);
   console.log(body);
   const doc = newsletterMessagesToUpdate.toObject();
   delete doc._id;
-
 
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -89,12 +88,16 @@ exports.updateNewsletterMessages = catchAsync(async (req, res, next) => {
 
   // check the doc before doing database operation
   //console.log(doc);
-  const newsletterMessages = await NewsletterMessages.findByIdAndUpdate(id, req.body, {
-    new: true,
-  }).then();
+  const newsletterMessages = await NewsletterMessages.findByIdAndUpdate(
+    id,
+    req.body,
+    {
+      new: true,
+    }
+  ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Newsletter Messages Id=${id}`,
     data: { newsletterMessages },
   });
@@ -104,10 +107,12 @@ exports.updateNewsletterMessages = catchAsync(async (req, res, next) => {
 exports.deleteNewsletterMessages = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Newsletter Messages Id ${id}`);
-  const newsletterMessages = await NewsletterMessages.findByIdAndDelete(id).then();
+  const newsletterMessages = await NewsletterMessages.findByIdAndDelete(
+    id
+  ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Newsletter Messages Id=${id}`,
     data: { newsletterMessages },
   });

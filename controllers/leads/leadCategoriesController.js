@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const LeadCategories = require('./../../models/leads/leadCategoriesModel');
+const LeadCategories = require('../../models/leads/leadCategoriesModel');
 
 /* DATABASE */
 
@@ -21,7 +21,7 @@ exports.getAllLeadCategories = catchAsync(async (req, res, next) => {
   const leadCategories = await LeadCategories.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All leadCategories',
     results: leadCategories.length,
     data: {
@@ -38,7 +38,7 @@ exports.getLeadCategories = catchAsync(async (req, res, next) => {
 
   const leadCategories = await LeadCategories.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got leadCategories Id=${id}`,
     Data: { leadCategories },
   });
@@ -48,10 +48,10 @@ exports.getLeadCategories = catchAsync(async (req, res, next) => {
 exports.createLeadCategories = catchAsync(async (req, res, next) => {
   console.log('Creating leadCategories');
   const { body } = req;
-  
+
   // parse through models
-    const doc = new LeadCategories(body);
-    console.log(doc);
+  const doc = new LeadCategories(body);
+  console.log(doc);
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -63,7 +63,7 @@ exports.createLeadCategories = catchAsync(async (req, res, next) => {
   const leadCategories = await LeadCategories.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created lead Categories',
     data: { leadCategories },
   });
@@ -81,7 +81,6 @@ exports.updateLeadCategories = catchAsync(async (req, res, next) => {
   const doc = LeadCategoriesToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -91,7 +90,7 @@ exports.updateLeadCategories = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated leadCategories Id=${id}`,
     data: { leadCategories },
   });
@@ -105,7 +104,7 @@ exports.deleteLeadCategories = catchAsync(async (req, res, next) => {
   const leadCategories = await LeadCategories.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted leadCategories Id=${id}`,
     data: { leadCategories },
   });

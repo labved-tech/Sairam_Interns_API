@@ -21,7 +21,7 @@ exports.getAllFarmStrategy = catchAsync(async (req, res, next) => {
   const farmStrategys = await FarmStrategy.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All farmStrategy',
     results: farmStrategys.length,
     data: {
@@ -37,7 +37,7 @@ exports.getFarmStrategy = catchAsync(async (req, res, next) => {
 
   const farmStrategy = await FarmStrategy.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got farmStrategy Id=${id}`,
     Data: { farmStrategy },
   });
@@ -56,12 +56,12 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
     const stagesLength = doc.stages.length;
     console.log(`Array of objects  length ${stagesLength}`);
 
-    for (let i = 0; i <stagesLength; i++) {
+    for (let i = 0; i < stagesLength; i++) {
       //commodities
       if (doc.stages.commodities) {
         const commoditiesLength = doc.stages.commodities.length;
         console.log(`Array of objects length ${commoditiesLength}`);
-    
+
         for (let j = 0; j < commoditiesLength; j++) {
           doc.stages[i].commodities[j].createdBy = '5f990bb3c727e952a076f3b7';
           doc.stages[i].commodities[j].updatedBy = '5f990bb3c727e952a076f3b7';
@@ -86,11 +86,11 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
   //console.log(`After Validation :${doc}`);
 
   //const FarmStrategy = await doc.save({ validateBeforeSave: false });
- 
+
   const farmStrategy = await FarmStrategy.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created farmStrategy',
     data: { farmStrategy },
   });
@@ -109,12 +109,12 @@ exports.updateFarmStrategy = catchAsync(async (req, res, next) => {
   const doc = FarmStrategyToUpdate.toObject();
   delete doc._id;
 
-  const farmStrategy = await FarmStrategy.findByIdAndUpdate(id,doc, {
+  const farmStrategy = await FarmStrategy.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated farmStrategy Id=${id}`,
     data: { farmStrategy },
   });
@@ -128,7 +128,7 @@ exports.deleteFarmStrategy = catchAsync(async (req, res, next) => {
   const farmStrategy = await FarmStrategy.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted farmStrategy Id=${id}`,
     data: { farmStrategy },
   });

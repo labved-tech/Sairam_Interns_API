@@ -21,7 +21,7 @@ exports.getAllEcommerceLocations = catchAsync(async (req, res, next) => {
   const ecommerceLocationss = await EcommerceLocations.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All EcommerceLocations',
     results: ecommerceLocationss.length,
     data: {
@@ -38,7 +38,7 @@ exports.getEcommerceLocations = catchAsync(async (req, res, next) => {
 
   const ecommerceLocations = await EcommerceLocations.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got EcommerceLocations Id=${id}`,
     Data: { ecommerceLocations },
   });
@@ -79,7 +79,7 @@ exports.createEcommerceLocations = catchAsync(async (req, res, next) => {
   const ecommerceLocations = await EcommerceLocations.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created EcommerceLocations',
     data: { ecommerceLocations },
   });
@@ -125,7 +125,7 @@ exports.updateEcommerceLocations = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated EcommerceLocations Id=${id}`,
     data: { ecommerceLocations },
   });
@@ -142,7 +142,7 @@ exports.deleteEcommerceLocations = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted EcommerceLocations Id=${id}`,
     data: { ecommerceLocations },
   });

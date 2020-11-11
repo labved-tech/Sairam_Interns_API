@@ -29,7 +29,7 @@ exports.getAllUser = catchAsync(async (req, res, next) => {
   const users = await User.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Users',
     results: users.length,
     data: {
@@ -85,7 +85,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
   }
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got User Id=${id}`,
     Data: { user },
   });
@@ -126,7 +126,7 @@ exports.createUser = catchAsync(async (req, res, next) => {
   // database operation
   const user = await User.create(doc).then();
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created User',
     data: { user },
   });
@@ -141,7 +141,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated User Id=${id}`,
     data: { user },
   });
@@ -154,7 +154,7 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
   const user = await User.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted User Id=${id}`,
     data: { user },
   });

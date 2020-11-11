@@ -21,7 +21,7 @@ exports.getAllContractEntries = catchAsync(async (req, res, next) => {
   const contractEntries = await ContractEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All ContractEntries',
     results: contractEntries.length,
     data: {
@@ -38,7 +38,7 @@ exports.getContractEntries = catchAsync(async (req, res, next) => {
 
   const contractEntries = await ContractEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got ContractEntries Id=${id}`,
     Data: { contractEntries },
   });
@@ -72,7 +72,7 @@ exports.createContractEntries = catchAsync(async (req, res, next) => {
   const contractEntries = await ContractEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created ContractEntries',
     data: { contractEntries },
   });
@@ -104,7 +104,7 @@ exports.updateContractEntries = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated ContractEntries Id=${id}`,
     data: { contractEntries },
   });
@@ -119,7 +119,7 @@ exports.deleteContractEntries = catchAsync(async (req, res, next) => {
   const contractEntries = await ContractEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted ContractEntries Id=${id}`,
     data: { contractEntries },
   });

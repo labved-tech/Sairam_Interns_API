@@ -21,7 +21,7 @@ exports.getAllTicketResponse = catchAsync(async (req, res, next) => {
   const ticketResponse = await TicketResponse.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All TicketResponse',
     results: ticketResponse.length,
     data: {
@@ -38,7 +38,7 @@ exports.getTicketResponse = catchAsync(async (req, res, next) => {
 
   const ticketResponse = await TicketResponse.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got TicketResponse Id=${id}`,
     Data: { ticketResponse },
   });
@@ -70,7 +70,7 @@ exports.createTicketResponse = catchAsync(async (req, res, next) => {
   const ticketResponse = await TicketResponse.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created TicketResponse',
     data: { ticketResponse },
   });
@@ -89,7 +89,6 @@ exports.updateTicketResponse = catchAsync(async (req, res, next) => {
   const doc = TicketResponseToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -102,7 +101,7 @@ exports.updateTicketResponse = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated TicketResponse Id=${id}`,
     data: { ticketResponse },
   });
@@ -117,7 +116,7 @@ exports.deleteTicketResponse = catchAsync(async (req, res, next) => {
   const ticketResponse = await TicketResponse.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted TicketResponse Id=${id}`,
     data: { ticketResponse },
   });

@@ -21,7 +21,7 @@ exports.getAllLeadEntries = catchAsync(async (req, res, next) => {
   const leadEntries = await LeadEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All LeadEntries',
     results: leadEntries.length,
     data: {
@@ -37,7 +37,7 @@ exports.getLeadEntries = catchAsync(async (req, res, next) => {
 
   const leadEntries = await LeadEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got leadEntries Id=${id}`,
     Data: { leadEntries },
   });
@@ -73,11 +73,10 @@ exports.createLeadEntries = catchAsync(async (req, res, next) => {
 
   //const leadEntries = await doc.save({ validateBeforeSave: false });
 
-
   const leadEntries = await LeadEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created leadEntries',
     data: { leadEntries },
   });
@@ -94,8 +93,6 @@ exports.updateLeadEntries = catchAsync(async (req, res, next) => {
   console.log(body);
   const doc = LeadEntriesToUpdate.toObject();
   delete doc._id;
-
-
 
   if (LeadEntriesToUpdate.contactInformation) {
     const contactInformationLength = doc.contactInformation.length;
@@ -115,11 +112,11 @@ exports.updateLeadEntries = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   const leadEntries = await LeadEntries.findByIdAndUpdate(id, doc, {
-     new: true,
-   }).then();
+    new: true,
+  }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated leadEntries Id=${id}`,
     data: { leadEntries },
   });
@@ -133,7 +130,7 @@ exports.deleteLeadEntries = catchAsync(async (req, res, next) => {
   const leadEntries = await LeadEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted LeadEntries Id=${id}`,
     data: { leadEntries },
   });

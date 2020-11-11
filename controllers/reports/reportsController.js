@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllReports = catchAsync(async (req, res, next) => {
   console.log('Getting All reports');
 
+  const reports = await Reports.find().then();
 
-    const reports = await Reports.find().then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All reports',
-      results: reports.length,
-      data: {
-        reports,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All reports',
+    results: reports.length,
+    data: {
+      reports,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getReports = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting reports for Id ${id}`);
 
-
-    const reports = await Reports.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got reports Id=${id}`,
-      Data: { reports },
-    });
-
+  const reports = await Reports.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got reports Id=${id}`,
+    Data: { reports },
+  });
 
   next();
 });
@@ -53,34 +49,33 @@ exports.getReports = catchAsync(async (req, res, next) => {
 exports.createReports = catchAsync(async (req, res, next) => {
   console.log('Creating reports');
   const { body } = req;
-    // parse through models
-    const doc = new Reports(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new Reports(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
   //console.log(doc);
 
-    const reports = await Reports.create(doc).then();
+  const reports = await Reports.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created reports',
-      data: { reports },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: 'Created reports',
+    data: { reports },
+  });
 
   next();
 });
@@ -96,7 +91,6 @@ exports.updateReports = catchAsync(async (req, res, next) => {
   const doc = ReportsToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -104,17 +98,15 @@ exports.updateReports = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
+  const reports = await Reports.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    const reports = await Reports.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
-
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated reports Id=${id}`,
-      data: { reports },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated reports Id=${id}`,
+    data: { reports },
+  });
 
   next();
 });
@@ -123,15 +115,13 @@ exports.deleteReports = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting reports Id ${id}`);
 
+  const reports = await Reports.findByIdAndDelete(id).then();
 
-    const reports = await Reports.findByIdAndDelete(id).then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted reports Id=${id}`,
-      data: { reports },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted reports Id=${id}`,
+    data: { reports },
+  });
 
   next();
 });

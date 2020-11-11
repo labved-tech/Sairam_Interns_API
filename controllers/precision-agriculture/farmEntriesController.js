@@ -22,7 +22,7 @@ exports.getAllFarmEntries = catchAsync(async (req, res, next) => {
   const farmEntries = await FarmEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All farmEntries',
     results: farmEntries.length,
     data: {
@@ -38,7 +38,7 @@ exports.getFarmEntries = catchAsync(async (req, res, next) => {
 
   const farmEntries = await FarmEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got farmEntries Id=${id}`,
     Data: { farmEntries },
   });
@@ -73,11 +73,11 @@ exports.createFarmEntries = catchAsync(async (req, res, next) => {
   //console.log(`After Validation :${doc}`);
 
   //const farmEntries = await doc.save({ validateBeforeSave: false });
- 
+
   const farmEntries = await FarmEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created farmEntries',
     data: { farmEntries },
   });
@@ -95,8 +95,6 @@ exports.updateFarmEntries = catchAsync(async (req, res, next) => {
   console.log(body);
   const doc = FarmEntriesToUpdate.toObject();
   delete doc._id;
-
-
 
   if (FarmEntriesToUpdate.admins) {
     const adminsLength = doc.admins.length;
@@ -119,9 +117,9 @@ exports.updateFarmEntries = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated farmEntries Id=${id}`,
-    data:  { farmEntries },
+    data: { farmEntries },
   });
   next();
 });
@@ -133,7 +131,7 @@ exports.deleteFarmEntries = catchAsync(async (req, res, next) => {
   const farmEntries = await FarmEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted farmEntries Id=${id}`,
     data: { farmEntries },
   });

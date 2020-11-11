@@ -15,7 +15,7 @@ exports.getAllMenuItem = catchAsync(async (req, res, next) => {
   const menuItem = await MenuItem.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Menu Items',
     results: menuItem.length,
     menuItem,
@@ -29,7 +29,7 @@ exports.getMenuItem = catchAsync(async (req, res, next) => {
 
   const menuItem = await MenuItem.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Menu Items Id=${id}`,
     menuItem,
   });
@@ -60,7 +60,7 @@ exports.createMenuItem = catchAsync(async (req, res, next) => {
   const newMenuItem = await MenuItem.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Menu Items',
     newMenuItem,
   });
@@ -77,7 +77,7 @@ exports.updateMenuItem = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Menu Items Id=${id}`,
     menuItem,
   });
@@ -92,7 +92,7 @@ exports.deleteMenuItem = catchAsync(async (req, res, next) => {
   const menuItem = await MenuItem.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Menu Items Id=${id}`,
     menuItem,
   });

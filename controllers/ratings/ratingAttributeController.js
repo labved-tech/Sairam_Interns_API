@@ -21,7 +21,7 @@ exports.getAllRatingAttribute = catchAsync(async (req, res, next) => {
   const ratingAttributes = await RatingAttribute.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All RatingAttribute',
     results: ratingAttributes.length,
     data: {
@@ -35,14 +35,12 @@ exports.getRatingAttribute = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting RatingAttribute for Id ${id}`);
 
-
   const ratingAttribute = await RatingAttribute.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got RatingAttribute Id=${id}`,
     Data: { ratingAttribute },
   });
-
 
   next();
 });
@@ -72,11 +70,10 @@ exports.createRatingAttribute = catchAsync(async (req, res, next) => {
   const ratingAttribute = await RatingAttribute.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created RatingAttribute',
     data: { ratingAttribute },
   });
-
 
   next();
 });
@@ -92,7 +89,6 @@ exports.updateRatingAttribute = catchAsync(async (req, res, next) => {
   const doc = RatingAttributeToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -100,16 +96,19 @@ exports.updateRatingAttribute = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  const ratingAttribute = await RatingAttribute.findByIdAndUpdate(id, req.body, {
-    new: true,
-  }).then();
+  const ratingAttribute = await RatingAttribute.findByIdAndUpdate(
+    id,
+    req.body,
+    {
+      new: true,
+    }
+  ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated RatingAttribute Id=${id}`,
     data: { ratingAttribute },
   });
-
 
   next();
 });
@@ -118,15 +117,13 @@ exports.deleteRatingAttribute = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting RatingAttribute Id ${id}`);
 
-
   const ratingAttribute = await RatingAttribute.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted RatingAttribute Id=${id}`,
     data: { ratingAttribute },
   });
-
 
   next();
 });

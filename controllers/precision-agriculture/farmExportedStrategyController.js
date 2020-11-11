@@ -21,7 +21,7 @@ exports.getAllFarmExportedStrategy = catchAsync(async (req, res, next) => {
   const farmExportedStrategys = await FarmExportedStrategy.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All farmExportedStrategy',
     results: farmExportedStrategys.length,
     data: {
@@ -38,7 +38,7 @@ exports.getFarmExportedStrategy = catchAsync(async (req, res, next) => {
 
   const farmExportedStrategy = await FarmExportedStrategy.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got farmExportedStrategy Id=${id}`,
     Data: { farmExportedStrategy },
   });
@@ -49,31 +49,29 @@ exports.createFarmExportedStrategy = catchAsync(async (req, res, next) => {
   console.log('Creating farmExportedStrategy');
   const { body } = req;
 
-    // parse through models
-    const doc = new FarmExportedStrategy(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new FarmExportedStrategy(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc); 
-  const farmExportedStrategy = await FarmExportedStrategy.create(
-    doc
-  ).then();
+  //console.log(doc);
+  const farmExportedStrategy = await FarmExportedStrategy.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created farmExportedStrategy',
     data: { farmExportedStrategy },
   });
@@ -91,7 +89,6 @@ exports.updateFarmExportedStrategy = catchAsync(async (req, res, next) => {
   const doc = FarmExportedStrategyToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -100,14 +97,15 @@ exports.updateFarmExportedStrategy = catchAsync(async (req, res, next) => {
   //console.log(doc);
 
   const farmExportedStrategy = await FarmExportedStrategy.findByIdAndUpdate(
-  id, doc,
+    id,
+    doc,
     {
       new: true,
     }
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated farmExportedStrategy Id=${id}`,
     data: { farmExportedStrategy },
   });
@@ -123,7 +121,7 @@ exports.deleteFarmExportedStrategy = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted farmExportedStrategy Id=${id}`,
     data: { farmExportedStrategy },
   });

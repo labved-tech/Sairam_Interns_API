@@ -4,55 +4,54 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const PackingList = require('./../../models/sales-finance/packingListModel');
+const PackingList = require('../../models/sales-finance/packingListModel');
 
 /* DATABASE */
 
-
 /* CONTROLLERS */
 exports.checkID = (req, res, next, val) => {
-    const { id } = req.params.id;
-    console.log(`ID is ${id}`);
-    next();
-  };
-  
-  exports.getAllPackingList = catchAsync(async (req, res, next) => {
-    console.log('Getting All Packing List');
-    const packingLists = await PackingList.find().then();
-  
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All Packing List',
-      results: packingLists.length,
-      data: {
-        packingLists,
-      },
-    });
-    
-    next();
+  const { id } = req.params.id;
+  console.log(`ID is ${id}`);
+  next();
+};
+
+exports.getAllPackingList = catchAsync(async (req, res, next) => {
+  console.log('Getting All Packing List');
+  const packingLists = await PackingList.find().then();
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All Packing List',
+    results: packingLists.length,
+    data: {
+      packingLists,
+    },
   });
-  
-  exports.getPackingList = catchAsync(async (req, res, next) => {
-    const { id } = req.params;
-    console.log(`Getting Packing List for Id ${id}`);
-    const packingList = await PackingList.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got Packing List Id=${id}`,
-      Data: { packingList },
-    });
-    
-    next();
+
+  next();
+});
+
+exports.getPackingList = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Getting Packing List for Id ${id}`);
+  const packingList = await PackingList.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got Packing List Id=${id}`,
+    Data: { packingList },
   });
-  
-  exports.createPackingList = catchAsync(async (req, res, next) => {
-    console.log('Creating PackingList');
-    const {body} = req;
+
+  next();
+});
+
+exports.createPackingList = catchAsync(async (req, res, next) => {
+  console.log('Creating PackingList');
+  const { body } = req;
 
   // parse through models
   const doc = new PackingList(body);
   console.log(body);
-  
+
   // box
   if (doc.box) {
     const boxLength = doc.box.length;
@@ -65,74 +64,70 @@ exports.checkID = (req, res, next, val) => {
       doc.box[i].updatedAt = Date.now();
     }
   }
-  
+
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-  
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
   //console.log(doc);
-    const packingList = await PackingList.create(doc).then();
-  
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created PackingList',
-      data: { packingList },
-    });
-    
-    next();
+  const packingList = await PackingList.create(doc).then();
+
+  res.status(201).json({
+    status: 'success',
+    message: 'Created PackingList',
+    data: { packingList },
   });
-  
-  exports.updatePackingList = catchAsync(async (req, res, next) => {
-    const { id } = req.params;
-    console.log(`Updating Packing List Id ${id}`);
-    const { body } = req;
 
-     // parse through models
-   const packingListToUpdate = new PackingList(body);
-   console.log(body);
-   const doc =  packingListToUpdate.toObject();
-   delete doc._id;
+  next();
+});
 
-   if (packingListToUpdate.box) {
+exports.updatePackingList = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Updating Packing List Id ${id}`);
+  const { body } = req;
+
+  // parse through models
+  const packingListToUpdate = new PackingList(body);
+  console.log(body);
+  const doc = packingListToUpdate.toObject();
+  delete doc._id;
+
+  if (packingListToUpdate.box) {
     const len = packingListToUpdate.box.length;
     console.log(len);
   }
-  
 
-   // update timestamps & Id's
-   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-   doc.updatedAt;
- 
-   // check the doc before doing database operation
-   //console.log(doc);
-    const packingList = await PackingList.findByIdAndUpdate(id, req.body, {
-      new: true,
-    }).then();
+  // update timestamps & Id's
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedAt;
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated Packing List Id=${id}`,
-      data: { packingList },
-    });
-    
-    next();
+  // check the doc before doing database operation
+  //console.log(doc);
+  const packingList = await PackingList.findByIdAndUpdate(id, req.body, {
+    new: true,
+  }).then();
+
+  res.status(201).json({
+    status: 'success',
+    message: `Updated Packing List Id=${id}`,
+    data: { packingList },
   });
-  
-  exports.deletePackingList = catchAsync(async (req, res, next) => {
-    const { id } = req.params;
-    console.log(`Deleting Packing List Id ${id}`);
-    const packingList = await PackingList.findByIdAndDelete(id).then();
-  
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted Packing List Id=${id}`,
-      data: { packingList },
-    });
-    
-    next();
+
+  next();
+});
+
+exports.deletePackingList = catchAsync(async (req, res, next) => {
+  const { id } = req.params;
+  console.log(`Deleting Packing List Id ${id}`);
+  const packingList = await PackingList.findByIdAndDelete(id).then();
+
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted Packing List Id=${id}`,
+    data: { packingList },
   });
-  
-  
+
+  next();
+});

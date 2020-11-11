@@ -21,7 +21,7 @@ exports.getAllAnalytics = catchAsync(async (req, res, next) => {
   const analytics = await Analytics.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All analytics',
     results: analytics.length,
     data: {
@@ -38,7 +38,7 @@ exports.getAnalytics = catchAsync(async (req, res, next) => {
 
   const analytics = await Analytics.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got analytics Id=${id}`,
     Data: { analytics },
   });
@@ -72,7 +72,7 @@ exports.createAnalytics = catchAsync(async (req, res, next) => {
   const analytics = await Analytics.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created analytics',
     data: { analytics },
   });
@@ -103,7 +103,7 @@ exports.updateAnalytics = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated analytics Id=${id}`,
     data: { analytics },
   });
@@ -118,7 +118,7 @@ exports.deleteAnalytics = catchAsync(async (req, res, next) => {
   const analytics = await Analytics.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted analytics Id=${id}`,
     data: { analytics },
   });

@@ -21,7 +21,7 @@ exports.getAllDirectoryLevels = catchAsync(async (req, res, next) => {
   const directories = await DirectoryLevels.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All DirectoryLevels',
     results: directories.length,
     data: {
@@ -38,7 +38,7 @@ exports.getDirectoryLevels = catchAsync(async (req, res, next) => {
 
   const directoryLevels = await DirectoryLevels.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got DirectoryLevels Id=${id}`,
     Data: { directoryLevels },
   });
@@ -69,7 +69,7 @@ exports.createDirectoryLevels = catchAsync(async (req, res, next) => {
   const directoryLevels = await DirectoryLevels.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created DirectoryLevels',
     data: { directoryLevels },
   });
@@ -88,7 +88,6 @@ exports.updateDirectoryLevels = catchAsync(async (req, res, next) => {
   const doc = DirectoryLevelsToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -105,7 +104,7 @@ exports.updateDirectoryLevels = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated DirectoryLevels Id=${id}`,
     data: { directoryLevels },
   });
@@ -120,7 +119,7 @@ exports.deleteDirectoryLevels = catchAsync(async (req, res, next) => {
   const directoryLevels = await DirectoryLevels.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted DirectoryLevels Id=${id}`,
     data: { directoryLevels },
   });

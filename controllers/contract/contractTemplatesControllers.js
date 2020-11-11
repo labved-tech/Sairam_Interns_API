@@ -21,7 +21,7 @@ exports.getAllContractTemplates = catchAsync(async (req, res, next) => {
   const contractTemplates = await ContractTemplates.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All ContractTemplates',
     results: contractTemplates.length,
     data: {
@@ -38,7 +38,7 @@ exports.getContractTemplates = catchAsync(async (req, res, next) => {
 
   const contractTemplates = await ContractTemplates.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got ContractTemplates Id=${id}`,
     Data: { contractTemplates },
   });
@@ -57,7 +57,9 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
   //additionalAttributesIds
   if (doc.additionalAttributesIds) {
     const additionalAttributesIdsLength = doc.additionalAttributesIds.length;
-    console.log(`additionalAttributesIds length ${additionalAttributesIdsLength}`);
+    console.log(
+      `additionalAttributesIds length ${additionalAttributesIdsLength}`
+    );
 
     for (let i = 0; i < additionalAttributesIdsLength; i++) {
       doc.additionalAttributesIds[i].createdBy = '5f990bb3c727e952a076f3b7';
@@ -76,7 +78,6 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
     }
   }
 
-
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
 
@@ -91,7 +92,7 @@ exports.createContractTemplates = catchAsync(async (req, res, next) => {
   const contractTemplates = await ContractTemplates.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created ContractTemplates',
     data: { contractTemplates },
   });
@@ -109,8 +110,6 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
   console.log(body);
   const doc = ContractTemplatesToUpdate.toObject();
   delete doc._id;
-
-
 
   if (ContractTemplatesToUpdate.additionalAttributesIds) {
     const additionalAttributesIdsLength = doc.additionalAttributesIds.length;
@@ -139,12 +138,16 @@ exports.updateContractTemplates = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  const contractTemplates = await ContractTemplates.findByIdAndUpdate(id, req.body, {
-    new: true,
-  }).then();
+  const contractTemplates = await ContractTemplates.findByIdAndUpdate(
+    id,
+    req.body,
+    {
+      new: true,
+    }
+  ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated ContractTemplates Id=${id}`,
     data: { contractTemplates },
   });
@@ -156,10 +159,12 @@ exports.deleteContractTemplates = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting ContractTemplates Id ${id}`);
 
-  const contractTemplates = await ContractTemplates.findByIdAndDelete(id).then();
+  const contractTemplates = await ContractTemplates.findByIdAndDelete(
+    id
+  ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted ContractTemplates Id=${id}`,
     data: { contractTemplates },
   });

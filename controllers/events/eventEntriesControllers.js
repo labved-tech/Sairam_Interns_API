@@ -20,7 +20,7 @@ exports.getAllEventEntries = catchAsync(async (req, res, next) => {
 
   const eventEntries = await EventEntries.find().then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All EventEntries',
     results: eventEntries.length,
     data: {
@@ -37,7 +37,7 @@ exports.getEventEntries = catchAsync(async (req, res, next) => {
 
   const eventEntries = await EventEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got EventEntries Id=${id}`,
     Data: { eventEntries },
   });
@@ -70,7 +70,7 @@ exports.createEventEntries = catchAsync(async (req, res, next) => {
   const eventEntries = await EventEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Event Entries',
     data: { eventEntries },
   });
@@ -89,7 +89,6 @@ exports.updateEventEntries = catchAsync(async (req, res, next) => {
   const doc = EventEntriesToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -102,7 +101,7 @@ exports.updateEventEntries = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated EventEntries Id=${id}`,
     data: { eventEntries },
   });
@@ -117,7 +116,7 @@ exports.deleteEventEntries = catchAsync(async (req, res, next) => {
   const eventEntries = await EventEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted EventEntries Id=${id}`,
     data: { eventEntries },
   });

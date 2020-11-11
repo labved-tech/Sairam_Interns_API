@@ -21,7 +21,7 @@ exports.getAllEcommerceProducts = catchAsync(async (req, res, next) => {
   const ecommerceProductss = await EcommerceProducts.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All EcommerceProducts',
     results: ecommerceProductss.length,
     data: {
@@ -38,7 +38,7 @@ exports.getEcommerceProducts = catchAsync(async (req, res, next) => {
 
   const ecommerceProducts = await EcommerceProducts.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got EcommerceProducts Id=${id}`,
     Data: { ecommerceProducts },
   });
@@ -71,7 +71,7 @@ exports.createEcommerceProducts = catchAsync(async (req, res, next) => {
   const ecommerceProducts = await EcommerceProducts.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created EcommerceProducts',
     data: { ecommerceProducts },
   });
@@ -90,7 +90,6 @@ exports.updateEcommerceProducts = catchAsync(async (req, res, next) => {
   const doc = EcommerceProductsToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -106,7 +105,7 @@ exports.updateEcommerceProducts = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated EcommerceProducts Id=${id}`,
     data: { ecommerceProducts },
   });
@@ -123,7 +122,7 @@ exports.deleteEcommerceProducts = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted EcommerceProducts Id=${id}`,
     data: { ecommerceProducts },
   });

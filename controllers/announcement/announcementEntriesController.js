@@ -21,7 +21,7 @@ exports.getAllAnnouncementEntries = catchAsync(async (req, res, next) => {
   const announcementEntries = await AnnouncementEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Announcement Entries',
     results: announcementEntries.length,
     data: {
@@ -37,7 +37,7 @@ exports.getAnnouncementEntries = catchAsync(async (req, res, next) => {
 
   const announcementEntries = await AnnouncementEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Announcement Entries Id=${id}`,
     Data: { announcementEntries },
   });
@@ -79,7 +79,7 @@ console.log(body);
   const announcementEntries = await AnnouncementEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Announcement Entries',
     data: { announcementEntries },
   });
@@ -120,7 +120,7 @@ exports.updateAnnouncementEntries = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Announcement Entries Id=${id}`,
     data: { announcementEntries },
   });
@@ -137,7 +137,7 @@ exports.deleteAnnouncementEntries = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Announcement Entries Id =${id}`,
     data: { announcementEntries },
   });

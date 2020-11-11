@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllTaskTimers = catchAsync(async (req, res, next) => {
   console.log('Getting All taskTimers');
 
-  
-    const taskTimers = await TaskTimers.find().then();
+  const taskTimers = await TaskTimers.find().then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All taskTimers',
-      results: taskTimers.length,
-      data: {
-        taskTimers,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All taskTimers',
+    results: taskTimers.length,
+    data: {
+      taskTimers,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getTaskTimers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting taskTimers for Id ${id}`);
 
-  
-    const taskTimers = await TaskTimers.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got taskTimers Id=${id}`,
-      Data: { taskTimers },
-    });
-
+  const taskTimers = await TaskTimers.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got taskTimers Id=${id}`,
+    Data: { taskTimers },
+  });
 
   next();
 });
@@ -53,34 +49,33 @@ exports.getTaskTimers = catchAsync(async (req, res, next) => {
 exports.createTaskTimers = catchAsync(async (req, res, next) => {
   console.log('Creating taskTimers');
   const { body } = req;
-  
-    // parse through models
-    const doc = new TaskTimers(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+
+  // parse through models
+  const doc = new TaskTimers(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
-  //console.log(doc);   
-    const taskTimers = await TaskTimers.create(doc).then();
+  //console.log(doc);
+  const taskTimers = await TaskTimers.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created taskTimers',
-      data: { taskTimers },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: 'Created taskTimers',
+    data: { taskTimers },
+  });
 
   next();
 });
@@ -90,7 +85,6 @@ exports.updateTaskTimers = catchAsync(async (req, res, next) => {
   const { body } = req;
 
   console.log(`Updating TaskTimers Id ${id}`);
-
 
   // parse through models
   const TaskTimersToUpdate = new TaskTimers(body);
@@ -105,17 +99,15 @@ exports.updateTaskTimers = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  
-    const taskTimers = await TaskTimers.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
+  const taskTimers = await TaskTimers.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated taskTimers Id=${id}`,
-      data: { taskTimers },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated taskTimers Id=${id}`,
+    data: { taskTimers },
+  });
 
   next();
 });
@@ -124,15 +116,13 @@ exports.deleteTaskTimers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting taskTimers Id ${id}`);
 
-  
-    const taskTimers = await TaskTimers.findByIdAndDelete(id).then();
+  const taskTimers = await TaskTimers.findByIdAndDelete(id).then();
 
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted taskTimers Id=${id}`,
-      data: { taskTimers },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted taskTimers Id=${id}`,
+    data: { taskTimers },
+  });
 
   next();
 });

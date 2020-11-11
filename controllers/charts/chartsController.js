@@ -22,7 +22,7 @@ exports.getAllCharts = catchAsync(async (req, res, next) => {
     const charts = await Charts.find().then();
 
     res.status(200).json({
-      status: 'sucess',
+      status: 'success',
       message: 'Got All charts',
       results: charts.length,
       data: {
@@ -41,7 +41,7 @@ exports.getCharts = catchAsync(async (req, res, next) => {
 
     const charts = await Charts.findById(id).then();
     res.status(200).json({
-      status: 'sucess',
+      status: 'success',
       message: `Got charts Id=${id}`,
       Data: { charts },
     });
@@ -76,7 +76,7 @@ exports.createCharts = catchAsync(async (req, res, next) => {
     const charts = await Charts.create(doc).then();
 
     res.status(201).json({
-      status: 'sucess',
+      status: 'success',
       message: 'Created charts',
       data: { charts },
     });
@@ -110,7 +110,7 @@ exports.updateCharts = catchAsync(async (req, res, next) => {
     }).then();
 
     res.status(201).json({
-      status: 'sucess',
+      status: 'success',
       message: `Updated charts Id=${id}`,
       data: { charts },
     });
@@ -127,7 +127,7 @@ exports.deleteCharts = catchAsync(async (req, res, next) => {
     const charts = await Charts.findByIdAndDelete(id).then();
 
     res.status(200).json({
-      status: 'sucess',
+      status: 'success',
       message: `Deleted charts Id=${id}`,
       data: { charts },
     });

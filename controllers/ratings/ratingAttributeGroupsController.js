@@ -21,7 +21,7 @@ exports.getAllRatingAttributeGroup = catchAsync(async (req, res, next) => {
   const ratingAttributeGroups = await RatingAttributeGroup.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All RatingAttributeGroup',
     results: ratingAttributeGroups.length,
     data: {
@@ -38,7 +38,7 @@ exports.getRatingAttributeGroup = catchAsync(async (req, res, next) => {
 
   const ratingAttributeGroups = await RatingAttributeGroup.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got RatingAttributeGroup Id=${id}`,
     Data: { ratingAttributeGroups },
   });
@@ -71,7 +71,7 @@ exports.createRatingAttributeGroup = catchAsync(async (req, res, next) => {
   const ratingAttributeGroups = await RatingAttributeGroup.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created RatingAttributeGroup',
     data: { ratingAttributeGroups },
   });
@@ -84,13 +84,11 @@ exports.updateRatingAttributeGroup = catchAsync(async (req, res, next) => {
   const { body } = req;
   console.log(`Updating RatingAttributeGroup Id ${id}`);
 
-
   // parse through models
   const RatingAttributeGroupToUpdate = new RatingAttributeGroup(body);
   console.log(body);
   const doc = RatingAttributeGroupToUpdate.toObject();
   delete doc._id;
-
 
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -108,7 +106,7 @@ exports.updateRatingAttributeGroup = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated RatingAttributeGroup Id=${id}`,
     data: { ratingAttributeGroups },
   });
@@ -125,7 +123,7 @@ exports.deleteRatingAttributeGroup = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted RatingAttributeGroup Id=${id}`,
     data: { ratingAttributeGroups },
   });

@@ -21,7 +21,7 @@ exports.getAllEcommerceOrder = catchAsync(async (req, res, next) => {
   const ecommerceOrders = await EcommerceOrder.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All EcommerceOrder',
     results: ecommerceOrders.length,
     data: {
@@ -38,7 +38,7 @@ exports.getEcommerceOrder = catchAsync(async (req, res, next) => {
 
   const ecommerceOrder = await EcommerceOrder.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got EcommerceOrder Id=${id}`,
     Data: { ecommerceOrder },
   });
@@ -78,7 +78,7 @@ exports.createEcommerceOrder = catchAsync(async (req, res, next) => {
   const ecommerceOrder = await EcommerceOrder.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created EcommerceOrder',
     data: { ecommerceOrder },
   });
@@ -120,7 +120,7 @@ exports.updateEcommerceOrder = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated EcommerceOrder Id=${id}`,
     data: { ecommerceOrder },
   });
@@ -135,7 +135,7 @@ exports.deleteEcommerceOrder = catchAsync(async (req, res, next) => {
   const ecommerceOrder = await EcommerceOrder.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted EcommerceOrder Id=${id}`,
     data: { ecommerceOrder },
   });

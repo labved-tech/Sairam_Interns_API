@@ -21,7 +21,7 @@ exports.getAllEcommerceStock = catchAsync(async (req, res, next) => {
   const ecommerceStocks = await EcommerceStock.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All EcommerceStock',
     results: ecommerceStocks.length,
     data: {
@@ -38,7 +38,7 @@ exports.getEcommerceStock = catchAsync(async (req, res, next) => {
 
   const ecommerceStock = await EcommerceStock.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got EcommerceStock Id=${id}`,
     Data: { ecommerceStock },
   });
@@ -83,7 +83,6 @@ exports.createEcommerceStock = catchAsync(async (req, res, next) => {
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
 
-
   // final validation
   await doc.validate();
 
@@ -94,7 +93,7 @@ exports.createEcommerceStock = catchAsync(async (req, res, next) => {
   const ecommerceStock = await EcommerceStock.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created EcommerceStock',
     data: { ecommerceStock },
   });
@@ -112,8 +111,6 @@ exports.updateEcommerceStock = catchAsync(async (req, res, next) => {
   console.log(body);
   const doc = EcommerceStockToUpdate.toObject();
   delete doc._id;
-
-
 
   if (EcommerceStockToUpdate.discount) {
     const discountLength = doc.discount.length;
@@ -145,7 +142,7 @@ exports.updateEcommerceStock = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated EcommerceStock Id=${id}`,
     data: { ecommerceStock },
   });
@@ -160,7 +157,7 @@ exports.deleteEcommerceStock = catchAsync(async (req, res, next) => {
   const ecommerceStock = await EcommerceStock.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted EcommerceStock Id=${id}`,
     data: { ecommerceStock },
   });

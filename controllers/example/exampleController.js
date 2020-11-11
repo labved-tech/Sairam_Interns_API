@@ -23,7 +23,7 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   const examples = await Example.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Example',
     results: examples.length,
     data: {
@@ -38,7 +38,7 @@ exports.getExample = catchAsync(async (req, res, next) => {
 
   const example = await Example.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Example Id=${id}`,
     Data: { example },
   });
@@ -50,12 +50,13 @@ exports.createExample = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new Example(body);
+  console.log(doc);
 
   // extRefObject
   if (doc.extRefObject) {
     // parse through models
     const dataExtRefObject = new ExtObject(
-      JSON.parse(JSON.stringify(body.extRefObject)),
+      JSON.parse(JSON.stringify(body.extRefObject))
     );
 
     // update timestamps & Id's
@@ -90,7 +91,7 @@ exports.createExample = catchAsync(async (req, res, next) => {
   const example = await Example.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Example',
     data: { example },
   });
@@ -109,7 +110,7 @@ exports.updateExample = catchAsync(async (req, res, next) => {
 
   if (exampleToUpdate.extRefObject) {
     const dataExtRefObject = new ExtObject(
-      JSON.parse(JSON.stringify(exampleToUpdate.extRefObject)),
+      JSON.parse(JSON.stringify(exampleToUpdate.extRefObject))
     );
 
     // validate seperately sub-documents if necessary
@@ -136,7 +137,7 @@ exports.updateExample = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Example Id=${id}`,
     example,
   });
@@ -149,7 +150,7 @@ exports.deleteExample = catchAsync(async (req, res, next) => {
   const example = await Example.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Example Id=${id}`,
     data: { example },
   });

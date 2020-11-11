@@ -21,7 +21,7 @@ exports.getAllCommentEntries = catchAsync(async (req, res, next) => {
   const commentEntries = await CommentEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All CommentEntries',
     results: commentEntries.length,
     data: {
@@ -38,7 +38,7 @@ exports.getCommentEntries = catchAsync(async (req, res, next) => {
 
   const commentEntries = await CommentEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got CommentEntries Id=${id}`,
     Data: { commentEntries },
   });
@@ -80,7 +80,7 @@ exports.createCommentEntries = catchAsync(async (req, res, next) => {
   const commentEntries = await CommentEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created CommentEntries',
     data: { commentEntries },
   });
@@ -122,7 +122,7 @@ exports.updateCommentEntries = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated CommentEntries Id=${id}`,
     data: { commentEntries },
   });
@@ -137,7 +137,7 @@ exports.deleteCommentEntries = catchAsync(async (req, res, next) => {
   const commentEntries = await CommentEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted commentEntries Id=${id}`,
     data: { commentEntries },
   });

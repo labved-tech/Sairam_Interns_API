@@ -21,7 +21,7 @@ exports.getAllTicketProducts = catchAsync(async (req, res, next) => {
   const ticketproducts = await Ticketproducts.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Ticketproducts',
     results: ticketproducts.length,
     data: {
@@ -38,7 +38,7 @@ exports.getTicketProducts = catchAsync(async (req, res, next) => {
 
   const ticketproducts = await Ticketproducts.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Ticketproducts Id=${id}`,
     Data: { ticketproducts },
   });
@@ -71,7 +71,7 @@ exports.createTicketProducts = catchAsync(async (req, res, next) => {
   const ticketproducts = await Ticketproducts.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Ticketproducts',
     data: { ticketproducts },
   });
@@ -90,7 +90,6 @@ exports.updateTicketProducts = catchAsync(async (req, res, next) => {
   const doc = TicketproductsToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -102,7 +101,7 @@ exports.updateTicketProducts = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Ticketproducts Id=${id}`,
     data: { ticketproducts },
   });
@@ -117,7 +116,7 @@ exports.deleteTicketProducts = catchAsync(async (req, res, next) => {
   const ticketproducts = await Ticketproducts.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Ticketproducts Id=${id}`,
     data: { ticketproducts },
   });

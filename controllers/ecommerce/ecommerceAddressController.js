@@ -21,7 +21,7 @@ exports.getAllEcommerceAddress = catchAsync(async (req, res, next) => {
   const ecommerceAddresss = await EcommerceAddress.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All ecommerceAddress',
     results: ecommerceAddresss.length,
     data: {
@@ -38,7 +38,7 @@ exports.getEcommerceAddress = catchAsync(async (req, res, next) => {
 
   const ecommerceAddress = await EcommerceAddress.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got ecommerceAddress Id=${id}`,
     Data: { ecommerceAddress },
   });
@@ -70,7 +70,7 @@ exports.createEcommerceAddress = catchAsync(async (req, res, next) => {
   const ecommerceAddress = await EcommerceAddress.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created ecommerceAddress',
     data: { ecommerceAddress },
   });
@@ -106,7 +106,7 @@ exports.updateEcommerceAddress = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated ecommerceAddress Id=${id}`,
     data: { ecommerceAddress },
   });
@@ -121,7 +121,7 @@ exports.deleteEcommerceAddress = catchAsync(async (req, res, next) => {
   const ecommerceAddress = await EcommerceAddress.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted ecommerceAddress Id=${id}`,
     data: { ecommerceAddress },
   });

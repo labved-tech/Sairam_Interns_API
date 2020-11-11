@@ -21,7 +21,7 @@ exports.getAllDirectoryEntries = catchAsync(async (req, res, next) => {
   const directories = await DirectoryEntries.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All DirectoryEntries',
     results: directories.length,
     data: {
@@ -38,7 +38,7 @@ exports.getDirectoryEntries = catchAsync(async (req, res, next) => {
 
   const directoryEntries = await DirectoryEntries.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got DirectoryEntries Id=${id}`,
     Data: { directoryEntries },
   });
@@ -105,7 +105,7 @@ exports.createDirectoryEntries = catchAsync(async (req, res, next) => {
   const directoryEntries = await DirectoryEntries.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created DirectoryEntries',
     data: { directoryEntries },
   });
@@ -169,7 +169,7 @@ exports.updateDirectoryEntries = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated DirectoryEntries Id=${id}`,
     data: { directoryEntries },
   });
@@ -184,7 +184,7 @@ exports.deleteDirectoryEntries = catchAsync(async (req, res, next) => {
   const directoryEntries = await DirectoryEntries.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted DirectoryEntries Id=${id}`,
     data: { directoryEntries },
   });

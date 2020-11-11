@@ -21,7 +21,7 @@ exports.getAllDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   const directories = await DirectoryAttributesGroups.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All DirectoryAttributesGroups',
     results: directories.length,
     data: {
@@ -40,7 +40,7 @@ exports.getDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
     id
   ).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got DirectoryAttributesGroups Id=${id}`,
     Data: { directoryAttributesGroups },
   });
@@ -82,7 +82,7 @@ exports.createDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created DirectoryAttributesGroups',
     data: { directoryAttributesGroups },
   });
@@ -128,7 +128,7 @@ exports.updateDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated DirectoryAttributesGroups Id=${id}`,
     data: { directoryAttributesGroups },
   });
@@ -145,7 +145,7 @@ exports.deleteDirectoryAttributesGroups = catchAsync(async (req, res, next) => {
   ).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted DirectoryAttributesGroups Id=${id}`,
     data: { directoryAttributesGroups },
   });

@@ -21,7 +21,7 @@ exports.getAllAnnouncementNotify = catchAsync(async (req, res, next) => {
   const announcementNotify = await AnnouncementNotify.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Announcement Notify',
     results: announcementNotify.length,
     data: {
@@ -38,7 +38,7 @@ exports.getAnnouncementNotify = catchAsync(async (req, res, next) => {
 
   const announcementNotify = await AnnouncementNotify.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Announcement Notify Id=${id}`,
     Data: { announcementNotify },
   });
@@ -79,7 +79,7 @@ if (doc.recipient) {
   const announcementNotify = await AnnouncementNotify.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Announcement Notify',
     data: { announcementNotify },
   });
@@ -117,7 +117,7 @@ doc.updatedAt;
   ).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Announcement Notify Id=${id}`,
     data: { announcementNotify },
   });
@@ -132,7 +132,7 @@ exports.deleteAnnouncementNotify = catchAsync(async (req, res, next) => {
   const announcementNotify = await AnnouncementNotify.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Announcement Notify Id=${id}`,
     data: { announcementNotify },
   });

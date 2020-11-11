@@ -18,18 +18,16 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllForms = catchAsync(async (req, res, next) => {
   console.log('Getting All forms');
 
+  const forms = await Forms.find().then();
 
-    const forms = await Forms.find().then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: 'Got All forms',
-      results: forms.length,
-      data: {
-        forms,
-      },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All forms',
+    results: forms.length,
+    data: {
+      forms,
+    },
+  });
 
   next();
 });
@@ -38,14 +36,12 @@ exports.getForms = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting forms for Id ${id}`);
 
-
-    const forms = await Forms.findById(id).then();
-    res.status(200).json({
-      status: 'sucess',
-      message: `Got forms Id=${id}`,
-      Data: { forms },
-    });
-
+  const forms = await Forms.findById(id).then();
+  res.status(200).json({
+    status: 'success',
+    message: `Got forms Id=${id}`,
+    Data: { forms },
+  });
 
   next();
 });
@@ -53,34 +49,33 @@ exports.getForms = catchAsync(async (req, res, next) => {
 exports.createForms = catchAsync(async (req, res, next) => {
   console.log('Creating forms');
   const { body } = req;
-    // parse through models
-    const doc = new Forms(body);
-    console.log(doc);
-  
-    // validate seperately sub-documents if necessary
-  
-    // replace doc if necessary
-  
-    // update timestamps & Id's
-    doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
-    doc.createdAt;
-    doc.updatedAt;
-  
+  // parse through models
+  const doc = new Forms(body);
+  console.log(doc);
+
+  // validate seperately sub-documents if necessary
+
+  // replace doc if necessary
+
+  // update timestamps & Id's
+  doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
+  doc.createdAt;
+  doc.updatedAt;
+
   // final validation
   await doc.validate();
-  
+
   // check the doc before doing database operation
   //console.log(doc);
 
-    const forms = await Forms.create(doc).then();
+  const forms = await Forms.create(doc).then();
 
-    res.status(201).json({
-      status: 'sucess',
-      message: 'Created forms',
-      data: { forms },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: 'Created forms',
+    data: { forms },
+  });
 
   next();
 });
@@ -96,7 +91,6 @@ exports.updateForms = catchAsync(async (req, res, next) => {
   const doc = FormsToUpdate.toObject();
   delete doc._id;
 
-
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedAt;
@@ -104,17 +98,15 @@ exports.updateForms = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
+  const forms = await Forms.findByIdAndUpdate(id, doc, {
+    new: true,
+  }).then();
 
-    const forms = await Forms.findByIdAndUpdate(id, doc, {
-      new: true,
-    }).then();
-
-    res.status(201).json({
-      status: 'sucess',
-      message: `Updated forms Id=${id}`,
-      data: { forms },
-    });
-
+  res.status(201).json({
+    status: 'success',
+    message: `Updated forms Id=${id}`,
+    data: { forms },
+  });
 
   next();
 });
@@ -123,15 +115,13 @@ exports.deleteForms = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting forms Id ${id}`);
 
+  const forms = await Forms.findByIdAndDelete(id).then();
 
-    const forms = await Forms.findByIdAndDelete(id).then();
-
-    res.status(200).json({
-      status: 'sucess',
-      message: `Deleted forms Id=${id}`,
-      data: { forms },
-    });
-
+  res.status(200).json({
+    status: 'success',
+    message: `Deleted forms Id=${id}`,
+    data: { forms },
+  });
 
   next();
 });

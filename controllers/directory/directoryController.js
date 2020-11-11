@@ -21,7 +21,7 @@ exports.getAllDirectory = catchAsync(async (req, res, next) => {
   const directories = await Directory.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Directory',
     results: directories.length,
     data: {
@@ -38,7 +38,7 @@ exports.getDirectory = catchAsync(async (req, res, next) => {
 
   const directory = await Directory.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Directory Id=${id}`,
     Data: { directory },
   });
@@ -69,7 +69,7 @@ exports.createDirectory = catchAsync(async (req, res, next) => {
   const directory = await Directory.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Directory',
     data: { directory },
   });
@@ -101,7 +101,7 @@ exports.updateDirectory = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Directory Id=${id}`,
     data: { directory },
   });
@@ -116,7 +116,7 @@ exports.deleteDirectory = catchAsync(async (req, res, next) => {
   const directory = await Directory.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Directory Id=${id}`,
     data: { directory },
   });

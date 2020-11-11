@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const DeliveryNote = require('./../../models/sales-finance/deliveryNoteModel');
+const DeliveryNote = require('../../models/sales-finance/deliveryNoteModel');
 
 /* DATABASE */
 
@@ -20,14 +20,14 @@ exports.getAllDeliveryNote = catchAsync(async (req, res, next) => {
   const deliveryNotes = await DeliveryNote.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All Delivery Note',
     results: deliveryNotes.length,
     data: {
       deliveryNotes,
     },
   });
-  
+
   next();
 });
 
@@ -36,11 +36,10 @@ exports.getDeliveryNote = catchAsync(async (req, res, next) => {
   console.log(`Getting Delivery Note for Id ${id}`);
   const deliveryNote = await DeliveryNote.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got Delivery Note Id=${id}`,
     Data: { deliveryNote },
   });
-  
 
   next();
 });
@@ -68,11 +67,10 @@ exports.createDeliveryNote = catchAsync(async (req, res, next) => {
   const deliveryNote = await DeliveryNote.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created Delivery Note',
     data: { deliveryNote },
   });
-  
 
   next();
 });
@@ -81,13 +79,12 @@ exports.updateDeliveryNote = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Delivery Note Id ${id}`);
   const { body } = req;
-  
+
   // parse through models
   const deliveryNoteToUpdate = new DeliveryNote(body);
   console.log(body);
   const doc = deliveryNoteToUpdate.toObject();
   delete doc._id;
-
 
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -100,11 +97,10 @@ exports.updateDeliveryNote = catchAsync(async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated Delivery Note Id=${id}`,
     data: { deliveryNote },
   });
-  
 
   next();
 });
@@ -115,7 +111,7 @@ exports.deleteDeliveryNote = catchAsync(async (req, res, next) => {
   const deliveryNote = await DeliveryNote.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted Delivery Note Id=${id}`,
     data: { deliveryNote },
   });

@@ -42,7 +42,7 @@ exports.signup = catchAsync(async (req, res, next) => {
   const newUser = await Users.create(doc);
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     data: {
       user: newUser,
     },

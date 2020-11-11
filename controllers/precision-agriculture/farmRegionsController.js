@@ -21,7 +21,7 @@ exports.getAllFarmRegions = async (req, res, next) => {
   const farmRegions = await FarmRegions.find().then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Got All farmRegions',
     results: farmRegions.length,
     data: {
@@ -37,7 +37,7 @@ exports.getFarmRegions = async (req, res, next) => {
 
   const farmRegions = await FarmRegions.findById(id).then();
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Got farmRegions Id=${id}`,
     Data: { farmRegions },
   });
@@ -70,7 +70,7 @@ exports.createFarmRegions = async (req, res, next) => {
   const farmRegions = await FarmRegions.create(doc).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: 'Created farmRegions',
     data: { farmRegions },
   });
@@ -102,7 +102,7 @@ exports.updateFarmRegions = async (req, res, next) => {
   }).then();
 
   res.status(201).json({
-    status: 'sucess',
+    status: 'success',
     message: `Updated farmRegions Id=${id}`,
     data: { farmRegions },
   });
@@ -117,7 +117,7 @@ exports.deleteFarmRegions = async (req, res, next) => {
   const farmRegions = await FarmRegions.findByIdAndDelete(id).then();
 
   res.status(200).json({
-    status: 'sucess',
+    status: 'success',
     message: `Deleted farmRegions Id=${id}`,
     data: { farmRegions },
   });
