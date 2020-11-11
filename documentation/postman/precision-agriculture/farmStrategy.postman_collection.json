@@ -146,19 +146,28 @@
 		{
 			"name": "deleteFarmStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/0",
+					"raw": "{{URL}}/api/v1/farm-strategy/5faba1c54ceee038109c64a9",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-strategy",
-						"0"
+						"5faba1c54ceee038109c64a9"
 					]
 				}
 			},
