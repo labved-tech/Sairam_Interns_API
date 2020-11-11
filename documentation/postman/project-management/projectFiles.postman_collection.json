@@ -38,6 +38,16 @@
 		{
 			"name": "createProjectFiles",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -50,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-files/",
+					"raw": "{{URL}}/api/v1/project-files/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -68,19 +77,28 @@
 		{
 			"name": "getProjectFiles",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-files/0",
+					"raw": "{{URL}}/api/v1/project-files/5fab5cbe34231a4e8c1570e6",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-files",
-						"0"
+						"5fab5cbe34231a4e8c1570e6"
 					]
 				}
 			},
@@ -101,16 +119,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-files/5fa144ee5b47ad41f03057eb",
+					"raw": "{{URL}}/api/v1/project-files/5fab5cbe34231a4e8c1570e6",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-files",
-						"5fa144ee5b47ad41f03057eb"
+						"5fab5cbe34231a4e8c1570e6"
 					]
 				}
 			},
@@ -119,19 +136,28 @@
 		{
 			"name": "deleteProjectFiles",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-files/0",
+					"raw": "{{URL}}/api/v1/project-files/5fab5cbe34231a4e8c1570e6",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-files",
-						"0"
+						"5fab5cbe34231a4e8c1570e6"
 					]
 				}
 			},

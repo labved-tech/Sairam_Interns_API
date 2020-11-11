@@ -8,14 +8,23 @@
 		{
 			"name": "getAllProjectNotes",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/",
+					"raw": "{{URL}}/api/v1/project-notes/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +38,16 @@
 		{
 			"name": "createProjectNotes",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/",
+					"raw": "{{URL}}/api/v1/project-notes/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -89,6 +107,16 @@
 		{
 			"name": "updateProjectNotes",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -101,11 +129,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/5fa145da390f455d04c9e03a",
+					"raw": "{{URL}}/api/v1/project-notes/5fa145da390f455d04c9e03a",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -119,19 +146,28 @@
 		{
 			"name": "deleteProjectNotes",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project-notes/0",
+					"raw": "{{URL}}/api/v1/project-notes/5fab5ece34231a4e8c1570f3",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"project-notes",
-						"0"
+						"5fab5ece34231a4e8c1570f3"
 					]
 				}
 			},

@@ -51,15 +51,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}0/api/v1/task-timers/",
+					"raw": "{{URL}}/api/v1/task-timers/5fab67b034231a4e8c157119",
 					"host": [
-						"{{URL}}0"
+						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
 						"task-timers",
-						""
+						"5fab67b034231a4e8c157119"
 					]
 				}
 			},

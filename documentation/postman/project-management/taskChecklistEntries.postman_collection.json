@@ -8,14 +8,23 @@
 		{
 			"name": "getAllTaskChecklistEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/",
+					"raw": "{{URL}}/api/v1/task-checklist-entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +38,16 @@
 		{
 			"name": "createTaskChecklistEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/",
+					"raw": "{{URL}}/api/v1/task-checklist-entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +77,28 @@
 		{
 			"name": "getTaskChecklistEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/0",
+					"raw": "{{URL}}/api/v1/task-checklist-entries/5fa146b053c8ed48c8e3919f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"task-checklist-entries",
-						"0"
+						"5fa146b053c8ed48c8e3919f"
 					]
 				}
 			},
@@ -80,6 +107,16 @@
 		{
 			"name": "updateTaskChecklistEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,11 +129,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/task-checklist-entries/5fa146b053c8ed48c8e3919f",
+					"raw": "{{URL}}/api/v1/task-checklist-entries/5fa146b053c8ed48c8e3919f",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
