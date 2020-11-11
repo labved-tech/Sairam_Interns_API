@@ -28,6 +28,8 @@ const packingListSchema = new Schema({
           bredth: { type: Number },
           width: { type: Number },
           units: { type: Number },
+          createdBy: { type: mongoose.ObjectId },
+          updatedBy: { type: mongoose.ObjectId }
         },
       ],
 
@@ -41,6 +43,8 @@ const packingListSchema = new Schema({
           quantity: { type: Number },
           unitOfMeasurement: { type: String },
           boxmeta: { type: mongoose.ObjectId },
+          createdBy: { type: mongoose.ObjectId },
+          updatedBy: { type: mongoose.ObjectId }
         },
       ],
     },

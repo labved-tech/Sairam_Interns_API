@@ -39,9 +39,13 @@ const perfomaInvoiceSchema = new Schema({
           accountNo: { type: String },
           bankName: { type: String },
           bankIFSC: { type: String },
+          createdBy: { type: mongoose.ObjectId },
+          updatedBy: { type: mongoose.ObjectId }
         },
       ],
-    },
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId }
+    }
   ],
   itemTable: [
     {
@@ -61,6 +65,8 @@ const perfomaInvoiceSchema = new Schema({
       IGSTRate: { type: Number },
       IGSTAmount: { type: Number },
       totalPrice: { type: Number },
+      createdBy: { type: mongoose.ObjectId },
+      updatedBy: { type: mongoose.ObjectId }
     },
   ],
   totalBeforeTax: { type: Number },
