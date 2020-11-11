@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "01cde343-fe4c-4f90-9c7f-f1a6599a3a4a",
+		"_postman_id": "a8b429cd-8ef0-41d3-a569-c001246da9bd",
 		"name": "farmExportedStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllFarmExportedStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/",
+					"raw": "{{URL}}/api/v1/farm-exported-strategy/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +38,16 @@
 		{
 			"name": "createFarmExportedStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/",
+					"raw": "{{URL}}/api/v1/farm-exported-strategy/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +77,28 @@
 		{
 			"name": "getFarmExportedStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/0",
+					"raw": "{{URL}}/api/v1/farm-exported-strategy/5fab9f32a772b22378af54bf",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-exported-strategy",
-						"0"
+						"5fab9f32a772b22378af54bf"
 					]
 				}
 			},
@@ -80,6 +107,16 @@
 		{
 			"name": "updateFarmExportedStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,16 +129,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/0",
+					"raw": "{{URL}}/api/v1/farm-exported-strategy/5fab9f32a772b22378af54bf",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-exported-strategy",
-						"0"
+						"5fab9f32a772b22378af54bf"
 					]
 				}
 			},
@@ -110,19 +146,28 @@
 		{
 			"name": "deleteFarmExportedStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-exported-strategy/0",
+					"raw": "{{URL}}/api/v1/farm-exported-strategy/5fab9f32a772b22378af54bf",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-exported-strategy",
-						"0"
+						"5fab9f32a772b22378af54bf"
 					]
 				}
 			},

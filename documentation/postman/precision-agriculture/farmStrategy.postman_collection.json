@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1f4d7dd8-ba88-4d7b-b7e1-a966a4304cd0",
+		"_postman_id": "cb432f49-6d6d-42d7-9ce4-e0d1149b4186",
 		"name": "farmStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8,14 +8,23 @@
 		{
 			"name": "getAllFarmStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/",
+					"raw": "{{URL}}/api/v1/farm-strategy/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -29,6 +38,16 @@
 		{
 			"name": "createFarmStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -41,11 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/",
+					"raw": "{{URL}}/api/v1/farm-strategy/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -59,19 +77,28 @@
 		{
 			"name": "getFarmStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/0",
+					"raw": "{{URL}}/api/v1/farm-strategy/5faba1c54ceee038109c64a9",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-strategy",
-						"0"
+						"5faba1c54ceee038109c64a9"
 					]
 				}
 			},
@@ -80,6 +107,16 @@
 		{
 			"name": "updateFarmStrategy",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -92,16 +129,15 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/farm-strategy/0",
+					"raw": "{{URL}}/api/v1/farm-strategy/5faba1c54ceee038109c64a9",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
 						"farm-strategy",
-						"0"
+						"5faba1c54ceee038109c64a9"
 					]
 				}
 			},
