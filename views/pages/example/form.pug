@@ -116,6 +116,28 @@ block content
                                                     label
                                                         input(type='checkbox' checked='checked' name='select')
                                                         span
+                                        // Date & Time
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label') Date and Time
+                                            div(class='col-9')
+                                                #kt_datetimepicker_1(class='input-group date' data-target-input='nearest')
+                                                    input(type='text' class='form-control datetimepicker-input' placeholder='Select date & time' data-target='#kt_datetimepicker_1')
+                                                    div(class='input-group-append' data-target='#kt_datetimepicker_1' data-toggle='datetimepicker')
+                                                        span(class='input-group-text')
+                                                            i(class='ki ki-calendar')
+                                        // Date
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 text-right') Bootstrap Date Picker *
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='input-group')
+                                                    input#kt_datepicker(type='text' class='form-control' name='date' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Select a date
+
+                                        // Date
+
                             div(class='card-footer text-right')
                                 div(class='row')
                                     div(class='col-lg-9 ml-lg-auto')
