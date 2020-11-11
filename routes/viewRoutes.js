@@ -33,4 +33,8 @@ router.get('/announcement-entries', viewsController.announcementEntries);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
+
+// CHARTS RELATED ROUTES
+router.get('/charts', viewsController.charts);
+
 module.exports = router;
