@@ -100,7 +100,14 @@ exports.createFarmStrategy = catchAsync(async (req, res, next) => {
 
 exports.updateFarmStrategy = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating farmStrategy Id ${id}`);
+  const { body } = req;
+  console.log(`Updating FarmStrategy Id ${id}`);
+
+  // parse through models
+  const FarmStrategyToUpdate = new FarmStrategy(body);
+  console.log(body);
+  const doc = FarmStrategyToUpdate.toObject();
+  delete doc._id;
 
   const farmStrategy = await FarmStrategy.findByIdAndUpdate(id,doc, {
     new: true,
