@@ -34,3 +34,20 @@ block content
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='name' placeholder='Enter your name')
                                                 span(class='form-text text-muted')
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') AttributeId
+                                                span(class='text-danger')
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='name' placeholder='Enter your Id')
+                                                span(class='form-text text-muted')
+                                        div(class='form-group row')
+                                            label(class='col-3' for='statusSelect')
+                                                | Status
+                                            div(class='col-9')
+                                                select#exampleSelect1(class='form-control')
+                                                    option Active
+                                                    option Suspended
+                                                    option Deleted
+                                                    option Hold
+                                                    option Publish
+                                        div(class='form-group row')

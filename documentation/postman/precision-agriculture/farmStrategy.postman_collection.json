@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cb432f49-6d6d-42d7-9ce4-e0d1149b4186",
+		"_postman_id": "b28da1f6-6ad9-4f7a-95c6-63bc88ef4c9d",
 		"name": "farmStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-strategy/",
+					"raw": "{{URL}}/api/v1/farm/strategy/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-strategy",
+						"farm",
+						"strategy",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-strategy/",
+					"raw": "{{URL}}/api/v1/farm/strategy/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-strategy",
+						"farm",
+						"strategy",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-strategy/5faba1c54ceee038109c64a9",
+					"raw": "{{URL}}/api/v1/farm/strategy/5faba1c54ceee038109c64a9",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-strategy",
+						"farm",
+						"strategy",
 						"5faba1c54ceee038109c64a9"
 					]
 				}
@@ -129,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-strategy/5faba1c54ceee038109c64a9",
+					"raw": "{{URL}}/api/v1/farm/strategy/5faba1c54ceee038109c64a9",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-strategy",
+						"farm",
+						"strategy",
 						"5faba1c54ceee038109c64a9"
 					]
 				}
@@ -159,14 +163,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-strategy/5faba1c54ceee038109c64a9",
+					"raw": "{{URL}}/api/v1/farm/strategy/5faba1c54ceee038109c64a9",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-strategy",
+						"farm",
+						"strategy",
 						"5faba1c54ceee038109c64a9"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a8b429cd-8ef0-41d3-a569-c001246da9bd",
+		"_postman_id": "5bfbd59c-66f4-4c6d-8db9-aa673f71f6e0",
 		"name": "farmExportedStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-exported-strategy/",
+					"raw": "{{URL}}/api/v1/farm/exported-strategy/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-exported-strategy",
+						"farm",
+						"exported-strategy",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-exported-strategy/",
+					"raw": "{{URL}}/api/v1/farm/exported-strategy/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-exported-strategy",
+						"farm",
+						"exported-strategy",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-exported-strategy/5fab9f32a772b22378af54bf",
+					"raw": "{{URL}}/api/v1/farm/exported-strategy/5fab9f32a772b22378af54bf",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-exported-strategy",
+						"farm",
+						"exported-strategy",
 						"5fab9f32a772b22378af54bf"
 					]
 				}
@@ -129,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-exported-strategy/5fab9f32a772b22378af54bf",
+					"raw": "{{URL}}/api/v1/farm/exported-strategy/5fab9f32a772b22378af54bf",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-exported-strategy",
+						"farm",
+						"exported-strategy",
 						"5fab9f32a772b22378af54bf"
 					]
 				}
@@ -159,14 +163,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-exported-strategy/5fab9f32a772b22378af54bf",
+					"raw": "{{URL}}/api/v1/farm/exported-strategy/5fab9f32a772b22378af54bf",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-exported-strategy",
+						"farm",
+						"exported-strategy",
 						"5fab9f32a772b22378af54bf"
 					]
 				}

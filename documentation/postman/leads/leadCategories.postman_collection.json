@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "05b6cb91-2ce2-41e5-8508-3022959e3ca0",
+		"_postman_id": "8f5f9c8e-2291-4bfe-b353-4de6874fa6b9",
 		"name": "leadCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/lead-categories/5faa7e13152e242dbc43d00d",
+					"raw": "{{URL}}/api/v1/lead/categories/5faa7e13152e242dbc43d00d",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"lead-categories",
+						"lead",
+						"categories",
 						"5faa7e13152e242dbc43d00d"
 					]
 				}
@@ -51,14 +52,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/lead-categories/5faa7b4c152e242dbc43d00a",
+					"raw": "{{URL}}/api/v1/lead/categories/5faa7b4c152e242dbc43d00a",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"lead-categories",
+						"lead",
+						"categories",
 						"5faa7b4c152e242dbc43d00a"
 					]
 				}
@@ -81,14 +83,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/lead-categories/",
+					"raw": "{{URL}}/api/v1/lead/categories/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"lead-categories",
+						"lead",
+						"categories",
 						""
 					]
 				}
@@ -120,14 +123,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/lead-categories/5faa7b4c152e242dbc43d00a",
+					"raw": "{{URL}}/api/v1/lead/categories/5faa7b4c152e242dbc43d00a",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"lead-categories",
+						"lead",
+						"categories",
 						"5faa7b4c152e242dbc43d00a"
 					]
 				}
@@ -159,14 +163,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/lead-categories/",
+					"raw": "{{URL}}/api/v1/lead/categories/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"lead-categories",
+						"lead",
+						"categories",
 						""
 					]
 				}
