@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0b46ab82-ebdd-4daa-9e0d-a3337515596a",
+		"_postman_id": "363ceb81-afa3-4292-a955-f0dc986f5cca",
 		"name": "projectDiscussionComments",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-discussion-comments/5faac9a4cd270546d8415dfa",
+					"raw": "{{URL}}/api/v1/project/discussion-comments/5faac9a4cd270546d8415dfa",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-discussion-comments",
+						"project",
+						"discussion-comments",
 						"5faac9a4cd270546d8415dfa"
 					]
 				}
@@ -51,14 +52,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-discussion-comments/5faac9a4cd270546d8415dfa",
+					"raw": "{{URL}}/api/v1/project/discussion-comments/5faac9a4cd270546d8415dfa",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-discussion-comments",
+						"project",
+						"discussion-comments",
 						"5faac9a4cd270546d8415dfa"
 					]
 				}
@@ -81,14 +83,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-discussion-comments/",
+					"raw": "{{URL}}/api/v1/project/discussion-comments/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-discussion-comments",
+						"project",
+						"discussion-comments",
 						""
 					]
 				}
@@ -120,14 +123,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-discussion-comments/",
+					"raw": "{{URL}}/api/v1/project/discussion-comments/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-discussion-comments",
+						"project",
+						"discussion-comments",
 						""
 					]
 				}
@@ -159,14 +163,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-discussion-comments/5faac9a4cd270546d8415dfa",
+					"raw": "{{URL}}/api/v1/project/discussion-comments/5faac9a4cd270546d8415dfa",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-discussion-comments",
+						"project",
+						"discussion-comments",
 						"5faac9a4cd270546d8415dfa"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5a447621-2d39-485c-88e7-1a8b76cfd34e",
+		"_postman_id": "c4dc2e61-f730-444d-a1de-00fdb9852b74",
 		"name": "farmEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-entries/",
+					"raw": "{{URL}}/api/v1/farm/entries/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-entries",
+						"farm",
+						"entries",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-entries/",
+					"raw": "{{URL}}/api/v1/farm/entries/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-entries",
+						"farm",
+						"entries",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-entries/5fab9d98b4e15209b0e3a881",
+					"raw": "{{URL}}/api/v1/farm/entries/5fab9d98b4e15209b0e3a881",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-entries",
+						"farm",
+						"entries",
 						"5fab9d98b4e15209b0e3a881"
 					]
 				}
@@ -129,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-entries/5fab9d98b4e15209b0e3a881",
+					"raw": "{{URL}}/api/v1/farm/entries/5fab9d98b4e15209b0e3a881",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-entries",
+						"farm",
+						"entries",
 						"5fab9d98b4e15209b0e3a881"
 					]
 				}
@@ -159,14 +163,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-entries/5fab9d98b4e15209b0e3a881",
+					"raw": "{{URL}}/api/v1/farm/entries/5fab9d98b4e15209b0e3a881",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-entries",
+						"farm",
+						"entries",
 						"5fab9d98b4e15209b0e3a881"
 					]
 				}
