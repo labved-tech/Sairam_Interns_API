@@ -7,6 +7,12 @@ block js-files
     script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
     script(src='/js/pages/example/FormControls.js')
+    script(src='/js/pages/crud/forms/widgets/bootstrap-datepicker.js')
+    script(src='/js/pages/crud/forms/widgets/bootstrap-timepicker.js')
+    script(src='/js/pages/crud/forms/widgets/bootstrap-daterangepicker.js')
+    script(src='/js/pages/crud/forms/widgets/bootstrap-touchspin.js')
+    // script(src='/js/pages/crud/forms/widgets/tagify.js')
+
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -30,21 +36,21 @@ block content
                                         h3(class=' text-dark font-weight-bold mb-10') Section1
                                         // textbox
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Email
+                                            label(class='col-3 col-form-label text-right form-control-label') Email
                                                 span(class='text-danger')  *
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='email' placeholder='Enter your email')
                                                 span(class='form-text text-muted') We'll never share your email with anyone else.                                   
                                         // password
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Password
+                                            label(class='col-3 col-form-label text-right form-control-label') Password
                                                 span(class='text-danger')  *
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='password' placeholder='password')
                                                 span(class='form-text text-muted') minimum 8 characters                                   
                                         // dropdown list box
                                         div(class='form-group row')
-                                            label(class='col-3' for='exampleSelect1')
+                                            label(class='col-3 col-form-label text-right' for='exampleSelect1')
                                                 | Dropdown List Box
                                                 span(class='text-danger') *
                                             div(class='col-9')
@@ -56,7 +62,7 @@ block content
                                                     option 5
                                         // dropdown list multiple box
                                         div(class='form-group row')
-                                            label(class='col-3' for='exampleSelect2')
+                                            label(class='col-3 col-form-label text-right' for='exampleSelect2')
                                                 | Dropdown List Box - Multiple
                                                 span(class='text-danger') *
                                             div(class='col-9')
@@ -68,14 +74,14 @@ block content
                                                     option 5
                                         // Text Area
                                         div(class='form-group row mb-1')
-                                            label(class='col-3' for='exampleTextarea')
+                                            label(class='col-3 col-form-label text-right' for='exampleTextarea')
                                                 | Example textarea 
                                                 span(class='text-danger') *
                                             div(class='col-9')
                                                 textarea#exampleTextarea(class='form-control' rows='3')
                                         // Inline Check Box
                                         div(class='form-group row')
-                                            label(class='col-3') Inline Checkboxes
+                                            label(class='col-3 col-form-label text-right') Inline Checkboxes
                                             div(class='col-9')
                                                 div(class='checkbox-inline')
                                                     label(class='checkbox')
@@ -92,7 +98,7 @@ block content
                                                         | Option 3
                                         // Inline Radio Buttons
                                         div(class='form-group row')
-                                            label(class='col-3') Inline radios
+                                            label(class='col-3 col-form-label text-right') Inline radios
                                             div(class='col-9')
                                                 div(class='radio-inline')
                                                     label(class='radio')
@@ -110,17 +116,93 @@ block content
                                                 span(class='form-text text-muted') Some help text goes here
                                         // Boolean
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label') Default Switch
+                                            label(class='col-3 col-form-label text-right') Default Switch
                                             div(class='col-9')
                                                 span(class='switch switch-sm')
                                                     label
                                                         input(type='checkbox' checked='checked' name='select')
                                                         span
-                            div(class='card-footer text-right')
-                                div(class='row')
-                                    div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
-                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                                        // Date & Time
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right') Date and Time
+                                            div(class='col-9')
+                                                #kt_datetimepicker_1(class='input-group date' data-target-input='nearest')
+                                                    input(type='text' class='form-control datetimepicker-input' placeholder='Select date & time' data-target='#kt_datetimepicker_1')
+                                                    div(class='input-group-append' data-target='#kt_datetimepicker_1' data-toggle='datetimepicker')
+                                                        span(class='input-group-text')
+                                                            i(class='ki ki-calendar')
+                                        // Date
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right') Date
+                                            div(class='col-9')
+                                                div(class='input-group date')
+                                                    input#kt_datepicker_2(type='text' class='form-control' readonly='' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Example help text that remains unchanged.
+                                        // Date Range Picker
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                #kt_daterangepicker_2(class='input-group')
+                                                    input(type='text' class='form-control' readonly='' placeholder='Select date range')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Example help text that remains unchanged.
+                                        // Time : 24 Hour
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') 24 Hour Time
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='input-group timepicker')
+                                                    input#kt_timepicker_2(class='form-control' readonly='' placeholder='Select time' type='text')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-clock-o')
+                                                span(class='form-text text-muted') Select time
+                                        // Time : 12 Hour
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 text-right') 12 Hour Time
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='input-group timepicker')
+                                                    input#kt_timepicker_3(class='form-control' readonly='' placeholder='Select time' type='text')
+                                                    div(class='input-group-prepend')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-clock-o')
+                                                span(class='form-text text-muted') Select time
+                                        // Number : Increase either sides
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Numbers Controls Either Side :
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                input#kt_touchspin_3(type='text' class='form-control' value='0' name='demo0' placeholder='Select time')
+                                        // Number : Increase same side
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Numbers Controls Same Side :
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                input#kt_touchspin_4(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demo0' placeholder='40')
+
+
+                                        //-           
+                                            // Tags - remove duplicates
+                                            div(class='form-group row')
+                                                label(class='col-form-label text-right col-lg-3 col-sm-12') Tag Duplicates
+                                                div(class='col-lg-6 col-md-9 col-sm-12')
+                                                    input#kt_tagify_1(class='form-control tagify' name='tags' placeholder='type...' value='css, html, javascript' autofocus='' data-blacklist='.NET,PHP')
+                                                    div(class='mt-3')
+                                                        a#kt_tagify_1_remove(href='javascript:;' class='btn btn-sm btn-light-primary font-weight-bold') Remove tags
+                                                    div(class='mt-3 text-muted')
+                                                        | In this example, the field is pre-occupied with 4 tags. The last tag (CSS) has the same value as the first tag, and will be removed,
+                                                        | because the duplicates setting is set to true.
+                                            // Tags - Whitelist
+                                            div(class='form-group row')
+                                                label(class='col-form-label text-right col-lg-3 col-sm-12') Whitelist examples
+                                                div(class='col-lg-6 col-md-9 col-sm-12')
+                                                    input#kt_tagify_2(class='form-control tagify' placeholder='type...' value='Back to the Future, Whiplash' data-blacklist='.NET,PHP')
+                                                    div(class='mt-3 text-muted')
+                                                        | In this example, the field is pre-occupied with 3 tags, and last tag is not included in the whitelist, and will be removed because the enforce whitelist option flag is set to true
+                                            // 
+                                         
                         // end::Form
                 // end::Card
             // end::Container
