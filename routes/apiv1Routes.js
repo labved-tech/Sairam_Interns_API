@@ -19,6 +19,7 @@ const pagesRouter = require('./pages/pagesRoutes');
 
 const reportsRouter = require('./reports/reportsRoutes');
 
+const announcementRouter = require('./announcement/announcementRoutes');
 const announcementEntriesRouter = require('./announcement/announcementEntriesRoutes');
 const announcementNotifyRouter = require('./announcement/announcementNotifyRoutes');
 
@@ -52,7 +53,7 @@ const taskTimersRouter = require('./project-management/taskTimersRoutes');
 const newsletterEntriesRouter = require('./newsletter/newsletterEntriesRoutes');
 const newsletterMessagesRouter = require('./newsletter/newsletterMessagesRoutes');
 
-// SALES AND FINANCE  
+// SALES AND FINANCE
 const addressRouter = require('./sales-finance/addressRoutes');
 const deliveryNoteRouter = require('./sales-finance/deliveryNoteRoutes');
 const packingListRouter = require('./sales-finance/packingListRoutes');
@@ -104,8 +105,9 @@ router.use('/example', exampleRouter);
 router.use('/users', userRouter);
 
 // ANNOUNCEMENT
-router.use('/announcement-entries', announcementEntriesRouter);
-router.use('/announcement-notify', announcementNotifyRouter);
+router.use('/announcement/', announcementRouter);
+// router.use('/announcement-entries', announcementEntriesRouter);
+// router.use('/announcement-notify', announcementNotifyRouter);
 
 // RATINGS MODULE
 router.use('/ratingAttributeGroups', ratingAttributeGroupsRouter);
@@ -164,7 +166,7 @@ router.use('/project-task-files', projectTaskFilesRouter);
 router.use('/project-task-status', projectTaskStatusRouter);
 router.use('/task-checklist-entries', taskChecklistEntriesRouter);
 router.use('/task-checklist-status', taskChecklistStatusRouter);
-router.use('/task-entries',taskEntriesRouter);
+router.use('/task-entries', taskEntriesRouter);
 router.use('/task-reminders', taskRemindersRouter);
 router.use('/task-timers', taskTimersRouter);
 
