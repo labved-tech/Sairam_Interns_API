@@ -11,6 +11,13 @@ block js-files
     script(src='/js/pages/crud/forms/widgets/bootstrap-timepicker.js')
     script(src='/js/pages/crud/forms/widgets/bootstrap-daterangepicker.js')
     script(src='/js/pages/crud/forms/widgets/bootstrap-touchspin.js')
+    script(src='/js/pages/crud/forms/widgets/bootstrap-select.js')
+    script(src='/js/pages/crud/forms/widgets/typeahead.js')
+    script(src='/js/pages/crud/forms/widgets/nouislider.js')
+    script(src='/js/pages/crud/forms/widgets/form-repeater.js')
+    script(src='/js/pages/crud/forms/editors/summernote.js')
+    
+    //script(src='/plugins/global/recaptcha/api.js')
     // script(src='/js/pages/crud/forms/widgets/tagify.js')
 
 
@@ -33,8 +40,9 @@ block content
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')
-                                        h3(class=' text-dark font-weight-bold mb-10') Section1
-                                        // textbox
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Textbox
+                                        // Name
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label text-right form-control-label') Email
                                                 span(class='text-danger')  *
@@ -48,30 +56,6 @@ block content
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='password' placeholder='password')
                                                 span(class='form-text text-muted') minimum 8 characters                                   
-                                        // dropdown list box
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right' for='exampleSelect1')
-                                                | Dropdown List Box
-                                                span(class='text-danger') *
-                                            div(class='col-9')
-                                                select#exampleSelect1(class='form-control')
-                                                    option 1
-                                                    option 2
-                                                    option 3
-                                                    option 4
-                                                    option 5
-                                        // dropdown list multiple box
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right' for='exampleSelect2')
-                                                | Dropdown List Box - Multiple
-                                                span(class='text-danger') *
-                                            div(class='col-9')
-                                                select#exampleSelect2(multiple='' class='form-control')
-                                                    option 1
-                                                    option 2
-                                                    option 3
-                                                    option 4
-                                                    option 5
                                         // Text Area
                                         div(class='form-group row mb-1')
                                             label(class='col-3 col-form-label text-right' for='exampleTextarea')
@@ -79,41 +63,162 @@ block content
                                                 span(class='text-danger') *
                                             div(class='col-9')
                                                 textarea#exampleTextarea(class='form-control' rows='3')
-                                        // Inline Check Box
+                                                span(class='form-text text-muted') minimum 8 characters                                   
+
+                                        // Typeahead : local data
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Inline Checkboxes
-                                            div(class='col-9')
-                                                div(class='checkbox-inline')
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Option 1
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Option 2
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Option 3
-                                        // Inline Radio Buttons
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Typeahead Basic Demo
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='typeahead')
+                                                    input#kt_typeahead_1(class='form-control' type='text' dir='ltr' placeholder='States of USA')
+                                        // Typeahead : Remote data
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Inline radios
-                                            div(class='col-9')
-                                                div(class='radio-inline')
-                                                    label(class='radio')
-                                                        input(type='radio' name='radios2')
-                                                        span
-                                                        |                                 Option 1
-                                                    label(class='radio')
-                                                        input(type='radio' name='radios2')
-                                                        span
-                                                        |                                 Option 2
-                                                    label(class='radio')
-                                                        input(type='radio' name='radios2')
-                                                        span
-                                                        |                                 Option 3
-                                                span(class='form-text text-muted') Some help text goes here
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Typeahead Remote Data (Suggestion Engine)
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='typeahead')
+                                                    input#kt_typeahead_2(class='form-control' type='text' dir='ltr' placeholder='States of USA')
+                                                div(class='form-text text-muted')
+                                                    | Bloodhound offers advanced functionalities such as prefetching and backfilling with remote data.
+                                        // Typeahead : Prefetched data
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Typeahead Prefetch Data
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='typeahead')
+                                                    input#kt_typeahead_3(class='form-control' type='text' dir='ltr' placeholder='Countries')
+                                                div(class='form-text text-muted') Prefetched data is fetched and processed on initialization
+                                        // Form Repeat #1 : Single
+                                        #kt_repeater_2
+                                            div(class='form-group row')
+                                                label(class='col-lg-3 col-form-label text-right') Form Repeat #1 - Single :
+                                                div(data-repeater-list='' class='col-lg-6')
+                                                    div(data-repeater-item='' class='mb-2')
+                                                        div(class='input-group')
+                                                            div(class='input-group-prepend')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-phone')
+                                                            input(type='text' class='form-control' placeholder='Enter telephone')
+                                                            div(class='input-group-append')
+                                                                a(href='javascript:;' class='btn font-weight-bold btn-danger btn-icon')
+                                                                    i(class='la la-close')
+                                            div(class='form-group row')
+                                                div(class='col-lg-3')
+                                                div(class='col')
+                                                    div(data-repeater-create='' class='btn font-weight-bold btn-warning')
+                                                        i(class='la la-plus')
+                                                        | Add
+                                        // Form Repeat #2 : Multiple
+                                        #kt_repeater_1
+                                            div(class='form-group row')
+                                                label(class='col-lg-2 col-form-label text-right') Form Repeat #2 - Multiple Input's:
+                                                div(data-repeater-list='' class='col-lg-10')
+                                                    div(data-repeater-item='' class='form-group row align-items-center')
+                                                        div(class='col-md-3')
+                                                            label Name:
+                                                            input(type='email' class='form-control' placeholder='Enter full name')
+                                                            div(class='d-md-none mb-2')
+                                                        div(class='col-md-3')
+                                                            label Number:
+                                                            input(type='email' class='form-control' placeholder='Enter contact number')
+                                                            div(class='d-md-none mb-2')
+                                                        div(class='col-md-2')
+                                                            div(class='radio-inline')
+                                                                label(class='checkbox checkbox-success')
+                                                                    input(type='checkbox')
+                                                                    |  Primary
+                                                                    span
+                                                        div(class='col-md-4')
+                                                            a(href='javascript:;' data-repeater-delete='' class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                            div(class='form-group row')
+                                                label(class='col-lg-2 col-form-label text-right')
+                                                div(class='col-lg-4')
+                                                    a(href='javascript:;' data-repeater-create='' class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+                                            // Form Repeat #3 : Multiple
+                                            #kt_repeater_3
+                                                div(class='form-group row')
+                                                    label(class='col-lg-3 col-form-label text-right') Form Repeat #3  - Multiple Input's:
+                                                    div(data-repeater-list='' class='col-lg-9')
+                                                        div(data-repeater-item='' class='form-group row')
+                                                            div(class='col-lg-5')
+                                                                div(class='input-group')
+                                                                    div(class='input-group-prepend')
+                                                                        span(class='input-group-text')
+                                                                            i(class='la la-phone')
+                                                                    input(type='text' class='form-control' placeholder='Phone')
+                                                            div(class='col-lg-5')
+                                                                div(class='input-group')
+                                                                    div(class='input-group-prepend')
+                                                                        span(class='input-group-text')
+                                                                            i(class='la la-envelope')
+                                                                    input(type='text' class='form-control' placeholder='Email')
+                                                            div(class='col-lg-2')
+                                                                a(href='javascript:;' data-repeater-delete='' class='btn font-weight-bold btn-danger btn-icon')
+                                                                    i(class='la la-remove')
+                                                div(class='form-group row')
+                                                    div(class='col-lg-3')
+                                                    div(class='col')
+                                                        div(data-repeater-create='' class='btn font-weight-bold btn-primary')
+                                                            i(class='la la-plus')
+                                                            |                             Add
+
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Numbers
+
+                                        // Number : Increase either sides
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Numbers Controls Either Side :
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                input#kt_touchspin_3(type='text' class='form-control' value='0' name='demo0' placeholder='Select time')
+                                        // Number : Increase same side
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Numbers Controls Same Side :
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                input#kt_touchspin_4(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demo0' placeholder='40')
+                                        // Number : Horizontal Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Horizontal Slider
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#kt_nouislider_1_input(type='text' class='form-control' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #kt_nouislider_1(class='nouislider-drag-danger')
+                                                span(class='form-text text-muted mt-6') Input control is attached to slider
+                                        // Number : Vertical Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Vertical Slider
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row')
+                                                    div(class='col-4')
+                                                        input#kt_nouislider_6_input(type='text' class='form-control' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #kt_nouislider_6
+                                                span(class='form-text text-muted') Vertical orientation slider example
+                                        // Number : Currency Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Currency Formatting
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#kt_nouislider_2_input(type='text' class='form-control' placeholder='Currency')
+                                                    div(class='col-8')
+                                                        #kt_nouislider_2(class='nouislider nouislider-handle-danger')
+                                                span(class='form-text text-muted mt-6') To format the slider output, noUiSlider offers a format option.
+                                        // Number : Range Select Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Slider With Tooltip
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row align-items-center')
+                                                    div(class='col-2')
+                                                        input#kt_nouislider_3_input(type='text' class='form-control' placeholder='Quantity')
+                                                    div(class='col-2')
+                                                        input(type='text' class='form-control' id='kt_nouislider_3.1_input' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #kt_nouislider_3(class='nouislider')
+                                                span(class='form-text text-muted mt-6') Slider with tooltips to show slider values.
                                         // Boolean
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label text-right') Default Switch
@@ -122,6 +227,10 @@ block content
                                                     label
                                                         input(type='checkbox' checked='checked' name='select')
                                                         span
+                                        
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Date And Clock                                        
+                                        
                                         // Date & Time
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label text-right') Date and Time
@@ -171,18 +280,363 @@ block content
                                                         span(class='input-group-text')
                                                             i(class='la la-clock-o')
                                                 span(class='form-text text-muted') Select time
-                                        // Number : Increase either sides
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Numbers Controls Either Side :
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                input#kt_touchspin_3(type='text' class='form-control' value='0' name='demo0' placeholder='Select time')
-                                        // Number : Increase same side
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Numbers Controls Same Side :
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                input#kt_touchspin_4(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demo0' placeholder='40')
 
 
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Lists
+
+                                        // Single Select Dropdown List
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Single
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                select(class='form-control selectpicker' data-size='4')
+                                                    option Mustard
+                                                    option Ketchup
+                                                    option Relish
+                                                    option Tent
+                                                    option Flashlight
+                                                    option Toilet Paper
+
+                                        // Single Select Dropdown List with search
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Single w search
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                select(class='form-control selectpicker' data-size='7' data-live-search='true')
+                                                    option(value='') Select
+                                                    option(value='AF') Afghanistan
+                                                    option(value='AX') Åland Islands
+                                                    option(value='AL') Albania
+                                                    option(value='DZ') Algeria
+                                                    option(value='AS') American Samoa
+                                                    option(value='AD') Andorra
+                                                    option(value='AO') Angola
+                                                    option(value='AI') Anguilla
+                                                    option(value='AQ') Antarctica
+                                                    option(value='AG') Antigua and Barbuda
+                                                    option(value='AR') Argentina
+                                                    option(value='AM') Armenia
+                                                    option(value='AW') Aruba
+                                                    option(value='AU') Australia
+                                                    option(value='AT') Austria
+                                                    option(value='AZ') Azerbaijan
+                                                    option(value='BS') Bahamas
+                                                    option(value='BH') Bahrain
+                                                    option(value='BD') Bangladesh
+                                                    option(value='BB') Barbados
+                                                    option(value='BY') Belarus
+                                                    option(value='BE') Belgium
+                                                    option(value='BZ') Belize
+                                                    option(value='BJ') Benin
+                                                    option(value='BM') Bermuda
+                                                    option(value='BT') Bhutan
+                                                    option(value='BO') Bolivia, Plurinational State of
+                                                    option(value='BQ') Bonaire, Sint Eustatius and Saba
+                                                    option(value='BA') Bosnia and Herzegovina
+                                                    option(value='BW') Botswana
+                                                    option(value='BV') Bouvet Island
+                                                    option(value='BR') Brazil
+                                                    option(value='IO') British Indian Ocean Territory
+                                                    option(value='BN') Brunei Darussalam
+                                                    option(value='BG') Bulgaria
+                                                    option(value='BF') Burkina Faso
+                                                    option(value='BI') Burundi
+                                                    option(value='KH') Cambodia
+                                                    option(value='CM') Cameroon
+                                                    option(value='CA') Canada
+                                                    option(value='CV') Cape Verde
+                                                    option(value='KY') Cayman Islands
+                                                    option(value='CF') Central African Republic
+                                                    option(value='TD') Chad
+                                                    option(value='CL') Chile
+                                                    option(value='CN') China
+                                                    option(value='CX') Christmas Island
+                                                    option(value='CC') Cocos (Keeling) Islands
+                                                    option(value='CO') Colombia
+                                                    option(value='KM') Comoros
+                                                    option(value='CG') Congo
+                                                    option(value='CD') Congo, the Democratic Republic of the
+                                                    option(value='CK') Cook Islands
+                                                    option(value='CR') Costa Rica
+                                                    option(value='CI') Côte d'Ivoire
+                                                    option(value='HR') Croatia
+                                                    option(value='CU') Cuba
+                                                    option(value='CW') Curaçao
+                                                    option(value='CY') Cyprus
+                                                    option(value='CZ') Czech Republic
+                                                    option(value='DK') Denmark
+                                                    option(value='DJ') Djibouti
+                                                    option(value='DM') Dominica
+                                                    option(value='DO') Dominican Republic
+                                                    option(value='EC') Ecuador
+                                                    option(value='EG') Egypt
+                                                    option(value='SV') El Salvador
+                                                    option(value='GQ') Equatorial Guinea
+                                                    option(value='ER') Eritrea
+                                                    option(value='EE') Estonia
+                                                    option(value='ET') Ethiopia
+                                                    option(value='FK') Falkland Islands (Malvinas)
+                                                    option(value='FO') Faroe Islands
+                                                    option(value='FJ') Fiji
+                                                    option(value='FI') Finland
+                                                    option(value='FR') France
+                                                    option(value='GF') French Guiana
+                                                    option(value='PF') French Polynesia
+                                                    option(value='TF') French Southern Territories
+                                                    option(value='GA') Gabon
+                                                    option(value='GM') Gambia
+                                                    option(value='GE') Georgia
+                                                    option(value='DE') Germany
+                                                    option(value='GH') Ghana
+                                                    option(value='GI') Gibraltar
+                                                    option(value='GR') Greece
+                                                    option(value='GL') Greenland
+                                                    option(value='GD') Grenada
+                                                    option(value='GP') Guadeloupe
+                                                    option(value='GU') Guam
+                                                    option(value='GT') Guatemala
+                                                    option(value='GG') Guernsey
+                                                    option(value='GN') Guinea
+                                                    option(value='GW') Guinea-Bissau
+                                                    option(value='GY') Guyana
+                                                    option(value='HT') Haiti
+                                                    option(value='HM') Heard Island and McDonald Islands
+                                                    option(value='VA') Holy See (Vatican City State)
+                                                    option(value='HN') Honduras
+                                                    option(value='HK') Hong Kong
+                                                    option(value='HU') Hungary
+                                                    option(value='IS') Iceland
+                                                    option(value='IN') India
+                                                    option(value='ID') Indonesia
+                                                    option(value='IR') Iran, Islamic Republic of
+                                                    option(value='IQ') Iraq
+                                                    option(value='IE') Ireland
+                                                    option(value='IM') Isle of Man
+                                                    option(value='IL') Israel
+                                                    option(value='IT') Italy
+                                                    option(value='JM') Jamaica
+                                                    option(value='JP') Japan
+                                                    option(value='JE') Jersey
+                                                    option(value='JO') Jordan
+                                                    option(value='KZ') Kazakhstan
+                                                    option(value='KE') Kenya
+                                                    option(value='KI') Kiribati
+                                                    option(value='KP') Korea, Democratic People's Republic of
+                                                    option(value='KR') Korea, Republic of
+                                                    option(value='KW') Kuwait
+                                                    option(value='KG') Kyrgyzstan
+                                                    option(value='LA') Lao People's Democratic Republic
+                                                    option(value='LV') Latvia
+                                                    option(value='LB') Lebanon
+                                                    option(value='LS') Lesotho
+                                                    option(value='LR') Liberia
+                                                    option(value='LY') Libya
+                                                    option(value='LI') Liechtenstein
+                                                    option(value='LT') Lithuania
+                                                    option(value='LU') Luxembourg
+                                                    option(value='MO') Macao
+                                                    option(value='MK') Macedonia, the former Yugoslav Republic of
+                                                    option(value='MG') Madagascar
+                                                    option(value='MW') Malawi
+                                                    option(value='MY') Malaysia
+                                                    option(value='MV') Maldives
+                                                    option(value='ML') Mali
+                                                    option(value='MT') Malta
+                                                    option(value='MH') Marshall Islands
+                                                    option(value='MQ') Martinique
+                                                    option(value='MR') Mauritania
+                                                    option(value='MU') Mauritius
+                                                    option(value='YT') Mayotte
+                                                    option(value='MX') Mexico
+                                                    option(value='FM') Micronesia, Federated States of
+                                                    option(value='MD') Moldova, Republic of
+                                                    option(value='MC') Monaco
+                                                    option(value='MN') Mongolia
+                                                    option(value='ME') Montenegro
+                                                    option(value='MS') Montserrat
+                                                    option(value='MA') Morocco
+                                                    option(value='MZ') Mozambique
+                                                    option(value='MM') Myanmar
+                                                    option(value='NA') Namibia
+                                                    option(value='NR') Nauru
+                                                    option(value='NP') Nepal
+                                                    option(value='NL') Netherlands
+                                                    option(value='NC') New Caledonia
+                                                    option(value='NZ') New Zealand
+                                                    option(value='NI') Nicaragua
+                                                    option(value='NE') Niger
+                                                    option(value='NG') Nigeria
+                                                    option(value='NU') Niue
+                                                    option(value='NF') Norfolk Island
+                                                    option(value='MP') Northern Mariana Islands
+                                                    option(value='NO') Norway
+                                                    option(value='OM') Oman
+                                                    option(value='PK') Pakistan
+                                                    option(value='PW') Palau
+                                                    option(value='PS') Palestinian Territory, Occupied
+                                                    option(value='PA') Panama
+                                                    option(value='PG') Papua New Guinea
+                                                    option(value='PY') Paraguay
+                                                    option(value='PE') Peru
+                                                    option(value='PH') Philippines
+                                                    option(value='PN') Pitcairn
+                                                    option(value='PL') Poland
+                                                    option(value='PT') Portugal
+                                                    option(value='PR') Puerto Rico
+                                                    option(value='QA') Qatar
+                                                    option(value='RE') Réunion
+                                                    option(value='RO') Romania
+                                                    option(value='RU') Russian Federation
+                                                    option(value='RW') Rwanda
+                                                    option(value='BL') Saint Barthélemy
+                                                    option(value='SH') Saint Helena, Ascension and Tristan da Cunha
+                                                    option(value='KN') Saint Kitts and Nevis
+                                                    option(value='LC') Saint Lucia
+                                                    option(value='MF') Saint Martin (French part)
+                                                    option(value='PM') Saint Pierre and Miquelon
+                                                    option(value='VC') Saint Vincent and the Grenadines
+                                                    option(value='WS') Samoa
+                                                    option(value='SM') San Marino
+                                                    option(value='ST') Sao Tome and Principe
+                                                    option(value='SA') Saudi Arabia
+                                                    option(value='SN') Senegal
+                                                    option(value='RS') Serbia
+                                                    option(value='SC') Seychelles
+                                                    option(value='SL') Sierra Leone
+                                                    option(value='SG') Singapore
+                                                    option(value='SX') Sint Maarten (Dutch part)
+                                                    option(value='SK') Slovakia
+                                                    option(value='SI') Slovenia
+                                                    option(value='SB') Solomon Islands
+                                                    option(value='SO') Somalia
+                                                    option(value='ZA') South Africa
+                                                    option(value='GS') South Georgia and the South Sandwich Islands
+                                                    option(value='SS') South Sudan
+                                                    option(value='ES') Spain
+                                                    option(value='LK') Sri Lanka
+                                                    option(value='SD') Sudan
+                                                    option(value='SR') Suriname
+                                                    option(value='SJ') Svalbard and Jan Mayen
+                                                    option(value='SZ') Swaziland
+                                                    option(value='SE') Sweden
+                                                    option(value='CH') Switzerland
+                                                    option(value='SY') Syrian Arab Republic
+                                                    option(value='TW') Taiwan, Province of China
+                                                    option(value='TJ') Tajikistan
+                                                    option(value='TZ') Tanzania, United Republic of
+                                                    option(value='TH') Thailand
+                                                    option(value='TL') Timor-Leste
+                                                    option(value='TG') Togo
+                                                    option(value='TK') Tokelau
+                                                    option(value='TO') Tonga
+                                                    option(value='TT') Trinidad and Tobago
+                                                    option(value='TN') Tunisia
+                                                    option(value='TR') Turkey
+                                                    option(value='TM') Turkmenistan
+                                                    option(value='TC') Turks and Caicos Islands
+                                                    option(value='TV') Tuvalu
+                                                    option(value='UG') Uganda
+                                                    option(value='UA') Ukraine
+                                                    option(value='AE') United Arab Emirates
+                                                    option(value='GB') United Kingdom
+                                                    option(value='US' selected='') United States
+                                                    option(value='UM') United States Minor Outlying Islands
+                                                    option(value='UY') Uruguay
+                                                    option(value='UZ') Uzbekistan
+                                                    option(value='VU') Vanuatu
+                                                    option(value='VE') Venezuela, Bolivarian Republic of
+                                                    option(value='VN') Viet Nam
+                                                    option(value='VG') Virgin Islands, British
+                                                    option(value='VI') Virgin Islands, U.S.
+                                                    option(value='WF') Wallis and Futuna
+                                                    option(value='EH') Western Sahara
+                                                    option(value='YE') Yemen
+                                                    option(value='ZM') Zambia
+                                                    option(value='ZW') Zimbabwe
+                                                span(class='form-text text-muted')
+                                                    | You can add a search input by passing 
+                                                    code data-live-search="true"
+                                                    |  attribute
+
+                                        // Multiple Select Dropdown List
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Multiple
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                select(class='form-control selectpicker' multiple='')
+                                                    option Mustard
+                                                    option Ketchup
+                                                    option Relish
+
+                                        // dropdown list multiple box
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right' for='exampleSelect2')
+                                                | Dropdown List Box - Multiple
+                                                span(class='text-danger') *
+                                            div(class='col-9')
+                                                select#exampleSelect2(multiple='' class='form-control')
+                                                    option 1
+                                                    option 2
+                                                    option 3
+                                                    option 4
+                                                    option 5
+                                        
+                                        
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Others
+
+                                        // Inline Check Box
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right') Inline Checkboxes
+                                            div(class='col-9')
+                                                div(class='checkbox-inline')
+                                                    label(class='checkbox')
+                                                        input(type='checkbox' name='Checkboxes2')
+                                                        span
+                                                        | Option 1
+                                                    label(class='checkbox')
+                                                        input(type='checkbox' name='Checkboxes2')
+                                                        span
+                                                        | Option 2
+                                                    label(class='checkbox')
+                                                        input(type='checkbox' name='Checkboxes2')
+                                                        span
+                                                        | Option 3
+                                        // Inline Radio Buttons
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right') Inline radios
+                                            div(class='col-9')
+                                                div(class='radio-inline')
+                                                    label(class='radio')
+                                                        input(type='radio' name='radios2')
+                                                        span
+                                                        |                                 Option 1
+                                                    label(class='radio')
+                                                        input(type='radio' name='radios2')
+                                                        span
+                                                        |                                 Option 2
+                                                    label(class='radio')
+                                                        input(type='radio' name='radios2')
+                                                        span
+                                                        |                                 Option 3
+                                                span(class='form-text text-muted') Some help text goes here
+                                        form(class='form form-label')
+                                            div(class='modal-body')
+                                                div(class='form-group row mt-2')
+                                                    label(class='col-form-label text-right col-lg-3 col-sm-12') Default Demo
+                                                    div(class='col-lg-9 col-md-9 col-sm-12')
+                                                        div(class='summernote')
+                                            div(class='modal-footer')
+                                                button(type='button' class='btn btn-primary mr-2' data-dismiss='modal') Close
+                                                button(type='button' class='btn btn-secondary') Submit
+
+                                            //-
+                                                div(class='form-group row')
+                                                    label(class='col-form-label text-right col-lg-3 col-sm-12') Google reCaptcha
+                                                    div(class='col-lg-4 col-md-9 col-sm-12')
+                                                        div(class='g-recaptcha' data-sitekey='6LdnLwgUAAAAAAIb9L3PQlHQgvSCi16sYgbMIMFR')
+                                                        div(class='form-text text-muted')
+                                                            | To learn more about Google reCaptcha please visit 
+                                                            a(class='link' href='http://www.google.com/recaptcha' target='_blank')
+                                                                | http://www.google.com/recaptcha
                                         //-           
                                             // Tags - remove duplicates
                                             div(class='form-group row')

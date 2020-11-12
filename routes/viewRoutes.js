@@ -35,9 +35,12 @@ router.get('/announcement-entries', viewsController.announcementEntries);
 router.get('/ratingAttributeGroups', viewsController.ratingAttributeGroups);
 
 // ANALYTICS RELATED ROUTES
-// router.get('/analytics', viewsController.analytics);
+router.get('/analytics', viewsController.analytics);
 
 // CHARTS RELATED ROUTES
-// router.get('/charts', viewsController.charts);
+router.get('/charts', viewsController.charts);
+
+// NEWSLETTER RELATED ROUTES
+router.get('/newsletter-messages', viewsController.newslettterMessages);
 
 module.exports = router;

@@ -19,10 +19,10 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Analytics  Form
+                            | Lead Categories Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_analytics(class='form' action='http://localhost:3000/api/v1/analytics')
+                        form#form_leadCategories(class='form' action='http://localhost:3000/api/v1/lead-categories')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
@@ -32,20 +32,19 @@ block content
                                             label(class='col-3 form-control-label') Name
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') State
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                div(class='typeahead')
-                                                    input#kt_typeahead_2(class='form-control' type='text' dir='ltr' placeholder='States of India')
-                                                div(class='form-text text-muted')
-                                        div(class='form-group row')
-                                            label(class='col-3 form-control-label') Owner Id
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label text-right' for='description')
+                                                | Description  
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='_ownerId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                                textarea#description(class='form-control' rows='3')
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Reporter Id
+                                            label(class='col-3 form-control-label') Notes 
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='_reporterId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                                input(type='text' class='form-control' name='notes' placeholder='  ')
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Status 
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='status' placeholder=' ')
                             div(class='card-footer text-right')
                                 div(class='row')
                                     div(class='col-lg-9 ml-lg-auto')
@@ -56,4 +55,4 @@ block content
             // end::Container
     // end::Entry
                                                 
-                                                                  
+ 

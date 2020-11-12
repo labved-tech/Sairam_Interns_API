@@ -1,3 +1,5 @@
+const HOST_URL = 'http://localhost:3000';
+
 const KTAppSettings = {
   breakpoints: {
     sm: 576,
