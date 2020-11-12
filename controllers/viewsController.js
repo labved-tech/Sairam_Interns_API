@@ -431,19 +431,14 @@ exports.announcementEntries = (req, res) => {
     .render('./../views/pages/announcement/announcementEntries', doc);
 };
 
-
 // ANALYTICS RELATED CONTROLLER
 exports.analytics = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/analytics/analytics', doc);
+  res.status(200).render('./../views/pages/analytics/analytics', doc);
 };
 
 // NEWSLETTER RELATED CONTROLLER
 exports.newslettterMessages = (req, res) => {
   console.log('We are in Newslettter Messages Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/newsletter/newsletterMessages', doc);
+  res.status(200).render('./../views/pages/newsletter/newsletterMessages', doc);
 };

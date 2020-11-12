@@ -105,9 +105,7 @@ router.use('/example', exampleRouter);
 router.use('/users', userRouter);
 
 // ANNOUNCEMENT
-router.use('/announcement/', announcementRouter);
-// router.use('/announcement-entries', announcementEntriesRouter);
-// router.use('/announcement-notify', announcementNotifyRouter);
+router.use('/announcement', announcementRouter);
 
 // RATINGS MODULE
 router.use('/ratingAttributeGroups', ratingAttributeGroupsRouter);

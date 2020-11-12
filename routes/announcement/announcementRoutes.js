@@ -14,6 +14,6 @@ router.use((req, res, next) => {
 
 /* ROUTES */
 router.use('/entries', announcementEntriesRouter);
-router.use('/notify', announcementNotifyRouter);
+router.use('/notification', announcementNotifyRouter);
 
 module.exports = router;
