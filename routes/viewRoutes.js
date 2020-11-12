@@ -31,10 +31,16 @@ router.get('/account-settings/users/add-new', viewsController.getAddUser);
 // ANNOUNCEMENT RELATED ROUTES
 router.get('/announcement-entries', viewsController.announcementEntries);
 
+// RATING RELATED ROUTES
+router.get('/ratingAttributeGroups', viewsController.ratingAttributeGroups);
+
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
 
 // CHARTS RELATED ROUTES
 //router.get('/charts', viewsController.charts);
+
+// NEWSLETTER RELATED ROUTES
+router.get('/newsletter-messages', viewsController.newslettterMessages);
 
 module.exports = router;
