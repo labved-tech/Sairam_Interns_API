@@ -32,9 +32,9 @@ router.get('/account-settings/users/add-new', viewsController.getAddUser);
 router.get('/announcement-entries', viewsController.announcementEntries);
 
 // ANALYTICS RELATED ROUTES
-router.get('/analytics', viewsController.analytics);
+// router.get('/analytics', viewsController.analytics);
 
 // CHARTS RELATED ROUTES
-router.get('/charts', viewsController.charts);
+// router.get('/charts', viewsController.charts);
 
 module.exports = router;
