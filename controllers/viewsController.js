@@ -438,8 +438,8 @@ exports.analytics = (req, res) => {
 };
 
 // NEWSLETTER RELATED CONTROLLER
-exports.newslettterMessages = (req, res) => {
-  console.log('We are in Newslettter Messages Form Page');
+exports.newsletterMessages = (req, res) => {
+  console.log('We are in Newsletter Messages Form Page');
   res.status(200).render('./../views/pages/newsletter/newsletterMessages', doc);
 };
 
