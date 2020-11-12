@@ -442,3 +442,11 @@ exports.newslettterMessages = (req, res) => {
   console.log('We are in Newslettter Messages Form Page');
   res.status(200).render('./../views/pages/newsletter/newsletterMessages', doc);
 };
+
+// RATING RELATED CONTROLLER
+exports.ratingAttributeGroups = (req, res) => {
+  console.log('We are in Rating AttributeGroups Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/rating/ratingAttributeGroups', doc);
+};
