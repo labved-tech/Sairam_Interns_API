@@ -19,27 +19,23 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Charts  Form
+                            | Form Response Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_charts(class='form' action='http://localhost:3000/api/v1/charts')
+                        form#form_formResponse(class='form' action='http://localhost:3000/api/v1/formResponse')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
                                         h3(class=' text-dark font-weight-bold mb-10') General
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Name
+                                            label(class='col-3 form-control-label') Form ID
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
+                                                input(type='text' class='form-control' name='_formId' placeholder='ex. 5fa92064cff6f652644266de')
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') State
+                                            label(class='col-3 form-control-label') Response
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='state' placeholder='ex. Tamil Nadu')
-                                        div(class='form-group row')
-                                            label(class='col-3 form-control-label') Owner ID
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='_ownerId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                                input(type='text' class='form-control' name='response' placeholder='')
                             div(class='card-footer text-right')
                                 div(class='row')
                                     div(class='col-lg-9 ml-lg-auto')
@@ -49,5 +45,4 @@ block content
                 // end::Card
             // end::Container
     // end::Entry
-                                                
-                         
+                                
