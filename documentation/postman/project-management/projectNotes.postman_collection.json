@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9a5c27b3-b09c-490b-b133-b6a27ece2ebc",
+		"_postman_id": "65bd0466-35bb-4c7f-a48c-fec1e295635d",
 		"name": "projectNotes",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-notes/",
+					"raw": "{{URL}}/api/v1/project/notes/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-notes",
+						"project",
+						"notes",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-notes/",
+					"raw": "{{URL}}/api/v1/project/notes/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-notes",
+						"project",
+						"notes",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-notes/5fab5ece34231a4e8c1570f3",
+					"raw": "{{URL}}/api/v1/project/notes/5fab5ece34231a4e8c1570f3",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-notes",
+						"project",
+						"notes",
 						"5fab5ece34231a4e8c1570f3"
 					]
 				}
@@ -129,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-notes/5fa145da390f455d04c9e03a",
+					"raw": "{{URL}}/api/v1/project/notes/5fa145da390f455d04c9e03a",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-notes",
+						"project",
+						"notes",
 						"5fa145da390f455d04c9e03a"
 					]
 				}
@@ -159,14 +163,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-notes/5fab5ece34231a4e8c1570f3",
+					"raw": "{{URL}}/api/v1/project/notes/5fab5ece34231a4e8c1570f3",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-notes",
+						"project",
+						"notes",
 						"5fab5ece34231a4e8c1570f3"
 					]
 				}

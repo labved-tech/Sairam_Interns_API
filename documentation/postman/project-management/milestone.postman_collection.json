@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3186d2dd-e9aa-4eaf-9654-94f4dd818385",
+		"_postman_id": "a2ac3d59-1d50-4bb4-a129-29e67e7df275",
 		"name": "milestone",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,13 +21,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/milestone/",
+					"raw": "{{URL}}/api/v1/project/milestone/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"milestone",
 						""
 					]
@@ -51,13 +52,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/milestone/5faac720cd270546d8415df1",
+					"raw": "{{URL}}/api/v1/project/milestone/5faac720cd270546d8415df1",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"milestone",
 						"5faac720cd270546d8415df1"
 					]
@@ -81,13 +83,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/milestone/5faac720cd270546d8415df1",
+					"raw": "{{URL}}/api/v1/project/milestone/5faac720cd270546d8415df1",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"milestone",
 						"5faac720cd270546d8415df1"
 					]
@@ -120,13 +123,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/milestone/",
+					"raw": "{{URL}}/api/v1/project/milestone/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"milestone",
 						""
 					]
@@ -159,13 +163,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/milestone/5faac720cd270546d8415df1",
+					"raw": "{{URL}}/api/v1/project/milestone/5faac720cd270546d8415df1",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"milestone",
 						"5faac720cd270546d8415df1"
 					]

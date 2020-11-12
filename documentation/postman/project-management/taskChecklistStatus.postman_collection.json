@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f990f85a-cb5e-4ae1-bbbe-7901abef81aa",
+		"_postman_id": "12e1ecb7-f67b-4c3d-b1c9-79f466e354f2",
 		"name": "taskChecklistStatus",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,13 +21,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/task-checklist-status/",
+					"raw": "{{URL}}/api/v1/project/task-checklist-status/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"task-checklist-status",
 						""
 					]
@@ -60,13 +61,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/task-checklist-status/",
+					"raw": "{{URL}}/api/v1/project/task-checklist-status/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"task-checklist-status",
 						""
 					]
@@ -90,13 +92,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/task-checklist-status/5fa14aa49e8faa3b74a01968",
+					"raw": "{{URL}}/api/v1/project/task-checklist-status/5fa14aa49e8faa3b74a01968",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"task-checklist-status",
 						"5fa14aa49e8faa3b74a01968"
 					]
@@ -129,13 +132,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/task-checklist-status/5fa14aa49e8faa3b74a01968",
+					"raw": "{{URL}}/api/v1/project/task-checklist-status/5fa14aa49e8faa3b74a01968",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"task-checklist-status",
 						"5fa14aa49e8faa3b74a01968"
 					]
@@ -159,13 +163,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/task-checklist-status/5fab63ed34231a4e8c15710a",
+					"raw": "{{URL}}/api/v1/project/task-checklist-status/5fab63ed34231a4e8c15710a",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"project",
 						"task-checklist-status",
 						"5fab63ed34231a4e8c15710a"
 					]

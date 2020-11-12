@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6de48cba-f725-420f-869d-1a9320f7f0b4",
+		"_postman_id": "bd96c475-2ce0-4e75-95f4-7f2c9603159b",
 		"name": "projectTaskFiles",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-task-files/",
+					"raw": "{{URL}}/api/v1/project/task-files/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-task-files",
+						"project",
+						"task-files",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-task-files/",
+					"raw": "{{URL}}/api/v1/project/task-files/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-task-files",
+						"project",
+						"task-files",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-task-files/5fa14620d7c3a31470e666fe",
+					"raw": "{{URL}}/api/v1/project/task-files/5fa14620d7c3a31470e666fe",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-task-files",
+						"project",
+						"task-files",
 						"5fa14620d7c3a31470e666fe"
 					]
 				}
@@ -129,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-task-files/5fa14620d7c3a31470e666fe",
+					"raw": "{{URL}}/api/v1/project/task-files/5fa14620d7c3a31470e666fe",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-task-files",
+						"project",
+						"task-files",
 						"5fa14620d7c3a31470e666fe"
 					]
 				}
@@ -159,14 +163,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-task-files/5fab5fc534231a4e8c1570fa",
+					"raw": "{{URL}}/api/v1/project/task-files/5fab5fc534231a4e8c1570fa",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-task-files",
+						"project",
+						"task-files",
 						"5fab5fc534231a4e8c1570fa"
 					]
 				}

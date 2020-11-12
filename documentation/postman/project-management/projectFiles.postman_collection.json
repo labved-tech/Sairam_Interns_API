@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e2a2596c-7450-44bc-8176-2cfd91a9acbe",
+		"_postman_id": "81ad67b3-7631-4ead-ac84-5e171d06938a",
 		"name": "projectFiles",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-files/",
+					"raw": "{{URL}}/api/v1/project/files/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-files",
+						"project",
+						"files",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-files/",
+					"raw": "{{URL}}/api/v1/project/files/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-files",
+						"project",
+						"files",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-files/5fab5cbe34231a4e8c1570e6",
+					"raw": "{{URL}}/api/v1/project/files/5fab5cbe34231a4e8c1570e6",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-files",
+						"project",
+						"files",
 						"5fab5cbe34231a4e8c1570e6"
 					]
 				}
@@ -119,14 +122,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/project-files/5fab5cbe34231a4e8c1570e6",
+					"raw": "{{URL}}/api/v1/project/files/5fab5cbe34231a4e8c1570e6",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-files",
+						"project",
+						"files",
 						"5fab5cbe34231a4e8c1570e6"
 					]
 				}
@@ -149,14 +153,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/project-files/5fab5cbe34231a4e8c1570e6",
+					"raw": "{{URL}}/api/v1/project/files/5fab5cbe34231a4e8c1570e6",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"project-files",
+						"project",
+						"files",
 						"5fab5cbe34231a4e8c1570e6"
 					]
 				}
