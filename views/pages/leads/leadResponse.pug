@@ -1,0 +1,71 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/js/KTAppSettings.js')
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/example/exampleFormControls.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Lead Categories Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#form_leadCategories(class='form' action='http://localhost:3000/api/v1/lead-response')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')  
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Lead ID
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='_leadId' placeholder='ex. 5fa92064cff6f652644266de')
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Response ID
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='_responseId' placeholder='ex. 5fa92064cff6f652644266de')
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right') Email Semt
+                                            div(class='col-9')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input(type='checkbox' checked='checked' name='select')
+                                                        span
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label text-right') Is Status Change
+                                            div(class='col-9')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input(type='checkbox' checked='checked' name='select')
+                                                        span
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label text-right' for='message')
+                                                | Message  
+                                                span(class='text-danger') *
+                                            div(class='col-9')
+                                                textarea#message(class='form-control' rows='3')
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Status 
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='status' placeholder='  ')
+                            div(class='card-footer text-right')
+                                div(class='row')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+    // end::Entry
