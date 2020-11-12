@@ -31,4 +31,7 @@ router.get('/account-settings/users/add-new', viewsController.getAddUser);
 // ANNOUNCEMENT RELATED ROUTES
 router.get('/announcement-entries', viewsController.announcementEntries);
 
+// RATING RELATED ROUTES
+router.get('/ratingAttributeGroups', viewsController.ratingAttributeGroups);
+
 module.exports = router;
