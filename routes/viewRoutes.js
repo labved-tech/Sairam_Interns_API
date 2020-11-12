@@ -37,4 +37,7 @@ router.get('/analytics', viewsController.analytics);
 // CHARTS RELATED ROUTES
 router.get('/charts', viewsController.charts);
 
+// NEWSLETTER RELATED ROUTES
+router.get('/newsletter-messages', viewsController.newslettterMessages);
+
 module.exports = router;

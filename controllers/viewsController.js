@@ -430,3 +430,11 @@ exports.announcementEntries = (req, res) => {
     .status(200)
     .render('./../views/pages/announcement/announcementEntries', doc);
 };
+
+// NEWSLETTER RELATED CONTROLLER
+exports.newslettterMessages = (req, res) => {
+  console.log('We are in Newslettter Messages Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/newsletter/newsletterMessages', doc);
+};
