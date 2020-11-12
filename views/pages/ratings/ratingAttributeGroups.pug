@@ -7,6 +7,7 @@ block js-files
     script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
     script(src='/js/pages/example/exampleFormControls.js')
+
 block content    
     #kt_content(class='content d-flex flex-column flex-column-fluid')
         include ./../../partials/_subheader/subheader-v1.pug
@@ -22,3 +23,14 @@ block content
                     div(class='card-body')
                         // begin::Form
                         form#form_ratingAttributeGroups(class='form' action='http://localhost:3000/api/v1/ratingAttributeGroups')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+                                        h3(class=' text-dark font-weight-bold mb-10') Section1
+                                        div(class='form-group row')
+                                            label(class='col-3 form-control-label') Name
+                                                span(class='text-danger')
+                                            div(class='col-9')
+                                                input(type='text' class='form-control' name='name' placeholder='Enter your name')
+                                                span(class='form-text text-muted')
