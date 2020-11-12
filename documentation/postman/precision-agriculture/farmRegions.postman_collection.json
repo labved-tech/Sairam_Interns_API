@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ecd6c9ed-f498-4f24-961e-c33e95b412ca",
+		"_postman_id": "e2b34970-e887-48db-ae50-aa76ee64f813",
 		"name": "farmRegions",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-regions/",
+					"raw": "{{URL}}/api/v1/farm/regions/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-regions",
+						"farm",
+						"regions",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-regions/",
+					"raw": "{{URL}}/api/v1/farm/regions/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-regions",
+						"farm",
+						"regions",
 						""
 					]
 				}
@@ -90,14 +92,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-regions/5faba0eef858a24b1c0ca5fb",
+					"raw": "{{URL}}/api/v1/farm/regions/5faba0eef858a24b1c0ca5fb",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-regions",
+						"farm",
+						"regions",
 						"5faba0eef858a24b1c0ca5fb"
 					]
 				}
@@ -129,14 +132,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-regions/5faba0eef858a24b1c0ca5fb",
+					"raw": "{{URL}}/api/v1/farm/regions/5faba0eef858a24b1c0ca5fb",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-regions",
+						"farm",
+						"regions",
 						"5faba0eef858a24b1c0ca5fb"
 					]
 				}
@@ -159,14 +163,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/farm-regions/5faba0eef858a24b1c0ca5fb",
+					"raw": "{{URL}}/api/v1/farm/regions/5faba0eef858a24b1c0ca5fb",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"farm-regions",
+						"farm",
+						"regions",
 						"5faba0eef858a24b1c0ca5fb"
 					]
 				}
