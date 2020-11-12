@@ -431,6 +431,13 @@ exports.announcementEntries = (req, res) => {
     .render('./../views/pages/announcement/announcementEntries', doc);
 };
 
+exports.announcementNotify = (req, res) => {
+  console.log('We are in Announcement Notifications Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementNotify', doc);
+};
+
 // ANALYTICS RELATED CONTROLLER
 exports.analytics = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
