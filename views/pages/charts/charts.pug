@@ -33,11 +33,13 @@ block content
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') State
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='state' placeholder='ex. Tamil Nadu')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') State
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='typeahead')
+                                                    input#kt_typeahead_2(class='form-control' type='text' dir='ltr' placeholder='States of India')
+                                                div(class='form-text text-muted')
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Owner ID
+                                            label(class='col-3 form-control-label') Owner Id
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='_ownerId' placeholder='ex. 5fa92064cff6f652644266de  ')
                             div(class='card-footer text-right')
