@@ -16,6 +16,7 @@ router.use((req, res, next) => {
 router.get('/overview', authController.protect, viewsController.getOverview);
 
 // EXAMPLE RELATED ROUTES
+router.get('/form', viewsController.getForm);
 router.get('/example', viewsController.getExample);
 
 // LOGIN RELATED ROUTES

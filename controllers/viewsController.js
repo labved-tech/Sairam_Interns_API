@@ -417,8 +417,13 @@ exports.getAddUser = (req, res) => {
   res.status(200).render(`./../views/pages/users/add-user`, doc);
 };
 
+// STANDARD FORM RELATED CONTROLLER
+exports.getForm = (req, res) => {
+  console.log('We are in Standard Form');
+  res.status(200).render(`./../views/pages/example/form`, doc);
+};
 // EXAMPLE RELATED CONTROLLER
-exports.example = (req, res) => {
+exports.getExample = (req, res) => {
   console.log('We are in Add Users Page');
   res.status(200).render(`./../views/pages/example/example`, doc);
 };
@@ -453,7 +458,5 @@ exports.newsletterMessages = (req, res) => {
 // RATING RELATED CONTROLLER
 exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/rating/ratingAttributeGroups', doc);
+  res.status(200).render('./../views/pages/rating/ratingAttributeGroups', doc);
 };

@@ -16,7 +16,7 @@ const pagesRouter = require('./pages/pagesRoutes');
 
 const reportsRouter = require('./reports/reportsRoutes');
 
-// FORMS 
+// FORMS
 const formResponseRouter = require('./forms/formResponseRoutes');
 const formsRouter = require('./forms/formsRoutes');
 
@@ -33,13 +33,13 @@ const precisionAgricultureRouter = require('./precision-agriculture/precisionAgr
 const projectManagementRouter = require('./project-management/projectManagementRoutes');
 
 // NEWSLETTER
-const newsletterRouter =  require('./newsletter/newsletterRoutes');
+const newsletterRouter = require('./newsletter/newsletterRoutes');
 
 // SALES AND FINANCE
 const salesFinanceRouter = require('./sales-finance/salesFinanceRoutes');
 
 // RATINGS
-const ratingsRouter = require('./ratings/ratingsRoutes')
+const ratingsRouter = require('./ratings/ratingsRoutes');
 
 // ECOMMERCE
 const ecommerceRouter = require('./ecommerce/ecommerceRoutes');
@@ -54,7 +54,7 @@ const eventEntriesRouter = require('./events/eventEntriesRoutes');
 const contractRouter = require('./contract/contractRoutes');
 
 // TICKETS & SUPPORT
-const ticketSupportRouter = require('./ticket-support/ticketSupportRoutes')
+const ticketSupportRouter = require('./ticket-support/ticketSupportRoutes');
 
 // DIRECTORY
 const directoryAttributesRouter = require('./directory/directoryAttributesGroupsRoutes');
@@ -79,10 +79,10 @@ router.use('/example', exampleRouter);
 router.use('/users', userRouter);
 
 // ANNOUNCEMENT
-router.use('/announcement', announcementRouter);
+router.use('/announcements', announcementRouter);
 
 // RATINGS MODULE
-router.use('/rating', ratingsRouter);
+router.use('/ratings', ratingsRouter);
 
 // TICKETS & SUPPORT MODULE
 router.use('/ticket-support', ticketSupportRouter);
@@ -102,7 +102,7 @@ router.use('/pages', pagesRouter);
 router.use('/reports', reportsRouter);
 
 // LEADS MODULE
-router.use('/lead', leadsRouter);
+router.use('/leads', leadsRouter);
 
 // PRECISION AGRICULTURE MODULE
 router.use('/farm', precisionAgricultureRouter);
@@ -127,7 +127,7 @@ router.use('/directory', directoryRouter);
 router.use('/eventEntries', eventEntriesRouter);
 
 // CONTRACT MODULE
-router.use('/contract', contractRouter);
+router.use('/contracts', contractRouter);
 
 // MENU MODULE
 router.use('/menu', menuRouter);
