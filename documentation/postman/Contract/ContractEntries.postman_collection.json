@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ce325276-a598-4ac9-a727-de04329cedfe",
+		"_postman_id": "1e1eb040-c459-4e3b-aace-717855fc4306",
 		"name": "ContractEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractEntries",
+					"raw": "{{URL}}/api/v1/contracts/entries",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractEntries"
+						"contracts",
+						"entries"
 					]
 				}
 			},
@@ -59,14 +60,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/contractEntries",
+					"raw": "{{URL}}/api/v1/contracts/entries",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractEntries"
+						"contracts",
+						"entries"
 					]
 				}
 			},
@@ -88,14 +90,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractEntries/5faa70175f29df39a817a93f",
+					"raw": "{{URL}}/api/v1/contracts/entries/5faa70175f29df39a817a93f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractEntries",
+						"contracts",
+						"entries",
 						"5faa70175f29df39a817a93f"
 					]
 				}
@@ -127,14 +130,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/contractEntries/5faa70175f29df39a817a93f",
+					"raw": "{{URL}}/api/v1/contracts/entries/5faa70175f29df39a817a93f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractEntries",
+						"contracts",
+						"entries",
 						"5faa70175f29df39a817a93f"
 					]
 				}
@@ -157,14 +161,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractEntries/5faa70175f29df39a817a93f",
+					"raw": "{{URL}}/api/v1/contracts/entries/5faa70175f29df39a817a93f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractEntries",
+						"contracts",
+						"entries",
 						"5faa70175f29df39a817a93f"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "28531090-b6d7-45ef-9ef1-32dd804b1999",
+		"_postman_id": "0118f31f-7fd0-4f3d-9c3e-1d9709ee9e0b",
 		"name": "announcementEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-entries",
+					"raw": "{{URL}}/api/v1/announcement/entries",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-entries"
+						"announcement",
+						"entries"
 					]
 				}
 			},
@@ -59,14 +60,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-entries",
+					"raw": "{{URL}}/api/v1/announcement/entries",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-entries"
+						"announcement",
+						"entries"
 					]
 				}
 			},
@@ -88,14 +90,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-entries/5faa6e71515f59084cda80a5",
+					"raw": "{{URL}}/api/v1/announcement/entries/5faa6e71515f59084cda80a5",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-entries",
+						"announcement",
+						"entries",
 						"5faa6e71515f59084cda80a5"
 					]
 				}
@@ -127,14 +130,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-entries/5faa6e71515f59084cda80a5",
+					"raw": "{{URL}}/api/v1/announcement/entries/5faa6e71515f59084cda80a5",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-entries",
+						"announcement",
+						"entries",
 						"5faa6e71515f59084cda80a5"
 					]
 				}
@@ -157,14 +161,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-entries/5faa6e71515f59084cda80a5",
+					"raw": "{{URL}}/api/v1/announcement/entries/5faa6e71515f59084cda80a5",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-entries",
+						"announcement",
+						"entries",
 						"5faa6e71515f59084cda80a5"
 					]
 				}

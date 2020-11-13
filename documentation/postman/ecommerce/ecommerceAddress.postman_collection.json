@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e86356f9-81d5-42b0-a9df-a7196fb407b9",
+		"_postman_id": "98f5b2e7-1231-4538-a6fd-f4054e67b555",
 		"name": "ecommerceAddress",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-address/5fa3ffe05cf0f234ccc48dc5",
+					"raw": "{{URL}}/api/v1/ecommerce/address/5fa3ffe05cf0f234ccc48dc5",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-address",
+						"ecommerce",
+						"address",
 						"5fa3ffe05cf0f234ccc48dc5"
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-address",
+					"raw": "{{URL}}/api/v1/ecommerce/address",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-address"
+						"ecommerce",
+						"address"
 					]
 				}
 			},
@@ -101,14 +103,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-address/5fa66196ca57092e80724161",
+					"raw": "{{URL}}/api/v1/ecommerce/address/5fa66196ca57092e80724161",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-address",
+						"ecommerce",
+						"address",
 						"5fa66196ca57092e80724161"
 					]
 				}
@@ -138,7 +141,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "{{URL}}:3000/api/v1/ecommerce-address",
+					"raw": "{{URL}}:3000/api/v1/ecommerce/address",
 					"host": [
 						"{{URL}}"
 					],
@@ -146,7 +149,8 @@
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-address"
+						"ecommerce",
+						"address"
 					]
 				}
 			},
@@ -177,14 +181,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}} /api/v1/ecommerce-address/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}} /api/v1/ecommerce/address/5f990bb3c727e952a076f3b7",
 					"host": [
 						"{{URL}} "
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-address",
+						"ecommerce",
+						"address",
 						"5f990bb3c727e952a076f3b7"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "38882ed6-dfcc-406d-a32e-cd0c1e4c3acf",
+		"_postman_id": "82a836bf-b15b-453a-9bee-1742cdea4cd3",
 		"name": "ratingEntries",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ratingEntries/5fa65640bcf66c01186c1ee5",
+					"raw": "{{URL}}/api/v1/ratings/entries/5fa65640bcf66c01186c1ee5",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ratingEntries",
+						"ratings",
+						"entries",
 						"5fa65640bcf66c01186c1ee5"
 					]
 				}
@@ -51,14 +52,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ratingEntries",
+					"raw": "{{URL}}/api/v1/ratings/entries",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ratingEntries"
+						"ratings",
+						"entries"
 					]
 				}
 			},
@@ -80,14 +82,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ratingEntries/5fa65640bcf66c01186c1ee5",
+					"raw": "{{URL}}/api/v1/ratings/entries/5fa65640bcf66c01186c1ee5",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ratingEntries",
+						"ratings",
+						"entries",
 						"5fa65640bcf66c01186c1ee5"
 					]
 				}
@@ -119,14 +122,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ratingEntries/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ratings/entries/5f990bb3c727e952a076f3b7",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ratingEntries",
+						"ratings",
+						"entries",
 						"5f990bb3c727e952a076f3b7"
 					]
 				}
@@ -158,14 +162,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ratingEntries",
+					"raw": "{{URL}}/api/v1/ratings/entries",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ratingEntries"
+						"ratings",
+						"entries"
 					]
 				}
 			},

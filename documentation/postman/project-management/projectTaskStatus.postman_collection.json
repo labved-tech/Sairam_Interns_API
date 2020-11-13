@@ -8,14 +8,23 @@
 		{
 			"name": "getAllProjectTaskStatus",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project/task-status/",
+					"raw": "{{URL}}/api/v1/project/task-status/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -30,6 +39,16 @@
 		{
 			"name": "createProjectTaskStatus",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -42,11 +61,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project/task-status/",
+					"raw": "{{URL}}/api/v1/project/task-status/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -61,14 +79,23 @@
 		{
 			"name": "getProjectTaskStatus",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project/task-status/0",
+					"raw": "{{URL}}/api/v1/project/task-status/0",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -83,6 +110,16 @@
 		{
 			"name": "updateProjectTaskStatus",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -95,11 +132,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project/task-status/5fa1466b4e0dd11dd05c5b07",
+					"raw": "{{URL}}/api/v1/project/task-status/5fa1466b4e0dd11dd05c5b07",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -114,14 +150,23 @@
 		{
 			"name": "deleteProjectTaskStatus",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project/task-status/0",
+					"raw": "{{URL}}/api/v1/project/task-status/0",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",

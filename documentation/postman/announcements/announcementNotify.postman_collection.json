@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "275ed1d3-7d8d-4130-ae5e-9a32e4047e77",
+		"_postman_id": "e342b1da-0493-44a3-896a-162973957d2e",
 		"name": "announcementNotify",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -28,7 +28,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/announcement-notify",
+					"raw": "localhost:3000/api/v1/announcement/notification",
 					"host": [
 						"localhost"
 					],
@@ -36,7 +36,8 @@
 					"path": [
 						"api",
 						"v1",
-						"announcement-notify"
+						"announcement",
+						"notification"
 					]
 				}
 			},
@@ -67,14 +68,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-notify",
+					"raw": "{{URL}}/api/v1/announcement/notification",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-notify"
+						"announcement",
+						"notification"
 					]
 				}
 			},
@@ -96,14 +98,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-notify/5faa6f9c435609069ca89f51",
+					"raw": "{{URL}}/api/v1/announcement/notification/5faa6f9c435609069ca89f51",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-notify",
+						"announcement",
+						"notification",
 						"5faa6f9c435609069ca89f51"
 					]
 				}
@@ -135,14 +138,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-notify/5faa6f9c435609069ca89f51",
+					"raw": "{{URL}}/api/v1/announcement/notification/5faa6f9c435609069ca89f51",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-notify",
+						"announcement",
+						"notification",
 						"5faa6f9c435609069ca89f51"
 					]
 				}
@@ -165,14 +169,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/announcement-notify/5faa6f9c435609069ca89f51",
+					"raw": "{{URL}}/api/v1/announcement/notification/5faa6f9c435609069ca89f51",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"announcement-notify",
+						"announcement",
+						"notification",
 						"5faa6f9c435609069ca89f51"
 					]
 				}
