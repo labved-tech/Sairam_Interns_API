@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const newsletterMessagesSchema = new Schema({
-  
+
   _newsletterId: { type: mongoose.ObjectId },
   subject: { type: String },
   message: { type: String },
@@ -17,7 +17,7 @@ const newsletterMessagesSchema = new Schema({
   createdBy: { type: mongoose.ObjectId, required: true },
   updatedBy: { type: mongoose.ObjectId, required: true },
 },
-{timestamps: true}
+  { timestamps: true }
 );
 
 /* MODEL */

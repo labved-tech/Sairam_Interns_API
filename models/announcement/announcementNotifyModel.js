@@ -8,7 +8,7 @@ const { Schema } = mongoose;
 const announcementNotifySchema = new Schema(
   {
     _announcementId: { type: mongoose.ObjectId },
-    priority: { type: Number},
+    priority: { type: Number },
     recipient: [
       {
         _id: { type: mongoose.ObjectId },
@@ -23,9 +23,9 @@ const announcementNotifySchema = new Schema(
         createdAt: { type: Date },
         updatedAt: { type: Date },
       }
-      
+
     ],
-    createdBy: { type: mongoose.ObjectId  },
+    createdBy: { type: mongoose.ObjectId },
     updatedBy: { type: mongoose.ObjectId },
   },
   { timestamps: true }
