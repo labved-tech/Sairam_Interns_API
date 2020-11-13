@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "60d7522c-b605-452a-9f7e-9a980aacdbc7",
+		"_postman_id": "e8202604-5802-4f2b-acd0-1af933649452",
 		"name": "ecommerceLocation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-locations/5fa666572e919323b40c322f",
+					"raw": "{{URL}}/api/v1/ecommerce/locations/5fa666572e919323b40c322f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-locations",
+						"ecommerce",
+						"locations",
 						"5fa666572e919323b40c322f"
 					]
 				}
@@ -51,14 +52,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-locations/5fa666572e919323b40c322f",
+					"raw": "{{URL}}/api/v1/ecommerce/locations/5fa666572e919323b40c322f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-locations",
+						"ecommerce",
+						"locations",
 						"5fa666572e919323b40c322f"
 					]
 				}
@@ -81,14 +83,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-locations",
+					"raw": "{{URL}}/api/v1/ecommerce/locations",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-locations"
+						"ecommerce",
+						"locations"
 					]
 				}
 			},
@@ -119,14 +122,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-locations",
+					"raw": "{{URL}}/api/v1/ecommerce/locations",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-locations"
+						"ecommerce",
+						"locations"
 					]
 				}
 			},
@@ -157,14 +161,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-locations/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce/locations/5f990bb3c727e952a076f3b7",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-locations",
+						"ecommerce",
+						"locations",
 						"5f990bb3c727e952a076f3b7"
 					]
 				}

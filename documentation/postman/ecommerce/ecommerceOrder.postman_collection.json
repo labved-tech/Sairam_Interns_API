@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d43c0057-1bf5-4428-b617-8f7c4e4dc3db",
+		"_postman_id": "56e4b863-60c9-457f-a188-a5ebf6bfb571",
 		"name": "ecommerceOrder",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
+					"raw": "{{URL}}/api/v1/ecommerce/order/5fa404a6a12c91117020d067",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-order",
+						"ecommerce",
+						"order",
 						"5fa404a6a12c91117020d067"
 					]
 				}
@@ -51,14 +52,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-order",
+					"raw": "{{URL}}/api/v1/ecommerce/order",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-order"
+						"ecommerce",
+						"order"
 					]
 				}
 			},
@@ -80,14 +82,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-order/5fa404a6a12c91117020d067",
+					"raw": "{{URL}}/api/v1/ecommerce/order/5fa404a6a12c91117020d067",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-order",
+						"ecommerce",
+						"order",
 						"5fa404a6a12c91117020d067"
 					]
 				}
@@ -119,14 +122,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-order/5f990bb3c727e952a076f3b7",
+					"raw": "{{URL}}/api/v1/ecommerce/order/5f990bb3c727e952a076f3b7",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-order",
+						"ecommerce",
+						"order",
 						"5f990bb3c727e952a076f3b7"
 					]
 				}
@@ -158,14 +162,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ecommerce-order",
+					"raw": "{{URL}}/api/v1/ecommerce/order",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ecommerce-order"
+						"ecommerce",
+						"order"
 					]
 				}
 			},

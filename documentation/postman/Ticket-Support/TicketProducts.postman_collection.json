@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9875a8bb-a561-4cb1-9c83-b500d8ba2405",
+		"_postman_id": "0409a5e3-eb8f-4dce-96e3-9e4e3d24a2ce",
 		"name": "TicketProducts",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketProducts",
+					"raw": "{{URL}}/api/v1/ticket-support/products",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketProducts"
+						"ticket-support",
+						"products"
 					]
 				}
 			},
@@ -59,14 +60,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketProducts",
+					"raw": "{{URL}}/api/v1/ticket-support/products",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketProducts"
+						"ticket-support",
+						"products"
 					]
 				}
 			},
@@ -88,14 +90,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketProducts/5faa79e5925b4064c8814e3f",
+					"raw": "{{URL}}/api/v1/ticket-support/products/5faa79e5925b4064c8814e3f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketProducts",
+						"ticket-support",
+						"products",
 						"5faa79e5925b4064c8814e3f"
 					]
 				}
@@ -127,14 +130,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketProducts/5faa79e5925b4064c8814e3f",
+					"raw": "{{URL}}/api/v1/ticket-support/products/5faa79e5925b4064c8814e3f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketProducts",
+						"ticket-support",
+						"products",
 						"5faa79e5925b4064c8814e3f"
 					]
 				}
@@ -157,14 +161,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketProducts/5faa79e5925b4064c8814e3f",
+					"raw": "{{URL}}/api/v1/ticket-support/products/5faa79e5925b4064c8814e3f",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketProducts",
+						"ticket-support",
+						"products",
 						"5faa79e5925b4064c8814e3f"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b56be1c3-342b-4c6b-90fa-59b3ca25c76d",
+		"_postman_id": "36660cb6-691d-4218-b78f-3c7b60ca9ae7",
 		"name": "taxInvoice",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,13 +21,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/tax-invoice",
+					"raw": "{{URL}}/api/v1/sales-finance/tax-invoice",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"tax-invoice"
 					]
 				}
@@ -50,13 +51,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/tax-invoice/5faa7672acf7051e201fc058",
+					"raw": "{{URL}}/api/v1/sales-finance/tax-invoice/5faa7672acf7051e201fc058",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"tax-invoice",
 						"5faa7672acf7051e201fc058"
 					]
@@ -80,13 +82,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/tax-invoice/5faa7672acf7051e201fc058",
+					"raw": "{{URL}}/api/v1/sales-finance/tax-invoice/5faa7672acf7051e201fc058",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"tax-invoice",
 						"5faa7672acf7051e201fc058"
 					]
@@ -119,13 +122,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/tax-invoice/5faa7672acf7051e201fc058",
+					"raw": "{{URL}}/api/v1/sales-finance/tax-invoice/5faa7672acf7051e201fc058",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"tax-invoice",
 						"5faa7672acf7051e201fc058"
 					]
@@ -158,13 +162,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/tax-invoice",
+					"raw": "{{URL}}/api/v1/sales-finance/tax-invoice",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"tax-invoice"
 					]
 				}
