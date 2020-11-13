@@ -450,3 +450,11 @@ exports.ratingAttributeGroups = (req, res) => {
     .status(200)
     .render('./../views/pages/rating/ratingAttributeGroups', doc);
 };
+// EVENT RELATED CONTROLLER
+exports.eventEntries = (req, res) => {
+  console.log('We are in event Entries Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/event/eventEntries', doc);
+};
+

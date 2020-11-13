@@ -43,4 +43,7 @@ router.get('/analytics', viewsController.analytics);
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter-messages', viewsController.newslettterMessages);
 
+// EVENT RELATED ROUTES
+router.get('/event-entries', viewsController.eventEntries);
+
 module.exports = router;
