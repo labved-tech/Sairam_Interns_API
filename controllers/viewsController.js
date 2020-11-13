@@ -464,8 +464,16 @@ exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');
   res.status(200).render('./../views/pages/rating/ratingAttributeGroups', doc);
 };
+
+exports.ratingAttribute = (req, res) => {
+  console.log('We are in Rating Attribute Form Page');
+  res.status(200).render('./../views/pages/rating/ratingAttribute', doc);
+};
+
 // EVENT RELATED CONTROLLER
 exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');
   res.status(200).render('./../views/pages/event/eventEntries', doc);
 };
+
+
