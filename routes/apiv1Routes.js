@@ -79,7 +79,7 @@ router.use('/example', exampleRouter);
 router.use('/users', userRouter);
 
 // ANNOUNCEMENT
-router.use('/announcements', announcementRouter);
+router.use('/announcement', announcementRouter);
 
 // RATINGS MODULE
 router.use('/ratings', ratingsRouter);

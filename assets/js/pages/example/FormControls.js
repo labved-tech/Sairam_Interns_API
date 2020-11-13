@@ -5,6 +5,14 @@
 const KTFormControls = (function () {
   // Private functions
   const _initDemo1 = function () {
+    // Getting Document related information
+    const form = KTUtil.getById('kt_form_1');           
+    const formSubmitButton = KTUtil.getById('submitButton');
+
+    if (!form) {
+      return;
+    }
+
     FormValidation.formValidation(document.getElementById('kt_form_1'), {
       fields: {
         email: {
@@ -27,9 +35,25 @@ const KTFormControls = (function () {
         // Validate fields when clicking the Submit button
         submitButton: new FormValidation.plugins.SubmitButton(),
         // Submit the form when all fields are valid
-        defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
-    });
+    }).on('core.form.valid', function () {
+      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+      // Accessing Restful API
+      axios({
+        method: 'post',
+        url: `${HOST_URL}/api/v1/example`,
+        data: {
+          
+        },
+
+      }).then(function (res) {
+        KTUtil.btnRelease(formSubmitButton);
+        console.log(res);
+      })
+
+     }).on('core.form.invalid', function () { });
   };
 
   return {

@@ -6,7 +6,7 @@ block css-files
 block js-files
     script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/announcement/announcementEntries.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -22,7 +22,7 @@ block content
                             | Announcement Entries Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_announcementEntries(class='form' action='http://localhost:3000/api/v1/announcement-entries')
+                        form#form_announcementEntries(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
@@ -36,7 +36,7 @@ block content
                                             label(class='col-3' for='messageTextArea')
                                                 | Message 
                                             div(class='col-9')
-                                                textarea#messageTextArea(class='form-control' rows='3')
+                                                textarea(class='form-control' rows='3' name='messageTextArea')
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') From
                                             div(class='col-9')
@@ -72,7 +72,7 @@ block content
                                             label(class='col-3' for='statusSelect')
                                                 | Status
                                             div(class='col-9')
-                                                select#exampleSelect1(class='form-control')
+                                                select#exampleSelect2(class='form-control')
                                                     option Active
                                                     option Suspended
                                                     option Deleted
