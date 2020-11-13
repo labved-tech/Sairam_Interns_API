@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "231727fa-fb50-4c19-a266-e04c6b692745",
+		"_postman_id": "7b3f2a19-7f9d-4f13-973c-cf19240e3a52",
 		"name": "TicketCategories",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories",
+					"raw": "{{URL}}/api/v1/ticket-support/categories",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketCategories"
+						"ticket-support",
+						"categories"
 					]
 				}
 			},
@@ -59,14 +60,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories",
+					"raw": "{{URL}}/api/v1/ticket-support/categories",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketCategories"
+						"ticket-support",
+						"categories"
 					]
 				}
 			},
@@ -88,14 +90,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories/5fa9370d3617484774cf2dd6",
+					"raw": "{{URL}}/api/v1/ticket-support/categories/5fa9370d3617484774cf2dd6",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketCategories",
+						"ticket-support",
+						"categories",
 						"5fa9370d3617484774cf2dd6"
 					]
 				}
@@ -127,14 +130,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories/5fa9370d3617484774cf2dd6",
+					"raw": "{{URL}}/api/v1/ticket-support/categories/5fa9370d3617484774cf2dd6",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketCategories",
+						"ticket-support",
+						"categories",
 						"5fa9370d3617484774cf2dd6"
 					]
 				}
@@ -157,14 +161,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketCategories/5fa9370d3617484774cf2dd6",
+					"raw": "{{URL}}/api/v1/ticket-support/categories/5fa9370d3617484774cf2dd6",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketCategories",
+						"ticket-support",
+						"categories",
 						"5fa9370d3617484774cf2dd6"
 					]
 				}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a07bb270-d5ac-493f-a5b1-d15d04312a97",
+		"_postman_id": "1d4b6ab3-a2fb-497e-8321-a2a602eb86de",
 		"name": "ContractTemplates",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/",
+					"raw": "{{URL}}/api/v1/contracts/templates/",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractTemplates",
+						"contracts",
+						"templates",
 						""
 					]
 				}
@@ -60,14 +61,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates",
+					"raw": "{{URL}}/api/v1/contracts/templates",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractTemplates"
+						"contracts",
+						"templates"
 					]
 				}
 			},
@@ -89,14 +91,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/5faa7d46bc592b624098c769",
+					"raw": "{{URL}}/api/v1/contracts/templates/5faa7d46bc592b624098c769",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractTemplates",
+						"contracts",
+						"templates",
 						"5faa7d46bc592b624098c769"
 					]
 				}
@@ -128,14 +131,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/5faa7d46bc592b624098c769",
+					"raw": "{{URL}}/api/v1/contracts/templates/5faa7d46bc592b624098c769",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractTemplates",
+						"contracts",
+						"templates",
 						"5faa7d46bc592b624098c769"
 					]
 				}
@@ -158,14 +162,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/contractTemplates/5faa7d46bc592b624098c769",
+					"raw": "{{URL}}/api/v1/contracts/templates/5faa7d46bc592b624098c769",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"contractTemplates",
+						"contracts",
+						"templates",
 						"5faa7d46bc592b624098c769"
 					]
 				}

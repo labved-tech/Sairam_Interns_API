@@ -13,7 +13,7 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
-router.use('/Entries', contractEntriesRouter);
-router.use('/Templates', contractTemplatesRouter);
+router.use('/entries', contractEntriesRouter);
+router.use('/templates', contractTemplatesRouter);
 
 module.exports = router;

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d04fff7c-ff5a-4029-aec6-db23c04d5e4f",
+		"_postman_id": "7be4aeaa-a5de-4964-ba03-81c080fd5d46",
 		"name": "quotation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,13 +21,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/quotation",
+					"raw": "{{URL}}/api/v1/sales-finance/quotation",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"quotation"
 					]
 				}
@@ -50,13 +51,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/quotation/5faa7508acf7051e201fc050",
+					"raw": "{{URL}}/api/v1/sales-finance/quotation/5faa7508acf7051e201fc050",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"quotation",
 						"5faa7508acf7051e201fc050"
 					]
@@ -80,13 +82,14 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/quotation/5faa7508acf7051e201fc050",
+					"raw": "{{URL}}/api/v1/sales-finance/quotation/5faa7508acf7051e201fc050",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"quotation",
 						"5faa7508acf7051e201fc050"
 					]
@@ -119,13 +122,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/quotation/5faa7508acf7051e201fc050",
+					"raw": "{{URL}}/api/v1/sales-finance/quotation/5faa7508acf7051e201fc050",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"quotation",
 						"5faa7508acf7051e201fc050"
 					]
@@ -158,13 +162,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/quotation",
+					"raw": "{{URL}}/api/v1/sales-finance/quotation",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
+						"sales-finance",
 						"quotation"
 					]
 				}

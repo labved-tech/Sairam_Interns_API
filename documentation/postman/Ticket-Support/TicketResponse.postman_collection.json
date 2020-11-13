@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b17d8a96-e208-41a3-b8a8-85622b04f4dd",
+		"_postman_id": "6781e2b0-8815-47c4-a19b-5ce8e8d65094",
 		"name": "TicketResponse",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -21,14 +21,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketResponse",
+					"raw": "{{URL}}/api/v1/ticket-support/response",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketResponse"
+						"ticket-support",
+						"response"
 					]
 				}
 			},
@@ -59,14 +60,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketResponse",
+					"raw": "{{URL}}/api/v1/ticket-support/response",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketResponse"
+						"ticket-support",
+						"response"
 					]
 				}
 			},
@@ -88,14 +90,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketResponse/5faa7a62a261e1539876aaa0",
+					"raw": "{{URL}}/api/v1/ticket-support/response/5faa7a62a261e1539876aaa0",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketResponse",
+						"ticket-support",
+						"response",
 						"5faa7a62a261e1539876aaa0"
 					]
 				}
@@ -127,14 +130,15 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketResponse/5faa7a62a261e1539876aaa0",
+					"raw": "{{URL}}/api/v1/ticket-support/response/5faa7a62a261e1539876aaa0",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketResponse",
+						"ticket-support",
+						"response",
 						"5faa7a62a261e1539876aaa0"
 					]
 				}
@@ -157,14 +161,15 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/ticketResponse/5faa7a62a261e1539876aaa0",
+					"raw": "{{URL}}/api/v1/ticket-support/response/5faa7a62a261e1539876aaa0",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"api",
 						"v1",
-						"ticketResponse",
+						"ticket-support",
+						"response",
 						"5faa7a62a261e1539876aaa0"
 					]
 				}
