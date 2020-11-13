@@ -22,8 +22,7 @@ const announcementNotifySchema = new Schema(
         updatedBy: { type: mongoose.ObjectId },
         createdAt: { type: Date },
         updatedAt: { type: Date },
-      }
-
+      },
     ],
     createdBy: { type: mongoose.ObjectId },
     updatedBy: { type: mongoose.ObjectId },
