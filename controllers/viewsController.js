@@ -427,7 +427,11 @@ exports.getExample = (req, res) => {
   console.log('We are in Add Users Page');
   res.status(200).render(`./../views/pages/example/example`, doc);
 };
-
+// TABLE RELATED CONTROLLER
+exports.getTable = (req, res) => {
+  console.log('We are in Tables Page');
+  res.status(200).render(`./../views/pages/example/table`, doc);
+};
 // ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntries = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
