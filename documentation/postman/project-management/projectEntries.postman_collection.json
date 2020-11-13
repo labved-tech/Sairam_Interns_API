@@ -8,14 +8,23 @@
 		{
 			"name": "getAllProjectEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project/entries/",
+					"raw": "{{URL}}/api/v1/project/entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -30,6 +39,16 @@
 		{
 			"name": "createProjectEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -42,11 +61,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project/entries/",
+					"raw": "{{URL}}/api/v1/project/entries/",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -92,6 +110,16 @@
 		{
 			"name": "updateProjectEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PATCH",
 				"header": [],
 				"body": {
@@ -104,11 +132,10 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/api/v1/project/entries/5fa14458d848130b0c21b235",
+					"raw": "{{URL}}/api/v1/project/entries/5fa14458d848130b0c21b235",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
@@ -123,14 +150,23 @@
 		{
 			"name": "deleteProjectEntries",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{jwt}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/api/v1/project/entries/0",
+					"raw": "{{URL}}/api/v1/project/entries/0",
 					"host": [
-						"localhost"
+						"{{URL}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"v1",
