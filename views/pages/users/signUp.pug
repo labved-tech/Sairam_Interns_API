@@ -1,15 +1,5 @@
 doctype html
-//
-	Template Name: Metronic - Bootstrap 4 HTML, React, Angular 9 & VueJS Admin Dashboard Theme
-	Author: KeenThemes
-	Website: http://www.keenthemes.com/
-	Contact: support@keenthemes.com
-	Follow: www.twitter.com/keenthemes
-	Dribbble: www.dribbble.com/keenthemes
-	Like: www.facebook.com/keenthemes
-	Purchase: https://1.envato.market/EA4JP
-	Renew Support: https://1.envato.market/EA4JP
-	License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+
 html(lang='en')
 	// begin::Head
 	head
@@ -75,9 +65,9 @@ html(lang='en')
 											span(class='wizard-number') 2
 										div(class='wizard-label')
 											h3(class='wizard-title')
-												| Address Details
+												| Personal Details
 											div(class='wizard-desc')
-												| Setup Residence Address
+												| Setup Residential Address
 								// end::Wizard Step 2 Nav
 								// begin::Wizard Step 3 Nav
 								div(class='wizard-step' data-wizard-type='step')
@@ -87,9 +77,9 @@ html(lang='en')
 											span(class='wizard-number') 3
 										div(class='wizard-label')
 											h3(class='wizard-title')
-												| Make Payment
+												| Subscription
 											div(class='wizard-desc')
-												| Use Credit or Debit Cards
+												| Select your subscription
 								// end::Wizard Step 3 Nav
 								// begin::Wizard Step 4 Nav
 								div(class='wizard-step' data-wizard-type='step')
@@ -99,10 +89,22 @@ html(lang='en')
 											span(class='wizard-number') 4
 										div(class='wizard-label')
 											h3(class='wizard-title')
+												| Make Payment
+											div(class='wizard-desc')
+												| Use Credit or Debit Cards
+								// end::Wizard Step 4 Nav
+								// begin::Wizard Step 5 Nav
+								div(class='wizard-step' data-wizard-type='step')
+									div(class='wizard-wrapper')
+										div(class='wizard-icon')
+											i(class='wizard-check ki ki-check')
+											span(class='wizard-number') 5
+										div(class='wizard-label')
+											h3(class='wizard-title')
 												| Completed!
 											div(class='wizard-desc')
 												| Review and Submit
-								// end::Wizard Step 4 Nav
+								// end::Wizard Step 5 Nav
 							// end::Wizard Steps
 						// end: Wizard Nav
 					// end::Aside Top
@@ -131,61 +133,126 @@ html(lang='en')
 										h3(class='font-weight-bolder text-dark display5') Create Account
 										div(class='text-muted font-weight-bold font-size-h4')
 											| Already have an Account ?
-											a(href='custom/pages/login/login-3/signin.html' class='text-primary font-weight-bolder') Sign In
+											a(href='custom/pages/login/login-3/signin.html' class='text-primary font-weight-bolder')  Sign In
 									// begin::Title
 									// begin::Form Group
 									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Email Address
+										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='email' placeholder='' value='')
+									// end::Form Group
+									// begin::Form Group
+									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Password
+										input(type='password' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='password' placeholder='' value='')
+										span(class='form-text text-muted') minimum 8 characters    
+									// end::Form Group
+									// begin::Form Group
+									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Confirm Password
+										input(type='password' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='confirmPassword' placeholder='' value='')
+									// end::Form Group
+									// begin::Form Group
+									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Username
+										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='userName' placeholder='ex. user1' value='')
+										span(class='form-text text-muted') choose a username to go with this account
+									// end::Form Group
+									// begin::Form Group
+									div(class='form-group')
 										label(class='font-size-h6 font-weight-bolder text-dark') First Name
-										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='fname' placeholder='First Name' value='')
+										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='firstName' placeholder='First Name' value='')
+									// end::Form Group
+									// begin::Form Group
+									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Middle Name
+										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='middleName' placeholder='Middle Name' value='')
 									// end::Form Group
 									// begin::Form Group
 									div(class='form-group')
 										label(class='font-size-h6 font-weight-bolder text-dark') Last Name
-										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='lname' placeholder='Last Name' value='')
+										input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='lastName' placeholder='Last Name' value='')
 									// end::Form Group
 									// begin::Form Group
 									div(class='form-group')
-										label(class='font-size-h6 font-weight-bolder text-dark') Phone
-										input(type='tel' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='phone' placeholder='phone' value='+61412345678')
+										label(class='font-size-h6 font-weight-bolder text-dark') Date of Birth
+											div(class='input-group date')
+												input#kt_datepicker_2(type='text' class='form-control h-auto  py-7 px-6 border-0 rounded-lg font-size-h6' readonly='' placeholder='Select date')
+												div(class='input-group-append')
+													span(class='input-group-text')
+														i(class='la la-calendar-check-o')
+									// end::Form Group
+									// begin::Form Group
+									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Mobile No
+										input(type='tel' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='mobileNo' placeholder='+91 9884052896' value='')
 									// end::Form Group
 								// end: Wizard Step 1
 								// begin: Wizard Step 2
 								div(class='pb-5' data-wizard-type='step-content')
 									// begin::Title
 									div(class='pt-lg-0 pt-5 pb-15')
-										h3(class='font-weight-bolder text-dark font-size-h2 font-size-h1-lg') Address Details
-										div(class='text-muted font-weight-bold font-size-h4')
-											| Have a Different Address ?
-											a(href='#' class='text-primary font-weight-bolder') Add Address
+										h3(class='font-weight-bolder text-dark font-size-h2 font-size-h1-lg') Personal Details
+										//
+											div(class='text-muted font-weight-bold font-size-h4')
+												| Have a Different Address ?
+												a(href='#' class='text-primary font-weight-bolder') Add Address
 									// begin::Title
+									// begin::Form Group
+									div(class='form-group')
+										label(class='font-size-h6 font-weight-bolder text-dark') Landline No
+										input(type='tel' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='landlineNo' placeholder='+91 44 43548262' value='')
+									// end::Form Group
 									// begin::Row
 									div(class='row')
 										div(class='col-xl-6')
 											// begin::Input
 											div(class='form-group')
 												label(class='font-size-h6 font-weight-bolder text-dark') Address Line 1
-												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='address1' placeholder='Address Line 1' value='Address Line 1')
+												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='address1' placeholder='Address Line 1' value='')
 											// end::Input
 										div(class='col-xl-6')
 											// begin::Input
 											div(class='form-group')
 												label(class='font-size-h6 font-weight-bolder text-dark') Address Line 2
-												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='address2' placeholder='Address Line 2' value='Address Line 2')
+												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='address2' placeholder='Address Line 2' value='')
 											// end::Input
+									// end::Row
+									div(class='row')
+										div(class='col-xl-12')
+											// begin::Input
+											div(class='form-group')
+												label(class='font-size-h6 font-weight-bolder text-dark') Landmark
+												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='landmark' placeholder='eg. near pizzahut' value='')
+												span(class='form-text text-muted') provide some famous landmark nearby
+											// end::Input
+										div(class='col-xl-6')
+
 									// end::Row
 									// begin::Row
 									div(class='row')
-										div(class='col-xl-6')
-											// begin::Input
+										div(class='col-xl-12')
+											// begin::Select
 											div(class='form-group')
-												label(class='font-size-h6 font-weight-bolder text-dark') Postcode
-												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='postcode' placeholder='Postcode' value='3000')
-											// end::Input
+												label(class='font-size-h6 font-weight-bolder text-dark') Country
+												div(class='typeahead')
+													input(class='form-control typeahead h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='kt_typeahead_3' type='text' dir='ltr' placeholder='Countries')
+											// end::Select
+										//	div(class='col-xl-6')
+									// end::Row
+									// begin::Row
+									div(class='row')
 										div(class='col-xl-6')
 											// begin::Input
 											div(class='form-group')
 												label(class='font-size-h6 font-weight-bolder text-dark') City
-												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='city' placeholder='City' value='Melbourne')
+												input#kt_typeahead_2(class='form-control typeahead h-auto py-7 px-6 border-0 rounded-lg font-size-h6' type='text' dir='ltr' placeholder='States of USA')
+											// end::Input
+										div(class='col-xl-6')
+											// begin::Input
+											div(class='form-group')
+												label(class='font-size-h6 font-weight-bolder text-dark') State
+												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='state' placeholder='State' value='')
+												span(class='form-text text-muted') Please enter your State.
 											// end::Input
 									// end::Row
 									// begin::Row
@@ -193,306 +260,35 @@ html(lang='en')
 										div(class='col-xl-6')
 											// begin::Input
 											div(class='form-group')
-												label(class='font-size-h6 font-weight-bolder text-dark') State
-												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='state' placeholder='State' value='VIC')
-												span(class='form-text text-muted') Please enter your State.
+												label(class='font-size-h6 font-weight-bolder text-dark') Zip Code
+												input(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='zipoCode' placeholder='eg. 600010' value='')
 											// end::Input
 										div(class='col-xl-6')
-											// begin::Select
-											div(class='form-group')
-												label(class='font-size-h6 font-weight-bolder text-dark') Country
-												select(name='country' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6')
-													option(value='') Select
-													option(value='AF') Afghanistan
-													option(value='AX') Åland Islands
-													option(value='AL') Albania
-													option(value='DZ') Algeria
-													option(value='AS') American Samoa
-													option(value='AD') Andorra
-													option(value='AO') Angola
-													option(value='AI') Anguilla
-													option(value='AQ') Antarctica
-													option(value='AG') Antigua and Barbuda
-													option(value='AR') Argentina
-													option(value='AM') Armenia
-													option(value='AW') Aruba
-													option(value='AU' selected='') Australia
-													option(value='AT') Austria
-													option(value='AZ') Azerbaijan
-													option(value='BS') Bahamas
-													option(value='BH') Bahrain
-													option(value='BD') Bangladesh
-													option(value='BB') Barbados
-													option(value='BY') Belarus
-													option(value='BE') Belgium
-													option(value='BZ') Belize
-													option(value='BJ') Benin
-													option(value='BM') Bermuda
-													option(value='BT') Bhutan
-													option(value='BO') Bolivia, Plurinational State of
-													option(value='BQ') Bonaire, Sint Eustatius and Saba
-													option(value='BA') Bosnia and Herzegovina
-													option(value='BW') Botswana
-													option(value='BV') Bouvet Island
-													option(value='BR') Brazil
-													option(value='IO') British Indian Ocean Territory
-													option(value='BN') Brunei Darussalam
-													option(value='BG') Bulgaria
-													option(value='BF') Burkina Faso
-													option(value='BI') Burundi
-													option(value='KH') Cambodia
-													option(value='CM') Cameroon
-													option(value='CA') Canada
-													option(value='CV') Cape Verde
-													option(value='KY') Cayman Islands
-													option(value='CF') Central African Republic
-													option(value='TD') Chad
-													option(value='CL') Chile
-													option(value='CN') China
-													option(value='CX') Christmas Island
-													option(value='CC') Cocos (Keeling) Islands
-													option(value='CO') Colombia
-													option(value='KM') Comoros
-													option(value='CG') Congo
-													option(value='CD') Congo, the Democratic Republic of the
-													option(value='CK') Cook Islands
-													option(value='CR') Costa Rica
-													option(value='CI') Côte d'Ivoire
-													option(value='HR') Croatia
-													option(value='CU') Cuba
-													option(value='CW') Curaçao
-													option(value='CY') Cyprus
-													option(value='CZ') Czech Republic
-													option(value='DK') Denmark
-													option(value='DJ') Djibouti
-													option(value='DM') Dominica
-													option(value='DO') Dominican Republic
-													option(value='EC') Ecuador
-													option(value='EG') Egypt
-													option(value='SV') El Salvador
-													option(value='GQ') Equatorial Guinea
-													option(value='ER') Eritrea
-													option(value='EE') Estonia
-													option(value='ET') Ethiopia
-													option(value='FK') Falkland Islands (Malvinas)
-													option(value='FO') Faroe Islands
-													option(value='FJ') Fiji
-													option(value='FI') Finland
-													option(value='FR') France
-													option(value='GF') French Guiana
-													option(value='PF') French Polynesia
-													option(value='TF') French Southern Territories
-													option(value='GA') Gabon
-													option(value='GM') Gambia
-													option(value='GE') Georgia
-													option(value='DE') Germany
-													option(value='GH') Ghana
-													option(value='GI') Gibraltar
-													option(value='GR') Greece
-													option(value='GL') Greenland
-													option(value='GD') Grenada
-													option(value='GP') Guadeloupe
-													option(value='GU') Guam
-													option(value='GT') Guatemala
-													option(value='GG') Guernsey
-													option(value='GN') Guinea
-													option(value='GW') Guinea-Bissau
-													option(value='GY') Guyana
-													option(value='HT') Haiti
-													option(value='HM') Heard Island and McDonald Islands
-													option(value='VA') Holy See (Vatican City State)
-													option(value='HN') Honduras
-													option(value='HK') Hong Kong
-													option(value='HU') Hungary
-													option(value='IS') Iceland
-													option(value='IN') India
-													option(value='ID') Indonesia
-													option(value='IR') Iran, Islamic Republic of
-													option(value='IQ') Iraq
-													option(value='IE') Ireland
-													option(value='IM') Isle of Man
-													option(value='IL') Israel
-													option(value='IT') Italy
-													option(value='JM') Jamaica
-													option(value='JP') Japan
-													option(value='JE') Jersey
-													option(value='JO') Jordan
-													option(value='KZ') Kazakhstan
-													option(value='KE') Kenya
-													option(value='KI') Kiribati
-													option(value='KP') Korea, Democratic People's Republic of
-													option(value='KR') Korea, Republic of
-													option(value='KW') Kuwait
-													option(value='KG') Kyrgyzstan
-													option(value='LA') Lao People's Democratic Republic
-													option(value='LV') Latvia
-													option(value='LB') Lebanon
-													option(value='LS') Lesotho
-													option(value='LR') Liberia
-													option(value='LY') Libya
-													option(value='LI') Liechtenstein
-													option(value='LT') Lithuania
-													option(value='LU') Luxembourg
-													option(value='MO') Macao
-													option(value='MK') Macedonia, the former Yugoslav Republic of
-													option(value='MG') Madagascar
-													option(value='MW') Malawi
-													option(value='MY') Malaysia
-													option(value='MV') Maldives
-													option(value='ML') Mali
-													option(value='MT') Malta
-													option(value='MH') Marshall Islands
-													option(value='MQ') Martinique
-													option(value='MR') Mauritania
-													option(value='MU') Mauritius
-													option(value='YT') Mayotte
-													option(value='MX') Mexico
-													option(value='FM') Micronesia, Federated States of
-													option(value='MD') Moldova, Republic of
-													option(value='MC') Monaco
-													option(value='MN') Mongolia
-													option(value='ME') Montenegro
-													option(value='MS') Montserrat
-													option(value='MA') Morocco
-													option(value='MZ') Mozambique
-													option(value='MM') Myanmar
-													option(value='NA') Namibia
-													option(value='NR') Nauru
-													option(value='NP') Nepal
-													option(value='NL') Netherlands
-													option(value='NC') New Caledonia
-													option(value='NZ') New Zealand
-													option(value='NI') Nicaragua
-													option(value='NE') Niger
-													option(value='NG') Nigeria
-													option(value='NU') Niue
-													option(value='NF') Norfolk Island
-													option(value='MP') Northern Mariana Islands
-													option(value='NO') Norway
-													option(value='OM') Oman
-													option(value='PK') Pakistan
-													option(value='PW') Palau
-													option(value='PS') Palestinian Territory, Occupied
-													option(value='PA') Panama
-													option(value='PG') Papua New Guinea
-													option(value='PY') Paraguay
-													option(value='PE') Peru
-													option(value='PH') Philippines
-													option(value='PN') Pitcairn
-													option(value='PL') Poland
-													option(value='PT') Portugal
-													option(value='PR') Puerto Rico
-													option(value='QA') Qatar
-													option(value='RE') Réunion
-													option(value='RO') Romania
-													option(value='RU') Russian Federation
-													option(value='RW') Rwanda
-													option(value='BL') Saint Barthélemy
-													option(value='SH') Saint Helena, Ascension and Tristan da Cunha
-													option(value='KN') Saint Kitts and Nevis
-													option(value='LC') Saint Lucia
-													option(value='MF') Saint Martin (French part)
-													option(value='PM') Saint Pierre and Miquelon
-													option(value='VC') Saint Vincent and the Grenadines
-													option(value='WS') Samoa
-													option(value='SM') San Marino
-													option(value='ST') Sao Tome and Principe
-													option(value='SA') Saudi Arabia
-													option(value='SN') Senegal
-													option(value='RS') Serbia
-													option(value='SC') Seychelles
-													option(value='SL') Sierra Leone
-													option(value='SG') Singapore
-													option(value='SX') Sint Maarten (Dutch part)
-													option(value='SK') Slovakia
-													option(value='SI') Slovenia
-													option(value='SB') Solomon Islands
-													option(value='SO') Somalia
-													option(value='ZA') South Africa
-													option(value='GS') South Georgia and the South Sandwich Islands
-													option(value='SS') South Sudan
-													option(value='ES') Spain
-													option(value='LK') Sri Lanka
-													option(value='SD') Sudan
-													option(value='SR') Suriname
-													option(value='SJ') Svalbard and Jan Mayen
-													option(value='SZ') Swaziland
-													option(value='SE') Sweden
-													option(value='CH') Switzerland
-													option(value='SY') Syrian Arab Republic
-													option(value='TW') Taiwan, Province of China
-													option(value='TJ') Tajikistan
-													option(value='TZ') Tanzania, United Republic of
-													option(value='TH') Thailand
-													option(value='TL') Timor-Leste
-													option(value='TG') Togo
-													option(value='TK') Tokelau
-													option(value='TO') Tonga
-													option(value='TT') Trinidad and Tobago
-													option(value='TN') Tunisia
-													option(value='TR') Turkey
-													option(value='TM') Turkmenistan
-													option(value='TC') Turks and Caicos Islands
-													option(value='TV') Tuvalu
-													option(value='UG') Uganda
-													option(value='UA') Ukraine
-													option(value='AE') United Arab Emirates
-													option(value='GB') United Kingdom
-													option(value='US') United States
-													option(value='UM') United States Minor Outlying Islands
-													option(value='UY') Uruguay
-													option(value='UZ') Uzbekistan
-													option(value='VU') Vanuatu
-													option(value='VE') Venezuela, Bolivarian Republic of
-													option(value='VN') Viet Nam
-													option(value='VG') Virgin Islands, British
-													option(value='VI') Virgin Islands, U.S.
-													option(value='WF') Wallis and Futuna
-													option(value='EH') Western Sahara
-													option(value='YE') Yemen
-													option(value='ZM') Zambia
-													option(value='ZW') Zimbabwe
-											// end::Input
+
 									// end::Row
+									
 								// end: Wizard Step 2
 								// begin: Wizard Step 3
 								div(class='pb-5' data-wizard-type='step-content')
 									// begin::Title
 									div(class='pt-lg-0 pt-5 pb-15')
-										h3(class='font-weight-bolder text-dark font-size-h2 font-size-h1-lg') Support Channels
+										h3(class='font-weight-bolder text-dark font-size-h2 font-size-h1-lg') Subscription
 										div(class='text-muted font-weight-bold font-size-h4')
-											| Specify Your Support Channels
+											| Choose the subscription package that suits you
 									// end::Title
-									// begin::Form Group
-									div(class='form-group')
-										label(class='font-size-h6 font-weight-bolder text-dark') Delivery Type:
-										select(name='delivery' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6')
-											option(value='') Select a Service Type Option
-											option(value='overnight' selected='') Overnight Delivery (within 48 hours)
-											option(value='express') Express Delivery (within 5 working days)
-											option(value='basic') Basic Delivery (within 5 - 10 working days)
-									// end::Form Group
-									// begin::Form Group
-									div(class='form-group')
-										label(class='font-size-h6 font-weight-bolder text-dark') Packaging Type:
-										select(name='packaging' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6')
-											option(value='') Select a Packaging Type Option
-											option(value='regular' selected='') Regular Packaging
-											option(value='oversized') Oversized Packaging
-											option(value='fragile') Fragile Packaging
-											option(value='frozen') Frozen Packaging
-									// end::Form Group
-									// begin::Form Group
-									div(class='form-group')
-										label(class='font-size-h6 font-weight-bolder text-dark') Preferred Delivery Window:
-										select(name='preferreddelivery' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6')
-											option(value='') Select a Preferred Delivery Option
-											option(value='morning' selected='') Morning Delivery (8:00AM - 11:00AM)
-											option(value='afternoon') Afternoon Delivery (11:00AM - 3:00PM)
-											option(value='evening') Evening Delivery (3:00PM - 7:00PM)
-									// end::Form Group
+
 								// end: Wizard Step 3
 								// begin: Wizard Step 4
+								div(class='pb-5' data-wizard-type='step-content')
+									// begin::Title
+									div(class='pt-lg-0 pt-5 pb-15')
+										h3(class='font-weight-bolder text-dark font-size-h2 font-size-h1-lg') Payment
+										div(class='text-muted font-weight-bold font-size-h4')
+											| Pay us
+									// end::Title
+
+								// end: Wizard Step 3
+								// begin: Wizard Step 5
 								div(class='pb-5' data-wizard-type='step-content')
 									// begin::Title
 									div(class='pt-lg-0 pt-5 pb-15')
@@ -502,7 +298,7 @@ html(lang='en')
 									// end::Title
 									// begin::Section
 									h4(class='font-weight-bolder mb-3')
-										| Accoun Settings:
+										| Account Settings:
 									div(class='text-dark-50 font-weight-bold line-height-lg mb-8')
 										div Nick Stone
 										div +12233434-34
@@ -523,7 +319,7 @@ html(lang='en')
 										div Overnight Delivery with Regular Packaging
 										div Preferred Morning (8:00AM - 11:00AM) Delivery
 									// end::Section
-								// end: Wizard Step 4
+								// end: Wizard Step 5
 								// begin: Wizard Actions
 								div(class='d-flex justify-content-between pt-3')
 									div(class='mr-2')
@@ -573,6 +369,6 @@ html(lang='en')
 		// begin::Page Scripts(used by this page)
 		script(src='/js/KTAppSettings.js')
 		script(src='/plugins/global/axios/axios.min.js')
-		script(src='/js/pages/custom/login/login-3.js')
+		script(src='/js/pages/crud/forms/users/login-3.js')
 		// end::Page Scripts
 	// end::Body

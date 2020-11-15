@@ -3,8 +3,35 @@
 
 // Class definition
 const KTFormControls = (function () {
+  
+  // DEPENDECIES
+
+  // Date Picker
+  let arrows;
+  if (KTUtil.isRTL()) {
+    arrows = {
+      leftArrow: '<i class="la la-angle-right"></i>',
+      rightArrow: '<i class="la la-angle-left"></i>',
+    };
+  } else {
+    arrows = {
+      leftArrow: '<i class="la la-angle-left"></i>',
+      rightArrow: '<i class="la la-angle-right"></i>',
+    };
+  }
+
   // Private functions
   const _initDemo1 = function () {
+
+    // Date Picker Initialize 
+    // input group layout
+    $('#kt_datepicker_2, #kt_datepicker_2_validate').datepicker({
+      rtl: KTUtil.isRTL(),
+      todayHighlight: true,
+      orientation: 'bottom left',
+      templates: arrows,
+      });
+
     // Getting Document related information
     const form = KTUtil.getById('kt_form_1');           
     const formSubmitButton = KTUtil.getById('submitButton');

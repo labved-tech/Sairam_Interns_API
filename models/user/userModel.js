@@ -12,6 +12,19 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const userSchema = new Schema(
   {
+    firstName: {
+      type: String,
+      required: [true, 'Please provide a valid name'],
+      trim: true,
+      maxlength: [40, 'must be less or equal to 40 characters'],
+    },
+    lastName: { type: String },
+    middleName: { type: String },
+    dob: { type: Date, required: true },
+    mobileNo: {
+      type: String,
+      required: [true, 'Please provide a valid mobile no'],
+    },
     _parentId: {
       type: mongoose.ObjectId,
     },
