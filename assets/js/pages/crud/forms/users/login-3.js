@@ -337,7 +337,7 @@ const KTLogin = (function () {
             customClass: {
               confirmButton: 'btn font-weight-bold btn-light-primary',
             },
-            window.location.replace(`${HOST_URL}/overview`);
+            //window.location.replace(`${HOST_URL}/overview`);
 
           })
         } else if (res.data.status == 'error')

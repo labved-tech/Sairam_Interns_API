@@ -9,10 +9,15 @@ const NewsletterCRUD = (function () {
     const _newsletterMessages = function () {
 
         // Getting Document related information
-        const form = KTUtil.getById('form_announcementEntries');
+        const form = KTUtil.getById('form_newsletterMessages');
         const formSubmitButton = KTUtil.getById('submitButton');
-        const formNewsletter = form.querySelector('[name="newsletterId"]').value;
-        const formMessage = form.querySelector('[name="messageTextArea"]').value;
+        const newsletterId = KTUtil.getById('newsletterId');
+        const subject = KTUtil.getById('subject');
+        const messageTextArea = KTUtil.getById('messageTextArea');
+        const recipientEmail = KTUtil.getById('recipientEmail');
+        const sent = KTUtil.getById('sent');
+        const visited = KTUtil.getById('visited');
+        const lastVisited = KTUtil.getById('lastVisited');
 
         if (!form) {
             return;
@@ -20,10 +25,10 @@ const NewsletterCRUD = (function () {
 
         FormValidation.formValidation(form, {
             fields: {
-                email: {
+                newsletterId: {
                     validators: {
                         notEmpty: {
-                            message: 'Email is required',
+                            message: 'newsletterId is required',
                         },
                     },
                 },
@@ -37,7 +42,7 @@ const NewsletterCRUD = (function () {
                 // Validate fields when clicking the Submit button
                 submitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
-                defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
         }).on('core.form.valid', function () {
             KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
@@ -48,8 +53,13 @@ const NewsletterCRUD = (function () {
                 method: 'post',
                 url: `${HOST_URL}/api/v1/newsletter/messages`,
                 data: {
-                    title: formNewsletter,
-                    message: formMessage,
+                    _newsletterId: newsletterId.value,
+                    subject: { type: String },
+                    message: { type: String },
+                    recipientEmail: { type: String },
+                    sent: { type: Boolean },
+                    visited: { type: Boolean },
+                    lastVisited: { type: Boolean },
                 },
             }).then(function (res) {
                 KTUtil.btnRelease(formSubmitButton);

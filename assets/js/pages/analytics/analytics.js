@@ -10,8 +10,14 @@ const AnalyticsCRUD = (function () {
     // Getting Document related information
         const form = KTUtil.getById('form_analytics');           
         const formSubmitButton = KTUtil.getById('submitButton');
-        const fromName = form.querySelector('[name="name"]').value;
-        const fromState = form.querySelector('[name="state"]').value;
+/*         const fromName = form.querySelector('[name="name"]').value;
+        const fromState = form.querySelector('[name="state"]').value; */
+    const fromName = KTUtil.getById('name');
+    const fromState = KTUtil.getById('state');
+    const ownerId = KTUtil.getById('ownerId');
+    const reporterId = KTUtil.getById('reporterId');
+    console.log(fromName, fromState);
+    
 
     if(!form) {
       return;
@@ -25,9 +31,22 @@ const AnalyticsCRUD = (function () {
               message: 'Name is required',
             },
           },
+          ownerId: {
+            validators: {
+              notEmpty: {
+                message: '_ownerId is required',
+              },
+            },
+          },
+          reporterId: {
+            validators: {
+              notEmpty: {
+                message: '_reporterId is required',
+              },
+            },
+          },
         },
       },
-
       plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
         trigger: new FormValidation.plugins.Trigger(),
@@ -46,8 +65,11 @@ const AnalyticsCRUD = (function () {
         method: 'Post',
         url: `${HOST_URL}/api/v1/analytics`,
           data: {
-              name: fromName,
-              state: fromState,
+            name: fromName.value,
+            state: fromState.value,
+            _ownerid: ownerId.value,
+            _reportid:reporterId.value,
+              
         },
       }).then(function (res) {
         KTUtil.btnRelease(formSubmitButton);

@@ -30,42 +30,42 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Newsletter Id
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='newsletterId' placeholder='ex: 5fa6574d564cd01840c6cfd9')
+                                                input#newsletterId(type='text' class='form-control' name='newsletterId' placeholder='ex: 5fa6574d564cd01840c6cfd9')
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Subject
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='subject' placeholder='ex: Enter Subject')
+                                                input#subject(type='text' class='form-control' name='subject' placeholder='ex: Enter Subject')
                                         div(class='form-group row mb')
                                             label(class='col-3' for='messageTextArea')
                                                 | Message 
                                             div(class='col-9')
-                                                textarea(class='form-control' rows='3' name='messageTextArea')
+                                                textarea#messageTextArea(class='form-control' rows='3' name='messageTextArea')
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Recipient Email
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='recipientEmail' placeholder='ex. recipient@gmail.com')
+                                                input#recipientEmail(type='text' class='form-control' name='recipientEmail' placeholder='ex. recipient@gmail.com')
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label') Sent
                                             div(class='col-9')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input(type='checkbox' checked='checked' name='Sent')
+                                                        input#sent(type='checkbox' checked='checked' name='sent')
                                                         span
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label') Visited
                                             div(class='col-9')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input(type='checkbox' checked='checked' name='visited')
+                                                        input#visited(type='checkbox' checked='checked' name='visited')
                                                         span
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Last Visited
                                             div(class='col-9')
-                                                input(type='text' class='form-control' name='lastVisited' placeholder='ex. dd/mm/yyyy')
+                                                input#lastVisited(type='text' class='form-control' name='lastVisited' placeholder='ex. dd/mm/yyyy')
                             div(class='card-footer text-right')
                                 div(class='row')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Submit
+                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
