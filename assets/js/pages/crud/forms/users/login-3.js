@@ -179,48 +179,7 @@ const KTLogin = (function () {
   };
 
   const _handleFormSignup = function () {
-    // Base elements
-    const wizardEl = KTUtil.getById('kt_login');
-    const form = KTUtil.getById('kt_login_signup_form');
-    let wizardObj;
-    const validations = [];
-
-    if (!form) {
-      return;
-    }
-
-    // Initialize form wizard
-    wizardObj = new KTWizard(wizardEl, {
-      startStep: 1, // initial active step number
-      clickableSteps: false, // to make steps clickable this set value true and add data-wizard-clickable="true" in HTML for class="wizard" element
-    });
-
-    // Validation before going to next page
-    wizardObj.on('beforeNext', function (wizard) {
-      validations[wizard.getStep() - 1].validate().then(function (status) {
-        if (status == 'Valid') {
-          wizardObj.goNext();
-          KTUtil.scrollTop();
-        } else {
-          Swal.fire({
-            text:
-              'Sorry, looks like there are some errors detected, please try again.',
-            icon: 'error',
-            buttonsStyling: false,
-            confirmButtonText: 'Ok, got it!',
-            customClass: {
-              confirmButton: 'btn font-weight-bold btn-light-primary',
-            },
-          }).then(function () {
-            KTUtil.scrollTop();
-          });
-        }
-      });
-
-      wizardObj.stop(); // Don't go to the next step
-    });
-
-
+   
     // Date picker
     $('#kt_datepicker_2, #kt_datepicker_2_validate').datepicker({
       rtl: KTUtil.isRTL(),
@@ -257,15 +216,57 @@ const KTLogin = (function () {
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       // url points to a json file that contains an array of country names, see
       // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
-      prefetch: 'https://preview.keenthemes.com/metronic/theme/html/tools/preview/api/?file=typeahead/countries.json'
+      prefetch: HOST_URL + '/data/countries.json'
   });
 
   // passing in `null` for the `options` arguments will result in the default
   // options being used
-  $('#kt_typeahead_3, #kt_typeahead_3_modal').typeahead(null, {
+  $('#kt_typeahead_3').typeahead(null, {
       name: 'countries',
       source: countries
   });
+
+   // Base elements
+   const wizardEl = KTUtil.getById('kt_login');
+   const form = KTUtil.getById('kt_login_signup_form');
+   let wizardObj;
+   const validations = [];
+
+   if (!form) {
+     return;
+   }
+
+   // Initialize form wizard
+   wizardObj = new KTWizard(wizardEl, {
+     startStep: 1, // initial active step number
+     clickableSteps: false, // to make steps clickable this set value true and add data-wizard-clickable="true" in HTML for class="wizard" element
+   });
+
+   // Validation before going to next page
+   wizardObj.on('beforeNext', function (wizard) {
+     validations[wizard.getStep() - 1].validate().then(function (status) {
+       if (status == 'Valid') {
+         wizardObj.goNext();
+         KTUtil.scrollTop();
+       } else {
+         Swal.fire({
+           text:
+             'Sorry, looks like there are some errors detected, please try again.',
+           icon: 'error',
+           buttonsStyling: false,
+           confirmButtonText: 'Ok, got it!',
+           customClass: {
+             confirmButton: 'btn font-weight-bold btn-light-primary',
+           },
+         }).then(function () {
+           KTUtil.scrollTop();
+         });
+       }
+     });
+
+     wizardObj.stop(); // Don't go to the next step
+   });
+
       
 
     // Init form validation rules. For more info check the FormValidation plugin's official documentation:https://formvalidation.io/
