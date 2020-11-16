@@ -6,7 +6,8 @@ block css-files
 block js-files
     script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/analytics/analytics.js')
+  
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -22,34 +23,34 @@ block content
                             | Analytics  Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_analytics(class='form' action='http://localhost:3000/api/v1/analytics')
+                        form#form_analytics(class='form' )
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
                                         h3(class=' text-dark font-weight-bold mb-10') General
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Name
-                                            div(class='col-9')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right ') Name
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
                                                 input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
                                         div(class='form-group row')
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') State
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                            div(class='col-lg-3 col-md-9 col-sm-12')
                                                 div(class='typeahead')
                                                     input#kt_typeahead_2(class='form-control' type='text' dir='ltr' placeholder='States of India')
                                                 div(class='form-text text-muted')
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Owner Id
-                                            div(class='col-9')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right ') Owner ID
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
                                                 input(type='text' class='form-control' name='_ownerId' placeholder='ex. 5fa92064cff6f652644266de  ')
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Reporter Id
-                                            div(class='col-9')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right ') Reporter ID
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
                                                 input(type='text' class='form-control' name='_reporterId' placeholder='ex. 5fa92064cff6f652644266de  ')
                             div(class='card-footer text-right')
                                 div(class='row')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
