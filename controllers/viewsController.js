@@ -470,6 +470,11 @@ exports.ratingAttribute = (req, res) => {
   res.status(200).render('./../views/pages/rating/ratingAttribute', doc);
 };
 
+exports.ratingEntries = (req, res) => {
+  console.log('We are in Rating Entries Form Page');
+  res.status(200).render('./../views/pages/rating/ratingEntries', doc);
+};
+
 // EVENT RELATED CONTROLLER
 exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');

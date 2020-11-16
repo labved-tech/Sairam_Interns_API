@@ -32,4 +32,27 @@ block content
                                             label(class='col-3 form-control-label') Name
                                             div(class='col-9')
                                                 input(type='text' class='form-control' name='title' placeholder='ex. Vignesh')
-                                                
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3' for='messageTextArea')
+                                                | Description
+                                            div(class='col-9')
+                                                textarea#messageTextArea(class='form-control' rows='3')
+                                        div(class='form-group row')
+                                            label(class='col-3' for='statusSelect')
+                                                | Status
+                                            div(class='col-9')
+                                                select#exampleSelect2(class='form-control')
+                                                    option Active
+                                                    option Suspended
+                                                    option Deleted
+                                                    option Hold
+                                                    option Publish
+                            div(class='card-footer text-right')
+                                div(class='row')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

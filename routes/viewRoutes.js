@@ -37,6 +37,7 @@ router.get('/announcement-notification', viewsController.announcementNotify);
 // RATING RELATED ROUTES
 router.get('/ratingAttributeGroups', viewsController.ratingAttributeGroups);
 router.get('/ratingAttribute', viewsController.ratingAttribute);
+router.get('/ratingEntries', viewsController.ratingEntries);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);

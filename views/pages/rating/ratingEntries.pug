@@ -1,0 +1,30 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/js/KTAppSettings.js')
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/announcement/announcementEntries.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Rating Entries Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#form_ratingEntries(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+                                        h3(class=' text-dark font-weight-bold mb-10') General
