@@ -40,7 +40,7 @@ const KTFormControls = (function () {
       return;
     }
 
-    FormValidation.formValidation(document.getElementById('kt_form_1'), {
+    FormValidation.formValidation(form, {
       fields: {
         email: {
           validators: {
@@ -76,9 +76,73 @@ const KTFormControls = (function () {
         },
 
       }).then(function (res) {
+        // Return valid JSON
+        // Release button
         KTUtil.btnRelease(formSubmitButton);
         console.log(res);
-      })
+        
+        // SWAL EXAMPLE
+        /*         if (res.data.status == 'success') {
+            Swal.fire({
+              title: 'Success',
+              text: res.data.message,
+              icon: 'success',
+              buttonsStyling: false,
+              showCancelButton: true,
+              confirmButtonText: 'OK',
+              cancelButtonText : 'Cancel',
+              customClass: {
+                confirmButton: 'btn font-weight-bold btn-light-primary',
+                cancelButton : 'btn font-weight-bold btn-light-primary',
+              },
+            }).then(function (result) {
+              console.log(result);
+              if (result.value) {
+                Swal.fire({
+                  title: 'Success',
+                  icon: 'success',
+                  text: `Your file has been deleted`,
+                  confirmButtonText: 'OK',
+                })
+              } else if (result.isDismissed === true) {
+
+                Swal.fire({
+                  title: 'Cancelled',
+                  icon: 'error',
+                  text: `Your imaginary file is safe :)`,
+                  confirmButtonText: 'OK',
+                })
+              }
+
+            })
+          } */
+
+        // TOASTR EXAMPLE
+
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": true,
+          "progressBar": false,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "3000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        };
+
+        if (res.data.status == 'success') {
+          toastr.success(`${res.data.message}`, `${res.data.status}`)
+        } else if (res.data.status == 'error') {
+          toastr.error(`${res.data.message}`, `${res.data.status}`)
+        }
+      });
 
      }).on('core.form.invalid', function () { });
   };

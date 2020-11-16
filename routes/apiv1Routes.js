@@ -4,65 +4,47 @@ const express = require('express');
 /* MIDDLEWARE */
 const router = express.Router();
 
+// EXAMPLE
 const exampleRouter = require('./example/exampleRoutes');
-
 const userRouter = require('./user/userRoutes');
-
 const analyticsRouter = require('./analytics/analyticsRoutes');
-
 const chartsRouter = require('./charts/chartsRoutes');
-
 const pagesRouter = require('./pages/pagesRoutes');
-
 const reportsRouter = require('./reports/reportsRoutes');
-
 // FORMS
 const formResponseRouter = require('./forms/formResponseRoutes');
 const formsRouter = require('./forms/formsRoutes');
-
 // ANNOUNCEMENTS
 const announcementRouter = require('./announcement/announcementRoutes');
-
 // LEADS
 const leadsRouter = require('./leads/leadsRoutes');
-
 // PRECISION AGRICULTURE
 const precisionAgricultureRouter = require('./precision-agriculture/precisionAgricultureRoutes');
-
 // PROJECT MANAGEMENT
 const projectManagementRouter = require('./project-management/projectManagementRoutes');
-
 // NEWSLETTER
 const newsletterRouter = require('./newsletter/newsletterRoutes');
-
 // SALES AND FINANCE
 const salesFinanceRouter = require('./sales-finance/salesFinanceRoutes');
-
 // RATINGS
 const ratingsRouter = require('./ratings/ratingsRoutes');
-
 // ECOMMERCE
 const ecommerceRouter = require('./ecommerce/ecommerceRoutes');
-
 // COMMENTS
 const commentEntriesRouter = require('./comments/commentEntriesRoutes');
-
 // EVENTS
 const eventEntriesRouter = require('./events/eventEntriesRoutes');
-
 // CONTRACT
 const contractRouter = require('./contract/contractRoutes');
-
 // TICKETS & SUPPORT
 const ticketSupportRouter = require('./ticket-support/ticketSupportRoutes');
-
 // DIRECTORY
 const directoryAttributesRouter = require('./directory/directoryAttributesGroupsRoutes');
 const directoryCategoriesRouter = require('./directory/directoryCategoriesRoutes');
 const directoryEntriesRouter = require('./directory/directoryEntriesRoutes');
 const directoryLevelsRouter = require('./directory/directoryLevelsRoutes');
 const directoryRouter = require('./directory/directoryRoutes');
-
+// MENU
 const menuRouter = require('./menu/menuRoutes');
 
 /* GLOBAL MIDDLEWARE USAGE*/

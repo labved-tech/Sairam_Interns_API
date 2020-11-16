@@ -42,14 +42,20 @@ const createSendToken = (user, statusCode, res) => {
       user,
     },
   });
+
+  return res.redirect('/overview');
 };
 
 exports.signup = catchAsync(async (req, res, next) => {
+  console.log(req);
   const newUser = await User.create({
     name: req.body.name,
     email: req.body.email,
+    username: req.body.username,
     password: req.body.password,
     passwordConfirm: req.body.passwordConfirm,
+    mobileNo: req.body.mobileNo,
+    dob: req.body.dob,
     accountType: req.body.accountType,
     role: req.body.role,
   });

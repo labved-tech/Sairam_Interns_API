@@ -12,14 +12,18 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const userSchema = new Schema(
   {
-    firstName: {
+    name: {
       type: String,
       required: [true, 'Please provide a valid name'],
       trim: true,
       maxlength: [40, 'must be less or equal to 40 characters'],
     },
-    lastName: { type: String },
-    middleName: { type: String },
+    username: {
+      type: String,
+      required: [true, 'Please provide a valid username'],
+      trim: true,
+      maxlength: [40, 'must be less or equal to 40 characters'],
+    },
     dob: { type: Date, required: true },
     mobileNo: {
       type: String,
@@ -55,10 +59,10 @@ const userSchema = new Schema(
         message: 'Password are not the same!',
       },
     },
-    accountType: {
+    /*     accountType: {
       type: String,
       required: [true, 'Please provide a valid account Type'],
-    },
+    }, */
     role: {
       type: String,
       enum: ['user', 'guide', 'lead-guide', 'admin'],
