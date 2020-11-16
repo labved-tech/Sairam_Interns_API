@@ -6,7 +6,7 @@ block css-files
 block js-files
     script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/newsletter/newsletterMessages.js')
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
         include ./../../partials/_subheader/subheader-v1.pug
@@ -21,7 +21,7 @@ block content
                             | Newsletter Messages Form 
                     div(class='card-body')
                         // begin::Form
-                        form#form_newsletterMessages(class='form' action='http://localhost:3000/api/v1/newsletter-messages')
+                        form#form_newsletterMessages(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-6')
@@ -39,7 +39,7 @@ block content
                                             label(class='col-3' for='messageTextArea')
                                                 | Message 
                                             div(class='col-9')
-                                                textarea#messageTextArea(class='form-control' rows='3')
+                                                textarea(class='form-control' rows='3' name='messageTextArea')
                                         div(class='form-group row')
                                             label(class='col-3 form-control-label') Recipient Email
                                             div(class='col-9')
