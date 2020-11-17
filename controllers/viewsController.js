@@ -385,20 +385,20 @@ exports.getSignUp = (req, res) => {
   console.log('We are in Sign-Up Page');
 
   res.status(200).render('./pages/users/signUp', {
-    title: `Sign up`,
+    title: `Sign-Up`,
   });
 };
 exports.getLoginForm = (req, res) => {
   console.log('We are in Login Page');
 
   res.status(200).render('./pages/users/login', {
-    title: 'Sign In',
+    title: 'Sign-In',
   });
 };
 exports.getForgot = (req, res) => {
   console.log('We are in Forgot Password Page');
 
-  res.status(200).render('./pages/forgot');
+  res.status(200).render('./pages/users/forgotPassword');
 };
 exports.getError = (req, res) => {
   console.log('We are in Error Page');

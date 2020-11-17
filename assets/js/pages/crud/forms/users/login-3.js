@@ -21,11 +21,14 @@ const KTLogin = (function () {
   }
 
   const _handleFormSignin = function () {
-    const form = KTUtil.getById('kt_login_singin_form');
-    const formSubmitUrl = KTUtil.attr(form, 'action');
-    const formSubmitButton = KTUtil.getById(
-      'kt_login_singin_form_submit_button'
-    );
+
+    // Dependencies
+
+    // Getting Document related information
+    const form = KTUtil.getById('loginForm');
+    const formSubmitButton = KTUtil.getById('loginSubmitButton');  
+    const loginEmail = KTUtil.getById('loginEmail');
+    const loginPassword = KTUtil.getById('loginPassword');
 
     if (!form) {
       return;
@@ -33,14 +36,14 @@ const KTLogin = (function () {
 
     FormValidation.formValidation(form, {
       fields: {
-        username: {
+        loginEmail: {
           validators: {
             notEmpty: {
               message: 'Username is required',
             },
           },
         },
-        password: {
+        loginPassword: {
           validators: {
             notEmpty: {
               message: 'Password is required',
@@ -61,36 +64,25 @@ const KTLogin = (function () {
       .on('core.form.valid', function () {
         // Show loading state on button
         KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        console.log(form.querySelector('[name="email"]').value, form.querySelector('[name="password"]').value,)
         
         axios({
           method: 'post',
           url: 'http://localhost:3000/api/v1/users/login',
           data: {
-            email: form.querySelector('[name="email"]').value,
-            password: form.querySelector('[name="password"]').value,
+            email: loginEmail.value,
+            password: loginPassword.value,
           },
-        }).then(function (response) {
+        }).then(function (res) {
           // Return valid JSON
           // Release button
           KTUtil.btnRelease(formSubmitButton);
-          console.log(response);
+          console.log(res);
 
-          if (response.data.status == 'success') {
+          if (res.data.status == 'success') {
+              window.location.replace(HOST_URL + `/overview`);
+          } else if (res.data.status == 'error') {
             Swal.fire({
-              text: response.data.message,
-              icon: 'success',
-              buttonsStyling: false,
-              confirmButtonText: 'OK',
-              customClass: {
-                confirmButton: 'btn font-weight-bold btn-light-primary',
-              },
-            }).then(function () {
-              KTUtil.scrollTop();
-            });
-          } else {
-            Swal.fire({
-              text: response.data.message,
+              text: res.data.message,
               icon: 'error',
               buttonsStyling: false,
               confirmButtonText: 'Retry',
@@ -179,9 +171,11 @@ const KTLogin = (function () {
   };
 
   const _handleFormSignup = function () {
+    
+    // Dependencies
    
     // Date picker
-    $('#dob, #dob_validate').datepicker({
+    $('#signUpDob, #signUpDob').datepicker({
       rtl: KTUtil.isRTL(),
       todayHighlight: true,
       orientation: 'bottom left',
@@ -226,16 +220,16 @@ const KTLogin = (function () {
       source: countries
   }); */
     
-  // Getting Document related information
-    const form = KTUtil.getById('kt_login_signup_form');
-    const formSubmitButton = KTUtil.getById('kt_login_signup_form_submit_button');  
-    const name = KTUtil.getById('name');
-    const email = KTUtil.getById('email');
-    const username = KTUtil.getById('username');
-    const password = KTUtil.getById('password');
-    const passwordConfirm = KTUtil.getById('passwordConfirm');   
-    const mobileNo = KTUtil.getById('mobileNo');   
-    const dob = KTUtil.getById('dob');   
+    // Getting Document related information
+    const form = KTUtil.getById('signUpForm');
+    const formSubmitButton = KTUtil.getById('signUpSubmitButton');  
+    const signUpName = KTUtil.getById('signUpName');
+    const signUpEmail = KTUtil.getById('signUpEmail');
+    const signUpUsername = KTUtil.getById('signUpUsername');
+    const signUpPassword = KTUtil.getById('signUpPassword');
+    const signUpPasswordConfirm = KTUtil.getById('signUpPasswordConfirm');   
+    const signUpMobileNo = KTUtil.getById('signUpMobileNo');   
+    const signUpDob = KTUtil.getById('signUpDob');   
 
    if (!form) {
      return;
@@ -244,14 +238,14 @@ const KTLogin = (function () {
     
     FormValidation.formValidation(form, {
       fields: {
-        name: {
+        signUpName: {
           validators: {
             notEmpty: {
               message: 'Name is required',
             },
           },
         },
-        email: {
+        signUpEmail: {
           validators: {
             notEmpty: {
               message: 'Email is required',
@@ -261,35 +255,35 @@ const KTLogin = (function () {
             },
           },
         },
-        username: {
+        signUpUsername: {
           validators: {
             notEmpty: {
               message: 'Username is required',
             },
           },
         },
-        password: {
+        signUpPassword: {
           validators: {
             notEmpty: {
               message: 'Password is required',
             },
           },
         },
-        passwordConfirm: {
+        signUpPasswordConfirm: {
           validators: {
             notEmpty: {
               message: 'Confirm password is required',
             },
           },
         },
-        mobileNo: {
+        signUpMobileNo: {
           validators: {
             notEmpty: {
               message: 'Mobile Number is required',
             },
           },
         },
-        dob: {
+        signUpDob: {
           validators: {
             notEmpty: {
               message: 'Date of birth is required',
@@ -316,30 +310,19 @@ const KTLogin = (function () {
         method: 'post',
         url: `${HOST_URL}/api/v1/users/signup`,
         data: {
-          name : name.value,
-          email : email.value,
-          username : username.value,
-          password : password.value,
-          passwordConfirm: passwordConfirm.value,
-          mobileNo: mobileNo.value,
-          dob: dob.value
+          name : signUpName.value,
+          email : signUpEmail.value,
+          username : signUpUsername.value,
+          password : signUpPassword.value,
+          passwordConfirm: signUpPasswordConfirm.value,
+          mobileNo: signUpMobileNo.value,
+          dob: signUpDob.value
         },
       }).then(function (res) {
         KTUtil.btnRelease(formSubmitButton);
         console.log(res);
         if (res.data.status == 'success') {
-          Swal.fire({
-            title: 'Success',
-            text: res.data.message,
-            icon: 'success',
-            buttonsStyling: false,
-            confirmButtonText: 'OK',
-            customClass: {
-              confirmButton: 'btn font-weight-bold btn-light-primary',
-            },
-            //window.location.replace(`${HOST_URL}/overview`);
-
-          })
+          window.location.replace(HOST_URL + `/overview`);
         } else if (res.data.status == 'error')
         {
           Swal.fire({

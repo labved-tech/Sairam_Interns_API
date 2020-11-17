@@ -56,7 +56,7 @@ html(lang='en')
 						// begin::Signin
 						div(class='login-form login-form-signup')
 							// begin::Form
-							form#kt_login_signup_form(class='form')
+							form#signUpForm(class='form')
 								// begin::Title
 								div(class='pb-10 pb-lg-15')
 									h3(class='font-weight-bolder text-dark display5') Create Account
@@ -67,48 +67,48 @@ html(lang='en')
 								// begin::Form Group
 								div(class='form-group')
 									label(class='font-size-h6 font-weight-bolder text-dark') Name
-									input#name(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='name' placeholder='Name' value='')
+									input#signUpName(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpName' placeholder='Name' value='')
 								// end::Form Group
 								// begin::Form Group
 								div(class='form-group')
 									label(class='font-size-h6 font-weight-bolder text-dark') Email Address
-									input#email(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='email' placeholder='' value='')
+									input#signUpEmail(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpEmail' placeholder='' value='')
 								// end::Form Group
 								// begin::Form Group
 								div(class='form-group')
 									label(class='font-size-h6 font-weight-bolder text-dark') Username
-									input#username(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='username' placeholder='ex. user1' value='')
+									input#signUpUsername(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpUsername' placeholder='ex. user1' value='')
 									span(class='form-text text-muted') Choose a username to go with this account
 								// end::Form Group
 								// begin::Form Group
-								div(class='form-group')
-									label(class='font-size-h6 font-weight-bolder text-dark') Password
-									input#password(type='password' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='password' placeholder='' value='')
-									span(class='form-text text-muted') minimum 8 characters    
-								// end::Form Group
-								// begin::Form Group
-								div(class='form-group')
-									label(class='font-size-h6 font-weight-bolder text-dark') Confirm Password
-									input#passwordConfirm(type='password' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='passwordConfirm'  placeholder='' value='')
+								div(class='form-group row')
+									div(class='col-lg-6')
+										label(class='font-size-h6 font-weight-bolder text-dark') Password
+										input#signUpPassword(type='password' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpPassword' placeholder='' value='')
+										span(class='form-text text-muted') minimum 8 characters    
+									div(class='col-lg-6')
+										label(class='font-size-h6 font-weight-bolder text-dark') Confirm Password
+										input#signUpPasswordConfirm(type='password' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpPasswordConfirm'  placeholder='' value='')
+										span(class='form-text text-muted') minimum 8 characters    
 								// end::Form Group
 								// begin::Form Group
 								div(class='form-group')
 									label(class='font-size-h6 font-weight-bolder text-dark') Mobile Number
-									input#mobileNo(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='mobileNo'  placeholder='' value='')
+									input#signUpMobileNo(type='text' class='form-control h-auto py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpMobileNo'  placeholder='' value='')
 								// end::Form Group
 
 								// begin::Form Group
 								div(class='form-group')
 									label(class='font-size-h6 font-weight-bolder text-dark') Date of Birth
 										div(class='input-group date')
-											input#dob(type='text' class='form-control h-auto  py-7 px-6 border-0 rounded-lg font-size-h6' name='dob' readonly='' placeholder='Select date')
+											input#signUpDob(type='text' class='form-control h-auto  py-7 px-6 border-0 rounded-lg font-size-h6' name='signUpDob' readonly='' placeholder='Select date')
 											div(class='input-group-append')
 												span(class='input-group-text')
 													i(class='la la-calendar-check-o')
 								// end::Form Group
 								div(class='row text-right')
 									div(class='col-lg-9 ml-lg-auto')
-										button#kt_login_signup_form_submit_button(type='submit' name='kt_login_signup_form_submit_button' class='btn btn-primary font-weight-bold mr-2') Submit
+										button#signUpSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
 										button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
 							// end::Form
 						// end::Signin

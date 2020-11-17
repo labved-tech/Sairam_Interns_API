@@ -2,7 +2,7 @@
 'use strict';
 
 // Class definition
-const KTFormControls = (function () {
+const ExampleFormControls = (function () {
   
   // DEPENDECIES
 
@@ -21,7 +21,7 @@ const KTFormControls = (function () {
   }
 
   // Private functions
-  const _initDemo1 = function () {
+  const _exampleDemo1 = function () {
 
     // Date Picker Initialize 
     // input group layout
@@ -150,11 +150,11 @@ const KTFormControls = (function () {
   return {
     // public functions
     init: function () {
-      _initDemo1();
+      _exampleDemo1();
     },
   };
 })();
 
 jQuery(document).ready(function () {
-  KTFormControls.init();
+  ExampleFormControls.init();
 });
