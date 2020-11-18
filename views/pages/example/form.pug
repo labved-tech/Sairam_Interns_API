@@ -6,7 +6,6 @@ block css-files
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
     script(src='/js/pages/crud/forms/example/FormControls.js')
-    script(src='/js/pages/crud/forms/widgets/bootstrap-select.js')
     script(src='/js/pages/crud/forms/widgets/form-repeater.js')
     script(src='/js/pages/crud/forms/editors/summernote.js')
     script(src='/js/pages/features/miscellaneous/toastr.js')
@@ -221,7 +220,7 @@ block content
                                                 span(class='form-text text-muted mt-6') To format the slider output, noUiSlider offers a format option.
                                         // Number : Range Select Slide
                                         div(class='form-group row mb-6')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Slider With Tooltip
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Range Select Slide
                                             div(class='col-lg-8 col-md-12 col-sm-12')
                                                 div(class='row align-items-center')
                                                     div(class='col-3')
@@ -293,9 +292,7 @@ block content
                                                         span(class='input-group-text')
                                                             i(class='la la-calendar-check-o')
                                                 span(class='form-text text-muted') Example help text that remains unchanged.
-                                        
-
-                                        
+                                                                              
                                         // Date & Time : Date Range Picker1
                                         div(class='form-group row')
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker1
@@ -316,10 +313,7 @@ block content
                                                         span(class='input-group-text')
                                                             i(class='la la-ellipsis-h')
                                                     input(type='text' class='form-control' name='end')
-                                                span(class='form-text text-muted') Linked pickers for date range selection
-
-
-                                        
+                                                span(class='form-text text-muted') Linked pickers for date range selection                                      
                                         
                                         // Time : 24 Hour
                                         div(class='form-group row')
@@ -346,23 +340,11 @@ block content
                                         div(class='separator separator-dashed my-10')
                                         h3(class=' text-dark font-weight-bold mb-10') Lists
 
-                                        // Single Select Dropdown List
+                                        // Dropdown List : Single Select1 
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Single
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Single Select1 w search
                                             div(class='col-lg-4 col-md-9 col-sm-12')
-                                                select(class='form-control selectpicker' name='toppings'  data-size='4')
-                                                    option Mustard
-                                                    option Ketchup
-                                                    option Relish
-                                                    option Tent
-                                                    option Flashlight
-                                                    option Toilet Paper
-
-                                        // Single Select Dropdown List with search
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Single w search
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                select(class='form-control selectpicker' data-size='7' data-live-search='true'  name='country' )
+                                                select#demoSelectSingle(class='form-control selectpicker' data-size='7' data-live-search='true'  name='demoSelectSingle' )
                                                     option(value='') Select
                                                     option(value='AF') Afghanistan
                                                     option(value='AX') Åland Islands
@@ -618,19 +600,136 @@ block content
                                                     code data-live-search='true'
                                                     |  attribute
 
-                                        // Multiple Select Dropdown List
+                                        // Dropdown List : Multiple Select1
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Multiple
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Multiple Select1 w search
                                             div(class='col-lg-4 col-md-9 col-sm-12')
-                                                select(class='form-control selectpicker' multiple=''  name='toppings' )
+                                                select#demoSelectMultiple(class='form-control selectpicker' multiple=''  data-live-search='true' name='selectdemoSelectMultiple' )
                                                     option Mustard
                                                     option Ketchup
                                                     option Relish
 
-                                        // dropdown list multiple box
+                                        // Dropdown List : Single Select2 w Live Search
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Single Select2 w search
+                                            div(class=' col-lg-4 col-md-9 col-sm-12')
+                                                select#demoSelect2Single(class='form-control select2' name='demoSelect2Single')
+                                                    option(value='AK') Alaska
+                                                    option(value='HI') Hawaii
+                                                    option(value='CA') California
+                                                    option(value='NV') Nevada
+                                                    option(value='OR') Oregon
+                                                    option(value='WA') Washington
+                                                    option(value='AZ') Arizona
+                                                    option(value='CO') Colorado
+                                                    option(value='ID') Idaho
+                                                    option(value='MT') Montana
+                                                    option(value='NE') Nebraska
+                                                    option(value='NM') New Mexico
+                                                    option(value='ND') North Dakota
+                                                    option(value='UT') Utah
+                                                    option(value='WY') Wyoming
+                                                    option(value='AL') Alabama
+                                                    option(value='AR') Arkansas
+                                                    option(value='IL') Illinois
+                                                    option(value='IA') Iowa
+                                                    option(value='KS') Kansas
+                                                    option(value='KY') Kentucky
+                                                    option(value='LA') Louisiana
+                                                    option(value='MN') Minnesota
+                                                    option(value='MS') Mississippi
+                                                    option(value='MO') Missouri
+                                                    option(value='OK') Oklahoma
+                                                    option(value='SD') South Dakota
+                                                    option(value='TX') Texas
+                                                    option(value='TN') Tennessee
+                                                    option(value='WI') Wisconsin
+                                                    option(value='CT') Connecticut
+                                                    option(value='DE') Delaware
+                                                    option(value='FL') Florida
+                                                    option(value='GA') Georgia
+                                                    option(value='IN') Indiana
+                                                    option(value='ME') Maine
+                                                    option(value='MD') Maryland
+                                                    option(value='MA') Massachusetts
+                                                    option(value='MI') Michigan
+                                                    option(value='NH') New Hampshire
+                                                    option(value='NJ') New Jersey
+                                                    option(value='NY') New York
+                                                    option(value='NC') North Carolina
+                                                    option(value='OH') Ohio
+                                                    option(value='PA') Pennsylvania
+                                                    option(value='RI') Rhode Island
+                                                    option(value='SC') South Carolina
+                                                    option(value='VT') Vermont
+                                                    option(value='VA') Virginia
+                                                    option(value='WV') West Virginia
+
+                                        // Dropdown List : Multiple Select2 w Live Search
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Multiple Select2 w search
+                                            div(class=' col-lg-4 col-md-9 col-sm-12')
+                                                select#demoSelect2Multiple(class='form-control select2' name='demoSelect2Multiple' multiple='multiple')
+                                                    optgroup(label='Alaskan/Hawaiian Time Zone')
+                                                        option(value='AK' selected='') Alaska
+                                                        option(value='HI') Hawaii
+                                                    optgroup(label='Pacific Time Zone')
+                                                        option(value='CA') California
+                                                        option(value='NV' selected='') Nevada
+                                                        option(value='OR') Oregon
+                                                        option(value='WA') Washington
+                                                    optgroup(label='Mountain Time Zone')
+                                                        option(value='AZ') Arizona
+                                                        option(value='CO') Colorado
+                                                        option(value='ID') Idaho
+                                                        option(value='MT' selected='') Montana
+                                                        option(value='NE') Nebraska
+                                                        option(value='NM') New Mexico
+                                                        option(value='ND') North Dakota
+                                                        option(value='UT') Utah
+                                                        option(value='WY') Wyoming
+                                                    optgroup(label='Central Time Zone')
+                                                        option(value='AL') Alabama
+                                                        option(value='AR') Arkansas
+                                                        option(value='IL') Illinois
+                                                        option(value='IA') Iowa
+                                                        option(value='KS') Kansas
+                                                        option(value='KY') Kentucky
+                                                        option(value='LA') Louisiana
+                                                        option(value='MN') Minnesota
+                                                        option(value='MS') Mississippi
+                                                        option(value='MO') Missouri
+                                                        option(value='OK') Oklahoma
+                                                        option(value='SD') South Dakota
+                                                        option(value='TX') Texas
+                                                        option(value='TN') Tennessee
+                                                        option(value='WI') Wisconsin
+                                                    optgroup(label='Eastern Time Zone')
+                                                        option(value='CT') Connecticut
+                                                        option(value='DE') Delaware
+                                                        option(value='FL') Florida
+                                                        option(value='GA') Georgia
+                                                        option(value='IN') Indiana
+                                                        option(value='ME') Maine
+                                                        option(value='MD') Maryland
+                                                        option(value='MA') Massachusetts
+                                                        option(value='MI') Michigan
+                                                        option(value='NH') New Hampshire
+                                                        option(value='NJ') New Jersey
+                                                        option(value='NY') New York
+                                                        option(value='NC') North Carolina
+                                                        option(value='OH') Ohio
+                                                        option(value='PA') Pennsylvania
+                                                        option(value='RI') Rhode Island
+                                                        option(value='SC') South Carolina
+                                                        option(value='VT') Vermont
+                                                        option(value='VA') Virginia
+                                                        option(value='WV') West Virginia
+
+                                        // Dropdown List : multiple box
                                         div(class='form-group row')
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right' for='exampleSelect2')
-                                                | Dropdown List Box - Multiple
+                                                | List Box - Multiple
                                                 span(class='text-danger') *
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 select#exampleSelect2(multiple='' class='form-control'  name='number' )

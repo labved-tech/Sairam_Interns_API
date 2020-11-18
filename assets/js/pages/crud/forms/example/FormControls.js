@@ -453,7 +453,7 @@ const FormControls = (function () {
     
     // Number : Range Select Slide
     // init slider
-		var slider = document.getElementById('demoNumberRangeSelectSlider');
+		var slider = demoNumberRangeSelectSlider;
 
 		noUiSlider.create(slider, {
 			start: [20, 80],
@@ -469,17 +469,25 @@ const FormControls = (function () {
 			}
 		});
 
-
 		// init slider input
-		var sliderInput0 = document.getElementById('demoNumberRangeSelectSliderText1');
-		var sliderInput1 = document.getElementById('demoNumberRangeSelectSliderText2');
-		var sliderInputs = [sliderInput1, sliderInput0];
+		var sliderInputs = [demoNumberRangeSelectSliderText1, demoNumberRangeSelectSliderText2];
 
 		slider.noUiSlider.on('update', function( values, handle ) {
 			sliderInputs[handle].value = values[handle];
 		});
     
+    // Dropdown List : Single Select
+    $('demoSelectSingle').selectpicker();
+
+		$('#demoSelect2Single').select2({
+      placeholder: "Select a state"
+    });
     
+    $('#demoSelect2Multiple').select2({
+      placeholder: "Select a state",
+      allowClear: true
+		});
+
     FormValidation.formValidation(form, {
       fields: {
         email: {
