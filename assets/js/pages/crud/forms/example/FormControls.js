@@ -1,5 +1,5 @@
 /* eslint-disable */
-'use strict';
+//'use strict';
 
 /* Class definition */
 const FormControls = (function () {
@@ -80,20 +80,434 @@ const FormControls = (function () {
     const form = KTUtil.getById('demoForm');
     const formSubmitButton = KTUtil.getById('demoSubmitButton');
 
-    // Textbox
-    const demoText = KTUtil.getById('demoText');          // Text 
-    const demoPassword = KTUtil.getById('demoPassword');  // Password 
-    const demoTextarea = KTUtil.getById('demoTextarea');  // Textarea 
+    if (!form) {
+      return;
+    }
+ 
+    FormValidation.formValidation(form, {
+      fields: {
+        demoText: {
+          validators: {
+            notEmpty: {
+              message: 'Text is required',
+            },
+          },
+        },
+        demoPassword: {
+          validators: {
+            notEmpty: {
+              message: 'Password is required',
+            },
+          },
+        },
+        demoTextarea: {
+          validators: {
+            notEmpty: {
+              message: 'Textarea is required',
+            },
+          },
+        },
+        demoTypeaheadBasic: {
+          validators: {
+            notEmpty: {
+              message: 'Typeahead Basic is required',
+            },
+          },
+        },
+        demoTypeaheadRemote: {
+          validators: {
+            notEmpty: {
+              message: 'Typeahead Remote is required',
+            },
+          },
+        },
+        demoTypeaheadPrefetch: {
+          validators: {
+            notEmpty: {
+              message: 'Typeahead Prefetch is required',
+            },
+          },
+        },
+        demoTypeaheadCustomTemplate: {
+          validators: {
+            notEmpty: {
+              message: 'Typeahead Custom Template is required',
+            },
+          },
+        },
+        demoTypeaheadMultipleDatasets: {
+          validators: {
+            notEmpty: {
+              message: 'Typeahead Multiple is required',
+            },
+          },
+        },
+        demoNumberCtrlTwoSides: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoNumberCtrlSameSides: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoNumberHSliderText: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoNumberVSliderText: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoNumberCurrencySliderText: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoNumberRangeSelectSliderText1: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoNumberRangeSelectSliderText2: {
+          validators: {
+            notEmpty: {
+              message: 'Number cannot be empty',
+            },
+          },
+        },
+        demoDateTimeText: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoDateTimeRangePicker1Text: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoDateTimeLinkedPicker1Text: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoDateTimeLinkedPicker2Text: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoDate: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoDateRangePicker1Text: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoDateRangePicker2Text: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoTime24Hr: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        demoTime12Hr: {
+          validators: {
+            notEmpty: {
+              message: 'Date & Time cannot be empty',
+            },
+          },
+        },
+        
+      },
 
-    // TypeAhead
-    const demoTypeaheadBasic = KTUtil.getById('demoTypeaheadBasic');  // Typeahead : Basic Demo
-    const demoTypeaheadRemote = KTUtil.getById('demoTypeaheadRemote'); // Typeahead : Remote Data (Suggestion Engine)
-    const demoTypeaheadPrefetch = KTUtil.getById('demoTypeaheadPrefetch'); // Typeahead : Prefetch Data
-    const demoTypeaheadCustomTemplate = KTUtil.getById('demoTypeaheadCustomTemplate'); // Typeahead : Custom Templates 
-    const demoTypeaheadMultipleDatasets = KTUtil.getById('demoTypeaheadMultipleDatasets'); // Typeahead : Multiple Datasets 
+      plugins: {
+        //Learn more: https://formvalidation.io/guide/plugins
+        trigger: new FormValidation.plugins.Trigger(),
+        // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap(),
+        // Validate fields when clicking the Submit button
+        submitButton: new FormValidation.plugins.SubmitButton(),
+        // Submit the form when all fields are valid
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+      },
+    }).on('core.form.valid', function () {
+      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-    // Form Repeat
-    // Numbers
+      // Accessing Restful API
+      axios({
+        method: 'post',
+        url: `${HOST_URL}/api/v1/example`,
+        data: {
+          
+        },
+
+      }).then(function (res) {
+        // Return valid JSON
+        // Release button
+        KTUtil.btnRelease(formSubmitButton);
+        console.log(res);
+        
+        // SWAL EXAMPLE
+        /*         if (res.data.status == 'success') {
+            Swal.fire({
+              title: 'Success',
+              text: res.data.message,
+              icon: 'success',
+              buttonsStyling: false,
+              showCancelButton: true,
+              confirmButtonText: 'OK',
+              cancelButtonText : 'Cancel',
+              customClass: {
+                confirmButton: 'btn font-weight-bold btn-light-primary',
+                cancelButton : 'btn font-weight-bold btn-light-primary',
+              },
+            }).then(function (result) {
+              console.log(result);
+              if (result.value) {
+                Swal.fire({
+                  title: 'Success',
+                  icon: 'success',
+                  text: `Your file has been deleted`,
+                  confirmButtonText: 'OK',
+                })
+              } else if (result.isDismissed === true) {
+  
+                Swal.fire({
+                  title: 'Cancelled',
+                  icon: 'error',
+                  text: `Your imaginary file is safe :)`,
+                  confirmButtonText: 'OK',
+                })
+              }
+  
+            })
+          } */
+
+        // TOASTR EXAMPLE
+
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": true,
+          "progressBar": false,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "3000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        };
+
+        if (res.data.status == 'success') {
+          toastr.success(`${res.data.message}`, `${res.data.status}`)
+        } else if (res.data.status == 'error') {
+          toastr.error(`${res.data.message}`, `${res.data.status}`)
+        }
+      });
+
+    }).on('core.form.invalid', function () { });
+
+  };
+
+  const _TextBox = function () {
+      /* Initializing */
+      const demoText = KTUtil.getById('demoText');          // Text 
+      const demoPassword = KTUtil.getById('demoPassword');  // Password 
+      const demoTextarea = KTUtil.getById('demoTextarea');  // Textarea 
+  };
+  const _TypeAhead = function () {
+
+      /* Initializing */
+      const demoTypeaheadBasic = KTUtil.getById('demoTypeaheadBasic');  // Typeahead : Basic Demo
+      const demoTypeaheadRemote = KTUtil.getById('demoTypeaheadRemote'); // Typeahead : Remote Data (Suggestion Engine)
+      const demoTypeaheadPrefetch = KTUtil.getById('demoTypeaheadPrefetch'); // Typeahead : Prefetch Data
+      const demoTypeaheadCustomTemplate = KTUtil.getById('demoTypeaheadCustomTemplate'); // Typeahead : Custom Templates 
+      const demoTypeaheadMultipleDatasets = KTUtil.getById('demoTypeaheadMultipleDatasets'); // Typeahead : Multiple Datasets 
+
+      // Typeahead : Basic Demo
+      const substringMatcher = function (strs) {
+        return function findMatches(q, cb) {
+          let matches;
+          let substringRegex;
+  
+          // an array that will be populated with substring matches
+          matches = [];
+  
+          // regex used to determine if a string contains the substring `q`
+          substrRegex = new RegExp(q, 'i');
+  
+          // iterate through the pool of strings and for any string that
+          // contains the substring `q`, add it to the `matches` array
+          $.each(strs, function (i, str) {
+            if (substrRegex.test(str)) {
+              matches.push(str);
+            }
+          });
+  
+          cb(matches);
+        };
+      };
+  
+      $('#demoTypeaheadBasic, #demoTypeaheadBasic_modal').typeahead(
+        {
+          hint: true,
+          highlight: true,
+          minLength: 1,
+        },
+        {
+          name: 'states',
+          source: substringMatcher(states),
+        }
+      );
+  
+      // Typeahead : Remote Data (Suggestion Engine)
+      // constructs the suggestion engine
+      const bloodhound = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        // `states` is an array of state names defined in \"The Basics\"
+        local: states,
+      });
+  
+      $('#demoTypeaheadRemote, #demoTypeaheadRemote_modal').typeahead(
+        {
+          hint: true,
+          highlight: true,
+          minLength: 1,
+        },
+        {
+          name: 'states',
+          source: bloodhound,
+        }
+  );
+    
+     // Typeahead : Prefetch Data
+     const countries = new Bloodhound({
+      datumTokenizer: Bloodhound.tokenizers.whitespace,
+      queryTokenizer: Bloodhound.tokenizers.whitespace,
+      // url points to a json file that contains an array of country names, see
+      // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
+      prefetch: `${HOST_URL}/api/?file=typeahead/countries.json`,
+    });
+
+      // passing in `null` for the `options` arguments will result in the default
+      // options being used
+      $('#demoTypeaheadPrefetch, #demoTypeaheadPrefetch_modal').typeahead(null, {
+        name: 'countries',
+        source: countries,
+      });
+
+      // Typeahead : Custom Templates 
+      const bestPictures = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: `${HOST_URL}/api/?file=typeahead/movies.json`,
+      });
+
+      $('#demoTypeaheadCustomTemplate').typeahead(null, {
+        name: 'best-pictures',
+        display: 'value',
+        source: bestPictures,
+        templates: {
+          empty: [
+            '<div class="empty-message" style="padding: 10px 15px; text-align: center;">',
+            'unable to find any Best Picture winners that match the current query',
+            '</div>',
+          ].join('\n'),
+          suggestion: Handlebars.compile(
+            '<div><strong>{{value}}</strong> – {{year}}</div>'
+          ),
+        },
+      });
+      
+      // Typeahead : Multiple Datasets 
+      const nbaTeams = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: `${HOST_URL}/api/?file=typeahead/nba.json`,
+      });
+
+      const nhlTeams = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        prefetch: `${HOST_URL}/api/?file=typeahead/nhl.json`,
+      });
+
+      $('#demoTypeaheadMultipleDatasets').typeahead(
+        {
+          highlight: true,
+        },
+        {
+          name: 'nba-teams',
+          display: 'team',
+          source: nbaTeams,
+          templates: {
+            header:
+              '<h3 class="league-name" style="padding: 5px 15px; font-size: 1.2rem; margin:0;">NBA Teams</h3>',
+          },
+        },
+        {
+          name: 'nhl-teams',
+          display: 'team',
+          source: nhlTeams,
+          templates: {
+            header:
+              '<h3 class="league-name" style="padding: 5px 15px; font-size: 1.2rem; margin:0;">NHL Teams</h3>',
+          },
+        }
+      );
+    
+  };
+
+
+  const _FormRepeat = function () {
+    /* Initializing */
+  };
+
+  const _Numbers = function () {
+    /* Initializing */
     const demoNumberCtrlTwoSides = KTUtil.getById('demoNumberCtrlTwoSides');  // Number : Number Controls Two Sides
     const demoNumberCtrlSameSides = KTUtil.getById('demoNumberCtrlSameSides');  // Number : Number Controls Same Sides
     const demoNumberHSliderText = KTUtil.getById('demoNumberHSliderText');  // Number : Horizontal Slide
@@ -105,240 +519,7 @@ const FormControls = (function () {
     const demoNumberRangeSelectSliderText1 = KTUtil.getById('demoNumberRangeSelectSliderText1'); // Number : Range Select Slide
     const demoNumberRangeSelectSliderText2 = KTUtil.getById('demoNumberRangeSelectSliderText2'); // Number : Range Select Slide
     const demoNumberRangeSelectSlider = KTUtil.getById('demoNumberRangeSelectSlider'); // Number : Range Select Slide
-
-
     
-    // Date And Clock
-    const demoDateTime = KTUtil.getById('demoDateTime');  // Date & Time : Date and Time
-    const demoDateTimeRangePicker1 = KTUtil.getById('demoDateTimeRangePicker1');  // Date & Time : Date and Time Range Picker1
-
-    const demoDateTimeLinkedPicker1 = KTUtil.getById('demoDateTimeLinkedPicker1');  // Date & Time : Date and Time Range Linked Picker
-    const demoDateTimeLinkedPicker2 = KTUtil.getById('demoDateTimeLinkedPicker2');  // Date & Time : Date and Time Range Linked Picker
-    const demoDate = KTUtil.getById('demoDate');  // Date & Time : Date
-    const demoDateRangePicker1 = KTUtil.getById('demoDateRangePicker1');  // Date & Time : Date Range Picker1
-    const demoDateRangePicker2 = KTUtil.getById('demoDateRangePicker2');  // Date & Time : Date Range Picker2
-
-    // Lists
-    // Others
-
-    if (!form) {
-      return;
-    }
-
-
-
-
-    /* Dependencies */
-    // Typeahead : Basic Demo
-    const substringMatcher = function (strs) {
-      return function findMatches(q, cb) {
-        let matches;
-        let substringRegex;
-
-        // an array that will be populated with substring matches
-        matches = [];
-
-        // regex used to determine if a string contains the substring `q`
-        substrRegex = new RegExp(q, 'i');
-
-        // iterate through the pool of strings and for any string that
-        // contains the substring `q`, add it to the `matches` array
-        $.each(strs, function (i, str) {
-          if (substrRegex.test(str)) {
-            matches.push(str);
-          }
-        });
-
-        cb(matches);
-      };
-    };
-
-    $('#demoTypeaheadBasic, #demoTypeaheadBasic_modal').typeahead(
-      {
-        hint: true,
-        highlight: true,
-        minLength: 1,
-      },
-      {
-        name: 'states',
-        source: substringMatcher(states),
-      }
-    );
-
-    // Typeahead : Remote Data (Suggestion Engine)
-    // constructs the suggestion engine
-    const bloodhound = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.whitespace,
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      // `states` is an array of state names defined in \"The Basics\"
-      local: states,
-    });
-
-    $('#demoTypeaheadRemote, #demoTypeaheadRemote_modal').typeahead(
-      {
-        hint: true,
-        highlight: true,
-        minLength: 1,
-      },
-      {
-        name: 'states',
-        source: bloodhound,
-      }
-    );
-
-
-    // Typeahead : Prefetch Data
-    const countries = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.whitespace,
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      // url points to a json file that contains an array of country names, see
-      // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
-      prefetch: `${HOST_URL}/api/?file=typeahead/countries.json`,
-    });
-
-    // passing in `null` for the `options` arguments will result in the default
-    // options being used
-    $('#demoTypeaheadPrefetch, #demoTypeaheadPrefetch_modal').typeahead(null, {
-      name: 'countries',
-      source: countries,
-    });
-
-    // Typeahead : Custom Templates 
-    const bestPictures = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      prefetch: `${HOST_URL}/api/?file=typeahead/movies.json`,
-    });
-
-    $('#demoTypeaheadCustomTemplate').typeahead(null, {
-      name: 'best-pictures',
-      display: 'value',
-      source: bestPictures,
-      templates: {
-        empty: [
-          '<div class="empty-message" style="padding: 10px 15px; text-align: center;">',
-          'unable to find any Best Picture winners that match the current query',
-          '</div>',
-        ].join('\n'),
-        suggestion: Handlebars.compile(
-          '<div><strong>{{value}}</strong> – {{year}}</div>'
-        ),
-      },
-    });
-    
-    // Typeahead : Multiple Datasets 
-    const nbaTeams = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      prefetch: `${HOST_URL}/api/?file=typeahead/nba.json`,
-    });
-
-    const nhlTeams = new Bloodhound({
-      datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
-      queryTokenizer: Bloodhound.tokenizers.whitespace,
-      prefetch: `${HOST_URL}/api/?file=typeahead/nhl.json`,
-    });
-
-    $('#demoTypeaheadMultipleDatasets').typeahead(
-      {
-        highlight: true,
-      },
-      {
-        name: 'nba-teams',
-        display: 'team',
-        source: nbaTeams,
-        templates: {
-          header:
-            '<h3 class="league-name" style="padding: 5px 15px; font-size: 1.2rem; margin:0;">NBA Teams</h3>',
-        },
-      },
-      {
-        name: 'nhl-teams',
-        display: 'team',
-        source: nhlTeams,
-        templates: {
-          header:
-            '<h3 class="league-name" style="padding: 5px 15px; font-size: 1.2rem; margin:0;">NHL Teams</h3>',
-        },
-      }
-    );
-  
-  
-    // Date Picker Initialize
-    $('#demoDateTime').datetimepicker({
-      rtl: KTUtil.isRTL(),
-      todayHighlight: true,
-      orientation: 'bottom left',
-      templates: arrows,
-    });
-
-    // Date & Time : Date and Time Range Picker1
-    $('#demoDateTimeRangePicker1').daterangepicker(
-      {
-        buttonClasses: ' btn',
-        applyClass: 'btn-primary',
-        cancelClass: 'btn-secondary',
-
-        timePicker: true,
-        timePickerIncrement: 30,
-        locale: {
-          format: 'MM/DD/YYYY h:mm A',
-        },
-      },
-      function (start, end, label) {
-        $('#demoDateTimeRangePicker1 .form-control').val(
-          `${start.format('MM/DD/YYYY h:mm A')} / ${end.format(
-            'MM/DD/YYYY h:mm A'
-          )}`
-        );
-      }
-    );
-    
-    // Date & Time : Date and Time Linked
-    $('#demoDateTimeLinkedPicker1').datetimepicker();
-    $('#demoDateTimeLinkedPicker2').datetimepicker({
-      useCurrent: false,
-    });
-
-    $('#demoDateTimeLinkedPicker1').on('change.datetimepicker', function (e) {
-      $('#demoDateTimeLinkedPicker2').datetimepicker('minDate', e.date);
-    });
-    $('#demoDateTimeLinkedPicker2').on('change.datetimepicker', function (e) {
-      $('#demoDateTimeLinkedPicker1').datetimepicker('maxDate', e.date);
-    });
-
-    // Date & Time : Date
-    $('#demoDate, #demoDate_validate').datepicker({
-      rtl: KTUtil.isRTL(),
-      todayBtn: 'linked',
-      clearBtn: true,
-      todayHighlight: true,
-      orientation: 'bottom left',
-      templates: arrows,
-    });
-
-    // Date & Time : Date Range Picker1
-    // input group and left alignment setup
-    $('#demoDateRangePicker1').daterangepicker(
-      {
-        buttonClasses: ' btn',
-        applyClass: 'btn-primary',
-        cancelClass: 'btn-secondary',
-      },
-      function (start, end, label) {
-        $('#demoDateRangePicker1 .form-control').val(
-          `${start.format('MM/DD/YYYY')} - ${end.format('MM/DD/YYYY')}`
-        );
-      }
-    );
-
-    // Date & Time : Date Range Picker2
-    $('#demoDateRangePicker2').datepicker({
-      rtl: KTUtil.isRTL(),
-      todayHighlight: true,
-      templates: arrows,
-    });
-
     // Number : Number Controls Two Sides
     $('#demoNumberCtrlTwoSides').TouchSpin({
 			buttondown_class: 'btn btn-secondary',
@@ -476,6 +657,134 @@ const FormControls = (function () {
 			sliderInputs[handle].value = values[handle];
 		});
     
+    
+  };
+
+  const _DateAndClock = function () {
+    /* Initializing */
+    const demoDateTime = KTUtil.getById('demoDateTime');  // Date & Time : Date and Time
+    const demoDateTimeText = KTUtil.getById('demoDateTimeText');  // Date & Time : Date and Time
+
+    const demoDateTimeRangePicker1 = KTUtil.getById('demoDateTimeRangePicker1');  // Date & Time : Date and Time Range Picker1
+    const demoDateTimeRangePicker1Text = KTUtil.getById('demoDateTimeRangePicker1Text');  // Date & Time : Date and Time Range Picker1
+
+    const demoDateTimeLinkedPicker1 = KTUtil.getById('demoDateTimeLinkedPicker1');  // Date & Time : Date and Time Range Linked Picker
+    const demoDateTimeLinkedPicker1Text = KTUtil.getById('demoDateTimeLinkedPicker1Text');  // Date & Time : Date and Time Range Linked Picker
+    const demoDateTimeLinkedPicker2 = KTUtil.getById('demoDateTimeLinkedPicker2');  // Date & Time : Date and Time Range Linked Picker
+    const demoDateTimeLinkedPicker2Text = KTUtil.getById('demoDateTimeLinkedPicker2Text');  // Date & Time : Date and Time Range Linked Picker
+    
+    const demoDate = KTUtil.getById('demoDate');  // Date & Time : Date
+    const demoDateRangePicker1 = KTUtil.getById('demoDateRangePicker1');  // Date & Time : Date Range Picker1
+    const demoDateRangePicker1Text = KTUtil.getById('demoDateRangePicker1Text');  // Date & Time : Date Range Picker1
+
+    const demoDateRangePicker2 = KTUtil.getById('demoDateRangePicker2');  // Date & Time : Date Range Picker2
+    const demoDateRangePicker2Text = KTUtil.getById('demoDateRangePicker2Text');  // Date & Time : Date Range Picker2
+
+    const demoTime24Hr = KTUtil.getById('demoTime24Hr');  // Time : 24 Hour
+    const demoTime12Hr = KTUtil.getById('demoTime12Hr');   // Time : 12 Hour
+
+    // Date Picker Initialize
+    $('#demoDateTime').datetimepicker({
+      rtl: KTUtil.isRTL(),
+      todayHighlight: true,
+      orientation: 'bottom left',
+      templates: arrows,
+    });
+
+  // Date & Time : Date and Time Range Picker1
+  $('#demoDateTimeRangePicker1').daterangepicker(
+    {
+      buttonClasses: ' btn',
+      applyClass: 'btn-primary',
+      cancelClass: 'btn-secondary',
+
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY h:mm A',
+      },
+    },
+    function (start, end, label) {
+      $('#demoDateTimeRangePicker1 .form-control').val(
+        `${start.format('MM/DD/YYYY h:mm A')} / ${end.format(
+          'MM/DD/YYYY h:mm A'
+        )}`
+      );
+    }
+    );
+    
+    // Date & Time : Date and Time Linked
+    $('#demoDateTimeLinkedPicker1').datetimepicker();
+    $('#demoDateTimeLinkedPicker2').datetimepicker({
+      useCurrent: false,
+    });
+
+    $('#demoDateTimeLinkedPicker1').on('change.datetimepicker', function (e) {
+      $('#demoDateTimeLinkedPicker2').datetimepicker('minDate', e.date);
+    });
+    $('#demoDateTimeLinkedPicker2').on('change.datetimepicker', function (e) {
+      $('#demoDateTimeLinkedPicker1').datetimepicker('maxDate', e.date);
+    });
+
+    // Date & Time : Date
+    $('#demoDate, #demoDate_validate').datepicker({
+      rtl: KTUtil.isRTL(),
+      todayBtn: 'linked',
+      clearBtn: true,
+      todayHighlight: true,
+      orientation: 'bottom left',
+      templates: arrows,
+    });
+
+    // Date & Time : Date Range Picker1
+    // input group and left alignment setup
+    $('#demoDateRangePicker1').daterangepicker(
+      {
+        buttonClasses: ' btn',
+        applyClass: 'btn-primary',
+        cancelClass: 'btn-secondary',
+      },
+      function (start, end, label) {
+        $('#demoDateRangePicker1 .form-control').val(
+          `${start.format('MM/DD/YYYY')} - ${end.format('MM/DD/YYYY')}`
+        );
+      }
+    );
+
+    // Date & Time : Date Range Picker2
+    $('#demoDateRangePicker2').datepicker({
+      rtl: KTUtil.isRTL(),
+      todayHighlight: true,
+      templates: arrows,
+    });
+
+
+    // Time : 24 Hour
+		$('#demoTime24Hr, #demoTime24Hr_modal').timepicker({
+			minuteStep: 1,
+			defaultTime: '',
+			showSeconds: true,
+			showMeridian: false,
+			snapToStep: true
+    });
+    
+    // Time : 12 Hour
+		$('#demoTime12Hr, #demoTime12Hr_modal').timepicker({
+			defaultTime: '',
+			minuteStep: 1,
+			showSeconds: true,
+			showMeridian: true
+		});
+  };
+
+  const _Lists = function () {
+    /* Initializing */
+    const demoSelectSingle = KTUtil.getById('demoSelectSingle');          // Dropdown List : Single Select1 
+    const demoSelectMultiple = KTUtil.getById('demoSelectMultiple');          // Dropdown List : Multiple Select1
+    const demoSelect2Single = KTUtil.getById('demoSelect2Single');          // Dropdown List : Single Select2 w Live Search 
+    const demoSelect2Multiple = KTUtil.getById('demoSelect2Multiple');          // Dropdown List : Multiple Select2 w Live Search
+    const demoExampleSelect2 = KTUtil.getById('demoExampleSelect2');          // Dropdown List : multiple box 
+    
     // Dropdown List : Single Select
     $('demoSelectSingle').selectpicker();
 
@@ -488,117 +797,23 @@ const FormControls = (function () {
       allowClear: true
 		});
 
-    FormValidation.formValidation(form, {
-      fields: {
-        email: {
-          validators: {
-            notEmpty: {
-              message: 'Email is required',
-            },
-            emailAddress: {
-              message: 'The value is not a valid email address',
-            },
-          },
-        },
-      },
-
-      plugins: {
-        //Learn more: https://formvalidation.io/guide/plugins
-        trigger: new FormValidation.plugins.Trigger(),
-        // Bootstrap Framework Integration
-        bootstrap: new FormValidation.plugins.Bootstrap(),
-        // Validate fields when clicking the Submit button
-        submitButton: new FormValidation.plugins.SubmitButton(),
-        // Submit the form when all fields are valid
-        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-      },
-    }).on('core.form.valid', function () {
-      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
-      // Accessing Restful API
-      axios({
-        method: 'post',
-        url: `${HOST_URL}/api/v1/example`,
-        data: {
-          
-        },
-
-      }).then(function (res) {
-        // Return valid JSON
-        // Release button
-        KTUtil.btnRelease(formSubmitButton);
-        console.log(res);
-        
-        // SWAL EXAMPLE
-        /*         if (res.data.status == 'success') {
-            Swal.fire({
-              title: 'Success',
-              text: res.data.message,
-              icon: 'success',
-              buttonsStyling: false,
-              showCancelButton: true,
-              confirmButtonText: 'OK',
-              cancelButtonText : 'Cancel',
-              customClass: {
-                confirmButton: 'btn font-weight-bold btn-light-primary',
-                cancelButton : 'btn font-weight-bold btn-light-primary',
-              },
-            }).then(function (result) {
-              console.log(result);
-              if (result.value) {
-                Swal.fire({
-                  title: 'Success',
-                  icon: 'success',
-                  text: `Your file has been deleted`,
-                  confirmButtonText: 'OK',
-                })
-              } else if (result.isDismissed === true) {
-  
-                Swal.fire({
-                  title: 'Cancelled',
-                  icon: 'error',
-                  text: `Your imaginary file is safe :)`,
-                  confirmButtonText: 'OK',
-                })
-              }
-  
-            })
-          } */
-
-        // TOASTR EXAMPLE
-
-        toastr.options = {
-          "closeButton": false,
-          "debug": false,
-          "newestOnTop": true,
-          "progressBar": false,
-          "positionClass": "toast-top-right",
-          "preventDuplicates": false,
-          "onclick": null,
-          "showDuration": "300",
-          "hideDuration": "1000",
-          "timeOut": "3000",
-          "extendedTimeOut": "1000",
-          "showEasing": "swing",
-          "hideEasing": "linear",
-          "showMethod": "fadeIn",
-          "hideMethod": "fadeOut"
-        };
-
-        if (res.data.status == 'success') {
-          toastr.success(`${res.data.message}`, `${res.data.status}`)
-        } else if (res.data.status == 'error') {
-          toastr.error(`${res.data.message}`, `${res.data.status}`)
-        }
-      });
-
-    }).on('core.form.invalid', function () { });
-
+  };
+  const _Others = function () {
+  /* Initializing */
+    
   };
 
   return {
     // public functions
     init: function () {
+      _TextBox();
+      _TypeAhead();
+      _FormRepeat();
+      _Numbers();
+      _DateAndClock();
+      _Lists();
+      _Others();
+
       _Demo1();
     },
   };

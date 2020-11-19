@@ -64,11 +64,12 @@ block content
                                         h3(class=' text-dark font-weight-bold mb-10') TypeAhead
 
                                         // Typeahead : Basic Demo
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Typeahead Basic Demo
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                div(class='typeahead')
-                                                    input#demoTypeaheadBasic(class='form-control' type='text' dir='ltr' name='demoTypeaheadBasic' placeholder='States of USA')
+                                        div(class="form-group row")
+                                            label(class="col-form-label text-right col-lg-3 col-sm-12") Basic Demo
+                                            div(class="col-lg-4 col-md-9 col-sm-12")
+                                                div(class="typeahead")
+                                                    input#demoTypeaheadBasic(class="form-control", type="text", dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>", name="demoTypeaheadBasic" placeholder="States of USA")
+
                                         // Typeahead : Remote Data (Suggestion Engine)
                                         div(class='form-group row')
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Typeahead Remote Data (Suggestion Engine)
@@ -204,7 +205,7 @@ block content
                                             div(class='col-lg-6 col-md-12 col-sm-12')
                                                 div(class='row')
                                                     div(class='col-4')
-                                                        input#demoNumberVSliderText(type='text' class='form-control' name='kt_nouislider_6_input' placeholder='Quantity')
+                                                        input#demoNumberVSliderText(type='text' class='form-control' name='demoNumberVSliderText' placeholder='Quantity')
                                                     div(class='col-8')
                                                         #demoNumberVSlider
                                                 span(class='form-text text-muted') Vertical orientation slider example
@@ -230,7 +231,6 @@ block content
                                                     div(class='col-6')
                                                         #demoNumberRangeSelectSlider(class='nouislider')
                                                 span(class='form-text text-muted mt-6') Slider with tooltips to show slider values.
-
                                         // Boolean
                                         div(class='form-group row')
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Default Switch
@@ -248,7 +248,7 @@ block content
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 #demoDateTime(class='input-group date' data-target-input='nearest')
-                                                    input(type='text' class='form-control datetimepicker-input' placeholder='Select date & time' data-target='#demoDateTime')
+                                                    input#demoDateTimeText(type='text' class='form-control datetimepicker-input' readonly=''  name='demoDateTimeText' placeholder='Select date & time' data-target='#demoDateTime')
                                                     div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
                                                         span(class='input-group-text')
                                                             i(class='ki ki-calendar')
@@ -258,7 +258,7 @@ block content
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time Range Picker1
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 #demoDateTimeRangePicker1(class='input-group')
-                                                    input(type='text' class='form-control' readonly='' placeholder='Select date & time range')
+                                                    input#demoDateTimeRangePicker1Text(type='text' class='form-control' readonly=''  name='demoDateTimeRangePicker1Text' placeholder='Select date & time range')
                                                     div(class='input-group-append')
                                                         span(class='input-group-text')
                                                             i(class='la la-calendar-check-o')
@@ -270,24 +270,23 @@ block content
                                                 div(class='row')
                                                     div(class='col')
                                                         #demoDateTimeLinkedPicker1(class='input-group date' data-target-input='nearest')
-                                                            input(type='text' class='form-control datetimepicker-input' placeholder='Start date' data-target='#demoDateTimeLinkedPicker1')
+                                                            input#demoDateTimeLinkedPicker1Text(type='text' class='form-control datetimepicker-input'  readonly=''  name='demoDateTimeLinkedPicker1Text' placeholder='Start date' data-target='#demoDateTimeLinkedPicker1')
                                                             div(class='input-group-append' data-target='#demoDateTimeLinkedPicker1' data-toggle='datetimepicker')
                                                                 span(class='input-group-text')
                                                                     i(class='ki ki-calendar')
                                                     div(class='col')
                                                         #demoDateTimeLinkedPicker2(class='input-group date' data-target-input='nearest')
-                                                            input(type='text' class='form-control datetimepicker-input' placeholder='End date' data-target='#demoDateTimeLinkedPicker2')
+                                                            input#demoDateTimeLinkedPicker2Text(type='text' class='form-control datetimepicker-input'  readonly='' name='demoDateTimeLinkedPicker2Text'  placeholder='End date' data-target='#demoDateTimeLinkedPicker2')
                                                             div(class='input-group-append' data-target='#demoDateTimeLinkedPicker2' data-toggle='datetimepicker')
                                                                 span(class='input-group-text')
                                                                     i(class='ki ki-calendar')
-
 
                                         // Date & Time : Date Only
                                         div(class='form-group row')
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Date Only
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 div(class='input-group date')
-                                                    input#demoDate(type='text' class='form-control' readonly='' placeholder='Select date')
+                                                    input#demoDate(type='text' class='form-control' readonly='' name='demoDate' placeholder='Select date')
                                                     div(class='input-group-append')
                                                         span(class='input-group-text')
                                                             i(class='la la-calendar-check-o')
@@ -298,7 +297,7 @@ block content
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker1
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 #demoDateRangePicker1(class='input-group')
-                                                    input(type='text' class='form-control' readonly='' placeholder='Select date range')
+                                                    input#demoDateRangePicker1Text(type='text' class='form-control' readonly='' name='demoDateRangePicker1Text' placeholder='Select date range')
                                                     div(class='input-group-append')
                                                         span(class='input-group-text')
                                                             i(class='la la-calendar-check-o')
@@ -308,7 +307,7 @@ block content
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker2
                                             div(class='col-lg-6 col-md-9 col-sm-12')
                                                 #demoDateRangePicker2(class='input-daterange input-group')
-                                                    input(type='text' class='form-control' name='start')
+                                                    input#demoDateRangePicker2Text(type='text' class='form-control' readonly=''  name='demoDateRangePicker2Text')
                                                     div(class='input-group-append')
                                                         span(class='input-group-text')
                                                             i(class='la la-ellipsis-h')
@@ -320,7 +319,7 @@ block content
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') 24 Hour Time
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 div(class='input-group timepicker')
-                                                    input#kt_timepicker_2(class='form-control' readonly='' name='kt_timepicker_2' placeholder='Select time' type='text')
+                                                    input#demoTime24Hr(class='form-control' readonly='' name='demoTime24Hr' placeholder='Select time' type='text')
                                                     div(class='input-group-append')
                                                         span(class='input-group-text')
                                                             i(class='la la-clock-o')
@@ -330,7 +329,7 @@ block content
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') 12 Hour Time
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 div(class='input-group timepicker')
-                                                    input#kt_timepicker_3(class='form-control' readonly='' name='kt_timepicker_3'  placeholder='Select time' type='text')
+                                                    input#demoTime12Hr(class='form-control' readonly='' name='demoTime12Hr'  placeholder='Select time' type='text')
                                                     div(class='input-group-prepend')
                                                         span(class='input-group-text')
                                                             i(class='la la-clock-o')
