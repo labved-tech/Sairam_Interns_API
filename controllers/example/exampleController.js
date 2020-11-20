@@ -45,6 +45,7 @@ exports.getExample = catchAsync(async (req, res, next) => {
 });
 
 exports.createExample = catchAsync(async (req, res, next) => {
+  console.log(req.body);
   console.log('Creating Example');
   const { body } = req;
 

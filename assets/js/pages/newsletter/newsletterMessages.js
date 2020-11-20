@@ -46,7 +46,7 @@ const NewsletterCRUD = (function () {
             },
         }).on('core.form.valid', function () {
             KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-            console.log(formMessage);
+            console.log(newsletterId.value);
 
             // Accessing Restful API
             axios({
@@ -54,12 +54,7 @@ const NewsletterCRUD = (function () {
                 url: `${HOST_URL}/api/v1/newsletter/messages`,
                 data: {
                     _newsletterId: newsletterId.value,
-                    subject: { type: String },
-                    message: { type: String },
-                    recipientEmail: { type: String },
-                    sent: { type: Boolean },
-                    visited: { type: Boolean },
-                    lastVisited: { type: Boolean },
+
                 },
             }).then(function (res) {
                 KTUtil.btnRelease(formSubmitButton);

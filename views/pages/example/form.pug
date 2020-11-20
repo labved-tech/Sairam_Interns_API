@@ -6,9 +6,9 @@ block css-files
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
     script(src='/js/pages/crud/forms/example/FormControls.js')
-    script(src='/js/pages/crud/forms/widgets/form-repeater.js')
+    //- script(src='/js/pages/crud/forms/widgets/form-repeater.js')
     script(src='/js/pages/crud/forms/editors/summernote.js')
-    script(src='/js/pages/features/miscellaneous/toastr.js')
+    //- script(src='/js/pages/features/miscellaneous/toastr.js')
 
 
     
@@ -68,14 +68,14 @@ block content
                                             label(class="col-form-label text-right col-lg-3 col-sm-12") Basic Demo
                                             div(class="col-lg-4 col-md-9 col-sm-12")
                                                 div(class="typeahead")
-                                                    input#demoTypeaheadBasic(class="form-control", type="text", dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>", name="demoTypeaheadBasic" placeholder="States of USA")
+                                                    input#demoTypeaheadBasic(class="form-control", type="text", dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name="demoTypeaheadBasic" placeholder="States of USA")
 
                                         // Typeahead : Remote Data (Suggestion Engine)
                                         div(class='form-group row')
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Typeahead Remote Data (Suggestion Engine)
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 div(class='typeahead')
-                                                    input#demoTypeaheadRemote(class='form-control' type='text' dir='ltr'  name='demoTypeaheadRemote' placeholder='States of USA')
+                                                    input#demoTypeaheadRemote(class='form-control' type='text' dir='ltr' name='demoTypeaheadRemote' placeholder='States of USA')
                                                 div(class='form-text text-muted')
                                                     | Bloodhound offers advanced functionalities such as prefetching and backfilling with remote data.
                                         // Typeahead : Prefetch Data
@@ -83,7 +83,7 @@ block content
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Typeahead Prefetch Data
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 div(class='typeahead')
-                                                    input#demoTypeaheadPrefetch(class='form-control' type='text' name='demoTypeaheadPrefetch' dir='ltr' placeholder='Countries')
+                                                    input#demoTypeaheadPrefetch(class='form-control' type='text' dir='ltr' name='demoTypeaheadPrefetch' placeholder='Countries')
                                                 div(class='form-text text-muted') Prefetched data is fetched and processed on initialization
                                         // Typeahead : Custom Templates 
                                         div(class='form-group row')
@@ -97,245 +97,10 @@ block content
                                             label(class='col-form-label text-right col-lg-3 col-sm-12') Multiple Datasets
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 div(class='typeahead')
-                                                    input#demoTypeaheadMultipleDatasets(class='form-control' type='text' dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>" name='demoTypeaheadMultipleDatasets' placeholder='Select an option')
+                                                    input#demoTypeaheadMultipleDatasets(class='form-control' type='text' dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>"  name='demoTypeaheadMultipleDatasets' placeholder='Select an option')
                                                 div(class='form-text text-muted')
-                                                    | Remote data is only used when the data provided by local and prefetch is insufficient
+                                                    | Remote data is only used when the data provided by local and prefetch is insufficient                                      
                                         
-                                        div(class='separator separator-dashed my-10')
-                                        h3(class=' text-dark font-weight-bold mb-10') Form Repeat
-
-                                        // Form Repeat #1 : Single
-                                        #kt_repeater_2
-                                            div(class='form-group row')
-                                                label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Form Repeat #1 - Single :
-                                                div(data-repeater-list='' class='col-lg-6')
-                                                    div(data-repeater-item='' class='mb-2')
-                                                        div(class='input-group')
-                                                            div(class='input-group-prepend')
-                                                                span(class='input-group-text')
-                                                                    i(class='la la-phone')
-                                                            input#telephone(type='text' class='form-control' name='telephone' placeholder='Enter telephone')
-                                                            div(class='input-group-append')
-                                                                a(href='javascript:;' class='btn font-weight-bold btn-primary btn-icon')
-                                                                    i(class='la la-close')
-                                            div(class='form-group row')
-                                                div(class='col-lg-3')
-                                                div(class='col')
-                                                    div(data-repeater-create='' class='btn font-weight-bold btn-primary')
-                                                        i(class='la la-plus')
-                                                        | Add
-                                        // Form Repeat #2 : Multiple
-                                        #kt_repeater_1
-                                            div(class='form-group row')
-                                                label(class='col-lg-2 col-form-label text-right') Form Repeat #2 - Multiple Input's:
-                                                div(data-repeater-list='' class='col-lg-10')
-                                                    div(data-repeater-item='' class='form-group row align-items-center')
-                                                        div(class='col-md-4')
-                                                            label Name:
-                                                            input#name(type='email' class='form-control' name='name' placeholder='Enter full name')
-                                                            div(class='d-md-none mb-2')
-                                                        div(class='col-md-4')
-                                                            label Number:
-                                                            input#contactno(type='email' class='form-control' name='contactno'  placeholder='Enter contact number')
-                                                            div(class='d-md-none mb-2')
-                                                        div(class='col-md-4')
-                                                            a(href='javascript:;' data-repeater-delete='' class='btn btn-sm font-weight-bolder btn-danger')
-                                                                i(class='la la-trash-o')
-                                                                | Delete
-                                            div(class='form-group row')
-                                                label(class='col-lg-2 col-form-label text-right')
-                                                div(class='col-lg-4')
-                                                    a(href='javascript:;' data-repeater-create='' class='btn btn-sm font-weight-bolder btn-light-primary')
-                                                        i(class='la la-plus')
-                                                        | Add
-                                            // Form Repeat #3 : Multiple
-                                            #kt_repeater_3
-                                                div(class='form-group row')
-                                                    label(class='col-lg-3 col-form-label text-right') Form Repeat #3  - Multiple Input's:
-                                                    div(data-repeater-list='' class='col-lg-9')
-                                                        div(data-repeater-item='' class='form-group row')
-                                                            div(class='col-lg-5')
-                                                                div(class='input-group')
-                                                                    div(class='input-group-prepend')
-                                                                        span(class='input-group-text')
-                                                                            i(class='la la-phone')
-                                                                    input#phone(type='text' class='form-control'  name='phone'  placeholder='Phone')
-                                                            div(class='col-lg-5')
-                                                                div(class='input-group')
-                                                                    div(class='input-group-prepend')
-                                                                        span(class='input-group-text')
-                                                                            i(class='la la-envelope')
-                                                                    input#email(type='text' class='form-control'  name='email'  placeholder='Email')
-                                                            div(class='col-lg-2')
-                                                                a(href='javascript:;' data-repeater-delete='' class='btn font-weight-bold btn-danger btn-icon')
-                                                                    i(class='la la-remove')
-                                                div(class='form-group row')
-                                                    div(class='col-lg-3')
-                                                    div(class='col')
-                                                        div(data-repeater-create='' class='btn font-weight-bold btn-primary')
-                                                            i(class='la la-plus')
-                                                            |                             Add
-
-                                        div(class='separator separator-dashed my-10')
-                                        h3(class=' text-dark font-weight-bold mb-10') Numbers
-
-                                        // Number : Number Controls Two Sides
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Numbers Controls Either Side :
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                input#demoNumberCtrlTwoSides(type='text' class='form-control' value='' name='demoNumberCtrlTwoSides' placeholder='Select time')
-                                        // Number : Number Controls Same Sides
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Numbers Controls Same Side :
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                input#demoNumberCtrlSameSides(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demoNumberCtrlSameSides' placeholder='40')
-                                        // Number : Horizontal Slide
-                                        div(class='form-group row mb-6')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Horizontal Slider
-                                            div(class='col-lg-6 col-md-12 col-sm-12')
-                                                div(class='row align-items-center')
-                                                    div(class='col-4')
-                                                        input#demoNumberHSliderText(type='text' class='form-control' name='demoNumberHSliderText' placeholder='Quantity')
-                                                    div(class='col-8')
-                                                        #demoNumberHSlider(class='nouislider-drag-danger')
-                                                span(class='form-text text-muted mt-6') Input control is attached to slider
-                                        // Number : Vertical Slide
-                                        div(class='form-group row mb-6')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Vertical Slider
-                                            div(class='col-lg-6 col-md-12 col-sm-12')
-                                                div(class='row')
-                                                    div(class='col-4')
-                                                        input#demoNumberVSliderText(type='text' class='form-control' name='demoNumberVSliderText' placeholder='Quantity')
-                                                    div(class='col-8')
-                                                        #demoNumberVSlider
-                                                span(class='form-text text-muted') Vertical orientation slider example
-                                        // Number : Currency Slide
-                                        div(class='form-group row mb-6')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Currency Formatting
-                                            div(class='col-lg-6 col-md-12 col-sm-12')
-                                                div(class='row align-items-center')
-                                                    div(class='col-4')
-                                                        input#demoNumberCurrencySliderText(type='text' class='form-control' name='demoNumberCurrencySliderText' placeholder='Currency')
-                                                    div(class='col-8')
-                                                        #demoNumberCurrencySlider(class='nouislider nouislider-handle-primary')
-                                                span(class='form-text text-muted mt-6') To format the slider output, noUiSlider offers a format option.
-                                        // Number : Range Select Slide
-                                        div(class='form-group row mb-6')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Range Select Slide
-                                            div(class='col-lg-8 col-md-12 col-sm-12')
-                                                div(class='row align-items-center')
-                                                    div(class='col-3')
-                                                        input#demoNumberRangeSelectSliderText1(type='text' class='form-control' name='demoNumberRangeSelectSliderText1' placeholder='Quantity')
-                                                    div(class='col-3')
-                                                        input#demoNumberRangeSelectSliderText2(type='text' class='form-control' name='demoNumberRangeSelectSliderText2'  placeholder='Quantity')
-                                                    div(class='col-6')
-                                                        #demoNumberRangeSelectSlider(class='nouislider')
-                                                span(class='form-text text-muted mt-6') Slider with tooltips to show slider values.
-                                        // Boolean
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Default Switch
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                span(class='switch switch-sm')
-                                                    label
-                                                        input(type='checkbox' checked='checked' name='select')
-                                                        span
-                                        
-                                        div(class='separator separator-dashed my-10')
-                                        h3(class=' text-dark font-weight-bold mb-10') Date And Clock                                        
-                                        
-                                        // Date & Time : Date and Time
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                #demoDateTime(class='input-group date' data-target-input='nearest')
-                                                    input#demoDateTimeText(type='text' class='form-control datetimepicker-input' readonly=''  name='demoDateTimeText' placeholder='Select date & time' data-target='#demoDateTime')
-                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
-                                                        span(class='input-group-text')
-                                                            i(class='ki ki-calendar')
-
-                                        // Date & Time : Date and Time Range Picker1
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time Range Picker1
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                #demoDateTimeRangePicker1(class='input-group')
-                                                    input#demoDateTimeRangePicker1Text(type='text' class='form-control' readonly=''  name='demoDateTimeRangePicker1Text' placeholder='Select date & time range')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-
-                                        // Date & Time : Date and Time Range Linked Picker
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time Range Linked Picker
-                                            div(class='col-lg-8 col-md-9 col-sm-12')
-                                                div(class='row')
-                                                    div(class='col')
-                                                        #demoDateTimeLinkedPicker1(class='input-group date' data-target-input='nearest')
-                                                            input#demoDateTimeLinkedPicker1Text(type='text' class='form-control datetimepicker-input'  readonly=''  name='demoDateTimeLinkedPicker1Text' placeholder='Start date' data-target='#demoDateTimeLinkedPicker1')
-                                                            div(class='input-group-append' data-target='#demoDateTimeLinkedPicker1' data-toggle='datetimepicker')
-                                                                span(class='input-group-text')
-                                                                    i(class='ki ki-calendar')
-                                                    div(class='col')
-                                                        #demoDateTimeLinkedPicker2(class='input-group date' data-target-input='nearest')
-                                                            input#demoDateTimeLinkedPicker2Text(type='text' class='form-control datetimepicker-input'  readonly='' name='demoDateTimeLinkedPicker2Text'  placeholder='End date' data-target='#demoDateTimeLinkedPicker2')
-                                                            div(class='input-group-append' data-target='#demoDateTimeLinkedPicker2' data-toggle='datetimepicker')
-                                                                span(class='input-group-text')
-                                                                    i(class='ki ki-calendar')
-
-                                        // Date & Time : Date Only
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Date Only
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                div(class='input-group date')
-                                                    input#demoDate(type='text' class='form-control' readonly='' name='demoDate' placeholder='Select date')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-                                                span(class='form-text text-muted') Example help text that remains unchanged.
-                                                                              
-                                        // Date & Time : Date Range Picker1
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker1
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                #demoDateRangePicker1(class='input-group')
-                                                    input#demoDateRangePicker1Text(type='text' class='form-control' readonly='' name='demoDateRangePicker1Text' placeholder='Select date range')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-                                        
-                                        // Date & Time : Date Range Picker2
-                                        div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker2
-                                            div(class='col-lg-6 col-md-9 col-sm-12')
-                                                #demoDateRangePicker2(class='input-daterange input-group')
-                                                    input#demoDateRangePicker2Text(type='text' class='form-control' readonly=''  name='demoDateRangePicker2Text')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-ellipsis-h')
-                                                    input(type='text' class='form-control' name='end')
-                                                span(class='form-text text-muted') Linked pickers for date range selection                                      
-                                        
-                                        // Time : 24 Hour
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') 24 Hour Time
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                div(class='input-group timepicker')
-                                                    input#demoTime24Hr(class='form-control' readonly='' name='demoTime24Hr' placeholder='Select time' type='text')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-clock-o')
-                                                span(class='form-text text-muted') Select time
-                                        // Time : 12 Hour
-                                        div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') 12 Hour Time
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
-                                                div(class='input-group timepicker')
-                                                    input#demoTime12Hr(class='form-control' readonly='' name='demoTime12Hr'  placeholder='Select time' type='text')
-                                                    div(class='input-group-prepend')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-clock-o')
-                                                span(class='form-text text-muted') Select time
-
-
                                         div(class='separator separator-dashed my-10')
                                         h3(class=' text-dark font-weight-bold mb-10') Lists
 
@@ -731,14 +496,250 @@ block content
                                                 | List Box - Multiple
                                                 span(class='text-danger') *
                                             div(class='col-lg-4 col-md-9 col-sm-12')
-                                                select#exampleSelect2(multiple='' class='form-control'  name='number' )
+                                                select#demoExampleSelect2(multiple='' class='form-control'  name='number' )
                                                     option 1
                                                     option 2
                                                     option 3
                                                     option 4
                                                     option 5
+
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Numbers
+
+                                        // Number : Number Controls Two Sides
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Numbers Controls Either Side :
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                input#demoNumberCtrlTwoSides(type='text' class='form-control' value='' name='demoNumberCtrlTwoSides' placeholder='Select time')
+                                        // Number : Number Controls Same Sides
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Numbers Controls Same Side :
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                input#demoNumberCtrlSameSides(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demoNumberCtrlSameSides' placeholder='40')
+                                        // Number : Horizontal Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Horizontal Slider
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#demoNumberHSliderText(type='text' class='form-control' name='demoNumberHSliderText' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #demoNumberHSlider(class='nouislider-drag-danger')
+                                                span(class='form-text text-muted mt-6') Input control is attached to slider
+                                        // Number : Vertical Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Vertical Slider
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row')
+                                                    div(class='col-4')
+                                                        input#demoNumberVSliderText(type='text' class='form-control' name='demoNumberVSliderText' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #demoNumberVSlider
+                                                span(class='form-text text-muted') Vertical orientation slider example
+                                        // Number : Currency Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Currency Formatting
+                                            div(class='col-lg-6 col-md-12 col-sm-12')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#demoNumberCurrencySliderText(type='text' class='form-control' name='demoNumberCurrencySliderText' placeholder='Currency')
+                                                    div(class='col-8')
+                                                        #demoNumberCurrencySlider(class='nouislider nouislider-handle-primary')
+                                                span(class='form-text text-muted mt-6') To format the slider output, noUiSlider offers a format option.
+                                        // Number : Range Select Slide
+                                        div(class='form-group row mb-6')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Range Select Slide
+                                            div(class='col-lg-8 col-md-12 col-sm-12')
+                                                div(class='row align-items-center')
+                                                    div(class='col-3')
+                                                        input#demoNumberRangeSelectSliderText1(type='text' class='form-control' name='demoNumberRangeSelectSliderText1' placeholder='Quantity')
+                                                    div(class='col-3')
+                                                        input#demoNumberRangeSelectSliderText2(type='text' class='form-control' name='demoNumberRangeSelectSliderText2'  placeholder='Quantity')
+                                                    div(class='col-6')
+                                                        #demoNumberRangeSelectSlider(class='nouislider')
+                                                span(class='form-text text-muted mt-6') Slider with tooltips to show slider values.
+                                        // Boolean
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Default Switch
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input(type='checkbox' checked='checked' name='select')
+                                                        span
+
+
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Date And Clock                                        
+                                            
+                                        // Date & Time : Date and Time
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                #demoDateTime(class='input-group date' data-target-input='nearest')
+                                                    input#demoDateTimeText(type='text' class='form-control datetimepicker-input' name='demoDateTimeText' placeholder='Select date & time' data-target='#demoDateTime')
+                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
+                                                        span(class='input-group-text')
+                                                            i(class='ki ki-calendar')
+
+                                        // Date & Time : Date and Time Range Picker1
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time Range Picker1
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                #demoDateTimeRangePicker1(class='input-group')
+                                                    input#demoDateTimeRangePicker1Text(type='text' class='form-control' readonly=''  name='demoDateTimeRangePicker1Text' placeholder='Select date & time range')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+
+                                        // Date & Time : Date and Time Range Linked Picker
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date and Time Range Linked Picker
+                                            div(class='col-lg-8 col-md-9 col-sm-12')
+                                                div(class='row')
+                                                    div(class='col')
+                                                        #demoDateTimeLinkedPicker1(class='input-group date' data-target-input='nearest')
+                                                            input#demoDateTimeLinkedPicker1Text(type='text' class='form-control datetimepicker-input'  name='demoDateTimeLinkedPicker1Text' placeholder='Start date' data-target='#demoDateTimeLinkedPicker1')
+                                                            div(class='input-group-append' data-target='#demoDateTimeLinkedPicker1' data-toggle='datetimepicker')
+                                                                span(class='input-group-text')
+                                                                    i(class='ki ki-calendar')
+                                                    div(class='col')
+                                                        #demoDateTimeLinkedPicker2(class='input-group date' data-target-input='nearest')
+                                                            input#demoDateTimeLinkedPicker2Text(type='text' class='form-control datetimepicker-input'  name='demoDateTimeLinkedPicker2Text'  placeholder='End date' data-target='#demoDateTimeLinkedPicker2')
+                                                            div(class='input-group-append' data-target='#demoDateTimeLinkedPicker2' data-toggle='datetimepicker')
+                                                                span(class='input-group-text')
+                                                                    i(class='ki ki-calendar')
+
+                                        // Date & Time : Date Only
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Date Only
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='input-group date')
+                                                    input#demoDate(type='text' class='form-control' readonly='' name='demoDate' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Example help text that remains unchanged.
+                                                                            
+                                        // Date & Time : Date Range Picker1
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker1
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                #demoDateRangePicker1(class='input-group')
+                                                    input#demoDateRangePicker1Text(type='text' class='form-control' readonly='' name='demoDateRangePicker1Text' placeholder='Select date range')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
                                         
+                                        // Date & Time : Date Range Picker2
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Date Range Picker2
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
+                                                #demoDateRangePicker2(class='input-daterange input-group')
+                                                    input#demoDateRangePicker2Text(type='text' class='form-control' readonly=''  name='demoDateRangePicker2Text')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-ellipsis-h')
+                                                    input(type='text' class='form-control' name='end')
+                                                span(class='form-text text-muted') Linked pickers for date range selection                                      
                                         
+                                        // Time : 24 Hour
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') 24 Hour Time
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='input-group timepicker')
+                                                    input#demoTime24Hr(class='form-control' readonly='' name='demoTime24Hr' placeholder='Select time' type='text')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-clock-o')
+                                                span(class='form-text text-muted') Select time
+                                        // Time : 12 Hour
+                                        div(class='form-group row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') 12 Hour Time
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                                div(class='input-group timepicker')
+                                                    input#demoTime12Hr(class='form-control' readonly='' name='demoTime12Hr'  placeholder='Select time' type='text')
+                                                    div(class='input-group-prepend')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-clock-o')
+                                                span(class='form-text text-muted') Select time
+                                        
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') Form Repeat
+
+                                        // Form Repeat #1 : Single
+                                        #kt_repeater_2
+                                            div(class='form-group row')
+                                                label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Form Repeat #1 - Single :
+                                                div(data-repeater-list='' class='col-lg-6')
+                                                    div(data-repeater-item='' class='mb-2')
+                                                        div(class='input-group')
+                                                            div(class='input-group-prepend')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-phone')
+                                                            input#telephone(type='text' class='form-control' name='telephone' placeholder='Enter telephone')
+                                                            div(class='input-group-append')
+                                                                a(href='javascript:;' class='btn font-weight-bold btn-primary btn-icon')
+                                                                    i(class='la la-close')
+                                            div(class='form-group row')
+                                                div(class='col-lg-3')
+                                                div(class='col')
+                                                    div(data-repeater-create='' class='btn font-weight-bold btn-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+                                        // Form Repeat #2 : Multiple
+                                        #kt_repeater_1
+                                            div(class='form-group row')
+                                                label(class='col-lg-2 col-form-label text-right') Form Repeat #2 - Multiple Input's:
+                                                div(data-repeater-list='' class='col-lg-10')
+                                                    div(data-repeater-item='' class='form-group row align-items-center')
+                                                        div(class='col-md-4')
+                                                            label Name:
+                                                            input#name(type='email' class='form-control' name='name' placeholder='Enter full name')
+                                                            div(class='d-md-none mb-2')
+                                                        div(class='col-md-4')
+                                                            label Number:
+                                                            input#contactno(type='email' class='form-control' name='contactno'  placeholder='Enter contact number')
+                                                            div(class='d-md-none mb-2')
+                                                        div(class='col-md-4')
+                                                            a(href='javascript:;' data-repeater-delete='' class='btn btn-sm font-weight-bolder btn-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                            div(class='form-group row')
+                                                label(class='col-lg-2 col-form-label text-right')
+                                                div(class='col-lg-4')
+                                                    a(href='javascript:;' data-repeater-create='' class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+                                        
+                                        // Form Repeat #3 : Multiple
+                                        #kt_repeater_3
+                                        div(class='form-group row')
+                                            label(class='col-lg-3 col-form-label text-right') Form Repeat #3  - Multiple Input's:
+                                            div(data-repeater-list='' class='col-lg-9')
+                                                div(data-repeater-item='' class='form-group row')
+                                                    div(class='col-lg-5')
+                                                        div(class='input-group')
+                                                            div(class='input-group-prepend')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-phone')
+                                                            input#phone(type='text' class='form-control'  name='phone'  placeholder='Phone')
+                                                    div(class='col-lg-5')
+                                                        div(class='input-group')
+                                                            div(class='input-group-prepend')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-envelope')
+                                                            input#email(type='text' class='form-control'  name='email'  placeholder='Email')
+                                                    div(class='col-lg-2')
+                                                        a(href='javascript:;' data-repeater-delete='' class='btn font-weight-bold btn-danger btn-icon')
+                                                            i(class='la la-remove')
+                                        div(class='form-group row')
+                                            div(class='col-lg-3')
+                                            div(class='col')
+                                                div(data-repeater-create='' class='btn font-weight-bold btn-primary')
+                                                    i(class='la la-plus')
+                                                    |                             Add
+
+                                    
                                         div(class='separator separator-dashed my-10')
                                         h3(class=' text-dark font-weight-bold mb-10') Others
 
@@ -748,15 +749,15 @@ block content
                                             div(class='col-lg-9 col-md-3 col-sm-12')
                                                 div(class='checkbox-inline')
                                                     label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
+                                                        input#demoCheckboxes1(type='checkbox' name='demoCheckboxes1')
                                                         span
                                                         | Option 1
                                                     label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
+                                                        input#demoCheckboxes2(type='checkbox' name='demoCheckboxes2')
                                                         span
                                                         | Option 2
                                                     label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
+                                                        input#demoCheckboxes3(type='checkbox' name='demoCheckboxes3')
                                                         span
                                                         | Option 3
                                         // Inline Radio Buttons
@@ -765,59 +766,60 @@ block content
                                             div(class='col-lg-9 col-md-9 col-sm-12')
                                                 div(class='radio-inline')
                                                     label(class='radio')
-                                                        input(type='radio' name='radios2')
+                                                        input#demoRadios1(type='radio' name='demoRadios1')
                                                         span
                                                         |                                 Option 1
                                                     label(class='radio')
-                                                        input(type='radio' name='radios2')
+                                                        input#demoRadios2(type='radio' name='demoRadios1')
                                                         span
                                                         |                                 Option 2
                                                     label(class='radio')
-                                                        input(type='radio' name='radios2')
+                                                        input#demoRadios3(type='radio' name='demoRadios1')
                                                         span
                                                         |                                 Option 3
                                                 span(class='form-text text-muted') Some help text goes here
-                                        form(class='form form-label')
-                                            div(class='modal-body')
-                                                div(class='form-group row mt-2')
-                                                    label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Default Demo
-                                                    div(class='col-lg-9 col-md-9 col-sm-12')
-                                                        div(class='summernote')
-                                            //-
+                                        
+                                        // Summernote WYSIWYG
+                                        div(class='form-group row')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Summernote WYSIWYG
+                                            div(class='col-lg-9 col-md-9 col-sm-12')
+                                                div#demoEditor(class='summernote' name='demoEditor')
+
+                                                //-
+                                                    div(class='form-group row')
+                                                        label(class='col-form-label text-right col-lg-3 col-sm-12') Google reCaptcha
+                                                        div(class='col-lg-4 col-md-9 col-sm-12')
+                                                            div(class='g-recaptcha' data-sitekey='6LdnLwgUAAAAAAIb9L3PQlHQgvSCi16sYgbMIMFR')
+                                                            div(class='form-text text-muted')
+                                                                | To learn more about Google reCaptcha please visit 
+                                                                a(class='link' href='http://www.google.com/recaptcha' target='_blank')
+                                                                    | http://www.google.com/recaptcha
+                                            //-           
+                                                // Tags - remove duplicates
                                                 div(class='form-group row')
-                                                    label(class='col-form-label text-right col-lg-3 col-sm-12') Google reCaptcha
-                                                    div(class='col-lg-4 col-md-9 col-sm-12')
-                                                        div(class='g-recaptcha' data-sitekey='6LdnLwgUAAAAAAIb9L3PQlHQgvSCi16sYgbMIMFR')
-                                                        div(class='form-text text-muted')
-                                                            | To learn more about Google reCaptcha please visit 
-                                                            a(class='link' href='http://www.google.com/recaptcha' target='_blank')
-                                                                | http://www.google.com/recaptcha
-                                        //-           
-                                            // Tags - remove duplicates
-                                            div(class='form-group row')
-                                                label(class='col-form-label text-right col-lg-3 col-sm-12') Tag Duplicates
-                                                div(class='col-lg-6 col-md-9 col-sm-12')
-                                                    input#kt_tagify_1(class='form-control tagify' name='tags' placeholder='type...' value='css, html, javascript' autofocus='' data-blacklist='.NET,PHP')
-                                                    div(class='mt-3')
-                                                        a#kt_tagify_1_remove(href='javascript:;' class='btn btn-sm btn-light-primary font-weight-bold') Remove tags
-                                                    div(class='mt-3 text-muted')
-                                                        | In this example, the field is pre-occupied with 4 tags. The last tag (CSS) has the same value as the first tag, and will be removed,
-                                                        | because the duplicates setting is set to true.
-                                            // Tags - Whitelist
-                                            div(class='form-group row')
-                                                label(class='col-form-label text-right col-lg-3 col-sm-12') Whitelist examples
-                                                div(class='col-lg-6 col-md-9 col-sm-12')
-                                                    input#kt_tagify_2(class='form-control tagify' placeholder='type...' value='Back to the Future, Whiplash' data-blacklist='.NET,PHP')
-                                                    div(class='mt-3 text-muted')
-                                                        | In this example, the field is pre-occupied with 3 tags, and last tag is not included in the whitelist, and will be removed because the enforce whitelist option flag is set to true
-                                            // 
-                                         
-                    div(class='card-footer text-right')
-                        div(class='row')
-                            div(class='col-lg-9 ml-lg-auto')
-                                button#demoSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
-                                button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
-                        // end::Form
+                                                    label(class='col-form-label text-right col-lg-3 col-sm-12') Tag Duplicates
+                                                    div(class='col-lg-6 col-md-9 col-sm-12')
+                                                        input#kt_tagify_1(class='form-control tagify' name='tags' placeholder='type...' value='css, html, javascript' autofocus='' data-blacklist='.NET,PHP')
+                                                        div(class='mt-3')
+                                                            a#kt_tagify_1_remove(href='javascript:;' class='btn btn-sm btn-light-primary font-weight-bold') Remove tags
+                                                        div(class='mt-3 text-muted')
+                                                            | In this example, the field is pre-occupied with 4 tags. The last tag (CSS) has the same value as the first tag, and will be removed,
+                                                            | because the duplicates setting is set to true.
+                                                // Tags - Whitelist
+                                                div(class='form-group row')
+                                                    label(class='col-form-label text-right col-lg-3 col-sm-12') Whitelist examples
+                                                    div(class='col-lg-6 col-md-9 col-sm-12')
+                                                        input#kt_tagify_2(class='form-control tagify' placeholder='type...' value='Back to the Future, Whiplash' data-blacklist='.NET,PHP')
+                                                        div(class='mt-3 text-muted')
+                                                            | In this example, the field is pre-occupied with 3 tags, and last tag is not included in the whitelist, and will be removed because the enforce whitelist option flag is set to true
+                                                // 
+
+                                            
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                 // end::Card
             // end::Container
     // end::Entry

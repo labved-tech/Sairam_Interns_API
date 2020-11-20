@@ -78,14 +78,14 @@ const FormControls = (function () {
 
     // Getting Document related information
     const form = KTUtil.getById('demoForm');
-    const formSubmitButton = KTUtil.getById('demoSubmitButton');
+    const formSubmitButton = KTUtil.getById('submitButton');
 
     if (!form) {
       return;
     }
  
     FormValidation.formValidation(form, {
-      fields: {
+       fields: {
         demoText: {
           validators: {
             notEmpty: {
@@ -254,8 +254,29 @@ const FormControls = (function () {
             },
           },
         },
+        demoRadios1: {
+          validators: {
+            notEmpty: {
+              message: 'Radios cannot be empty',
+            },
+          },
+        },
+        demoCheckboxes1: {
+          validators: {
+            notEmpty: {
+              message: 'Checkbox cannot be empty',
+            },
+          },
+        },
+        demoEditor: {
+          validators: {
+            notEmpty: {
+              message: 'Editor cannot be empty',
+            },
+          },
+        },
         
-      },
+      }, 
 
       plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
@@ -265,10 +286,13 @@ const FormControls = (function () {
         // Validate fields when clicking the Submit button
         submitButton: new FormValidation.plugins.SubmitButton(),
         // Submit the form when all fields are valid
-        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+        defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
-    }).on('core.form.valid', function () {
-      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
+    })
+      .on('core.form.valid', function () {
+      // Show loading state on button
+        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
+        console.log(demoText.value);
 
       // Accessing Restful API
       axios({
@@ -347,7 +371,10 @@ const FormControls = (function () {
         }
       });
 
-    }).on('core.form.invalid', function () { });
+      })
+      .on('core.form.invalid', function () { 
+        console.log('Something went wrong!!')
+      });
 
   };
 
@@ -390,7 +417,7 @@ const FormControls = (function () {
         };
       };
   
-      $('#demoTypeaheadBasic, #demoTypeaheadBasic_modal').typeahead(
+      $('#demoTypeaheadBasic').typeahead(
         {
           hint: true,
           highlight: true,
@@ -411,7 +438,7 @@ const FormControls = (function () {
         local: states,
       });
   
-      $('#demoTypeaheadRemote, #demoTypeaheadRemote_modal').typeahead(
+      $('#demoTypeaheadRemote').typeahead(
         {
           hint: true,
           highlight: true,
@@ -429,12 +456,12 @@ const FormControls = (function () {
       queryTokenizer: Bloodhound.tokenizers.whitespace,
       // url points to a json file that contains an array of country names, see
       // https://github.com/twitter/typeahead.js/blob/gh-pages/data/countries.json
-      prefetch: `${HOST_URL}/api/?file=typeahead/countries.json`,
+      // prefetch : `${HOST_URL}/api/?file=typeahead/countries.json`,
     });
 
       // passing in `null` for the `options` arguments will result in the default
       // options being used
-      $('#demoTypeaheadPrefetch, #demoTypeaheadPrefetch_modal').typeahead(null, {
+      $('#demoTypeaheadPrefetch').typeahead(null, {
         name: 'countries',
         source: countries,
       });
@@ -443,7 +470,7 @@ const FormControls = (function () {
       const bestPictures = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: `${HOST_URL}/api/?file=typeahead/movies.json`,
+        // prefetch : `${HOST_URL}/api/?file=typeahead/movies.json`,
       });
 
       $('#demoTypeaheadCustomTemplate').typeahead(null, {
@@ -466,13 +493,13 @@ const FormControls = (function () {
       const nbaTeams = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: `${HOST_URL}/api/?file=typeahead/nba.json`,
+        // prefetch : `${HOST_URL}/api/?file=typeahead/nba.json`,
       });
 
       const nhlTeams = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('team'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
-        prefetch: `${HOST_URL}/api/?file=typeahead/nhl.json`,
+        // prefetch : `${HOST_URL}/api/?file=typeahead/nhl.json`,
       });
 
       $('#demoTypeaheadMultipleDatasets').typeahead(
@@ -504,7 +531,66 @@ const FormControls = (function () {
 
   const _FormRepeat = function () {
     /* Initializing */
-  };
+    const kt_repeater_2 = KTUtil.getById('kt_repeater_2'); // Form Repeat #1 : Single 
+    const kt_repeater_1 = KTUtil.getById('kt_repeater_1'); // Form Repeat #2 : Multiple 
+    const kt_repeater_3 = KTUtil.getById('kt_repeater_3'); // Form Repeat #2 : Multiple 
+    
+    // Form Repeat #1 : Single
+    $('#kt_repeater_2').repeater({
+      initEmpty: false,
+
+      defaultValues: {
+        'text-input': 'foo'
+      },
+
+      show: function () {
+        $(this).slideDown();
+      },
+
+      hide: function (deleteElement) {
+        if (confirm('Are you sure you want to delete this element?')) {
+          $(this).slideUp(deleteElement);
+        }
+      }
+    });
+
+    // Form Repeat #2 : Multiple
+    $('#kt_repeater_1').repeater({
+      initEmpty: false,
+
+      defaultValues: {
+        'text-input': 'foo'
+      },
+
+      show: function () {
+        $(this).slideDown();
+      },
+
+      hide: function (deleteElement) {
+        $(this).slideUp(deleteElement);
+      }
+    });
+    
+    // Form Repeat #3 : Multiple
+    $('#kt_repeater_3').repeater({
+      initEmpty: false,
+
+      defaultValues: {
+        'text-input': 'foo'
+      },
+
+      show: function () {
+        $(this).slideDown();
+      },
+
+      hide: function (deleteElement) {
+        if (confirm('Are you sure you want to delete this element?')) {
+          $(this).slideUp(deleteElement);
+        }
+      }
+    });
+  }
+
 
   const _Numbers = function () {
     /* Initializing */
@@ -553,36 +639,37 @@ const FormControls = (function () {
     
     // Number : Horizontal Slide
     // init slider
-    var slider = document.getElementById('demoNumberHSlider');
+    // init slider
+		var Hslider = document.getElementById('demoNumberHSlider');
 
-    noUiSlider.create(slider, {
-      start: [ 0 ],
-      step: 1,
-      range: {
-        'min': [ -1000000000 ],
-        'max': [ 1000000000 ]
-      },
-      format: wNumb({
-        decimals: 0
-      })
-    });
+		noUiSlider.create(Hslider, {
+			start: [ 0 ],
+			step: 2,
+			range: {
+				'min': [ 0 ],
+				'max': [ 10 ]
+			},
+			format: wNumb({
+				decimals: 0
+			})
+		});
 
-    // init slider input
-    var sliderInput = document.getElementById('demoNumberHSliderText');
+		// init slider input
+		var HsliderInput = document.getElementById('demoNumberHSliderText');
 
-    slider.noUiSlider.on('update', function( values, handle ) {
-      sliderInput.value = values[handle];
-    });
+		Hslider.noUiSlider.on('update', function( values, handle ) {
+			HsliderInput.value = values[handle];
+		});
 
-    sliderInput.addEventListener('change', function(){
-      slider.noUiSlider.set(this.value);
-    });
+		HsliderInput.addEventListener('change', function(){
+			Hslider.noUiSlider.set(this.value);
+		});
 
     // Number : Vertical Slide
     // init slider
-    var verticalSlider = document.getElementById('demoNumberVSlider');
+    var Vslider = document.getElementById('demoNumberVSlider');
 
-    noUiSlider.create(verticalSlider, {
+    noUiSlider.create(Vslider, {
       start: 40,
       orientation: 'vertical',
       range: {
@@ -592,51 +679,51 @@ const FormControls = (function () {
     });
 
     // init slider input
-    var sliderInput = document.getElementById('demoNumberVSliderText');
+    var VsliderInput = document.getElementById('demoNumberVSliderText');
 
-    verticalSlider.noUiSlider.on('update', function( values, handle ) {
-      sliderInput.value = values[handle];
+    Vslider.noUiSlider.on('update', function( values, handle ) {
+      VsliderInput.value = values[handle];
     });
 
-    sliderInput.addEventListener('change', function(){
-      verticalSlider.noUiSlider.set(this.value);
+    VsliderInput.addEventListener('change', function(){
+      Vslider.noUiSlider.set(this.value);
     });
 
-    // Number : Currency Slide
+     // Number : Currency Slide
     // init slider
-		var slider = document.getElementById('demoNumberCurrencySlider');
+    var Cslider = document.getElementById('demoNumberCurrencySlider');
 
-		noUiSlider.create(slider, {
-			start: [ 20000 ],
-			connect: [true, false],
-			step: 1000,
-			range: {
-				'min': [ 20000 ],
-				'max': [ 80000 ]
-			},
-			format: wNumb({
-				decimals: 3,
-				thousand: '.',
-				postfix: ' (US $)',
-			})
-		});
+    noUiSlider.create(Cslider, {
+        start: [ 20000 ],
+        connect: [true, false],
+        step: 1000,
+        range: {
+            'min': [ 20000 ],
+            'max': [ 80000 ]
+        },
+        format: wNumb({
+            decimals: 3,
+            thousand: '.',
+            postfix: ' (US $)',
+        })
+    });
 
-		// init slider input
-		var sliderInput = document.getElementById('demoNumberCurrencySliderText');
+    // init slider input
+    var CsliderInput = document.getElementById('demoNumberCurrencySliderText');
 
-		slider.noUiSlider.on('update', function( values, handle ) {
-			sliderInput.value = values[handle];
-		});
+    Cslider.noUiSlider.on('update', function( values, handle ) {
+      CsliderInput.value = values[handle];
+    });
 
-		sliderInput.addEventListener('change', function(){
-			slider.noUiSlider.set(this.value);
-		});
-    
+    CsliderInput.addEventListener('change', function(){
+      Cslider.noUiSlider.set(this.value);
+    });
+ 
     // Number : Range Select Slide
     // init slider
-		var slider = demoNumberRangeSelectSlider;
+		var Rslider = demoNumberRangeSelectSlider;
 
-		noUiSlider.create(slider, {
+		noUiSlider.create(Rslider, {
 			start: [20, 80],
 			connect: true,
 			direction: 'rtl',
@@ -651,10 +738,10 @@ const FormControls = (function () {
 		});
 
 		// init slider input
-		var sliderInputs = [demoNumberRangeSelectSliderText1, demoNumberRangeSelectSliderText2];
+		var RsliderInputs = [demoNumberRangeSelectSliderText2, demoNumberRangeSelectSliderText1];
 
-		slider.noUiSlider.on('update', function( values, handle ) {
-			sliderInputs[handle].value = values[handle];
+		Rslider.noUiSlider.on('update', function( values, handle ) {
+			RsliderInputs[handle].value = values[handle];
 		});
     
     
@@ -760,7 +847,7 @@ const FormControls = (function () {
 
 
     // Time : 24 Hour
-		$('#demoTime24Hr, #demoTime24Hr_modal').timepicker({
+		$('#demoTime24Hr').timepicker({
 			minuteStep: 1,
 			defaultTime: '',
 			showSeconds: true,
@@ -769,7 +856,7 @@ const FormControls = (function () {
     });
     
     // Time : 12 Hour
-		$('#demoTime12Hr, #demoTime12Hr_modal').timepicker({
+		$('#demoTime12Hr').timepicker({
 			defaultTime: '',
 			minuteStep: 1,
 			showSeconds: true,
@@ -800,21 +887,33 @@ const FormControls = (function () {
   };
   const _Others = function () {
   /* Initializing */
+  const demoRadios1 = KTUtil.getById('demoRadios1');  // Inline Radio Buttons
+  const demoRadios2 = KTUtil.getById('demoRadios2');  // Inline Radio Buttons
+  const demoRadios3 = KTUtil.getById('demoRadios3');  // Inline Radio Buttons
+  const demoCheckboxes1 = KTUtil.getById('demoCheckboxes1');  // Inline Check Box
+  const demoCheckboxes2 = KTUtil.getById('demoCheckboxes2');  // Inline Check Box
+  const demoCheckboxes3 = KTUtil.getById('demoCheckboxes3');  // Inline Check Box
+  const demoEditor = KTUtil.getById('demoEditor');  // Summernote WYSIWYG
+  
+  $('.summernote').summernote({
+    height: 400,
+    tabsize: 2
+  });
     
   };
 
   return {
     // public functions
     init: function () {
+      _Demo1();
+
       _TextBox();
       _TypeAhead();
-      _FormRepeat();
+      _Lists();
       _Numbers();
       _DateAndClock();
-      _Lists();
-      _Others();
-
-      _Demo1();
+      _FormRepeat();
+      _Others(); 
     },
   };
 })();
