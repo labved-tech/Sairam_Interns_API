@@ -10,8 +10,8 @@ const hpp = require('hpp');
 const slugify = require('slugify');
 const url = require('url');
 const cookieParser = require('cookie-parser');
-const contentSecurityPolicy = require("helmet-csp");
-
+const contentSecurityPolicy = require('helmet-csp');
+const crypto = require('crypto');
 
 /* MIDDLEWARES */
 
@@ -58,19 +58,26 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'assets')));
 
 // Content Security Policy
-/* app.use(
+app.use((req, res, next) => {
+  res.locals.nonce = crypto.randomBytes(16).toString('hex');
+  next();
+});
+app.use(
   // <meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' ; default-src 'self'; style-src 'self';" >
 
   contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'", "default.example"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", 'fonts.googleapis.com'],
+      styleSrc: ["'self'", 'fonts.googleapis.com'],
+      styleSrcElm: ["'self'", 'fonts.googleapis.com'],
+      fontSrc: ["'self'", 'fonts.googleapis.com'],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
     },
     reportOnly: false,
   })
-); */
+);
 
 // Template Engine
 app.set('view engine', 'pug');
