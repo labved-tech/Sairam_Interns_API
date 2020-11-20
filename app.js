@@ -10,6 +10,8 @@ const hpp = require('hpp');
 const slugify = require('slugify');
 const url = require('url');
 const cookieParser = require('cookie-parser');
+const contentSecurityPolicy = require("helmet-csp");
+
 
 /* MIDDLEWARES */
 
@@ -54,6 +56,21 @@ app.use(hpp());
 // Serving Static Files
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'assets')));
+
+// Content Security Policy
+/* app.use(
+  // <meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' ; default-src 'self'; style-src 'self';" >
+
+  contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", "default.example"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+    reportOnly: false,
+  })
+); */
 
 // Template Engine
 app.set('view engine', 'pug');

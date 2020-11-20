@@ -668,18 +668,19 @@ block content
 
                                         // Form Repeat #1 : Single
                                         #kt_repeater_2
-                                            div(class='form-group row')
-                                                label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Form Repeat #1 - Single :
-                                                div(data-repeater-list='' class='col-lg-6')
-                                                    div(data-repeater-item='' class='mb-2')
-                                                        div(class='input-group')
-                                                            div(class='input-group-prepend')
-                                                                span(class='input-group-text')
-                                                                    i(class='la la-phone')
-                                                            input#telephone(type='text' class='form-control' name='telephone' placeholder='Enter telephone')
-                                                            div(class='input-group-append')
-                                                                a(href='javascript:;' class='btn font-weight-bold btn-primary btn-icon')
-                                                                    i(class='la la-close')
+                                            div(class="form-group row")
+                                                label(class="col-lg-3 col-form-label text-right") Contact:
+                                                div(data-repeater-list="" class="col-lg-6")
+                                                    div(data-repeater-item="" class="mb-2")
+                                                        div(class="input-group")
+                                                            div(class="input-group-prepend")
+                                                                span(class="input-group-text")
+                                                                    i(class="la la-phone")
+                                                            input(type="text" class="form-control" placeholder="Enter telephone")
+                                                            div(class="input-group-append")
+                                                                a(href="javascript:;" class="btn font-weight-bold btn-danger btn-icon")
+                                                                    i(class="la la-close")
+
                                             div(class='form-group row')
                                                 div(class='col-lg-3')
                                                 div(class='col')
@@ -688,56 +689,62 @@ block content
                                                         | Add
                                         // Form Repeat #2 : Multiple
                                         #kt_repeater_1
-                                            div(class='form-group row')
-                                                label(class='col-lg-2 col-form-label text-right') Form Repeat #2 - Multiple Input's:
-                                                div(data-repeater-list='' class='col-lg-10')
-                                                    div(data-repeater-item='' class='form-group row align-items-center')
-                                                        div(class='col-md-4')
+                                            #kt_repeater_1(class="form-group row")
+                                                label(class="col-lg-2 col-form-label text-right") Contacts:
+                                                div(data-repeater-list="", class="col-lg-10")
+                                                    div(data-repeater-item="", class="form-group row align-items-center")
+                                                        div(class="col-md-3")
                                                             label Name:
-                                                            input#name(type='email' class='form-control' name='name' placeholder='Enter full name')
-                                                            div(class='d-md-none mb-2')
-                                                        div(class='col-md-4')
+                                                            input(type="email", class="form-control", placeholder="Enter full name")
+                                                            div(class="d-md-none mb-2")
+                                                        div(class="col-md-3")
                                                             label Number:
-                                                            input#contactno(type='email' class='form-control' name='contactno'  placeholder='Enter contact number')
-                                                            div(class='d-md-none mb-2')
-                                                        div(class='col-md-4')
-                                                            a(href='javascript:;' data-repeater-delete='' class='btn btn-sm font-weight-bolder btn-danger')
-                                                                i(class='la la-trash-o')
+                                                            input(type="email", class="form-control", placeholder="Enter contact number")
+                                                            div(class="d-md-none mb-2")
+                                                        div(class="col-md-2")
+                                                            div(class="radio-inline")
+                                                                label(class="checkbox checkbox-success")
+                                                                    input(type="checkbox")
+                                                                    |  Primary
+                                                                    span
+                                                        div(class="col-md-4")
+                                                            a(href="javascript:;", data-repeater-delete="", class="btn btn-sm font-weight-bolder btn-light-danger")
+                                                                i(class="la la-trash-o")
                                                                 | Delete
-                                            div(class='form-group row')
-                                                label(class='col-lg-2 col-form-label text-right')
-                                                div(class='col-lg-4')
-                                                    a(href='javascript:;' data-repeater-create='' class='btn btn-sm font-weight-bolder btn-light-primary')
-                                                        i(class='la la-plus')
+                                            div(class="form-group row")
+                                                label(class="col-lg-2 col-form-label text-right")
+                                                div(class="col-lg-4")
+                                                    a(href="javascript:;", data-repeater-create="", class="btn btn-sm font-weight-bolder btn-light-primary")
+                                                        i(class="la la-plus")
                                                         | Add
-                                        
+
                                         // Form Repeat #3 : Multiple
                                         #kt_repeater_3
-                                        div(class='form-group row')
-                                            label(class='col-lg-3 col-form-label text-right') Form Repeat #3  - Multiple Input's:
-                                            div(data-repeater-list='' class='col-lg-9')
-                                                div(data-repeater-item='' class='form-group row')
-                                                    div(class='col-lg-5')
-                                                        div(class='input-group')
-                                                            div(class='input-group-prepend')
-                                                                span(class='input-group-text')
-                                                                    i(class='la la-phone')
-                                                            input#phone(type='text' class='form-control'  name='phone'  placeholder='Phone')
-                                                    div(class='col-lg-5')
-                                                        div(class='input-group')
-                                                            div(class='input-group-prepend')
-                                                                span(class='input-group-text')
-                                                                    i(class='la la-envelope')
-                                                            input#email(type='text' class='form-control'  name='email'  placeholder='Email')
-                                                    div(class='col-lg-2')
-                                                        a(href='javascript:;' data-repeater-delete='' class='btn font-weight-bold btn-danger btn-icon')
-                                                            i(class='la la-remove')
-                                        div(class='form-group row')
-                                            div(class='col-lg-3')
-                                            div(class='col')
-                                                div(data-repeater-create='' class='btn font-weight-bold btn-primary')
-                                                    i(class='la la-plus')
-                                                    |                             Add
+                                            div(class="form-group row")
+                                                label(class="col-lg-3 col-form-label text-right") Contact:
+                                                div(data-repeater-list="", class="col-lg-9")
+                                                    div(data-repeater-item="", class="form-group row")
+                                                        div(class="col-lg-5")
+                                                            div(class="input-group")
+                                                                div(class="input-group-prepend")
+                                                                    span(class="input-group-text")
+                                                                        i(class="la la-phone")
+                                                                input(type="text", class="form-control", placeholder="Phone")
+                                                        div(class="col-lg-5")
+                                                            div(class="input-group")
+                                                                div(class="input-group-prepend")
+                                                                    span(class="input-group-text")
+                                                                        i(class="la la-envelope")
+                                                                input(type="text", class="form-control", placeholder="Email")
+                                                        div(class="col-lg-2")
+                                                            a(href="javascript:;", data-repeater-delete="", class="btn font-weight-bold btn-danger btn-icon")
+                                                                i(class="la la-remove")
+                                            div(class="form-group row")
+                                                div(class="col-lg-3")
+                                                div(class="col")
+                                                    div(data-repeater-create="", class="btn font-weight-bold btn-primary")
+                                                        i(class="la la-plus")
+                                                        |                             Add
 
                                     
                                         div(class='separator separator-dashed my-10')
