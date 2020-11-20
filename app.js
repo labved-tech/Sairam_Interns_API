@@ -10,7 +10,7 @@ const hpp = require('hpp');
 const slugify = require('slugify');
 const url = require('url');
 const cookieParser = require('cookie-parser');
-const contentSecurityPolicy = require('helmet-csp');
+//const contentSecurityPolicy = require('helmet-csp');
 const crypto = require('crypto');
 
 /* MIDDLEWARES */
@@ -26,8 +26,43 @@ const apiv1Router = require('./routes/apiv1Routes');
 /* GLOBAL MIDDLEWARE USAGE*/
 const app = express();
 
-// Set Secutiry HTTP headers
-app.use(helmet());
+// Set Security HTTP headers
+app.disable('x-powered-by');
+
+app.use((req, res, next) => {
+  res.locals.nonce = crypto.randomBytes(16).toString('hex');
+  next();
+});
+
+app.use((req, res, next) => {
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        //"'unsafe-inline'",
+        `'nonce-${res.locals.nonce}'`,
+        'code.jquery.com',
+        'maxcdn.bootstrapcdn.com',
+        'fonts.googleapis.com',
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        //`'nonce-${res.locals.nonce}'`,
+        'maxcdn.bootstrapcdn.com',
+        'fonts.googleapis.com',
+        'fonts.gstatic.com',
+      ],
+      fontSrc: ["'self'", 'fonts.googleapis.com', 'fonts.gstatic.com'],
+    },
+    reportOnly: false,
+  })(req, res, next);
+});
+
+/* app.use((req, res) => {
+  res.end(`<script nonce='${res.locals.nonce}'>alert('whitelisted!')</script>`);
+}); */
 
 // Development Logging
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
@@ -56,28 +91,6 @@ app.use(hpp());
 // Serving Static Files
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'assets')));
-
-// Content Security Policy
-app.use((req, res, next) => {
-  res.locals.nonce = crypto.randomBytes(16).toString('hex');
-  next();
-});
-app.use(
-  // <meta http-equiv="Content-Security-Policy" content="script-src-elem 'self' ; default-src 'self'; style-src 'self';" >
-
-  contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", 'fonts.googleapis.com'],
-      styleSrc: ["'self'", 'fonts.googleapis.com'],
-      styleSrcElm: ["'self'", 'fonts.googleapis.com'],
-      fontSrc: ["'self'", 'fonts.googleapis.com'],
-      objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
-    },
-    reportOnly: false,
-  })
-);
 
 // Template Engine
 app.set('view engine', 'pug');
