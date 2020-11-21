@@ -20,14 +20,13 @@ const KTDatatableRecordSelectionDemo = (function () {
     console.log(res);
   }); */
 
-  const testData = axios.get(`${HOST_URL}/api/v1/example`).then((response) => {
-    console.log(response.data);
-    console.log(response.status);
-    console.log(response.statusText);
-    console.log(response.headers);
-    console.log(response.config);
-  });
-  console.log(testData);
+/*   const testData =  axios.get(`${HOST_URL}/api/v1/example`).then((res) => {
+    console.log(res.data);
+    console.log(res.status);
+    console.log(res.statusText);
+    //console.log(res.headers);
+    //console.log(res.config);
+  }); */
 
       const options = {
       // datasource definition
@@ -35,7 +34,9 @@ const KTDatatableRecordSelectionDemo = (function () {
         type: 'remote',
         source: {
           read: {
+            method: 'get',
             url: `${HOST_URL}/api/v1/example`,
+            contentType: 'application/json',
           },
         },
         pageSize: 10,
@@ -68,9 +69,9 @@ const KTDatatableRecordSelectionDemo = (function () {
           textAlign: 'center',
         },
         {
-          field: 'OrderID',
-          title: 'Order ID',
-          template: '{{OrderID}}',
+          field: '_id',
+          title: 'ID',
+          template: '{{_id}}',
         },
         {
           field: 'Country',
@@ -212,7 +213,7 @@ const KTDatatableRecordSelectionDemo = (function () {
         },
       ],
     };
-  
+
     // basic demo
     const localSelectorDemo = function () {
       // enable extension
@@ -225,7 +226,7 @@ const KTDatatableRecordSelectionDemo = (function () {
         input: $('#kt_datatable_search_query'),
         key: 'generalSearch',
       };
-  
+
       const datatable = $('#kt_datatable').KTDatatable(options);
   
       $('#kt_datatable_search_status').on('change', function () {
@@ -241,6 +242,7 @@ const KTDatatableRecordSelectionDemo = (function () {
       datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
         const checkedNodes = datatable.rows('.datatable-row-active').nodes();
         const count = checkedNodes.length;
+
         $('#kt_datatable_selected_records').html(count);
         if (count > 0) {
           $('#kt_datatable_group_action_form').collapse('show');
