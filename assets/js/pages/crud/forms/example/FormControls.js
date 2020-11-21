@@ -1,5 +1,5 @@
 /* eslint-disable */
-//'use strict';
+'use strict';
 
 /* Class definition */
 const FormControls = (function () {
@@ -79,11 +79,13 @@ const FormControls = (function () {
     // Getting Document related information
     const form = KTUtil.getById('demoForm');
     const formSubmitButton = KTUtil.getById('submitButton');
+    const demoText = KTUtil.getById('demoText');          // Text 
+
 
     if (!form) {
       return;
     }
- 
+
     FormValidation.formValidation(form, {
        fields: {
         demoText: {
@@ -93,7 +95,7 @@ const FormControls = (function () {
             },
           },
         },
-        demoPassword: {
+/*         demoPassword: {
           validators: {
             notEmpty: {
               message: 'Password is required',
@@ -254,6 +256,13 @@ const FormControls = (function () {
             },
           },
         },
+        demoFormRepeat1Text: {
+          validators: {
+            notEmpty: {
+              message: 'Form Input cannot be empty',
+            },
+          },
+        },
         demoRadios1: {
           validators: {
             notEmpty: {
@@ -274,7 +283,7 @@ const FormControls = (function () {
               message: 'Editor cannot be empty',
             },
           },
-        },
+        }, */
         
       }, 
 
@@ -286,20 +295,21 @@ const FormControls = (function () {
         // Validate fields when clicking the Submit button
         submitButton: new FormValidation.plugins.SubmitButton(),
         // Submit the form when all fields are valid
-        defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
     })
       .on('core.form.valid', function () {
       // Show loading state on button
         KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        console.log(demoText.value);
+        console.log(`Value:${demoText.value}`);
+
 
       // Accessing Restful API
       axios({
         method: 'post',
         url: `${HOST_URL}/api/v1/example`,
         data: {
-          
+          text: demoText.value,
         },
 
       }).then(function (res) {
@@ -373,7 +383,8 @@ const FormControls = (function () {
 
       })
       .on('core.form.invalid', function () { 
-        console.log('Something went wrong!!')
+        console.log('Something went wrong!!');
+
       });
 
   };
@@ -531,16 +542,17 @@ const FormControls = (function () {
 
   const _FormRepeat = function () {
     /* Initializing */
-    const kt_repeater_2 = KTUtil.getById('kt_repeater_2'); // Form Repeat #1 : Single 
+    const demoFormRepeat1 = KTUtil.getById('demoFormRepeat1'); // Form Repeat #1 : Single 
+    const demoFormRepeat1Text = KTUtil.getById('demoFormRepeat1Text'); // Form Repeat #1 : Single 
     const kt_repeater_1 = KTUtil.getById('kt_repeater_1'); // Form Repeat #2 : Multiple 
     const kt_repeater_3 = KTUtil.getById('kt_repeater_3'); // Form Repeat #2 : Multiple 
     
     // Form Repeat #1 : Single
-    $('#kt_repeater_2').repeater({
+    $('#demoFormRepeat1').repeater({
       initEmpty: false,
 
       defaultValues: {
-        'text-input': 'foo'
+        'demoFormRepeat1Text': 'default value'
       },
 
       show: function () {
@@ -548,11 +560,13 @@ const FormControls = (function () {
       },
 
       hide: function (deleteElement) {
-        if (confirm('Are you sure you want to delete this element?')) {
           $(this).slideUp(deleteElement);
-        }
-      }
+      },
+
+      isFirstItemUndeletable: true
     });
+
+
 
     // Form Repeat #2 : Multiple
     $('#kt_repeater_1').repeater({
@@ -905,8 +919,6 @@ const FormControls = (function () {
   return {
     // public functions
     init: function () {
-      _Demo1();
-
       _TextBox();
       _TypeAhead();
       _Lists();
@@ -914,6 +926,8 @@ const FormControls = (function () {
       _DateAndClock();
       _FormRepeat();
       _Others(); 
+
+      _Demo1();
     },
   };
 })();

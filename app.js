@@ -40,11 +40,11 @@ app.use((req, res, next) => {
       defaultSrc: ["'self'"],
       scriptSrc: [
         "'self'",
-        //"'unsafe-inline'",
-        `'nonce-${res.locals.nonce}'`,
+        "'unsafe-inline'", // to be remove after testing
+
+        //`'nonce-${res.locals.nonce}'`,
         'code.jquery.com',
         'maxcdn.bootstrapcdn.com',
-        'fonts.googleapis.com',
       ],
       styleSrc: [
         "'self'",
@@ -52,9 +52,9 @@ app.use((req, res, next) => {
         //`'nonce-${res.locals.nonce}'`,
         'maxcdn.bootstrapcdn.com',
         'fonts.googleapis.com',
-        'fonts.gstatic.com',
       ],
-      fontSrc: ["'self'", 'fonts.googleapis.com', 'fonts.gstatic.com'],
+      fontSrc: ["'self'", 'fonts.gstatic.com'],
+      imgSrc: ["'self'", "'unsafe-inline'", 'data:'],
     },
     reportOnly: false,
   })(req, res, next);
@@ -65,7 +65,7 @@ app.use((req, res, next) => {
 }); */
 
 // Development Logging
-if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+//if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 // Limit requests from same API
 const limiter = rateLimit({
