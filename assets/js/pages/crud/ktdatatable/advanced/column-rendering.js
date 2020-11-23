@@ -1,155 +1,169 @@
-"use strict";
+'use strict';
+
 // Class definition
 
-var KTDatatableColumnRenderingDemo = function() {
-	// Private functions
+const KTDatatableColumnRenderingDemo = (function () {
+  // Private functions
 
-	// basic demo
-	var demo = function() {
+  // basic demo
+  const demo = function () {
+    const datatable = $('#kt_datatable').KTDatatable({
+      // datasource definition
+      data: {
+        type: 'remote',
+        source: {
+          read: {
+            url: `${HOST_URL}/api/datatables/demos/default.php`,
+          },
+        },
+        pageSize: 10, // display 20 records per page
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true,
+      },
 
-		var datatable = $('#kt_datatable').KTDatatable({
-			// datasource definition
-			data: {
-				type: 'remote',
-				source: {
-					read: {
-						url: HOST_URL + '/api/datatables/demos/default.php',
-					},
-				},
-				pageSize: 10, // display 20 records per page
-				serverPaging: true,
-				serverFiltering: true,
-				serverSorting: true,
-			},
+      // layout definition
+      layout: {
+        scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
+        footer: false, // display/hide footer
+      },
 
-			// layout definition
-			layout: {
-				scroll: false, // enable/disable datatable scroll both horizontal and vertical when needed.
-				footer: false, // display/hide footer
-			},
+      // column sorting
+      sortable: true,
 
-			// column sorting
-			sortable: true,
+      pagination: true,
 
-			pagination: true,
+      search: {
+        input: $('#kt_datatable_search_query'),
+        delay: 400,
+        key: 'generalSearch',
+      },
 
-			search: {
-				input: $('#kt_datatable_search_query'),
-				delay: 400,
-				key: 'generalSearch'
-			},
+      // columns definition
+      columns: [
+        {
+          field: 'RecordID',
+          title: '#',
+          sortable: 'asc',
+          width: 40,
+          type: 'number',
+          selector: false,
+          textAlign: 'center',
+        },
+        {
+          field: 'OrderID',
+          title: 'Customer',
+          width: 250,
+          template: function (data) {
+            const number = KTUtil.getRandomInt(1, 14);
+            const user_img = `background-image:url('assets/media/users/100_${number}.jpg')`;
 
-			// columns definition
-			columns: [
-				{
-					field: 'RecordID',
-					title: '#',
-					sortable: 'asc',
-					width: 40,
-					type: 'number',
-					selector: false,
-					textAlign: 'center',
-				}, {
-					field: 'OrderID',
-					title: 'Customer',
-					width: 250,
-					template: function(data) {
-						var number = KTUtil.getRandomInt(1, 14);
-						var user_img = 'background-image:url(\'assets/media/users/100_' + number + '.jpg\')';
-
-						var output = '';
-						if (number > 8) {
-							output = '<div class="d-flex align-items-center">\
+            let output = '';
+            if (number > 8) {
+              output = `<div class="d-flex align-items-center">\
 								<div class="symbol symbol-40 flex-shrink-0">\
-									<div class="symbol-label" style="' + user_img + '"></div>\
+									<div class="symbol-label" style="${user_img}"></div>\
 								</div>\
 								<div class="ml-2">\
-									<div class="text-dark-75 font-weight-bold line-height-sm">' + data.CompanyAgent + '</div>\
-									<a href="#" class="font-size-sm text-dark-50 text-hover-primary">' +
-									data.CompanyEmail + '</a>\
+									<div class="text-dark-75 font-weight-bold line-height-sm">${data.CompanyAgent}</div>\
+									<a href="#" class="font-size-sm text-dark-50 text-hover-primary">${data.CompanyEmail}</a>\
 								</div>\
-							</div>';
-						}
-						else {
-							var stateNo = KTUtil.getRandomInt(0, 7);
-							var states = [
-								'success',
-								'primary',
-								'danger',
-								'success',
-								'warning',
-								'dark',
-								'primary',
-								'info'];
-							var state = states[stateNo];
+							</div>`;
+            } else {
+              const stateNo = KTUtil.getRandomInt(0, 7);
+              const states = [
+                'success',
+                'primary',
+                'danger',
+                'success',
+                'warning',
+                'dark',
+                'primary',
+                'info',
+              ];
+              const state = states[stateNo];
 
-							output = '<div class="d-flex align-items-center">\
-								<div class="symbol symbol-40 symbol-'+state+' flex-shrink-0">\
-									<div class="symbol-label">' + data.CompanyAgent.substring(0, 1) + '</div>\
+              output = `<div class="d-flex align-items-center">\
+								<div class="symbol symbol-40 symbol-${state} flex-shrink-0">\
+									<div class="symbol-label">${data.CompanyAgent.substring(0, 1)}</div>\
 								</div>\
 								<div class="ml-2">\
-									<div class="text-dark-75 font-weight-bold line-height-sm">' + data.CompanyAgent + '</div>\
-									<a href="#" class="font-size-sm text-dark-50 text-hover-primary">' +
-									data.CompanyEmail + '</a>\
+									<div class="text-dark-75 font-weight-bold line-height-sm">${
+                    data.CompanyAgent
+                  }</div>\
+									<a href="#" class="font-size-sm text-dark-50 text-hover-primary">${
+                    data.CompanyEmail
+                  }</a>\
 								</div>\
-							</div>';
-						}
+							</div>`;
+            }
 
-						return output;
-					},
-				}, {
-					field: 'Country',
-					title: 'Country',
-					template: function(row) {
-						return row.Country + ' ' + row.ShipCountry;
-					},
-				}, {
-					field: 'ShipDate',
-					title: 'Ship Date',
-					type: 'date',
-					format: 'MM/DD/YYYY',
-				}, {
-					field: 'CompanyName',
-					title: 'Company Name',
-				}, {
-					field: 'Status',
-					title: 'Status',
-					// callback function support for column rendering
-					template: function(row) {
-						var status = {
-							1: {'title': 'Pending', 'class': ' label-light-primary'},
-							2: {'title': 'Delivered', 'class': ' label-light-danger'},
-							3: {'title': 'Canceled', 'class': ' label-light-primary'},
-							4: {'title': 'Success', 'class': ' label-light-success'},
-							5: {'title': 'Info', 'class': ' label-light-info'},
-							6: {'title': 'Danger', 'class': ' label-light-danger'},
-							7: {'title': 'Warning', 'class': ' label-light-warning'},
-						};
-						return '<span class="label font-weight-bold label-lg ' + status[row.Status].class + ' label-inline">' + status[row.Status].title + '</span>';
-					},
-				}, {
-					field: 'Type',
-					title: 'Type',
-					autoHide: false,
-					// callback function support for column rendering
-					template: function(row) {
-						var status = {
-							1: {'title': 'Online', 'state': 'danger'},
-							2: {'title': 'Retail', 'state': 'primary'},
-							3: {'title': 'Direct', 'state': 'success'},
-						};
-						return '<span class="label font-weight-bold label-lg label-' + status[row.Type].state + ' label-dot mr-2"></span><span class="font-weight-bold text-' + status[row.Type].state + '">' +
-								status[row.Type].title + '</span>';
-					},
-				}, {
-					field: 'Actions',
-					title: 'Actions',
-					sortable: false,
-					width: 125,
-					overflow: 'visible',
-					autoHide: false,
-					template: function() {
-						return '\
+            return output;
+          },
+        },
+        {
+          field: 'Country',
+          title: 'Country',
+          template: function (row) {
+            return `${row.Country} ${row.ShipCountry}`;
+          },
+        },
+        {
+          field: 'ShipDate',
+          title: 'Ship Date',
+          type: 'date',
+          format: 'MM/DD/YYYY',
+        },
+        {
+          field: 'CompanyName',
+          title: 'Company Name',
+        },
+        {
+          field: 'Status',
+          title: 'Status',
+          // callback function support for column rendering
+          template: function (row) {
+            const status = {
+              1: { title: 'Pending', class: ' label-light-primary' },
+              2: { title: 'Delivered', class: ' label-light-danger' },
+              3: { title: 'Canceled', class: ' label-light-primary' },
+              4: { title: 'Success', class: ' label-light-success' },
+              5: { title: 'Info', class: ' label-light-info' },
+              6: { title: 'Danger', class: ' label-light-danger' },
+              7: { title: 'Warning', class: ' label-light-warning' },
+            };
+            return `<span class="label font-weight-bold label-lg ${
+              status[row.Status].class
+            } label-inline">${status[row.Status].title}</span>`;
+          },
+        },
+        {
+          field: 'Type',
+          title: 'Type',
+          autoHide: false,
+          // callback function support for column rendering
+          template: function (row) {
+            const status = {
+              1: { title: 'Online', state: 'danger' },
+              2: { title: 'Retail', state: 'primary' },
+              3: { title: 'Direct', state: 'success' },
+            };
+            return `<span class="label font-weight-bold label-lg label-${
+              status[row.Type].state
+            } label-dot mr-2"></span><span class="font-weight-bold text-${
+              status[row.Type].state
+            }">${status[row.Type].title}</span>`;
+          },
+        },
+        {
+          field: 'Actions',
+          title: 'Actions',
+          sortable: false,
+          width: 125,
+          overflow: 'visible',
+          autoHide: false,
+          template: function () {
+            return '\
 	                        <div class="dropdown dropdown-inline">\
 	                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
 	                                <span class="svg-icon svg-icon-md">\
@@ -204,7 +218,7 @@ var KTDatatableColumnRenderingDemo = function() {
 	                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">\
 	                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">\
 	                                        <rect x="0" y="0" width="24" height="24"/>\
-	                                        <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero"\ transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>\
+	                                        <path d="M8,17.9148182 L8,5.96685884 C8,5.56391781 8.16211443,5.17792052 8.44982609,4.89581508 L10.965708,2.42895648 C11.5426798,1.86322723 12.4640974,1.85620921 13.0496196,2.41308426 L15.5337377,4.77566479 C15.8314604,5.0588212 16,5.45170806 16,5.86258077 L16,17.9148182 C16,18.7432453 15.3284271,19.4148182 14.5,19.4148182 L9.5,19.4148182 C8.67157288,19.4148182 8,18.7432453 8,17.9148182 Z" fill="#000000" fill-rule="nonzero" transform="translate(12.000000, 10.707409) rotate(-135.000000) translate(-12.000000, -10.707409) "/>\
 	                                        <rect fill="#000000" opacity="0.3" x="5" y="20" width="15" height="2" rx="1"/>\
 	                                    </g>\
 	                                </svg>\
@@ -222,31 +236,30 @@ var KTDatatableColumnRenderingDemo = function() {
 	                            </span>\
 	                        </a>\
 	                    ';
-					},
-				}],
+          },
+        },
+      ],
+    });
 
-		});
+    $('#kt_datatable_search_status').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Status');
+    });
 
-		$('#kt_datatable_search_status').on('change', function() {
-			datatable.search($(this).val().toLowerCase(), 'Status');
-		});
+    $('#kt_datatable_search_type').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Type');
+    });
 
-		$('#kt_datatable_search_type').on('change', function() {
-			datatable.search($(this).val().toLowerCase(), 'Type');
-		});
+    $('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
+  };
 
-		$('#kt_datatable_search_status, #kt_datatable_search_type').selectpicker();
+  return {
+    // public functions
+    init: function () {
+      demo();
+    },
+  };
+})();
 
-	};
-
-	return {
-		// public functions
-		init: function() {
-			demo();
-		},
-	};
-}();
-
-jQuery(document).ready(function() {
-	KTDatatableColumnRenderingDemo.init();
+jQuery(document).ready(function () {
+  KTDatatableColumnRenderingDemo.init();
 });

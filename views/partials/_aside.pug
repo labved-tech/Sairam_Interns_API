@@ -29,13 +29,13 @@
 						i(class='menu-icon flaticon2-poll-symbol')
 						span(class='menu-text') Dashboard
 				-var sectionNo = sectionItems.length
-				-console.log(`No of section :${sectionNo}`)
+				////-console.log(`No of section :${sectionNo}`)
 				-for(x=0;x<sectionNo;x++)
 					li(class='menu-section')
 						h4(class='menu-text')= sectionItems[x].sectionName
 						i(class='menu-icon ki ki-bold-more-hor icon-md')
 					-var menuItemsNo = sectionItems[x].menuItemsNo
-					-console.log(`No of Menu Items :${menuItemsNo}`)
+					//-console.log(`No of Menu Items :${menuItemsNo}`)
 					-if(menuItemsNo)
 						-for(let i=0;i<menuItemsNo;i++)
 							li(class='menu-item menu-item-submenu' aria-haspopup='true' data-menu-toggle='hover')
@@ -43,7 +43,7 @@
 									i(class='menu-icon flaticon2-box-1')
 									span(class='menu-text')= sectionItems[x].menuItems[i].name
 									-var subItems1No = sectionItems[x].menuItems[i].subItems1No
-									-console.log(`No of subItems1 :${subItems1No}`)
+									//-console.log(`No of subItems1 :${subItems1No}`)
 									-if(subItems1No)
 										i(class='menu-arrow')
 								div(class='menu-submenu')
@@ -56,7 +56,7 @@
 															span
 														span(class='menu-text')= sectionItems[x].menuItems[i].subItems1[j].name
 														-var subItems2No = sectionItems[x].menuItems[i].subItems1[j].subItems2No
-														-console.log(`No of subItems2 :${subItems2No}`)
+														//-console.log(`No of subItems2 :${subItems2No}`)
 														-if(subItems2No)
 															i(class='menu-arrow')
 													div(class='menu-submenu')

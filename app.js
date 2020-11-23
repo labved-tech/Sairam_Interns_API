@@ -65,7 +65,7 @@ app.use((req, res, next) => {
 }); */
 
 // Development Logging
-//if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
+if (process.env.NODE_ENV === 'development') app.use(morgan('dev'));
 
 // Limit requests from same API
 const limiter = rateLimit({
@@ -98,7 +98,9 @@ app.set('view engine', 'pug');
 // Test Middleware
 app.use((req, res, next) => {
   if (process.env.NODE_ENV === 'development') {
-    /*//console.log(req.url);
+    console.log(req.url);
+    console.log(req.params);
+    /*
     //console.log(url.parse(req.url, true));
     const { query, pathname } = url.parse(req.url, true);
     console.log(`URL Pathname is ${pathname}`);

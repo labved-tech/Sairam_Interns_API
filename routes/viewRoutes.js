@@ -18,7 +18,8 @@ router.get('/overview', authController.protect, viewsController.getOverview);
 // EXAMPLE RELATED ROUTES
 router.get('/form', viewsController.getForm);
 router.get('/example', viewsController.getExample);
-router.get('/table', viewsController.getTable);
+router.get('/localtable', viewsController.getLocalTable);
+router.get('/remotetable', viewsController.getRemoteTable);
 
 // LOGIN RELATED ROUTES
 router.get('/signup', viewsController.getSignUp);

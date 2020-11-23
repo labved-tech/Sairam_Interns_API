@@ -1,0 +1,146 @@
+/* eslint-disable */
+'use strict';
+
+// Class definition
+
+const KTDatatableRecordSelectionDemo = (function () {
+  // Private functions
+
+
+  // sourcing data
+  const getExampleData = async () => {
+    try {
+        const {data} = await axios.get(`${HOST_URL}/api/v1/example`);
+        return data;
+    } catch (err) {
+        console.log(err.message);
+    }
+  }
+
+  const options = {
+    // datasource definition
+    data: {
+      type: 'remote',
+      source: {
+        read: {
+          method: 'get',
+          url: `${HOST_URL}/api/v1/example`,
+        },
+      },
+      pageSize: 10,
+      serverPaging: true,
+      serverFiltering: true,
+      serverSorting: true,
+    },
+
+    // layout definition
+    layout: {
+      scroll: false, // enable/disable datatable scroll both horizontal and
+      footer: false, // display/hide footer
+    },
+
+    // column sorting
+    sortable: true,
+
+    pagination: true,
+
+    // columns definition
+    columns: [
+      {
+        field: '_id',
+        title: '#',
+        sortable: false,
+        width: 20,
+        selector: {
+          class: '',
+        },
+        textAlign: 'center',
+      },
+      {
+        field: 'name',
+        title: 'Name',
+      },
+      {
+        field: 'createdBy',
+        title: 'createdBy',
+      },
+      {
+        field: 'createdAt',
+        title: 'createdAt',
+        type: 'date',
+        format: 'MM/DD/YYYY',
+      },
+      {
+        field: 'updatedAt',
+        title: 'updatedAt',
+      },
+    ],
+  };
+
+  const serverSelectorDemo = function () {
+    // enable extension
+    options.extensions = {
+      // boolean or object (extension options)
+      checkbox: true,
+    };
+    options.search = {
+      input: $('#kt_datatable_search_query_2'),
+      key: 'generalSearch',
+    };
+
+    const datatable = $('#kt_datatable_2').KTDatatable(options);
+
+    $('#kt_datatable_search_status_2').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Status');
+    });
+
+    $('#kt_datatable_search_type_2').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Type');
+    });
+
+    $(
+      '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
+    ).selectpicker();
+
+    datatable.on('datatable-on-click-checkbox', function (e) {
+      // datatable.checkbox() access to extension methods
+      const ids = datatable.checkbox().getSelectedId();
+      const count = ids.length;
+
+      $('#kt_datatable_selected_records_2').html(count);
+
+      if (count > 0) {
+        $('#kt_datatable_group_action_form_2').collapse('show');
+      } else {
+        $('#kt_datatable_group_action_form_2').collapse('hide');
+      }
+    });
+
+    $('#kt_datatable_fetch_modal_2')
+      .on('show.bs.modal', function (e) {
+        const ids = datatable.checkbox().getSelectedId();
+        const c = document.createDocumentFragment();
+        for (let i = 0; i < ids.length; i++) {
+          const li = document.createElement('li');
+          li.setAttribute('data-id', ids[i]);
+          li.innerHTML = `Selected record ID: ${ids[i]}`;
+          c.appendChild(li);
+        }
+        $('#kt_datatable_fetch_display_2').append(c);
+      })
+      .on('hide.bs.modal', function (e) {
+        $('#kt_datatable_fetch_display_2').empty();
+      });
+  };
+
+  return {
+    // public functions
+    init: function () {
+      serverSelectorDemo();
+    },
+  };
+})();
+
+jQuery(document).ready(function () {
+  KTDatatableRecordSelectionDemo.init();
+});

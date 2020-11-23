@@ -18,17 +18,61 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllExample = catchAsync(async (req, res, next) => {
-  console.log('Getting All Example');
+  console.log(req.query);
+  /*   const paginationObj = req.query.pagination;
+  const qObj = req.query.query;
+  const sortObj = req.query.sort;
+  const requestIdsObj = req.query.requestIds;
 
-  const examples = await Example.find().then();
+  console.log(paginationObj, qObj, sortObj, requestIdsObj); */
 
+  // BUILD QUERY
+  // 1A) Filtering
+  const queryObj = { ...req.query };
+  const excludedFields = [
+    'pagination',
+    'selectedAllRows',
+    'sort',
+    'requestIds',
+    'query',
+  ];
+  excludedFields.forEach((el) => delete queryObj[el]);
+  console.log(queryObj);
+
+  // 1B) Advanced Filtering
+  const queryStr = JSON.stringify(queryObj);
+  let query;
+  query = Example.find(JSON.parse(queryStr)).then();
+
+  // 2) Sorting
+  if (req.query.sort) {
+    //query = query.sort(req.query.sort.field);
+  } else {
+    query = query.sort('-createdAt');
+  }
+
+  // 3) Field Limiting
+
+  // 4) Pagination
+  const page = req.query.pagination.page * 1 || 1;
+  const limit = req.query.pagination.perpage * 1 || 30;
+  const skip = (page - 1) * limit;
+
+  if (req.query.pagination) {
+    query = query.skip(skip).limit(limit);
+  }
+
+  //const query = Example.find(queryObj).then();
+
+  // EXECUTE QUERY
+  const examples = await query;
+
+  // SEND RESPONSE
   res.status(200).json({
     status: 'success',
     message: 'Got All Example',
     results: examples.length,
-    data: {
-      examples,
-    },
+    examples,
   });
 });
 

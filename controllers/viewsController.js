@@ -428,9 +428,13 @@ exports.getExample = (req, res) => {
   res.status(200).render(`./../views/pages/example/example`, doc);
 };
 // TABLE RELATED CONTROLLER
-exports.getTable = (req, res) => {
+exports.getLocalTable = (req, res) => {
   console.log('We are in Tables Page');
-  res.status(200).render(`./../views/pages/example/table`, doc);
+  res.status(200).render(`./../views/pages/example/local-table`, doc);
+};
+exports.getRemoteTable = (req, res) => {
+  console.log('We are in Tables Page');
+  res.status(200).render(`./../views/pages/example/remote-table`, doc);
 };
 // ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntries = (req, res) => {
@@ -480,5 +484,3 @@ exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');
   res.status(200).render('./../views/pages/event/eventEntries', doc);
 };
-
-
