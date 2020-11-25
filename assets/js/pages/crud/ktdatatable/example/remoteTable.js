@@ -1,92 +1,108 @@
 /* eslint-disable */
-'use strict';
+//'use strict';
 
 // Class definition
 
 const KTDatatableRecordSelectionDemo = (function () {
+  var dataSet;
   // Private functions
 
 
   // sourcing data
   const getExampleData = async () => {
     try {
-        const {data} = await axios.get(`${HOST_URL}/api/v1/example`);
-        return data;
+      const {data} = await axios.get(`${HOST_URL}/api/v1/example`);
+      return data;
     } catch (err) {
-        console.log(err.message);
+      console.log(err.message);
     }
   }
 
-  const options = {
-    // datasource definition
-    data: {
-      type: 'remote',
-      source: {
-        read: {
-          method: 'get',
-          url: `${HOST_URL}/api/v1/example`,
+  const serverSelectorDemo = async () =>  {
+
+    const options = {
+      // datasource definition
+      data: {
+        type: 'remote',
+        source: {
+          read: {
+            method: 'get',
+            url: `${HOST_URL}/api/v1/example`,
+            map: function(raw) {
+              // sample data mapping
+              console.log(raw);
+              dataSet = raw;
+              //console.log(dataSet);
+          
+              if (typeof raw.data !== 'undefined') {
+                dataSet = raw.data;
+              }
+              return dataSet;
+            }
+  
+          },
         },
+        pageSize: 10,
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true,
+        //autoColumns: true,  // newly added
       },
-      pageSize: 10,
-      serverPaging: true,
-      serverFiltering: true,
-      serverSorting: true,
-    },
-
-    // layout definition
-    layout: {
-      scroll: false, // enable/disable datatable scroll both horizontal and
-      footer: false, // display/hide footer
-    },
-
-    // column sorting
-    sortable: true,
-
-    pagination: true,
-
-    // columns definition
-    columns: [
-      {
-        field: '_id',
-        title: '#',
-        sortable: false,
-        width: 20,
-        selector: {
-          class: '',
+  
+      // layout definition
+      layout: {
+        scroll: false, // enable/disable datatable scroll both horizontal and
+        footer: false, // display/hide footer
+        height: 450,
+  
+      },
+  
+      // column sorting
+      sortable: true,
+  
+      pagination: true,
+      search: {
+        input: $('#kt_datatable_search_query_2'),
+        key: 'generalSearch',
+      },
+  
+      // columns definition
+      columns: [
+        {
+          field: '_id',
+          title: '#',
+          sortable: false,
+          width: 20,
+          selector: {
+            class: '',
+          },
+          textAlign: 'center',
         },
-        textAlign: 'center',
-      },
-      {
-        field: 'name',
-        title: 'Name',
-      },
-      {
-        field: 'createdBy',
-        title: 'createdBy',
-      },
-      {
-        field: 'createdAt',
-        title: 'createdAt',
-        type: 'date',
-        format: 'MM/DD/YYYY',
-      },
-      {
-        field: 'updatedAt',
-        title: 'updatedAt',
-      },
-    ],
-  };
-
-  const serverSelectorDemo = function () {
+        {
+          field: 'name',
+          title: 'Name',
+        },
+        {
+          field: 'createdBy',
+          title: 'createdBy',
+        },
+        {
+          field: 'createdAt',
+          title: 'createdAt',
+        },
+        {
+          field: 'updatedAt',
+          title: 'updatedAt',
+        },
+      ],
+    }
+    
     // enable extension
     options.extensions = {
       // boolean or object (extension options)
       checkbox: true,
     };
-    options.search = {
-      input: $('#kt_datatable_search_query_2'),
-      key: 'generalSearch',
-    };
+
 
     const datatable = $('#kt_datatable_2').KTDatatable(options);
 
@@ -116,21 +132,6 @@ const KTDatatableRecordSelectionDemo = (function () {
       }
     });
 
-    $('#kt_datatable_fetch_modal_2')
-      .on('show.bs.modal', function (e) {
-        const ids = datatable.checkbox().getSelectedId();
-        const c = document.createDocumentFragment();
-        for (let i = 0; i < ids.length; i++) {
-          const li = document.createElement('li');
-          li.setAttribute('data-id', ids[i]);
-          li.innerHTML = `Selected record ID: ${ids[i]}`;
-          c.appendChild(li);
-        }
-        $('#kt_datatable_fetch_display_2').append(c);
-      })
-      .on('hide.bs.modal', function (e) {
-        $('#kt_datatable_fetch_display_2').empty();
-      });
   };
 
   return {

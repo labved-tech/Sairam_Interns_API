@@ -18,6 +18,7 @@ var KTDatatableRemoteAjaxDemo = function() {
                         // headers: {'x-my-custom-header': 'some value', 'x-test-header': 'the value'},
                         map: function(raw) {
                             // sample data mapping
+                            console.log(raw);
                             var dataSet = raw;
                             if (typeof raw.data !== 'undefined') {
                                 dataSet = raw.data;
