@@ -18,106 +18,99 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllExample = catchAsync(async (req, res, next) => {
-  console.log(`queryString :`, req.query); //, req.query
   let query;
-  let examples;
-
+  // BUILD QUERY
+  // 1A) Filtering
   const queryObj = { ...req.query };
-  console.log(queryObj.query);
+  console.log('Raw :', queryObj);
 
-  if (queryObj.query === undefined) {
-    // GENERAL QUERY
-    console.log('queryObj is empty');
-
-    // EXECUTE QUERY
-    examples = await Example.find();
-
-    // SEND RESPONSE
-    res.status(200).json({
-      status: 'success',
-      message: 'Got All Example',
-      examples,
-    });
-  } else {
-    // REMOTE TABLE QUERY
-
-    // BUILD QUERY
-    // 1A) Filtering
-    /*   const excludedFields = [
+  const excludedFields = [
     'pagination',
     'selectedAllRows',
-    'sort',
     'requestIds',
-    //'query',
+    'sort',
+    'fields',
   ];
   excludedFields.forEach((el) => delete queryObj[el]);
-  console.log('queryObj:', queryObj); */
 
-    // 1B) Advanced Filtering
-    let queryStr;
-    if (queryObj.query === '' || queryObj.query.generalSearch === '') {
-      query = Example.find();
-    } else if (queryObj.query.generalSearch !== '') {
-      queryStr = queryObj.query.generalSearch;
-      queryStr = queryStr.trim();
-      queryStr = { $text: { $search: `${queryStr}` } };
-      query = Example.find(queryStr);
-    }
+  // 1B) Advanced Filtering
+  if (queryObj.query.generalSearch) {
+    const searchBy = queryObj.query.generalSearch;
+    delete queryObj.query.generalSearch;
+    queryObj.query.$text = `{ $search: ${searchBy}}`;
+    console.log(queryObj);
+  }
 
-    // 2) Sorting
-    let sortStr;
-    if (queryObj.sort) {
-      sortStr = `{ "${queryObj.sort.field}": "${queryObj.sort.sort}" }`;
-      sortStr = JSON.parse(sortStr);
-    } else {
-      sortStr = `-createdAt`; //{createdAt : desc}
-    }
-    query = query.find().sort(sortStr);
+  let queryStr = JSON.stringify(queryObj.query);
+  queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+  console.log(queryStr);
+  const tempObj = JSON.parse(queryStr);
+  console.log('Obj :', tempObj);
 
-    // 3) Field Limiting
+  const test = Object.keys(tempObj).length === 0;
+  console.log(test);
 
-    // 4) Pagination
-    const page = queryObj.pagination.page * 1 || 1;
-    const limit = queryObj.pagination.perpage * 1 || 30;
-    const skip = (page - 1) * limit;
+  if (Object.keys(tempObj).length !== 0)
+    query = Example.find(JSON.parse(queryStr));
+  else query = Example.find();
 
-    query = query.skip(skip).limit(limit);
+  // 2) Sorting
+  let sortBy;
+  if (req.query.sort) {
+    sortBy = `{ "${req.query.sort.field}": "${req.query.sort.sort}" }`;
+    query = query.sort(JSON.parse(sortBy));
+  } else {
+    sortBy = `-createdAt`; //{createdAt : desc}
+    query = query.sort(sortBy);
+  }
 
-    let numRecords;
-    let pages;
-    if (queryObj.pagination) {
-      numRecords = await Example.countDocuments(); // has to be replaced with query.countDocuments();
+  // 3) Field Limiting
+  if (req.query.fields) {
+    const fields = req.query.fields.split(',').join(' ');
+    query = query.select(fields);
+  } else {
+    query = query.select('-__v');
+  }
 
-      if (numRecords % limit === 0) {
-        pages = numRecords / limit;
-      } else {
-        pages = numRecords / limit + 1;
-      }
-      if (skip >= numRecords) throw new Error('This page does not exist');
-    }
+  // 4) Pagination
+  const page = req.query.pagination.page * 1 || 1;
+  const limit = req.query.pagination.perpage * 1 || 30;
+  const skip = (page - 1) * limit;
 
-    // EXECUTE QUERY
-    examples = await query;
+  query = query.skip(skip).limit(limit);
 
-    // SEND RESPONSE
-    res.status(200).json({
-      status: 'success',
-      message: 'Got All Example',
-      examples,
-      meta: {
-        page: page, // current page
-        pages: pages, // total pages
-        perpage: limit, // per page items
-        total: numRecords, // total records
-        field: 'createdAt', // default field sort
-        sort: 'asc', // asc or desc
-        rowIds: '',
-      },
-    });
+  let numRecords;
+  let pages;
+  if (req.query.pagination) {
+    numRecords = await Example.countDocuments(); // has to be replaced with query.countDocuments();
+
+    if (numRecords % limit === 0) pages = numRecords / limit;
+    else pages = numRecords / limit + 1;
+
+    if (skip >= numRecords) throw new Error('This page does not exist');
   }
 
   // EXECUTE QUERY
+  const examples = await query;
+  //examples = await Example.find();
   //console.log(examples);
+
+  // SEND RESPONSE
+  // SEND RESPONSE
+  res.status(200).json({
+    status: 'success',
+    message: 'Got All Example',
+    examples,
+    meta: {
+      page: page, // current page
+      pages: pages, // total pages
+      perpage: limit, // per page items
+      total: numRecords, // total records
+      field: 'createdAt', // default field sort
+      sort: 'desc', // asc or desc
+      rowIds: '',
+    },
+  });
 });
 
 exports.getExample = catchAsync(async (req, res, next) => {

@@ -18,7 +18,7 @@ const KTDatatableRecordSelectionDemo = (function () {
             method: 'get',
             url: `${HOST_URL}/api/v1/example`,
             params: {
-              name: 'test',
+              fields: '_id,name,createdBy,createdAt,updatedAt',
             },
             map: function(raw) {
               // sample data mapping
@@ -27,7 +27,7 @@ const KTDatatableRecordSelectionDemo = (function () {
           
               if (typeof raw.examples !== 'undefined') {
                 dataSet = raw.examples;
-                //console.log('dataSet', dataSet);
+                console.log('dataSet', dataSet);
               }
               return dataSet;
             }

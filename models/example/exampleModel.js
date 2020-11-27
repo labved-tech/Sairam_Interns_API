@@ -26,7 +26,7 @@ const exampleSchema = new Schema(
     createdBy: { type: mongoose.ObjectId },
     updatedBy: { type: mongoose.ObjectId },
   },
-  { timestamps: true }
+  { timestamps: true, select: false }
 );
 
 /* SEARCH */
