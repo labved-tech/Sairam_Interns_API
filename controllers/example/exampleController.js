@@ -34,11 +34,11 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   excludedFields.forEach((el) => delete queryObj[el]);
 
   // 1B) Advanced Filtering
+  let searchObj;
   if (queryObj.query.generalSearch) {
-    const searchBy = queryObj.query.generalSearch;
-    delete queryObj.query.generalSearch;
-    queryObj.query.$text = `{ $search: ${searchBy}}`;
-    console.log(queryObj);
+    const searchStr = queryObj.query.generalSearch;
+    searchObj = { $text: { $search: `${searchStr}` } };
+    console.log(searchObj);
   }
 
   let queryStr = JSON.stringify(queryObj.query);
@@ -51,7 +51,7 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   console.log(test);
 
   if (Object.keys(tempObj).length !== 0)
-    query = Example.find(JSON.parse(queryStr));
+    query = Example.find(JSON.parse(queryStr), searchObj);
   else query = Example.find();
 
   // 2) Sorting
