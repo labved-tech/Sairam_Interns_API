@@ -9,7 +9,7 @@ const KTDatatableDataLocalDemo = (function () {
   // sourcing data
   const getExampleData = async () => {
     try {
-        const {data} = await axios.get(`${HOST_URL}/api/v1/example`);
+      const { data } = await axios.get(`${HOST_URL}/api/v1/example`, { params : {name: 'sai'}})
         return data;
     } catch (err) {
         console.log(err.message);

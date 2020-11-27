@@ -7,17 +7,6 @@ const KTDatatableRecordSelectionDemo = (function () {
   var dataSet;
   // Private functions
 
-
-  // sourcing data
-  const getExampleData = async () => {
-    try {
-      const {data} = await axios.get(`${HOST_URL}/api/v1/example`);
-      return data;
-    } catch (err) {
-      console.log(err.message);
-    }
-  }
-
   const serverSelectorDemo = async () =>  {
 
     const options = {
@@ -33,12 +22,12 @@ const KTDatatableRecordSelectionDemo = (function () {
             },
             map: function(raw) {
               // sample data mapping
-              console.log(raw);
+              //console.log('raw', raw);
               dataSet = raw;
-              //console.log(dataSet);
           
-              if (typeof raw.data !== 'undefined') {
-                dataSet = raw.data;
+              if (typeof raw.examples !== 'undefined') {
+                dataSet = raw.examples;
+                //console.log('dataSet', dataSet);
               }
               return dataSet;
             }

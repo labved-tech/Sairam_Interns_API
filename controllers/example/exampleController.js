@@ -20,11 +20,30 @@ exports.checkID = (req, res, next, val) => {
 exports.getAllExample = catchAsync(async (req, res, next) => {
   console.log(`queryString :`, req.query); //, req.query
   let query;
+  let examples;
 
-  // BUILD QUERY
-  // 1A) Filtering
   const queryObj = { ...req.query };
-/*   const excludedFields = [
+  console.log(queryObj.query);
+
+  if (queryObj.query === undefined) {
+    // GENERAL QUERY
+    console.log('queryObj is empty');
+
+    // EXECUTE QUERY
+    examples = await Example.find();
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      message: 'Got All Example',
+      examples,
+    });
+  } else {
+    // REMOTE TABLE QUERY
+
+    // BUILD QUERY
+    // 1A) Filtering
+    /*   const excludedFields = [
     'pagination',
     'selectedAllRows',
     'sort',
@@ -34,70 +53,71 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   excludedFields.forEach((el) => delete queryObj[el]);
   console.log('queryObj:', queryObj); */
 
-  // 1B) Advanced Filtering
-  let queryStr;
-
-  console.log(queryObj.query)
-  if (queryObj.query === undefined || queryObj.query === '' || queryObj.query.generalSearch === '') {
-    query = Example.find();
-  } else if (queryObj.query.generalSearch !== '') {
-    queryStr = queryObj.query.generalSearch;
-    queryStr = queryStr.trim();
-    queryStr = { $text: { $search: `${queryStr}` } };
-    query = Example.find(queryStr);
-  }
-
-
-  // 2) Sorting
-  let sortStr;
-  if (queryObj.sort) {
-    sortStr = `{ "${queryObj.sort.field}": "${queryObj.sort.sort}" }`;
-    sortStr = JSON.parse(sortStr);
-  } else {
-    sortStr = `-createdAt`; //{createdAt : desc}
-  }
-  query = query.find().sort(sortStr);
-
-  // 3) Field Limiting
-
-  // 4) Pagination
-  const page = queryObj.pagination.page * 1 || 1;
-  const limit = queryObj.pagination.perpage * 1 || 30;
-  const skip = (page - 1) * limit;
-
-  query = query.skip(skip).limit(limit);
-
-  let numRecords;
-  let pages;
-  if (queryObj.pagination) {
-    numRecords = await Example.countDocuments(); // has to be replaced with query.countDocuments();
- 
-    if (numRecords % limit === 0) {
-      pages = numRecords / limit;
-    } else {
-      pages = numRecords / limit + 1;
+    // 1B) Advanced Filtering
+    let queryStr;
+    if (queryObj.query === '' || queryObj.query.generalSearch === '') {
+      query = Example.find();
+    } else if (queryObj.query.generalSearch !== '') {
+      queryStr = queryObj.query.generalSearch;
+      queryStr = queryStr.trim();
+      queryStr = { $text: { $search: `${queryStr}` } };
+      query = Example.find(queryStr);
     }
-    if (skip >= numRecords) throw new Error('This page does not exist');
+
+    // 2) Sorting
+    let sortStr;
+    if (queryObj.sort) {
+      sortStr = `{ "${queryObj.sort.field}": "${queryObj.sort.sort}" }`;
+      sortStr = JSON.parse(sortStr);
+    } else {
+      sortStr = `-createdAt`; //{createdAt : desc}
+    }
+    query = query.find().sort(sortStr);
+
+    // 3) Field Limiting
+
+    // 4) Pagination
+    const page = queryObj.pagination.page * 1 || 1;
+    const limit = queryObj.pagination.perpage * 1 || 30;
+    const skip = (page - 1) * limit;
+
+    query = query.skip(skip).limit(limit);
+
+    let numRecords;
+    let pages;
+    if (queryObj.pagination) {
+      numRecords = await Example.countDocuments(); // has to be replaced with query.countDocuments();
+
+      if (numRecords % limit === 0) {
+        pages = numRecords / limit;
+      } else {
+        pages = numRecords / limit + 1;
+      }
+      if (skip >= numRecords) throw new Error('This page does not exist');
+    }
+
+    // EXECUTE QUERY
+    examples = await query;
+
+    // SEND RESPONSE
+    res.status(200).json({
+      status: 'success',
+      message: 'Got All Example',
+      examples,
+      meta: {
+        page: page, // current page
+        pages: pages, // total pages
+        perpage: limit, // per page items
+        total: numRecords, // total records
+        field: 'createdAt', // default field sort
+        sort: 'asc', // asc or desc
+        rowIds: '',
+      },
+    });
   }
 
   // EXECUTE QUERY
-  const examples = await query;
-
-  // SEND RESPONSE
-  res.status(200).json({
-    status: 'success',
-    message: 'Got All Example',
-    data: examples,
-    meta: {
-      page: page, // current page
-      pages: pages, // total pages
-      perpage: limit, // per page items
-      total: numRecords, // total records
-      field: 'createdAt', // default field sort
-      sort: 'asc', // asc or desc
-      rowIds: '',
-    },
-  });
+  //console.log(examples);
 });
 
 exports.getExample = catchAsync(async (req, res, next) => {
