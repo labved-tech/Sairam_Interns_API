@@ -28,6 +28,9 @@ const KTDatatableRecordSelectionDemo = (function () {
           read: {
             method: 'get',
             url: `${HOST_URL}/api/v1/example`,
+            params: {
+              name: 'test',
+            },
             map: function(raw) {
               // sample data mapping
               console.log(raw);
@@ -51,7 +54,7 @@ const KTDatatableRecordSelectionDemo = (function () {
   
       // layout definition
       layout: {
-        scroll: false, // enable/disable datatable scroll both horizontal and
+        scroll: true, // enable/disable datatable scroll both horizontal and
         footer: false, // display/hide footer
         height: 450,
   

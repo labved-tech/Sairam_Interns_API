@@ -21,13 +21,6 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   console.log(`queryString :`, req.query); //, req.query
   let query;
 
-  //const queryObj = req.query.query;
-  const sortObj = req.query.sort;
-  const paginationObj = req.query.pagination;
-  const requestIdsObj = req.query.requestIds;
-
-  //console.log(queryObj, sortObj, paginationObj, requestIdsObj);
-
   // BUILD QUERY
   // 1A) Filtering
   const queryObj = { ...req.query };
@@ -43,27 +36,25 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
 
   // 1B) Advanced Filtering
   let queryStr;
-  //queryObj.query = `{"name" : "sai"}`;     // for testing
-  if (queryObj.query === '') {
-    // queryObj is empty
+
+  console.log(queryObj.query)
+  if (queryObj.query === undefined || queryObj.query === '' || queryObj.query.generalSearch === '') {
     query = Example.find();
-  } else {
-    // queryObj is not empty
-    queryStr = JSON.parse(queryObj.query);
-    console.log('queryObj : ', queryStr);
+  } else if (queryObj.query.generalSearch !== '') {
+    queryStr = queryObj.query.generalSearch;
+    queryStr = queryStr.trim();
+    queryStr = { $text: { $search: `${queryStr}` } };
     query = Example.find(queryStr);
   }
 
+
   // 2) Sorting
   let sortStr;
-  //queryObj.sort = '';     // for testing
   if (queryObj.sort) {
     sortStr = `{ "${queryObj.sort.field}": "${queryObj.sort.sort}" }`;
     sortStr = JSON.parse(sortStr);
-    console.log('sortStr :', sortStr);
   } else {
     sortStr = `-createdAt`; //{createdAt : desc}
-    console.log('sortStr :', sortStr);
   }
   query = query.find().sort(sortStr);
 
@@ -74,14 +65,13 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   const limit = queryObj.pagination.perpage * 1 || 30;
   const skip = (page - 1) * limit;
 
-  console.log(page, limit, skip)
-
   query = query.skip(skip).limit(limit);
 
   let numRecords;
   let pages;
   if (queryObj.pagination) {
     numRecords = await Example.countDocuments(); // has to be replaced with query.countDocuments();
+ 
     if (numRecords % limit === 0) {
       pages = numRecords / limit;
     } else {
@@ -92,9 +82,6 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
 
   // EXECUTE QUERY
   const examples = await query;
-  //console.log(query);
-
-  //const examples = await Example.find().then();
 
   // SEND RESPONSE
   res.status(200).json({
@@ -105,9 +92,10 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
       page: page, // current page
       pages: pages, // total pages
       perpage: limit, // per page items
-      rowIds: '',
-      sort: 'asc', // asc or desc
       total: numRecords, // total records
+      field: 'createdAt', // default field sort
+      sort: 'asc', // asc or desc
+      rowIds: '',
     },
   });
 });

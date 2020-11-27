@@ -29,6 +29,13 @@ const exampleSchema = new Schema(
   { timestamps: true }
 );
 
+/* SEARCH */
+exampleSchema.index({
+  name: 'text',
+  email: 'text',
+  createdBy: 'text',
+});
+
 /* MODEL */
 const Example = mongoose.model('example', exampleSchema);
 
