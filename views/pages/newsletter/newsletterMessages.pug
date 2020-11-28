@@ -38,19 +38,20 @@ block content
                                                 span(class='text-danger')  *
                                             div(class='col-6')
                                                 input#nmSubject(type='text' class='form-control' name='nmSubject' placeholder='Enter Subject')
-                                        
-                                        //messageEditor
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Message
-                                            div(class='col-9')
-                                                div#messageEditor(class='summernote' name='messageEditor')
-                                                span(class='form-text text-muted') Add message that you wish to send.                                   
-                                        
-                                        // nmEmail
-                                        
+
+                                        //nmMessage                                               
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='nmMessage')
+                                                | Message
+                                                span(class='text-danger') 
+                                            div(class='col-9 ')
+                                                textarea#demoTextarea(class='form-control' name='nmMessage' rows='3')
+                                                span(class='form-text text-muted') Add message that you wish to send.                                                                                  
+                                            
+                                        // nmEmail  
                                         div(class='form-group row')
                                             label(class=' col-3 col-form-label form-control-label text-right ') Recipient Email
-                                            div(class='col-4')
+                                            div(class='col-5')
                                                 select#nmEmail(class='form-control selectpicker' multiple=''  data-live-search='true' name='nmEmail' )
                                                     option alexrider@gmail.com
                                                     option percyjackson@gmail.com
