@@ -28,9 +28,9 @@ block content
                                         //nmID
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Newsletter ID
-                                                span(class='text-danger')  *
-                                            div(class='col-6')
-                                                input#nmID(type='text' class='form-control' name='nmID' placeholder='Enter Subject')
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#nmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='nmID' placeholder='')
                                         
                                         // nmSubject
                                         div(class='form-group row')
@@ -47,11 +47,15 @@ block content
                                                 span(class='form-text text-muted') Add message that you wish to send.                                   
                                         
                                         // nmEmail
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Recipient Email
-                                                span(class='text-danger')  *
-                                            div(class='col-6')
-                                                input#nmEmail(type='text' class='form-control' name='nmEmail' placeholder='draco@gmail.com')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Recipient Email
+                                            div(class='col-4')
+                                                select#nmEmail(class='form-control selectpicker' multiple=''  data-live-search='true' name='nmEmail' )
+                                                    option alexrider@gmail.com
+                                                    option percyjackson@gmail.com
+                                                    option jupiterjones@gmail.com
+                                                span(class='form-text text-muted') Select Email                                   
                                         
                                         //nmSent
                                         div(class='form-group row')
