@@ -13,10 +13,10 @@ const AnalyticsCRUD = (function () {
 /*         const fromName = form.querySelector('[name="name"]').value;
         const fromState = form.querySelector('[name="state"]').value; */
     const fromName = KTUtil.getById('aName');
-    const fromState = KTUtil.getById('aState');
+    //const fromState = KTUtil.getById('aState');
     const ownerId = KTUtil.getById('aOwnerId');
     const reporterId = KTUtil.getById('aReporterId');
-    console.log(fromName, fromState);
+    console.log(fromName);
     
 
     if(!form) {
@@ -66,7 +66,7 @@ const AnalyticsCRUD = (function () {
         url: `${HOST_URL}/api/v1/analytics`,
           data: {
             name: fromName.value,
-            state: fromState.value,
+            //state: fromState.value,
             _ownerid: ownerId.value,
             _reportid:reporterId.value,
               
