@@ -1,8 +1,7 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
-
+   
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
     script(src='/js/pages/newsletter/newsletterMessages.js')
@@ -18,56 +17,66 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Newsletter Messages Form 
+                            | Newsletter Messages 
                     div(class='card-body')
                         // begin::Form
-                        form#form_newsletterMessages(class='form')
+                        form#createnewsletterMessages(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-6')
                                     div(class='my-5')
-                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                       //nmID
+                                       div(class='form-group-row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Newsletter Id
+                                                span(class='text-danger')  *
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
+                                                input#nmID(type='text' class='form-control' name='nmID' placeholder='5fa6574d564cd01d')
+                                        // nmSubject
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Newsletter Id
-                                            div(class='col-9')
-                                                input#newsletterId(type='text' class='form-control' name='newsletterId' placeholder='ex: 5fa6574d564cd01840c6cfd9')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Subject
+                                                span(class='text-danger')  *
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
+                                                input#nmSubject(type='text' class='form-control' name='nmSubject' placeholder='Enter Subject')
+                                        //messageEditor
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Subject
-                                            div(class='col-9')
-                                                input#subject(type='text' class='form-control' name='subject' placeholder='ex: Enter Subject')
-                                        div(class='form-group row mb')
-                                            label(class='col-3' for='messageTextArea')
-                                                | Message 
-                                            div(class='col-9')
-                                                textarea#messageTextArea(class='form-control' rows='3' name='messageTextArea')
+                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Message
+                                            div(class='col-lg-9 col-md-9 col-sm-12')
+                                                div#messageEditor(class='summernote' name='messageEditor')
+                                                span(class='form-text text-muted') Add message that you wish to send.                                   
+                                       //nmEmail
+                                       div(class='form-group-row')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Recipient Email
+                                                span(class='text-danger')  *
+                                            div(class='col-lg-6 col-md-9 col-sm-12')
+                                                input#nmEmail(type='text' class='form-control' name='nmEmail' placeholder='draco@gmail.com')
+                                        //nmSent
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Recipient Email
-                                            div(class='col-9')
-                                                input#recipientEmail(type='text' class='form-control' name='recipientEmail' placeholder='ex. recipient@gmail.com')
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label') Sent
-                                            div(class='col-9')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Sent
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input#sent(type='checkbox' checked='checked' name='sent')
+                                                        input#nmSent(type='checkbox' checked='checked' name='nmSent')
                                                         span
+                                        //nmVisited
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label') Visited
-                                            div(class='col-9')
+                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Visited
+                                            div(class='col-lg-4 col-md-9 col-sm-12')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input#visited(type='checkbox' checked='checked' name='visited')
+                                                        input#nmVisited(type='checkbox' checked='checked' name='nmVisited')
                                                         span
+                                        //nmLastvisited        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Last Visited
-                                            div(class='col-9')
-                                                input#lastVisited(type='text' class='form-control' name='lastVisited' placeholder='ex. dd/mm/yyyy')
-                            div(class='card-footer text-right')
-                                div(class='row')
+                                            label(class=' col-3 form-control-label ') Last Visited
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#nmLastvisited (type='text' class='form-control' readonly='' name='nmLastvisited ' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+                            div(class='card-footer')
+                                div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Submit
+                                        button#newsletterMessagesFormSubmit(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
-                        // end::Form
-                // end::Card
-            // end::Container
-        // end::Entry
