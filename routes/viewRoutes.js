@@ -32,13 +32,13 @@ router.get('/account-settings/users/view-all', viewsController.getAllUser);
 router.get('/account-settings/users/add-new', viewsController.getAddUser);
 
 // ANNOUNCEMENT RELATED ROUTES
-router.get('/announcement-entries', viewsController.announcementEntries);
-router.get('/announcement-notification', viewsController.announcementNotify);
+router.get('/announcement/entries', viewsController.announcementEntries);
+router.get('/announcement/notification', viewsController.announcementNotify);
 
 // RATING RELATED ROUTES
-router.get('/ratingAttributeGroups', viewsController.ratingAttributeGroups);
-router.get('/ratingAttribute', viewsController.ratingAttribute);
-router.get('/ratingEntries', viewsController.ratingEntries);
+router.get('/ratings/attribute/groups', viewsController.ratingAttributeGroups);
+router.get('/ratings/attribute', viewsController.ratingAttribute);
+router.get('/ratings/entries', viewsController.ratingEntries);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
@@ -47,9 +47,9 @@ router.get('/analytics', viewsController.analytics);
 //router.get('/charts', viewsController.charts);
 
 // NEWSLETTER RELATED ROUTES
-router.get('/newsletter-messages', viewsController.newsletterMessages);
+router.get('/newsletter/messages', viewsController.newsletterMessages);
 
 // EVENT RELATED ROUTES
-router.get('/event-entries', viewsController.eventEntries);
+router.get('/event/entries', viewsController.eventEntries);
 
 module.exports = router;

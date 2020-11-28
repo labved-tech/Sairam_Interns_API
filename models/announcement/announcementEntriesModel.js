@@ -7,8 +7,8 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const announcementEntriesSchema = new Schema(
   {
-    title: { type: String },
-    message: { type: String },
+    title: { type: String, required: 1 },
+    message: { type: String, required: 1 },
     from: { type: String },
     isEmailReq: { type: Boolean },
     priority: { type: Number },
