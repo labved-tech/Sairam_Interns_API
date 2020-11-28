@@ -2,11 +2,11 @@
 'use strict';
 
 // Class definition
-const Analytics = (function () {
+const AnalyticsCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
   // Private functions
-  const _analytics = function () {
+  const _createAnalytics = function () {
     // Getting Document related information
         const form = KTUtil.getById('form_analytics');           
         const formSubmitButton = KTUtil.getById('submitButton');
@@ -95,22 +95,27 @@ const Analytics = (function () {
           }; 
 
           if (res.data.status == 'success') {
-            toastr.success( `${res.data.message}` , `${res.data.status}`)
+            toastr.success(`${res.data.message}`, `${res.data.status}`)
           } else if (res.data.status == 'error') {
-            toastr.error ( `${res.data.message}` , `${res.data.status}`)
+            toastr.error(`${res.data.message}`, `${res.data.status}`)
           }
-      })
-     }).on('core.form.invalid', function () { });
-  };
-
+        });
+  
+        })
+        .on('core.form.invalid', function () { 
+          console.log('Something went wrong!!');
+  
+        });
+        
+      };
   return {
     // public functions
     init: function () {
-        _analytics();
+        _createAnalytics();
     },
   };
 })();
 
 jQuery(document).ready(function () {
-    Analytics.init();
+    AnalyticsCRUD.init();
 });

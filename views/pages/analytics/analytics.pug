@@ -4,10 +4,9 @@ block css-files
     link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/analytics/analytics.js')
-  
+    script(src='/js/pages/crud/myForm/analytics/analyticsForm.js' )
+    
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -28,33 +27,41 @@ block content
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
+
                                         h3(class=' text-dark font-weight-bold mb-10') General
+
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right ') Name
-                                            div(class='col-lg-6 col-md-9 col-sm-12')
-                                                input#name(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
+                                            label(class='col-3 col-form-label form-control-label text-right ') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#aName(type='text' class='form-control' name='aName' placeholder='ex. Sai Vignesh')
+                                        
                                         div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') State
-                                            div(class='col-lg-3 col-md-9 col-sm-12')
+                                            label(class='col-3 col-form-label form-control-label text-right') State
+                                            div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#state(class='form-control' type='text' dir='ltr' name='state' placeholder='States of India')
-                                                div(class='form-text text-muted')
+                                                    input#aState(class='form-control' type='text' dir='ltr' name='aState' placeholder='States of India')
+                                                    span(class='form-text text-muted') States From India Only                                   
+
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right ') Owner ID
-                                            div(class='col-lg-6 col-md-9 col-sm-12')
-                                                input#ownerId(type='text' class='form-control' name='ownerId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                            label(class='col-3 col-form-label form-control-label text-right ') Owner ID
+                                            div(class='col-6')
+                                                input#aOwnerId(type='text' class='form-control' name='aOwnerId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                        
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right ') Reporter ID
-                                            div(class='col-lg-6 col-md-9 col-sm-12')
-                                                input#reporterId(type='text' class='form-control' name='reporterId' placeholder='ex. 5fa92064cff6f652644266de  ')
-                            div(class='card-footer text-right')
-                                div(class='row')
+                                            label(class='col-3 col-form-label form-control-label text-right ') Reporter ID
+                                            div(class='col-6')
+                                                input#aReporterId(type='text' class='form-control' name='aReporterId' placeholder='ex. 5fa92064cff6f652644266de  ')
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')
                                         button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
             // end::Container
-    // end::Entry
-                                                
+        // end::Entry
+
+                         
                                                                   
