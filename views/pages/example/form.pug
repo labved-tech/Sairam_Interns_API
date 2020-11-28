@@ -1,7 +1,6 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
@@ -32,7 +31,7 @@ block content
                                     div(class='my-5')
 
                                         h3(class=' text-dark font-weight-bold mb-10') Textbox
-                                        // Name
+                                        // text
                                         div(class='form-group row')
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Text
                                                 span(class='text-danger')  *
@@ -517,6 +516,7 @@ block content
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 input#demoNumberCtrlSameSides(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demoNumberCtrlSameSides' placeholder='40')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+                                        
                                         // Number : Horizontal Slide
                                         div(class='form-group row mb-6')
                                             label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Horizontal Slider
@@ -565,7 +565,7 @@ block content
                                             div(class='col-lg-4 col-md-9 col-sm-12')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input(type='checkbox' checked='checked' name='select')
+                                                        input#booleanswitch(type='checkbox' checked='checked' name='select')
                                                         span
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
