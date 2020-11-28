@@ -120,10 +120,10 @@ app.use('/', viewRouter);
 // API
 app.use('/api/v1', apiv1Router);
 
-// Global can't find routes
-//app.all('*', (req, res, next) => {
-//next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
-//});
+//Global can't find routes
+// app.all('*', (req, res, next) => {
+//   next(new AppError(`Can't find ${req.originalUrl} on the server`, 404));
+// });
 
 // Global error handler message
 app.use(globalErrorHandler);

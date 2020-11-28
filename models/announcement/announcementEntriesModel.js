@@ -8,7 +8,7 @@ const { Schema } = mongoose;
 const announcementEntriesSchema = new Schema(
   {
     title: { type: String, required: 1 },
-    message: { type: String, required: 1 },
+    message: { type: String },
     from: { type: String },
     isEmailReq: { type: Boolean },
     priority: { type: Number },
@@ -21,7 +21,7 @@ const announcementEntriesSchema = new Schema(
         updatedAt: { type: Date },
       },
     ],
-    expires: { type: Number },
+    expires: { type: String },
     status: { type: String },
     createdBy: { type: mongoose.ObjectId },
     updatedBy: { type: mongoose.ObjectId },

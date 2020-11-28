@@ -2,45 +2,68 @@
 'use strict';
 
 /* Class definition */
-const Announcement = (function () {
+const AnnouncementCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
      /*   Private functions */
      const _createAnnouncementEntriesForm = function () {
 
         // Getting Document related information
-        const form = KTUtil.getById('createAnnouncementEntriesForm');
+        const createAnnouncementEntriesForm = KTUtil.getById('createAnnouncementEntriesForm');
         const formSubmitButton = KTUtil.getById('announcementEntriesFormSubmit');
-        const demoText = KTUtil.getById('aeTitle');
-        const demoEditor = KTUtil.getById('demoEditor');
+        const aeTitle = KTUtil.getById('aeTitle');
         const aeFrom = KTUtil.getById('aeFrom');
-        const aeIsEmailReq = KTUtil.getById('aeIsEmailReq');
         const aePriority = KTUtil.getById('aePriority');
-         const aeExpires = KTUtil.getById('aeExpires');
+        const aeIsEmailReq = KTUtil.getById('aeIsEmailReq');
+        const aeExpires = KTUtil.getById('aeExpires');
+        const aeMessage = KTUtil.getById('aeMessage');
 
          // Initializing 
-         $('#demoEditor').summernote({
+         $(aeMessage).summernote({
             height: 400,
             tabsize: 2
          });
          
-         $('#aeExpires').select2({
+         $(aeExpires).select2({
           placeholder: "Select"
           });
 
-         if (!form) {
+        // Return Form
+         if (!createAnnouncementEntriesForm) {
             return;
           }
       
-          FormValidation.formValidation(form, {
+          // Validation
+          FormValidation.formValidation(createAnnouncementEntriesForm, {
              fields: {
-              demoText: {
+              aeTitle: {
                 validators: {
                   notEmpty: {
-                    message: 'This is field is mandatory',
+                    message: 'This is field is required',
                   },
                 },
               },
+              aeFrom: {
+                validators: {
+                  notEmpty: {
+                    message: 'This is field is required',
+                  },
+                },
+              },
+              aePriority: {
+                validators: {
+                  notEmpty: {
+                    message: 'This is field is required',
+                  },
+                },
+              },
+/*               aeMessage: {
+                validators: {
+                  notEmpty: {
+                    message: 'This is field is required',
+                  },
+                },
+              }, */
   
               
             }, 
@@ -59,15 +82,20 @@ const Announcement = (function () {
             .on('core.form.valid', function () {
             // Show loading state on button
               KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-              console.log(`Value:${demoText.value}`);
+              console.log(`Value:${aeTitle.value}`);
       
       
             // Accessing Restful API
             axios({
               method: 'post',
-              url: `${HOST_URL}/api/v1/example`,
+              url: `${HOST_URL}/api/v1/announcement/entries`,
               data: {
-                text: demoText.value,
+                title: aeTitle.value,
+                //message: aeMessage.value,
+                from: aeFrom.value,
+                isEmailReq: true,   //if(aeIsEmailReq.value=== 'on') return true
+                priority: (aePriority.value) * 1,
+                expires: aeExpires.value,
               },
       
             }).then(function (res) {
@@ -157,5 +185,5 @@ const Announcement = (function () {
 })();
         
 jQuery(document).ready(function () {
-    Announcement.init();
+  AnnouncementCRUD.init();
   });

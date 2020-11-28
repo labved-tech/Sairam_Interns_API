@@ -55,6 +55,7 @@ block content
                                                 span(class='text-danger')  *
                                             div(class=' col-4')
                                                 select#aeExpires(class='form-control select2' name='aeExpires')
+                                                    option(value='n') Never
                                                     option(value='1d') Daily
                                                     option(value='7d') Weekly
                                                     option(value='30d') Monthly
@@ -72,7 +73,7 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Message
                                             div(class='col-9')
-                                                div#demoEditor(class='summernote' name='demoEditor')
+                                                div#aeMessage(class='summernote' name='aeMessage')
                                                 span(class='form-text text-muted') Add message that you wish to send.                                   
                                         div(class='separator separator-dashed my-10')
                                         h3(class=' text-dark font-weight-bold mb-10') Target Conditions

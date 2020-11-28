@@ -49,16 +49,16 @@ exports.createAnnouncementEntries = catchAsync(async (req, res, next) => {
   console.log('Creating Announcement Entries');
   const { body } = req;
 
-// parse through models
-const doc = new AnnouncementEntries(body);
-console.log(body);
+  // parse through models
+  const doc = new AnnouncementEntries(body);
+  console.log(body);
 
   // targetConditions
   if (doc.targetConditions) {
     const targetConditionsLength = doc.targetConditions.length;
     console.log(`Array of objects length ${targetConditionsLength}`);
 
-    for (let i = 0; i < targetConditionsLength; i++) {
+    for (let i = 0; i < targetConditionsLength; i += 1) {
       doc.targetConditions[i].createdBy = '5f990bb3c727e952a076f3b7';
       doc.targetConditions[i].updatedBy = '5f990bb3c727e952a076f3b7';
       doc.targetConditions[i].createdAt = Date.now();
@@ -66,15 +66,13 @@ console.log(body);
     }
   }
 
-
   doc.createdBy = '5f990bb3c727e952a076f3b7';
-
 
   // final validation
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(doc);
 
   const announcementEntries = await AnnouncementEntries.create(doc).then();
 
@@ -102,7 +100,6 @@ exports.updateAnnouncementEntries = catchAsync(async (req, res, next) => {
     const len = announcementEntriesToUpdate.targetConditions.length;
     console.log(len);
   }
-
 
   // update timestamps & Id's
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
