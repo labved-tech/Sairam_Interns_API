@@ -33,21 +33,21 @@ block content
                                         h3(class=' text-dark font-weight-bold mb-10') Textbox
                                         // text
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label ') Text
+                                            label(class='col-3 col-form-label form-control-label text-right') Text
                                                 span(class='text-danger')  *
                                             div(class='col-6')
                                                 input#demoText(type='text' class='form-control' name='demoText' placeholder='Enter your email')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // password
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Password
+                                            label(class='col-3 col-form-label form-control-label text-right') Password
                                                 span(class='text-danger')  *
                                             div(class='col-4')
                                                 input#demoPassword(type='text' class='form-control' name='demoPassword' placeholder='password')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Text Area
                                         div(class='form-group row mb-1')
-                                            label(class='col-3' for='demoTextarea')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
                                                 | Textarea 
                                                 span(class='text-danger') *
                                             div(class='col-9 ')
@@ -59,14 +59,14 @@ block content
 
                                         // Typeahead : Basic Demo
                                         div(class='form-group row')
-                                            label(class='col-3') Basic Demo
+                                            label(class='col-3 col-form-label form-control-label text-right') Basic Demo
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#demoTypeaheadBasic(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='demoTypeaheadBasic' placeholder='States of USA')
                                                     span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                         // Typeahead : Remote Data (Suggestion Engine)
                                         div(class='form-group row')
-                                            label(class='  col-3') Typeahead Remote Data (Suggestion Engine)
+                                            label(class='col-3 col-form-label form-control-label text-right') Typeahead Remote Data (Suggestion Engine)
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#demoTypeaheadRemote(class='form-control' type='text' dir='ltr' name='demoTypeaheadRemote' placeholder='States of USA')
@@ -74,21 +74,21 @@ block content
 
                                         // Typeahead : Prefetch Data
                                         div(class='form-group row')
-                                            label(class='  col-3') Typeahead Prefetch Data
+                                            label(class='col-3 col-form-label form-control-label text-right') Typeahead Prefetch Data
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#demoTypeaheadPrefetch(class='form-control' type='text' dir='ltr' name='demoTypeaheadPrefetch' placeholder='Countries')
                                                     span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Typeahead : Custom Templates 
                                         div(class='form-group row')
-                                            label(class='  col-3') Custom Templates
+                                            label(class='col-3 col-form-label form-control-label text-right') Custom Templates
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#demoTypeaheadCustomTemplate(class='form-control' type='text' dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>" name='demoTypeaheadCustomTemplate' placeholder='Oscar winners')
                                                     span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Typeahead : Multiple Datasets 
                                         div(class='form-group row')
-                                            label(class='  col-3') Multiple Datasets
+                                            label(class='col-3 col-form-label form-control-label text-right') Multiple Datasets
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#demoTypeaheadMultipleDatasets(class='form-control' type='text' dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>"  name='demoTypeaheadMultipleDatasets' placeholder='Select an option')
@@ -99,7 +99,7 @@ block content
 
                                         // Dropdown List : Single Select1 
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Single Select1 w search
+                                            label(class='col-3 col-form-label form-control-label text-right') Single Select1 w search
                                             div(class='col-4')
                                                 select#demoSelectSingle(class='form-control selectpicker' data-size='7' data-live-search='true'  name='demoSelectSingle' )
                                                     option(value='') Select
@@ -357,7 +357,7 @@ block content
 
                                         // Dropdown List : Multiple Select1
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Multiple Select1 w search
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Multiple Select1 w search
                                             div(class='col-4')
                                                 select#demoSelectMultiple(class='form-control selectpicker' multiple=''  data-live-search='true' name='selectdemoSelectMultiple' )
                                                     option Mustard
@@ -368,7 +368,7 @@ block content
 
                                         // Dropdown List : Single Select2 w Live Search
                                         div(class='form-group row')
-                                            label(class='  col-3') Single Select2 w search
+                                            label(class='col-3 col-form-label form-control-label text-right') Single Select2 w search
                                             div(class=' col-4')
                                                 select#demoSelect2Single(class='form-control select2' name='demoSelect2Single')
                                                     option(value='AK') Alaska
@@ -425,7 +425,7 @@ block content
 
                                         // Dropdown List : Multiple Select2 w Live Search
                                         div(class='form-group row')
-                                            label(class='  col-3') Multiple Select2 w search
+                                            label(class='col-3 col-form-label form-control-label text-right') Multiple Select2 w search
                                             div(class=' col-9')
                                                 select#demoSelect2Multiple(class='form-control select2' name='demoSelect2Multiple' multiple='multiple')
                                                     optgroup(label='Alaskan/Hawaiian Time Zone')
@@ -488,7 +488,7 @@ block content
 
                                         // Dropdown List : multiple box
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ' for='exampleSelect2')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='exampleSelect2')
                                                 | List Box - Multiple
                                                 span(class='text-danger') *
                                             div(class='col-4')
@@ -505,21 +505,21 @@ block content
 
                                         // Number : Number Controls Two Sides
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Numbers Controls Either Side :
+                                            label(class='col-3 col-form-label form-control-label text-right') Numbers Controls Either Side :
                                             div(class='col-4')
                                                 input#demoNumberCtrlTwoSides(type='text' class='form-control' value='' name='demoNumberCtrlTwoSides' placeholder='Select time')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
                                         // Number : Number Controls Same Sides
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Numbers Controls Same Side :
+                                            label(class='col-3 col-form-label form-control-label text-right') Numbers Controls Same Side :
                                             div(class='col-4')
                                                 input#demoNumberCtrlSameSides(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='demoNumberCtrlSameSides' placeholder='40')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         
                                         // Number : Horizontal Slide
                                         div(class='form-group row mb-6')
-                                            label(class=' col-3 form-control-label ') Horizontal Slider
+                                            label(class='col-3 col-form-label form-control-label text-right') Horizontal Slider
                                             div(class='col-6 ')
                                                 div(class='row align-items-center')
                                                     div(class='col-4')
@@ -529,7 +529,7 @@ block content
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Number : Vertical Slide
                                         div(class='form-group row mb-6')
-                                            label(class='  col-3') Vertical Slider
+                                            label(class='col-3 col-form-label form-control-label text-right') Vertical Slider
                                             div(class='col-6 ')
                                                 div(class='row')
                                                     div(class='col-4')
@@ -539,7 +539,7 @@ block content
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Number : Currency Slide
                                         div(class='form-group row mb-6')
-                                            label(class=' col-3 form-control-label ') Currency Formatting
+                                            label(class='col-3 col-form-label form-control-label text-right') Currency Formatting
                                             div(class='col-6 ')
                                                 div(class='row align-items-center')
                                                     div(class='col-4')
@@ -549,7 +549,7 @@ block content
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Number : Range Select Slide
                                         div(class='form-group row mb-6')
-                                            label(class='  col-3') Range Select Slide
+                                            label(class='col-3 col-form-label form-control-label text-right') Range Select Slide
                                             div(class='col-8 ')
                                                 div(class='row align-items-center')
                                                     div(class='col-3')
@@ -561,7 +561,7 @@ block content
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Boolean
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Default Switch
+                                            label(class='col-3 col-form-label form-control-label text-right') Default Switch
                                             div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
@@ -576,7 +576,7 @@ block content
                                             
                                         // Date & Time : Date and Time
                                         div(class='form-group row')
-                                            label(class='  col-3') Date and Time
+                                            label(class='col-3 col-form-label form-control-label text-right') Date and Time
                                             div(class='col-4')
                                                 #demoDateTime(class='input-group date' data-target-input='nearest')
                                                     input#demoDateTimeText(type='text' class='form-control datetimepicker-input' name='demoDateTimeText' placeholder='Select date & time' data-target='#demoDateTime')
@@ -587,7 +587,7 @@ block content
 
                                         // Date & Time : Date and Time Range Picker1
                                         div(class='form-group row')
-                                            label(class='  col-3') Date and Time Range Picker1
+                                            label(class='col-3 col-form-label form-control-label text-right') Date and Time Range Picker1
                                             div(class='col-4')
                                                 #demoDateTimeRangePicker1(class='input-group')
                                                     input#demoDateTimeRangePicker1Text(type='text' class='form-control' readonly=''  name='demoDateTimeRangePicker1Text' placeholder='Select date & time range')
@@ -598,7 +598,7 @@ block content
 
                                         // Date & Time : Date and Time Range Linked Picker
                                         div(class='form-group row')
-                                            label(class='  col-3') Date and Time Range Linked Picker
+                                            label(class='col-3 col-form-label form-control-label text-right') Date and Time Range Linked Picker
                                             div(class='col-8')
                                                 div(class='row')
                                                     div(class='col')
@@ -618,7 +618,7 @@ block content
 
                                         // Date & Time : Date Only
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Date Only
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Only
                                             div(class='col-4')
                                                 div(class='input-group date')
                                                     input#demoDate(type='text' class='form-control' readonly='' name='demoDate' placeholder='Select date')
@@ -629,7 +629,7 @@ block content
                                                                             
                                         // Date & Time : Date Range Picker1
                                         div(class='form-group row')
-                                            label(class='  col-3') Date Range Picker1
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Range Picker1
                                             div(class='col-4')
                                                 #demoDateRangePicker1(class='input-group')
                                                     input#demoDateRangePicker1Text(type='text' class='form-control' readonly='' name='demoDateRangePicker1Text' placeholder='Select date range')
@@ -640,7 +640,7 @@ block content
 
                                         // Date & Time : Date Range Picker2
                                         div(class='form-group row')
-                                            label(class='  col-3') Date Range Picker2
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Range Picker2
                                             div(class='col-6')
                                                 #demoDateRangePicker2(class='input-daterange input-group')
                                                     input#demoDateRangePicker2Text(type='text' class='form-control' readonly=''  name='demoDateRangePicker2Text')
@@ -652,7 +652,7 @@ block content
                                         
                                         // Time : 24 Hour
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') 24 Hour Time
+                                            label(class='col-3 col-form-label form-control-label text-right') 24 Hour Time
                                             div(class='col-4')
                                                 div(class='input-group timepicker')
                                                     input#demoTime24Hr(class='form-control' readonly='' name='demoTime24Hr' placeholder='Select time' type='text')
@@ -662,7 +662,7 @@ block content
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
                                         // Time : 12 Hour
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') 12 Hour Time
+                                            label(class='col-3 col-form-label form-control-label text-right') 12 Hour Time
                                             div(class='col-4')
                                                 div(class='input-group timepicker')
                                                     input#demoTime12Hr(class='form-control' readonly='' name='demoTime12Hr'  placeholder='Select time' type='text')
@@ -678,7 +678,7 @@ block content
                                         // Form Repeat #1 : Single
                                         #demoFormRepeat1
                                             div(class='form-group row')
-                                                label(class='col-3  ') Form Repeat #1 : Single
+                                                label(class='col-3 col-form-label form-control-label text-right') Form Repeat #1 : Single
                                                 div(data-repeater-list='group-a' class='col-6')
                                                     div(data-repeater-item='' class='mb-2')
                                                         div(class='input-group')
@@ -692,7 +692,7 @@ block content
                                                             span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
                                             div(class='form-group row')
-                                                div(class='col-3')
+                                                div(class='col-3 col-form-label form-control-label text-right')
                                                 div(class='col')
                                                     div(data-repeater-create='' class='btn font-weight-bold btn-primary')
                                                         i(class='la la-plus')
@@ -702,7 +702,7 @@ block content
                                         // Form Repeat #2 : Multiple
                                         #kt_repeater_1
                                             #kt_repeater_1(class='form-group row')
-                                                label(class='col-3  ') Form Repeat #2 : Multiple
+                                                label(class='col-3 col-form-label form-control-label text-right') Form Repeat #2 : Multiple
                                                 div(data-repeater-list='', class='col-9')
                                                     div(data-repeater-item='', class='form-group row align-items-center')
                                                         div(class='col-md-3')
@@ -727,7 +727,7 @@ block content
                                                         span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
                                             div(class='form-group row')
-                                                label(class='col-3  ')
+                                                label(class='col-3 col-form-label form-control-label text-right')
                                                 div(class='col-4')
                                                     a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
                                                         i(class='la la-plus')
@@ -736,7 +736,7 @@ block content
                                         // Form Repeat #3 : Multiple
                                         #kt_repeater_3
                                             div(class='form-group row')
-                                                label(class='col-3  ') Form Repeat #3 : Multiple
+                                                label(class='col-3 col-form-label form-control-label text-right') Form Repeat #3 : Multiple
                                                 div(data-repeater-list='', class='col-9')
                                                     div(data-repeater-item='', class='form-group row')
                                                         div(class='col-5')
@@ -758,7 +758,7 @@ block content
                                                         span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
                                             div(class='form-group row')
-                                                div(class='col-3')
+                                                div(class='col-3 col-form-label form-control-label text-right')
                                                 div(class='col')
                                                     div(data-repeater-create='', class='btn font-weight-bold btn-primary')
                                                         i(class='la la-plus')
@@ -770,7 +770,7 @@ block content
 
                                         // Inline Check Box
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Inline Checkboxes
+                                            label(class='col-3 col-form-label form-control-label text-right') Inline Checkboxes
                                             div(class='col-9 col-md-3')
                                                 div(class='checkbox-inline')
                                                     label(class='checkbox')
@@ -790,7 +790,7 @@ block content
 
                                         // Inline Radio Buttons
                                         div(class='form-group row')
-                                            label(class=' col-3 form-control-label ') Inline radios
+                                            label(class='col-3 col-form-label form-control-label text-right') Inline radios
                                             div(class='col-9')
                                                 div(class='radio-inline')
                                                     label(class='radio')
@@ -809,7 +809,7 @@ block content
                                         
                                         // Summernote WYSIWYG
                                         div(class='form-group row')
-                                            label(class='  col-3') Summernote WYSIWYG
+                                            label(class='col-3 col-form-label form-control-label text-right') Summernote WYSIWYG
                                             div(class='col-9')
                                                 div#demoEditor(class='summernote' name='demoEditor')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
