@@ -9,15 +9,15 @@ const NewsletterCRUD = (function () {
     const _newsletterMessages = function () {
 
         // Getting Document related information
-        const form = KTUtil.getById('form_newsletterMessages');
-        const formSubmitButton = KTUtil.getById('submitButton');
-        const newsletterId = KTUtil.getById('newsletterId');
-        const subject = KTUtil.getById('subject');
-        const messageTextArea = KTUtil.getById('messageTextArea');
-        const recipientEmail = KTUtil.getById('recipientEmail');
-        const sent = KTUtil.getById('sent');
-        const visited = KTUtil.getById('visited');
-        const lastVisited = KTUtil.getById('lastVisited');
+        const form = KTUtil.getById('createnewsletterMessages');
+        const formSubmitButton = KTUtil.getById('newsletterMessagesFormSubmit');
+        const newsletterId = KTUtil.getById('nmID');
+        const subject = KTUtil.getById('nmSubject');
+        const messageTextArea = KTUtil.getById('nmMessage');
+        const recipientEmail = KTUtil.getById('nmEmail');
+        const sent = KTUtil.getById('nmSent');
+        const visited = KTUtil.getById('nmVisited');
+        const lastVisited = KTUtil.getById('nmLastvisited');
 
         if (!form) {
             return;
@@ -28,11 +28,25 @@ const NewsletterCRUD = (function () {
                 newsletterId: {
                     validators: {
                         notEmpty: {
-                            message: 'newsletterId is required',
+                            message: 'Newsletter ID is required',
                         },
                     },
+                    subject: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Subject is required',
+                            },
+                        },
+                        recipientEmail: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Recipient Email is required',
+                                },
+                            },                      
                 },
             },
+        },
+    },
 
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -44,7 +58,8 @@ const NewsletterCRUD = (function () {
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
-        }).on('core.form.valid', function () {
+        })
+        .on('core.form.valid', function () {
             KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
             console.log(newsletterId.value);
 
@@ -84,8 +99,11 @@ const NewsletterCRUD = (function () {
                 } else if (res.data.status == 'error') {
                     toastr.error(`${res.data.message}`, `${res.data.status}`)
                 }
-            })
-        }).on('core.form.invalid', function () { });
+            });
+        })
+        .on('core.form.invalid', function () { 
+
+        });
     };
 
 
