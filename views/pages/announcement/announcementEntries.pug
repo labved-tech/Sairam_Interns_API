@@ -27,23 +27,23 @@ block content
                                     div(class='my-5')
                                         // aeTitle
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Title
+                                            label(class='col-3 col-form-label form-control-label text-right') Title
                                                 span(class='text-danger')  *
-                                            div(class='col-lg-6 col-md-9 col-sm-12')
+                                            div(class='col-6')
                                                 input#aeTitle(type='text' class='form-control' name='aeTitle' placeholder='Hello World!')
 
                                         // aeFrom
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') From
+                                            label(class='col-3 col-form-label form-control-label text-right') From
                                                 span(class='text-danger')  *
-                                            div(class='col-lg-6 col-md-9 col-sm-12')
+                                            div(class='col-6')
                                                 input#aeFrom(type='text' class='form-control' name='aeFrom' placeholder='andrewk@gmail.com')
                                                 span(class='form-text text-muted') Provide Email Address from which you are going to send. 
 
                                         // aeIsEmailReq
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Email Required ?
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                            label(class='col-3 col-form-label form-control-label text-right') Email Required ?
+                                            div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
                                                         input#aeIsEmailReq(type='checkbox' checked='checked' name='aeIsEmailReq')
@@ -51,9 +51,9 @@ block content
 
                                         // aeExpires
                                         div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Expires In
+                                            label(class='col-3 col-form-label form-control-label text-right') Expires In
                                                 span(class='text-danger')  *
-                                            div(class=' col-lg-4 col-md-9 col-sm-12')
+                                            div(class=' col-4')
                                                 select#aeExpires(class='form-control select2' name='aeExpires')
                                                     option(value='1d') Daily
                                                     option(value='7d') Weekly
@@ -63,15 +63,15 @@ block content
 
                                         // aePriority
                                         div(class='form-group row')
-                                            label(class='col-form-label col-lg-3 col-sm-12 form-control-label text-right') Priority
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                            label(class='col-3 col-form-label form-control-label text-right') Priority
+                                            div(class='col-4')
                                                 input#aePriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='aePriority' placeholder='1')
                                         
 
                                         // demoEditor
                                         div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') Message
-                                            div(class='col-lg-9 col-md-9 col-sm-12')
+                                            label(class='col-3 col-form-label form-control-label text-right') Message
+                                            div(class='col-9')
                                                 div#demoEditor(class='summernote' name='demoEditor')
                                                 span(class='form-text text-muted') Add message that you wish to send.                                   
                                         div(class='separator separator-dashed my-10')
@@ -79,6 +79,6 @@ block content
 
                             div(class='card-footer')
                                 div(class='row  text-right')
-                                    div(class='col-lg-9 ml-lg-auto')
+                                    div(class='col-12 ml-lg-auto')
                                         button#announcementEntriesFormSubmit(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
