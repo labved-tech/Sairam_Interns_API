@@ -36,22 +36,19 @@ block content
                                                 input#aName(type='text' class='form-control' name='aName' placeholder='ex. Sai Vignesh')
                                         
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') State
+                                            label(class='col-3 col-form-label form-control-label text-right') Owner ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#aState(class='form-control' type='text' dir='ltr' name='aState' placeholder='States of India')
-                                                    span(class='form-text text-muted') States From India Only
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Owner ID
-                                            div(class='col-6')
-                                                input#aOwnerId(type='text' class='form-control' name='aOwnerId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                                    input#aOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='aOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
                                         
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Reporter ID
-                                            div(class='col-6')
-                                                input#aReporterId(type='text' class='form-control' name='aReporterId' placeholder='ex. 5fa92064cff6f652644266de  ')
-
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#aReporterId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='aReporterId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                
                             div(class='card-footer')
                                 div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')
