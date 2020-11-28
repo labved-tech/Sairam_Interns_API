@@ -8,22 +8,22 @@ const AnalyticsCRUD = (function () {
   // Private functions
   const _createAnalytics = function () {
     // Getting Document related information
-    const form = KTUtil.getById('form_analytics');           
-    const formSubmitButton = KTUtil.getById('submitButton');
+    const createAnalyticsForm = KTUtil.getById('createAnalyticsForm');           
+    const createAnalyticsFormSubmitButton = KTUtil.getById('createAnalyticsFormSubmitButton');
 /*         const fromName = form.querySelector('[name="name"]').value;
         const fromState = form.querySelector('[name="state"]').value; */
-    const fromName = KTUtil.getById('aName');
+    const aName = KTUtil.getById('aName');
     //const fromState = KTUtil.getById('aState');
-    const ownerId = KTUtil.getById('aOwnerId');
-    const reporterId = KTUtil.getById('aReporterId');
-    console.log(fromName);
+    const aOwnerId = KTUtil.getById('aOwnerId');
+    const aReporterId = KTUtil.getById('aReporterId');
+    console.log(aName);
     
 
-    if(!form) {
+    if(!createAnalyticsForm) {
       return;
     }
 
-    FormValidation.formValidation(form, {
+    FormValidation.formValidation(createAnalyticsForm, {
       fields: {
         aName: {
           validators: {
@@ -53,19 +53,19 @@ const AnalyticsCRUD = (function () {
         // Bootstrap Framework Integration
         bootstrap: new FormValidation.plugins.Bootstrap(),
         // Validate fields when clicking the Submit button
-        submitButton: new FormValidation.plugins.SubmitButton(),
+        createAnalyticsFormSubmitButton: new FormValidation.plugins.SubmitButton(),
         // Submit the form when all fields are valid
         //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
     }).on('core.form.valid', function () {
-        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
+        KTUtil.btnWait(createAnalyticsFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
         
       // Accessing Restful API
       axios({
         method: 'Post',
         url: `${HOST_URL}/api/v1/analytics`,
           data: {
-            name: fromName.value,
+            name: aName.value,
             //state: fromState.value,
             _ownerid: ownerId.value,
             _reportid:reporterId.value,
