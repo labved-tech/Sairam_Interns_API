@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e9b1faab-ceaf-49db-b8b0-143a76969aaa",
+		"_postman_id": "d5272de8-ff17-4750-ac6f-9b959655937e",
 		"name": "newsletterMessages",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -52,7 +52,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"newsletterMessages\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":true,\n  \"lastVisited\": true\n} ",
+					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"newsletterMessages\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":true,\n  \"lastVisited\": \"2020-11-7\"\n} ",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,7 +122,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"hi\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":\"yes\",\n  \"lastVisited\": true\n} ",
+					"raw": "{\n\"subject\": \"newsletter\",\n  \"message\": \"hi\",\n  \"recipientEmail\": \"xyz@gmail.com\",\n  \"sent\": true,\n  \"visited\":\"yes\",\n  \"lastVisited\": \"2020-11-7\"\n} ",
 					"options": {
 						"raw": {
 							"language": "json"

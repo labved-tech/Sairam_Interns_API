@@ -4,7 +4,7 @@ block css-files
    
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/newsletter/newsletterMessages.js')
+    script(src='/js/pages/crud/myForm/newsletter/newsletterMessages.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -19,7 +19,7 @@ block content
                         h3(class='card-title') Newsletter Messages 
                     div(class='card-body')
                         // begin::Form
-                        form#createnewsletterMessages(class='form')
+                        form#createNewsletterMessagesForm(class='form')
                             div(class='row')
                                 div(class='col-md-1')
                                 div(class='col-xl-6')
@@ -39,15 +39,13 @@ block content
                                             div(class='col-6')
                                                 input#nmSubject(type='text' class='form-control' name='nmSubject' placeholder='Enter Subject')
 
-                                        //nmMessage                                               
-                                        div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='nmMessage')
-                                                | Message
-                                                span(class='text-danger') 
-                                            div(class='col-9 ')
-                                                textarea#demoTextarea(class='form-control' name='nmMessage' rows='3')
-                                                span(class='form-text text-muted') Add message that you wish to send.                                                                                  
-                                            
+                                        // nmMessage
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Message
+                                            div(class='col-9')
+                                                div#nmMessage(class='summernote' name='nmMessage')
+                                                span(class='form-text text-muted') Add message that you wish to send.                                
+                                                                                        
                                         // nmEmail  
                                         div(class='form-group row')
                                             label(class=' col-3 col-form-label form-control-label text-right ') Recipient Email
@@ -74,19 +72,13 @@ block content
                                                 span(class='switch switch-sm')
                                                     label
                                                         input#nmVisited(type='checkbox' checked='checked' name='nmVisited')
-                                                        span
-
-                                        //nmLastvisited        
+                                                        span  
+                                        // nmLastVisited
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Last Visited
+                                                span(class='text-danger') 
                                             div(class='col-4')
-                                                div(class='input-group date')
-                                                    input#nmLastvisited(type='text' class='form-control' readonly='' name='nmLastvisited ' placeholder='Select date')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-                                                span(class='form-text text-muted')
-
+                                                input#nmLastVisited(type='text' class='form-control' name='nmLastVisited' placeholder='Select Date')
                             div(class='card-footer')
                                 div(class='row text-right')
                                     div(class='col-12 ml-lg-auto')
