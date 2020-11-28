@@ -8,8 +8,8 @@ const AnalyticsCRUD = (function () {
   // Private functions
   const _createAnalytics = function () {
     // Getting Document related information
-        const form = KTUtil.getById('form_analytics');           
-        const formSubmitButton = KTUtil.getById('submitButton');
+    const form = KTUtil.getById('form_analytics');           
+    const formSubmitButton = KTUtil.getById('submitButton');
 /*         const fromName = form.querySelector('[name="name"]').value;
         const fromState = form.querySelector('[name="state"]').value; */
     const fromName = KTUtil.getById('aName');
