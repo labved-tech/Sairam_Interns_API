@@ -57,13 +57,13 @@ const AnnouncementCRUD = (function () {
             },
           },
         },
-        /*               aeMessage: {
-                        validators: {
-                          notEmpty: {
-                            message: 'This is field is required',
-                          },
-                        },
-                      }, */
+        aeMessage: {
+          validators: {
+            notEmpty: {
+              message: 'This is field is required',
+            },
+          },
+        },
 
 
       },
