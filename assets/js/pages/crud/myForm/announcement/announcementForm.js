@@ -10,7 +10,7 @@ const AnnouncementCRUD = (function () {
 
     // Getting Document related information
     const createAnnouncementEntriesForm = KTUtil.getById('createAnnouncementEntriesForm');
-    const formSubmitButton = KTUtil.getById('announcementEntriesFormSubmit');
+    const aeFormSubmitButton = KTUtil.getById('aeFormSubmitButton');
     const aeTitle = KTUtil.getById('aeTitle');
     const aeFrom = KTUtil.getById('aeFrom');
     const aePriority = KTUtil.getById('aePriority');
@@ -86,17 +86,15 @@ const AnnouncementCRUD = (function () {
         // Bootstrap Framework Integration
         bootstrap: new FormValidation.plugins.Bootstrap(),
         // Validate fields when clicking the Submit button
-        submitButton: new FormValidation.plugins.SubmitButton(),
+        aeFormSubmitButton: new FormValidation.plugins.SubmitButton(),
         // Submit the form when all fields are valid
         //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
     })
       .on('core.form.valid', function () {
         // Show loading state on button
-        KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
+        KTUtil.btnWait(aeFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
         aeIsEmailReq.value = (aeIsEmailReq.value == 'on') ? true:false
-
 
         // Accessing Restful API
         axios({
@@ -114,7 +112,7 @@ const AnnouncementCRUD = (function () {
         }).then(function (res) {
           // Return valid JSON
           // Release button
-          KTUtil.btnRelease(formSubmitButton);
+          KTUtil.btnRelease(aeFormSubmitButton);
           console.log(res);
 
           // TOASTR EXAMPLE
@@ -152,11 +150,139 @@ const AnnouncementCRUD = (function () {
 
   };
 
+  const _createAnnouncementNotifyForm = function (){
+    // Getting Document related information
+    const createAnnouncementNotifyForm = KTUtil.getById('createAnnouncementNotifyForm');
+    const anFormSubmitButton = KTUtil.getById('anFormSubmitButton');
+    const anID = KTUtil.getById('anID');
+    const anRecipientID = KTUtil.getById('anRecipientID');
+    const anPriority = KTUtil.getById('anPriority');
+    const anName = KTUtil.getById('anName');
+    const anEmail = KTUtil.getById('anEmail');
+    const anIsEmailSent = KTUtil.getById('anIsEmailSent');
 
+    if (!createAnnouncementNotifyForm) {
+      return;
+  }
+
+  FormValidation.formValidation(createAnnouncementNotifyForm, {
+      fields: {
+        anID: {
+              validators: {
+                  notEmpty: {
+                      message: 'Announcement ID is required',
+                  },
+              },
+          },
+
+          anRecipientID: {
+              validators: {
+                  notEmpty: {
+                      message: 'Recipient ID is required',
+                  },
+              },
+          },
+
+          anPriority: {
+              validators: {
+                  notEmpty: {
+                      message: 'Priority is required',
+                  },
+              },
+          },
+
+          anName: {
+              validators: {
+                  notEmpty: {
+                      message: 'Name is required',
+                  },
+              },
+          },
+
+          anEmail: {
+              validators: {
+                  notEmpty: {
+                      message: 'Email is required',
+                  },
+              },
+          },     
+          
+          anIsEmailSent: {
+              validators: {
+                  notEmpty: {
+                      message: 'This Field is required',
+                  },
+              },
+          },
+
+      },
+      plugins: {
+        //Learn more: https://formvalidation.io/guide/plugins
+        trigger: new FormValidation.plugins.Trigger(),
+        // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap(),
+        // Validate fields when clicking the Submit button
+        anFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+        // Submit the form when all fields are valid
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+    },
+  })
+  .on('core.form.valid', function () {
+      KTUtil.btnWait(anFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+                // Accessing Restful API
+                axios({
+                  method: 'post',
+                  url: `${HOST_URL}/api/v1/announcement/notification`,
+                  data: {
+                    priority : (anPriority.value) *1,
+                    recipient: [
+                    { 
+                      recipientId: anRecipientID.value,
+                      recipientName: anName.value,
+                      recipientEmail: anEmail.value,
+                      isEmailSent: true, //
+                      }
+                    ]
+                  },
+                }).then(function (res) {
+                    KTUtil.btnRelease(anFormSubmitButton);
+                      // TOASTR EXAMPLE
+                      toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
+              
   return {
     // public functions
     init: function () {
       _createAnnouncementEntriesForm();
+      _createAnnouncementNotifyForm();
     },
   };
 })();

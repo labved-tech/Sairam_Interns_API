@@ -13,8 +13,8 @@ const announcementNotifySchema = new Schema(
       {
         _id: { type: mongoose.ObjectId },
         _recipientId: { type: mongoose.ObjectId },
-        recipentName: { type: String },
-        recipentEmail: { type: String },
+        recipientName: { type: String },
+        recipientEmail: { type: String },
         isEmailSent: { type: Boolean },
         seenAt: { type: Date },
         sentAt: { type: Date },
