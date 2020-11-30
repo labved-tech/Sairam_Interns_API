@@ -13,7 +13,7 @@ const newsletterMessagesSchema = new Schema(
     recipientEmail: { type: String },
     sent: { type: Boolean },
     visited: { type: Boolean },
-    lastVisited: { type: Date},
+    lastVisited: { type: Date },
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
   },

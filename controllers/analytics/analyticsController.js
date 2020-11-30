@@ -67,17 +67,15 @@ exports.createAnalytics = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  ////console.log(doc);
 
   const analytics = await Analytics.create(doc).then();
 
   res.status(201).json({
     status: 'success',
     message: 'Created analytics',
-    data: { analytics },
+    analytics,
   });
-
-  next();
 });
 
 exports.updateAnalytics = catchAsync(async (req, res, next) => {
