@@ -1,0 +1,50 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/leads/leadsForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Lead Entries Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createLeadEntriesForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-1')
+                                div(class='col-xl-8')
+                                    div(class='my-5')  
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                        
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#leName(type='text' class='form-control' name='leName' placeholder='ex. Sai Vignesh')
+                                        
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Title
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#leTitle(type='text' class='form-control' name='leTitle' placeholder='')
+                                                span(class='form-text text-muted') Give a suitable title
+                                        
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leCategoryId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leCategoryId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                                        
+                                                                                                                                     

@@ -1,12 +1,10 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/crud/myForm/leads/leadsForm.js' )
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -19,53 +17,76 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Lead Categories Form
+                            | Lead Response Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_leadCategories(class='form' action='http://localhost:3000/api/v1/lead-response')
+                        form#createLeadResponseForm(class='form')
                             div(class='row')
-                                div(class='col-xl-2')
+                                div(class='col-xl-1')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
                                         h3(class=' text-dark font-weight-bold mb-10') General
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Lead ID
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='_leadId' placeholder='ex. 5fa92064cff6f652644266de')
+                                            label(class='col-3 col-form-label form-control-label text-right') Lead ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#lrLeadId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='lrLeadId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Response ID
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='_responseId' placeholder='ex. 5fa92064cff6f652644266de')
+                                            label(class='col-3 col-form-label form-control-label text-right') Responder ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#lrResponderId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='lrResponderId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Email Semt
-                                            div(class='col-9')
+                                            label(class='col-3 col-form-label form-control-label text-right') Email Sent
+                                            div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input(type='checkbox' checked='checked' name='select')
+                                                        input#lrEmailSent(type='checkbox' checked='checked' name='lrEmailSent')
                                                         span
+                                                span(class='form-text text-muted') 
+
+
+
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Is Status Change
-                                            div(class='col-9')
+                                            label(class='col-3 col-form-label form-control-label text-right') Is Status Change
+                                            div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input(type='checkbox' checked='checked' name='select')
+                                                        input#lrIsStatusChange(type='checkbox' checked='checked' name='lrIsStatusChange')
                                                         span
+                                                span(class='form-text text-muted') 
+
+
+
                                         div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label text-right' for='message')
-                                                | Message  
-                                                span(class='text-danger') *
-                                            div(class='col-9')
-                                                textarea#message(class='form-control' rows='3')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Message 
+                                            div(class='col-9 ')
+                                                textarea#lrMessage(class='form-control' name='lrMessage' rows='3')
+                                                span(class='form-text text-muted')
+
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Status 
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='status' placeholder='  ')
-                            div(class='card-footer text-right')
-                                div(class='row')
-                                    div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
+                                            div(class='col-4')
+                                                select#lrStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='lrStatus' )
+                                                    option(value='') Select
+                                                    option(value='C') Completed
+                                                    option(value='NS') Not Yet Started
+                                                    option(value='W') Working                                              
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+                            
+                                                        div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#createLeadResponseFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
             // end::Container
-    // end::Entry
+        // end::Entry
+     

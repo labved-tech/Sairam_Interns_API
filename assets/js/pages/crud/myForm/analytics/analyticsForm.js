@@ -13,10 +13,9 @@ const AnalyticsCRUD = (function () {
 /*         const fromName = form.querySelector('[name="name"]').value;
         const fromState = form.querySelector('[name="state"]').value; */
     const aName = KTUtil.getById('aName');
-    //const fromState = KTUtil.getById('aState');
+    //const aState = KTUtil.getById('aState');
     const aOwnerId = KTUtil.getById('aOwnerId');
     const aReporterId = KTUtil.getById('aReporterId');
-    console.log(aName);
     
 
     if(!createAnalyticsForm) {
@@ -66,15 +65,15 @@ const AnalyticsCRUD = (function () {
         url: `${HOST_URL}/api/v1/analytics`,
           data: {
             name: aName.value,
-            //state: fromState.value,
-            _ownerid: ownerId.value,
-            _reportid:reporterId.value,
+            //state: aState.value,
+            _ownerid: aOwnerId.value,
+            _reportid:aReporterId.value,
               
         },
       }).then(function (res) {
-        KTUtil.btnRelease(formSubmitButton);
+        KTUtil.btnRelease(createAnalyticsFormSubmitButton);
           console.log(res);
-          
+         
            // TOASTR EXAMPLE
           toastr.options = {
             "closeButton": false,
@@ -86,7 +85,7 @@ const AnalyticsCRUD = (function () {
             "onclick": null,
             "showDuration": "300",
             "hideDuration": "1000",
-            "timeOut": "3000",
+            "timeOut": "5000",
             "extendedTimeOut": "1000",
             "showEasing": "swing",
             "hideEasing": "linear",

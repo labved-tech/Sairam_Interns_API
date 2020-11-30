@@ -1,12 +1,10 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/crud/myForm/leads/leadsForm.js' )
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -22,37 +20,52 @@ block content
                             | Lead Categories Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_leadCategories(class='form' action='http://localhost:3000/api/v1/lead-categories')
+                        form#createLeadCategoriesForm(class='form')
                             div(class='row')
-                                div(class='col-xl-2')
+                                div(class='col-xl-1')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
                                         h3(class=' text-dark font-weight-bold mb-10') General
+
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Name
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#lcName(type='text' class='form-control' name='lcName' placeholder='ex. Sai Vignesh')
+                                        
                                         div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label text-right' for='description')
-                                                | Description  
-                                            div(class='col-9')
-                                                textarea#description(class='form-control' rows='3')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Description 
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#lcDescription(class='form-control' name='lcDescription' rows='3')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Notes 
+                                            div(class='col-9 ')
+                                                textarea#lcNotes(class='form-control' name='lcNotes' rows='3')
+                                                span(class='form-text text-muted')
+
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Notes 
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='notes' placeholder='  ')
-                                        div(class='form-group row')
-                                            label(class='col-3 form-control-label') Status 
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='status' placeholder=' ')
-                            div(class='card-footer text-right')
-                                div(class='row')
-                                    div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
+                                            div(class='col-4')
+                                                select#lcStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='lcStatus' )
+                                                    option(value='') Select
+                                                    option(value='C') Completed
+                                                    option(value='NS') Not Yet Started
+                                                    option(value='W') Working                                              
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+                                                                        
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#createLeadCategoriesFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
             // end::Container
-    // end::Entry
-                                                
+        // end::Entry
+     
  
