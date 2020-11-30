@@ -4,7 +4,7 @@ block css-files
    
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/newsletter/newsletterMessages.js')
+    script(src='/js/pages/crud/myForm/newsletter/newsletterForm.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -82,7 +82,7 @@ block content
                             div(class='card-footer')
                                 div(class='row text-right')
                                     div(class='col-12 ml-lg-auto')
-                                        button#newsletterMessagesFormSubmit(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button#nmFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card

@@ -463,6 +463,11 @@ exports.newsletterMessages = (req, res) => {
   res.status(200).render('./../views/pages/newsletter/newsletterMessages', doc);
 };
 
+exports.newsletterEntries = (req, res) => {
+  console.log('We are in Newsletter Entries Form Page');
+  res.status(200).render('./../views/pages/newsletter/newsletterEntries', doc);
+};
+
 // RATING RELATED CONTROLLER
 exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');

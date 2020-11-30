@@ -48,6 +48,7 @@ router.get('/analytics', viewsController.analytics);
 
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter/messages', viewsController.newsletterMessages);
+router.get('/newsletter/entries', viewsController.newsletterEntries);
 
 
 // EVENT RELATED ROUTES
