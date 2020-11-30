@@ -50,6 +50,13 @@ const AnnouncementCRUD = (function () {
             },
           },
         },
+/*         aeExpires: { // not working - Single Select2 w search
+          validators: {
+            notEmpty: {
+              message: 'This is field is required',
+            },
+          },
+        }, */
         aePriority: {
           validators: {
             notEmpty: {
@@ -91,7 +98,7 @@ const AnnouncementCRUD = (function () {
           url: `${HOST_URL}/api/v1/announcement/entries`,
           data: {
             title: aeTitle.value,
-            //message: aeMessage.value,
+            //message: aeMessage.value,   // not working - Summernote WYSIWYG
             from: aeFrom.value,
             isEmailReq: true,   //if(aeIsEmailReq.value=== 'on') return true
             priority: (aePriority.value) * 1,
