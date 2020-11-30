@@ -4,7 +4,7 @@ block css-files
 
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/rating/ratingAttributeform.js' )
+    script(src='/js/pages/crud/myForm/rating/ratingForm.js' )
     
 
 block content
@@ -21,25 +21,25 @@ block content
                             | Rating Attribute Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_form(class='form' action='http://localhost:3000/api/v1/formResponse')
+                        form#createRatingAttributeForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
                                         h3(class=' text-dark font-weight-bold mb-10') General
-                                        // text
+                                        // Name
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Name
                                                 span(class='text-danger')  *
                                             div(class='col-6')
-                                                input#raname(type='text' class='form-control' name='name' placeholder='ex. Vignesh')
+                                                input#raName(type='text' class='form-control' name='raName' placeholder='ex. Vignesh')
                                                 span(class='form-text text-muted') Enter your name
 
-                                        // Dropdown List : Single Select2 w Live Search
+                                        // raType
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Type
                                             div(class=' col-4')
-                                                select#ratype(class='form-control select2' name='type')
+                                                select#raType(class='form-control select2' name='raType')
                                                     option(value='AK') Alaska
                                                     option(value='HI') Hawaii
                                                     option(value='CA') California
@@ -53,27 +53,27 @@ block content
                                                     option(value='NE') Nebraska
                                                 span(class='form-text text-muted') Enter the type
 
-                                        // Text Area
+                                        // raDescription
                                         div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='raDescription')
                                                 | Desscription
                                                 span(class='text-danger') *
                                             div(class='col-9 ')
-                                                textarea#radescription(class='form-control' name='demoTextarea' rows='3')
+                                                textarea#raDescription(class='form-control' name='raDescription' rows='3')
                                                 span(class='form-text text-muted') description
 
-                                        // Text Area
+                                        // raNotes
                                         div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='raNotes')
                                                 | Notes
                                                 span(class='text-danger') *
                                             div(class='col-9 ')
-                                                textarea#radescription(class='form-control' name='notes' rows='3')
+                                                textarea#raNotes(class='form-control' name='raNotes' rows='3')
                                                 span(class='form-text text-muted') Enter your notes
                             div(class='card-footer')
                                 div(class='row text-right')
                                     div(class='col-12 ml-lg-auto')
-                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button#ratingAttributeFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card

@@ -2,20 +2,27 @@
 'use strict';
 
 // Class definition
-const RatingAttributeCRUD = (function () {
+const RatingCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     // Private functions
-    const _createRatingAttribute = function () {
+    const _createRatingAttributeForm = function () {
 
         // Getting Document related information
-        const createratingAttributeform = KTUtil.getById('createratingAttributeForm');
-        const createRatingAttributeFormSubmitButton = KTUtil.getById('createRatingAttributeFormSubmitButton');
+        const createRatingAttributeForm = KTUtil.getById('createRatingAttributeForm');
+        const ratingAttributeFormSubmitButton = KTUtil.getById('ratingAttributeFormSubmitButton');
         const raName = KTUtil.getById('raName');
+        const raType = KTUtil.getById('raType');
         const raDescription = KTUtil.getById('raDescription');
         const raNotes = KTUtil.getById('raNotes');
 
-        if (!createRatingAttributeform) {
+        // Initialise
+        $(raType).select2({
+            placeholder: "Select a Type"
+        });
+
+
+        if (!createRatingAttributeForm) {
             return;
         }
 
@@ -27,18 +34,25 @@ const RatingAttributeCRUD = (function () {
                             message: 'Name is required',
                         },
                     },
-                    raDescription: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Description is required',
-                            },
+                },
+                raType: {   // not working
+                    validators: {
+                        notEmpty: {
+                            message: 'Type is required',
                         },
                     },
-                    raNotes: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Notes is required',
-                            },
+                },
+                raDescription: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
+                    },
+                },
+                raNotes: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Notes is required',
                         },
                     },
                 },
@@ -49,28 +63,28 @@ const RatingAttributeCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                submitButton: new FormValidation.plugins.SubmitButton(),
+                ratingAttributeFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
         })
             .on('core.form.valid', function () {
                 // Show loading state on button
-                KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-                console.log(`Value:${demoText.value}`);
+                KTUtil.btnWait(ratingAttributeFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+                console.log(`Value:${raName.value}`);
 
                 // Accessing Restful API
                 axios({
-                    method: 'Post',
-                    url: `${HOST_URL}/api/v1/ratingAttribute`,
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/ratings/attribute`,
                     data: {
                         name: raName.value,
-                        type: ratype.value,
-                        description: radescription.value,
-
+                        // type: ratype.value, // not working
+                        // description: radescription.value, // not working
+                        // notes: raNotes.value, // not working
                     },
                 }).then(function (res) {
-                    KTUtil.btnRelease(formSubmitButton);
+                    KTUtil.btnRelease(ratingAttributeFormSubmitButton);
                     console.log(res);
 
                     // TOASTR EXAMPLE
@@ -106,15 +120,21 @@ const RatingAttributeCRUD = (function () {
             });
 
     };
+
+    const _createRatingAttributeGroupsForm = function () {
+
+    };
+
     return {
         // public functions
         init: function () {
-            _createRatingAttribute();
+            _createRatingAttributeForm();
+            _createRatingAttributeGroupsForm();
         },
     };
 })();
 
 jQuery(document).ready(function () {
-    RatingAttributeCRUD.init();
+    RatingCRUD.init();
 });
 
