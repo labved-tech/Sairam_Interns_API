@@ -1,0 +1,112 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/newsletter/newsletterForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Newsletter Entries
+                    div(class='card-body')
+                        // begin::Form
+                        form#createNewsletterEntriesForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        // neFromEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') From Email
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#neFromEmail(type='text' class='form-control' name='neFromEmail' placeholder='Enter Email')
+
+                                        // neDescription
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for=' neDescription')
+                                                |  Description
+                                                span(class='text-danger') *
+                                            div(class='col-7 ')
+                                                textarea#neDescription(class='form-control' name=' neDescription' rows='3')
+                                                span(class='form-text text-muted') Add Description
+
+                                        // neNewsletterType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Newsletter Type
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#neNewsletterType(type='text' class='form-control' name='neNewsletterType' placeholder='Enter Newsletter Type')
+
+                                        // neList
+                                        h3(class=' text-dark font-weight-bold mb-10') List
+
+                                        //neName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#neName(type='text' class='form-control' name='neName' placeholder='Enter Name')
+
+                                        // neListDescription
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for=' neListDescription')
+                                                | Description
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#neListDescription(class='form-control' name=' neListDescription' rows='3')
+                                                span(class='form-text text-muted') Add Description
+
+
+                                        // neEmails  
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Email
+                                            div(class='col-5')
+                                                select#neEmails(class= 'form-control selectpicker' multiple=''  data-live-search='true' name='neEmails ' )
+                                                    option alexrider@gmail.com
+                                                    option percyjackson@gmail.com
+                                                    option dracomalfoy@gmail.com
+                                                    option jupiterjones@gmail.com
+                                                    
+                                                span(class='form-text text-muted') Select Email                                   
+
+                                        // neNotes
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for=' neNotes')
+                                                | Notes
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#neNotes(class='form-control' name=' neNotes' rows='3')
+                                                span(class='form-text text-muted') Add Notes
+
+                                        // neStatus  
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Status  
+                                            div(class='col-5')
+                                                select#neStatus(class= 'form-control selectpicker' multiple=''  data-live-search='true' name='neStatus ' )
+                                                    option Active
+                                                    option On Hold
+                                                    option Deleted
+                                                    option Publish
+                                                    
+                                                span(class='form-text text-muted') Select Status                                  
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#neFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
