@@ -50,6 +50,8 @@ router.get('/analytics', viewsController.analytics);
 router.get('/newsletter/messages', viewsController.newsletterMessages);
 router.get('/newsletter/entries', viewsController.newsletterEntries);
 
+// SALES AND FINANCE RELATED ROUTES
+router.get('/sales-finance/address', viewsController.address);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);

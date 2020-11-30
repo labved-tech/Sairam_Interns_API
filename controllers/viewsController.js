@@ -489,3 +489,9 @@ exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');
   res.status(200).render('./../views/pages/event/eventEntries', doc);
 };
+
+// SALES AND FINANCE RELATED CONTROLLER
+exports.address = (req, res) => {
+  console.log('We are in address Form Page');
+  res.status(200).render('./../views/pages/sales-finance/address',doc);
+};
