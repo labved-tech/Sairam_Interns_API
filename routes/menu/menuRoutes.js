@@ -3,6 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
+const menuController = require('../../controllers/menu/menuController');
 const menuManagerController = require('../../controllers/menu/menuManagerController');
 const menuSectionController = require('../../controllers/menu/menuSectionController');
 const menuItemsController = require('../../controllers/menu/menuItemsController');
@@ -18,6 +19,10 @@ router.use((req, res, next) => {
 /* ROUTES */
 
 // MANAGER
+router
+  .route('/')
+  .get(menuController.getAllMenu);
+  
 router
   .route('/manager')
   .get(menuManagerController.getAllMenu)
@@ -63,15 +68,15 @@ router
   .delete(menuSubItems1Controller.deleteMenuSubItem1);
 
 // SUB-ITEM2
-/*
+
 router
   .route('/subItems2')
-  .get(menuSubItems2Controller.getAllMenuSection)
-  .post(menuSubItems2Controller.createMenuSection);
+  .get(menuSubItems2Controller.getAllMenuSubItem2)
+  .post(menuSubItems2Controller.createMenuSubItem2);
 router
   .route('/subItems2/:id')
-  .get(menuSubItems2Controller.getMenuSection)
-  .patch(menuSubItems2Controller.updateMenuSection)
-  .delete(menuSubItems2Controller.deleteMenuSection); */
+  .get(menuSubItems2Controller.getMenuSubItem2)
+  .patch(menuSubItems2Controller.updateMenuSubItem2)
+  .delete(menuSubItems2Controller.deleteMenuSubItem2);
 
 module.exports = router;
