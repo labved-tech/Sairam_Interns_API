@@ -56,12 +56,14 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
   // console.log('menuSectionLen', menuSectionLen)
 
   // Menu Items
+  let menuItems;
+  const arr = [];
 
   for (let i = 0; i < menuSectionLen; i++) {
     const menuSectionId = menuSection[i]._id;
     // console.log(menuSectionId);
 
-    const menuItems = await MenuItems.find({
+    menuItems = await MenuItems.find({
       _menuId: { $all: [menuManagerId] },
       _sectionId: { $all: [menuSectionId] },
     })
@@ -70,19 +72,26 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
       .select('_id name route priority')
       .then();
     const menuItemsLen = menuItems.length;
-
-    if (menuItems[i] != null) menu.sectionItems.push(menuSection[i]);
+    if (menuItems[i] != null) {
+      menu.sectionItems.push(menuSection[i]);
+      // menu.sectionItems.concat(menuSection[i]);
+    }
 
     for (let j = 0; j < menuItemsLen; j++) {
-      menu.sectionItems.menuItems.push(menuItems[i]);
+      arr.push(menuItems[i]);
+      console.log(menuItems[i]);
+      console.log(arr);
     }
   }
+
+  // console.log(arr);
+
   /*     // console.log(menu);
 
     const menuItemsLen = menuItems.length;
     console.log('menuItems', menuItems);
     // console.log('menuItemsLen', menuItemsLen);  } */
-  console.log(menu);
+  // console.log(menu);
 
   res.status(200).json({
     status: 'success',
