@@ -73,6 +73,12 @@ const KTDatatableRecordSelectionDemo = (function () {
         {
           field: 'name',
           title: 'Name',
+          template: function (row) {
+            return '\
+              <div>\
+              <a href="#">' + row.name + '</a></div>\
+            ';
+          }
         },
         {
           field: 'createdBy',
@@ -85,6 +91,84 @@ const KTDatatableRecordSelectionDemo = (function () {
         {
           field: 'updatedAt',
           title: 'updatedAt',
+        },
+        {
+          field: 'details',
+          title: 'Details',
+          textAlign: 'center',
+          //width: 100,
+          sortable: false,
+          template: function () {
+            return '\
+              <a href="#" class="btn btn-sm btn-light" role="button">\
+                view details\
+              </a >\
+            '
+            ;
+          },
+        },
+        {
+          field: 'Actions',
+          title: 'Actions',
+          sortable: false,
+          width: 125,
+          overflow: 'visible',
+          autoHide: false,
+          template: function () {
+            return '\
+                        <div class="dropdown dropdown-inline">\
+                            <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
+                              <i class="fas fa-cog">\
+                              </i>\
+                            </a>\
+                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+                                <ul class="navi flex-column navi-hover py-2">\
+                                    <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
+                                        Choose an action:\
+                                    </li>\
+                                    <li class="navi-item">\
+                                        <a href="#" class="navi-link">\
+                                            <span class="navi-icon"><i class="fas fa-print"></i></span>\
+                                            <span class="navi-text">Print</span>\
+                                        </a>\
+                                    </li>\
+                                    <li class="navi-item">\
+                                        <a href="#" class="navi-link">\
+                                            <span class="navi-icon"><i class="fas fa-copy"></i></span>\
+                                            <span class="navi-text">Copy</span>\
+                                        </a>\
+                                    </li>\
+                                    <li class="navi-item">\
+                                        <a href="#" class="navi-link">\
+                                            <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
+                                            <span class="navi-text">Excel</span>\
+                                        </a>\
+                                    </li>\
+                                    <li class="navi-item">\
+                                        <a href="#" class="navi-link">\
+                                            <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
+                                            <span class="navi-text">CSV</span>\
+                                        </a>\
+                                    </li>\
+                                    <li class="navi-item">\
+                                        <a href="#" class="navi-link">\
+                                            <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
+                                            <span class="navi-text">PDF</span>\
+                                        </a>\
+                                    </li>\
+                                </ul>\
+                            </div>\
+                        </div>\
+                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+                          <i class="far fa-edit">\
+                          </i>\
+                        </a>\
+                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
+                          <i class="far fa-trash-alt">\
+                          </i>\
+                        </a>\
+                    ';
+          },
         },
       ],
     }

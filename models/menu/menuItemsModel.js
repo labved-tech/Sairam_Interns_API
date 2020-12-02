@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 /* CHILD SCHEMA */
 const MenuSection = require('./menuSectionModel');
 
-
 /* SCHEMA CONSTRUCTOR */
 const { Schema } = mongoose;
 

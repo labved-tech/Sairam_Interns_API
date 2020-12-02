@@ -16,6 +16,13 @@ router.use((req, res, next) => {
 router.get('/overview', authController.protect, viewsController.getOverview);
 
 // EXAMPLE RELATED ROUTES
+router.get('/menu/manager', viewsController.getMenuManager);
+router.get('/menu/section', viewsController.getMenuSection);
+router.get('/menu/items', viewsController.getMenuItems);
+router.get('/menu/subitems1', viewsController.getMenuSubItems1);
+router.get('/menu/subitems2', viewsController.getMenuSubItems2);
+
+// EXAMPLE RELATED ROUTES
 router.get('/standardForm', viewsController.getForm);
 router.get('/example', viewsController.getExample);
 router.get('/localtable', viewsController.getLocalTable);
