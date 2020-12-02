@@ -10,7 +10,7 @@ const RatingCRUD = (function () {
 
         // Getting Document related information
         const createRatingAttributeForm = KTUtil.getById('createRatingAttributeForm');
-        const ratingAttributeFormSubmitButton = KTUtil.getById('ratingAttributeFormSubmitButton');
+        const raFormSubmitButton = KTUtil.getById('raFormSubmitButton');
         const raName = KTUtil.getById('raName');
         const raType = KTUtil.getById('raType');
         const raDescription = KTUtil.getById('raDescription');
@@ -80,7 +80,7 @@ const RatingCRUD = (function () {
         })
             .on('core.form.valid', function () {
                 // Show loading state on button
-                KTUtil.btnWait(ratingAttributeFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+                KTUtil.btnWait(raFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
                 console.log(`Value:${raName.value}`);
 
                 // Accessing Restful API
@@ -94,7 +94,7 @@ const RatingCRUD = (function () {
                         //notes: raNotes.value, // not working
                     },
                 }).then(function (res) {
-                    KTUtil.btnRelease(ratingAttributeFormSubmitButton);
+                    KTUtil.btnRelease(raFormSubmitButton);
                     console.log(res);
 
                     // TOASTR EXAMPLE

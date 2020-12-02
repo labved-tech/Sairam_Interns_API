@@ -47,13 +47,15 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
 
   // Menu Section
   let menuSection;
-  menuSection = await MenuSection.find().sort('priority').then();
+  menuSection = await MenuSection.find()
+    .sort('priority')
+    .select('name priority')
+    .then();
   const menuSectionLen = menuSection.length;
   // console.log('menuSection', menuSection);
   // console.log('menuSectionLen', menuSectionLen)
 
   // Menu Items
-  let menuItems;
 
   for (let i = 0; i < menuSectionLen; i++) {
     const menuSectionId = menuSection[i]._id;
@@ -67,8 +69,11 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
       // .populate('_menuId')
       .select('_id name route priority')
       .then();
+    // const menuItemsLen
 
-    if (menuItems[i] != null) menu.sectionItems.push(menuItems[i]);
+    if (menuItems[i] != null) menu.sectionItems.push(menuSection[i]);
+
+    // for (let j = 0;j<menuItemsLen)
   }
   /*     // console.log(menu);
 
