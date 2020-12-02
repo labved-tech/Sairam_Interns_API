@@ -72,7 +72,7 @@ exports.createRatingAttribute = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     message: 'Created RatingAttribute',
-    data: { ratingAttribute },
+    ratingAttribute,
   });
 
   next();

@@ -101,8 +101,8 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Single Select1 w search
                                             div(class='col-4')
-                                                select#demoSelectSingle(class='form-control selectpicker' data-size='7' data-live-search='true'  name='demoSelectSingle' )
-                                                    option(value='') Select
+                                                select#demoSelectSingle(class='form-control selectpicker' data-size='7' data-live-search='true'  name='demoSelectSingle')
+                                                    option(value='' disabled='' selected='') Choose country
                                                     option(value='AF') Afghanistan
                                                     option(value='AX') Åland Islands
                                                     option(value='AL') Albania
@@ -338,7 +338,7 @@ block content
                                                     option(value='UA') Ukraine
                                                     option(value='AE') United Arab Emirates
                                                     option(value='GB') United Kingdom
-                                                    option(value='US' selected='') United States
+                                                    option(value='US') United States
                                                     option(value='UM') United States Minor Outlying Islands
                                                     option(value='UY') Uruguay
                                                     option(value='UZ') Uzbekistan
@@ -359,7 +359,8 @@ block content
                                         div(class='form-group row')
                                             label(class=' col-3 col-form-label form-control-label text-right ') Multiple Select1 w search
                                             div(class='col-4')
-                                                select#demoSelectMultiple(class='form-control selectpicker' multiple=''  data-live-search='true' name='selectdemoSelectMultiple' )
+                                                select#demoSelectMultiple(class='form-control selectpicker' multiple=''  data-live-search='true' name='demoSelectMultiple')
+                                                    //option(value='' disabled='' selected='') Choose country
                                                     option Mustard
                                                     option Ketchup
                                                     option Relish
@@ -370,7 +371,8 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Single Select2 w search
                                             div(class=' col-4')
-                                                select#demoSelect2Single(class='form-control select2' name='demoSelect2Single')
+                                                select#demoSelect2Single(class='form-control select2' name='demoSelect2Single' data-placeholder='Select Country')
+                                                    option(value="" disabled="" selected="" hidden="")
                                                     option(value='AK') Alaska
                                                     option(value='HI') Hawaii
                                                     option(value='CA') California
@@ -427,7 +429,8 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Multiple Select2 w search
                                             div(class=' col-9')
-                                                select#demoSelect2Multiple(class='form-control select2' name='demoSelect2Multiple' multiple='multiple')
+                                                select#demoSelect2Multiple(class='form-control select2' name='demoSelect2Multiple' multiple='multiple' data-placeholder='Select Country')
+                                                    option(value="" disabled="" selected="" hidden="")
                                                     optgroup(label='Alaskan/Hawaiian Time Zone')
                                                         option(value='AK' selected='') Alaska
                                                         option(value='HI') Hawaii
@@ -488,11 +491,11 @@ block content
 
                                         // Dropdown List : multiple box
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='exampleSelect2')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoExampleSelect2')
                                                 | List Box - Multiple
                                                 span(class='text-danger') *
                                             div(class='col-4')
-                                                select#demoExampleSelect2(multiple='' class='form-control'  name='number' )
+                                                select#demoExampleSelect2(multiple='' class='form-control'  name='demoExampleSelect2' )
                                                     option 1
                                                     option 2
                                                     option 3

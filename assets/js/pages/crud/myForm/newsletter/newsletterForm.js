@@ -17,19 +17,13 @@ const NewsletterCRUD = (function () {
         const nmEmail = KTUtil.getById('nmEmail');
         const nmSent = KTUtil.getById('nmSent');
         const nmVisited = KTUtil.getById('nmVisited');
-        const nmLastVisited = KTUtil.getById('nmLastVisited');
+       
 
         // Initializing 
         $(nmMessage).summernote({
             height: 400,
             tabsize: 2
         });
-        // Date & Time : Date
-        $(nmLastVisited).datepicker({
-            placeholder: "Select Date"
-        });
-
-
 
 
         if (!createNewsletterMessagesForm) {
@@ -66,6 +60,9 @@ const NewsletterCRUD = (function () {
                                         },
                                     },
                                 }, */
+                                //not working (Multiple Select1 w search)
+
+
             },
 
             plugins: {
@@ -81,7 +78,7 @@ const NewsletterCRUD = (function () {
         })
             .on('core.form.valid', function () {
                 KTUtil.btnWait(nmFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-               
+
 
                 // Accessing Restful API
                 axios({
@@ -89,7 +86,7 @@ const NewsletterCRUD = (function () {
                     url: `${HOST_URL}/api/v1/newsletter/messages`,
                     data: {
                         subject: nmSubject.value,
-                        //message: nmMessage.value,
+                        //message: nmMessage.value, // not working - Multiple Select1 w search
                         recipientEmail: nmEmail.value,
                         sent: true,
                         visited: true,
@@ -97,7 +94,7 @@ const NewsletterCRUD = (function () {
                     },
                 }).then(function (res) {
                     KTUtil.btnRelease(nmFormSubmitButton);
-                    
+
 
                     // TOASTR EXAMPLE
                     toastr.options = {
@@ -131,7 +128,7 @@ const NewsletterCRUD = (function () {
     };
 
 
-    const _createNewsletterEntriesForm = function (){
+    const _createNewsletterEntriesForm = function () {
         // Getting Document related information
         const createNewsletterEntriesForm = KTUtil.getById('createNewsletterEntriesForm');
         const neFormSubmitButton = KTUtil.getById('neFormSubmitButton');
@@ -142,7 +139,7 @@ const NewsletterCRUD = (function () {
         const neListDescription = KTUtil.getById('neListDescription');
         const neEmails = KTUtil.getById('neEmails');
         const neNotes = KTUtil.getById('neNotes');
-        const neStatus  = KTUtil.getById('neStatus');
+        const neStatus = KTUtil.getById('neStatus');
 
 
         if (!createNewsletterEntriesForm) {
@@ -179,20 +176,37 @@ const NewsletterCRUD = (function () {
                         },
                     },
                 },
-                neEmails: {
+                neListDescription: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
+                    },
+                },     
+                /*  neEmails: {
                     validators: {
                         notEmpty: {
                             message: 'Email is required',
                         },
                     },
+                }, */ 
+                
+                neNotes: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Notes is required',
+                        },
+                    },
                 },
-                neStatus: {
+
+                /* neStatus: {
                     validators: {
                         notEmpty: {
                             message: 'Status is required',
                         },
                     },
-                },
+                }, */
+                
 
 
             },
@@ -209,7 +223,7 @@ const NewsletterCRUD = (function () {
         })
             .on('core.form.valid', function () {
                 KTUtil.btnWait(neFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-               
+
                 // Accessing Restful API
                 axios({
                     method: 'post',
@@ -218,20 +232,22 @@ const NewsletterCRUD = (function () {
                         fromEmail: neFromEmail.value,
                         description: neDescription.value,
                         newsletterType: neNewsletterType.value,
-                        list: 
-                        [
-                            {
-                            name: neName.value,
-                            description: neListDescription.value,
-                            emails: neEmails.value,
-                            notes: neNotes.value,
-                            status: neStatus.value
-    }  
-  ]   
+                        list:
+                            [
+                                {
+                                    name: neName.value,
+                                    description: neListDescription.value,
+                                    //emails: neEmails.value, // not working - Multiple Select1 w search
+                                    notes: neNotes.value,
+                                    //status: neStatus.value // not working - Multiple Select1 w search
+                                }
+                            ]
+
+
                     },
                 }).then(function (res) {
                     KTUtil.btnRelease(neFormSubmitButton);
-                    
+
                     // TOASTR EXAMPLE
                     toastr.options = {
                         "closeButton": false,

@@ -64,8 +64,6 @@ exports.createMenuSection = catchAsync(async (req, res, next) => {
     message: 'Created Menu Section',
     menuSection,
   });
-
-  next();
 });
 
 exports.updateMenuSection = catchAsync(async (req, res, next) => {

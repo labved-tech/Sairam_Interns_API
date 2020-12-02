@@ -30,7 +30,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Title
                                                 span(class='text-danger')  *
                                             div(class='col-6')
-                                                input#aeTitle(type='text' class='form-control' name='aeTitle' placeholder='Hello World!')
+                                                input#aeTitle(type='text' class='form-control' name='aeTitle' placeholder='Monthly - Summary')
 
                                         // aeFrom
                                         div(class='form-group row')
@@ -54,7 +54,8 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Expires In
                                                 span(class='text-danger')  *
                                             div(class=' col-4')
-                                                select#aeExpires(class='form-control select2' name='aeExpires')
+                                                select#aeExpires(class='form-control select2' name='aeExpires' data-placeholder='Select option')
+                                                    option(value="" disabled="" selected="" hidden="")
                                                     option(value='n') Never
                                                     option(value='1d') Daily
                                                     option(value='7d') Weekly
@@ -69,7 +70,7 @@ block content
                                                 input#aePriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='aePriority' placeholder='1')
                                         
 
-                                        // demoEditor
+                                        // aeMessage
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Message
                                             div(class='col-9')
@@ -81,5 +82,5 @@ block content
                             div(class='card-footer')
                                 div(class='row  text-right')
                                     div(class='col-12 ml-lg-auto')
-                                        button#announcementEntriesFormSubmit(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
+                                        button#aeFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel

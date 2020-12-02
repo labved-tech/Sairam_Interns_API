@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const addressSchema = new Schema({
-  address1: { type: String },
+  address: { type: String },
   city: { type: String },
   state: { type: String },
   country: { type: String },

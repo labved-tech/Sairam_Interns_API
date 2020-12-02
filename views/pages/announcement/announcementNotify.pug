@@ -1,12 +1,10 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
-
+   
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/crud/myForm/announcement/announcementForm.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -18,59 +16,68 @@ block content
                 // begin::Card
                 div(class='card card-custom')
                     div(class='card-header')
-                        h3(class='card-title')
-                            | Announcement Notification Form
+                        h3(class='card-title') Announcement Notification
                     div(class='card-body')
                         // begin::Form
-                        form#form_announcementNotify(class='form' action='http://localhost:3000/api/v1/announcement-notification')
+                        form#createAnnouncementNotifyForm(class='form')
                             div(class='row')
-                                div(class='col-xl-2')
-                                div(class='col-xl-8')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
                                     div(class='my-5')
-                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                        
+                                        //anID
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Announcement Id
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='announcementId' placeholder='ex. 5fa6574d564cd01840c6cfd9')
+                                            label(class='col-3 col-form-label form-control-label text-right') Announcement ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#anID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='anID' placeholder='')
+
+                                        // anPriority
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Priority
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='priority' placeholder='ex. 6')
-                                                span(class='form-text text-muted') Priortizing before sending emails to target.
+                                            label(class='col-3 col-form-label form-control-label text-right') Priority
+                                            div(class='col-4')
+                                                input#anPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='anPriority' placeholder='1')
+
+                                        // anRecipient
                                         h3(class=' text-dark font-weight-bold mb-10') Recipient
+
+                                        //anRecipientID
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Recipient Id
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='recipient-recipientId' placeholder='ex.  5fa6574d564cd01840c6cfd9')
+                                            label(class='col-3 col-form-label form-control-label text-right') Recipient ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#anRecipientID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='anRecipientID' placeholder='')
+
+
+                                        //anName
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Name
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='recipientName' placeholder='ex. Alex Rider')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#anName(type='text' class='form-control' name='anName' placeholder='Enter Name')
+
+
+                                        // anEmail  
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Email
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='recipientEmail' placeholder='ex. Alexrider@gmail.com')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Email
+                                            div(class='col-5')
+                                                select#anEmail(class='form-control selectpicker' multiple=''  data-live-search='true' name='anEmail' )
+                                                    option alexrider@gmail.com
+                                                    option percyjackson@gmail.com
+                                                    option jupiterjones@gmail.com
+                                                span(class='form-text text-muted') Select Email                                   
+
+                                        // anIsEmailSent
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label') Is Email Sent
-                                            div(class='col-9')
+                                            label(class='col-3 col-form-label form-control-label text-right') Email Sent ?
+                                            div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input(type='checkbox' checked='checked' name='isEmailSent')
+                                                        input#anIsEmailSent(type='checkbox' checked='checked' name='anIsEmailSent')
                                                         span
-                                        div(class='form-group row')
-                                            label(class='col-3 form-control-label') Seen At
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='seenAt' placeholder='ex. dd/mm/yyyy')
-                                        div(class='form-group row')
-                                            label(class='col-3 form-control-label') Sent At
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='sentAt' placeholder='ex. dd/mm/yyyy')
-                            div(class='card-footer text-right')
-                                div(class='row')
-                                    div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Submit
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#anFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
-                        // end::Form
-                // end::Card
-            // end::Container
-        // end::Entry
