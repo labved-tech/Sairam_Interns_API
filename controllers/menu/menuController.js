@@ -15,92 +15,39 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
   // console.log(req.query);
 
   menuManagerStr = req.query.manager;
-  // console.log('menuManagerStr', menuManagerStr);
 
-  /*  
-    const menuSubItems1 = await MenuSubItems1.find().then();
-    const menuSubItems2 = await MenuSubItems2.find().then();
+  const menuManager = await MenuManager.find({name: menuManagerStr}).then();
+  const menuMangerId = menuManager[0]._id;
 
-    console.log('menuSection', menuSection);
-    console.log('menuItems', menuItems);
-    console.log('menuSubItems1', menuSubItems1);
-    console.log('menuSubItems2', menuSubItems2);  
-        
-    const menuSubItems1Len = menuSubItems1.length;
-    const menuSubItems2Len = menuSubItems2.length;
-     */
+  const menuSection = await MenuSection.find().select('_id name priority').then();
 
-  const menu = {
-    name: '',
-    sectionItems: [],
-  };
+  const menuItems = await MenuItems.find({
+    _menuId: { $all: [menuMangerId] },
+  })
+  .sort('priority')
+  .populate('_menuId')
+  .populate('_sectionId')
+  .select('_id name priority route')
+  .then();
 
-  // Manager
-  const menuManager = await MenuManager.find({ name: menuManagerStr }).then();
-  const menuManagerLen = menuManager.length;
-  // console.log('menuManager', menuManager);
-  const menuManagerId = menuManager[0]._id;
-  // console.log(menuManagerId);
-  //menu[_id] = menuManager[i]._id;
-  menu.name = menuManager[0].name;
-  //console.log(menu);
+  const menuSubItems1 = await MenuSubItems1.find()
+  .sort('priority')
+  .populate('_parentId')
+  .select('_id name priority route')
+  .then();
 
-  // Menu Section
-  let menuSection;
-  menuSection = await MenuSection.find()
-    .sort('priority')
-    .select('name priority')
-    .then();
-  const menuSectionLen = menuSection.length;
-  // console.log('menuSection', menuSection);
-  // console.log('menuSectionLen', menuSectionLen)
-
-  // Menu Items
-  let menuItems;
-  const arr = [];
-
-  for (let i = 0; i < menuSectionLen; i++) {
-    const menuSectionId = menuSection[i]._id;
-    // console.log(menuSectionId);
-
-    menuItems = await MenuItems.find({
-      _menuId: { $all: [menuManagerId] },
-      _sectionId: { $all: [menuSectionId] },
-    })
-      // .populate('_sectionId')
-      // .populate('_menuId')
-      .select('_id name route priority')
-      .then();
-    const menuItemsLen = menuItems.length;
-    if (menuItems[i] != null) {
-      menu.sectionItems.push(menuSection[i]);
-      // menu.sectionItems.concat(menuSection[i]);
-    }
-
-    for (let j = 0; j < menuItemsLen; j++) {
-      arr.push(menuItems[i]);
-      console.log(menuItems[i]);
-      console.log(arr);
-    }
-  }
-
-  // console.log(arr);
-
-  /*     // console.log(menu);
-
-    const menuItemsLen = menuItems.length;
-    console.log('menuItems', menuItems);
-    // console.log('menuItemsLen', menuItemsLen);  } */
-  // console.log(menu);
+  const menuSubItems2 = await MenuSubItems2.find()
+  .sort('priority')
+  .populate('_parentId')
+  .select('_id name priority route')
+  .then();
 
   res.status(200).json({
     status: 'success',
     message: 'Got All Menu Items',
-    menu,
-    // menuManager,
     menuSection,
     menuItems,
-    //   menuSubItems1,
-    //   menuSubItems2,
+    menuSubItems1,
+    menuSubItems2,
   });
 });
