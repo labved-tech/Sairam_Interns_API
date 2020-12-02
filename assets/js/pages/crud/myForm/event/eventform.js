@@ -3,94 +3,119 @@
 
 /* Class definition */
 const eventCRUD = (function () {
-    const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
+  const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
   /*   Private functions */
-  const _createAnnouncementEntriesForm = function () {
+  const _createEventEntriesForm = function () {
 
-   // Getting Document related information
-   const createAnnouncementEntriesForm = KTUtil.getById('createAnnouncementEntriesForm');
-   const formSubmitButton = KTUtil.getById('announcementEntriesFormSubmit');
-   const aeTitle = KTUtil.getById('aeTitle');
-   const aeFrom = KTUtil.getById('aeFrom');
-   const aePriority = KTUtil.getById('aePriority');
-   const aeIsEmailReq = KTUtil.getById('aeIsEmailReq');
-   const aeExpires = KTUtil.getById('aeExpires');
-   const aeMessage = KTUtil.getById('aeMessage');
+    // Getting Document related information
+    const createEventEntriesForm = KTUtil.getById('createEventEntriesForm');
+    const eeFormSubmitButton = KTUtil.getById('eeFormSubmitButton');
+    const eePriority = KTUtil.getById('eePriority');
+    const eeExpires = KTUtil.getById('eeExpires');
+    const eeType = KTUtil.getById('eeType');
+    const eeBoundaryTxt = KTUtil.getById('eeBoundaryTxt');
+    const eeBoundarySlider = KTUtil.getById('eeBoundarySlider');
+    const eeLocation = KTUtil.getById('eeLocation');
 
-   // Initializing 
-   $(aeMessage).summernote({
-     height: 400,
-     tabsize: 2
-   });
+    // Initializing 
 
-   // Return Form
-    if (!createAnnouncementEntriesForm) {
+    // eeExpires
+    $(eeExpires).select2({
+      placeholder: "Select"
+    });
+
+    // eeType
+    $(eeType).select2({
+      placeholder: "Select"
+    });
+
+    // eeBoundary
+    noUiSlider.create(eeBoundarySlider, {
+      start: [0],
+      step: 2,
+      range: {
+        'min': [0],
+        'max': [10]
+      },
+      format: wNumb({
+        decimals: 0
+      })
+    });
+
+    eeBoundarySlider.noUiSlider.on('update', function (values, handle) {
+      eeBoundaryTxt.value = values[handle];
+    });
+
+    eeBoundarySlider.addEventListener('change', function () {
+      eeBoundaryTxt.noUiSlider.set(this.value);
+    });
+
+    // Return Form
+    if (!createEventEntriesForm) {
       return;
     }
 
     // Validation
-    FormValidation.formValidation(createAnnouncementEntriesForm, {
+    FormValidation.formValidation(createEventEntriesForm, {
       fields: {
-        aeTitle: {
+        eePriority: {
           validators: {
             notEmpty: {
-              message: 'This is field is required',
+              message: 'Priority is required',
             },
           },
         },
-        aeFrom: {
+        eeType: {
           validators: {
             notEmpty: {
-              message: 'This is field is required',
+              message: 'Type is required',
             },
           },
         },
-        aePriority: {
+        eeBoundaryTxt: {
           validators: {
             notEmpty: {
-              message: 'This is field is required',
+              message: 'Boundary is required',
             },
           },
         },
+      },
 
-        plugins: {
-         //Learn more: https://formvalidation.io/guide/plugins
-         trigger: new FormValidation.plugins.Trigger(),
-         // Bootstrap Framework Integration
-         bootstrap: new FormValidation.plugins.Bootstrap(),
-         // Validate fields when clicking the Submit button
-         submitButton: new FormValidation.plugins.SubmitButton(),
-         // Submit the form when all fields are valid
-         //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-       },
-     })
-     .on('core.form.valid', function () {
-      // Show loading state on button
-      KTUtil.btnWait(formSubmitButton, _buttonSpinnerClasses, 'Please wait');
-      console.log(`Value:${aeTitle.value}`);
+      plugins: {
+        //Learn more: https://formvalidation.io/guide/plugins
+        trigger: new FormValidation.plugins.Trigger(),
+        // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap(),
+        // Validate fields when clicking the Submit button
+        eeFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+        // Submit the form when all fields are valid
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+      },
+    })
+      .on('core.form.valid', function () {
+        // Show loading state on button
+        KTUtil.btnWait(eeFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+        console.log(`Value:${eePriority.value}`);
 
 
-      // Accessing Restful API
-      axios({
-        method: 'post',
-        url: `${HOST_URL}/api/v1/announcement/entries`,
-        data: {
-          title: aeTitle.value,
-          //message: aeMessage.value,
-          from: aeFrom.value,
-          isEmailReq: true,   //if(aeIsEmailReq.value=== 'on') return true
-          priority: (aePriority.value) * 1,
-          expires: aeExpires.value,
-        },
+        // Accessing Restful API
+        axios({
+          method: 'post',
+          url: `${HOST_URL}/api/v1/event/entries`,
+          data: {
+            priority: (eePriority.value) * 1,
+            //message: eeMessage.value,
+            // expires: eeExpires.value,
+            type: eeType.value,
+            boundary: eeBoundaryTxt.value * 1,
+          },
 
-      }).then(function (res) {
-        // Return valid JSON
-        // Release button
-        KTUtil.btnRelease(formSubmitButton);
-        console.log(res);
-
-          // TOASTR EXAMPLE
+        }).then(function (res) {
+          // Return valid JSON
+          // Release button
+          KTUtil.btnRelease(eeFormSubmitButton);
+          console.log(res);
 
           // TOASTR EXAMPLE
 
@@ -131,11 +156,11 @@ const eventCRUD = (function () {
   return {
     // public functions
     init: function () {
-      _createAnnouncementEntriesForm();
+      _createEventEntriesForm();
     },
   };
 })();
 
 jQuery(document).ready(function () {
-  AnnouncementCRUD.init();
+  eventCRUD.init();
 });

@@ -7,7 +7,11 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const menuSectionSchema = new Schema(
   {
-    name: { type: String, unique: [true, 'Already exists'], ref: 'menu-items' },
+    name: {
+      type: String,
+      unique: [true, 'Already exists'],
+      // ref: 'menu-items',
+    },
     description: { type: String },
     priority: { type: Number },
     createdBy: { type: mongoose.ObjectId, required: true },

@@ -11,7 +11,7 @@ const menuManagerSchema = new Schema(
       type: String,
       required: true,
       unique: [true, 'Already exists'],
-      ref: 'menu-items',
+      // ref: 'menu-items',
     },
     description: { type: String },
     createdBy: { type: mongoose.ObjectId, required: true },

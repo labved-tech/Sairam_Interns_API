@@ -12,7 +12,7 @@ const MenuSection = require('../../models/menu/menuSectionModel');
 exports.getAllMenuSection = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Sections');
 
-  const menuSection = await MenuSection.find().then();
+  const menuSection = await MenuSection.find().sort('priority').then();
 
   res.status(200).json({
     status: 'success',
@@ -39,11 +39,12 @@ exports.getMenuSection = catchAsync(async (req, res, next) => {
 
 exports.createMenuSection = catchAsync(async (req, res, next) => {
   console.log('Creating Menu Sections');
-  //console.log(req.body);
+  //console.log(doc);
 
   // parse through models
   const doc = new MenuSection(req.body);
-  //console.log(doc);
+  const priority = req.body.priority * 1;
+  doc.priority = priority;
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -55,7 +56,7 @@ exports.createMenuSection = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  console.log(doc);
+  // console.log(doc);
 
   const menuSection = await MenuSection.create(doc).then();
 

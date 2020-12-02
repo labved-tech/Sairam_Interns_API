@@ -63,6 +63,8 @@ router.get('/sales-finance/address', viewsController.address);
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
 
+// COMMENTS RELATED ROUTES
+router.get('/comment/entries', viewsController.commentEntries);
 // ANALYTICS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);

@@ -12,7 +12,7 @@ const MenuSubItem2 = require('../../models/menu/menuSubItems2Model');
 exports.getAllMenuSubItem2 = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Sub-Item2');
 
-  const menuItem = await MenuSubItem2.find().then();
+  const menuItem = await MenuSubItem2.find().sort('priority').then();
 
   res.status(200).json({
     status: 'success',
@@ -43,7 +43,9 @@ exports.createMenuSubItem2 = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new MenuSubItem2(req.body);
-  console.log(doc);
+  // console.log(doc);
+  const priority = req.body.priority * 1;
+  doc.priority = priority;
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -55,7 +57,7 @@ exports.createMenuSubItem2 = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(doc);
 
   const newMenuItem = await MenuSubItem2.create(doc).then();
 

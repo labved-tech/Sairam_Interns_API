@@ -19,10 +19,8 @@ router.use((req, res, next) => {
 /* ROUTES */
 
 // MANAGER
-router
-  .route('/')
-  .get(menuController.getAllMenu);
-  
+router.route('/').get(menuController.getAllMenu);
+
 router
   .route('/manager')
   .get(menuManagerController.getAllMenu)
