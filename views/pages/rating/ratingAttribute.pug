@@ -54,13 +54,11 @@ block content
                                                 span(class='form-text text-muted') Enter the type
 
                                         // raDescription
-                                        div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='raDescription')
-                                                | Desscription
-                                                span(class='text-danger') *
-                                            div(class='col-9 ')
-                                                textarea#raDescription(class='form-control' name='raDescription' rows='3')
-                                                span(class='form-text text-muted') description
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Description
+                                            div(class='col-9')
+                                                div#aeMessage(class='summernote' name='raDescription')
+                                                span(class='form-text text-muted') Add message that you wish to send.
 
                                         // raNotes
                                         div(class='form-group row mb-1')
