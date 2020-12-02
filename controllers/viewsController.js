@@ -244,7 +244,7 @@ const doc = {
       sectionName: 'Administration',
       isSection: false,
       priority: 2,
-      menuItemsNo: 1,
+      menuItemsNo: 2,
       menuItems: [
         {
           name: 'Account Settings',
@@ -260,12 +260,12 @@ const doc = {
               subItems2: [
                 {
                   name: 'Add New',
-                  route: 'add-new',
+                  route: 'subscription/add-new',
                   priority: 1,
                 },
                 {
                   name: 'View All',
-                  route: 'view-all',
+                  route: 'subscription/view-all',
                   priority: 2,
                 },
               ],
@@ -278,87 +278,126 @@ const doc = {
               subItems2: [
                 {
                   name: 'Add New',
-                  route: 'add-new',
+                  route: 'users/add-new',
                   priority: 1,
                 },
                 {
                   name: 'View All',
-                  route: 'view-all',
+                  route: 'users/view-all',
                   priority: 2,
                 },
               ],
             },
             {
               name: 'User Group',
-              route: 'user-groups',
+              route: 'usergroups',
               priority: 3,
               subItems2No: 2,
               subItems2: [
                 {
                   name: 'Add New',
-                  route: 'add-new',
+                  route: 'usergroups/add-new',
                   priority: 1,
                 },
                 {
                   name: 'View All',
-                  route: 'view-all',
+                  route: 'usergroups/view-all',
                   priority: 2,
                 },
               ],
             },
             {
               name: 'User Roles',
-              route: 'user-roles',
+              route: 'userroles',
               priority: 4,
               subItems2No: 2,
               subItems2: [
                 {
                   name: 'Add New',
-                  route: 'add-new',
+                  route: 'userroles/add-new',
                   priority: 1,
                 },
                 {
                   name: 'View All',
-                  route: 'view-all',
+                  route: 'userroles/view-all',
                   priority: 2,
                 },
               ],
             },
             {
               name: 'Module Access',
-              route: 'module-access',
+              route: 'moduleaccess',
               priority: 5,
               subItems2No: 2,
               subItems2: [
                 {
                   name: 'Add New',
-                  route: 'add-new',
+                  route: 'moduleaccess/add-new',
                   priority: 1,
                 },
                 {
                   name: 'View All',
-                  route: 'view-all',
+                  route: 'moduleaccess/view-all',
                   priority: 2,
                 },
               ],
             },
             {
               name: 'Database Access',
-              route: 'database-access',
+              route: 'databaseaccess',
               priority: 5,
               subItems2No: 2,
               subItems2: [
                 {
                   name: 'Add New',
-                  route: 'add-new',
+                  route: 'databaseaccess/add-new',
                   priority: 1,
                 },
                 {
                   name: 'View All',
-                  route: 'view-all',
+                  route: 'databaseaccess/view-all',
                   priority: 2,
                 },
               ],
+            },
+          ],
+        },
+        {
+          name: 'Menu',
+          route: 'menu',
+          imgPath: '',
+          priority: 3,
+          subItems1No: 5,
+          subItems1: [
+            {
+              name: 'Menu Manager',
+              route: 'menu/manager',
+              priority: 1,
+              subItems2No: 0,
+            },
+            {
+              name: 'Menu Section',
+              route: 'menu/section',
+              priority: 2,
+              subItems2No: 0,
+            },
+            {
+              name: 'Menu Items',
+              route: 'menu/items',
+              priority: 3,
+              subItems2No: 0,
+            },
+            {
+              name: 'Menu Sub-Items1',
+              route: 'menu/subitems1',
+              priority: 4,
+              subItems2No: 0,
+            },
+            {
+              name: 'Menu Sub-Items2',
+              route: 'menu/subitems2',
+              priority: 5,
+              subItems2No: 0,
             },
           ],
         },
@@ -366,6 +405,38 @@ const doc = {
     },
   ],
 };
+/* MENU */
+// MANAGER
+exports.getMenuManager = (req, res) => {
+  console.log('We are in Menu Manager');
+
+  res.status(200).render('./pages/overview', doc);
+};
+// SECTION
+exports.getMenuSection = (req, res) => {
+  console.log('We are in Menu Section');
+
+  res.status(200).render('./pages/overview', doc);
+};
+// ITEMS
+exports.getMenuItems = (req, res) => {
+  console.log('We are in Menu Items');
+
+  res.status(200).render('./pages/overview', doc);
+};
+// SUB-ITEMS1
+exports.getMenuSubItems1 = (req, res) => {
+  console.log('We are in Menu sub items 1');
+
+  res.status(200).render('./pages/overview', doc);
+};
+// SUB-ITEMS2
+exports.getMenuSubItems2 = (req, res) => {
+  console.log('We are in Menu sub items 2');
+
+  res.status(200).render('./pages/overview', doc);
+};
+
 // OVERVIEW RELATED CONTROLLER
 exports.getOverview = (req, res) => {
   console.log('We are in viewsController');
@@ -488,6 +559,22 @@ exports.ratingEntries = (req, res) => {
 exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');
   res.status(200).render('./../views/pages/event/eventEntries', doc);
+};
+
+// LEADS RELATED CONTROLLER
+exports.leadCategories = (req, res) => {
+  console.log('We are in Lead Categories Form Page');
+  res.status(200).render('./../views/pages/leads/leadCategories', doc);
+};
+
+exports.leadResponse = (req, res) => {
+  console.log('We are in Lead Response Form Page');
+  res.status(200).render('./../views/pages/leads/leadResponse', doc);
+};
+
+exports.leadEntries = (req, res) => {
+  console.log('We are in Lead Entries Form Page');
+  res.status(200).render('./../views/pages/leads/leadEntries', doc);
 };
 
 // SALES AND FINANCE RELATED CONTROLLER

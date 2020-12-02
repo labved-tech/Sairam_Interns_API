@@ -47,12 +47,7 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   const tempObj = JSON.parse(queryStr);
   console.log('Obj :', tempObj);
 
-  const test = Object.keys(tempObj).length === 0;
-  console.log(test);
-
-  if (Object.keys(tempObj).length !== 0)
-    query = Example.find(JSON.parse(queryStr), searchObj);
-  else query = Example.find();
+  query = Example.find(searchObj);
 
   // 2) Sorting
   let sortBy;
