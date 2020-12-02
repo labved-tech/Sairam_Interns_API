@@ -61,7 +61,7 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
     const menuSectionId = menuSection[i]._id;
     // console.log(menuSectionId);
 
-    menuItems = await MenuItems.find({
+    const menuItems = await MenuItems.find({
       _menuId: { $all: [menuManagerId] },
       _sectionId: { $all: [menuSectionId] },
     })
@@ -69,11 +69,13 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
       // .populate('_menuId')
       .select('_id name route priority')
       .then();
-    // const menuItemsLen
+    const menuItemsLen = menuItems.length;
 
     if (menuItems[i] != null) menu.sectionItems.push(menuSection[i]);
 
-    // for (let j = 0;j<menuItemsLen)
+    for (let j = 0; j < menuItemsLen; j++) {
+      menu.sectionItems.menuItems.push(menuItems[i]);
+    }
   }
   /*     // console.log(menu);
 

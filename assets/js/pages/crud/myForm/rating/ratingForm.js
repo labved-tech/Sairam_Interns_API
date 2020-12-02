@@ -89,7 +89,7 @@ const RatingCRUD = (function () {
                     url: `${HOST_URL}/api/v1/ratings/attribute`,
                     data: {
                         name: raName.value,
-                        type: ratype.value,
+                        type: raType.value,
                         description: $('#raDescription').summernote('code'),
                         notes: raNotes.value,
                     },
