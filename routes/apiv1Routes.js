@@ -106,7 +106,7 @@ router.use('/directoryLevels', directoryLevelsRouter);
 router.use('/directory', directoryRouter);
 
 // EVENTS MODULE
-router.use('/eventEntries', eventEntriesRouter);
+router.use('/event/entries', eventEntriesRouter);
 
 // CONTRACT MODULE
 router.use('/contracts', contractRouter);

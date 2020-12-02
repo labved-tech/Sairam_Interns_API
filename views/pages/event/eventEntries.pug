@@ -5,7 +5,7 @@ block css-files
 
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/analytics/analyticsForm.js' )
+    script(src='/js/pages/crud/myForm/event/eventForm.js' )
     
 
 block content
@@ -22,37 +22,35 @@ block content
                             | event Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_analytics(class='form' )
+                        form#createEventEntriesForm(class='form' )
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
 
-                                        h3(class=' text-dark font-weight-bold mb-10') General
-
-                                        // aePriority
+                                        // eePriority
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Priority
                                             div(class='col-4')
-                                                input#aePriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='aePriority' placeholder='1')
+                                                input#eePriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eePriority' placeholder='1')
 
-                                        // aeExpires
+                                        // eeExpires
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Expires In
                                                 span(class='text-danger')  *
                                             div(class=' col-4')
-                                                select#aeExpires(class='form-control select2' name='aeExpires')
+                                                select#eeExpires(class='form-control select2' name='eeExpires')
                                                     option(value='1d') Daily
                                                     option(value='7d') Weekly
                                                     option(value='30d') Monthly
                                                     option(value='1y') Yearly
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
-                                        // Dropdown List : Single Select2 w Live Search
+                                        // eeType
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Type
                                             div(class=' col-4')
-                                                select#demoSelect2Single(class='form-control select2' name='demoSelect2Single')
+                                                select#eeType(class='form-control select2' name='eeType')
                                                     option(value='AK') Alaska
                                                     option(value='HI') Hawaii
                                                     option(value='CA') California
@@ -105,21 +103,26 @@ block content
                                                     option(value='WV') West Virginia
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
-                                        div(class='form-group row')
-                                            label(class='col-3 form-control-label') Email
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='extRefObject-email' placeholder='Enter your email')
-                                                span(class='form-text text-muted') We'll never share your email with anyone else.
                                         h3(class=' text-dark font-weight-bold mb-10') Meta
                                         div(class='form-group row')
 
-                                        // Number : Horizontal Slide
+                                        // eeBoundary
                                         div(class='form-group row mb-6')
                                             label(class='col-3 col-form-label form-control-label text-right') boundary
                                             div(class='col-6 ')
                                                 div(class='row align-items-center')
                                                     div(class='col-4')
-                                                        input#demoNumberHSliderText(type='text' class='form-control' name='demoNumberHSliderText' placeholder='Quantity')
+                                                        input#eeBoundaryTxt(type='text' class='form-control' name='eeBoundaryTxt' placeholder='Quantity')
                                                     div(class='col-8')
-                                                        #demoNumberHSlider(class='nouislider-drag-danger')
-                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                             
+                                                        #eeBoundarySlider(class='nouislider-drag-danger')
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                            div(class='card-footer text-right')
+                                div(class='row')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#eeFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+    // end::Entry

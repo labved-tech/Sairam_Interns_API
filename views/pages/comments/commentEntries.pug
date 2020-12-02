@@ -1,0 +1,90 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/event/eventForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | comments Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createCommentEntriesForm(class='form' )
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') commentor ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cecommentorId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') relName
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#ceRelName(type='text' class='form-control' name='ceRelName' placeholder='ex. Sai Vignesh')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Rel ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ceRelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceRelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                                                    
+                                        div(class='separator separator-dashed my-10')
+                                        h3(class=' text-dark font-weight-bold mb-10') 
+
+                                        // Number :ceRating
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Rating:
+                                            div(class='col-4')
+                                                input#ceRating(type='text' class='form-control' value='' name='ceRating' placeholder='Select time')
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                        // ceMessage
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Message
+                                            div(class='col-9')
+                                                div#ceMessage(class='summernote' name='ceMessage')
+                                                span(class='form-text text-muted') Add message that you wish to send.
+
+                                        h3(class=' text-dark font-weight-bold mb-10') commentReplies
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Message
+                                            div(class='col-9')
+                                                div#ceMessage(class='summernote' name='ceMessage')
+                                                span(class='form-text text-muted') Add message that you wish to send.
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') commentor ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceCommentorId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                                                    
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
+

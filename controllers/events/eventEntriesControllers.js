@@ -46,7 +46,7 @@ exports.getEventEntries = catchAsync(async (req, res, next) => {
 });
 
 exports.createEventEntries = catchAsync(async (req, res, next) => {
-  console.log('Creating EventEntries');
+  console.log('Creating Event Entries');
 
   // parse through models
   const doc = new EventEntries(req.body);
@@ -56,7 +56,7 @@ exports.createEventEntries = catchAsync(async (req, res, next) => {
 
   // replace doc if necessary
 
-  // update timestamps & Id's
+  //update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.updatedBy = '5f990bb3c727e952a076f3b7'; // user id
   doc.createdAt;
@@ -66,16 +66,14 @@ exports.createEventEntries = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  //console.log(doc);
+  console.log(doc);
   const eventEntries = await EventEntries.create(doc).then();
 
   res.status(201).json({
     status: 'success',
     message: 'Created Event Entries',
-    data: { eventEntries },
+    eventEntries,
   });
-
-  next();
 });
 
 exports.updateEventEntries = catchAsync(async (req, res, next) => {
