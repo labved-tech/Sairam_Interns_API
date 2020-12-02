@@ -69,13 +69,13 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Message
                                             div(class='col-9')
-                                                div#ceMessage(class='summernote' name='ceMessage')
+                                                div#crMessage(class='summernote' name='crMessage')
                                                 span(class='form-text text-muted') Add message that you wish to send.
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') commentor ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceCommentorId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    input#crCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='crCommentorId' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
                                                     
                             div(class='card-footer')

@@ -5,15 +5,16 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const ratingAttributeSchema = new Schema({
-  name: { type: String },
-  type: { type: String },
-  description: { type: String },
-  notes: { type: String },
-  status: { type: String },
-  createdBy: { type: mongoose.ObjectId },
-  updatedBy: { type: mongoose.ObjectId },
-},
+const ratingAttributeSchema = new Schema(
+  {
+    name: { type: String },
+    type: { type: String },
+    description: { type: String },
+    notes: { type: String },
+    status: { type: String },
+    createdBy: { type: mongoose.ObjectId },
+    updatedBy: { type: mongoose.ObjectId },
+  },
   { timestamps: true }
 );
 

@@ -7,9 +7,15 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const menuSubItems1Schema = new Schema(
   {
-    name: { type: String, unique: [true, 'Already exists'] },
+    name: {
+      type: String,
+      unique: [true, 'Already exists'],
+    },
     _parentId: { type: mongoose.ObjectId },
-    route: { type: String, unique: [true, 'Already exists'] },
+    route: {
+      type: String,
+      unique: [true, 'Already exists'],
+    },
     priority: { type: Number },
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },

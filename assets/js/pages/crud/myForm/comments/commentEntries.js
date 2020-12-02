@@ -17,21 +17,12 @@ const eventCRUD = (function () {
         const ceRelId = KTUtil.getById('ceRelId');
         const ceRating = KTUtil.getById('ceRating');
         const ceMessage = KTUtil.getById('ceMessage');
-        const ceMessage = KTUtil.getById('ceMessage');
-        const cecommentorId = KTUtil.getById('cecommentorId');
+        const crMessage = KTUtil.getById('crMessage');
+        const crcommentorId = KTUtil.getById('crcommentorId');
 
         // Initializing 
 
         // ceMessage
-        $(aeMessage).summernote({
-            height: 400,
-            tabsize: 2
-        });
-
-        $(aeMessage).summernote({
-            height: 400,
-            tabsize: 2
-        });
 
         // Return Form
         if (!createCommentEntriesForm) {
@@ -62,39 +53,43 @@ const eventCRUD = (function () {
                         },
                     },
                 },
-            },
-            ceRating: {
-                validators: {
-                    notEmpty: {
-                        message: 'rating is required',
-                    },
-                },
-            },
-        },
-            /*
-                    },
-                    ceMessage: {
-                        validators: {
-                            notEmpty: {
-                                message: 'message is required',
-                            },
+
+                ceRating: {
+                    validators: {
+                        notEmpty: {
+                            message: 'rating is required',
                         },
                     },
-            },*/
-            ceCommentorId: {
-            validators: {
-                notEmpty: {
-                    message: 'commentorId is required',
                 },
+                /*             ceMessage: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'message is required',
+                                    },
+                                },
+                            }, */
+                crCommentorId: {
+                    validators: {
+                        notEmpty: {
+                            message: 'commentorId is required',
+                        },
+                    },
+                },
+/*                 crMessage: {
+                    validators: {
+                        notEmpty: {
+                            message: 'message is required',
+                        },
+                    },
+                }, */
             },
-
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
                 trigger: new FormValidation.plugins.Trigger(),
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                eeFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                ceFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
