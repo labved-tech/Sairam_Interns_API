@@ -84,7 +84,7 @@ router.use('/pages', pagesRouter);
 router.use('/reports', reportsRouter);
 
 // LEADS MODULE
-router.use('/leads', leadsRouter);
+router.use('/lead', leadsRouter);
 
 // PRECISION AGRICULTURE MODULE
 router.use('/farm', precisionAgricultureRouter);

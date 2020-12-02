@@ -489,3 +489,20 @@ exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');
   res.status(200).render('./../views/pages/event/eventEntries', doc);
 };
+
+// LEADS RELATED CONTROLLER
+exports.leadCategories = (req, res) => {
+  console.log('We are in Lead Categories Form Page');
+  res.status(200).render('./../views/pages/leads/leadCategories', doc);
+};
+
+exports.leadResponse = (req, res) => {
+  console.log('We are in Lead Response Form Page');
+  res.status(200).render('./../views/pages/leads/leadResponse', doc);
+};
+
+exports.leadEntries = (req, res) => {
+  console.log('We are in Lead Entries Form Page');
+  res.status(200).render('./../views/pages/leads/leadEntries', doc);
+};
+

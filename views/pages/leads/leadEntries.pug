@@ -47,4 +47,18 @@ block content
                                                     input#leCategoryId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leCategoryId' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
                                         
-                                                                                                                                     
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Company 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leCompany(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leCompany' placeholder='Companies in India')
+                                                    span(class='form-text text-muted')
+                                        
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Description 
+                                            div(class='col-9 ')
+                                                textarea#leDescription(class='form-control' name='leDescription' rows='3')
+                                                span(class='form-text text-muted')
+
+                                        
