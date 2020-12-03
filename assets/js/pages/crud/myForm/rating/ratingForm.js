@@ -133,6 +133,11 @@ const RatingCRUD = (function () {
 
     const _createRatingAttributeGroupsForm = function () {
 
+        // Getting Document related information
+        const createRatingAttributeGroupsForm = KTUtil.getById('createRatingAttributeGroupsForm');
+        const ragFormSubmitButton = KTUtil.getById('ragFormSubmitButton');
+        const ragName = KTUtil.getById('ragName');
+        const ragAttributeId = KTUtil.getById('ragAttributeId');
     };
 
     return {
