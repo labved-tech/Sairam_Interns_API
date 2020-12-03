@@ -1,12 +1,10 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/announcement/announcementEntries.js')
+    script(src='/js/pages/crud/myForm/rating/ratingForm.js' )
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -22,9 +20,34 @@ block content
                             | Rating Entries Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_ratingEntries(class='form')
+                        form#createRatingEntriesForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')
                                         h3(class=' text-dark font-weight-bold mb-10') General
+                                        // reType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') relType
+                                            div(class=' col-4')
+                                                select#reType(class='form-control select2' name='reType')
+                                                    option(value='AK') Alaska
+                                                    option(value='HI') Hawaii
+                                                    option(value='CA') California
+                                                    option(value='NV') Nevada
+                                                    option(value='OR') Oregon
+                                                    option(value='WA') Washington
+                                                    option(value='AZ') Arizona
+                                                    option(value='CO') Colorado
+                                                    option(value='ID') Idaho
+                                                    option(value='MT') Montana
+                                                    option(value='NE') Nebraska
+                                                span(class='form-text text-muted') Enter the type
+
+                                        //reId
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') rel ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#reRelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='reRelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
