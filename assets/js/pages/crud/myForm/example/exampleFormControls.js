@@ -1,5 +1,5 @@
 /* eslint-disable */
-'use strict';
+// 'use strict';
 
 // Class definition
 const KTFormControls = (function () {

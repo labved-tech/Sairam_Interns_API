@@ -1,10 +1,8 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/plugins/global/axios/axios.min.js')
     script(src='/js/pages/crud/myForm/example/exampleFormControls.js')
 
 block content
@@ -19,6 +17,9 @@ block content
                     div(class='card-header')
                         h3(class='card-title')
                             | Example Form
+                            script.
+                                - console.log(`This is data`)
+                                - console.log(`asideMenu : ${asideMenu}`)
                     div(class='card-body')
                         // begin::Form
                         form#kt_form_1(class='form' action='http://localhost:3000/api/v1/example')
