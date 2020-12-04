@@ -10,7 +10,7 @@ const menuSectionSchema = new Schema(
     name: {
       type: String,
       unique: [true, 'Already exists'],
-      // ref: 'menu-items',
+      ref: 'menu-items',
     },
     description: { type: String },
     priority: { type: Number },

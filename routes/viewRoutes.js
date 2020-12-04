@@ -13,6 +13,7 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
+router.get('/test', viewsController.getTest);
 router.get('/overview', authController.protect, viewsController.getOverview);
 
 // EXAMPLE RELATED ROUTES
@@ -74,7 +75,5 @@ router.get('/ticket-support/Products', viewsController.ticketProducts);
 router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);
 router.get('/lead/response', viewsController.leadResponse);
-
-
 
 module.exports = router;

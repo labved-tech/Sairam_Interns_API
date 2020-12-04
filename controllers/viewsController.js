@@ -1,3 +1,16 @@
+const { default: Axios } = require('axios');
+
+/* DEPENDENCIES */
+
+/* MIDDLEWARES */
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
+const MenuManager = require('../models/menu/menuManagerModel');
+const MenuSection = require('../models/menu/menuSectionModel');
+const MenuItems = require('../models/menu/menuItemsModel');
+const MenuSubItems1 = require('../models/menu/menuSubItems1Model');
+const MenuSubItems2 = require('../models/menu/menuSubItems2Model');
+
 const doc = {
   name: 'aside-menu',
   content: 'This content is from overview.pug',
@@ -405,50 +418,72 @@ const doc = {
     },
   ],
 };
+
+let asideMenu;
+
+async function getMenuItems() {
+  // console.log(menuManager);
+  // console.log(section);
+  // console.log(items);
+  // console.log(subitems1);
+  // console.log(subitems2);
+
+  return test;
+}
+
+// STANDARD FORM RELATED CONTROLLER
+exports.getTest = (req, res) => {
+  console.log('We are in Standard Form');
+  res.status(200).render(`./../views/pages/example/test`);
+};
+
 /* MENU */
 // MANAGER
 exports.getMenuManager = (req, res) => {
   console.log('We are in Menu Manager');
 
-  res.status(200).render('./pages/overview', doc);
+  res.status(200).render('./pages/overview');
 };
 // SECTION
 exports.getMenuSection = (req, res) => {
   console.log('We are in Menu Section');
 
-  res.status(200).render('./pages/overview', doc);
+  res.status(200).render('./pages/overview');
 };
 // ITEMS
 exports.getMenuItems = (req, res) => {
   console.log('We are in Menu Items');
 
-  res.status(200).render('./pages/overview', doc);
+  res.status(200).render('./pages/overview');
 };
 // SUB-ITEMS1
 exports.getMenuSubItems1 = (req, res) => {
   console.log('We are in Menu sub items 1');
 
-  res.status(200).render('./pages/overview', doc);
+  res.status(200).render('./pages/overview');
 };
 // SUB-ITEMS2
 exports.getMenuSubItems2 = (req, res) => {
   console.log('We are in Menu sub items 2');
 
-  res.status(200).render('./pages/overview', doc);
+  res.status(200).render('./pages/overview');
 };
 
 // OVERVIEW RELATED CONTROLLER
 exports.getOverview = (req, res) => {
   console.log('We are in viewsController');
 
-  res.status(200).render('./pages/overview', doc);
+  res.status(200).render('./pages/overview');
 };
 
 // EXAMPLE RELATED CONTROLLER
 exports.getExample = (req, res) => {
   console.log('We are in Example Page');
 
-  res.status(200).render('./../views/pages/example/form', doc);
+  const test = getMenuItems();
+  console.log(test);
+
+  res.status(200).render('./../views/pages/example/example');
 };
 
 // LOGIN RELATED CONTROLLER
@@ -481,111 +516,103 @@ exports.getError = (req, res) => {
 exports.getAllUser = (req, res) => {
   console.log('We are in All Users Page');
 
-  res.status(200).render('./../views/pages/users/all-users', doc);
+  res.status(200).render('./../views/pages/users/all-users');
 };
 exports.getAddUser = (req, res) => {
   console.log('We are in Add Users Page');
-  res.status(200).render(`./../views/pages/users/add-user`, doc);
+  res.status(200).render(`./../views/pages/users/add-user`);
 };
 
 // STANDARD FORM RELATED CONTROLLER
 exports.getForm = (req, res) => {
   console.log('We are in Standard Form');
-  res.status(200).render(`./../views/pages/example/form`, doc);
+  res.status(200).render(`./../views/pages/example/form`);
 };
-// EXAMPLE RELATED CONTROLLER
-exports.getExample = (req, res) => {
-  console.log('We are in Add Users Page');
-  res.status(200).render(`./../views/pages/example/example`, doc);
-};
+
 // TABLE RELATED CONTROLLER
 exports.getLocalTable = (req, res) => {
   console.log('We are in Tables Page');
-  res.status(200).render(`./../views/pages/example/local-table`, doc);
+  res.status(200).render(`./../views/pages/example/local-table`);
 };
 exports.getRemoteTable = (req, res) => {
   console.log('We are in Tables Page');
-  res.status(200).render(`./../views/pages/example/remote-table`, doc);
+  res.status(200).render(`./../views/pages/example/remote-table`);
 };
 // ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntries = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/announcement/announcementEntries', doc);
+  res.status(200).render('./../views/pages/announcement/announcementEntries');
 };
 
 exports.announcementNotify = (req, res) => {
   console.log('We are in Announcement Notifications Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/announcement/announcementNotify', doc);
+  res.status(200).render('./../views/pages/announcement/announcementNotify');
 };
 
 // ANALYTICS RELATED CONTROLLER
 exports.analytics = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
-  res.status(200).render('./../views/pages/analytics/analytics', doc);
+  res.status(200).render('./../views/pages/analytics/analytics');
 };
 
 // NEWSLETTER RELATED CONTROLLER
 exports.newsletterMessages = (req, res) => {
   console.log('We are in Newsletter Messages Form Page');
-  res.status(200).render('./../views/pages/newsletter/newsletterMessages', doc);
+  res.status(200).render('./../views/pages/newsletter/newsletterMessages');
 };
 
 exports.newsletterEntries = (req, res) => {
   console.log('We are in Newsletter Entries Form Page');
-  res.status(200).render('./../views/pages/newsletter/newsletterEntries', doc);
+  res.status(200).render('./../views/pages/newsletter/newsletterEntries');
 };
 
 // RATING RELATED CONTROLLER
 exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');
-  res.status(200).render('./../views/pages/rating/ratingAttributeGroups', doc);
+  res.status(200).render('./../views/pages/rating/ratingAttributeGroups');
 };
 
 exports.ratingAttribute = (req, res) => {
   console.log('We are in Rating Attribute Form Page');
-  res.status(200).render('./../views/pages/rating/ratingAttribute', doc);
+  res.status(200).render('./../views/pages/rating/ratingAttribute');
 };
 
 exports.ratingEntries = (req, res) => {
   console.log('We are in Rating Entries Form Page');
-  res.status(200).render('./../views/pages/rating/ratingEntries', doc);
+  res.status(200).render('./../views/pages/rating/ratingEntries');
 };
 
 // EVENT RELATED CONTROLLER
 exports.eventEntries = (req, res) => {
   console.log('We are in event Entries Form Page');
-  res.status(200).render('./../views/pages/event/eventEntries', doc);
+  res.status(200).render('./../views/pages/event/eventEntries');
 };
 
 // LEADS RELATED CONTROLLER
 exports.leadCategories = (req, res) => {
   console.log('We are in Lead Categories Form Page');
-  res.status(200).render('./../views/pages/leads/leadCategories', doc);
+  res.status(200).render('./../views/pages/leads/leadCategories');
 };
 
 exports.leadResponse = (req, res) => {
   console.log('We are in Lead Response Form Page');
-  res.status(200).render('./../views/pages/leads/leadResponse', doc);
+  res.status(200).render('./../views/pages/leads/leadResponse');
 };
 
 exports.leadEntries = (req, res) => {
   console.log('We are in Lead Entries Form Page');
-  res.status(200).render('./../views/pages/leads/leadEntries', doc);
+  res.status(200).render('./../views/pages/leads/leadEntries');
 };
 
 // SALES AND FINANCE RELATED CONTROLLER
 exports.address = (req, res) => {
   console.log('We are in address Form Page');
-  res.status(200).render('./../views/pages/sales-finance/address', doc);
+  res.status(200).render('./../views/pages/sales-finance/address');
 };
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
-  res.status(200).render('./../views/pages/comments/commentEntries', doc);
+  res.status(200).render('./../views/pages/comments/commentEntries');
 };
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
