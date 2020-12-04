@@ -65,6 +65,11 @@ router.get('/event/entries', viewsController.eventEntries);
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
+
+// TICKET AND SUPPORTS RELATED ROUTES
+router.get('/ticket-support/categories', viewsController.ticketCategories);
+router.get('/ticket-support/Products', viewsController.ticketProducts);
+
 // ANALYTICS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);

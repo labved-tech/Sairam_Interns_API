@@ -587,3 +587,12 @@ exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries', doc);
 };
+// TICKET AND SUPPORTS RELATED CONTROLLER
+exports.ticketCategories = (req, res) => {
+  console.log('We are in ticketCategories Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketCategories', doc);
+};
+exports.ticketProducts = (req, res) => {
+  console.log('We are in ticketProducts Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketProducts', doc);
+};
