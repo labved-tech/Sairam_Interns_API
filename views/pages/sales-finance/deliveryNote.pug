@@ -19,7 +19,7 @@ block content
                         h3(class='card-title') Delivery Note
                     div(class='card-body')
                         // begin::Form
-                        form#createDeliveryNote(class='form')
+                        form#createDeliveryNoteForm(class='form')
                             div(class='row')
                                 div(class='col-md-1')
                                 div(class='col-xl-6')
@@ -43,3 +43,120 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-6')
                                                 input#dnSource(type='text' class='form-control' name='dnSource' placeholder='Enter Source')
+
+                                        //dnSourceAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source Address
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dnSourceAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dnSourceAddress' placeholder='')
+
+                                        //dnSourceContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source Contact Number
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnSourceContact(type='text' class='form-control' name='dnSourceContact' placeholder='Enter Contact Number')
+
+                                        //dnSourceGST
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source GST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnSourceGST(type='text' class='form-control' name='dnSourceGST' placeholder='')
+
+                                        //dnCosignee
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnCosignee(type='text' class='form-control' name='dnSourceContact' placeholder='')
+
+                                        //dnCosigneeAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Address
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dnCosigneeAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dnCosigneeAddress' placeholder='')
+
+                                        //dnCosigneeEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Email
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnCosigneeEmail(type='text' class='form-control' name='dnCosigneeEmail' placeholder='Enter Email')
+
+                                        //dnCosigneeContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Contact Number
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnCosigneeContact(type='text' class='form-control' name='dnCosigneeContact' placeholder='Enter Contact Number')
+
+                                        //dnCosigneeGST
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee GST 
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnCosigneeGST(type='text' class='form-control' name='dnCosigneeGST' placeholder='')
+
+                                        //dnBox
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Box 
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnBox(type='text' class='form-control' name='dnBox' placeholder='')
+
+                                        //dnShipMethod
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Ship Method  
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnShipMethod(type='text' class='form-control' name='dnShipMethod' placeholder='')
+
+                                        //dnCarrierName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnCarrierName(type='text' class='form-control' name='dnCarrierName' placeholder='')
+
+                                        //dnTrackingNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Tracking No  
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnTrackingNo(type='text' class='form-control' name='dnTrackingNo' placeholder='')
+
+                                        //dnShippingNotes
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='dnShippingNotes')
+                                                | Shipping Notes
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#dnShippingNotes(class='form-control' name='dnShippingNotes' rows='3')
+                                                span(class='form-text text-muted') Add Shipping Notes
+
+                                        //dnReceivedBy
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Received By  
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnReceivedBy(type='text' class='form-control' name='dnReceivedBy' placeholder='')
+                                                
+                                        //dnFileProof
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') File Proof
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnFileProof(type='text' class='form-control' name='dnFileProof' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#dnFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

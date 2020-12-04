@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3b0f401b-c9bb-4750-b202-0e06c4112eb9",
+		"_postman_id": "d66f2f79-c561-4ee1-b12b-f9b50cdf4cba",
 		"name": "deliveryNote",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"packingListNumber\": 5688,\n  \"source\": \"xyz\",\n  \"sourceAddress\":{ \n      \"street\":\"xyzstreet\"\n      },\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\"333\",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": {\n      \"address\": \"beach road\"\n  },\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \"666\",\n  \"box\": \"x,y\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n  \"shippingNotes\": \"package\",\n  \"receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
+					"raw": "{\n  \"packingListnumber\": 1235,\n  \"taxInvoiceNumber\": 84738,\n  \"source\": \"xyz\",\n  \"sourceAddress\":{ \n      \"street\":\"xyzstreet\"\n      },\n  \"sourceContactNumber\": \"987653462\",\n  \"sourceGstin\":\"333\",\n  \"consignee\": \"ABC\",\n  \"consigneeAddress\": {\n      \"address\": \"beach road\"\n  },\n  \"consigneeEmail\": \"cosignee@email.com\",\n  \"consigneeContactNumber\": \"63783899\",\n  \"consigneeGstin\": \"666\",\n  \"box\": \"x,y\",\n  \"shipMethod\": \"delivery\",\n  \"carrierName\": \"ted\",\n  \"carrierTrackingNumber\": 67899002,\n  \"shippingNotes\": \"package\",\n  \"receivedBy\": \"lily\",\n  \"fileProof\": \"yes\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
