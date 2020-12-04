@@ -607,13 +607,12 @@ exports.leadEntries = (req, res) => {
 // SALES AND FINANCE RELATED CONTROLLER
 exports.address = (req, res) => {
   console.log('We are in address Form Page');
-<<<<<<< Updated upstream
   res.status(200).render('./../views/pages/sales-finance/address');
 };
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
-  res.status(200).render('./../views/pages/comments/commentEntries');
+  res.status(200).render('./../views/pages/comments/commentEntries', doc);
 };
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
@@ -624,11 +623,8 @@ exports.ticketProducts = (req, res) => {
   console.log('We are in ticketProducts Form Page');
   res.status(200).render('./../views/pages/ticket-support/ticketProducts', doc);
 };
-=======
-  res.status(200).render('./../views/pages/sales-finance/address',doc);
-};
+
 exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote',doc);
 };
->>>>>>> Stashed changes

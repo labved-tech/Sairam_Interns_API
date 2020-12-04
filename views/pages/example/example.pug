@@ -16,10 +16,13 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Example Form
+                            | Example Form #{tyup}
                             script.
                                 - console.log(`This is data`)
-                                - console.log(`asideMenu : ${asideMenu}`)
+                                var test = "google"
+                                var test1 = name
+                                console.log(`asideMenu :`, test)
+                                console.log(JSON.stringify(name))
                     div(class='card-body')
                         // begin::Form
                         form#kt_form_1(class='form' action='http://localhost:3000/api/v1/example')

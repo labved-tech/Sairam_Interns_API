@@ -19,8 +19,6 @@
 		//- end::Toolbar
 	//- end::Brand
 	//- begin::Aside Menu
-	.script
-		- console.log(asideMenu);
 	#kt_aside_menu_wrapper(class='aside-menu-wrapper flex-column-fluid')
 		//- begin::Menu Container
 		#kt_aside_menu(class='aside-menu my-4' data-menu-vertical='1' data-menu-scroll='1' data-menu-dropdown-timeout='500')
@@ -30,7 +28,9 @@
 					a(href='/dashboard' class='menu-link')
 						i(class='menu-icon flaticon2-poll-symbol')
 						span(class='menu-text') Dashboard
-
+				script.
+					var sectionNo = sectionItems.length;
+					- console.log(`No of section :${sectionNo}`)
 				
 				// end::Menu Nav
 			// end::Menu Container
