@@ -18,7 +18,7 @@ const DirectoryCRUD = (function () {
 
         // Initialise
 
-        if (!createRatingAttributeGroupsForm) {
+        if (!createDirectoryCategoriesForm) {
             return;
         }
 
@@ -52,7 +52,7 @@ const DirectoryCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                createDirectoryCategoriesFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                dcFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
@@ -65,7 +65,7 @@ const DirectoryCRUD = (function () {
                 method: 'post',
                 url: `${HOST_URL}/api/v1/ratings/attribute/groups`,
                 data: {
-                    name: ragName.value,
+                    name: dcName.value,
                     _attributeGroupsId: dcAttributeGroupsId.value,
                     _ratingAttributeGroupId: dcRatingAttributeGroupId.value
                     //slug
@@ -202,7 +202,10 @@ const DirectoryCRUD = (function () {
         // public functions
         init: function () {
             _createDirectoryCategoriesForm();
+<<<<<<< Updated upstream
             _createDirectoryForm();
+=======
+>>>>>>> Stashed changes
         }
     }
 })();

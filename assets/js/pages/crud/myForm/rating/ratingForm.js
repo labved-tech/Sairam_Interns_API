@@ -193,12 +193,12 @@ const RatingCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                createRatingAttributeGroupsFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                ragFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
         }).on('core.form.valid', function () {
-            KTUtil.btnWait(createRatingAttributeGroupsFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+            KTUtil.btnWait(ragFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
             console.log(`Value:${ragName.value}`);
 
             // Accessing Restful API
@@ -256,9 +256,9 @@ const RatingCRUD = (function () {
     return {
         // public functions
         init: function () {
-            _createRatingAttribute();
-            _createRatingAttributeGroups();
-            _createRatingEntries();
+            _createRatingAttributeForm();
+            _createRatingAttributeGroupsForm();
+            _createRatingEntriesForm();
         }
     }
 })();
