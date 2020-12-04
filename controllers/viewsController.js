@@ -611,7 +611,6 @@ exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries', doc);
 };
-<<<<<<< Updated upstream
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
@@ -626,7 +625,6 @@ exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
 };
-=======
 
 // DIRECTORY RELATED CONTROLLER
 exports.directoryAttributesGroups = (req, res) => {
@@ -653,4 +651,3 @@ exports.directory = (req, res) => {
   console.log('We are in directory Form Page');
   res.status(200).render('./../views/pages/directory/directory', doc);
 };
->>>>>>> Stashed changes
