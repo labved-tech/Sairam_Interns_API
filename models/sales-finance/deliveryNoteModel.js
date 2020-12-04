@@ -8,7 +8,6 @@ const { Schema } = mongoose;
 const deliveryNoteSchema = new Schema({
   packingListnumber: { type: Number },
   taxInvoiceNumber: { type: Number },
-  packingListNumber: { type: Number },
   source: { type: String },
   sourceAddress: { type: Object },
   sourceContactNumber: { type: String },

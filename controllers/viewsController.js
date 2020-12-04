@@ -607,6 +607,7 @@ exports.leadEntries = (req, res) => {
 // SALES AND FINANCE RELATED CONTROLLER
 exports.address = (req, res) => {
   console.log('We are in address Form Page');
+<<<<<<< Updated upstream
   res.status(200).render('./../views/pages/sales-finance/address');
 };
 // COMMENTS RELATED CONTROLLER
@@ -623,3 +624,11 @@ exports.ticketProducts = (req, res) => {
   console.log('We are in ticketProducts Form Page');
   res.status(200).render('./../views/pages/ticket-support/ticketProducts', doc);
 };
+=======
+  res.status(200).render('./../views/pages/sales-finance/address',doc);
+};
+exports.deliveryNote = (req, res) => {
+  console.log('We are in Delivery Note Form Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNote',doc);
+};
+>>>>>>> Stashed changes

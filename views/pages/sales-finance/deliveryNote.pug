@@ -1,0 +1,45 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Delivery Note
+                    div(class='card-body')
+                        // begin::Form
+                        form#createDeliveryNote(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        // dnPackingListNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Packing List Number
+                                            div(class='col-4')
+                                                input#dnPackingListNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='dnPackingListNo' placeholder='')
+
+                                        // dnTaxInvoiceNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Tax Invoice Number
+                                            div(class='col-4')
+                                                input#dnTaxInvoiceNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='dnTaxInvoiceNo' placeholder='')
+
+                                        // dnSource
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#dnSource(type='text' class='form-control' name='dnSource' placeholder='Enter Source')
