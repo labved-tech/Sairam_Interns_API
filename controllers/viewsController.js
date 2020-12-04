@@ -480,10 +480,7 @@ exports.getOverview = (req, res) => {
 exports.getExample = (req, res) => {
   console.log('We are in Example Page');
 
-  const test = getMenuItems();
-  console.log(test);
-
-  res.status(200).render('./../views/pages/example/example');
+  res.status(200).render('./../views/pages/example/example', doc);
 };
 
 // LOGIN RELATED CONTROLLER
