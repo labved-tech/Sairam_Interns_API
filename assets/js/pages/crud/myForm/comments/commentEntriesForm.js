@@ -2,7 +2,7 @@
 'use strict';
 
 /* Class definition */
-const eventCRUD = (function () {
+const commentCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
@@ -17,12 +17,20 @@ const eventCRUD = (function () {
         const ceRelId = KTUtil.getById('ceRelId');
         const ceRating = KTUtil.getById('ceRating');
         const ceMessage = KTUtil.getById('ceMessage');
-        const crMessage = KTUtil.getById('crMessage');
-        const crcommentorId = KTUtil.getById('crcommentorId');
+        const cerMessage = KTUtil.getById('ceMessage');
+        const cecommentorId = KTUtil.getById('cecommentorId');
 
         // Initializing 
 
         // ceMessage
+        $(ceMessage).summernote({
+            height: 400,
+            tabsize: 2
+        });
+        $(cerMessage).summernote({
+            height: 400,
+            tabsize: 2
+        });
 
         // Return Form
         if (!createCommentEntriesForm) {
@@ -75,13 +83,13 @@ const eventCRUD = (function () {
                         },
                     },
                 },
-/*                 crMessage: {
-                    validators: {
-                        notEmpty: {
-                            message: 'message is required',
-                        },
-                    },
-                }, */
+                /*                 crMessage: {
+                                    validators: {
+                                        notEmpty: {
+                                            message: 'message is required',
+                                        },
+                                    },
+                                }, */
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -103,7 +111,7 @@ const eventCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/comments/entries`,
+                    url: `${HOST_URL}/api/v1/comments/centries`,
                     data: {
                         _commentorid: commentorId.value,
                         relName: ceName.value,

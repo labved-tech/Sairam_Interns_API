@@ -5,7 +5,7 @@ block css-files
 
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/event/eventForm.js' )
+    script(src='/js/pages/crud/myForm/comments/commentEntriesForm.js' )
     
 
 block content
@@ -19,7 +19,7 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | comments Form
+                            | commentsEntries Form
                     div(class='card-body')
                         // begin::Form
                         form#createCommentEntriesForm(class='form' )
@@ -32,7 +32,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') commentor ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cecommentorId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceCommentorId' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
 
                                         div(class='form-group row')
@@ -59,18 +59,23 @@ block content
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
                                         // ceMessage
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Message
-                                            div(class='col-9')
-                                                div#ceMessage(class='summernote' name='ceMessage')
-                                                span(class='form-text text-muted') Add message that you wish to send.
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Message
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#ceMessage(class='form-control' name='ceMessage' rows='3')
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.   
 
                                         h3(class=' text-dark font-weight-bold mb-10') commentReplies
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Message
-                                            div(class='col-9')
-                                                div#crMessage(class='summernote' name='crMessage')
-                                                span(class='form-text text-muted') Add message that you wish to send.
+                                        // cerMessage
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Message
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#cerMessage(class='form-control' name='demoTextarea' rows='3')
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.   
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') commentor ID
                                             div(class='col-4')
