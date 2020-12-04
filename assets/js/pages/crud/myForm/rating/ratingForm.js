@@ -73,7 +73,7 @@ const RatingCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                ratingAttributeFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                raFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
