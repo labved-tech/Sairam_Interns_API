@@ -480,7 +480,7 @@ exports.getOverview = (req, res) => {
 exports.getExample = (req, res) => {
   console.log('We are in Example Page');
 
-  res.status(200).render('./../views/pages/example/example', doc);
+  res.status(200).render('./../views/pages/example/example');
 };
 
 // LOGIN RELATED CONTROLLER
