@@ -434,7 +434,7 @@ async function getMenuItems() {
 // STANDARD FORM RELATED CONTROLLER
 exports.getTest = (req, res) => {
   console.log('We are in Standard Form');
-  res.status(200).render(`./../views/pages/example/test`);
+  res.status(200).render(`./../views/pages/example/test`, doc);
 };
 
 /* MENU */
@@ -442,31 +442,31 @@ exports.getTest = (req, res) => {
 exports.getMenuManager = (req, res) => {
   console.log('We are in Menu Manager');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/overview', doc);
 };
 // SECTION
 exports.getMenuSection = (req, res) => {
   console.log('We are in Menu Section');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/overview', doc);
 };
 // ITEMS
 exports.getMenuItems = (req, res) => {
   console.log('We are in Menu Items');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/overview', doc);
 };
 // SUB-ITEMS1
 exports.getMenuSubItems1 = (req, res) => {
   console.log('We are in Menu sub items 1');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/overview', doc);
 };
 // SUB-ITEMS2
 exports.getMenuSubItems2 = (req, res) => {
   console.log('We are in Menu sub items 2');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/overview', doc);
 };
 
 // OVERVIEW RELATED CONTROLLER
@@ -501,7 +501,7 @@ exports.getLoginForm = (req, res) => {
 exports.getForgot = (req, res) => {
   console.log('We are in Forgot Password Page');
 
-  res.status(200).render('./pages/users/forgotPassword');
+  res.status(200).render('./pages/users/forgotPassword', doc);
 };
 exports.getError = (req, res) => {
   console.log('We are in Error Page');
@@ -513,11 +513,11 @@ exports.getError = (req, res) => {
 exports.getAllUser = (req, res) => {
   console.log('We are in All Users Page');
 
-  res.status(200).render('./../views/pages/users/all-users');
+  res.status(200).render('./../views/pages/users/all-users', doc);
 };
 exports.getAddUser = (req, res) => {
   console.log('We are in Add Users Page');
-  res.status(200).render(`./../views/pages/users/add-user`);
+  res.status(200).render(`./../views/pages/users/add-user`, doc);
 };
 
 // STANDARD FORM RELATED CONTROLLER
