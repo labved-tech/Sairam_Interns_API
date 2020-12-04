@@ -77,4 +77,14 @@ router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);
 router.get('/lead/response', viewsController.leadResponse);
 
+<<<<<<< Updated upstream
+=======
+// DIRECTORY RELATED ROUTES
+router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
+router.get('/directory/categories', viewsController.directoryCategories);
+router.get('/directory/levels', viewsController.directoryLevels);
+router.get('/directory/entries', viewsController.directoryEntries);
+router.get('/directory', viewsController.directory);
+
+>>>>>>> Stashed changes
 module.exports = router;
