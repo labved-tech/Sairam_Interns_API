@@ -473,7 +473,7 @@ exports.getMenuSubItems2 = (req, res) => {
 exports.getOverview = (req, res) => {
   console.log('We are in viewsController');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/overview', doc);
 };
 
 // EXAMPLE RELATED CONTROLLER
@@ -523,17 +523,17 @@ exports.getAddUser = (req, res) => {
 // STANDARD FORM RELATED CONTROLLER
 exports.getForm = (req, res) => {
   console.log('We are in Standard Form');
-  res.status(200).render(`./../views/pages/example/form`);
+  res.status(200).render(`./../views/pages/example/form`, doc);
 };
 
 // TABLE RELATED CONTROLLER
 exports.getLocalTable = (req, res) => {
   console.log('We are in Tables Page');
-  res.status(200).render(`./../views/pages/example/local-table`);
+  res.status(200).render(`./../views/pages/example/local-table`, doc);
 };
 exports.getRemoteTable = (req, res) => {
   console.log('We are in Tables Page');
-  res.status(200).render(`./../views/pages/example/remote-table`);
+  res.status(200).render(`./../views/pages/example/remote-table`, doc);
 };
 // ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntries = (req, res) => {
