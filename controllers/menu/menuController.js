@@ -14,40 +14,40 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Items');
   // console.log(req.query);
 
-  menuManagerStr = req.query.manager;
+  const menuManagerStr = req.query.manager;
 
-  const menuManager = await MenuManager.find({name: menuManagerStr}).then();
+  const menuManager = await MenuManager.find({ name: menuManagerStr }).then();
   const menuMangerId = menuManager[0]._id;
 
-  const menuSection = await MenuSection.find().select('_id name priority').then();
+  const section = await MenuSection.find().select('_id name priority').then();
 
-  const menuItems = await MenuItems.find({
+  const items = await MenuItems.find({
     _menuId: { $all: [menuMangerId] },
   })
-  .sort('priority')
-  .populate('_menuId')
-  .populate('_sectionId')
-  .select('_id name priority route')
-  .then();
+    .sort('priority')
+    .populate('_menuId')
+    .populate('_sectionId')
+    .select('_id name priority route')
+    .then();
 
-  const menuSubItems1 = await MenuSubItems1.find()
-  .sort('priority')
-  .populate('_parentId')
-  .select('_id name priority route')
-  .then();
+  const subitems1 = await MenuSubItems1.find()
+    .sort('priority')
+    .populate('_parentId')
+    .select('_id name priority route')
+    .then();
 
-  const menuSubItems2 = await MenuSubItems2.find()
-  .sort('priority')
-  .populate('_parentId')
-  .select('_id name priority route')
-  .then();
+  const subitems2 = await MenuSubItems2.find()
+    .sort('priority')
+    .populate('_parentId')
+    .select('_id name priority route')
+    .then();
 
   res.status(200).json({
     status: 'success',
-    message: 'Got All Menu Items',
-    menuSection,
-    menuItems,
-    menuSubItems1,
-    menuSubItems2,
+    message: 'Got Aside Menu Items',
+    section,
+    items,
+    subitems1,
+    subitems2,
   });
 });

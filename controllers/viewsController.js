@@ -1,3 +1,16 @@
+const { default: Axios } = require('axios');
+
+/* DEPENDENCIES */
+
+/* MIDDLEWARES */
+const catchAsync = require('../utils/catchAsync');
+const AppError = require('../utils/appError');
+const MenuManager = require('../models/menu/menuManagerModel');
+const MenuSection = require('../models/menu/menuSectionModel');
+const MenuItems = require('../models/menu/menuItemsModel');
+const MenuSubItems1 = require('../models/menu/menuSubItems1Model');
+const MenuSubItems2 = require('../models/menu/menuSubItems2Model');
+
 const doc = {
   name: 'aside-menu',
   content: 'This content is from overview.pug',
@@ -405,6 +418,25 @@ const doc = {
     },
   ],
 };
+
+let asideMenu;
+
+async function getMenuItems() {
+  // console.log(menuManager);
+  // console.log(section);
+  // console.log(items);
+  // console.log(subitems1);
+  // console.log(subitems2);
+
+  return test;
+}
+
+// STANDARD FORM RELATED CONTROLLER
+exports.getTest = (req, res) => {
+  console.log('We are in Standard Form');
+  res.status(200).render(`./../views/pages/example/test`, doc);
+};
+
 /* MENU */
 // MANAGER
 exports.getMenuManager = (req, res) => {
@@ -448,7 +480,7 @@ exports.getOverview = (req, res) => {
 exports.getExample = (req, res) => {
   console.log('We are in Example Page');
 
-  res.status(200).render('./../views/pages/example/form', doc);
+  res.status(200).render('./../views/pages/example/example', doc);
 };
 
 // LOGIN RELATED CONTROLLER
@@ -469,7 +501,7 @@ exports.getLoginForm = (req, res) => {
 exports.getForgot = (req, res) => {
   console.log('We are in Forgot Password Page');
 
-  res.status(200).render('./pages/users/forgotPassword');
+  res.status(200).render('./pages/users/forgotPassword', doc);
 };
 exports.getError = (req, res) => {
   console.log('We are in Error Page');
@@ -493,11 +525,7 @@ exports.getForm = (req, res) => {
   console.log('We are in Standard Form');
   res.status(200).render(`./../views/pages/example/form`, doc);
 };
-// EXAMPLE RELATED CONTROLLER
-exports.getExample = (req, res) => {
-  console.log('We are in Add Users Page');
-  res.status(200).render(`./../views/pages/example/example`, doc);
-};
+
 // TABLE RELATED CONTROLLER
 exports.getLocalTable = (req, res) => {
   console.log('We are in Tables Page');
@@ -510,16 +538,12 @@ exports.getRemoteTable = (req, res) => {
 // ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntries = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/announcement/announcementEntries', doc);
+  res.status(200).render('./../views/pages/announcement/announcementEntries', doc);
 };
 
 exports.announcementNotify = (req, res) => {
   console.log('We are in Announcement Notifications Form Page');
-  res
-    .status(200)
-    .render('./../views/pages/announcement/announcementNotify', doc);
+  res.status(200).render('./../views/pages/announcement/announcementNotify', doc);
 };
 
 // ANALYTICS RELATED CONTROLLER
@@ -586,4 +610,44 @@ exports.address = (req, res) => {
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries', doc);
+};
+// TICKET AND SUPPORTS RELATED CONTROLLER
+exports.ticketCategories = (req, res) => {
+  console.log('We are in ticketCategories Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketCategories', doc);
+};
+exports.ticketProducts = (req, res) => {
+  console.log('We are in ticketProducts Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketProducts', doc);
+};
+
+exports.deliveryNote = (req, res) => {
+  console.log('We are in Delivery Note Form Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
+};
+
+// DIRECTORY RELATED CONTROLLER
+exports.directoryAttributesGroups = (req, res) => {
+  console.log('We are in directory Attributes Groups Form Page');
+  res.status(200).render('./../views/pages/directory/directoryAttributesGroups', doc);
+};
+
+exports.directoryCategories = (req, res) => {
+  console.log('We are in directory Categories Form Page');
+  res.status(200).render('./../views/pages/directory/directoryCategories', doc);
+};
+
+exports.directoryLevels = (req, res) => {
+  console.log('We are in directory Levels Form Page');
+  res.status(200).render('./../views/pages/directory/directoryLevels', doc);
+};
+
+exports.directoryEntries = (req, res) => {
+  console.log('We are in directory Entries Form Page');
+  res.status(200).render('./../views/pages/directory/directoryEntries', doc);
+};
+
+exports.directory = (req, res) => {
+  console.log('We are in directory Form Page');
+  res.status(200).render('./../views/pages/directory/directory', doc);
 };

@@ -13,6 +13,7 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
+router.get('/test', viewsController.getTest);
 router.get('/overview', authController.protect, viewsController.getOverview);
 
 // EXAMPLE RELATED ROUTES
@@ -59,17 +60,28 @@ router.get('/newsletter/entries', viewsController.newsletterEntries);
 
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);
+router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
+
+// TICKET AND SUPPORTS RELATED ROUTES
+router.get('/ticket-support/categories', viewsController.ticketCategories);
+router.get('/ticket-support/Products', viewsController.ticketProducts);
+
 // ANALYTICS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);
 router.get('/lead/response', viewsController.leadResponse);
 
-
+// DIRECTORY RELATED ROUTES
+router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
+router.get('/directory/categories', viewsController.directoryCategories);
+router.get('/directory/levels', viewsController.directoryLevels);
+router.get('/directory/entries', viewsController.directoryEntries);
+router.get('/directory', viewsController.directory);
 
 module.exports = router;

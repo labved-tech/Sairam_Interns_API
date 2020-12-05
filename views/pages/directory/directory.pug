@@ -1,0 +1,74 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/directory/directoryForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Directory Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createDirectoryForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')  
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+
+                                        // dName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#dName(type='text' class='form-control' name='dName' placeholder='ex. Vignesh')
+                                                span(class='form-text text-muted') Enter your name
+
+                                        // dSingle
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Single
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#dSingle(type='text' class='form-control' name='dSingle' placeholder='ex. Vignesh')
+                                                span(class='form-text text-muted') Single
+
+                                        // dPlural
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Plural
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#dPlural(type='text' class='form-control' name='dPlural' placeholder='ex. Vignesh')
+                                                span(class='form-text text-muted') Plural
+
+                                        // dslug
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Slug
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#dSlug(type='text' class='form-control' name='dSlug' placeholder='ex. YYYY')
+                                                span(class='form-text text-muted') slug
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Categories
+                                        div(class='form-group row')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#dFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry   
