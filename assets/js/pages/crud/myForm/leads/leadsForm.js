@@ -589,9 +589,6 @@ const _createLeadResponse = function () {
           const _FormRepeat = function () {
             /* Initializing */
             const kt_repeater_1 = KTUtil.getById('kt_repeater_1'); // Form Repeat #2 : Multiple 
-            
-        
-        
         
             // Form Repeat #2 : Multiple
             $('#kt_repeater_1').repeater({
