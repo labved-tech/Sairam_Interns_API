@@ -76,10 +76,10 @@ block content
                                                     span(class='form-text text-muted') 
                                               
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Single Select1 w search
+                                            label(class='col-3 col-form-label form-control-label text-right') Assigned To
                                             div(class='col-4')
-                                                select#demoSelectSingle(class='form-control selectpicker' data-size='7' data-live-search='true'  name='demoSelectSingle')
-                                                    option(value='' disabled='' selected='') Choose country
+                                                select#leAssignedTo(class='form-control selectpicker' data-size='7' data-live-search='true'  name='leAssignedTo')
+                                                    option(value='' disabled='' selected='') 
                                                     option(value='U1') User 1
                                                     option(value='U2') User 2
                                                     option(value='U3') User 3
@@ -136,7 +136,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Last Lead Status
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#leLastLeadStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leLastLeadStatus' placeholder='States of USA')
+                                                    input#leLastLeadStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leLastLeadStatus' placeholder='  ')
                                                     span(class='form-text text-muted')  
 
                                         div(class='form-group row')
@@ -155,16 +155,73 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Address 1
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#leAdAddress1(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdAddress1' placeholder='States of USA')
+                                                    input#leAdAddress1(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdAddress1' placeholder='  ')
                                                     span(class='form-text text-muted')  
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Street
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#leAdStreet(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdStreet' placeholder='States of USA')
+                                                    input#leAdStreet(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdStreet' placeholder='  ')
                                                     span(class='form-text text-muted')  
 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') City
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leAdCity(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdCity' placeholder='ex. Bangalore ')
+                                                    span(class='form-text text-muted')  
 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') State
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leAdState(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdState' placeholder='ex. Karnataka  ')
+                                                    span(class='form-text text-muted')  
 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Country
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leAdCountry(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdCountry' placeholder='ex. India  ')
+                                                    span(class='form-text text-muted')              
 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Postal Code
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leAdPostalCode(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdPostalCode' placeholder='ex. 600112')
+                                                    span(class='form-text text-muted')                      
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Contact Information
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Type 
+                                            div(class='col-4')
+                                                select#leCiType(class='form-control selectpicker' data-size='7' data-live-search='true'  name='leCiType')
+                                                    option(value='' disabled='' selected='') 
+                                                    option(value='T1') Type 1
+                                                    option(value='T2') Type 2
+                                               span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Text
+                                            div(class='col-6')
+                                                input#leCiName(type='text' class='form-control' name='leCiName' placeholder=' ex. Gokul Vignesh ')
+                                                span(class='form-text text-muted')
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Source 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Text
+                                            div(class='col-6')
+                                                input#leSName(type='text' class='form-control' name='leSName' placeholder=' ex. Gokul Vignesh ')
+                                                span(class='form-text text-muted')
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Lead Status 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Text
+                                            div(class='col-6')
+                                                input#leLsName(type='text' class='form-control' name='leLsName' placeholder=' ex. Gokul Vignesh ')
+                                                span(class='form-text text-muted')                                              
