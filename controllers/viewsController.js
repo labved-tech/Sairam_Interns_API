@@ -11,7 +11,7 @@ const MenuItems = require('../models/menu/menuItemsModel');
 const MenuSubItems1 = require('../models/menu/menuSubItems1Model');
 const MenuSubItems2 = require('../models/menu/menuSubItems2Model');
 
-const doc = {
+let doc = {
   name: 'aside-menu',
   content: 'This content is from overview.pug',
   sectionItems: [
@@ -422,14 +422,65 @@ const doc = {
 let asideMenu;
 
 async function getMenuItems() {
-  // console.log(menuManager);
-  // console.log(section);
-  // console.log(items);
-  // console.log(subitems1);
-  // console.log(subitems2);
 
-  return test;
+  const menuManagerStr = 'aside';
+
+  const manager = await MenuManager.find({ name: menuManagerStr }).then();
+  const managerId = manager[0]._id;
+
+  const section = await MenuSection.find().select('_id name priority').then();
+
+  const items = await MenuItems.find({
+    _menu: { $all: [managerId] },
+  })
+    .sort('priority')
+    .populate('_menu')
+    .populate('_section')
+    .select('_id name priority route _menu _section')
+    .then();
+
+  const subitems1 = await MenuSubItems1.find()
+    .sort('priority')
+    .populate('_parent')
+    .select('_id name priority route _parent')
+    .then();
+
+  const subitems2 = await MenuSubItems2.find()
+    .sort('priority')
+    .populate('_parent')
+    .select('_id name priority route _parent')
+    .then();
+
+/*   console.log(menuManager);
+  console.log(section);
+  console.log(items);
+  console.log(subitems1);
+  console.log(subitems2); */
+
+  return {
+    status: 'success',
+    message: 'Got Aside Menu Items',
+    manager,
+    section,
+    items,
+    subitems1,
+    subitems2,
+  };
+
 }
+
+// EXAMPLE RELATED CONTROLLER
+exports.getExample = async (req, res) => {
+  console.log('We are in Example Page');
+
+  const asideMenu = await getMenuItems();
+  let doc = {
+    title : 'Example Page',
+    asideMenu : asideMenu,
+  }
+  console.log(doc);
+  res.status(200).render('./../views/pages/example/example', doc);
+};
 
 // STANDARD FORM RELATED CONTROLLER
 exports.getTest = (req, res) => {
@@ -476,12 +527,7 @@ exports.getOverview = (req, res) => {
   res.status(200).render('./pages/overview', doc);
 };
 
-// EXAMPLE RELATED CONTROLLER
-exports.getExample = (req, res) => {
-  console.log('We are in Example Page');
 
-  res.status(200).render('./../views/pages/example/example');
-};
 
 // LOGIN RELATED CONTROLLER
 exports.getSignUp = (req, res) => {

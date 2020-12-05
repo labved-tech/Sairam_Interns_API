@@ -41,7 +41,6 @@ app.use((req, res, next) => {
       scriptSrc: [
         "'self'",
         "'unsafe-inline'", // to be remove after testing
-
         //`'nonce-${res.locals.nonce}'`,
         'code.jquery.com',
         'maxcdn.bootstrapcdn.com',
@@ -56,7 +55,7 @@ app.use((req, res, next) => {
       fontSrc: ["'self'", 'fonts.gstatic.com'],
       imgSrc: ["'self'", "'unsafe-inline'", 'data:'],
     },
-    reportOnly: false,
+    reportOnly: true,
   })(req, res, next);
 });
 

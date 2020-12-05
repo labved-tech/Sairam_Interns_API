@@ -28,10 +28,13 @@
 					a(href='/dashboard' class='menu-link')
 						i(class='menu-icon flaticon2-poll-symbol')
 						span(class='menu-text') Dashboard
-					- var sectionNo = sectionItems.length;
+					
+
 					script.
+						- console.log('This is from _aside.pug') // one or two spaces before console.log
+						var sectionNo = sectionItems.length;
+						- console.log(`No of Section :${sectionNo}`)
 						- console.log(`No of section :`)
-						console.log('This is from _aside.pug') // one or two spaces before console.log
 
 				-for(x=0;x<sectionNo;x++)
 					li(class='menu-section')
