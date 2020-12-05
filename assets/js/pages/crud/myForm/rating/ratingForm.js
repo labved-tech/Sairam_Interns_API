@@ -261,7 +261,7 @@ const RatingCRUD = (function () {
         const reValue = KTUtil.getById('reValue');
 
         // Initialise
-        $(raType).select2({
+        $('#reType').select2({
             placeholder: "Select a Type"
         });
 
