@@ -149,7 +149,7 @@ const _createLeadResponse = function () {
               },
             },
           },
-          /* lrEmailSent: {          //switch button not working 
+          lrEmailSent: {         
             validators: {
               notEmpty: {
                 message: 'Is Email Sent is required',
@@ -162,7 +162,7 @@ const _createLeadResponse = function () {
                 message: 'Status Change is required',
               },
             },
-          }, */
+          },
           lrMessage: {
             validators: {
               notEmpty: {
@@ -192,15 +192,18 @@ const _createLeadResponse = function () {
     }).on('core.form.valid', function () {
         KTUtil.btnWait(createLeadResponseFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
         
-      // Accessing Restful API
+        lrIsStatusChange.value = (lrIsStatusChange.value == 'on') ? true:false
+        lrEmailSent.value = (lrEmailSent.value == 'on') ? true:false
+        // Accessing Restful API
+  
       axios({
         method: 'Post',
         url: `${HOST_URL}/api/v1/lead/response/`,
           data: {
             _leadId: lrLeadId.value,
             _responderId: lrResponderId.value,
-            /* emailSent: lrEmailSent.value,            //switch button not working
-            isStatusChange:lrIsStatusChange.value, */
+            emailSent: lrEmailSent.value,
+            isStatusChange:lrIsStatusChange.value,
             message:lrMessage.value,
             status:lrStatus.value,
               

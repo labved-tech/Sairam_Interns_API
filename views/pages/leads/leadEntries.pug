@@ -60,5 +60,111 @@ block content
                                             div(class='col-9 ')
                                                 textarea#leDescription(class='form-control' name='leDescription' rows='3')
                                                 span(class='form-text text-muted')
+                                              
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leEmail(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leEmail' placeholder='ex. example@gmail.com')
+                                                    span(class='form-text text-muted') 
 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leWebsite(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leWebsite' placeholder='ex. WWW.example.com ')
+                                                    span(class='form-text text-muted') 
+                                              
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Single Select1 w search
+                                            div(class='col-4')
+                                                select#demoSelectSingle(class='form-control selectpicker' data-size='7' data-live-search='true'  name='demoSelectSingle')
+                                                    option(value='' disabled='' selected='') Choose country
+                                                    option(value='U1') User 1
+                                                    option(value='U2') User 2
+                                                    option(value='U3') User 3
+                                                span(class='form-text text-muted')
+                                                    
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leSourceId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leSourceId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') 
                                         
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Contact
+                                            div(class='col-4')
+                                                #demoDateTime(class='input-group date' data-target-input='nearest')
+                                                    input#leLastContact(type='text' class='form-control datetimepicker-input' name='leLastContact' placeholder='Select date & time' data-target='#demoDateTime')
+                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
+                                                        span(class='input-group-text')
+                                                            i(class='ki ki-calendar')
+                                                    span(class='form-text text-muted') 
+                                        
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoExampleSelect2')
+                                                | Priority
+                                                span(class='text-danger') *
+                                            div(class='col-4')
+                                                select#lePriority(multiple='' class='form-control'  name='lePriority' )
+                                                    option 1
+                                                    option 2
+                                                    option 3
+                                                span(class='form-text text-muted')                                        
+                                
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Converted
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#leDateConverted(type='text' class='form-control' readonly='' name='leDateConverted' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Lost
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#leLost(type='checkbox' checked='checked' name='leLost')
+                                                        span
+                                                span(class='form-text text-muted')         
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Lead Status
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leLastLeadStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leLastLeadStatus' placeholder='States of USA')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Status Change
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#leLastStatusChange(type='text' class='form-control' readonly='' name='leLastStatusChange' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Address
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Address 1
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leAdAddress1(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdAddress1' placeholder='States of USA')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Street
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leAdStreet(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leAdStreet' placeholder='States of USA')
+                                                    span(class='form-text text-muted')  
+
+
+
+
