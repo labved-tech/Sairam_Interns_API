@@ -69,7 +69,7 @@ exports.createDeliveryNote = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     message: 'Created Delivery Note',
-    deliveryNote ,
+    data: { deliveryNote },
   });
 
   next();

@@ -293,14 +293,14 @@ const SalesFinanceCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/sales-finance/delivery-note`,
+                    url: `${HOST_URL}/api/v1/sales-finance/deliveryNote`,
                     data: {
-                        packingListnumber: (dnPackingListNo.value) * 1,
-                        taxInvoiceNumber: (dnTaxInvoiceNo.value) * 1,
+                        packingListnumber: (dnPackingListNo.value)*1,
+                        taxInvoiceNumber: (dnTaxInvoiceNo.value)*1,
                         source: dnSource.value,
-                        sourceAddress: dnSourceAddress.value,
+                        sourceAddress:dnSourceAddress.value,     
                         sourceContactNumber: dnSourceContact.value,
-                        sourceGstin: dnSourceGST.value,
+                        sourceGstin:dnSourceGST.value,
                         consignee: dnCosignee.value,
                         consigneeAddress: dnCosigneeAddress.value,
                         consigneeEmail: dnCosigneeEmail.value,
@@ -310,13 +310,12 @@ const SalesFinanceCRUD = (function () {
                         shipMethod: dnShipMethod.value,
                         carrierName: dnCarrierName.value,
                         carrierTrackingNumber: dnTrackingNo.value,
-                        shippingNotes: dnShippingNotes.value,
+                        shippingNotes:dnShippingNotes.value,
                         receivedBy: dnReceivedBy.value,
                         fileProof: dnFileProof.value
                     },
                 }).then(function (res) {
-                    KTUtil.btnRelease(dnFormSubmitButton);
-                    console.log(res)
+                    KTUtil.btnRelease(adFormSubmitButton);
                     // TOASTR EXAMPLE
                     toastr.options = {
                         "closeButton": false,
