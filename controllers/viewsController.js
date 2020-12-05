@@ -593,6 +593,18 @@ exports.address = (req, res) => {
   console.log('We are in address Form Page');
   res.status(200).render('./../views/pages/sales-finance/address', doc);
 };
+
+exports.deliveryNote = (req, res) => {
+  console.log('We are in Delivery Note Form Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
+};
+
+exports.packingList = (req, res) => {
+  console.log('We are in Packing List Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingList', doc);
+};
+
+
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
