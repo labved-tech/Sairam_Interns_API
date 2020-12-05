@@ -62,17 +62,17 @@ block content
                                                 span(class='form-text text-muted')
                                               
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                            label(class='col-3 col-form-label form-control-label text-right') Email 
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#leEmail(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leEmail' placeholder='ex. example@gmail.com')
                                                     span(class='form-text text-muted') 
 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                            label(class='col-3 col-form-label form-control-label text-right') Website 
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#leWebsite(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leWebsite' placeholder='ex. WWW.example.com ')
+                                                    input#leWebsite(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leWebsite' placeholder='ex. www.example.com ')
                                                     span(class='form-text text-muted') 
                                               
                                         div(class='form-group row')
@@ -105,7 +105,6 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right' for='demoExampleSelect2')
                                                 | Priority
-                                                span(class='text-danger') *
                                             div(class='col-4')
                                                 select#lePriority(multiple='' class='form-control'  name='lePriority' )
                                                     option 1
@@ -116,12 +115,12 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Date Converted
                                             div(class='col-4')
-                                                div(class='input-group date')
-                                                    input#leDateConverted(type='text' class='form-control' readonly='' name='leDateConverted' placeholder='Select date')
-                                                    div(class='input-group-append')
+                                                #demoDateTime(class='input-group date' data-target-input='nearest')
+                                                    input#leDateConverted(type='text' class='form-control datetimepicker-input' name='leDateConverted' placeholder='Select date & time' data-target='#demoDateTime')
+                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
                                                         span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-                                                span(class='form-text text-muted') 
+                                                            i(class='ki ki-calendar')
+                                                    span(class='form-text text-muted')
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Lost
@@ -140,14 +139,14 @@ block content
                                                     span(class='form-text text-muted')  
 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Last Status Change
+                                            label(class='col-3 col-form-label form-control-label text-right') Lead Status Change
                                             div(class='col-4')
-                                                div(class='input-group date')
-                                                    input#leLastStatusChange(type='text' class='form-control' readonly='' name='leLastStatusChange' placeholder='Select date')
-                                                    div(class='input-group-append')
+                                                #demoDateTime(class='input-group date' data-target-input='nearest')
+                                                    input#leLastStatusChange(type='text' class='form-control datetimepicker-input' name='leLastStatusChange' placeholder='Select date & time' data-target='#demoDateTime')
+                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
                                                         span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-                                                span(class='form-text text-muted')
+                                                            i(class='ki ki-calendar')
+                                                    span(class='form-text text-muted')
 
                                         h3(class=' text-dark font-weight-bold mb-10') Address
 
@@ -202,18 +201,21 @@ block content
                                                     option(value='' disabled='' selected='') 
                                                     option(value='T1') Type 1
                                                     option(value='T2') Type 2
-                                               span(class='form-text text-muted')
+                                                span(class='form-text text-muted')
 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Text
-                                            div(class='col-6')
-                                                input#leCiName(type='text' class='form-control' name='leCiName' placeholder=' ex. Gokul Vignesh ')
+                                            label(class='col-3 col-form-label form-control-label text-right') Is Public
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#leCiIsPublic(type='checkbox' checked='checked' name='leCiIsPublic')
+                                                        span
                                                 span(class='form-text text-muted')
 
                                         h3(class=' text-dark font-weight-bold mb-10') Source 
 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Text
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
                                             div(class='col-6')
                                                 input#leSName(type='text' class='form-control' name='leSName' placeholder=' ex. Gokul Vignesh ')
                                                 span(class='form-text text-muted')
@@ -221,7 +223,40 @@ block content
                                         h3(class=' text-dark font-weight-bold mb-10') Lead Status 
 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Text
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
                                             div(class='col-6')
                                                 input#leLsName(type='text' class='form-control' name='leLsName' placeholder=' ex. Gokul Vignesh ')
                                                 span(class='form-text text-muted')                                              
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Colour 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#leLsColour(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leLsColour' placeholder='ex. Red')
+                                                    span(class='form-text text-muted')          
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Is Default
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#leLsIsDefault(type='checkbox' checked='checked' name='leLsIsDefault')
+                                                        span
+                                                span(class='form-text text-muted') 
+                                        
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Notes 
+                                            div(class='col-9 ')
+                                                textarea#leLsNotes(class='form-control' name='leLsNotes' rows='3')
+                                                span(class='form-text text-muted')       
+                            
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#createLeadEntriesFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry                                                
