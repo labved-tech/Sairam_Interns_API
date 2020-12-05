@@ -77,7 +77,7 @@ exports.createPackingList = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     message: 'Created PackingList',
-    data: { packingList },
+    packingList,
   });
 
   next();
