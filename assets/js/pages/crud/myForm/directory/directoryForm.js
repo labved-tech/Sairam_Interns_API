@@ -30,6 +30,13 @@ const DirectoryCRUD = (function () {
                             message: 'Name is required',
                         },
                     },
+                    dcSlug: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Slug is required',
+                            },
+                        },
+                    },
                     dcAttributeGroupsId: {
                         validators: {
                             notEmpty: {
@@ -67,8 +74,8 @@ const DirectoryCRUD = (function () {
                 data: {
                     name: dcName.value,
                     _attributeGroupsId: dcAttributeGroupsId.value,
-                    _ratingAttributeGroupId: dcRatingAttributeGroupId.value
-                    //slug
+                    _ratingAttributeGroupId: dcRatingAttributeGroupId.value,
+                    slug: dcSlug.value
                 },
             }).then(function (res) {
                 KTUtil.btnRelease(dcFormSubmitButton);
@@ -202,10 +209,7 @@ const DirectoryCRUD = (function () {
         // public functions
         init: function () {
             _createDirectoryCategoriesForm();
-<<<<<<< Updated upstream
             _createDirectoryForm();
-=======
->>>>>>> Stashed changes
         }
     }
 })();
