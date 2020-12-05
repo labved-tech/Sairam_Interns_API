@@ -194,23 +194,44 @@ block content
 
                                         h3(class=' text-dark font-weight-bold mb-10') Contact Information
 
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Type 
-                                            div(class='col-4')
-                                                select#leCiType(class='form-control selectpicker' data-size='7' data-live-search='true'  name='leCiType')
-                                                    option(value='' disabled='' selected='') 
-                                                    option(value='T1') Type 1
-                                                    option(value='T2') Type 2
-                                                span(class='form-text text-muted')
+                                        #kt_repeater_1
+                                            #kt_repeater_1(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') 
+                                                div(data-repeater-list='', class='col-9')
+                                                    div(data-repeater-item='', class='form-group row align-items-center')
+                                                                                                                
+                                                        div(class='form-group row')
+                                                            labe Type 
+                                                            div(class='col-md-5')
+                                                                select#leCiType(class='form-control selectpicker' data-size='7' data-live-search='true'  name='leCiType')
+                                                                    option(value='' disabled='' selected='') 
+                                                                    option(value='T1') Type 1
+                                                                    option(value='T2') Type 2
+                                                                span(class='form-text text-muted')
 
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Is Public
-                                            div(class='col-4')
-                                                span(class='switch switch-sm')
-                                                    label
-                                                        input#leCiIsPublic(type='checkbox' checked='checked' name='leCiIsPublic')
-                                                        span
-                                                span(class='form-text text-muted')
+                                                        div(class='form-group row')
+                                                            label   Is Public
+                                                            div(class='col-md-3')
+                                                                span(class='switch switch-sm')
+                                                                    label
+                                                                        input#leCiIsPublic(type='checkbox' checked='checked' name='leCiIsPublic')
+                                                                        span
+                                                                span(class='form-text text-muted')
+                                                        div(class='col-md-3')
+                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                                        
+                                                        span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right')
+                                                div(class='col-4')
+                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+
+                                        
 
                                         h3(class=' text-dark font-weight-bold mb-10') Source 
 
