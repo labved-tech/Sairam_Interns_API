@@ -19,7 +19,10 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
   const manager = await MenuManager.find({ name: menuManagerStr }).then();
   const managerId = manager[0]._id;
 
-  const section = await MenuSection.find().select('_id name priority').then();
+  const section = await MenuSection.find({ _menu: { $all: [managerId] } })
+    .populate('_menu')
+    .select('_id name priority _menu')
+    .then();
 
   const items = await MenuItems.find({
     _menu: { $all: [managerId] },
@@ -41,7 +44,6 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
     .populate('_parent')
     .select('_id name priority route _parent')
     .then();
-
 
   res.status(200).json({
     status: 'success',

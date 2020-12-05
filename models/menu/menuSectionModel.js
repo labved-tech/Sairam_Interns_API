@@ -14,6 +14,7 @@ const menuSectionSchema = new Schema(
     },
     description: { type: String },
     priority: { type: Number },
+    _menu: { type: mongoose.ObjectId, ref: 'menu-manager' },
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
   },
