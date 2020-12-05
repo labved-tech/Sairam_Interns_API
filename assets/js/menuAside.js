@@ -20,23 +20,39 @@ const MenuFetch = (function () {
     const fetchAsideMenu = async () => {
       var asideMenu = await fetchMenu();
       console.log(asideMenu);
-      
-      $('#asideMenuItemUl').append('\
+
+      var managerId = asideMenu.manager[0]._id;
+      console.log('managerId', managerId);
+      var sectionNo = asideMenu.section.length;
+      console.log('sectionNo', sectionNo);
+      var sectionId;
+      var menuItemsNo = asideMenu.items.length;
+      console.log('menuItemsNo', menuItemsNo);
+      var menuItemsNo;
+
+      for (let x = 0; x < sectionNo; x++)
+      {
+        for (let i = 0; x < menuItemsNo; x++) {
+          $('#asideMenuItemUl').append('\
         <!-- begin::Section Container -->\
         <li class= "menu-section" >\
-          <h4 class="menu-text">Section Name</h4>\
+          <h4 class="menu-text">' + asideMenu.section[x].name + '</h4>\
           <i class="menu-icon ki ki-bold-more-hor icon-md" ></i>\
         </li>\
         \
         <!-- begin::Menu Container -->\
         <li class= "menu-item  menu-item-submenu" aria - haspopup="true" >\
-          <a href="index.html" class="menu-link ">\
+          <a href="'+ asideMenu.items[i].route +'" class="menu-link ">\
             <i class="menu-icon flaticon2-poll-symbol"></i>\
-            <span class="menu-text"> Test Link </span></a>\
+            <span class="menu-text">' + asideMenu.items[i].name + '</span></a>\
             <i class="menu-arrow"></i>\
         </li>\
         \
         ');
+        }
+      }
+
+
     }
 
     return {
