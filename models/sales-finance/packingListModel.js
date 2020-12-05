@@ -6,7 +6,7 @@ const { Schema } = mongoose;
 
 /* SCHEMA */
 const packingListSchema = new Schema({
-  
+
   packingListNumber: { type: Number },
   taxInvoiceNumber: { type: Number },
   source: { type: String },
@@ -22,16 +22,14 @@ const packingListSchema = new Schema({
   box: [
     {
       boxNumber: { type: Number },
-      dimensions: [
+      dimensions: 
         {
           length: { type: Number },
-          bredth: { type: Number },
+          breadth: { type: Number },
           width: { type: Number },
           units: { type: Number },
-          createdBy: { type: mongoose.ObjectId },
-          updatedBy: { type: mongoose.ObjectId }
         },
-      ],
+      
 
       weight: { type: Number },
       weightUnit: { type: String },
@@ -58,7 +56,7 @@ const packingListSchema = new Schema({
   createdBy: { type: mongoose.ObjectId },
   updatedBy: { type: mongoose.ObjectId },
 },
-{timestamps: true}
+  { timestamps: true }
 );
 
 /* MODEL */
