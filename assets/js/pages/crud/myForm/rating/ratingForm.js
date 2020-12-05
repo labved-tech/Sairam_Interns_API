@@ -40,7 +40,7 @@ const RatingCRUD = (function () {
                         },
                     },
                 },
-                raType: {   // not working
+                raType: {
                     validators: {
                         notEmpty: {
                             message: 'Type is required',
@@ -208,7 +208,7 @@ const RatingCRUD = (function () {
                 data: {
                     name: ragName.value,
                     _attributeId: ragAttributeId.value,
-                    //status
+                    status: ragStatus.value,
                     description: $('#ragDescription').summernote('code'),
                 },
             }).then(function (res) {
@@ -251,7 +251,127 @@ const RatingCRUD = (function () {
 
     const _createRatingEntriesForm = function () {
 
-    }
+        // Getting Document related information
+        const createRatingEntriesForm = KTUtil.getById('createRatingEntriesForm');
+        const reFormSubmitButton = KTUtil.getById('reFormSubmitButton');
+        const reRelType = KTUtil.getById('reRelType');
+        const reRelId = KTUtil.getById('reRelId');
+        const reAttributeId = KTUtil.getById('reRelId');
+        const reType = KTUtil.getById('reType');
+        const reValue = KTUtil.getById('reValue');
+
+        // Initialise
+        $('#reType').select2({
+            placeholder: "Select a Type"
+        });
+
+        if (!createRatingEntriesForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createRatingEntriesForm, {
+            fields: {
+                reRelId: {
+                    validators: {
+                        notEmpty: {
+                            message: '_relId is required',
+                        },
+                    },
+                },
+                reRelType: {
+                    validators: {
+                        notEmpty: {
+                            message: 'RelType is required',
+                        },
+                    },
+                },
+                reAttributeId: {
+                    validators: {
+                        notEmpty: {
+                            message: '_AttributeId is required',
+                        },
+                    },
+                },
+                reType: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Type is required',
+                        },
+                    },
+                },
+                reValue: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Value is required',
+                        },
+                    },
+                },
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                reFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        }).on('core.form.valid', function () {
+            KTUtil.btnWait(createRatingEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+            console.log(`Value:${reName.value}`);
+
+            // Accessing Restful API
+            axios({
+                method: 'post',
+                url: `${HOST_URL}/api/v1/rating/entries`,
+                data: {
+                    relType: reRelType.value,
+                    relId: reRelId.value,
+                    attributeId: reAttributeId.value,
+                    type: reType.value,
+                    value: reValue.value,
+                    userId: reuserId.value
+
+                },
+            }).then(function (res) {
+                KTUtil.btnRelease(reFormSubmitButton);
+                console.log(res);
+
+                // TOASTR EXAMPLE
+                toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "3000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+
+                if (res.data.status == 'success') {
+                    toastr.success(`${res.data.message}`, `${res.data.status}`)
+                } else if (res.data.status == 'error') {
+                    toastr.error(`${res.data.message}`, `${res.data.status}`)
+                }
+            });
+
+        })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+
+            });
+
+    };
 
     return {
         // public functions
