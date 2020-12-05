@@ -23,9 +23,8 @@ exports.getAllAddress = catchAsync(async (req, res, next) => {
     status: 'success',
     message: 'Got All Address',
     results: address.length,
-    data: {
-      address,
-    },
+    address,
+
   });
   next();
 });

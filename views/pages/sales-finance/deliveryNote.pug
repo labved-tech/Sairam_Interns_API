@@ -109,10 +109,12 @@ block content
 
                                         //dnShipMethod
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Ship Method  
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#dnShipMethod(type='text' class='form-control' name='dnShipMethod' placeholder='')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Shipping Method
+                                            div(class='col-5')
+                                                select#dnShipMethod(class='form-control selectpicker' multiple=''  data-live-search='true' name='dnShipMethod' )
+                                                    option FedEx
+                                                    option DHL      
+                                                span(class='form-text text-muted') Select Shipping                                
 
                                         //dnCarrierName
                                         div(class='form-group row')
