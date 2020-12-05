@@ -110,40 +110,74 @@ block content
                                         //plBox
                                         h3(class=' text-dark font-weight-bold mb-10') Box
 
-                                        //plBoxNo
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Box Number
-                                            div(class='col-4')
-                                                input#plBoxNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxNo' placeholder='')
-                                        //plDimensions
-                                        h3(class=' text-dark font-weight-bold mb-10') Dimensions
+                                        //- //plBoxNo
+                                        //- div(class='form-group row')
+                                        //-     label(class='col-3 col-form-label form-control-label text-right') Box Number
+                                        //-     div(class='col-4')
+                                        //-         input#plBoxNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxNo' placeholder='')
+                                        //- //plDimensions
+                                        //- h3(class=' text-dark font-weight-bold mb-10') Dimensions
 
-                                        //plLength
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Length
-                                            div(class='col-4')
-                                                input#plLength(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plLength' placeholder='')
+                                        //- //plLength
+                                        //- div(class='form-group row')
+                                        //-     label(class='col-3 col-form-label form-control-label text-right') Length
+                                        //-     div(class='col-4')
+                                        //-         input#plLength(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plLength' placeholder='')
 
-                                        //plBreadth
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Breadth
-                                            div(class='col-4')
-                                                input#plBreadth(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBreadth' placeholder='')
+                                        //- //plBreadth
+                                        //- div(class='form-group row')
+                                        //-     label(class='col-3 col-form-label form-control-label text-right') Breadth
+                                        //-     div(class='col-4')
+                                        //-         input#plBreadth(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBreadth' placeholder='')
 
-                                        //plWidth
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Width
-                                            div(class='col-4')
-                                                input#plWidth(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plWidth' placeholder='')
+                                        //- //plWidth
+                                        //- div(class='form-group row')
+                                        //-     label(class='col-3 col-form-label form-control-label text-right') Width
+                                        //-     div(class='col-4')
+                                        //-         input#plWidth(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plWidth' placeholder='')
 
-                                        //plUnits 
-                                        div(class='form-group row')
-                                            label(class=' col-3 col-form-label form-control-label text-right ') Units
-                                            div(class='col-5')
-                                                select#plUnits(class= 'form-control selectpicker' multiple=''  data-live-search='true' name='plUnits ' )
-                                                    option cm
-                                                    option m
-                                                    option inch
-                                                    option mm
+                                        //- //plUnits 
+                                        //- div(class='form-group row')
+                                        //-     label(class=' col-3 col-form-label form-control-label text-right ') Units
+                                        //-     div(class='col-5')
+                                        //-         select#plUnits(class= 'form-control selectpicker' multiple=''  data-live-search='true' name='plUnits ' )
+                                        //-             option cm
+                                        //-             option m
+                                        //-             option inch
+                                        //-             option mm
                                                     
-                                                span(class='form-text text-muted') Select Units                                
+                                        //-         span(class='form-text text-muted') Select Units                                
+
+                                        #plBoxRepeat
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') Box No
+                                                div(data-repeater-list='', class='col-16')
+                                                    div(data-repeater-item='', class='form-group row')
+                                                        div(class='col-2')
+                                                            input#plBoxNo(type='text', class='form-control', placeholder='Box No' name='plBoxNo')
+                                                        div(class='col-2')
+                                                            input#plBoxDimlength(type='text', class='form-control', placeholder='length' name='plBoxDimlength')
+                                                        div(class='col-2')
+                                                            input#plBoxDimBreadth(type='text', class='form-control', placeholder='breadth' name='plBoxDimBreadth')
+                                                        div(class='col-2')
+                                                            input#plBoxDimWidth(type='text', class='form-control', placeholder='Width' name='plBoxDimWidth')
+
+                                                        div(class=' col-2')
+                                                            select#plBoxDimUnits(class='form-control select2' name='plBoxDimUnits' data-placeholder='Select Units')
+                                                                option(value="" disabled="" selected="" hidden="")
+                                                                option(value='AK') Inch
+                                                                option(value='HI') cm
+                                                        div(class='col-2')
+                                                            a( data-repeater-delete='', class='btn font-weight-bold btn-danger btn-icon')
+                                                                i(class='la la-remove')
+
+                                                        span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+
+
+
+                                            div(class='form-group row')
+                                                div(class='col-3 col-form-label form-control-label text-right')
+                                                div(class='col')
+                                                    div(data-repeater-create='', class='btn font-weight-bold btn-primary')
+                                                        i(class='la la-plus')
+                                                        |                             Add
