@@ -23,14 +23,14 @@ const commentCRUD = (function () {
         // Initializing 
 
         // ceMessage
-        $(ceMessage).summernote({
-            height: 400,
-            tabsize: 2
-        });
-        $(cerMessage).summernote({
-            height: 400,
-            tabsize: 2
-        });
+        /*        $(ceMessage).summernote({
+                    height: 400,
+                    tabsize: 2
+                });
+                $(cerMessage).summernote({
+                    height: 400,
+                    tabsize: 2
+                });*/
 
         // Return Form
         if (!createCommentEntriesForm) {
@@ -69,13 +69,13 @@ const commentCRUD = (function () {
                         },
                     },
                 },
-                /*             ceMessage: {
-                                validators: {
-                                    notEmpty: {
-                                        message: 'message is required',
-                                    },
-                                },
-                            }, */
+                ceMessage: {
+                    validators: {
+                        notEmpty: {
+                            message: 'message is required',
+                        },
+                    },
+                },
                 crCommentorId: {
                     validators: {
                         notEmpty: {
@@ -83,13 +83,13 @@ const commentCRUD = (function () {
                         },
                     },
                 },
-                /*                 crMessage: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'message is required',
-                                        },
-                                    },
-                                }, */
+                cerMessage: {
+                    validators: {
+                        notEmpty: {
+                            message: 'message is required',
+                        },
+                    },
+                },
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins

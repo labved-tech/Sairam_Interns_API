@@ -1,4 +1,3 @@
-const { default: Axios } = require('axios');
 
 /* DEPENDENCIES */
 
@@ -419,18 +418,6 @@ const doc = {
   ],
 };
 
-let asideMenu;
-
-async function getMenuItems() {
-  // console.log(menuManager);
-  // console.log(section);
-  // console.log(items);
-  // console.log(subitems1);
-  // console.log(subitems2);
-
-  return test;
-}
-
 // STANDARD FORM RELATED CONTROLLER
 exports.getTest = (req, res) => {
   console.log('We are in Standard Form');
@@ -620,10 +607,17 @@ exports.ticketProducts = (req, res) => {
   console.log('We are in ticketProducts Form Page');
   res.status(200).render('./../views/pages/ticket-support/ticketProducts', doc);
 };
-
-exports.deliveryNote = (req, res) => {
-  console.log('We are in Delivery Note Form Page');
-  res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
+exports.ticketEntries = (req, res) => {
+  console.log('We are in ticketEntries Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketEntries', doc);
+};
+exports.ticketProducts = (req, res) => {
+  console.log('We are in ticketProducts Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketProducts', doc);
+};
+exports.ticketResponse = (req, res) => {
+  console.log('We are in ticketResponse  Form Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketResponse', doc);
 };
 
 // DIRECTORY RELATED CONTROLLER
@@ -651,3 +645,11 @@ exports.directory = (req, res) => {
   console.log('We are in directory Form Page');
   res.status(200).render('./../views/pages/directory/directory', doc);
 };
+
+
+exports.deliveryNote = (req, res) => {
+  console.log('We are in Delivery Note Form Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
+};
+
+

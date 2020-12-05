@@ -70,7 +70,9 @@ router.get('/comment/entries', viewsController.commentEntries);
 
 // TICKET AND SUPPORTS RELATED ROUTES
 router.get('/ticket-support/categories', viewsController.ticketCategories);
+router.get('/ticket-support/entries', viewsController.ticketEntries);
 router.get('/ticket-support/Products', viewsController.ticketProducts);
+router.get('/ticket-support/Response', viewsController.ticketResponse);
 
 // ANALYTICS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);

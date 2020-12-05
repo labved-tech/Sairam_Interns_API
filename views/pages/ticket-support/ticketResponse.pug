@@ -1,0 +1,77 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/ticket-support/ticket-supportForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | ticketResponse Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createTicketResponseForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Ticket ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#trticketId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='trticketId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //trresponderId            
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Responder ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#trresponderId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='trresponderId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //trresponderName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') ResponderName
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#trresponderName(type='text' class='form-control' name='trresponderName' placeholder='ex. Sai Vignesh')
+
+                                        // tremailSent
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Email Sent ?
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#tremailSent(type='checkbox' checked='checked' name='tremailSent')
+                                                        span
+
+                                        //trisStatusChange              
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Is Status Change
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#trisStatusChange(type='checkbox' checked='checked' name='trisStatusChange')
+                                                        span
+                                                span(class='form-text text-muted')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
