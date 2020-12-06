@@ -20,20 +20,22 @@
 	//- end::Brand
 	//- begin::Aside Menu
 	#kt_aside_menu_wrapper(class='aside-menu-wrapper flex-column-fluid')
-		//- begin::Menu Container
+		// begin::Menu Container
 		#kt_aside_menu(class='aside-menu my-4' data-menu-vertical='1' data-menu-scroll='1' data-menu-dropdown-timeout='500')
-			// begin::Menu Nav
-			ul#asideMenuItemUl(class='menu-nav')
-				li(class='menu-item menu-item-active' aria-haspopup='true')
-					a(href='/dashboard' class='menu-link')
-						i(class='menu-icon flaticon2-poll-symbol')
-						span(class='menu-text') Dashboard
+			ul#menuList(class='menu-nav')
+				// begin::Menu Item Container
+				div(class="menu-submenu")
+					i(class="menu-arrow")
+					ul#subItem1List(class="menu-subnav")
+						// begin::SubItem1 Container
+						div(class="menu-submenu ")
+							i(class="menu-arrow")
+							ul#subItem2List(class="menu-subnav")
+							// begin::SubItem2 Container
 
-				// begin::Section Nav
-				li(class='menu-section')
-					h4(class='menu-text') Pug Section
-					i(class='menu-icon ki ki-bold-more-hor icon-md')
-				// end::Menu Nav
-			// end::Menu Container
-		// end::Aside Menu
-	// end::Aside
+
+				
+
+			// end::Menu Nav
+	// end::Menu Container
+
