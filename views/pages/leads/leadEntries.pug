@@ -113,14 +113,14 @@ block content
                                                 span(class='form-text text-muted')                                        
                                 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Date Converted
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Only
                                             div(class='col-4')
-                                                #demoDateTime(class='input-group date' data-target-input='nearest')
-                                                    input#leDateConverted(type='text' class='form-control datetimepicker-input' name='leDateConverted' placeholder='Select date & time' data-target='#demoDateTime')
-                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
+                                                div(class='input-group date')
+                                                    input#leDateConverted(type='text' class='form-control' readonly='' name='leDateConverted' placeholder='Select date')
+                                                    div(class='input-group-append')
                                                         span(class='input-group-text')
-                                                            i(class='ki ki-calendar')
-                                                    span(class='form-text text-muted')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Lost
@@ -137,16 +137,15 @@ block content
                                                 div(class='typeahead')
                                                     input#leLastLeadStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='leLastLeadStatus' placeholder='  ')
                                                     span(class='form-text text-muted')  
-
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Lead Status Change
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Only
                                             div(class='col-4')
-                                                #demoDateTime(class='input-group date' data-target-input='nearest')
-                                                    input#leLastStatusChange(type='text' class='form-control datetimepicker-input' name='leLastStatusChange' placeholder='Select date & time' data-target='#demoDateTime')
-                                                    div(class='input-group-append' data-target='#demoDateTime' data-toggle='datetimepicker')
+                                                div(class='input-group date')
+                                                    input#leLastStatusChange(type='text' class='form-control' readonly='' name='leLastStatusChange' placeholder='Select date')
+                                                    div(class='input-group-append')
                                                         span(class='input-group-text')
-                                                            i(class='ki ki-calendar')
-                                                    span(class='form-text text-muted')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
 
                                         h3(class=' text-dark font-weight-bold mb-10') Address
 

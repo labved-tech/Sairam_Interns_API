@@ -15,6 +15,11 @@ const PagesCRUD = (function () {
     const pOwnerId = KTUtil.getById('pOwnerId');
     const pContents = KTUtil.getById('pContents');
     
+    // Dropdown List : Multiple Select
+
+    $('#pContents').select2({
+        allowClear: true
+            });
 
     if(!createPagesForm) {
       return;
@@ -113,21 +118,12 @@ const PagesCRUD = (function () {
         
       };
 
-      const _Lists = function () {
-        const pContents = KTUtil.getById('pContents');          // Dropdown List : Multiple Select1
-        
-        // Dropdown List : Single Select
-        
-        $('#pContents').select2({
-            allowClear: true
-              });
       
-    };        
+
   return {
     // public functions
     init: function () {
         _createPages();
-        _Lists();
     },
   };
 })();
