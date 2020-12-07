@@ -159,18 +159,18 @@ const RatingCRUD = (function () {
                             message: 'Name is required',
                         },
                     },
-                    ragAttributeId: {
-                        validators: {
-                            notEmpty: {
-                                message: '_attributeId is required',
-                            },
+                },
+                ragAttributeId: {
+                    validators: {
+                        notEmpty: {
+                            message: '_attributeId is required',
                         },
                     },
-                    ragStatus: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Status is required',
-                            },
+                },
+                ragStatus: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Status is required',
                         },
                     },
                 },
@@ -259,9 +259,10 @@ const RatingCRUD = (function () {
         const reAttributeId = KTUtil.getById('reRelId');
         const reType = KTUtil.getById('reType');
         const reValue = KTUtil.getById('reValue');
+        const reUserId = KTUtil.getById('reUserId');
 
         // Initialise
-        $('#reType').select2({
+        $(reType).select2({
             placeholder: "Select a Type"
         });
 
@@ -306,7 +307,13 @@ const RatingCRUD = (function () {
                         },
                     },
                 },
-
+                reUserId: {
+                    validators: {
+                        notEmpty: {
+                            message: '_userId is required',
+                        },
+                    },
+                },
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -320,7 +327,7 @@ const RatingCRUD = (function () {
             },
         }).on('core.form.valid', function () {
             KTUtil.btnWait(createRatingEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-            console.log(`Value:${reName.value}`);
+            console.log(`Value:${reType.value}`);
 
             // Accessing Restful API
             axios({
@@ -332,7 +339,7 @@ const RatingCRUD = (function () {
                     attributeId: reAttributeId.value,
                     type: reType.value,
                     value: reValue.value,
-                    userId: reuserId.value
+                    userId: reUserId.value
 
                 },
             }).then(function (res) {

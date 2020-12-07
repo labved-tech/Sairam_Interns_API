@@ -14,7 +14,7 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
-router.use('/attribute-groups', ratingAttributeGroupsRouter);
+router.use('/attribute/groups', ratingAttributeGroupsRouter);
 router.use('/attribute', ratingAttributeRouter);
 router.use('/entries', ratingEntriesRouter);
 
