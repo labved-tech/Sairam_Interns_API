@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8368fd20-aaf4-4f6d-8004-60d5146bfad6",
+		"_postman_id": "b3a7c097-fde6-4d8d-9f08-04a72257dd92",
 		"name": "reports",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -112,7 +112,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Santosh\",\r\n    \"state\": { },\r\n    \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"raw": "{\r\n    \"name\": \"Santosh\",\r\n    \"state\": { },\r\n    \"_ownerId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -151,7 +151,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\": { },\r\n    \"_ownerid\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"raw": "{\r\n    \"name\": \"Vicky\",\r\n    \"state\": { },\r\n    \"_ownerId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"

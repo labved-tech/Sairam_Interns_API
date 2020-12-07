@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5bfbd59c-66f4-4c6d-8db9-aa673f71f6e0",
+		"_postman_id": "7877e36c-1134-47ee-a5b3-69bd4b12dfc6",
 		"name": "farmExportedStrategy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -53,7 +53,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_farmId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"expectedYeild\": 10,\r\n\"expectedYeildUnit\": \"500\",\r\n\"actualYeild\": 10,\r\n\"actualYeildUnit\": \"NA\",\r\n\"start\":\"2000-09-22\",\r\n\"expectedEnd\":\"2000-09-22\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"author_notes\": \"Well Done\",\r\n\"parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_farmId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"expectedYield\": 10,\r\n\"expectedYieldUnit\": \"500\",\r\n\"actualYield\": 10,\r\n\"actualYieldUnit\": \"NA\",\r\n\"start\":\"2000-09-22\",\r\n\"expectedEnd\":\"2000-09-22\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"authorNotes\": \"Well Done\",\r\n\"parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -124,7 +124,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_farmId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"expectedYeild\": 10,\r\n\"expectedYeildUnit\": \"500\",\r\n\"actualYeild\": 10,\r\n\"actualYeildUnit\": \"NA\",\r\n\"start\":\"2000-09-22\",\r\n\"expectedEnd\":\"2000-09-22\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"author_notes\": \"Well Done\",\r\n\"parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
+					"raw": "{\r\n\"name\": \"Vicky\",\r\n\"description\": \"Student\",\r\n\"_zoneId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_cropId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"_farmId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"expectedYield\": 10,\r\n\"expectedYieldUnit\": \"500\",\r\n\"actualYield\": 10,\r\n\"actualYieldUnit\": \"NA\",\r\n\"start\":\"2000-09-22\",\r\n\"expectedEnd\":\"2000-09-22\",\r\n\"stages\": [\"2\",\"3\",\"4\",\"5\"],\r\n\"shareable\":true,\r\n\"shareableType\": \"NA\",\r\n\"contractTemplateId\": \"5f9d4cad0cc36e2a44c325b9\",\r\n\"rate\": \"1.25\",\r\n\"totalExpense\": 10,\r\n\"authorNotes\": \"Well Done\",\r\n\"parentId\": \"5f9d4cad0cc36e2a44c325b9\"\r\n  }",
 					"options": {
 						"raw": {
 							"language": "json"

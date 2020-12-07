@@ -535,7 +535,7 @@ exports.announcementNotify = (req, res) => {
 
 // ANALYTICS RELATED CONTROLLER
 exports.analytics = (req, res) => {
-  console.log('We are in Announcement Entries Form Page');
+  console.log('We are in Analytics Form Page');
   res.status(200).render('./../views/pages/analytics/analytics', doc);
 };
 
@@ -670,3 +670,52 @@ exports.deliveryNote = (req, res) => {
 };
 
 
+// Pages RELATED CONTROLLER
+exports.pages = (req, res) => {
+  console.log('We are in Pages Form Page');
+  res.status(200).render('./../views/pages/pages/pages', doc);
+};
+
+// CHARTS RELATED CONTROLLER
+exports.charts = (req, res) => {
+  console.log('We are in Charts Form Page');
+  res.status(200).render('./../views/pages/charts/charts', doc);
+};
+
+// FORMS RELATED CONTROLLER
+exports.formResponse = (req, res) => {
+  console.log('We are in Form Response Page');
+  res.status(200).render('./../views/pages/forms/formResponse', doc);
+};
+
+exports.forms = (req, res) => {
+  console.log('We are in Forms Page');
+  res.status(200).render('./../views/pages/forms/forms', doc);
+};
+
+// REPORTS RELATED CONTROLLER
+exports.reports = (req, res) => {
+  console.log('We are in Reports Form Page');
+  res.status(200).render('./../views/pages/reports/reports', doc);
+};
+
+// PRECISION AGRICULTURE RELATED CONTROLLER
+exports.farmEntries = (req, res) => {
+  console.log('We are in Farm Entries Form Page');
+  res.status(200).render('./../views/pages/precision-agriculture/farmEntries', doc);
+};
+
+exports.farmExportedStrategy = (req, res) => {
+  console.log('We are in Farm Exported Strategy Form Page');
+  res.status(200).render('./../views/pages/precision-agriculture/farmExportedStrategy', doc);
+};
+
+exports.farmRegions = (req, res) => {
+  console.log('We are in Farm Regions Form Page');
+  res.status(200).render('./../views/pages/precision-agriculture/farmRegions', doc);
+};
+
+exports.farmStrategy = (req, res) => {
+  console.log('We are in Farm Strategy Form Page');
+  res.status(200).render('./../views/pages/precision-agriculture/farmStrategy', doc);
+};

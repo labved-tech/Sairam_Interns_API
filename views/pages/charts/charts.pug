@@ -1,12 +1,11 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/example/exampleFormControls.js')
+    script(src='/js/pages/crud/myForm/charts/chartsForm.js' )
+    
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -19,37 +18,45 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Charts  Form
+                            | Charts Form
                     div(class='card-body')
                         // begin::Form
-                        form#form_charts(class='form' action='http://localhost:3000/api/v1/charts')
+                        form#createChartsForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
+                                        
                                         h3(class=' text-dark font-weight-bold mb-10') General
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Name
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#cName(type='text' class='form-control' name='cName' placeholder='ex. Sai Vignesh')
+                                        
                                         div(class='form-group row')
-                                            label(class='col-form-label text-right col-lg-3 col-sm-12') State
-                                            div(class='col-lg-4 col-md-9 col-sm-12')
+                                            label(class='col-3 col-form-label form-control-label text-right') State 
+                                            div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#kt_typeahead_2(class='form-control' type='text' dir='ltr' placeholder='States of India')
-                                                div(class='form-text text-muted')
+                                                    input#cState(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cState' placeholder='ex. Kerala')
+                                                    span(class='form-text text-muted') 
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Owner Id
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='_ownerId' placeholder='ex. 5fa92064cff6f652644266de  ')
-                            div(class='card-footer text-right')
-                                div(class='row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Owner ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#cOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                        button#createChartsFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
             // end::Container
-    // end::Entry
+        // end::Entry
                                                 
                          
