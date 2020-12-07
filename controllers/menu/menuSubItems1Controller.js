@@ -12,13 +12,16 @@ const MenuSubItem1 = require('../../models/menu/menuSubItems1Model');
 exports.getAllMenuSubItem1 = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Sub-Item1');
 
-  const menuItem = await MenuSubItem1.find().sort('priority').then();
+  const subItem1 = await MenuSubItem1.find()
+    .populate('_subItem2')
+    .sort('priority')
+    .then();
 
   res.status(200).json({
     status: 'success',
     message: 'Got All Menu Sub-Item1',
-    results: menuItem.length,
-    menuItem,
+    results: subItem1.length,
+    subItem1,
   });
   next();
 });
@@ -27,11 +30,11 @@ exports.getMenuSubItem1 = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Menu Sub-Item1 with Id ${id}`);
 
-  const menuItem = await MenuSubItem1.findById(id).then();
+  const subItem1 = await MenuSubItem1.findById(id).then();
   res.status(200).json({
     status: 'success',
     message: `Got Menu Sub-Item1 Id=${id}`,
-    menuItem,
+    subItem1,
   });
 
   next();
@@ -59,12 +62,12 @@ exports.createMenuSubItem1 = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   console.log(doc);
 
-  const newMenuItem = await MenuSubItem1.create(doc).then();
+  const newsubItem1 = await MenuSubItem1.create(doc).then();
 
   res.status(201).json({
     status: 'success',
     message: 'Created Menu Sub-Item1',
-    newMenuItem,
+    newsubItem1,
   });
 
   next();
@@ -74,14 +77,14 @@ exports.updateMenuSubItem1 = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Menu Sub-Item1 Id ${id}`);
 
-  const menuItem = await MenuSubItem1.findByIdAndUpdate(id, req.body, {
+  const subItem1 = await MenuSubItem1.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
 
   res.status(201).json({
     status: 'success',
     message: `Updated Menu Sub-Item1 Id=${id}`,
-    menuItem,
+    subItem1,
   });
 
   next();
@@ -91,12 +94,12 @@ exports.deleteMenuSubItem1 = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Menu Sub-Item1 Id ${id}`);
 
-  const menuItem = await MenuSubItem1.findByIdAndDelete(id).then();
+  const subItem1 = await MenuSubItem1.findByIdAndDelete(id).then();
 
   res.status(200).json({
     status: 'success',
     message: `Deleted Menu Sub-Item1 Id=${id}`,
-    menuItem,
+    subItem1,
   });
 
   next();

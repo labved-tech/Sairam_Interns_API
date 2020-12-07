@@ -11,19 +11,12 @@ const { Schema } = mongoose;
 const menuItemsSchema = new Schema(
   {
     name: { type: String, unique: [true, 'Already exists'] },
-    _menu: {
-      type: mongoose.ObjectId,
-      ref: 'menu-manager',
-    },
-    _section: {
-      type: mongoose.ObjectId,
-      ref: 'menu-section',
-    },
     route: {
       type: String,
       unique: [true, 'Already exists'],
     },
     priority: { type: Number },
+    _subItem1: [{ type: mongoose.ObjectId, ref: 'menu-subItem1' }],
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
   },
