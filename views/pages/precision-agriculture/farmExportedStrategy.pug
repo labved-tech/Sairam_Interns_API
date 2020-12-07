@@ -1,0 +1,189 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/precision-agriculture/farmForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Farm Region Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createFarmExportedStrategyForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')  
+                                        
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#fesName(type='text' class='form-control' name='fesName' placeholder='ex. Sai Vignesh')
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='fesDescription')
+                                                | Description 
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#fesDescription(class='form-control' name='fesDescription' rows='3')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Zone ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesZoneId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesZoneId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Crop ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesCropId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesCropId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Farm ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesFarmId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesFarmId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row mb-6')
+                                            label(class='col-3 col-form-label form-control-label text-right') Expected Yield
+                                            div(class='col-6 ')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#fesExpectedYield(type='text' class='form-control' name='fesExpectedYield' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #fesExpectedYield(class='nouislider-drag-danger')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Expected Yield Unit
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesExpectedYieldUnit(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesExpectedYieldUnit' placeholder='')
+                                                    span(class='form-text text-muted')
+
+                                        div(class='form-group row mb-6')
+                                            label(class='col-3 col-form-label form-control-label text-right') Actual Yield
+                                            div(class='col-6 ')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#fesActualYield(type='text' class='form-control' name='fesActualYield' placeholder='Quantity')
+                                                    div(class='col-8')
+                                                        #fesActualYield(class='nouislider-drag-danger')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Actual Yield Unit
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesActualYieldUnit(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesActualYieldUnit' placeholder='')
+                                                    span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Start 
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#fesStart(type='text' class='form-control' readonly='' name='fesStart' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Expected End
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#fesExpectedEnd(type='text' class='form-control' readonly='' name='fesExpectedEnd' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Stages 
+                                            div(class='col-4')
+                                                select#fesStages(class='form-control selectpicker' multiple=''  data-live-search='true' name='fesStages')
+                                                    //option(value='' disabled='' selected='') Choose country
+                                                    option Stage 1
+                                                    option Stage 2
+                                                    option Stage 3
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Shareable 
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#fesShareable(type='checkbox' checked='checked' name='select')
+                                                        span
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Shareable Type
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesShareableType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesShareableType' placeholder='')
+                                                    span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contract Template ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesContractTemplateId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesContractTemplateId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Rate
+                                            div(class='col-6')
+                                                input#fesRate(type='text' class='form-control' name='fesRate' placeholder='')
+
+                                        div(class='form-group row mb-6')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Expense
+                                            div(class='col-6 ')
+                                                div(class='row align-items-center')
+                                                    div(class='col-4')
+                                                        input#fesTotalExpense(type='text' class='form-control' name='fesTotalExpense' placeholder='Expenses')
+                                                    div(class='col-8')
+                                                        #fesTotalExpense(class='nouislider-drag-danger')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Author Notes
+                                            div(class='col-6')
+                                                input#fesAuthorNotes(type='text' class='form-control' name='fesAuthorNotes' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Parent ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesParentId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesParentId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createFarmExportedStrategyFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
