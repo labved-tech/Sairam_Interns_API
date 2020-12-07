@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const quotationSchema = new Schema({
  
-  moduleReferance: { type: String },
+  moduleReference: { type: String },
   header: { type: String },
   date: { type: Date },
   _buyerId: { type: mongoose.ObjectId },

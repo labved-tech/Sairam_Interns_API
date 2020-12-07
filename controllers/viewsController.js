@@ -604,6 +604,11 @@ exports.packingList = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/packingList', doc);
 };
 
+exports.quotation = (req, res) => {
+  console.log('We are in Quotation Form Page');
+  res.status(200).render('./../views/pages/sales-finance/quotation', doc);
+};
+
 
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
