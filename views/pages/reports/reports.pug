@@ -4,7 +4,7 @@ block css-files
 
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/pages/pagesForm.js' )
+    script(src='/js/pages/crud/myForm/reports/reportsForm.js' )
     
 
 block content
@@ -18,10 +18,10 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Pages  Form
+                            | Reports Form
                     div(class='card-body')
                         // begin::Form
-                        form#createPagesForm(class='form')
+                        form#createReportsForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
@@ -33,35 +33,26 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Name
                                                 span(class='text-danger')  *                                            
                                             div(class='col-6')
-                                                input#pName(type='text' class='form-control' name='pName' placeholder='ex. Sai Vignesh')
+                                                input#rName(type='text' class='form-control' name='rName' placeholder='ex. Sai Vignesh')
                                         
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') State 
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#pState(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pState' placeholder='ex. Kerala')
+                                                    input#rState(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='rState' placeholder='ex. Kerala')
                                                     span(class='form-text text-muted') 
                                         
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Owner ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#pOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    input#rOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='rOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
-                                        
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right ') Contents 
-                                            div(class='col-9')
-                                                select#pContents(class='form-control selectpicker' multiple=''  data-live-search='true' name='pContents')
-                                                    //option(value='' disabled='' selected='') Choose country
-                                                    option Content 1
-                                                    option Content 2
-                                                    option Content 3
-                                                span(class='form-text text-muted')
+
                             div(class='card-footer')
                                 div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button#createPagesFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button#createReportsFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card

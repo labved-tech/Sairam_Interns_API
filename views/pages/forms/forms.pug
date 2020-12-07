@@ -1,12 +1,11 @@
 extends ./../../base.pug
 
 block css-files
-    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
 
 block js-files
-    script(src='/js/KTAppSettings.js')
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/example/exampleFormControls.js')
+    script(src='/js/pages/crud/myForm/forms/formsForm.js' )
+    
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -22,68 +21,64 @@ block content
                             | Form    
                     div(class='card-body')
                         // begin::Form
-                        form#form_form(class='form' action='http://localhost:3000/api/v1/formResponse')
+                        form#createFormsForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')  
+                                        
                                         h3(class=' text-dark font-weight-bold mb-10') General
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Name
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='name' placeholder='ex. Sai Vignesh')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#fName(type='text' class='form-control' name='fName' placeholder='ex. Sai Vignesh')
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 form-control-label') Owner ID
-                                            div(class='col-9')
-                                                input(type='text' class='form-control' name='_ownerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                            label(class='col-3 col-form-label form-control-label text-right') Owner ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Alive Till
-                                            div(class='col-9')
+                                            label(class='col-3 col-form-label form-control-label text-right') Alive Till
+                                            div(class='col-9 col-md-3')
                                                 div(class='input-group date')
-                                                    input#kt_datepicker_2(type='text' class='form-control' readonly='' placeholder='Select date')
+                                                    input#fAliveTill(type='text' class='form-control' readonly='' name = 'fAliveTill' placeholder='Select date')
                                                     div(class='input-group-append')
                                                         span(class='input-group-text')
                                                             i(class='la la-calendar-check-o')
                                                 span(class='form-text text-muted') 
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Account Include 
-                                            div(class='col-9')
-                                                div(class='checkbox-inline')
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Account 1
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Account 2
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Account 3
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Account Include 
+                                            div(class='col-4')
+                                                select#fAccountInclude(class='form-control selectpicker' multiple=''  data-live-search='true' name='fAccountInclude')
+                                                    //option(value='' disabled='' selected='') Choose country
+                                                    option Account 1
+                                                    option Account 2
+                                                    option Account 3
+                                                span(class='form-text text-muted') 
+                                        
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label text-right') Account Exclude
-                                            div(class='col-9')
-                                                div(class='checkbox-inline')
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Account 1
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Account 2
-                                                    label(class='checkbox')
-                                                        input(type='checkbox' name='Checkboxes2')
-                                                        span
-                                                        | Account 3               
-                            div(class='card-footer text-right')
-                                div(class='row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Account Exclude 
+                                            div(class='col-4')
+                                                select#fAccountExclude(class='form-control selectpicker' multiple=''  data-live-search='true' name='fAccountExclude')
+                                                    //option(value='' disabled='' selected='') Choose country
+                                                    option Account 1
+                                                    option Account 2
+                                                    option Account 3
+                                                span(class='form-text text-muted')             
+                            
+                            div(class='card-footer')
+                                div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button(type='submit' class='btn btn-primary font-weight-bold mr-2' name='submitButton') Validate
+                                        button#createFormsFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card
             // end::Container
-    // end::Entry
+        // end::Entry
                                                                                          

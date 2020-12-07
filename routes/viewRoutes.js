@@ -52,7 +52,7 @@ router.get('/ratings/entries', viewsController.ratingEntries);
 router.get('/analytics', viewsController.analytics);
 
 // CHARTS RELATED ROUTES
-//router.get('/charts', viewsController.charts);
+router.get('/charts', viewsController.charts);
 
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter/messages', viewsController.newsletterMessages);
@@ -75,7 +75,7 @@ router.get('/ticket-support/entries', viewsController.ticketEntries);
 router.get('/ticket-support/Products', viewsController.ticketProducts);
 router.get('/ticket-support/Response', viewsController.ticketResponse);
 
-// ANALYTICS RELATED ROUTES
+// LEADS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);
 router.get('/lead/response', viewsController.leadResponse);
@@ -86,5 +86,21 @@ router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
 router.get('/directory', viewsController.directory);
+
+// PAGES RELATED ROUTES
+router.get('/pages', viewsController.pages);
+
+// FORMS RELATED ROUTES
+router.get('/form-response', viewsController.formResponse);
+router.get('/forms', viewsController.forms);
+
+// REPORTS RELATED ROUTES
+router.get('/reports', viewsController.reports);
+
+// PRECISION AGRICULTURES RELATED ROUTES
+router.get('/farm/entries/', viewsController.farmEntries);
+router.get('/farm/exported-strategy/', viewsController.farmExportedStrategy);
+router.get('/farm/regions/', viewsController.farmRegions);
+router.get('/farm/strategy/', viewsController.farmStrategy);
 
 module.exports = router;

@@ -8,7 +8,7 @@ const { Schema } = mongoose;
 const reportsSchema = new Schema({
   name: { type: String },
   state: { type: Object },
-  _ownerid: { type: mongoose.ObjectId },
+  _ownerId: { type: mongoose.ObjectId },
   createdBy: { type: mongoose.ObjectId},
   updatedBy: { type: mongoose.ObjectId}
 },
