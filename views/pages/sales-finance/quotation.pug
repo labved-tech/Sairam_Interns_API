@@ -1,0 +1,215 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Quotation
+                    div(class='card-body')
+                        // begin::Form
+                        form#createQuotationForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //quModuleRef
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Module Reference
+                                                span(class='text-danger')  *
+                                            div(class='col-5')
+                                                input#quModuleRef(type='text' class='form-control' name='quModuleRef' placeholder='')
+
+                                        //quHeader
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Header
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quHeader(type='text' class='form-control' name='quHeader' placeholder='')
+
+                                        //quDate
+                                        div(class = 'form-group row')
+                                            label(class = 'col-3 col-form-label form-control-label text-right') Date
+                                                span(class='text-danger')
+                                            div(class='col-4')
+                                                input#quDate(type='text' class='form-control' name='quDate' placeholder='Select Date')
+
+                                        //quBuyerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer ID 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#quBuyerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quBuyerID' placeholder='')
+
+                                        //quBuyerName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quBuyerName(type='text' class='form-control' name='quBuyerName' placeholder='')
+
+                                        //quBuyerAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer Address
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#quBuyerAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quBuyerAddress' placeholder='')
+
+                                        //quBuyerEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer Email
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quBuyerEmail(type='text' class='form-control' name='quBuyerEmail' placeholder='')
+
+                                        //quBuyerContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer Contact No
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quBuyerContact(type='text' class='form-control' name='quBuyerContact' placeholder='')
+
+                                        //quContactTypeB 
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ')  Buyer Contact Type
+                                            div(class='col-5')
+                                                select#quContactTypeB(class='form-control selectpicker' multiple=''  data-live-search='true' name='quContactTypeB' )
+                                                    option Telephone
+                                                    option Mobile Phone
+                                                span(class='form-text text-muted') Select Contact Type                                  
+
+                                        //quSellerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller ID 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#quSellerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quSellerID' placeholder='')
+
+                                        //quSellerName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quSellerName(type='text' class='form-control' name='quSellerName' placeholder='')
+
+                                        //quSellerAName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Attention Name
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quSellerAName(type='text' class='form-control' name='quSellerAName' placeholder='')
+
+
+                                        //quSellerAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Address
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#quSellerAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quSellerAddress' placeholder='')
+
+                                        //quSellerEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Email
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quSellerEmail(type='text' class='form-control' name='quSellerEmail' placeholder='')
+
+                                        //quSellerContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Contact No
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quSellerContact(type='text' class='form-control' name='quSellerContact' placeholder='')
+
+                                        //quContactTypeS 
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ')  Seller Contact Type
+                                            div(class='col-4')
+                                                select#quContactTypeS(class='form-control selectpicker' multiple=''  data-live-search='true' name='quContactTypeS' )
+                                                    option Telephone
+                                                    option Mobile Phone
+                                                span(class='form-text text-muted') Select Contact Type                                  
+
+                                        //quSubject
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Subject
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quSubject(type='text' class='form-control' name='quSubject' placeholder='')
+
+                                        //quBody
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Body
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quBody(type='text' class='form-control' name='quBody' placeholder='')
+
+                                        //quItemTable
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Item Table
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quItemTable(type='text' class='form-control' name='quItemTable' placeholder='')
+
+                                        //quTermsCondition
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='quTermsCondition')
+                                                | Terms and Condition
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#quTermsCondition(class='form-control' name='quTermsCondition' rows='3')
+                                                span(class='form-text text-muted') 
+
+
+                                        //quFooter
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Footer
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quFooter(type='text' class='form-control' name='quFooter' placeholder='')
+
+
+                                        #quPayment
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') Payment Method
+                                                div(data-repeater-list='', class='col-16')
+                                                    div(data-repeater-item='', class='form-group row')
+                                                        div(class='typeahead')
+                                                            input#quPayID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quPayID' placeholder='Payement ID')
+                                                        div(class='col-4')
+                                                            select#quPayType(class='form-control selectpicker' multiple=''  data-live-search='true' name='quPayType' )
+                                                                option Credit Card
+                                                                option Debit Card
+                                                                option Cash
+                                                            span(class='form-text text-muted') Select Payment Method                              
+                                                        div(class='col-2')
+                                                            input#quMeta(type='text', class='form-control', placeholder='Meta' name='quMeta')
+
+                                        //quNumber
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Quotation Number
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quNumber(type='text' class='form-control' name='quNumber' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#quFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

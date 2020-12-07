@@ -1,0 +1,27 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Tax Invoice
+                    div(class='card-body')
+                        // begin::Form
+                        form#createTaxInvoiceForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
