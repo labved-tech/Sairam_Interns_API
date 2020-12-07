@@ -62,6 +62,8 @@ router.get('/newsletter/entries', viewsController.newsletterEntries);
 router.get('/sales-finance/address', viewsController.address);
 router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 router.get('/sales-finance/packingList', viewsController.packingList);
+router.get('/sales-finance/quotation', viewsController.quotation);
+
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
