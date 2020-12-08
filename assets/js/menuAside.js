@@ -41,7 +41,13 @@ const MenuFetch = (function () {
 
         if (itemLen > 0) {
           for (let j = 0; j < itemLen; j++) {
-            $('#menuList').append('\
+
+            var subItem1Len = asideMenu.manager[0]._section[i]._item[j]._subItem1.length;
+            console.log('subItem1Len', subItem1Len);
+
+            if (subItem1Len != 0) {
+              // Adding li item with child item
+              $('#menuList').append('\
               <!-- Begin:: li Item :'+ asideMenu.manager[0]._section[i]._item[j].name +' -->  \
               <li id="li'+ asideMenu.manager[0]._section[i]._item[j].name +'" class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">\
                   <a href="'+ asideMenu.manager[0]._section[i]._item[j].route + '" class="menu-link menu-toggle">\
@@ -52,11 +58,23 @@ const MenuFetch = (function () {
                       <i id="i'+ asideMenu.manager[0]._section[i]._item[j].name +'" class= "menu-arrow" ></i >\
                   </a>\
             ');
+            }
+            else {
+              // Adding li item no child item
+              $('#menuList').append('\
+              <!-- Begin:: li Item :'+ asideMenu.manager[0]._section[i]._item[j].name +' -->  \
+              <li id="li'+ asideMenu.manager[0]._section[i]._item[j].name +'" class="menu-item  menu-item-submenu" aria-haspopup="true">\
+                  <a href="'+ asideMenu.manager[0]._section[i]._item[j].route + '" class="menu-link menu-toggle">\
+                      <i class="menu-bullet menu-bullet-dot">\
+                          <span></span>\
+                      </i>\
+                      <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j].name + '</span> \
+                  </a>\
+            ');
+            }
+
             
             // Constructing SubItem 1
-            var subItem1Len = asideMenu.manager[0]._section[i]._item[j]._subItem1.length;
-            console.log('subItem1Len', subItem1Len);
-
             if (subItem1Len > 0) {
               for (let k = 0; k < subItem1Len; k++) {
 
@@ -75,24 +93,40 @@ const MenuFetch = (function () {
                 ');
                 }
 
-                // Adding li subItem1
-                $('#ul'+ asideMenu.manager[0]._section[i]._item[j].name).append('\
-                <!-- Begin:: li subItem1 :'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +' -->  \
-                <li id="li'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'" class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"> \
-                  <a href="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].route + '" class="menu-link menu-toggle"> \
-                      <i class="menu-bullet menu-bullet-dot"> \
-                          <span></span> \
-                      </i> \
-                      <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'</span> \
-                      <i id="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'" class="menu-arrow"></i>\
-                  </a > \
-              '); 
+                var subItem2Len = asideMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2.length;
+                console.log('subItem1Len', subItem1Len);
+
+                if (subItem2Len != 0) {
+                  // Adding li subItem1 with child item
+                  $('#ul'+ asideMenu.manager[0]._section[i]._item[j].name).append('\
+                  <!-- Begin:: li subItem1 :'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +' -->  \
+                  <li id="li'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'" class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"> \
+                    <a href="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].route + '" class="menu-link menu-toggle"> \
+                        <i class="menu-bullet menu-bullet-dot"> \
+                            <span></span> \
+                        </i> \
+                        <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'</span> \
+                        <i id="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'" class="menu-arrow"></i>\
+                    </a > \
+                  '); 
+                }
+                else {
+                  // Adding li item no child item
+                  $('#ul'+ asideMenu.manager[0]._section[i]._item[j].name).append('\
+                  <!-- Begin:: li subItem1 :'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +' -->  \
+                  <li id="li'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'" class="menu-item  menu-item-submenu" aria-haspopup="true"> \
+                    <a href="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].route + '" class="menu-link menu-toggle"> \
+                        <i class="menu-bullet menu-bullet-dot"> \
+                            <span></span> \
+                        </i> \
+                        <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'</span> \
+                    </a > \
+                  '); 
+                }
+
                 
                 
                 // Constructing SubItem 2
-                var subItem2Len = asideMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2.length;
-                console.log('subItem1Len', subItem1Len);
-                
                 if (subItem2Len > 0) {
 
                   // Opening ul subItem 1
@@ -122,10 +156,7 @@ const MenuFetch = (function () {
                   <!-- End:: ul subItem1 :'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name + ' -->  \
                   </ul>');
                 }
-                else {
-                  $('#li' + asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name).removeAttr("data-menu-toggle");
-                  $('#i'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name).remove();
-                }
+                
                 // Closing li subItem 1
                 $('#li' + asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name).append('\
                   <\li>\
@@ -137,11 +168,6 @@ const MenuFetch = (function () {
                   <!-- End:: uL Item :'+ asideMenu.manager[0]._section[i]._item[j].name +' -->  \
                 ')
              }
-            }
-            else {
-              console.log($('#li' + asideMenu.manager[0]._section[i]._item[j].name).html());
-              $('#li'+ asideMenu.manager[0]._section[i]._item[j].name).removeAttr("data-menu-toggle");
-              $('#i'+ asideMenu.manager[0]._section[i]._item[j].name).remove();
             }
           }
         }
