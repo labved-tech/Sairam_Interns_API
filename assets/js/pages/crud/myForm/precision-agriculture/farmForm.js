@@ -399,91 +399,89 @@ const FarmCRUD = (function () {
 
         FormValidation.formValidation(createFarmEntriesForm, {
             fields: {
-            feName: {
-                validators: {
-                    notEmpty: {
-                    message: 'Name is required',
+                feName: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Name is required',
+                        },
                     },
-                },
                 },  
                 feDescription : {
                     validators: {
-                    notEmpty: {
-                        message: 'Description is required',
-                    },
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
                     },
                 },       
                 feOwnerId: {
-                validators: {
-                    notEmpty: {
-                    message: 'Owner ID is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Owner ID is required',
+                        },
                     },
-                },
                 },      
                 fesSize: {
-                validators: {
-                    notEmpty: {
-                    message: 'Size is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Size is required',
+                        },
                     },
-                },
-                },
-                            
+                },              
                 feStatus: {
-                validators: {
-                    notEmpty: {
-                    message: 'Status is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Status is required',
+                        },
                     },
-                },
                 },  
                 feAddress: {
-                validators: {
-                    notEmpty: {
-                    message: 'Address is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Address is required',
+                        },
                     },
-                },
                 },        
                 feGPSCoordinates: {
-                validators: {
-                    notEmpty: {
-                    message: 'GPS Coordinates are required',
+                    validators: {
+                        notEmpty: {
+                        message: 'GPS Coordinates are required',
+                        },
                     },
-                },
-                },
-                        
+                },         
                 feaPermissions: {
-                validators: {
-                    notEmpty: {
-                    message: 'Permission is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Permission is required',
+                        },
                     },
-                },
                 },                
                 feDocuments: {
-                validators: {
-                    notEmpty: {
-                    message: 'DOcuments are required',
+                    validators: {
+                        notEmpty: {
+                        message: 'DOcuments are required',
+                        },
                     },
-                },
                 },  
                 feaAdminId: {
-                validators: {
-                    notEmpty: {
-                    message: 'Admin ID is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Admin ID is required',
+                        },
                     },
-                },
                 },        
                 feNotes: {
-                validators: {
-                    notEmpty: {
-                    message: 'Notes are required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Notes are required',
+                        },
                     },
-                },
                 },
                 fesUnits: {
-                validators: {
-                    notEmpty: {
-                    message: 'Unit is required',
+                    validators: {
+                        notEmpty: {
+                        message: 'Unit is required',
+                        },
                     },
-                },
                 },                                     
             },
             plugins: {
@@ -496,7 +494,8 @@ const FarmCRUD = (function () {
             // Submit the form when all fields are valid
             //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
-        }).on('core.form.valid', function () {
+        })
+             .on('core.form.valid', function () {
             KTUtil.btnWait(createFarmEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
             
             // Accessing Restful API
@@ -506,14 +505,14 @@ const FarmCRUD = (function () {
             method: 'Post',
             url: `${HOST_URL}/api/v1/farm/entries/`,
                 data: {
-                _ownerId:feOwnerId.value,
-                name: feName.value,
-                description: feDescription.value,
-                notes: feNotes.value,
-                status:feStatus.value,
-                address: feAddress.value,
-                gpsCoordinates:feGPSCoordinates.value,
-                documents:feDocuments.value,
+                    _ownerId:feOwnerId.value,
+                    name: feName.value,
+                    description: feDescription.value,
+                    notes: feNotes.value,
+                    status:feStatus.value,
+                    address: feAddress.value,
+                    gpsCoordinates:feGPSCoordinates.value,
+                    documents:feDocuments.value,
 
                 size:{
                     size:fesSize.value,
@@ -558,7 +557,6 @@ const FarmCRUD = (function () {
             })
             .on('core.form.invalid', function () { 
                 console.log('Something went wrong!!');
-
             });
             
             };
@@ -1213,10 +1211,6 @@ const FarmCRUD = (function () {
             });
             
             };
-
-
-
-
   return {
     // public functions
     init: function () {
