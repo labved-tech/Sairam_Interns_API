@@ -380,7 +380,7 @@ const FarmCRUD = (function () {
         verticalup: '<i class="ki ki-plus"></i>',
         verticaldown: '<i class="ki ki-minus"></i>',
 
-        min: -1000000000,
+        min: 0,
         max: 1000000000,
         step: 5,
         decimals: 1,

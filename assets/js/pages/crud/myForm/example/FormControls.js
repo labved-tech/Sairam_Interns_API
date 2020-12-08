@@ -938,11 +938,11 @@ const FormControls = (function () {
 
     /* Initializing */
 
-    // Dropdown List : Single Select
+    // Dropdown List : Single Select1 With Search
     $('demoSelectSingle').selectpicker({
     });
 
-    // Dropdown List : Single Select
+    // Dropdown List : Multiple Select1  W Seacrh
     $('demoSelectMultiple').selectpicker({
     });
 

@@ -132,14 +132,15 @@ const FormCRUD = (function () {
       templates: arrows,
     });  
 
-    // Dropdown List : Multiple Select 
-    $('#fAccountInclude').select2({
-      allowClear: true
-        });
-    
-    $('#fAccountExclude').select2({
-      allowClear: true
-        });   
+    // Dropdown List : Multiple Select1  W Seacrh
+    $('fAccountInclude').selectpicker({
+    });
+
+
+    // Dropdown List : Multiple Select1  W Seacrh
+    $('fAccountExclude').selectpicker({
+    });
+ 
 
     if(!createFormsForm) {
       return;
