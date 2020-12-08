@@ -124,6 +124,7 @@ const DirectoryCRUD = (function () {
         const dSingular = KTUtil.getById('dSingular');
         const dPlural = KTUtil.getById('dPlural');
         const dSlug = KTUtil.getById('dSlug');
+        const dCategories = KTUtil.getById('dCategories');
 
         // Initialise
 
@@ -137,6 +138,34 @@ const DirectoryCRUD = (function () {
                     validators: {
                         notEmpty: {
                             message: 'Name is required',
+                        },
+                    },
+                },
+                dSingular: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Singular is required',
+                        },
+                    },
+                },
+                dPlural: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Plural is required',
+                        },
+                    },
+                },
+                dSlug: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Slug is required',
+                        },
+                    },
+                },
+                dCategories: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Categories is required',
                         },
                     },
                 },
@@ -166,6 +195,7 @@ const DirectoryCRUD = (function () {
                         singular: dSingular.value,
                         plural: dPlural.value,
                         slug: dSlug.value,
+                        categories: dCategories.value
                     },
                 }).then(function (res) {
                     KTUtil.btnRelease(dFormSubmitButton);
@@ -227,8 +257,7 @@ const DirectoryCRUD = (function () {
         const dlContentFields = KTUtil.getById('dlContentFields');
 
         // Initialise
-
-        $(raDescription).summernote({
+        $(dlDescription).summernote({
             height: 400,
             tabsize: 2,
         });
@@ -318,8 +347,9 @@ const DirectoryCRUD = (function () {
             _createDirectoryCategoriesForm();
             _createDirectoryForm();
             _createDirectoryLevelsForm();
-        }
-    }
+
+        },
+    };
 })();
 
 jQuery(document).ready(function () {

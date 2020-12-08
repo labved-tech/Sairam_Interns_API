@@ -60,8 +60,16 @@ block content
                                                 input#dSlug(type='text' class='form-control' name='dSlug' placeholder='ex. YYYY')
                                                 span(class='form-text text-muted') slug
 
-                                        h3(class=' text-dark font-weight-bold mb-10') Categories
+                                        // dCategories
                                         div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Categories 
+                                            div(class='col-4')
+                                                select#dCategories(class='form-control selectpicker' multiple=''  data-live-search='true' name='dCategories')
+                                                    //option(value='' disabled='' selected='') Choose the category
+                                                    option Categories 1
+                                                    option Categories 2
+                                                    option Categories 3
+                                                span(class='form-text text-muted') 
 
                             div(class='card-footer')
                                 div(class='row text-right')
