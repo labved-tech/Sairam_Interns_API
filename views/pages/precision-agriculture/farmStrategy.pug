@@ -1,0 +1,345 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/precision-agriculture/farmForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Farm Strategy Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createFarmStrategyForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#fsName(type='text' class='form-control' name='fsName' placeholder='ex. Sai Vignesh')
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='fsDescription')
+                                                | Description 
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#fsDescription(class='form-control' name='fsDescription' rows='3')
+                                                span(class='form-text text-muted') 
+ 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Zone ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsZoneId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsZoneId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Crop ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsCropId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsCropId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Region ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsRegionId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsRegionId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Expected Yield
+                                            div(class='col-4')
+                                                input#fsExpectedYield(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fsExpectedYield' placeholder='Quantity')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Expected Yield Unit
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsExpectedYieldUnit(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsExpectedYieldUnit' placeholder='')
+                                                    span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Actual Yield
+                                            div(class='col-4')
+                                                input#fsActualYield(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fsActualYield' placeholder='Quantity')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Actual Yield Unit
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsActualYieldUnit(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsActualYieldUnit' placeholder='')
+                                                    span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Start 
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#fsStart(type='text' class='form-control' readonly='' name='fsStart' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') End
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#fsExpectedEnd(type='text' class='form-control' readonly='' name='fsExpectedEnd' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contract ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsContractId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsContractId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Exported Strategy ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsExportedStrategyId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsExportedStrategyId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Rate
+                                            div(class='col-6')
+                                                input#fsRate(type='text' class='form-control' name='fsRate' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Expenses
+                                            div(class='col-4')
+                                                input#fsTotalExpense(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fsTotalExpense' placeholder='')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Author Notes
+                                            div(class='col-6')
+                                                input#fsAuthorNotes(type='text' class='form-control' name='fsAuthorNotes' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Parent ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fsParentId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsParentId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Stages
+
+                                        #fsStages
+                                            #fsStages(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') 
+                                                div(data-repeater-list='', class='col-9')
+                                                    div(data-repeater-item='', class='form-group row align-items-center')
+
+                                                        div(class='form-group row')
+                                                            label(class='col-5 col-form-label form-control-label text-right') Name
+                                                            div(class='col-6')
+                                                                input#fssName(type='text' class='form-control' name='fssName' placeholder='ex. Sai Vignesh')
+
+                                                        div(class='form-group row mb-1')
+                                                            label(class='col-5  col-form-label form-control-label text-right' for='fssDescription')
+                                                                | Description 
+                                                            div(class='col-9 ')
+                                                                textarea#fssDescription(class='form-control' name='fssDescription' rows='3')
+                                                                span(class='form-text text-muted') 
+
+                                                        div(class='form-group row')
+                                                            label(class='col-5 col-form-label form-control-label text-right') Start 
+                                                            div(class='col-4')
+                                                                div(class='input-group date')
+                                                                    input#fssStart(type='text' class='form-control' readonly='' name='fssStart' placeholder='Select date')
+                                                                    div(class='input-group-append')
+                                                                        span(class='input-group-text')
+                                                                            i(class='la la-calendar-check-o')
+                                                                span(class='form-text text-muted') 
+
+                                                        div(class='form-group row')
+                                                            label(class='col-5 col-form-label form-control-label text-right') End
+                                                            div(class='col-4')
+                                                                div(class='input-group date')
+                                                                    input#fssEnd(type='text' class='form-control' readonly='' name='fssEnd' placeholder='Select date')
+                                                                    div(class='input-group-append')
+                                                                        span(class='input-group-text')
+                                                                            i(class='la la-calendar-check-o')
+                                                                span(class='form-text text-muted') 
+
+                                                        div(class='form-group row')
+                                                            label(class='col-5 col-form-label form-control-label text-right') Stage Order 
+                                                            div(class='col-4')
+                                                                input#fssStageOrder(type='text' class='form-control' value='' name='fssStageOrder' placeholder='')
+                                                                span(class='form-text text-muted')
+
+                                                        div(class='form-group row')
+                                                            label(class='col-5 col-form-label form-control-label text-right') Editable
+                                                            div(class='col-4')
+                                                                span(class='switch switch-sm')
+                                                                    label
+                                                                        input#fssEditable(type='checkbox' checked='checked' name='fssEditable')
+                                                                        span
+                                                                span(class='form-text text-muted')
+
+                                                        h3(class=' text-dark font-weight-bold mb-10') Commodities
+
+                                                        #fssCommodities
+                                                            #fssCommodities(class='form-group row')
+                                                                label(class='col-5 col-form-label form-control-label text-right') 
+                                                                div(data-repeater-list='', class='col-9')
+                                                                    div(data-repeater-item='', class='form-group row align-items-center')
+
+                                                                        div(class='form-group row')
+                                                                            label(class='col-5 col-form-label form-control-label text-right') Type 
+                                                                            div(class='col-4')
+                                                                                div(class='typeahead')
+                                                                                    input#fsscType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsscType' placeholder='')
+                                                                                    span(class='form-text text-muted') 
+
+                                                                        div(class='form-group row')
+                                                                            label(class='col-5 col-form-label form-control-label text-right') Name
+                                                                            div(class='col-6')
+                                                                                input#fsscName(type='text' class='form-control' name='fsscName' placeholder='ex. Sai Vignesh')
+
+                                                                        div(class='form-group row')
+                                                                            label(class='col-5 col-form-label form-control-label text-right') Quantity 
+                                                                            div(class='col-4')
+                                                                                input#fsscQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fsscQuantity' placeholder='')
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            label(class='col-5 col-form-label form-control-label text-right') Unit Of Measurement 
+                                                                            div(class='col-4')
+                                                                                div(class='typeahead')
+                                                                                    input#fsscUnitOfMeasurement(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fsscUnitOfMeasurement' placeholder='')
+                                                                                    span(class='form-text text-muted')        
+
+                                                                        div(class='form-group row')
+                                                                            label(class='col-5 col-form-label form-control-label text-right') Editable
+                                                                            div(class='col-4')
+                                                                                span(class='switch switch-sm')
+                                                                                    label
+                                                                                        input#fsscEditable(type='checkbox' checked='checked' name='fsscEditable')
+                                                                                        span
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            labe Quotations 
+                                                                            div(class='col-md-7')
+                                                                                select#fsscQuotations(class='form-control selectpicker' data-size='7' data-live-search='true'  name='fsscQuotations')
+                                                                                    option(value='' disabled='' selected='') 
+                                                                                    option(value='T1') Type 1
+                                                                                    option(value='T2') Type 2
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            labe Performa Invoices 
+                                                                            div(class='col-md-7')
+                                                                                select#fsscPerformsInvoices(class='form-control selectpicker' data-size='7' data-live-search='true'  name='fsscPerformsInvoices')
+                                                                                    option(value='' disabled='' selected='') 
+                                                                                    option(value='T1') Type 1
+                                                                                    option(value='T2') Type 2
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            labe Tax Invoices 
+                                                                            div(class='col-md-7')
+                                                                                select#fsscTaxInvoices(class='form-control selectpicker' data-size='7' data-live-search='true'  name='fsscTaxInvoices')
+                                                                                    option(value='' disabled='' selected='') 
+                                                                                    option(value='T1') Type 1
+                                                                                    option(value='T2') Type 2
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            labe Delivery Notes 
+                                                                            div(class='col-md-7')
+                                                                                select#fsscDeliveryNotes(class='form-control selectpicker' data-size='7' data-live-search='true'  name='fsscDeliveryNotes')
+                                                                                    option(value='' disabled='' selected='') 
+                                                                                    option(value='T1') Type 1
+                                                                                    option(value='T2') Type 2
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            labe Packing Lists 
+                                                                            div(class='col-md-7')
+                                                                                select#fsscPackingLists(class='form-control selectpicker' data-size='7' data-live-search='true'  name='fsscPackingLists')
+                                                                                    option(value='' disabled='' selected='') 
+                                                                                    option(value='T1') Type 1
+                                                                                    option(value='T2') Type 2
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='form-group row')
+                                                                            labe Ecomm Orders 
+                                                                            div(class='col-md-7')
+                                                                                select#fsscEcommOrders(class='form-control selectpicker' data-size='7' data-live-search='true'  name='fsscEcommOrders')
+                                                                                    option(value='' disabled='' selected='') 
+                                                                                    option(value='T1') Type 1
+                                                                                    option(value='T2') Type 2
+                                                                                span(class='form-text text-muted')
+
+                                                                        div(class='col-md-3')
+                                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                                i(class='la la-trash-o')
+                                                                                | Delete
+                                                                        
+                                                                        span(class='form-text text-muted')
+
+                                                            div(class='form-group row')
+                                                                label(class='col-5 col-form-label form-control-label text-right')
+                                                                div(class='col-4')
+                                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                                        i(class='la la-plus')
+                                                                        | Add
+
+
+
+                                                        div(class='col-md-3')
+                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                                        
+                                                        span(class='form-text text-muted')
+
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right')
+                                                div(class='col-4')
+                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createFarmStrategyFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
+
+
+
+
+
+
+

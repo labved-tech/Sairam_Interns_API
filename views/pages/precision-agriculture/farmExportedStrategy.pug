@@ -18,7 +18,7 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Farm Region Form
+                            | Farm Exported Strategy Form
                     div(class='card-body')
                         // begin::Form
                         form#createFarmExportedStrategyForm(class='form')
@@ -64,14 +64,10 @@ block content
                                                     input#fesFarmId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesFarmId' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
 
-                                        div(class='form-group row mb-6')
+                                        div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Expected Yield
-                                            div(class='col-6 ')
-                                                div(class='row align-items-center')
-                                                    div(class='col-4')
-                                                        input#fesExpectedYield(type='text' class='form-control' name='fesExpectedYield' placeholder='Quantity')
-                                                    div(class='col-8')
-                                                        #fesExpectedYieldSlider(class='nouislider-drag-danger')
+                                            div(class='col-4')
+                                                input#fesExpectedYield(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesExpectedYield' placeholder='Quantity')
                                                 span(class='form-text text-muted')
 
                                         div(class='form-group row')
@@ -81,14 +77,10 @@ block content
                                                     input#fesExpectedYieldUnit(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesExpectedYieldUnit' placeholder='')
                                                     span(class='form-text text-muted')
 
-                                        div(class='form-group row mb-6')
+                                        div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Actual Yield
-                                            div(class='col-6 ')
-                                                div(class='row align-items-center')
-                                                    div(class='col-4')
-                                                        input#fesActualYield(type='text' class='form-control' name='fesActualYield' placeholder='Quantity')
-                                                    div(class='col-8')
-                                                        #fesActualYieldSlider(class='nouislider-drag-danger')
+                                            div(class='col-4')
+                                                input#fesActualYield(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesActualYield' placeholder='Quantity')
                                                 span(class='form-text text-muted')
 
                                         div(class='form-group row')
@@ -156,15 +148,11 @@ block content
                                             div(class='col-6')
                                                 input#fesRate(type='text' class='form-control' name='fesRate' placeholder='')
 
-                                        div(class='form-group row mb-6')
-                                            label(class='col-3 col-form-label form-control-label text-right') Total Expense
-                                            div(class='col-6 ')
-                                                div(class='row align-items-center')
-                                                    div(class='col-4')
-                                                        input#fesTotalExpense(type='text' class='form-control' name='fesTotalExpense' placeholder='Expenses')
-                                                    div(class='col-8')
-                                                        #fesTotalExpenseSlider(class='nouislider-drag-danger')
-                                                span(class='form-text text-muted') 
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Expenses
+                                            div(class='col-4')
+                                                input#fesTotalExpense(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesTotalExpense' placeholder='')
+                                                span(class='form-text text-muted')
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Author Notes

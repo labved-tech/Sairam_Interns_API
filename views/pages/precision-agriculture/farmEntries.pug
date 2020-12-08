@@ -1,0 +1,146 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/precision-agriculture/farmForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Farm Entries Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createFarmEntriesForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5') 
+
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                    
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Owner ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#feOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='feOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#feName(type='text' class='form-control' name='feName' placeholder='ex. Sai Vignesh')
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='feDescription')
+                                                | Description 
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#feDescription(class='form-control' name='feDescription' rows='3')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Notes 
+                                            div(class='col-6')
+                                                input#feNotes(type='text' class='form-control' name='feNotes' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#feStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='feStatus' placeholder='')
+                                                    span(class='form-text text-muted')                                        
+                                                                            
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Address 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#feAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='feAddress' placeholder='')
+                                                    span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') GPS Co-ordinates
+                                            div(class='col-6')
+                                                input#feGPSCoordinates(type='text' class='form-control' name='feGPSCoordinates' placeholder='Enter GPS Co-ordinates')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Documents 
+                                            div(class='col-4')
+                                                select#feDocuments(class='form-control selectpicker' multiple=''  data-live-search='true' name='feDocuments')
+                                                    //option(value='' disabled='' selected='') Choose country
+                                                    option Document 1
+                                                    option Document 2
+                                                    option Document 3
+                                                span(class='form-text text-muted')                                        
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Size
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Size 
+                                            div(class='col-4')
+                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Units
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesUnits(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesUnits' placeholder='')
+                                                    span(class='form-text text-muted')  Enter the Unit of entered Size
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Admins
+
+                                        #feAdmins
+                                            #feAdmins(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') 
+                                                div(data-repeater-list='', class='col-9')
+                                                    div(data-repeater-item='', class='form-group row align-items-center')
+                                                                                                                
+                                                        div(class='form-group row')
+                                                            label(class='col-3 col-form-label form-control-label text-right') Admin ID
+                                                            div(class='col-7')
+                                                                div(class='typeahead')
+                                                                    input#feaAdminId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='feaAdminId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                                        div(class='form-group row')
+                                                            label(class='col-3 col-form-label form-control-label text-right') Permissions 
+                                                            div(class='col-7')
+                                                                div(class='typeahead')
+                                                                    input#feaPermissions(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='feaPermissions' placeholder='')
+                                                                    span(class='form-text text-muted') 
+                                                        
+                                                        div(class='col-md-3')
+                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                                        
+                                                        span(class='form-text text-muted')
+
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right')
+                                                div(class='col-4')
+                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createFarmEntriesFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

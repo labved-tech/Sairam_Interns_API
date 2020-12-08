@@ -298,6 +298,27 @@ const LeadsCRUD = (function () {
     const leLsColour = KTUtil.getById('leLsColour');
     const leLsIsDefault = KTUtil.getById('leLsIsDefault');
     const leLsNotes = KTUtil.getById('leLsNotes');
+    
+    
+    //Repeat Multiple
+
+    const leContactEntries = KTUtil.getById('leContactEntries'); // Form Repeat #2 : Multiple 
+    
+    $('#leContactEntries').repeater({
+      initEmpty: false,
+
+      defaultValues: {
+        'text-input': 'foo'
+      },
+
+      show: function () {
+        $(this).slideDown();
+      },
+
+      hide: function (deleteElement) {
+        $(this).slideUp(deleteElement);
+      }
+    });
 
     // Date & Time : Date
     $('#leLastStatusChange').datepicker({
@@ -616,28 +637,7 @@ const LeadsCRUD = (function () {
         });
         
         };     
-      const _FormRepeat = function () {
-        /* Initializing */
-        const kt_repeater_1 = KTUtil.getById('kt_repeater_1'); // Form Repeat #2 : Multiple 
-    
-        // Form Repeat #2 : Multiple
-        $('#kt_repeater_1').repeater({
-          initEmpty: false,
-    
-          defaultValues: {
-            'text-input': 'foo'
-          },
-    
-          show: function () {
-            $(this).slideDown();
-          },
-    
-          hide: function (deleteElement) {
-            $(this).slideUp(deleteElement);
-          }
-        });
-      }
-    
+
          
   return {
     // public functions
