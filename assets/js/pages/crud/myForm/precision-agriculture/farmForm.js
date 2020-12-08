@@ -40,6 +40,7 @@ const FarmCRUD = (function () {
         const fesTotalExpense = KTUtil.getById('fesTotalExpense');
         const fesAuthorNotes = KTUtil.getById('fesAuthorNotes');
         const fesParentId = KTUtil.getById('fesParentId');
+        const fesStages = KTUtil.getById('fesStages');
 
 
         // Date & Time : Date
@@ -111,9 +112,9 @@ const FarmCRUD = (function () {
         });
         // Dropdown List : Multiple Select
         
-        $('#fesStages').select2({
-            allowClear: true
-                });   
+        $('fesStages').selectpicker({
+        });
+ 
 
         if(!createFarmExportedStrategyForm) {
             return;
@@ -391,9 +392,8 @@ const FarmCRUD = (function () {
 
         // Dropdown List : Multiple Select
         
-        $('#feDocuments').select2({
-            allowClear: true
-                });
+        $('#feDocuments').selectpicker({
+        });
 
 
 
@@ -575,9 +575,8 @@ const FarmCRUD = (function () {
 
         // Dropdown List : Multiple Select
         
-        $('#frConsultant').select2({
-            allowClear: true
-                });
+        $('#frConsultant').selectpicker({
+        });
 
         if(!createFarmRegionsForm) {
         return;
@@ -1224,6 +1223,7 @@ const FarmCRUD = (function () {
         _createFarmEntries();
         _createFarmExportedStrategy();
         _createFarmRegions();
+        _createFarmStrategy();
     },
   };
 })();
