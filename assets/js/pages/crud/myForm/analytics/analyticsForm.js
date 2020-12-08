@@ -30,18 +30,18 @@ const AnalyticsCRUD = (function () {
               message: 'Name is required',
             },
           },
-          aOwnerId: {
-            validators: {
-              notEmpty: {
-                message: '_ownerId is required',
-              },
+        },
+        aOwnerId: {
+          validators: {
+            notEmpty: {
+              message: 'OwnerId is required',
             },
           },
-          aReporterId: {
-            validators: {
-              notEmpty: {
-                message: '_reporterId is required',
-              },
+        },
+        aReporterId: {
+          validators: {
+            notEmpty: {
+              message: 'ReporterId is required',
             },
           },
         },

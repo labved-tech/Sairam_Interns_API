@@ -42,25 +42,25 @@ const LeadsCRUD = (function () {
               message: 'Name is required',
             },
           },
-          lcDescription: {
-            validators: {
-              notEmpty: {
-                message: 'Description is required',
-              },
+        },
+        lcDescription: {
+          validators: {
+            notEmpty: {
+              message: 'Description is required',
             },
           },
-          lcNotes: {
-            validators: {
-              notEmpty: {
-                message: 'Notes is required',
-              },
+        },
+        lcNotes: {
+          validators: {
+            notEmpty: {
+              message: 'Notes is required',
             },
           },
-          lcStatus: {
-            validators: {
-              notEmpty: {
-                message: 'Status is required',
-              },
+        },
+        lcStatus: {
+          validators: {
+            notEmpty: {
+              message: 'Status is required',
             },
           },
         },
@@ -155,39 +155,39 @@ const LeadsCRUD = (function () {
                 message: 'Lead ID is required',
               },
             },
-            lrResponderId: {
-              validators: {
-                notEmpty: {
-                  message: 'Responder ID is required',
-                },
+          },
+          lrResponderId: {
+            validators: {
+              notEmpty: {
+                message: 'Responder ID is required',
               },
             },
-            lrEmailSent: {         
-              validators: {
-                notEmpty: {
-                  message: 'Is Email Sent is required',
-                },
+          },
+          // lrEmailSent: {         
+          //   validators: {
+          //     notEmpty: {
+          //       message: 'Is Email Sent is required',
+          //     },
+          //   },
+          // },
+          // lrIsStatusChange: {
+          //   validators: {
+          //     notEmpty: {
+          //       message: 'Status Change is required',
+          //     },
+          //   },
+          // },
+          lrMessage: {
+            validators: {
+              notEmpty: {
+                message: 'Message is required',
               },
             },
-            lrIsStatusChange: {
-              validators: {
-                notEmpty: {
-                  message: 'Status Change is required',
-                },
-              },
-            },
-            lrMessage: {
-              validators: {
-                notEmpty: {
-                  message: 'Message is required',
-                },
-              },
-            },
-            lrStatus: {
-              validators: {
-                notEmpty: {
-                  message: 'Status is required',
-                },
+          },
+          lrStatus: {
+            validators: {
+              notEmpty: {
+                message: 'Status is required',
               },
             },
           },
@@ -350,191 +350,191 @@ const LeadsCRUD = (function () {
               message: 'Lead Name is required',
             },
           },
-          leTitle: {
-            validators: {
-              notEmpty: {
-                message: 'Title required',
-              },
-            },
-          },
-          
-          leCategoryId: {
-            validators: {
-              notEmpty: {
-                message: 'Category ID is required',
-              },
-            },
-          },
-          leCompany: {
-            validators: {
-              notEmpty: {
-                message: 'Company is required',
-              },
-            },
-          },
-          leDescription: {         
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          },
-          leEmail: {
-            validators: {
-              notEmpty: {
-                message: 'Email is required',
-              },
-            },
-          },
-          leWebsite: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leAssignedTo: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leSourceId: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLastContact: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          lePriority: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leDateConverted: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLost: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLastLeadStatus: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLastStatusChange: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leAdAddress1: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leAdCity: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leAdState: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leAdCountry: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leAdPostalCode: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leCiType: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leCiIsPublic: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leSName: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLsName: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLsColour: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLsIsDefault: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          leLsNotes: {
-            validators: {
-              notEmpty: {
-                message: 'This Field is required',
-              },
-            },
-          }, 
-          
         },
+        leTitle: {
+          validators: {
+            notEmpty: {
+              message: 'Title required',
+            },
+          },
+        },
+        
+        leCategoryId: {
+          validators: {
+            notEmpty: {
+              message: 'Category ID is required',
+            },
+          },
+        },
+        leCompany: {
+          validators: {
+            notEmpty: {
+              message: 'Company is required',
+            },
+          },
+        },
+        leDescription: {         
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        },
+        leEmail: {
+          validators: {
+            notEmpty: {
+              message: 'Email is required',
+            },
+          },
+        },
+        leWebsite: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leAssignedTo: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leSourceId: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leLastContact: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        lePriority: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leDateConverted: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        // leLost: {
+        //   validators: {
+        //     notEmpty: {
+        //       message: 'This Field is required',
+        //     },
+        //   },
+        // }, 
+        leLastLeadStatus: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leLastStatusChange: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leAdAddress1: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leAdCity: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leAdState: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leAdCountry: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leAdPostalCode: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leCiType: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        // leCiIsPublic: {
+        //   validators: {
+        //     notEmpty: {
+        //       message: 'This Field is required',
+        //     },
+        //   },
+        // }, 
+        leSName: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leLsName: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        leLsColour: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+        // leLsIsDefault: {
+        //   validators: {
+        //     notEmpty: {
+        //       message: 'This Field is required',
+        //     },
+        //   },
+        // }, 
+        leLsNotes: {
+          validators: {
+            notEmpty: {
+              message: 'This Field is required',
+            },
+          },
+        }, 
+
       },
       plugins: {
         //Learn more: https://formvalidation.io/guide/plugins

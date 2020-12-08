@@ -17,7 +17,7 @@ const PagesCRUD = (function () {
     
     // Dropdown List : Multiple Select
 
-    $('#pContents').select2({
+    $('#pContents').selectpicker({
             });
 
     if(!createPagesForm) {
