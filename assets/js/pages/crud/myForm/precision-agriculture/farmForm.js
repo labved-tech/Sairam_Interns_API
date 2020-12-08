@@ -830,6 +830,8 @@ const FarmCRUD = (function () {
         if(!createFarmStrategyForm) {
             return;
         }
+        const fsStages = KTUtil.getById('fsStages'); // Form Repeat #2 : Multiple 
+        const fssCommodities = KTUtil.getById('fssCommodities'); // Form Repeat #2 : Multiple 
 
         //Repeat Multiple : Stages Array
         const fsStages = KTUtil.getById('fsStages'); // Form Repeat #2 : Multiple 
