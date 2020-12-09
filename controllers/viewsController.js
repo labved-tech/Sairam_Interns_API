@@ -609,6 +609,11 @@ exports.quotation = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/quotation', doc);
 };
 
+exports.taxInvoice = (req, res) => {
+  console.log('We are in Tax Invoice Form Page');
+  res.status(200).render('./../views/pages/sales-finance/taxInvoice', doc);
+};
+
 
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
