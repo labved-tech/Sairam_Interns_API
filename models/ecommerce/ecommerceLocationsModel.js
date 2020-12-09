@@ -25,10 +25,11 @@ const ecommerceLocationsSchema = new Schema({
       name: { type: String },
       URL: { type: String },
       type: { type: String },
-      createdBy: { type: mongoose.ObjectId, },
+      createdBy: { type: mongoose.ObjectId },
       updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date },
     },
-    { timestamps: true }
   ],
   name: { type: String },
   description: { type: String },

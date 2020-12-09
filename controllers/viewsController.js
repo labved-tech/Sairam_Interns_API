@@ -725,3 +725,9 @@ exports.ecommerceAddress = (req, res) => {
   console.log('We are in Ecommerce Address Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceAddress', doc);
 };
+
+exports.ecommerceLocations = (req, res) => {
+  console.log('We are in Ecommerce Location Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceLocations', doc);
+};
+

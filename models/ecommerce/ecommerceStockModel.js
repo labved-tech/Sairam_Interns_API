@@ -19,8 +19,9 @@ const ecommerceStockSchema = new Schema({
       description: { type: String },
       createdBy: { type: mongoose.ObjectId },
       updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date },
     },
-    { timestamps: true }
   ],
   availableStock: { type: Number },
   tax: [
@@ -31,17 +32,18 @@ const ecommerceStockSchema = new Schema({
       IGST: { type: String },
       createdBy: { type: mongoose.ObjectId },
       updatedBy: { type: mongoose.ObjectId },
+      createdAt: { type: Date },
+      updatedAt: { type: Date },
     },
-    { timestamps: true }
   ],
   name: { type: String },
   description: { type: String },
   notes: { type: String },
   _locationId: { type: mongoose.ObjectId },
   status: { type: String },
+  maxQuantityPerOrderNumber: { type: Number },
   createdBy: { type: mongoose.ObjectId },
   updatedBy: { type: mongoose.ObjectId },
-  maxQuantityPerOrderNumber: { type: Number },
 },
   { timestamps: true }
 );
