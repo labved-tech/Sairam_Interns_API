@@ -11,7 +11,7 @@ const ecommerceAddressSchema = new Schema({
   city: { type: String },
   state: { type: String },
   country: { type: String },
-  postalcode: { type: Number },
+  postalcode: { type: String },
   createdBy: { type: mongoose.ObjectId },
   updatedBy: { type: mongoose.ObjectId },
 },

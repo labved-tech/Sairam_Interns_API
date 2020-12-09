@@ -1,0 +1,80 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/ecommerce/ecommerceAddressForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Ecommerce Address Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createEcommerceAddressForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5') 
+
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                    
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Address 1
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#eaAddress1(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaAddress1' placeholder='  ')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Street
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#eaStreet(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaStreet' placeholder='  ')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') City
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#eaCity(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaCity' placeholder='ex. Bangalore ')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') State
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#eaState(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaState' placeholder='ex. Karnataka  ')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Country
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#eaCountry(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaCountry' placeholder='ex. India  ')
+                                                    span(class='form-text text-muted')              
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Postal Code
+                                            div(class='col-6')
+                                                input#eaPostalCode(type='text' class='form-control' name='eaPostalCode' placeholder='ex. 600112')                                      
+                                                                            
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createEcommerceAddressFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

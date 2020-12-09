@@ -197,15 +197,15 @@ const FarmEntriesCRUD = (function () {
                     gpsCoordinates:feGPSCoordinates.value,
                     documents:feDocuments.value,
 
-                size:{
-                    size:fesSize.value,
-                    units: fesUnits.value,
-                },
+                    size:{
+                        size:fesSize.value,
+                        units: fesUnits.value,
+                    },
 
-                admins:[{
+                    admins:[{
                         _adminId: feaAdminId.value,
                         permissions: feaPermissions.value,
-                }],        
+                    }],        
             },
             }).then(function (res) {
             KTUtil.btnRelease(createFarmEntriesFormSubmitButton);

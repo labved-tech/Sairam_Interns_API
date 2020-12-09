@@ -105,4 +105,8 @@ router.get('/farm/exported-strategy/', viewsController.farmExportedStrategy);
 router.get('/farm/regions/', viewsController.farmRegions);
 router.get('/farm/strategy/', viewsController.farmStrategy);
 
+// ECOMMERCE RELATED ROUTES
+router.get('/ecommerce/address/', viewsController.ecommerceAddress);
+
+
 module.exports = router;
