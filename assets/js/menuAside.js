@@ -25,6 +25,7 @@ const MenuFetch = (function () {
         // Constructing Section
         const sectionLen = asideMenu.manager[0]._section.length;
         //console.log('sectionLen', sectionLen);
+      
       for (let i = 0; i < sectionLen; i++) {
           $('#menuAside').append('\
           <!-- Begin::Section - Aside:'+ asideMenu.manager[0]._section[i].name +' -->  \
@@ -58,7 +59,6 @@ const MenuFetch = (function () {
                 <li id="liAside'+ itemRef +'" class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">\
                     <a href="'+ asideMenu.manager[0]._section[i]._item[j].route + '" class="menu-link menu-toggle">\
                         <i class="menu-icon flaticon2-box-1">\
-                            <span></span>\
                         </i>\
                         <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j].name + '</span> \
                         <i id="iAside'+ itemRef +'" class= "menu-arrow" ></i >\
@@ -72,7 +72,6 @@ const MenuFetch = (function () {
                 <li id="liAside'+ itemRef +'" class="menu-item  menu-item-submenu" aria-haspopup="true">\
                     <a href="'+ itemRef + '" class="menu-link menu-toggle">\
                         <i class="menu-bullet menu-bullet-dot">\
-                            <span></span>\
                         </i>\
                         <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j].name + '</span> \
                     </a>\
@@ -114,7 +113,6 @@ const MenuFetch = (function () {
                     <li id="liAside'+ subitem1Ref +'" class="menu-item  menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover"> \
                       <a href="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].route + '" class="menu-link menu-toggle"> \
                           <i class="menu-bullet menu-bullet-dot"> \
-                              <span></span> \
                           </i> \
                           <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'</span> \
                           <i id="iAside'+ subitem1Ref +'" class="menu-arrow"></i>\
@@ -128,7 +126,6 @@ const MenuFetch = (function () {
                     <li id="liAside'+ subitem1Ref +'" class="menu-item  menu-item-submenu" aria-haspopup="true"> \
                       <a href="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].route + '" class="menu-link menu-toggle"> \
                           <i class="menu-bullet menu-bullet-dot"> \
-                              <span></span> \
                           </i> \
                           <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name +'</span> \
                       </a > \
@@ -160,7 +157,6 @@ const MenuFetch = (function () {
                       <li class="menu-item" aria-haspopup="true"> \
                         <a href="'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2[l].route + '" class="menu-link menu-toggle"> \
                             <i class="menu-bullet menu-bullet-dot"> \
-                                <span></span> \
                             </i> \
                             <span class="menu-text">'+ asideMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2[l].name + '</span> \
                       </li>\
@@ -316,7 +312,7 @@ const MenuFetch = (function () {
                             <i class="menu-bullet menu-bullet-dot"> \
                                 <span></span> \
                             </i> \
-                            <span class="menu-text">'+ subitem2Ref + '</span> \
+                            <span class="menu-text">'+ topMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2[l].name + '</span> \
                         </a>\
                       </li>\
                       <!-- End:: li subItem2 - Top:'+ subitem2Ref + ' -->  \
