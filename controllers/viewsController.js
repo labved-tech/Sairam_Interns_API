@@ -741,3 +741,12 @@ exports.ecommerceStock = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceStock', doc);
 };
 
+exports.ecommerceOrder = (req, res) => {
+  console.log('We are in Ecommerce Order Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceOrder', doc);
+};
+
+exports.ecommerceProducts = (req, res) => {
+  console.log('We are in Ecommerce Order Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceProducts', doc);
+};

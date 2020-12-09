@@ -1,0 +1,126 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/ecommerce/announcementForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Ecommerce Products
+                    div(class='card-body')
+                        // begin::Form
+                        form#createAnnouncementNotifyForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //epManufactureNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Manufacture Part No
+                                            div(class='col-5')
+                                                input#epManufactureNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epManufactureNo' placeholder='')
+
+                                        //epName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                            div(class='col-5')
+                                                input#epName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epName' placeholder='')
+
+                                        //epDescription
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='epDescription')
+                                                | Description
+                                                span(class='text-danger')
+                                            div(class='col-9 ')
+                                                textarea#epDescription(class='form-control' name='epDescription' rows='4')
+                                                span(class='form-text text-muted') Add Description
+
+                                        //epID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#epID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='epID' placeholder='')
+
+                                        //epunitPrice
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Unit Price
+                                            div(class='col-5')
+                                                input#epunitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epunitPrice' placeholder='')
+
+                                        //epMRP
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') MRP
+                                            div(class='col-5')
+                                                input#epMRP(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epMRP' placeholder='')
+
+                                        //epNote
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='epNote')
+                                                | Notes
+                                                span(class='text-danger')
+                                            div(class='col-9 ')
+                                                textarea#epNote(class='form-control' name='epNote' rows='4')
+                                                span(class='form-text text-muted') Add Notes
+
+                                        //epRanking
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Ranking
+                                            div(class='col-5')
+                                                input#epRanking(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epRanking' placeholder='')
+
+                                        //epMaxQtyNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Max Qty Per Order
+                                            div(class='col-5')
+                                                input#epMaxQtyNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epMaxQtyNo' placeholder='')
+
+                                        //epSellerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller ID
+                                            div(class='col-6')
+                                                input#epSellerID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epSellerID' placeholder='')
+
+                                        //epreviewID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Review Attribute ID
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#epreviewID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='epreviewID' placeholder='Enter ID')
+
+                                        //epStatus  
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Status
+                                            div(class='col-5')
+                                                select#epStatus(class='form-control selectpicker' multiple=''  data-live-search='true' name='epStatus' )
+                                                    option Active
+                                                    option On Hold
+                                                    option Deleted
+                                                span(class='form-text text-muted') Select Status                                
+
+                                        //epHSN
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') HSN Code 
+                                            div(class='col-5')
+                                                input#epHSN(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epHSN' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#epFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
