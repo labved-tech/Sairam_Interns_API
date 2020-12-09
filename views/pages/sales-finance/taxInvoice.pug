@@ -25,3 +25,286 @@ block content
                                 div(class='col-xl-6')
                                     div(class='my-5')
 
+
+                                        //tiNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Tax Invoice No
+                                                span(class='text-danger')  *
+                                            div(class='col-5')
+                                                input#tiNo(type='text' class='form-control' name='tiNo' placeholder='')
+
+                                        //tiHeader
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Header
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiHeader(type='text' class='form-control' name='tiHeader' placeholder='')
+
+                                        //tiDate
+                                        div(class = 'form-group row')
+                                            label(class = 'col-3 col-form-label form-control-label text-right') Date
+                                                span(class='text-danger')
+                                            div(class='col-4')
+                                                input#tiDate(type='text' class='form-control' name='tiDate' placeholder='Select Date')
+
+
+                                        //tiOrderID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Order ID 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#tiOrderID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiOrderID' placeholder='')
+
+                                        //tiOrderDate
+                                        div(class = 'form-group row')
+                                            label(class = 'col-3 col-form-label form-control-label text-right') Order Date
+                                                span(class='text-danger')
+                                            div(class='col-4')
+                                                input#tiOrderDate(type='text' class='form-control' name='tiOrderDate' placeholder='Select Date')
+
+                                        //tiBuyerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer ID 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#tiBuyerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiBuyerID' placeholder='')
+
+                                        //tiBillingName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiBillingName(type='text' class='form-control' name='tiBillingName' placeholder='')
+
+                                        //tiBillingAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing Address
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#tiBillingAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiBillingAddress' placeholder='Enter Address')
+
+                                        //tiBillingEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing Email
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiBillingEmail(type='text' class='form-control' name='tiBillingEmail' placeholder='')
+
+                                        //tiBillingContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contact No
+                                                span(class='text-danger')  
+                                            div(class='col-5')
+                                                input#tiBillingContact(type='text' class='form-control' name='tiBillingContact' placeholder='Enter Contact')
+
+                                        //tiBillingGST
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing GST
+                                                span(class='text-danger')  
+                                            div(class='col-3')
+                                                input#tiBillingGST(type='text' class='form-control' name='tiBillingGST' placeholder='')
+
+                                        //tiCosigneeName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Name
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#tiCosigneeName(type='text' class='form-control' name='tiCosigneeName' placeholder='')
+
+                                        //tiCosigneeAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Address
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#tiCosigneeAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiCosigneeAddress' placeholder='Enter Address')
+
+                                        //tiCosigneeContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Contact
+                                                span(class='text-danger')  
+                                            div(class='col-5')
+                                                input#tiCosigneeContact(type='text' class='form-control' name='tiCosigneeContact' placeholder='Enter Contact')
+
+                                        //tiSellerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller ID 
+                                            div(class='col-5')
+                                                div(class='typeahead')
+                                                    input#tiSellerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiSellerID' placeholder='')
+
+                                        //tiSellerName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Name
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#tiSellerName(type='text' class='form-control' name='tiSellerName' placeholder='')
+
+                                        //tiSellerAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Address
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#tiSellerAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiSellerAddress' placeholder='Enter Address')
+
+                                        //tiSellerEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Email
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiSellerEmail(type='text' class='form-control' name='tiSellerEmail' placeholder='Enter Email')
+
+                                        //tiSellerContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller No
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiSellerContact(type='text' class='form-control' name='tiSellerContact' placeholder='Enter Contact')
+
+
+                                        //tiTrackingNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Tracking No
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiTrackingNo(type='text' class='form-control' name='tiTrackingNo' placeholder='')
+
+
+                                        //tiCarrierCharge
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Charges
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiCarrierCharge(type='text' class='form-control' name='tiCarrierCharge' placeholder='')
+
+                                        #tiPayment
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') Payment Meta
+                                                div(data-repeater-list='', class='col-16')
+                                                    div(data-repeater-item='', class='form-group row')
+                                                        div(class='col-3')
+                                                            input#tiaccNo(type='text', class='form-control', placeholder='Meta' name='tiaccNo')
+                                                        div(class='col-3')
+                                                            select#tiBankName(class='form-control selectpicker' multiple=''  data-live-search='true' name='tiBankName' )
+                                                                option ICICI
+                                                                option HDFC
+                                                                option State Bank of India
+                                                                option other
+                                                            span(class='form-text text-muted') Select Bank                             
+                                                        div(class='col-3')
+                                                            input#tiBankIFSC(type='text', class='form-control', placeholder='Bank IFSC' name='tiBankIFSC')
+
+                                        #tiItem
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') Item Table
+                                                div(data-repeater-list='', class='col-16')
+                                                    div(data-repeater-item='', class='form-group row')
+                                                        div(class='col-3')
+                                                            input#tiSerialNo(type='text', class='form-control', placeholder='Serial No' name='tiSerialNo')
+                                                        div(class='col-3')
+                                                            input#tiItemCode(type='text', class='form-control', placeholder='Item Code' name='tiItemCode')
+                                                        div(class='col-3')
+                                                            input#tiName(type='text', class='form-control', placeholder='Name' name='tiName')
+                                                        div(class='form-group row')
+                                                            div(class='col-3')
+                                                                input#tiQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiQuantity' placeholder='Qty')
+                                                            div(class=' col-2')
+                                                                    select#tiItemUnits(class='form-control select2' name='tiItemUnits' data-placeholder='Select Units')
+                                                                        option(value="" disabled="" selected="" hidden="")
+                                                                        option(value='AK') kg
+                                                                        option(value='HI') g
+                                                        div(class='form-group row')
+                                                            div(class='col-3')
+                                                                input#tiUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiUnitPrice' placeholder='Unit Price')
+                                                        div(class='col-3')
+                                                            input#tiDiscount(type='text', class='form-control', placeholder='Discount' name='tiDiscount')
+                                                        div(class='col-3')
+                                                            input#tiDiscountRate(type='text', class='form-control', placeholder='Discount Rate' name='tiDiscountRate')
+                                                        div(class='col-3')
+                                                            input#tiTaxValue(type='text', class='form-control', placeholder='Tax Value' name='tiTaxValue')
+                                                        div(class='col-3')
+                                                            input#tiCGST(type='text', class='form-control', placeholder='CGST' name='tiCGST')
+                                                        div(class='col-3')
+                                                            input#tiCGSTAmt(type='text', class='form-control', placeholder='CGST Amt' name='tiCGSTAmt')
+                                                        div(class='col-3')
+                                                            input#tiSGST(type='text', class='form-control', placeholder='SGST' name='tiSGST')
+                                                        div(class='col-3')
+                                                            input#tiSGSTAmt(type='text', class='form-control', placeholder='SGST Amt' name='tiSGSTAmt')
+                                                        div(class='col-3')
+                                                            input#tiIGST(type='text', class='form-control', placeholder='IGST' name='tiIGST')
+                                                        div(class='col-3')
+                                                            input#tiIGSTAmt(type='text', class='form-control', placeholder='IGST Amt' name='tiIGSTAmt')
+                                                        div(class='col-3')
+                                                            input#tiTotalPrice(type='text', class='form-control', placeholder='Total Price' name='tiTotalPrice')
+
+                                        //tibeforeTax
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Before Tax
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tibeforeTax(type='text' class='form-control' name='tibeforeTax' placeholder='')
+
+                                        //tiCGSTTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total CGST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiCGSTTotal(type='text' class='form-control' name='tiCGSTTotal' placeholder='')
+
+                                        //tiSGSTTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total SGST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiSGSTTotal(type='text' class='form-control' name='tiSGSTTotal' placeholder='')
+                                        //tiIGSTTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total IGST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiIGSTTotal(type='text' class='form-control' name='tiIGSTTotal' placeholder='')
+                                        //tiGrandTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Grand Total
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiGrandTotal(type='text' class='form-control' name='tiGrandTotal' placeholder='')
+
+                                        //tiTermsCondition
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='tiTermsCondition')
+                                                | Terms and Condition
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#tiTermsCondition(class='form-control' name='tiTermsCondition' rows='3')
+                                                span(class='form-text text-muted') 
+
+                                        //tiFooter
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Footer
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiFooter(type='text' class='form-control' name='tiFooter' placeholder='')
+
+                                        //tiMeta
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Meta
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#tiMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiMeta' placeholder='')
+
+                                        //tiSource
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tiSource(type='text' class='form-control' name='tiSource' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#tiFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

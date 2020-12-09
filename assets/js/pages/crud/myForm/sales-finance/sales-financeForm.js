@@ -1035,6 +1035,244 @@ const SalesFinanceCRUD = (function () {
 
 
     };
+    const _createTaxInvoiceForm = function () {
+        // Getting Document related information
+        const createTaxInvoiceForm = KTUtil.getById('createTaxInvoiceForm ');
+        const tiFormSubmitButton = KTUtil.getById('tiFormSubmitButton');
+        const tiNo = KTUtil.getById('tiNo');
+        const tiHeader = KTUtil.getById('tiHeader');
+        const tiDate = KTUtil.getById('tiDate');
+        const tiOrderID = KTUtil.getById('tiOrderID');
+        const tiOrderDate = KTUtil.getById('tiOrderDate');
+        const tiBuyerID = KTUtil.getById('tiBuyerID');
+        const tiBillingName = KTUtil.getById('tiBillingName');
+        const tiBillingAddress = KTUtil.getById('tiBillingAddress');
+        const tiBillingEmail = KTUtil.getById('tiBillingEmail');
+        const tiBillingContact = KTUtil.getById('tiBillingContact');
+        const tiBillingGST = KTUtil.getById('tiBillingGST');
+        const tiCosigneeName = KTUtil.getById('tiCosigneeName');
+        const tiCosigneeAddress = KTUtil.getById('tiCosigneeAddress');
+        const tiCosigneeContact = KTUtil.getById('tiCosigneeContact');
+        const tiSellerID = KTUtil.getById('tiSellerID');
+        const tiSellerName = KTUtil.getById('tiSellerName');
+        const tiSellerAddress = KTUtil.getById('tiSellerAddress');
+        const tiSellerEmail = KTUtil.getById('tiSellerEmail');
+        const tiSellerContact = KTUtil.getById('tiSellerContact');
+        const tiTrackingNo = KTUtil.getById('tiTrackingNo');
+        const tiCarrierCharge = KTUtil.getById('tiCarrierCharge');
+        const tiaccNo = KTUtil.getById('tiaccNo');
+        const tiBankName = KTUtil.getById('tiBankName');
+        const tiBankIFSC = KTUtil.getById('tiBankIFSC');
+        const tiSerialNo = KTUtil.getById('tiSerialNo');
+        const tiItemCode = KTUtil.getById('tiItemCode');
+        const tiName = KTUtil.getById('tiName');
+        const tiQuantity = KTUtil.getById('tiQuantity');
+        const tiItemUnits = KTUtil.getById('tiItemUnits');
+        const tiUnitPrice = KTUtil.getById('tiUnitPrice');
+        const tiDiscount = KTUtil.getById('tiDiscount');
+        const tiDiscountRate = KTUtil.getById('tiDiscountRate');
+        const tiTaxValue = KTUtil.getById('tiTaxValue');
+        const tiCGST = KTUtil.getById('tiCGST');
+        const tiCGSTAmt = KTUtil.getById('tiCGSTAmt');
+        const tiSGST = KTUtil.getById('tiSGST');
+        const tiSGSTAmt = KTUtil.getById('tiSGSTAmt');
+        const tiIGST = KTUtil.getById('tiIGST');
+        const tiIGSTAmt = KTUtil.getById('tiIGSTAmt');
+        const tiTotalPrice = KTUtil.getById('tiTotalPrice');
+        const tibeforeTax = KTUtil.getById('tibeforeTax');
+        const tiCGSTTotal = KTUtil.getById('tiCGSTTotal');
+        const tiSGSTTotal = KTUtil.getById('tiSGSTTotal');
+        const tiIGSTTotal = KTUtil.getById('tiIGSTTotal');
+        const tiGrandTotal = KTUtil.getById('tiGrandTotal');
+        const tiTermsCondition = KTUtil.getById('tiTermsCondition');
+        const tiFooter = KTUtil.getById('tiFooter');
+        const tiMeta = KTUtil.getById('tiMeta');
+        const tiSource = KTUtil.getById('tiSource');
+
+        // intialising
+        $(tiDate).datepicker({
+            placeholder: "Select Date"
+        });
+
+        $(tiOrderDate).datepicker({
+            placeholder: "Select Date"
+        });
+
+
+
+        if (!createTaxInvoiceForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createTaxInvoiceForm, {
+            fields: {
+                tiOrderID: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Order Id is required',
+                        },
+                    },
+                },
+                tiBuyerID: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Buyer Id is required',
+                        },
+                    },
+                },
+                tiBillingAddress: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Address is required',
+                        },
+                    },
+                },
+                tiCosigneeAddress: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Address is required',
+                        },
+                    },
+                },
+                tiSellerID: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Seller Id is required',
+                        },
+                    },
+                },
+                tiSellerAddress: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Address is required',
+                        },
+                    },
+                },
+                tiTermsCondition: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Terms and Condition is required',
+                        },
+                    },
+                },
+                tiMeta: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Meta is required',
+                        },
+                    },
+                },
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                tiFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(tiFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/delivery-note`,
+                    data: {
+                        "taxInvoiceNo": "shf786",
+                        "header": "header",
+                        "Date": "2020:11:7",
+                        "orderDate": "2020:11:7",
+                        "billingName": "yash",
+                        "billingAddress": {},
+                        "billingEmail": "ash@email.com",
+                        "contactNumber": "7888",
+                        "billingGSTIN": "",
+                         "consigneeName": "ted",
+                        "consigneeAddress": {},
+                        "consigneeContactNumber": "67899",
+                        "sellerName": "xyz",
+                        "sellerAddress": {},
+                        "sellerContactNumber": "698300032",
+                       " carrierTrackingNo": "7890",
+                        "carrierCharges": 100,
+                       " paymentMeta": {
+                          "accountNo": "9009",
+                                "bankName": "abcBank",
+                               " bankIFSC": "94etf"
+                        },
+                       " itemTable": [
+                          {
+                            "serialNo": "serialno90",
+                           " itemCode": "uk890",
+                            "name": "nancy",
+                            "quantity": 4,
+                            "unitofMeasurement": "SI",
+                           " unitPrice": 55,
+                           " dicount": 10,
+                            "discountRate":5,
+                            "taxableValue": 4,
+                            "CGSTRate": 2,
+                           " CGSTAmount": 1,
+                           " SGSTRate": 0.5,
+                            "SGSTAmount": 1,
+                            "IGSTRate": 0,
+                            "IGSTAmount": 0,
+                          "  totalPrice": 150
+                          }
+                        ],
+                      
+                      
+                       "totalBeforeTax": 100,
+                        "CGSTTotal":2,
+                        "SGSTTotal": 2,
+                        "IGSTTotal": 0,
+                        "grandTotal": 110,
+                        "termsAndConditions":{},
+                        "footer": "",
+                        "meta": {},
+                        "source": "local",
+                        "taxInvoiceNumber": 9000
+                      
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(dnFormSubmitButton);
+                    console.log(res)
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+                      
+
+    };
 
 
     return {
@@ -1044,6 +1282,7 @@ const SalesFinanceCRUD = (function () {
             _createDeliveryNoteForm();
             _createPackingListForm();
             _createQuotationForm();
+            _createTaxInvoiceForm();
 
         },
     };
