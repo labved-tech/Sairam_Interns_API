@@ -736,3 +736,8 @@ exports.ecommerceLocations = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceLocations', doc);
 };
 
+exports.ecommerceStock = (req, res) => {
+  console.log('We are in Ecommerce Stock Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStock', doc);
+};
+

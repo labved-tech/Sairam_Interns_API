@@ -12,7 +12,6 @@ const ecommerceStockSchema = new Schema({
   discount: [
     {
       _id: { type: mongoose.ObjectId },
-      createdBy: { type: String },
       discountVol: { type: Number },
       discountPercent: { type: Number },
       name: { type: String },

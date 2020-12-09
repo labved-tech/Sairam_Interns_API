@@ -78,7 +78,9 @@ const FarmEntriesCRUD = (function () {
         $('#feDocuments').selectpicker({
         });
 
-
+        if(!createFarmEntriesForm) {
+            return;   
+        }
 
         FormValidation.formValidation(createFarmEntriesForm, {
             fields: {
