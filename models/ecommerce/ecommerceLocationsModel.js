@@ -15,7 +15,7 @@ const ecommerceLocationsSchema = new Schema({
     name: { type: String },
     info: { type: String },
   },
-  GSTNo: { type: String },
+  GSTNNo: { type: String },
   PANNo: { type: String },
   licenseNo: { type: String },
   status: { type: String },

@@ -1,0 +1,168 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/ecommerce/ecommerceLocationsForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Ecommerce Locations Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createEcommerceLocationsForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5') 
+
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Address 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#elAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elAddress' placeholder='  ')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') GPS Coordinates
+                                            div(class='col-6')
+                                                input#elGPSCoordinates(type='text' class='form-control' name='elGPSCoordinates' placeholder='')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Landline Number
+                                            div(class='col-6')
+                                                input#elLandlineNumber(type='text' class='form-control' name='elLandlineNumber' placeholder='ex. 42691076')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Mobile Number
+                                            div(class='col-6')
+                                                input#elMobileNumber(type='text' class='form-control' name='elMobileNumber' placeholder='ex. 9878789898')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') GSTIN Number
+                                            div(class='col-6')
+                                                input#elGSTINNo(type='text' class='form-control' name='elGSTINNo' placeholder='')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') PAN Number
+                                            div(class='col-6')
+                                                input#elPANNo(type='text' class='form-control' name='elPANNo' placeholder='')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') License Number
+                                            div(class='col-6')
+                                                input#elLicenseNo(type='text' class='form-control' name='elLicenseNo' placeholder='')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#elStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elStatus' placeholder='  ')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name 
+                                            div(class='col-6')
+                                                input#elName(type='text' class='form-control' name='elName' placeholder='ex. Gokul Vignesh')                                      
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Description 
+                                            div(class='col-9 ')
+                                                textarea#elDescription(class='form-control' name='elDescription' rows='3')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Notes 
+                                            div(class='col-9 ')
+                                                textarea#elNotes(class='form-control' name='elNotes' rows='3')
+                                                span(class='form-text text-muted')
+
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Review Attribute ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#elRevieAttributeId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elRevieAttributeId' placeholder='ex. 5fa92064cff6f652644266de  ')
+                                                    span(class='form-text text-muted')  
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Additional Contact Information
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name 
+                                            div(class='col-6')
+                                                input#elaciName(type='text' class='form-control' name='elaciName' placeholder='ex. Gokul Vignesh')                                      
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Information 
+                                            div(class='col-6')
+                                                input#elaciInfo(type='text' class='form-control' name='elaciInfo' placeholder='')                                      
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Verify Documents 
+
+                                        #elVerifyDocuments
+                                            #elVerifyDocumentsmins(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') 
+                                                div(data-repeater-list='', class='col-9')
+                                                    div(data-repeater-item='', class='form-group row align-items-center')
+
+                                                        div(class='form-group row')
+                                                            label(class='col-3 col-form-label form-control-label text-right') Name 
+                                                            div(class='col-6')
+                                                                input#elvdName(type='text' class='form-control' name='elvdName' placeholder='')                                      
+
+
+                                                        div(class='form-group row')
+                                                            label(class='col-3 col-form-label form-control-label text-right') URL 
+                                                            div(class='col-7')
+                                                                div(class='typeahead')
+                                                                    input#elvdURL(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elvdURL' placeholder='')
+                                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                                        div(class='form-group row')
+                                                            label(class='col-3 col-form-label form-control-label text-right') Type 
+                                                            div(class='col-7')
+                                                                div(class='typeahead')
+                                                                    input#elvdType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elvdType' placeholder='')
+                                                                    span(class='form-text text-muted') 
+                                                        
+                                                        div(class='col-md-3')
+                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                                        
+                                                        span(class='form-text text-muted')
+
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right')
+                                                div(class='col-4')
+                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createEcommerceLocationsFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
+
+
+

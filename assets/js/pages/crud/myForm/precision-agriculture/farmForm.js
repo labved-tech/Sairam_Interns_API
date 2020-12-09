@@ -644,16 +644,16 @@ const FarmCRUD = (function () {
 
         FormValidation.formValidation(createFarmStrategyForm, {
             fields: {
-            fsName: {
-                validators: {
-                    notEmpty: {
-                    message: 'Name is required',
+                fsName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Name is required',
                     },
                 },
                 },  
                 fsDescription : {
                     validators: {
-                    notEmpty: {
+                        notEmpty: {
                         message: 'Description is required',
                     },
                     },
