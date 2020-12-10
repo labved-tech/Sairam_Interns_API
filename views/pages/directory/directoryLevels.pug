@@ -21,7 +21,7 @@ block content
                             | Directory Level Form
                     div(class='card-body')
                         // begin::Form
-                        form#createDirectoryLevelForm(class='form')
+                        form#createDirectoryLevelsForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
@@ -40,7 +40,7 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Description
                                             div(class='col-9')
-                                                div#dlDescription(class='summernote' name='lDescription')
+                                                div#dlDescription(class='summernote' name='dlDescription')
                                                 span(class='form-text text-muted') Add message that you wish to send.
 
                                         // dlActivePeriod
@@ -48,7 +48,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Active Period
                                             div(class='col-4')
                                                 #dlActivePeriod(class='input-group date' data-target-input='nearest')
-                                                    input#dlActivePeriodText(type='text' class='form-control datetimepicker-input' name='dlActivePeriodText' placeholder='Select date & time' data-target='#dlActivePeriod')
+                                                    input#dlActivePeriod(type='text' class='form-control datetimepicker-input' name='dlActivePeriod' placeholder='Select date & time' data-target='#dlActivePeriod')
                                                     div(class='input-group-append' data-target='#dlActivePeriod' data-toggle='datetimepicker')
                                                         span(class='input-group-text')
                                                             i(class='ki ki-calendar')
@@ -56,7 +56,7 @@ block content
 
                                         // dlChangeLevelId
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Attribute ID
+                                            label(class='col-3 col-form-label form-control-label text-right') ChangeLevel Id
                                             div(class='col-4')
                                                 div(class='typeahead')
                                                     input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
@@ -71,23 +71,13 @@ block content
 
                                         // dlRiseUpEnabled
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Default Switch
-                                            div(class='col-4')
-                                                span(class='switch switch-sm')
-                                                    label
-                                                        input#dlRiseUpEnabled(type='checkbox' checked='checked' name='dlRiseUpEnabled')
-                                                        span
-                                                span(class='form-text text-muted') rise up Enabled
-
-                                        // dlRiseUpEnabled
-                                        div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') RiseUpEnabled
                                             div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
                                                         input#dlRiseUpEnabled(type='checkbox' checked='checked' name='dlRiseUpEnabled')
                                                         span
-                                                span(class='form-text text-muted') Rise up Enabled
+                                                span(class='form-text text-muted') rise up Enabled
 
                                         // dlSticky
                                         div(class='form-group row')
@@ -121,13 +111,13 @@ block content
 
                                         // dlUnlimitedCategories
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') UnlimitedCategories
+                                            label(class='col-3 col-form-label form-control-label text-right') Unlimited Categories
                                             div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
                                                         input#dlUnlimitedCategories(type='checkbox' checked='checked' name='dlUnlimitedCategories')
                                                         span
-                                                span(class='form-text text-muted') UnlimitedCategories
+                                                span(class='form-text text-muted') Unlimited Categories
 
                                         // dlMap
                                         div(class='form-group row')
@@ -141,7 +131,7 @@ block content
 
                                         // dlMapMakers
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') MapMakers
+                                            label(class='col-3 col-form-label form-control-label text-right') Map Makers
                                             div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
@@ -151,7 +141,7 @@ block content
 
                                         // dlLogoEnabled
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') LogoEnabled
+                                            label(class='col-3 col-form-label form-control-label text-right') Logo Enabled
                                             div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
@@ -161,10 +151,10 @@ block content
 
                                         // dlImageLimit
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') ImageLimit
+                                            label(class='col-3 col-form-label form-control-label text-right') Image Limit
                                             div(class='col-4')
                                                 input#dlImageLimit(type='text' class='form-control' value='' name='dlImageLimit' placeholder='Select time')
-                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                span(class='form-text text-muted') Select the image limit
 
                                         // dlUpdatedAt
                                         div(class='form-group row')
@@ -179,11 +169,27 @@ block content
 
                                         // dlVideoLimit
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') VideoLimit
+                                            label(class='col-3 col-form-label form-control-label text-right') Video Limit
                                             div(class='col-4')
                                                 input#dlVideoLimit(type='text' class='form-control' value='' name='dlVideoLimit' placeholder='Select time')
                                                 span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
 
+                                        // dlContentFields
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Content Fields 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dlContentFields(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlContentFields' placeholder='  ')
+                                                    span(class='form-text text-muted')
 
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#dlFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
 
 

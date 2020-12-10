@@ -63,51 +63,52 @@ const DirectoryCRUD = (function () {
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
-        }).on('core.form.valid', function () {
-            KTUtil.btnWait(createDirectoryCategoriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-            console.log(`Value:${dcName.value}`);
-
-            // Accessing Restful API
-            axios({
-                method: 'post',
-                url: `${HOST_URL}/api/v1/directory/categories`,
-                data: {
-                    name: dcName.value,
-                    _attributeGroupsId: dcAttributeGroupsId.value,
-                    _ratingAttributeGroupId: dcRatingAttributeGroupId.value,
-                    slug: dcSlug.value
-                },
-            }).then(function (res) {
-                KTUtil.btnRelease(dcFormSubmitButton);
-                console.log(res);
-
-                // TOASTR EXAMPLE
-                toastr.options = {
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": true,
-                    "progressBar": false,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "3000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                };
-
-                if (res.data.status == 'success') {
-                    toastr.success(`${res.data.message}`, `${res.data.status}`)
-                } else if (res.data.status == 'error') {
-                    toastr.error(`${res.data.message}`, `${res.data.status}`)
-                }
-            });
-
         })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(dcFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+                console.log(`Value:${dcName.value}`);
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/directory/categories`,
+                    data: {
+                        name: dcName.value,
+                        _attributeGroupsId: dcAttributeGroupsId.value,
+                        _ratingAttributeGroupId: dcRatingAttributeGroupId.value,
+                        slug: dcSlug.value
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(dcFormSubmitButton);
+                    console.log(res);
+
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+
+            })
             .on('core.form.invalid', function () {
                 console.log('Something went wrong!!');
 
@@ -241,6 +242,7 @@ const DirectoryCRUD = (function () {
         const dlFormSubmitButton = KTUtil.getById('dlFormSubmitButton');
         const dlName = KTUtil.getById('dlName');
         const dlDescription = KTUtil.getById('dlDescription');
+        const dlActivePeriod = KTUtil.getById('dlActivePeriod');
         const dlChangeLevelId = KTUtil.getById('dlChangeLevelId');
         const dlListingsInPackage = KTUtil.getById('dlListingsInPackage');
         const dlRiseUpEnabled = KTUtil.getById('dlRiseUpEnabled');
@@ -275,6 +277,67 @@ const DirectoryCRUD = (function () {
                         },
                     },
                 },
+                dlDescription: {
+                    validators: {
+                        callback: {
+                            message: 'The content is required and cannot be empty',
+                            callback: function (input) {
+                                const code = $('[name="dlDescription"]').summernote('code');
+                                // <p><br></p> is code generated by Summernote for empty content
+                                return (code !== '' && code !== '<p><br></p>');
+                            }
+                        },
+                    },
+                },
+                dlActivePeriod: {
+                    validators: {
+                        notEmpty: {
+                            message: 'ActivePeriod is required',
+                        },
+                    },
+                },
+                dlChangeLevelId: {
+                    validators: {
+                        notEmpty: {
+                            message: 'ChangeLevelId is required',
+                        },
+                    },
+                },
+                dlListingsInPackage: {
+                    validators: {
+                        notEmpty: {
+                            message: 'ListingsInPackage is required',
+                        },
+                    },
+                },
+                dlImageLimit: {
+                    validators: {
+                        notEmpty: {
+                            message: 'ImageLimit is required',
+                        },
+                    },
+                },
+                dlUpdatedAt: {
+                    validators: {
+                        notEmpty: {
+                            message: 'UpdatedAt is required',
+                        },
+                    },
+                },
+                dlVideoLimit: {
+                    validators: {
+                        notEmpty: {
+                            message: 'VideoLimit is required',
+                        },
+                    },
+                },
+                dlContentFields: {
+                    validators: {
+                        notEmpty: {
+                            message: 'ContentFields is required',
+                        },
+                    },
+                },
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -295,13 +358,26 @@ const DirectoryCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/ratings/attribute`,
+                    url: `${HOST_URL}/api/v1/directory/levels`,
                     data: {
                         name: dlName.value,
                         description: $('#dlDescription').summernote('code'),
-
+                        activePeriod: dlActivePeriod.value,
+                        changeLevelId: dlChangeLevelId,
+                        listingsInPackage: dlListingsInPackage.value,
+                        riseUpEnabled: dlRiseUpEnabled.value,
+                        sticky: dlSticky.value,
+                        featured: dlFeatured.value,
+                        ownPage: dlOwnPage.value,
+                        unlimitedCategories: dlUnlimitedCategories.value,
+                        map: dlMap.value,
+                        mapMakers: dlMapMakers.value,
+                        logoEnabled: dlLogoEnabled.value,
+                        imageLimit: dlImageLimit.value,
+                        updatedAt: dlUpdatedAt.value,
+                        videoLimit: dlVideoLimit.value,
+                        contentFields: dlContentFields.value,
                     },
-
                 }).then(function (res) {
                     KTUtil.btnRelease(dlFormSubmitButton);
                     console.log(res);
@@ -340,7 +416,6 @@ const DirectoryCRUD = (function () {
 
     };
 
-
     return {
         // public functions
         init: function () {
@@ -348,8 +423,8 @@ const DirectoryCRUD = (function () {
             _createDirectoryForm();
             _createDirectoryLevelsForm();
 
-        },
-    };
+        }
+    }
 })();
 
 jQuery(document).ready(function () {
