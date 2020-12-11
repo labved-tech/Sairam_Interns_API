@@ -197,9 +197,9 @@ const EcommerceProductCRUD = (function () {
                 }; 
     
                 if (res.data.status == 'success') {
-                toastr.success(`${res.data.        message}`, `${res.data.status}`)
+                toastr.success(`${res.data.message}`, `${res.data.status}`)
                 } else if (res.data.status == 'error') {
-                toastr.error(`${res.data.        message}`, `${res.data.status}`)
+                toastr.error(`${res.data.message}`, `${res.data.status}`)
                 }
             });
         
