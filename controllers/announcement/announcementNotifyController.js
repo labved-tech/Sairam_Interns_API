@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTableAnnounementNotify = catchAsync(async (req, res, next) => {
+exports.getAllTableAnnouncementNotify = catchAsync(async (req, res, next) => {
   let query;
   // BUILD QUERY
   // 1A) Filtering
@@ -45,7 +45,7 @@ exports.getAllTableAnnounementNotify = catchAsync(async (req, res, next) => {
   const tempObj = JSON.parse(queryStr);
   console.log('Obj :', tempObj);
 
-  query = AnnounementNotify.find(searchObj);
+  query = AnnouncementNotify.find(searchObj);
 
   // 2) Sorting
   let sortBy;
@@ -75,7 +75,7 @@ exports.getAllTableAnnounementNotify = catchAsync(async (req, res, next) => {
   let numRecords;
   let pages;
   if (req.query.pagination) {
-    numRecords = await AnnounementNotify.countDocuments(); // has to be replaced with query.countDocuments();
+    numRecords = await AnnouncementNotify.countDocuments(); // has to be replaced with query.countDocuments();
 
     if (numRecords % limit === 0) pages = numRecords / limit;
     else pages = numRecords / limit + 1;
@@ -84,15 +84,15 @@ exports.getAllTableAnnounementNotify = catchAsync(async (req, res, next) => {
   }
 
   // EXECUTE QUERY
-  const announementNotify = await query;
-  //announementNotify = await Example.find();
-  //console.log(announementNotify);
+  const announcementNotification = await query;
+  //announcementNotification = await AnnouncementNotify.find();
+  //console.log(announcementNotification);
 
   // SEND RESPONSE
   res.status(200).json({
     status: 'success',
-    message: 'Got All Example',
-    announementNotify,
+    message: 'Got All Announcement Notification',
+    announcementNotification,
     meta: {
       page: page, // current page
       pages: pages, // total pages

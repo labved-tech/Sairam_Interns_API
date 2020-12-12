@@ -16,7 +16,7 @@ router.param('id', announcementEntriesController.checkID);
 /* ROUTES */
 router
   .route('/table')
-  .get(announcementEntriesController.getAllTableAnnounementEntries);
+  .get(announcementEntriesController.getAllTableAnnouncementEntries);
 
 router
   .route('/')

@@ -16,7 +16,7 @@ router.use((req, res, next) => {
   /* ROUTES */
   router
   .route('/table')
-  .get(announcementNotifyController.getAllTableAnnounementNotify);
+  .get(announcementNotifyController.getAllTableAnnouncementNotify);
 
   router
     .route('/')

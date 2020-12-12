@@ -62,6 +62,9 @@ router.get('/charts', viewsController.charts);
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter/messages', viewsController.newsletterMessages);
 router.get('/newsletter/entries', viewsController.newsletterEntries);
+router.get('/newsletter/entries/table',viewsController.newsletterEntriesTable);
+router.get('/newsletter/messages/table',viewsController.newsletterMessagesTable);
+
 
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);

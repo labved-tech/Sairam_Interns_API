@@ -15,7 +15,7 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllTableAnnounementEntries = catchAsync(async (req, res, next) => {
+exports.getAllTableAnnouncementEntries = catchAsync(async (req, res, next) => {
   let query;
   // BUILD QUERY
   // 1A) Filtering

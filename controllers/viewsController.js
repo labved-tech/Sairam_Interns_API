@@ -566,6 +566,19 @@ exports.newsletterEntries = (req, res) => {
   res.status(200).render('./../views/pages/newsletter/newsletterEntries', doc);
 };
 
+exports.newsletterEntriesTable = (req, res) => {
+  console.log('We are in Newsletter Entries Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/newsletter/newsletterEntriesTable', doc);
+};
+exports.newsletterMessagesTable = (req, res) => {
+  console.log('We are in Newsletter Messages Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/newsletter/newsletterMessagesTable', doc);
+};
+
 // RATING RELATED CONTROLLER
 exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');
