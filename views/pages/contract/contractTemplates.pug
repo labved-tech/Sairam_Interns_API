@@ -1,0 +1,54 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/event/eventForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | contractTemplates Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createcontractEntriesForm(class='form' )
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        // billingType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') billingType
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned. 
+
+                                        // validity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') validity
+                                            div(class='col-4')
+                                                #dlActivePeriod(class='input-group date' data-target-input='nearest')
+                                                    input#dlActivePeriod(type='text' class='form-control datetimepicker-input' name='dlActivePeriod' placeholder='Select date & time' data-target='#dlActivePeriod')
+                                                    div(class='input-group-append' data-target='#dlActivePeriod' data-toggle='datetimepicker')
+                                                        span(class='input-group-text')
+                                                            i(class='ki ki-calendar')
+                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') ContractOwner ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceCommentorId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.

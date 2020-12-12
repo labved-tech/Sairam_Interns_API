@@ -634,6 +634,16 @@ exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries', doc);
 };
+
+// CONTRACT RELATED CONTROLLER
+exports.contractEntries = (req, res) => {
+  console.log('We are in contract Entries Form Page');
+  res.status(200).render('./../views/pages/contract/contractEntries', doc);
+};
+exports.contractTemplates = (req, res) => {
+  console.log('We are in contract Templates Form Page');
+  res.status(200).render('./../views/pages/contract/contractTemplates', doc);
+};
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
