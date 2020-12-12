@@ -845,6 +845,27 @@ exports.farmStrategy = (req, res) => {
     .render('./../views/pages/precision-agriculture/farmStrategy', doc);
 };
 
+// REPORTS TABLE RELATED CONTROLLER
+exports.farmEntriesTable = (req, res) => {
+  console.log('We are in Farm Entries Tables Page');
+  res.status(200).render(`./../views/pages/precision-agriculture/farmEntriesTable`, doc);
+};
+
+exports.farmExportedStrategyTable = (req, res) => {
+  console.log('We are in Farm Exported Strategy Tables Page');
+  res.status(200).render(`./../views/pages/precision-agriculture/farmExportedStrategyTable`, doc);
+};
+
+exports.farmRegionsTable = (req, res) => {
+  console.log('We are in Farm Regions Tables Page');
+  res.status(200).render(`./../views/pages/precision-agriculture/farmRegionsTable`, doc);
+};
+ 
+exports.farmStrategyTable = (req, res) => {
+  console.log('We are in Farm Strategy Tables Page');
+  res.status(200).render(`./../views/pages/precision-agriculture/farmStrategyTable`, doc);
+};
+
 // ECOMMERCE RELATED CONTROLLER
 exports.ecommerceAddress = (req, res) => {
   console.log('We are in Ecommerce Address Form Page');

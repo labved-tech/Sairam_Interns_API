@@ -15,6 +15,9 @@ router.param('id', leadEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(leadEntriesController.getAllTableLeadEntries);
+router
   .route('/')
   .get(leadEntriesController.getAllLeadEntries)
   .post(leadEntriesController.createLeadEntries);

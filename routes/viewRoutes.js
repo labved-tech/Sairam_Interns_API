@@ -163,6 +163,22 @@ router.get('/farm/entries/', viewsController.farmEntries);
 router.get('/farm/exported-strategy/', viewsController.farmExportedStrategy);
 router.get('/farm/regions/', viewsController.farmRegions);
 router.get('/farm/strategy/', viewsController.farmStrategy);
+router.get(
+  '/farm/entries/table',
+  viewsController.farmEntriesTable
+);
+router.get(
+  '/farm/exported-strategy/table',
+  viewsController.farmExportedStrategyTable
+);
+router.get(
+  '/farm/regions/table',
+  viewsController.farmRegionsTable
+);
+router.get(
+  '/farm/strategy/table',
+  viewsController.farmStrategyTable
+);
 
 // ECOMMERCE RELATED ROUTES
 router.get('/ecommerce/address/', viewsController.ecommerceAddress);

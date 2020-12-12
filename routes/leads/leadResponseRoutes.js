@@ -15,6 +15,9 @@ router.param('id', leadResponseController.checkID);
 
 /* ROUTES */
 router
+.route('/table')
+.get(leadResponseController.getAllTableLeadResponse);
+router
   .route('/')
   .get(leadResponseController.getAllLeadResponse)
   .post(leadResponseController.createLeadResponse);
