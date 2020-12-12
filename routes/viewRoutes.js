@@ -46,6 +46,7 @@ router.get(
   '/announcement/entries/table',
   viewsController.announcementEntriesTable
 );
+router.get('/announcement/notify/table',viewsController.announcementNotifyTable)
 
 // RATING RELATED ROUTES
 router.get('/ratings/attribute/groups', viewsController.ratingAttributeGroups);
@@ -76,6 +77,10 @@ router.get('/event/entries', viewsController.eventEntries);
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
 
+// CONTRACT RELATED ROUTES
+router.get('/contract/entries', viewsController.contractEntries);
+router.get('/contract/templates', viewsController.contractTemplates);
+
 // TICKET AND SUPPORTS RELATED ROUTES
 router.get('/ticket-support/categories', viewsController.ticketCategories);
 router.get('/ticket-support/entries', viewsController.ticketEntries);
@@ -96,6 +101,7 @@ router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
 router.get('/directory', viewsController.directory);
+
 
 // PAGES RELATED ROUTES
 router.get('/pages', viewsController.pages);

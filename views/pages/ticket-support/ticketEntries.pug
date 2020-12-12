@@ -25,3 +25,129 @@ block content
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')
+                                        //teuserId            
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  User ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#teuserId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='teuserId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //teUserName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') User Name
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#teuserName(type='text' class='form-control' name='teuserName' placeholder='Enter Name')
+
+                                        // teuserEmails  
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Email
+                                            div(class='col-5')
+                                                select#teuserEmail(class= 'form-control selectpicker' multiple=''  data-live-search='true' name='teuserEmail' )
+                                                    option alexrider@gmail.com
+                                                    option percyjackson@gmail.com
+                                                    option dracomalfoy@gmail.com
+                                                    option jupiterjones@gmail.com
+                                                    
+                                                span(class='form-text text-muted') userEmail
+
+                                        // teuserPhoneNumber
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') UserPhoneNumber
+                                            div(class='col-4')
+                                                input#teuserPhoneNumber(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='teuserPhoneNumber' placeholder='')
+
+
+                                        //tecategory
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') category
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tecategory(type='text' class='form-control' name='tecategory' placeholder='')
+
+                                        //teproduct
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') product
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#teproduct(type='text' class='form-control' name='teproduct' placeholder='Enter product')
+
+                                        // tesubject
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Subject
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#tesubject(type='text' class='form-control' name='tesubject' placeholder='Enter Subject')
+
+                                        //tebody
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') body
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#tebody(type='text' class='form-control' name='tebody' placeholder='')
+
+                                        //telastStatusChange
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Status Change
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#teLastStatusChange(type='text' class='form-control' readonly='' name='teLastStatusChange' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //teassignedTo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Assigned To
+                                            div(class='col-4')
+                                                select#teassignedTo(class='form-control selectpicker' data-size='7' data-live-search='true'  name='teassignedTo')
+                                                    option(value='' disabled='' selected='') 
+                                                    option(value='U1') User 1
+                                                    option(value='U2') User 2
+                                                    option(value='U3') User 3
+                                                span(class='form-text text-muted')
+
+                                        // tePriority
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Priority
+                                            div(class='col-4')
+                                                input#tepriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tepriority' placeholder='1')
+
+                                        //teLastActivityDate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Activity Date
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#teLastActivityDate(type='text' class='form-control' readonly='' name='teLastActivityDate' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        // telastActivityBy
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Text
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#telastActivityBy(type='text' class='form-control' name='telastActivityBy' placeholder='Enter your email')
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                        // teagencyId
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Agency ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#teagencyId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='teagencyId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#teFormsubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit 
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
