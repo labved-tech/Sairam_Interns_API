@@ -1,4 +1,3 @@
-
 /* DEPENDENCIES */
 
 /* MIDDLEWARES */
@@ -525,12 +524,23 @@ exports.getRemoteTable = (req, res) => {
 // ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntries = (req, res) => {
   console.log('We are in Announcement Entries Form Page');
-  res.status(200).render('./../views/pages/announcement/announcementEntries', doc);
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementEntries', doc);
+};
+// ANNOUNCEMENT RELATED CONTROLLER
+exports.announcementEntriesTable = (req, res) => {
+  console.log('We are in Announcement Entries Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announementEntriesTable', doc);
 };
 
 exports.announcementNotify = (req, res) => {
   console.log('We are in Announcement Notifications Form Page');
-  res.status(200).render('./../views/pages/announcement/announcementNotify', doc);
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementNotify', doc);
 };
 
 // ANALYTICS RELATED CONTROLLER
@@ -619,7 +629,6 @@ exports.performaInvoice = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/performaInvoice', doc);
 };
 
-
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
@@ -628,7 +637,9 @@ exports.commentEntries = (req, res) => {
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
-  res.status(200).render('./../views/pages/ticket-support/ticketCategories', doc);
+  res
+    .status(200)
+    .render('./../views/pages/ticket-support/ticketCategories', doc);
 };
 exports.ticketProducts = (req, res) => {
   console.log('We are in ticketProducts Form Page');
@@ -650,7 +661,9 @@ exports.ticketResponse = (req, res) => {
 // DIRECTORY RELATED CONTROLLER
 exports.directoryAttributesGroups = (req, res) => {
   console.log('We are in directory Attributes Groups Form Page');
-  res.status(200).render('./../views/pages/directory/directoryAttributesGroups', doc);
+  res
+    .status(200)
+    .render('./../views/pages/directory/directoryAttributesGroups', doc);
 };
 
 exports.directoryCategories = (req, res) => {
@@ -673,12 +686,10 @@ exports.directory = (req, res) => {
   res.status(200).render('./../views/pages/directory/directory', doc);
 };
 
-
 exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
 };
-
 
 // Pages RELATED CONTROLLER
 exports.pages = (req, res) => {
@@ -712,22 +723,30 @@ exports.reports = (req, res) => {
 // PRECISION AGRICULTURE RELATED CONTROLLER
 exports.farmEntries = (req, res) => {
   console.log('We are in Farm Entries Form Page');
-  res.status(200).render('./../views/pages/precision-agriculture/farmEntries', doc);
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmEntries', doc);
 };
 
 exports.farmExportedStrategy = (req, res) => {
   console.log('We are in Farm Exported Strategy Form Page');
-  res.status(200).render('./../views/pages/precision-agriculture/farmExportedStrategy', doc);
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmExportedStrategy', doc);
 };
 
 exports.farmRegions = (req, res) => {
   console.log('We are in Farm Regions Form Page');
-  res.status(200).render('./../views/pages/precision-agriculture/farmRegions', doc);
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmRegions', doc);
 };
 
 exports.farmStrategy = (req, res) => {
   console.log('We are in Farm Strategy Form Page');
-  res.status(200).render('./../views/pages/precision-agriculture/farmStrategy', doc);
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmStrategy', doc);
 };
 
 // ECOMMERCE RELATED CONTROLLER
