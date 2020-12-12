@@ -132,7 +132,7 @@ const FarmEntriesCRUD = (function () {
                         message: 'GPS Coordinates are required',
                         },
                     },
-                },         
+                },  
                 feaPermissions: {
                     validators: {
                         notEmpty: {
@@ -196,7 +196,7 @@ const FarmEntriesCRUD = (function () {
                     notes: feNotes.value,
                     status:feStatus.value,
                     address: feAddress.value,
-                    gpsCoordinates:feGPSCoordinates.value,
+                    gpsCoordinates :feGPSCoordinates.value,
                     documents:feDocuments.value,
 
                     size:{

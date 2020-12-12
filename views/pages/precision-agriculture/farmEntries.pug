@@ -45,15 +45,16 @@ block content
                                         div(class='form-group row mb-1')
                                             label(class='col-3 col-form-label form-control-label text-right' for='feDescription')
                                                 | Description 
-                                                span(class='text-danger') *
                                             div(class='col-9 ')
                                                 textarea#feDescription(class='form-control' name='feDescription' rows='3')
                                                 span(class='form-text text-muted') 
 
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Notes 
-                                            div(class='col-6')
-                                                input#feNotes(type='text' class='form-control' name='feNotes' placeholder='')
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='feNotes')
+                                                | Notes 
+                                            div(class='col-9 ')
+                                                textarea#feNotes(class='form-control' name='feNotes' rows='3')
+                                                span(class='form-text text-muted') 
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Status 
