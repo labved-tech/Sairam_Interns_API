@@ -1,12 +1,12 @@
 {
 	"info": {
 		"_postman_id": "25bb5a63-3bda-4ec1-a8c9-6d4dd7c0d17e",
-		"name": "perfomaInvoice",
+		"name": "performaInvoice",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "deletePerfomaInvoice",
+			"name": "deletePerformaInvoice",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -21,7 +21,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/sales-finance/perfoma-invoice/5faa7490acf7051e201fc04c",
+					"raw": "{{URL}}/api/v1/sales-finance/performa-invoice/5faa7490acf7051e201fc04c",
 					"host": [
 						"{{URL}}"
 					],
@@ -29,7 +29,7 @@
 						"api",
 						"v1",
 						"sales-finance",
-						"perfoma-invoice",
+						"performa-invoice",
 						"5faa7490acf7051e201fc04c"
 					]
 				}
@@ -37,7 +37,7 @@
 			"response": []
 		},
 		{
-			"name": "getOnePerfomaInvoice",
+			"name": "getOnePerformaInvoice",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -52,7 +52,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/sales-finance/perfoma-invoice/5faa7490acf7051e201fc04c",
+					"raw": "{{URL}}/api/v1/sales-finance/performa-invoice/5faa7490acf7051e201fc04c",
 					"host": [
 						"{{URL}}"
 					],
@@ -60,7 +60,7 @@
 						"api",
 						"v1",
 						"sales-finance",
-						"perfoma-invoice",
+						"performa-invoice",
 						"5faa7490acf7051e201fc04c"
 					]
 				}
@@ -68,7 +68,7 @@
 			"response": []
 		},
 		{
-			"name": "getAllPerfomaInvoice",
+			"name": "getAllPerformaInvoice",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -83,7 +83,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/api/v1/sales-finance/perfoma-invoice",
+					"raw": "{{URL}}/api/v1/sales-finance/performa-invoice",
 					"host": [
 						"{{URL}}"
 					],
@@ -91,14 +91,14 @@
 						"api",
 						"v1",
 						"sales-finance",
-						"perfoma-invoice"
+						"performa-invoice"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "createPerfomaInvoice",
+			"name": "createPerformaInvoice",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n \"perfomaInvoiceNo\": \"shf786\",\n  \"moduleReferance\": \"reference\",\n  \"header\": \"header\",\n  \"Date\": \"2020:11:7\",\n \" orderDate\": \"2020:11:7\",\n  \"billingName\": \"yash\",\n  \"billingAddress\": {\n      \"address\":\"nehruNagar\"\n  },\n  \"billingEmail\": \"ash@email.com\",\n  \"billingContactNumber\": \"7888\",\n  \"consigneeName\": \"ted\",\n  \"consigneeAddress\": {\n      \"address\":\"gandhiStreet\"\n  },\n  \"consigneeContactNumber\": \"67899\",\n  \"_sellerId\": \"woodpecker\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": \"\",\n  \"sellerContactNumber\": \"698300032\",\n  \"sellerBankDetails\": {\n    \"accountNo\": \"ph738930883\",\n    \"bankName\": \"abcBank\",\n    \"bankIFSC\": \"ifsccode\"\n  },\n  \"sellerGSTIN\": \"\",\n  \"paymentMethods\": [\n    {\n      \n      \"type\": \"onlineTransaction\",\n     \" meta\": [\n        {\n          \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n        }\n      ]\n    }\n  ],\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\"totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": {\n     \"condition\": \"no returns\"\n  },\n  \"footer\": \"\",\n  \"meta\": {\n      \"test\":\"results\"\n  },\n  \"source\": \"local\",\n  \"perfomaInvoiceNumber\": 9000\n}",
+					"raw": "{\n \"performaInvoiceNo\": \"shf786\",\n  \"moduleReferance\": \"reference\",\n  \"header\": \"header\",\n  \"Date\": \"2020:11:7\",\n \" orderDate\": \"2020:11:7\",\n  \"billingName\": \"yash\",\n  \"billingAddress\": {\n      \"address\":\"nehruNagar\"\n  },\n  \"billingEmail\": \"ash@email.com\",\n  \"billingContactNumber\": \"7888\",\n  \"consigneeName\": \"ted\",\n  \"consigneeAddress\": {\n      \"address\":\"gandhiStreet\"\n  },\n  \"consigneeContactNumber\": \"67899\",\n  \"_sellerId\": \"woodpecker\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": \"\",\n  \"sellerContactNumber\": \"698300032\",\n  \"sellerBankDetails\": {\n    \"accountNo\": \"ph738930883\",\n    \"bankName\": \"abcBank\",\n    \"bankIFSC\": \"ifsccode\"\n  },\n  \"sellerGSTIN\": \"\",\n  \"paymentMethods\": [\n    {\n      \n      \"type\": \"onlineTransaction\",\n     \" meta\": [\n        {\n          \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n        }\n      ]\n    }\n  ],\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\"totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": {\n     \"condition\": \"no returns\"\n  },\n  \"footer\": \"\",\n  \"meta\": {\n      \"test\":\"results\"\n  },\n  \"source\": \"local\",\n  \"performaInvoiceNumber\": 9000\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -122,7 +122,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/sales-finance/perfoma-invoice",
+					"raw": "{{URL}}/api/v1/sales-finance/performa-invoice",
 					"host": [
 						"{{URL}}"
 					],
@@ -130,14 +130,14 @@
 						"api",
 						"v1",
 						"sales-finance",
-						"perfoma-invoice"
+						"performa-invoice"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "updatePerfomaInvoice",
+			"name": "updatePerformaInvoice",
 			"request": {
 				"auth": {
 					"type": "bearer",
@@ -153,7 +153,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n \"perfomaInvoiceNo\": \"shf786\",\n  \"moduleReferance\": \"reference\",\n  \"header\": \"header\",\n  \"Date\": \"6/11/20\", \n  \"orderDate\": \"5/11/20\",\n  \"billingName\": \"yashh\",\n  \"billingAddress\": {\n      \"address\":\"abcstreet\"\n  },\n  \"billingEmail\": \"ash@email.com\",\n  \"billingContactNumber\": \"7888\",\n  \"consigneeName\": \"ted\",\n  \"consigneeAddress\": {\n      \"address\":\"bcdRoad\"\n  },\n  \"consigneeContactNumber\": \"67899\",\n  \"_sellerId\": \"woodpecker\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": {\n      \"sellerAddress\":\"merchantRoad\"\n  },\n  \"sellerContactNumber\": \"698300032\",\n  \"sellerBankDetails\": {\n    \"accountNo\": \"ph738930883\",\n    \"bankName\": \"abcBank\",\n    \"bankIFSC\": \"ifsccode\"\n  },\n  \"sellerGSTIN\": \"\",\n  \"paymentMethods\": [\n    {\n      \n      \"type\": \"\",\n     \" meta\": [\n        {\n          \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n        }\n      ]\n    }\n  ],\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\"  totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": \"\",\n  \"footer\": \"\",\n  \"meta\": \"\",\n  \"source\": \"local\",\n  \"perfomaInvoiceNumber\": 9000\n}",
+					"raw": "{\n \"performaInvoiceNo\": \"shf786\",\n  \"moduleReferance\": \"reference\",\n  \"header\": \"header\",\n  \"Date\": \"6/11/20\", \n  \"orderDate\": \"5/11/20\",\n  \"billingName\": \"yashh\",\n  \"billingAddress\": {\n      \"address\":\"abcstreet\"\n  },\n  \"billingEmail\": \"ash@email.com\",\n  \"billingContactNumber\": \"7888\",\n  \"consigneeName\": \"ted\",\n  \"consigneeAddress\": {\n      \"address\":\"bcdRoad\"\n  },\n  \"consigneeContactNumber\": \"67899\",\n  \"_sellerId\": \"woodpecker\",\n  \"sellerName\": \"xyz\",\n  \"sellerAddress\": {\n      \"sellerAddress\":\"merchantRoad\"\n  },\n  \"sellerContactNumber\": \"698300032\",\n  \"sellerBankDetails\": {\n    \"accountNo\": \"ph738930883\",\n    \"bankName\": \"abcBank\",\n    \"bankIFSC\": \"ifsccode\"\n  },\n  \"sellerGSTIN\": \"\",\n  \"paymentMethods\": [\n    {\n      \n      \"type\": \"\",\n     \" meta\": [\n        {\n          \"accountNo\": \"9009\",\n          \"bankName\": \"abcBank\",\n         \" bankIFSC\": \"94etf\"\n        }\n      ]\n    }\n  ],\n \" itemTable\": [\n    {\n      \"serialNo\": \"serialno90\",\n     \" itemCode\": \"uk890\",\n      \"name\": \"nancy\",\n      \"quantity\": 4,\n      \"unitofMeasurement\": \"SI\",\n     \" unitPrice\": 55,\n     \" dicount\": 10,\n      \"discountRate\":5,\n      \"taxableValue\": 4,\n      \"CGSTRate\": 2,\n     \" CGSTAmount\": 1,\n     \" SGSTRate\": 0.5,\n      \"SGSTAmount\": 1,\n      \"IGSTRate\": 0,\n      \"IGSTAmount\": 0,\n    \"  totalPrice\": 150\n    }\n  ],\n\"  totalBeforeTax\": 100,\n  \"CGSTTotal\":2,\n\"SGSTTotal\": 2,\n  \"IGSTTotal\": 0,\n  \"grandTotal\": 110,\n  \"termsAndConditions\": \"\",\n  \"footer\": \"\",\n  \"meta\": \"\",\n  \"source\": \"local\",\n  \"performaInvoiceNumber\": 9000\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -161,7 +161,7 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/api/v1/sales-finance/perfoma-invoice/5faa7490acf7051e201fc04c",
+					"raw": "{{URL}}/api/v1/sales-finance/performa-invoice/5faa7490acf7051e201fc04c",
 					"host": [
 						"{{URL}}"
 					],
@@ -169,7 +169,7 @@
 						"api",
 						"v1",
 						"sales-finance",
-						"perfoma-invoice",
+						"performa-invoice",
 						"5faa7490acf7051e201fc04c"
 					]
 				}
