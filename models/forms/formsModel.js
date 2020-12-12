@@ -7,7 +7,7 @@ const { Schema } = mongoose;
 /* SCHEMA */
 const formsSchema = new Schema({
   name: { type: String },
-  _ownerid: { type: mongoose.ObjectId },
+  _ownerId: { type: mongoose.ObjectId },
   aliveTill: { type: Date },
   accountInclude: [],
   accountExclude: [],
