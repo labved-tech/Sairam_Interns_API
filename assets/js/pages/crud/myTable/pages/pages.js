@@ -3,7 +3,7 @@
 
 // Class definition
 
-const Pages = (function () {
+const FPages = (function () {
     var dataSet;
     // Private functions
   
@@ -18,7 +18,7 @@ const Pages = (function () {
               method: 'get',
               url: `${HOST_URL}/api/v1/pages/table`,
               params: {
-                fields: '_id,name,state,_ownerid,_reportid,createdBy,createdAt,updatedAt',
+                fields: '_id,name,state,_ownerid,contents,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                 // sample data mapping
@@ -54,7 +54,7 @@ const Pages = (function () {
     
         pagination: true,
         search: {
-          input: $('#createPagesTable'),
+          input: $('#createFPagesTable'),
           key: 'generalSearch',
         },
     
@@ -89,8 +89,8 @@ const Pages = (function () {
             title: 'Owner ID',
           },
           {
-            field: '_reportid',
-            title: 'Report ID',
+            field: 'contents',
+            title: 'Contents',
           },
           {
             field: 'createdBy',
@@ -231,6 +231,6 @@ const Pages = (function () {
   })();
   
   jQuery(document).ready(function () {
-    Pages.init();
+    FPages.init();
   });
   

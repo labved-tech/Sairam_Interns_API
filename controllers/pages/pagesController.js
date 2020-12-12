@@ -45,7 +45,7 @@ exports.getAllTablePages = catchAsync(async (req, res, next) => {
   const tempObj = JSON.parse(queryStr);
   console.log('Obj :', tempObj);
 
-  query = FPages.find(searchObj);
+  query = Pages.find(searchObj);
 
   // 2) Sorting
   let sortBy;
@@ -73,29 +73,29 @@ exports.getAllTablePages = catchAsync(async (req, res, next) => {
   query = query.skip(skip).limit(limit);
 
   let numRecords;
-  let pages;
+  let tpages;
   if (req.query.pagination) {
-    numRecords = await FPages.countDocuments(); // has to be replaced with query.countDocuments();
+    numRecords = await Pages.countDocuments(); // has to be replaced with query.countDocuments();
 
-    if (numRecords % limit === 0) pages = numRecords / limit;
-    else pages = numRecords / limit + 1;
+    if (numRecords % limit === 0) tpages = numRecords / limit;
+    else tpages = numRecords / limit + 1;
 
     if (skip >= numRecords) throw new Error('This page does not exist');
   }
 
   // EXECUTE QUERY
-  const fpages = await query;
-  //fpages = await FPages.find();
-  //console.log(fpages);
+  const pages = await query;
+  //pages = await Pages.find();
+  //console.log(pages);
 
   // SEND RESPONSE
   res.status(200).json({
     status: 'success',
-    message: 'Got All FPages',
-    fpages,
+    message: 'Got All Pages',
+    pages,
     meta: {
       page: page, // current page
-      pages: pages, // total pages
+      tpages: tpages, // total tpages
       perpage: limit, // per page items
       total: numRecords, // total records
       field: 'createdAt', // default field sort
