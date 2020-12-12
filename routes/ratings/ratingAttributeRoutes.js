@@ -15,6 +15,10 @@ router.param('id', ratingAttributeController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(ratingAttributeController.getAllTableRatingAttribute);
+
+router
   .route('/')
   .get(ratingAttributeController.getAllRatingAttribute)
   .post(ratingAttributeController.createRatingAttribute);

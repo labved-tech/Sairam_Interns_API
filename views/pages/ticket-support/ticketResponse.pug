@@ -66,10 +66,17 @@ block content
                                                         span
                                                 span(class='form-text text-muted')
 
+                                        //trbody
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') body
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#trbody(type='text' class='form-control' name='trbody' placeholder='')
+
                             div(class='card-footer')
                                 div(class='row text-right')
                                     div(class='col-12 ml-lg-auto')
-                                        button#submitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button#trFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card

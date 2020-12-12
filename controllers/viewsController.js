@@ -528,12 +528,18 @@ exports.announcementEntries = (req, res) => {
     .status(200)
     .render('./../views/pages/announcement/announcementEntries', doc);
 };
-// ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntriesTable = (req, res) => {
   console.log('We are in Announcement Entries Table Page');
   res
     .status(200)
-    .render('./../views/pages/announcement/announementEntriesTable', doc);
+    .render('./../views/pages/announcement/announcementEntriesTable', doc);
+};
+
+exports.announcementNotifyTable = (req, res) => {
+  console.log('We are in Announcement Notifications Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementNotifyTable', doc);
 };
 
 exports.announcementNotify = (req, res) => {
@@ -566,6 +572,19 @@ exports.newsletterEntries = (req, res) => {
   res.status(200).render('./../views/pages/newsletter/newsletterEntries', doc);
 };
 
+exports.newsletterEntriesTable = (req, res) => {
+  console.log('We are in Newsletter Entries Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/newsletter/newsletterEntriesTable', doc);
+};
+exports.newsletterMessagesTable = (req, res) => {
+  console.log('We are in Newsletter Messages Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/newsletter/newsletterMessagesTable', doc);
+};
+
 // RATING RELATED CONTROLLER
 exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');
@@ -580,6 +599,12 @@ exports.ratingAttribute = (req, res) => {
 exports.ratingEntries = (req, res) => {
   console.log('We are in Rating Entries Form Page');
   res.status(200).render('./../views/pages/rating/ratingEntries', doc);
+};
+
+// RATING RELATED CONTROLLER
+exports.ratingAttributeTable = (req, res) => {
+  console.log('We are in Rating Attribute Table Page');
+  res.status(200).render('./../views/pages/rating/ratingAttributeTable', doc);
 };
 
 // EVENT RELATED CONTROLLER
@@ -655,6 +680,16 @@ exports.performaInvoice = (req, res) => {
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries', doc);
+};
+
+// CONTRACT RELATED CONTROLLER
+exports.contractEntries = (req, res) => {
+  console.log('We are in contract Entries Form Page');
+  res.status(200).render('./../views/pages/contract/contractEntries', doc);
+};
+exports.contractTemplates = (req, res) => {
+  console.log('We are in contract Templates Form Page');
+  res.status(200).render('./../views/pages/contract/contractTemplates', doc);
 };
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {

@@ -46,11 +46,13 @@ router.get(
   '/announcement/entries/table',
   viewsController.announcementEntriesTable
 );
+router.get('/announcement/notify/table', viewsController.announcementNotifyTable)
 
 // RATING RELATED ROUTES
 router.get('/ratings/attribute/groups', viewsController.ratingAttributeGroups);
 router.get('/ratings/attribute', viewsController.ratingAttribute);
 router.get('/ratings/entries', viewsController.ratingEntries);
+router.get('/ratings/attribute/table', viewsController.ratingAttributeTable);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
@@ -69,6 +71,9 @@ router.get(
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter/messages', viewsController.newsletterMessages);
 router.get('/newsletter/entries', viewsController.newsletterEntries);
+router.get('/newsletter/entries/table',viewsController.newsletterEntriesTable);
+router.get('/newsletter/messages/table',viewsController.newsletterMessagesTable);
+
 
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);
@@ -83,6 +88,10 @@ router.get('/event/entries', viewsController.eventEntries);
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
+
+// CONTRACT RELATED ROUTES
+router.get('/contract/entries', viewsController.contractEntries);
+router.get('/contract/templates', viewsController.contractTemplates);
 
 // TICKET AND SUPPORTS RELATED ROUTES
 router.get('/ticket-support/categories', viewsController.ticketCategories);
@@ -116,6 +125,7 @@ router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
 router.get('/directory', viewsController.directory);
+
 
 // PAGES RELATED ROUTES
 router.get('/pages', viewsController.pages);
