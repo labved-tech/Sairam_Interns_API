@@ -532,14 +532,14 @@ exports.announcementEntriesTable = (req, res) => {
   console.log('We are in Announcement Entries Table Page');
   res
     .status(200)
-    .render('./../views/pages/announcement/announementEntriesTable', doc);
+    .render('./../views/pages/announcement/announcementEntriesTable', doc);
 };
 
-exports.announementNotifyTable = (req, res) => {
+exports.announcementNotifyTable = (req, res) => {
   console.log('We are in Announcement Notifications Table Page');
   res
     .status(200)
-    .render('./../views/pages/announcement/announementNotifyTable', doc);
+    .render('./../views/pages/announcement/announcementNotifyTable', doc);
 };
 
 exports.announcementNotify = (req, res) => {

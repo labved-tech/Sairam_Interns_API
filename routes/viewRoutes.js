@@ -46,7 +46,7 @@ router.get(
   '/announcement/entries/table',
   viewsController.announcementEntriesTable
 );
-router.get('/announcement/notify/table',viewsController.announementNotifyTable)
+router.get('/announcement/notify/table',viewsController.announcementNotifyTable)
 
 // RATING RELATED ROUTES
 router.get('/ratings/attribute/groups', viewsController.ratingAttributeGroups);
