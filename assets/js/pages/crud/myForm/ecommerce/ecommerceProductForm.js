@@ -209,7 +209,8 @@ const EcommerceProductCRUD = (function () {
         
             });
             
-            };     
+            };
+                   
             return {
                 // public functions
                 init: function () {
