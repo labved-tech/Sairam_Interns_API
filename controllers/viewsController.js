@@ -528,12 +528,18 @@ exports.announcementEntries = (req, res) => {
     .status(200)
     .render('./../views/pages/announcement/announcementEntries', doc);
 };
-// ANNOUNCEMENT RELATED CONTROLLER
 exports.announcementEntriesTable = (req, res) => {
   console.log('We are in Announcement Entries Table Page');
   res
     .status(200)
     .render('./../views/pages/announcement/announementEntriesTable', doc);
+};
+
+exports.announementNotifyTable = (req, res) => {
+  console.log('We are in Announcement Notifications Table Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announementNotifyTable', doc);
 };
 
 exports.announcementNotify = (req, res) => {
