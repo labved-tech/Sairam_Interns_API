@@ -42,6 +42,10 @@ router.get('/account-settings/users/add-new', viewsController.getAddUser);
 // ANNOUNCEMENT RELATED ROUTES
 router.get('/announcement/entries', viewsController.announcementEntries);
 router.get('/announcement/notification', viewsController.announcementNotify);
+router.get(
+  '/announcement/entries/table',
+  viewsController.announcementEntriesTable
+);
 
 // RATING RELATED ROUTES
 router.get('/ratings/attribute/groups', viewsController.ratingAttributeGroups);
@@ -84,7 +88,10 @@ router.get('/lead/entries', viewsController.leadEntries);
 router.get('/lead/response', viewsController.leadResponse);
 
 // DIRECTORY RELATED ROUTES
-router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
+router.get(
+  '/directory/attributes/groups',
+  viewsController.directoryAttributesGroups
+);
 router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
@@ -112,8 +119,5 @@ router.get('/ecommerce/locations/', viewsController.ecommerceLocations);
 router.get('/ecommerce/stock/', viewsController.ecommerceStock);
 router.get('/ecommerce/order/', viewsController.ecommerceOrder);
 router.get('/ecommerce/products/', viewsController.ecommerceProducts);
-
-
-
 
 module.exports = router;

@@ -91,7 +91,6 @@ exports.getAllExample = catchAsync(async (req, res, next) => {
   //console.log(examples);
 
   // SEND RESPONSE
-  // SEND RESPONSE
   res.status(200).json({
     status: 'success',
     message: 'Got All Example',
