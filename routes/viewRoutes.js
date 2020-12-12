@@ -54,7 +54,10 @@ router.get('/ratings/attribute', viewsController.ratingAttribute);
 router.get('/ratings/entries', viewsController.ratingEntries);
 router.get('/ratings/attribute/table', viewsController.ratingAttributeTable);
 router.get('/ratings/attribute/groups/table', viewsController.ratingAttributeGroupsTable);
+<<<<<<< Updated upstream
 router.get('/ratings/entries/table', viewsController.ratingEntriesTable);
+=======
+>>>>>>> Stashed changes
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
