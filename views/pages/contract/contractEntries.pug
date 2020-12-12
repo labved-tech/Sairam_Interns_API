@@ -1,0 +1,204 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/contract/contractForm.js')
+    
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | contractEntries Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createcontractEntriesForm(class='form' )
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contract owner ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#cecontractOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cecontractOwnerId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Client ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ceclientId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceclientId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        // clientAccepted
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') clientAccepted
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#ceclientAccepted(type='checkbox' checked='checked' name='ceclientAccepted')
+                                                        span
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                        //acceptedDate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') AcceptedDate
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#ceacceptedDate(type='text' class='form-control' readonly='' name='ceacceptedDate' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //contractNumber
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') contractNumber
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#cecontractNumber(type='text' class='form-control' name='cecontractNumber' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') ContractTemplate ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#cecontractTemplateId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cecontractTemplateId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //rel
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') rel
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#cerel(type='text' class='form-control' name='cerel' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Rel ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ceRelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceRelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //cevalidFrom
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') cevalidFrom
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#cevalidFrom(type='text' class='form-control' readonly='' name='cevalidFrom' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //cevalidTill
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') validTill
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#cevalidTill(type='text' class='form-control' readonly='' name='cevalidTill' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        // validity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') validity
+                                            div(class='col-4')
+                                                #dlActivePeriod(class='input-group date' data-target-input='nearest')
+                                                    input#cevalidity(type='text' class='form-control datetimepicker-input' name='cevalidity' placeholder='Select date & time' data-target='#dlActivePeriod')
+                                                    div(class='input-group-append' data-target='#dlActivePeriod' data-toggle='datetimepicker')
+                                                        span(class='input-group-text')
+                                                            i(class='ki ki-calendar')
+                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                        // billingType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') billingType
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#cebillingType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cebillingType' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //rate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Status Change
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#cerate(type='text' class='form-control' readonly='' name='cerate' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        // contractFileURL
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') contractFileURL
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        // additionalAttributes
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') additionalAttributes
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        // signedContractUploaded
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') signedContractUploaded
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Tax
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') HSNCode
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#fesUnits(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesUnits' placeholder='')
+                                                    span(class='form-text text-muted')  Enter the HSNCode of entered Size
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') CGSTRate:
+                                            div(class='col-4')
+                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                span(class='form-text text-muted')
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') SGSTRate
+                                            div(class='col-4')
+                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                span(class='form-text text-muted')
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  IGSTRate 
+                                            div(class='col-4')
+                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                span(class='form-text text-muted')
+
+                                        h3(class=' text-dark font-weight-bold mb-10') termsAndConditions
+
+                            div(class='card-footer text-right')
+                                div(class='row')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#eeFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+    // end::Entry
