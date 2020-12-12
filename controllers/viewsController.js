@@ -614,6 +614,11 @@ exports.taxInvoice = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/taxInvoice', doc);
 };
 
+exports.performaInvoice = (req, res) => {
+  console.log('We are in Performa Invoice Form Page');
+  res.status(200).render('./../views/pages/sales-finance/performaInvoice', doc);
+};
+
 
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {

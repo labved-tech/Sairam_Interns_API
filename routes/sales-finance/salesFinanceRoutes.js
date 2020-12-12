@@ -6,7 +6,7 @@ const router = express.Router();
 const addressRouter = require('./addressRoutes');
 const deliveryNoteRouter = require('./deliveryNoteRoutes');
 const packingListRouter = require('./packingListRoutes');
-const perfomaInvoiceRouter = require('./perfomaInvoiceRoutes');
+const performaInvoiceRouter = require('./performaInvoiceRoutes');
 const quotationRouter = require('./quotationRoutes');
 const taxInvoiceRouter = require('./taxInvoiceRoutes');
 
@@ -20,7 +20,7 @@ router.use((req, res, next) => {
 router.use('/address', addressRouter);
 router.use('/delivery-note', deliveryNoteRouter);
 router.use('/packing-list', packingListRouter);
-router.use('/perfoma-invoice', perfomaInvoiceRouter);
+router.use('/performa-invoice', performaInvoiceRouter);
 router.use('/quotation', quotationRouter);
 router.use('/tax-invoice', taxInvoiceRouter);
 

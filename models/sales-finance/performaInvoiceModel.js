@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 /* SCHEMA */
-const perfomaInvoiceSchema = new Schema({
-  perfomaInvoiceNo: { type: String },
+const performaInvoiceSchema = new Schema({
+  performaInvoiceNo: { type: String },
   moduleReferance: { type: String },
   header: { type: String },
   Date: { type: Date },
@@ -78,7 +78,7 @@ const perfomaInvoiceSchema = new Schema({
   footer: { type: String },
   meta: { type: Object },
   source: { type: String },
-  perfomaInvoiceNumber: { type: Number },
+  performaInvoiceNumber: { type: Number },
   createdBy: { type: mongoose.ObjectId},
   updatedBy: { type: mongoose.ObjectId},
 },
@@ -87,7 +87,7 @@ const perfomaInvoiceSchema = new Schema({
 
 
 /* MODEL */
-const PerfomaInvoice = mongoose.model('perfomaInvoice', perfomaInvoiceSchema);
+const PerformaInvoice = mongoose.model('performaInvoice', performaInvoiceSchema);
 
 /* EXPORT */
-module.exports = PerfomaInvoice;
+module.exports = PerformaInvoice;

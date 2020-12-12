@@ -64,6 +64,7 @@ router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 router.get('/sales-finance/packingList', viewsController.packingList);
 router.get('/sales-finance/quotation', viewsController.quotation);
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
+router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
