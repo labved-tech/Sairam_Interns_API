@@ -25,7 +25,7 @@ const AnnouncementTable = (function () {
               console.log('raw', raw);
               dataSet = raw;
           
-              if (typeof raw.examples !== 'undefined') {
+              if (typeof raw.announcementEntries !== 'undefined') {
                 dataSet = raw.announcementEntries;
                 console.log('dataSet', dataSet);
               }
