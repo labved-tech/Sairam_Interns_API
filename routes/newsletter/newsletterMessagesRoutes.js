@@ -15,6 +15,10 @@ router.param('id', newsletterMessagesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(newsletterMessagesController.getAllTableNewsletterMessages);
+
+router
   .route('/')
   .get(newsletterMessagesController.getAllNewsletterMessages)
   .post(newsletterMessagesController.createNewsletterMessages);
