@@ -15,6 +15,9 @@ router.param('id', analyticsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(analyticsController.getAllTableAnalytics);
+router
   .route('/')
   .get(analyticsController.getAllAnalytics)
   .post(analyticsController.createAnalytics);
@@ -23,5 +26,6 @@ router
   .get(analyticsController.getAnalytics)
   .patch(analyticsController.updateAnalytics)
   .delete(analyticsController.deleteAnalytics);
+
 
 module.exports = router;

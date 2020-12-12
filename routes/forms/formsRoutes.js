@@ -15,6 +15,9 @@ router.param('id', formsController.checkID);
 
 /* ROUTES */
 router
+.route('/table')
+.get(formsController.getAllTableForms);
+router
   .route('/')
   .get(formsController.getAllForms)
   .post(formsController.createForms);

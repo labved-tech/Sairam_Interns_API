@@ -54,9 +54,17 @@ router.get('/ratings/entries', viewsController.ratingEntries);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
+router.get(
+  '/analytics/table',
+  viewsController.analyticsTable
+);
 
 // CHARTS RELATED ROUTES
 router.get('/charts', viewsController.charts);
+router.get(
+  '/charts/table',
+  viewsController.chartsTable
+);
 
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter/messages', viewsController.newsletterMessages);
@@ -86,6 +94,18 @@ router.get('/ticket-support/Response', viewsController.ticketResponse);
 router.get('/lead/categories', viewsController.leadCategories);
 router.get('/lead/entries', viewsController.leadEntries);
 router.get('/lead/response', viewsController.leadResponse);
+router.get(
+  '/lead/categories/table',
+  viewsController.leadCategoriesTable
+);
+router.get(
+  '/lead/response/table',
+  viewsController.leadResponseTable
+);
+router.get(
+  '/lead/entries/table',
+  viewsController.leadEntriesTable
+);
 
 // DIRECTORY RELATED ROUTES
 router.get(
@@ -99,13 +119,29 @@ router.get('/directory', viewsController.directory);
 
 // PAGES RELATED ROUTES
 router.get('/pages', viewsController.pages);
+router.get(
+  '/pages/table',
+  viewsController.pagesTable
+);
 
 // FORMS RELATED ROUTES
 router.get('/form-response', viewsController.formResponse);
 router.get('/forms', viewsController.forms);
+router.get(
+  '/form-response/table',
+  viewsController.formResponseTable
+);
+router.get(
+  '/forms/table',
+  viewsController.formsTable
+);
 
 // REPORTS RELATED ROUTES
 router.get('/reports', viewsController.reports);
+router.get(
+  '/reports/table',
+  viewsController.reportsTable
+);
 
 // PRECISION AGRICULTURES RELATED ROUTES
 router.get('/farm/entries/', viewsController.farmEntries);

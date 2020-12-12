@@ -15,6 +15,9 @@ router.param('id', pagesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(pagesController.getAllTablePages);
+router
   .route('/')
   .get(pagesController.getAllPages)
   .post(pagesController.createPages);

@@ -15,6 +15,9 @@ router.param('id', reportsController.checkID);
 
 /* ROUTES */
 router
+.route('/table')
+.get(reportsController.getAllTableReports);
+router
   .route('/')
   .get(reportsController.getAllReports)
   .post(reportsController.createReports);

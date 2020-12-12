@@ -15,6 +15,9 @@ router.param('id', chartsController.checkID);
 
 /* ROUTES */
 router
+.route('/table')
+.get(chartsController.getAllTableCharts);
+router
   .route('/')
   .get(chartsController.getAllCharts)
   .post(chartsController.createCharts);

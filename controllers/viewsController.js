@@ -549,6 +549,12 @@ exports.analytics = (req, res) => {
   res.status(200).render('./../views/pages/analytics/analytics', doc);
 };
 
+// ANALYTICS TABLE RELATED CONTROLLER
+exports.analyticsTable = (req, res) => {
+  console.log('We are in Analytics Tables Page');
+  res.status(200).render(`./../views/pages/analytics/analyticsTable`, doc);
+};
+
 // NEWSLETTER RELATED CONTROLLER
 exports.newsletterMessages = (req, res) => {
   console.log('We are in Newsletter Messages Form Page');
@@ -596,6 +602,22 @@ exports.leadResponse = (req, res) => {
 exports.leadEntries = (req, res) => {
   console.log('We are in Lead Entries Form Page');
   res.status(200).render('./../views/pages/leads/leadEntries', doc);
+};
+
+// LEADS TABLE RELATED CONTROLLER
+exports.leadCategoriesTable = (req, res) => {
+  console.log('We are in Lead Categories Tables Page');
+  res.status(200).render(`./../views/pages/leads/leadCategoriesTable`, doc);
+};
+
+exports.leadResponseTable = (req, res) => {
+  console.log('We are in Lead Response Tables Page');
+  res.status(200).render(`./../views/pages/leads/leadResponseTable`, doc);
+};
+
+exports.leadEntriesTable = (req, res) => {
+  console.log('We are in Lead Entries Tables Page');
+  res.status(200).render(`./../views/pages/leads/leadEntriesTable`, doc);
 };
 
 // SALES AND FINANCE RELATED CONTROLLER
@@ -696,11 +718,23 @@ exports.pages = (req, res) => {
   console.log('We are in Pages Form Page');
   res.status(200).render('./../views/pages/pages/pages', doc);
 };
+// PAGES TABLE RELATED CONTROLLER
+exports.pagesTable = (req, res) => {
+  console.log('We are in Pages Tables Page');
+  res.status(200).render(`./../views/pages/pages/pagesTable`, doc);
+};
+
 
 // CHARTS RELATED CONTROLLER
 exports.charts = (req, res) => {
   console.log('We are in Charts Form Page');
   res.status(200).render('./../views/pages/charts/charts', doc);
+};
+
+// CHARTS TABLE RELATED CONTROLLER
+exports.chartsTable = (req, res) => {
+  console.log('We are in charts Tables Page');
+  res.status(200).render(`./../views/pages/charts/chartsTable`, doc);
 };
 
 // FORMS RELATED CONTROLLER
@@ -714,10 +748,27 @@ exports.forms = (req, res) => {
   res.status(200).render('./../views/pages/forms/forms', doc);
 };
 
+// FORMS TABLE RELATED CONTROLLER
+exports.formResponseTable = (req, res) => {
+  console.log('We are in Form Response Tables Page');
+  res.status(200).render(`./../views/pages/forms/formResponseTable`, doc);
+};
+
+exports.formsTable = (req, res) => {
+  console.log('We are in Forms Table Page');
+  res.status(200).render(`./../views/pages/forms/formsTable`, doc);
+};
+
 // REPORTS RELATED CONTROLLER
 exports.reports = (req, res) => {
   console.log('We are in Reports Form Page');
   res.status(200).render('./../views/pages/reports/reports', doc);
+};
+
+// REPORTS TABLE RELATED CONTROLLER
+exports.reportsTable = (req, res) => {
+  console.log('We are in Reports Tables Page');
+  res.status(200).render(`./../views/pages/reports/reportsTable`, doc);
 };
 
 // PRECISION AGRICULTURE RELATED CONTROLLER

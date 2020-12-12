@@ -15,6 +15,9 @@ router.param('id', formResponseController.checkID);
 
 /* ROUTES */
 router
+.route('/table')
+.get(formResponseController.getAllTableFormResponse);
+router
   .route('/')
   .get(formResponseController.getAllFormResponse)
   .post(formResponseController.createFormResponse);
