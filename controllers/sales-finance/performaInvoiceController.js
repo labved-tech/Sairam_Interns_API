@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const PerfomaInvoice = require('../../models/sales-finance/perfomaInvoiceModel');
+const PerformaInvoice = require('../../models/sales-finance/performaInvoiceModel');
 
 /* DATABASE */
 
@@ -15,40 +15,40 @@ exports.checkID = (req, res, next, val) => {
   next();
 };
 
-exports.getAllPerfomaInvoice = catchAsync(async (req, res, next) => {
-  console.log('Getting All Perfoma Invoice ');
-  const perfomaInvoice = await PerfomaInvoice.find().then();
+exports.getAllPerformaInvoice = catchAsync(async (req, res, next) => {
+  console.log('Getting All Performa Invoice ');
+  const performaInvoice = await PerformaInvoice.find().then();
 
   res.status(200).json({
     status: 'success',
-    message: 'Got All Perfoma Invoice ',
-    results: perfomaInvoice.length,
+    message: 'Got All Performa Invoice ',
+    results: performaInvoice.length,
     data: {
-      perfomaInvoice,
+      performaInvoice,
     },
   });
 
   next();
 });
 
-exports.getPerfomaInvoice = catchAsync(async (req, res, next) => {
+exports.getPerformaInvoice = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting Perfoma Invoice for Id ${id}`);
-  const perfomaInvoice = await PerfomaInvoice.findById(id).then();
+  console.log(`Getting Performa Invoice for Id ${id}`);
+  const performaInvoice = await PerformaInvoice.findById(id).then();
   res.status(200).json({
     status: 'success',
-    message: `Got Perfoma Invoice Id=${id}`,
-    Data: { perfomaInvoice },
+    message: `Got Performa Invoice Id=${id}`,
+    Data: { performaInvoice },
   });
   next();
 });
 
-exports.createPerfomaInvoice = catchAsync(async (req, res, next) => {
-  console.log('Creating Perfoma Invoice');
+exports.createPerformaInvoice = catchAsync(async (req, res, next) => {
+  console.log('Creating Performa Invoice');
   const { body } = req;
 
   // parse through models
-  const doc = new PerfomaInvoice(body);
+  const doc = new PerformaInvoice(body);
   console.log(body);
 
   //paymentMethods
@@ -84,25 +84,25 @@ exports.createPerfomaInvoice = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  const perfomaInvoice = await PerfomaInvoice.create(doc).then();
+  const performaInvoice = await PerformaInvoice.create(doc).then();
 
   res.status(201).json({
     status: 'success',
-    message: 'Created Perfoma Invoice',
-    data: { perfomaInvoice },
+    message: 'Created Performa Invoice',
+    data: { performaInvoice },
   });
   next();
 });
 
-exports.updatePerfomaInvoice = catchAsync(async (req, res, next) => {
+exports.updatePerformaInvoice = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Updating Perfoma Invoice Id ${id}`);
+  console.log(`Updating Performa Invoice Id ${id}`);
   const { body } = req;
 
   // parse through models
-  const perfomaInvoiceToUpdate = new PerfomaInvoice(body);
+  const performaInvoiceToUpdate = new PerformaInvoice(body);
   console.log(body);
-  const doc = perfomaInvoiceToUpdate.toObject();
+  const doc = performaInvoiceToUpdate.toObject();
   delete doc._id;
 
   // update timestamps & Id's
@@ -111,28 +111,28 @@ exports.updatePerfomaInvoice = catchAsync(async (req, res, next) => {
 
   // check the doc before doing database operation
   //console.log(doc);
-  const perfomaInvoice = await PerfomaInvoice.findByIdAndUpdate(id, req.body, {
+  const performaInvoice = await PerformaInvoice.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
 
   res.status(201).json({
     status: 'success',
-    message: `Updated Perfoma Invoice Id=${id}`,
-    data: { perfomaInvoice },
+    message: `Updated Performa Invoice Id=${id}`,
+    data: { performaInvoice },
   });
 
   next();
 });
 
-exports.deletePerfomaInvoice = catchAsync(async (req, res, next) => {
+exports.deletePerformaInvoice = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting Perfoma Invoice Id ${id}`);
-  const perfomaInvoice = await PerfomaInvoice.findByIdAndDelete(id).then();
+  console.log(`Deleting Performa Invoice Id ${id}`);
+  const performaInvoice = await PerformaInvoice.findByIdAndDelete(id).then();
 
   res.status(200).json({
     status: 'success',
-    message: `Deleted Perfoma Invoice Id=${id}`,
-    data: { perfomaInvoice },
+    message: `Deleted Performa Invoice Id=${id}`,
+    data: { performaInvoice },
   });
 
   next();

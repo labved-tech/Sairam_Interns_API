@@ -4,7 +4,7 @@ block css-files
    
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/ecommerce/announcementForm.js')
+    script(src='/js/pages/crud/myForm/ecommerce/ecommerceProductForm.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -19,7 +19,7 @@ block content
                         h3(class='card-title') Ecommerce Products
                     div(class='card-body')
                         // begin::Form
-                        form#createAnnouncementNotifyForm(class='form')
+                        form#createEcommerceProductsForm(class='form')
                             div(class='row')
                                 div(class='col-md-1')
                                 div(class='col-xl-6')
@@ -53,11 +53,11 @@ block content
                                                 div(class='typeahead')
                                                     input#epID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='epID' placeholder='')
 
-                                        //epunitPrice
+                                        //epUnitPrice
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Unit Price
                                             div(class='col-5')
-                                                input#epunitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epunitPrice' placeholder='')
+                                                input#epUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epUnitPrice' placeholder='')
 
                                         //epMRP
                                         div(class='form-group row')

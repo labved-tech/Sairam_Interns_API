@@ -1,0 +1,296 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/performaInvoiceForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../parpials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-pitle') Performa Invoice
+                    div(class='card-body')
+                        // begin::Form
+                        form#createPerformaInvoiceForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+
+                                        //piNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Performa Invoice No
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#piNo(type='text' class='form-control' name='piNo' placeholder='')
+
+                                        //piModuleRef
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Module Reference
+                                                span(class='text-danger')  *
+                                            div(class='col-5')
+                                                input#piModuleRef(type='text' class='form-control' name='piModuleRef' placeholder='')
+
+                                        //piHeader
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Header
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piHeader(type='text' class='form-control' name='piHeader' placeholder='')
+
+                                        //piDate
+                                        div(class = 'form-group row')
+                                            label(class = 'col-3 col-form-label form-control-label text-right') Date
+                                                span(class='text-danger')
+                                            div(class='col-4')
+                                                input#piDate(type='text' class='form-control' name='piDate' placeholder='Select Date')
+
+
+                                        //piOrderID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Order ID 
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#piOrderID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piOrderID' placeholder='')
+
+                                        //piOrderDate
+                                        div(class = 'form-group row')
+                                            label(class = 'col-3 col-form-label form-control-label text-right') Order Date
+                                                span(class='text-danger')
+                                            div(class='col-4')
+                                                input#piOrderDate(type='text' class='form-control' name='piOrderDate' placeholder='Select Date')
+
+                                        //piBuyerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer ID 
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#piBuyerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piBuyerID' placeholder='')
+
+                                        //piBillingName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piBillingName(type='text' class='form-control' name='piBillingName' placeholder='')
+
+                                        //piBillingAddress
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='piBillingAddress')
+                                                |Billing Address
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#piBillingAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piBillingAddress' placeholder='Enter Address')
+                                                span(class='form-text text-muted') 
+
+                                        //piBillingEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing Email
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piBillingEmail(type='text' class='form-control' name='piBillingEmail' placeholder='')
+
+                                        //piBillingContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contact No
+                                                span(class='text-danger')  
+                                            div(class='col-5')
+                                                input#piBillingContact(type='text' class='form-control' name='piBillingContact' placeholder='Enter Contact')
+
+                                        //piCosigneeName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piCosigneeName(type='text' class='form-control' name='piCosigneeName' placeholder='')
+
+                                        //piCosigneeAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Address
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#piCosigneeAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piCosigneeAddress' placeholder='Enter Address')
+
+                                        //piCosigneeContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Contact
+                                                span(class='text-danger')  
+                                            div(class='col-5')
+                                                input#piCosigneeContact(type='text' class='form-control' name='piCosigneeContact' placeholder='Enter Contact')
+
+                                        //piSellerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller ID 
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#piSellerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piSellerID' placeholder='')
+
+                                        //piSellerName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Name
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piSellerName(type='text' class='form-control' name='piSellerName' placeholder='')
+
+                                        //piSellerAddress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Address
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#piSellerAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piSellerAddress' placeholder='Enter Address')
+
+                                        //piSellerContact
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller No
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piSellerContact(type='text' class='form-control' name='piSellerContact' placeholder='Enter Contact')
+
+                                        #piPayment
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') Payment Method
+                                                div(data-repeater-list='', class='col-16')
+                                                    div(data-repeater-item='', class='form-group row')
+                                                        div(class='typeahead')
+                                                            input#piPayID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piPayID' placeholder='Payement ID')
+                                                        div(class='col-4')
+                                                            select#piPayType(class='form-control selectpicker' multiple=''  data-live-search='true' name='piPayType' )
+                                                                option Credit Card
+                                                                option Debit Card
+                                                                option Cash
+                                                            span(class='form-text text-muted') Select Payment Type                           
+
+                                                        div(class='col-3')
+                                                            input#piaccNo(type='text', class='form-control', placeholder='Meta' name='piaccNo')
+                                                        div(class='col-3')
+                                                            select#piBankName(class='form-control selectpicker' multiple=''  data-live-search='true' name='piBankName' )
+                                                                option ICICI
+                                                                option HDFC
+                                                                option State Bank of India
+                                                                option other
+                                                            span(class='form-text text-muted') Select Bank                             
+                                                        div(class='col-3')
+                                                            input#piBankIFSC(type='text', class='form-control', placeholder='Bank IFSC' name='piBankIFSC')
+
+                                        #piItem
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right') Item Table
+                                                div(data-repeater-list='', class='col-16')
+                                                    div(data-repeater-item='', class='form-group row')
+                                                        div(class='col-3')
+                                                            input#piSerialNo(type='text', class='form-control', placeholder='Serial No' name='piSerialNo')
+                                                        div(class='col-3')
+                                                            input#piItemCode(type='text', class='form-control', placeholder='Item Code' name='piItemCode')
+                                                        div(class='col-3')
+                                                            input#piName(type='text', class='form-control', placeholder='Name' name='piName')
+                                                        div(class='col-3')
+                                                            input#piQuantity(type='text', class='form-control', placeholder='Qty' name='piQuantity')
+                                                        div(class='col-3')
+                                                            select#piItemUnits(class='form-control selectpicker' multiple=''  data-live-search='true' name='piItemUnits' )
+                                                                option kg
+                                                                option g
+                                                            span(class='form-text text-muted') Select Units                           
+                                                        div(class='col-3')
+                                                            input#piUnitPrice(type='text', class='form-control', placeholder='Unit Price' name='piUnitPrice')
+                                                        div(class='col-3')
+                                                            input#piDiscount(type='text', class='form-control', placeholder='Discount' name='piDiscount')
+                                                        div(class='col-3')
+                                                            input#piDiscountRate(type='text', class='form-control', placeholder='Discount Rate' name='piDiscountRate')
+                                                        div(class='col-3')
+                                                            input#piTaxValue(type='text', class='form-control', placeholder='Tax Value' name='piTaxValue')
+                                                        div(class='col-3')
+                                                            input#piCGST(type='text', class='form-control', placeholder='CGST' name='piCGST')
+                                                        div(class='col-3')
+                                                            input#piCGSTAmt(type='text', class='form-control', placeholder='CGST Amt' name='piCGSTAmt')
+                                                        div(class='col-3')
+                                                            input#piSGST(type='text', class='form-control', placeholder='SGST' name='piSGST')
+                                                        div(class='col-3')
+                                                            input#piSGSTAmt(type='text', class='form-control', placeholder='SGST Amt' name='piSGSTAmt')
+                                                        div(class='col-3')
+                                                            input#piIGST(type='text', class='form-control', placeholder='IGST' name='piIGST')
+                                                        div(class='col-3')
+                                                            input#piIGSTAmt(type='text', class='form-control', placeholder='IGST Amt' name='piIGSTAmt')
+                                                        div(class='col-3')
+                                                            input#piTotalPrice(type='text', class='form-control', placeholder='Total Price' name='piTotalPrice')
+
+                                        //pibeforeTax
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Before Tax
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#pibeforeTax(type='text' class='form-control' name='pibeforeTax' placeholder='')
+
+                                        //piCGSTTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total CGST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piCGSTTotal(type='text' class='form-control' name='piCGSTTotal' placeholder='')
+
+                                        //piSGSTTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total SGST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piSGSTTotal(type='text' class='form-control' name='piSGSTTotal' placeholder='')
+                                        //piIGSTTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total IGST
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piIGSTTotal(type='text' class='form-control' name='piIGSTTotal' placeholder='')
+                                        //piGrandTotal
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Grand Total
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piGrandTotal(type='text' class='form-control' name='piGrandTotal' placeholder='')
+
+                                        //piTermsCondition
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='piTermsCondition')
+                                                | Terms and Condition
+                                                span(class='text-danger')
+                                            div(class='col-7 ')
+                                                textarea#piTermsCondition(class='form-control' name='piTermsCondition' rows='3')
+                                                span(class='form-text text-muted') 
+
+                                        //piFooter
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Footer
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piFooter(type='text' class='form-control' name='piFooter' placeholder='')
+
+                                        //piMeta
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Meta
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#piMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piMeta' placeholder='')
+
+                                        //piSource
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Source
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#piSource(type='text' class='form-control' name='piSource' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#piFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
