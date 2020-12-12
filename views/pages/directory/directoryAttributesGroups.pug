@@ -314,35 +314,57 @@ block content
                                                             label(class='col-3 col-form-label form-control-label text-right') ID
                                                             div(class='col-7')
                                                                 div(class='typeahead')
-                                                                    input#dagId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='Id' placeholder='ex. 5fa92064cff6f652644266de')
+                                                                    input#dagaId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dagaId' placeholder='ex. 5fa92064cff6f652644266de')
                                                                     span(class='form-text text-muted') Should be as mentioned.
 
                                                         div(class='form-group row')
                                                             label(class='col-5 col-form-label form-control-label text-right') Name
                                                             div(class='col-4')
                                                                 div(class='typeahead')
-                                                                        input#dagName(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='Name' placeholder='ex. Vignesh')
+                                                                        input#dagaName(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dagaName' placeholder='ex. Vignesh')
                                                                         span(class='form-text text-muted')
 
                                                         div(class='form-group row')
                                                             label(class='col-5 col-form-label form-control-label text-right') Type 
                                                             div(class='col-4')
                                                                 div(class='typeahead')
-                                                                        input#dagType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dagType' placeholder='')
+                                                                        input#dagaType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dagaType' placeholder='')
                                                                         span(class='form-text text-muted')
 
                                                         div(class='form-group row mb-1')
-                                                            label(class='col-3 col-form-label form-control-label text-right' for='esdDescription')
+                                                            label(class='col-3 col-form-label form-control-label text-right' for='dagaDescription')
                                                                 | Description 
                                                             div(class='col-9 ')
-                                                                textarea#dagDescription(class='form-control' name='dagDescription' rows='3')
+                                                                textarea#dagaDescription(class='form-control' name='dagaDescription' rows='3')
                                                                 span(class='form-text text-muted')
 
-                                        // neNotes
-                                        div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='neNotes')
-                                                | Notes
-                                                span(class='text-danger')
-                                            div(class='col-7 ')
-                                                textarea#neNotes(class='form-control' name='neNotes' rows='3')
-                                                span(class='form-text text-muted') Add Notes
+                                                        div(class='form-group row mb-1')
+                                                            label(class='col-3 col-form-label form-control-label text-right' for='dagaNotes')
+                                                                | Notes
+                                                            div(class='col-9 ')
+                                                                textarea#dagaNotes(class='form-control' name='dagaNotes' rows='3')
+                                                                span(class='form-text text-muted')
+
+                                                        div(class='col-md-3')
+                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-trash-o')
+                                                                | Delete
+                                                                        
+                                                        span(class='form-text text-muted')
+
+                                            div(class='form-group row')
+                                                label(class='col-5 col-form-label form-control-label text-right')
+                                                div(class='col-4')
+                                                        a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                            i(class='la la-plus')
+                                                            | Add
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#dagFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
