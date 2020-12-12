@@ -601,10 +601,20 @@ exports.ratingEntries = (req, res) => {
   res.status(200).render('./../views/pages/rating/ratingEntries', doc);
 };
 
-// RATING RELATED CONTROLLER
+// RATING TABLE RELATED CONTROLLER
 exports.ratingAttributeTable = (req, res) => {
   console.log('We are in Rating Attribute Table Page');
   res.status(200).render('./../views/pages/rating/ratingAttributeTable', doc);
+};
+
+exports.ratingAttributeGroupsTable = (req, res) => {
+  console.log('We are in Rating Attribute Groups Table Page');
+  res.status(200).render('./../views/pages/rating/ratingAttributeGroupsTable', doc);
+};
+
+exports.ratingEntriesTable = (req, res) => {
+  console.log('We are in Rating Entries Table Page');
+  res.status(200).render('./../views/pages/rating/ratingEntriesTable', doc);
 };
 
 // EVENT RELATED CONTROLLER

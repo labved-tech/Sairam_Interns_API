@@ -1,0 +1,134 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myTable/rating/Attribute/Groups.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class=" container ")
+                // begin::Card
+                div(class="card card-custom")
+                    div(class="card-header flex-wrap border-0 pt-6 pb-0")
+                        div(class="card-title")
+                            h3(class="card-label")
+                                | Rating Attribute Groups
+                                span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
+                        div(class="card-toolbar")
+                            // begin::Dropdown
+                            div(class='dropdown dropdown-inline mr-2')
+                                button(type='button' class='btn btn-light-primary font-weight-bolder dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                    i(class='fas fa-file-export')
+                                    |  Export
+                                // begin::Dropdown Menu
+                                div(class="dropdown-menu dropdown-menu-sm dropdown-menu-right")
+                                    // begin::Navigation
+                                    ul(class="navi flex-column navi-hover py-2")
+                                        li(class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2")
+                                            | Choose an option:
+                                        li(class="navi-item")
+                                            a(href="#", class="navi-link")
+                                                span(class="navi-icon")
+                                                    i(class="fas fa-print")
+                                                span(class="navi-text") Print
+                                        li(class="navi-item")
+                                            a(href="#", class="navi-link")
+                                                span(class="navi-icon")
+                                                    i(class="fas fa-copy")
+                                                span(class="navi-text") Copy
+                                        li(class="navi-item")
+                                            a(href="#", class="navi-link")
+                                                span(class="navi-icon")
+                                                    i(class="fas fa-file-excel")
+                                                span(class="navi-text") Excel
+                                        li(class="navi-item")
+                                            a(href="#", class="navi-link")
+                                                span(class="navi-icon")
+                                                    i(class="fas fa-file-csv")
+                                                span(class="navi-text") CSV
+                                        li(class="navi-item")
+                                            a(href="#", class="navi-link")
+                                                span(class="navi-icon")
+                                                    i(class="fas fa-file-pdf")
+                                                span(class="navi-text") PDF
+                                    // end::Navigation
+                                // end::Dropdown Menu
+                            // end::Dropdown
+                            // begin::Button
+                            a(href='#' class='btn btn-primary font-weight-bolder')
+                                i(class='fas fa-plus')
+                                | 	New Record
+                            // end::Button
+
+                    div(class="card-body")
+                        // begin::Search Form
+                        div(class="mb-7")
+                            div(class="row align-items-center")
+                                div(class="col-lg-9 col-xl-8")
+                                    div(class="row align-items-center")
+                                        div(class="col-md-4 my-2 my-md-0")
+                                            div(class="input-icon")
+                                                input#kt_datatable_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                span
+                                                    i(class="flaticon2-search-1 text-muted")
+                                        div(class="col-md-4 my-2 my-md-0")
+                                            div(class="d-flex align-items-center")
+                                                label(class="mr-3 mb-0 d-none d-md-block") Status:
+                                                select#kt_datatable_search_status_2(class="form-control")
+                                                    option(value="") All
+                                                    option(value="1") Pending
+                                                    option(value="2") Delivered
+                                                    option(value="3") Canceled
+                                                    option(value="4") Success
+                                                    option(value="5") Info
+                                                    option(value="6") Danger
+                                        div(class="col-md-4 my-2 my-md-0")
+                                            div(class="d-flex align-items-center")
+                                                label(class="mr-3 mb-0 d-none d-md-block") Type:
+                                                select#kt_datatable_search_type_2(class="form-control")
+                                                    option(value="") All
+                                                    option(value="1") Online
+                                                    option(value="2") Retail
+                                                    option(value="3") Direct
+                                div(class="col-lg-3 col-xl-4 mt-5 mt-lg-0")
+                                    a(href="#", class="btn btn-light-primary px-6 font-weight-bold")
+                                        | Search
+                        // end::Search Form
+                        // begin: Selected Rows Group Action Form
+                        #kt_datatable_group_action_form_2(class="mt-10 mb-5 collapse")
+                            div(class="d-flex align-items-center")
+                                div(class="font-weight-bold text-danger mr-3")
+                                    | Selected 
+                                    span#kt_datatable_selected_records_2 0
+                                    |  records:
+                                div(class="dropdown mr-2")
+                                    button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
+                                        | Update status
+                                    div(class="dropdown-menu dropdown-menu-sm")
+                                        ul(class="nav nav-hover flex-column")
+                                            li(class="nav-item")
+                                                a(href="#", class="nav-link")
+                                                    span(class="nav-text") Pending
+                                            li(class="nav-item")
+                                                a(href="#", class="nav-link")
+                                                    span(class="nav-text") Delivered
+                                            li(class="nav-item")
+                                                a(href="#", class="nav-link")
+                                                    span(class="nav-text") Canceled
+                                button#kt_datatable_delete_all_2(class="btn btn-sm btn-danger mr-2", type="button")
+                                    | Delete All
+                                button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#kt_datatable_fetch_modal_2")
+                                    | Fetch Selected Records
+                        // end: Selected Rows Group Action Form
+                        // begin: Datatable
+                        #kt_datatable_2(class="datatable datatable-bordered datatable-head-custom")
+                        // end: Datatable
+                // end::Card
+            // end::Container
+
+        // end::Entry

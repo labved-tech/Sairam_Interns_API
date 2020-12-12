@@ -53,6 +53,8 @@ router.get('/ratings/attribute/groups', viewsController.ratingAttributeGroups);
 router.get('/ratings/attribute', viewsController.ratingAttribute);
 router.get('/ratings/entries', viewsController.ratingEntries);
 router.get('/ratings/attribute/table', viewsController.ratingAttributeTable);
+router.get('/ratings/attribute/groups/table', viewsController.ratingAttributeGroupsTable);
+router.get('/ratings/entries/table', viewsController.ratingEntriesTable);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
@@ -71,8 +73,8 @@ router.get(
 // NEWSLETTER RELATED ROUTES
 router.get('/newsletter/messages', viewsController.newsletterMessages);
 router.get('/newsletter/entries', viewsController.newsletterEntries);
-router.get('/newsletter/entries/table',viewsController.newsletterEntriesTable);
-router.get('/newsletter/messages/table',viewsController.newsletterMessagesTable);
+router.get('/newsletter/entries/table', viewsController.newsletterEntriesTable);
+router.get('/newsletter/messages/table', viewsController.newsletterMessagesTable);
 
 
 // SALES AND FINANCE RELATED ROUTES

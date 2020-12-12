@@ -83,7 +83,7 @@ exports.getAllTableRatingAttribute = catchAsync(async (req, res, next) => {
   }
 
   // EXECUTE QUERY
-  const announcementEntries = await query;
+  const ratingAttribute = await query;
   //ratingAttribute = await Example.find();
   //console.log(ratingAttribute);
 
