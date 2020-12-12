@@ -753,6 +753,34 @@ exports.directory = (req, res) => {
   res.status(200).render('./../views/pages/directory/directory', doc);
 };
 
+// DIRECTORY TABLE RELATED CONTROLLER
+
+exports.directoryAttributeGroupsTable = (req, res) => {
+  console.log('We are in Directory Attribute Groups Tables Page');
+  res.status(200).render(`./../views/pages/directory/directoryAttributeGroupsTable`, doc);
+};
+
+exports.directoryCategoriesTable = (req, res) => {
+  console.log('We are in Directory Categories Tables Page');
+  res.status(200).render(`./../views/pages/directory/directoryCategoriesTable`, doc);
+};
+
+exports.directoryLevelsTable = (req, res) => {
+  console.log('We are in Directory Levels Tables Page');
+  res.status(200).render(`./../views/pages/directory/directoryLevelsTable`, doc);
+};
+
+exports.directoryEntriesTable = (req, res) => {
+  console.log('We are in directory Entries Tables Form Page');
+  res.status(200).render('./../views/pages/directory/directoryEntriesTable', doc);
+};
+
+exports.directoryTable = (req, res) => {
+  console.log('We are in directory Table Form Page');
+  res.status(200).render('./../views/pages/directory/directoryTable', doc);
+};
+
+
 exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote', doc);
@@ -860,7 +888,7 @@ exports.farmRegionsTable = (req, res) => {
   console.log('We are in Farm Regions Tables Page');
   res.status(200).render(`./../views/pages/precision-agriculture/farmRegionsTable`, doc);
 };
- 
+
 exports.farmStrategyTable = (req, res) => {
   console.log('We are in Farm Strategy Tables Page');
   res.status(200).render(`./../views/pages/precision-agriculture/farmStrategyTable`, doc);
@@ -890,4 +918,29 @@ exports.ecommerceOrder = (req, res) => {
 exports.ecommerceProducts = (req, res) => {
   console.log('We are in Ecommerce Order Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceProducts', doc);
+};
+
+exports.ecommerceAddressTable = (req, res) => {
+  console.log('We are in Ecommerce Address Tables Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceAddressTable', doc);
+};
+
+exports.ecommerceLocationsTable = (req, res) => {
+  console.log('We are in Ecommerce Location Tables Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceLocationsTable', doc);
+};
+
+exports.ecommerceStockTable = (req, res) => {
+  console.log('We are in Ecommerce Tables Stock Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockTable', doc);
+};
+
+exports.ecommerceOrderTable = (req, res) => {
+  console.log('We are in Ecommerce Order Tables Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceOrderTable', doc);
+};
+
+exports.ecommerceProductsTable = (req, res) => {
+  console.log('We are in Ecommerce Order Tables Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceProductsTable', doc);
 };

@@ -54,10 +54,7 @@ router.get('/ratings/attribute', viewsController.ratingAttribute);
 router.get('/ratings/entries', viewsController.ratingEntries);
 router.get('/ratings/attribute/table', viewsController.ratingAttributeTable);
 router.get('/ratings/attribute/groups/table', viewsController.ratingAttributeGroupsTable);
-<<<<<<< Updated upstream
 router.get('/ratings/entries/table', viewsController.ratingEntriesTable);
-=======
->>>>>>> Stashed changes
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
@@ -122,15 +119,16 @@ router.get(
 );
 
 // DIRECTORY RELATED ROUTES
-router.get(
-  '/directory/attributes/groups',
-  viewsController.directoryAttributesGroups
-);
+router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
 router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
 router.get('/directory', viewsController.directory);
-
+router.get('/directory/categories/table', viewsController.ratingCategoriesTable);
+router.get('/directory/attributes/groups/table', viewsController.directoryAttributesGroupsTable);
+router.get('/directory/levels/table', viewsController.directoryLevelsTable);
+router.get('/directory/entries/table', viewsController.directoryEntriesTable);
+router.get('/directory/table', viewsController.directoryTable);
 
 // PAGES RELATED ROUTES
 router.get('/pages', viewsController.pages);
@@ -186,5 +184,10 @@ router.get('/ecommerce/locations/', viewsController.ecommerceLocations);
 router.get('/ecommerce/stock/', viewsController.ecommerceStock);
 router.get('/ecommerce/order/', viewsController.ecommerceOrder);
 router.get('/ecommerce/products/', viewsController.ecommerceProducts);
+router.get('/ecommerce/address/table', viewsController.ecommerceAddressTable);
+router.get('/ecommerce/locations/table', viewsController.ecommerceLocationsTable);
+router.get('/ecommerce/stock/table', viewsController.ecommerceStockTable);
+router.get('/ecommerce/order/table', viewsController.ecommerceOrderTable);
+router.get('/ecommerce/products/table', viewsController.ecommerceProductsTable);
 
 module.exports = router;
