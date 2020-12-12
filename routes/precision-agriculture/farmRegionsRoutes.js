@@ -15,6 +15,9 @@ router.param('id', farmRegionsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(farmRegionsController.getAllTableFarmRegions);
+router
   .route('/')
   .get(farmRegionsController.getAllFarmRegions)
   .post(farmRegionsController.createFarmRegions);

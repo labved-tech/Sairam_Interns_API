@@ -15,6 +15,9 @@ router.param('id', leadCategoriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(leadCategoriesController.getAllTableLeadCategories);
+router
   .route('/')
   .get(leadCategoriesController.getAllLeadCategories)
   .post(leadCategoriesController.createLeadCategories);
