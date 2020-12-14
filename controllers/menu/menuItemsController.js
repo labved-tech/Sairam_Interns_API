@@ -12,13 +12,16 @@ const MenuItem = require('../../models/menu/menuItemsModel');
 exports.getAllMenuItem = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Items');
 
-  const menuItem = await MenuItem.find().sort('priority').then();
+  const item = await MenuItem.find()
+    .populate('_subItem1')
+    .sort('priority')
+    .then();
 
   res.status(200).json({
     status: 'success',
     message: 'Got All Menu Items',
-    results: menuItem.length,
-    menuItem,
+    results: item.length,
+    item,
   });
   next();
 });
@@ -27,11 +30,11 @@ exports.getMenuItem = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Menu Items with Id ${id}`);
 
-  const menuItem = await MenuItem.findById(id).then();
+  const item = await MenuItem.findById(id).then();
   res.status(200).json({
     status: 'success',
     message: `Got Menu Items Id=${id}`,
-    menuItem,
+    item,
   });
 
   next();
@@ -60,12 +63,12 @@ exports.createMenuItem = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   console.log(doc);
 
-  const newMenuItem = await MenuItem.create(doc).then();
+  const newItem = await MenuItem.create(doc).then();
 
   res.status(201).json({
     status: 'success',
     message: 'Created Menu Items',
-    newMenuItem,
+    newItem,
   });
 
   next();
@@ -75,14 +78,14 @@ exports.updateMenuItem = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Menu Items Id ${id}`);
 
-  const menuItem = await MenuItem.findByIdAndUpdate(id, req.body, {
+  const item = await MenuItem.findByIdAndUpdate(id, req.body, {
     new: true,
   }).then();
 
   res.status(201).json({
     status: 'success',
     message: `Updated Menu Items Id=${id}`,
-    menuItem,
+    item,
   });
 
   next();
@@ -92,12 +95,12 @@ exports.deleteMenuItem = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Menu  Items Id ${id}`);
 
-  const menuItem = await MenuItem.findByIdAndDelete(id).then();
+  const item = await MenuItem.findByIdAndDelete(id).then();
 
   res.status(200).json({
     status: 'success',
     message: `Deleted Menu Items Id=${id}`,
-    menuItem,
+    item,
   });
 
   next();

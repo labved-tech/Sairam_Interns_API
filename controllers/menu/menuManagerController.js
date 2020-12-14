@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 /* MIDDLEWARES */
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
-const Menu = require('../../models/menu/menuManagerModel');
+const MenuManager = require('../../models/menu/menuManagerModel');
 
 /* DATABASE */
 
@@ -12,28 +12,39 @@ const Menu = require('../../models/menu/menuManagerModel');
 exports.getAllMenu = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu');
 
-  const menus = await Menu.find().then();
+  // console.log(req.query);
+
+  const menuManagerStr = req.query.manager;
+
+  const manager = await MenuManager.find({ name: menuManagerStr })
+    .populate({
+      path: '_section',
+      populate: {
+        path: '_item',
+        populate: {
+          path: '_subItem1',
+          populate: { path: '_subItem2' },
+        },
+      },
+    })
+    .then();
 
   res.status(200).json({
     status: 'success',
-    message: 'Got All Menus',
-    results: menus.length,
-    data: {
-      menus,
-    },
+    message: 'Got Menu Manager',
+    manager,
   });
-  next();
 });
 
 exports.getMenu = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Menu with Id ${id}`);
 
-  const menu = await Menu.findById(id).then();
+  const manager = await MenuManager.findById(id).then();
   res.status(200).json({
     status: 'success',
     message: `Got Menu Id=${id}`,
-    data: { menu },
+    manager,
   });
 
   next();
@@ -44,7 +55,7 @@ exports.createMenu = catchAsync(async (req, res, next) => {
   //console.log(req.body);
 
   // parse through models
-  const doc = new Menu(req.body);
+  const doc = new MenuManager(req.body);
   console.log(doc);
 
   // update timestamps & Id's
@@ -59,12 +70,12 @@ exports.createMenu = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   //console.log(doc);
 
-  const newMenu = await Menu.create(doc).then();
+  const manager = await MenuManager.create(doc).then();
 
   res.status(201).json({
     status: 'success',
     message: 'Created Menu',
-    newMenu,
+    manager,
   });
 
   next();
@@ -76,7 +87,7 @@ exports.updateMenu = catchAsync(async (req, res, next) => {
   console.log(`Updating Menu Id ${id}`);
 
   // parse through models
-  const menuToUpdate = new Menu(body);
+  const menuToUpdate = new MenuManager(body);
   const doc = menuToUpdate.toObject();
   delete doc._id;
 
@@ -87,14 +98,14 @@ exports.updateMenu = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   console.log(doc);
 
-  const menu = await Menu.findByIdAndUpdate(id, doc, {
+  const manager = await MenuManager.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
   res.status(201).json({
     status: 'success',
     message: `Updated Menu Id=${id}`,
-    data: { menu },
+    manager,
   });
 
   next();
@@ -104,12 +115,12 @@ exports.deleteMenu = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Menu Id ${id}`);
 
-  const menu = await Menu.findByIdAndDelete(id).then();
+  const manager = await MenuManager.findByIdAndDelete(id).then();
 
   res.status(200).json({
     status: 'success',
     message: `Deleted Menu Id=${id}`,
-    data: { menu },
+    manager,
   });
 
   next();

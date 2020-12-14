@@ -11,7 +11,6 @@ const menuSubItems2Schema = new Schema(
       type: String,
       unique: [true, 'Already exists'],
     },
-    _parentId: { type: mongoose.ObjectId, ref: 'menu-subItem1' },
     route: {
       type: String,
       unique: [true, 'Already exists'],

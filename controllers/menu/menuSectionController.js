@@ -12,7 +12,10 @@ const MenuSection = require('../../models/menu/menuSectionModel');
 exports.getAllMenuSection = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Sections');
 
-  const menuSection = await MenuSection.find().sort('priority').then();
+  const menuSection = await MenuSection.find()
+    .populate('_item')
+    .sort('priority')
+    .then();
 
   res.status(200).json({
     status: 'success',
