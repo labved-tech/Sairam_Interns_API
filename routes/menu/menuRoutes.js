@@ -3,6 +3,7 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
+const menuController = require('../../controllers/menu/menuController');
 const menuManagerController = require('../../controllers/menu/menuManagerController');
 const menuSectionController = require('../../controllers/menu/menuSectionController');
 const menuItemsController = require('../../controllers/menu/menuItemsController');
@@ -18,16 +19,17 @@ router.use((req, res, next) => {
 /* ROUTES */
 
 // MANAGER
+router.route('/genMenu').get(menuController.getAllMenu);
 
 router
   .route('/manager')
-  .get(menuManagerController.getAllMenu)
-  .post(menuManagerController.createMenu);
+  .get(menuManagerController.getAllMenuManager)
+  .post(menuManagerController.createMenuManager);
 router
   .route('/manager/:id')
-  .get(menuManagerController.getMenu)
-  .patch(menuManagerController.updateMenu)
-  .delete(menuManagerController.deleteMenu);
+  .get(menuManagerController.getMenuManager)
+  .patch(menuManagerController.updateMenuManager)
+  .delete(menuManagerController.deleteMenuManager);
 
 // SECTION
 router

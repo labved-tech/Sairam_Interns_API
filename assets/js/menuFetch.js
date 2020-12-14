@@ -8,7 +8,7 @@ const MenuFetch = (function () {
   // sourcing data
     const fetchMenuData = async (queryStr) =>   {
         try {
-            const { data } = await axios.get(`${HOST_URL}/api/v1/menu/manager`, { params : {manager: queryStr}})
+            const { data } = await axios.get(`${HOST_URL}/api/v1/menu/genMenu`, { params : {manager: queryStr}})
               return data;
           } catch (err) {
               console.log(err.message);
@@ -20,11 +20,11 @@ const MenuFetch = (function () {
     const generateAsideMenu = async () => {
       const queryStr = 'aside';
       const asideMenu = await fetchMenuData(queryStr);
-      //console.log(asideMenu);
+      // console.log(asideMenu);
 
         // Constructing Section
         const sectionLen = asideMenu.manager[0]._section.length;
-        //console.log('sectionLen', sectionLen);
+        // console.log('sectionLen', sectionLen);
       
       for (let i = 0; i < sectionLen; i++) {
           $('#menuAside').append('\
@@ -39,17 +39,17 @@ const MenuFetch = (function () {
           
           // Constructing Item
           const itemLen = asideMenu.manager[0]._section[i]._item.length;
-          //console.log('itemLen', itemLen);
+          // console.log('itemLen', itemLen);
 
           if (itemLen > 0) {
             for (let j = 0; j < itemLen; j++) {
               
               let  itemRef = asideMenu.manager[0]._section[i]._item[j].name;
               itemRef =  itemRef.replace(/ /g, '');
-              console.log( itemRef);
+              // console.log( itemRef);
 
               const subItem1Len = asideMenu.manager[0]._section[i]._item[j]._subItem1.length;
-              //console.log('subItem1Len', subItem1Len);
+              // console.log('subItem1Len', subItem1Len);
 
 
               if (subItem1Len != 0) {
@@ -100,11 +100,11 @@ const MenuFetch = (function () {
                   }
 
                   const subItem2Len = asideMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2.length;
-                  //console.log('subItem2Len', subItem2Len);
+                  // console.log('subItem2Len', subItem2Len);
                   
                   let subitem1Ref = asideMenu.manager[0]._section[i]._item[j]._subItem1[k].name;
                   subitem1Ref =  subitem1Ref.replace(/ /g, '');
-                  console.log(subitem1Ref);
+                  // console.log(subitem1Ref);
                   
                   if (subItem2Len != 0) {
                     // Adding li subItem1 with child item
@@ -149,7 +149,7 @@ const MenuFetch = (function () {
 
                       let subitem2Ref = asideMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2[l].name;
                       subitem2Ref =  subitem2Ref.replace(/ /g, '');
-                      console.log(subitem2Ref);
+                      // console.log(subitem2Ref);
 
                       // Adding li subItem2
                       $('#ulAside' + subitem1Ref).append('\
@@ -191,26 +191,26 @@ const MenuFetch = (function () {
 
       const queryStr = 'top';
       const topMenu = await fetchMenuData(queryStr);
-      console.log(topMenu);
+      // console.log(topMenu);
   
         // Constructing Section
         const sectionLen = topMenu.manager[0]._section.length;
-        console.log('sectionLen', sectionLen);
+        // console.log('sectionLen', sectionLen);
       for (let i = 0; i < sectionLen; i++) {
           
           // Constructing Item
           const itemLen = topMenu.manager[0]._section[i]._item.length;
-          console.log('itemLen', itemLen);
+          // console.log('itemLen', itemLen);
   
           if (itemLen > 0) {
             for (let j = 0; j < itemLen; j++) {
   
               const subItem1Len = topMenu.manager[0]._section[i]._item[j]._subItem1.length;
-              console.log('subItem1Len', subItem1Len);
+              // console.log('subItem1Len', subItem1Len);
 
               let  itemRef = topMenu.manager[0]._section[i]._item[j].name;
                itemRef =  itemRef.replace(/ /g, '');
-              console.log( itemRef);
+              // console.log( itemRef);
   
               if (subItem1Len != 0) {
                 // Adding li item with child item
@@ -249,11 +249,11 @@ const MenuFetch = (function () {
                   }
   
                   const subItem2Len = topMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2.length;
-                  console.log('subItem2Len', subItem2Len);
+                  // console.log('subItem2Len', subItem2Len);
 
                   let subitem1Ref = topMenu.manager[0]._section[i]._item[j]._subItem1[k].name;
                   subitem1Ref = subitem1Ref.replace(/ /g, '');
-                  console.log(subitem1Ref);
+                  // console.log(subitem1Ref);
   
                   if (subItem2Len != 0) {
                     // Adding li subItem1 with child item
@@ -292,13 +292,13 @@ const MenuFetch = (function () {
                       <ul id="ulTop'+ subitem1Ref +'" class="menu-subnav">\
                     ');
   
-                    console.log('inside subitem2')
+                    // console.log('inside subitem2')
 
                     for (let l = 0; l < subItem2Len; l++) {
 
                       let subitem2Ref = topMenu.manager[0]._section[i]._item[j]._subItem1[k]._subItem2[l].name;
                       subitem2Ref = subitem2Ref.replace(/ /g, '');
-                      console.log(subitem2Ref);
+                      // console.log(subitem2Ref);
 
                       // Adding li subItem2
                       $('#ulTop' + subitem1Ref).append('\

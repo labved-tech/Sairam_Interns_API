@@ -9,21 +9,33 @@ const MenuManager = require('../../models/menu/menuManagerModel');
 /* DATABASE */
 
 /* CONTROLLERS */
-exports.getAllMenuManager = catchAsync(async (req, res, next) => {
+exports.getAllMenu = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu');
-  const { body } = req;
-  // console.log(body);
+  console.log(req.query);
 
-  const manager = await MenuManager.find().then();
+  const menuManagerStr = req.query.manager;
+
+  const manager = await MenuManager.find({ name: menuManagerStr })
+    .populate({
+      path: '_section',
+      populate: {
+        path: '_item',
+        populate: {
+          path: '_subItem1',
+          populate: { path: '_subItem2' },
+        },
+      },
+    })
+    .then();
 
   res.status(200).json({
     status: 'success',
-    message: 'Got Menu Manager',
+    message: 'Got Menu',
     manager,
   });
 });
 
-exports.getMenuManager = catchAsync(async (req, res, next) => {
+exports.getMenu = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Getting Menu with Id ${id}`);
 
@@ -37,7 +49,7 @@ exports.getMenuManager = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.createMenuManager = catchAsync(async (req, res, next) => {
+exports.createMenu = catchAsync(async (req, res, next) => {
   console.log('Creating Menu');
   //console.log(req.body);
 
@@ -68,7 +80,7 @@ exports.createMenuManager = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.updateMenuManager = catchAsync(async (req, res, next) => {
+exports.updateMenu = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const { body } = req;
   console.log(`Updating Menu Id ${id}`);
@@ -98,7 +110,7 @@ exports.updateMenuManager = catchAsync(async (req, res, next) => {
   next();
 });
 
-exports.deleteMenuManager = catchAsync(async (req, res, next) => {
+exports.deleteMenu = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Deleting Menu Id ${id}`);
 

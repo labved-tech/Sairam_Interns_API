@@ -23,9 +23,13 @@ block content
                                     h3(class='card-label')
                                         | Preview
                                 div(class='card-toolbar')
-                                    div(class='menu-tools justify-content-center')
-                                        span(class='menu-toggle' data-toggle='tooltip' title='View code')
+
                             div(class='card-body')
+                                // Dropdown List : Single Select2 w Live Search
+                                div(class='form-group row')
+                                    div(class=' col-12')
+                                        select#demoSelect2Single(class='form-control select2' name='demoSelect2Single')
+
                                 #kt_tree_1(class='tree-demo')
                                     ul
                                         li
@@ -48,6 +52,35 @@ block content
                                         li(data-jstree='{ "type" : "file" }')
                                             a(href='http://www.keenthemes.com')
                                                 | Clickable link node
+
+                                #treeMenuPreview(class='tree-demo')
+                                    ul
+                                        li
+                                            | Aside
+                                            ul
+                                                li(data-jstree='{ "selected" : true }')
+                                                    a(href='#')
+                                                        | Initially selected
+                                                    ul
+                                                        li(data-jstree='{ "selected" : true }')
+                                                            a(href='#')
+                                                                | test
+
+                                                li(data-jstree='{ "icon" : "flaticon2-gear text-success " }')
+                                                    | custom icon URL
+                                                li(data-jstree='{ "opened" : true }')
+                                                    | initially open
+                                                    ul
+                                                        li(data-jstree='{ "disabled" : true }')
+                                                            | Disabled Node
+                                                        li(data-jstree='{ "type" : "file" }')
+                                                            | Another node
+                                                li(data-jstree='{ "icon" : "flaticon2-rectangular text-danger" }')
+                                                    | Custom icon class (bootstrap)
+                                        li(data-jstree='{ "type" : "file" }')
+                                            a(href='http://www.keenthemes.com')
+                                                | Top
+
                         // end::Card
 
                     div(class='col-lg-8')
@@ -146,7 +179,7 @@ block content
                                                             
                                                             // menuItemRoute - Text Box
                                                             div(class='form-group row')
-                                                                label(class='col-3 col-form-label form-control-label text-right') Description
+                                                                label(class='col-3 col-form-label form-control-label text-right') Link
                                                                     span(class='text-danger')  *
                                                                 div(class='col-6')
                                                                     input#menuItemRoute(type='text' class='form-control' name='menuItemRoute' placeholder='http://google.com/xxxx')
@@ -173,7 +206,7 @@ block content
                                                             span
                                                             // menuItem - Dropdown List : Single Select2
                                                             div(class='form-group row')
-                                                                label(class='col-3 col-form-label form-control-label text-right') Manager
+                                                                label(class='col-3 col-form-label form-control-label text-right') Item
                                                                 div(class='col-6')
                                                                     select#menuItem(class='form-control select2' name='menuItem' data-placeholder='Select Item')
                                                                         option(value="" disabled="" selected="" hidden="")
@@ -183,30 +216,30 @@ block content
 
                                                                     span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
-                                                            // menuSectionName - Text Box
+                                                            // menuSubItem1Name - Text Box
                                                             div(class='form-group row')
                                                                 label(class='col-3 col-form-label form-control-label text-right') Name
                                                                     span(class='text-danger')  *
                                                                 div(class='col-6')
-                                                                    input#menuSectionName(type='text' class='form-control' name='menuSectionName' placeholder='Name')
+                                                                    input#menuSubItem1Name(type='text' class='form-control' name='menuSubItem1Name' placeholder='Name')
                                                             
-                                                            // menuSectionDescription - Text Box
+                                                            // menuSubItem1Route - Text Box
                                                             div(class='form-group row')
-                                                                label(class='col-3 col-form-label form-control-label text-right') Description
+                                                                label(class='col-3 col-form-label form-control-label text-right') Link
                                                                     span(class='text-danger')  *
                                                                 div(class='col-6')
-                                                                    input#menuSectionDescription(type='text' class='form-control' name='menuSectionDescription' placeholder='Description')
+                                                                    input#menuSubItem1Route(type='text' class='form-control' name='menuSubItem1Route' placeholder='Description')
 
-                                                            // menuSectionPriority - Number : Number Controls Same Sides
+                                                            // menuSubItem1Priority - Number : Number Controls Same Sides
                                                             div(class='form-group row')
                                                                 label(class='col-3 col-form-label form-control-label text-right') Priority :
                                                                 div(class='col-6')
-                                                                    input#menuSectionPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuSectionPriority' placeholder='1')
+                                                                    input#menuSubItem1Priority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuSubItem1Priority' placeholder='1')
                                                                     span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                                             
                                                             div(class='row  text-right')
                                                                 div(class='col-lg-12 ml-lg-auto')
-                                                                    button#menuSectionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
+                                                                    button#menuSubItem1FormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
                                                                     button(type='reset' class='btn btn-light-primary font-weight-bold') Reset 
                                                                     
                                         #subItem2(class='tab-pane fade' role='tabpanel' aria-labelledby='subItem2-tab') Sub Item 2 content
