@@ -148,7 +148,7 @@ router.get(
 );
 
 router.get('/directory/categories/table', viewsController.directoryCategoriesTable);
-router.get('/directory/attributes/groups/table', viewsController.directoryAttributesGroupsTable);
+router.get('/directory/attributes/groups/table', viewsController.directoryAttributeGroupsTable);
 router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);
