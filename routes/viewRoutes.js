@@ -133,10 +133,7 @@ router.get('/lead/response/table', viewsController.leadResponseTable);
 router.get('/lead/entries/table', viewsController.leadEntriesTable);
 
 // DIRECTORY RELATED ROUTES
-router.get(
-  '/directory/attributes/groups',
-  viewsController.directoryAttributesGroups
-);
+router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
 router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
@@ -149,6 +146,9 @@ router.get(
   '/directory/attributes/groups/table',
   viewsController.directoryAttributeGroupsTable
 );
+
+router.get('/directory/categories/table', viewsController.directoryCategoriesTable);
+router.get('/directory/attributes/groups/table', viewsController.directoryAttributeGroupsTable);
 router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);

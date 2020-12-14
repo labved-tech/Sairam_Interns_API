@@ -18,7 +18,7 @@ const FarmEntries = (function () {
                 method: 'get',
                 url: `${HOST_URL}/api/v1/farm/entries/table`,
                 params: {
-                  fields: '_id,_ownerId,name,description,notes,status,address,gpsCoordnates,documents,createdAt,updatedAt',
+                  fields: '_id,_ownerId,name,description,notes,status,address,gpsCoordnates,documents,size.size,size.units,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
@@ -107,6 +107,14 @@ const FarmEntries = (function () {
             {
               field: 'documents',
               title: 'Documents',
+            },
+            {
+              field: 'size.size',
+              title: 'Size',
+            },
+            {
+              field: 'size.units',
+              title: 'Units',
             },
             {
               field: 'createdBy',
