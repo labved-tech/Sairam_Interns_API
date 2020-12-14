@@ -271,10 +271,33 @@ exports.performaInvoice = (req, res) => {
 };
 
 exports.addressTable = (req, res) => {
-  console.log('We are in address Form Page');
-  res.status(200).render('./../views/pages/sales-finance/addressTable', doc);
+  console.log('We are in Address Table Page');
+  res.status(200).render('./../views/pages/sales-finance/addressTable');
 };
 
+exports.deliveryNoteTable = (req, res) => {
+  console.log('We are in Delivery Note Table Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNoteTable');
+};
+exports.packingListTable = (req, res) => {
+  console.log('We are in Packing List Table Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListTable');
+};
+
+exports.quotationTable = (req, res) => {
+  console.log('We are in Quotation Table Page');
+  res.status(200).render('./../views/pages/sales-finance/quotationTable');
+};
+
+exports.taxInvoiceTable = (req, res) => {
+  console.log('We are in Tax Invoice Table Page');
+  res.status(200).render('./../views/pages/sales-finance/taxInvoiceTable');
+};
+
+exports.performaInvoiceTable = (req, res) => {
+  console.log('We are in Performa Invoice Table Page');
+  res.status(200).render('./../views/pages/sales-finance/performaInvoiceTable');
+};
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');

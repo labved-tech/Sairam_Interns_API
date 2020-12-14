@@ -15,6 +15,10 @@ router.param('id', packingListController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(packingListController.getAllTablePackingList);
+
+router
   .route('/')
   .get(packingListController.getAllPackingList)
   .post(packingListController.createPackingList);

@@ -15,6 +15,10 @@ router.param('id', performaInvoiceController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(performaInvoiceController.getAllTablePerformaInvoice);
+
+router
   .route('/')
   .get(performaInvoiceController.getAllPerformaInvoice)
   .post(performaInvoiceController.createPerformaInvoice);
