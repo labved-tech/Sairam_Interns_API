@@ -306,7 +306,7 @@ const TicketSupportCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                tpFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                trFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },

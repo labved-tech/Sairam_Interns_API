@@ -207,6 +207,12 @@ exports.eventEntries = (req, res) => {
   res.status(200).render('./../views/pages/event/eventEntries');
 };
 
+// EVENT RELATED CONTROLLER
+exports.eventEntriesTable = (req, res) => {
+  console.log('We are in event Entries Table  Page');
+  res.status(200).render('./../views/pages/event/eventEntriesTable', doc);
+};
+
 // LEADS RELATED CONTROLLER
 exports.leadCategories = (req, res) => {
   console.log('We are in Lead Categories Form Page');
@@ -270,10 +276,44 @@ exports.performaInvoice = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
 };
 
+exports.addressTable = (req, res) => {
+  console.log('We are in Address Table Page');
+  res.status(200).render('./../views/pages/sales-finance/addressTable');
+};
+
+exports.deliveryNoteTable = (req, res) => {
+  console.log('We are in Delivery Note Table Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNoteTable');
+};
+exports.packingListTable = (req, res) => {
+  console.log('We are in Packing List Table Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListTable');
+};
+
+exports.quotationTable = (req, res) => {
+  console.log('We are in Quotation Table Page');
+  res.status(200).render('./../views/pages/sales-finance/quotationTable');
+};
+
+exports.taxInvoiceTable = (req, res) => {
+  console.log('We are in Tax Invoice Table Page');
+  res.status(200).render('./../views/pages/sales-finance/taxInvoiceTable');
+};
+
+exports.performaInvoiceTable = (req, res) => {
+  console.log('We are in Performa Invoice Table Page');
+  res.status(200).render('./../views/pages/sales-finance/performaInvoiceTable');
+};
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries');
+};
+
+// COMMENTS TABLE RELATED CONTROLLER
+exports.commentEntriesTable = (req, res) => {
+  console.log('We are in comment Entries Table Page');
+  res.status(200).render('./../views/pages/comments/commentEntriesTable', doc);
 };
 
 // CONTRACT RELATED CONTROLLER

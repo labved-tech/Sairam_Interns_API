@@ -60,6 +60,7 @@ router.get(
   '/ratings/attribute/groups/table',
   viewsController.ratingAttributeGroupsTable
 );
+router.get('/ratings/attribute/groups/table', viewsController.ratingAttributeGroupsTable);
 router.get('/ratings/entries/table', viewsController.ratingEntriesTable);
 
 // ANALYTICS RELATED ROUTES
@@ -86,12 +87,20 @@ router.get('/sales-finance/packingList', viewsController.packingList);
 router.get('/sales-finance/quotation', viewsController.quotation);
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
+router.get('/sales-finance/address/table', viewsController.addressTable);
+router.get('/sales-finance/deliveryNote/table', viewsController.deliveryNoteTable);
+router.get('/sales-finance/packingList/table', viewsController.packingListTable);
+router.get('/sales-finance/quotation/table', viewsController.quotationTable);
+router.get('/sales-finance/taxInvoice/table', viewsController.taxInvoiceTable);
+router.get('/sales-finance/performaInvoice/table', viewsController.performaInvoiceTable);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
+router.get('/event/entries/table', viewsController.eventEntriesTable);
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
+router.get('/comment/entries/table', viewsController.commentEntriesTable);
 
 // CONTRACT RELATED ROUTES
 router.get('/contract/entries', viewsController.contractEntries);
@@ -128,6 +137,8 @@ router.get('/directory', viewsController.directory);
 //   '/directory/attributes/groups/table',
 //   viewsController.directoryAttributesGroupsTable
 // );
+router.get('/directory/categories/table', viewsController.directoryCategoriesTable);
+router.get('/directory/attributes/groups/table', viewsController.directoryAttributesGroupsTable);
 router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);

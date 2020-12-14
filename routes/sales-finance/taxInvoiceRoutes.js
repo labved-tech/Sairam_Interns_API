@@ -15,6 +15,10 @@ router.param('id', taxInvoiceController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(taxInvoiceController.getAllTableTaxInvoice);
+
+router
   .route('/')
   .get(taxInvoiceController.getAllTaxInvoice)
   .post(taxInvoiceController.createTaxInvoice);

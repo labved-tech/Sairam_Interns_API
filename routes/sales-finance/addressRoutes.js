@@ -15,6 +15,9 @@ router.param('id', addressController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(addressController.getAllTableAddress);
+router
   .route('/')
   .get(addressController.getAllAddress)
   .post(addressController.createAddress);

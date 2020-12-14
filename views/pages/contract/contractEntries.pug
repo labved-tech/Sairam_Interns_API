@@ -21,7 +21,7 @@ block content
                             | contractEntries Form
                     div(class='card-body')
                         // begin::Form
-                        form#createcontractEntriesForm(class='form' )
+                        form#createContractEntriesForm(class='form' )
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
@@ -133,7 +133,7 @@ block content
 
                                         //rate
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Last Status Change
+                                            label(class='col-3 col-form-label form-control-label text-right') last status change
                                             div(class='col-4')
                                                 div(class='input-group date')
                                                     input#cerate(type='text' class='form-control' readonly='' name='cerate' placeholder='Select date')
@@ -147,7 +147,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') contractFileURL
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    input#cecontractFileURL(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cecontractFileURL' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
 
                                         // additionalAttributes
@@ -155,7 +155,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') additionalAttributes
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    input#ceadditionalAttributes(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceadditionalAttributes' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
 
                                         // signedContractUploaded
@@ -163,7 +163,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') signedContractUploaded
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    input#cesignedContractUploaded(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cesignedContractUploaded' placeholder='ex. 5fa92064cff6f652644266de')
                                                     span(class='form-text text-muted') Should be as mentioned.
 
                                         h3(class=' text-dark font-weight-bold mb-10') Tax
@@ -196,7 +196,7 @@ block content
                             div(class='card-footer text-right')
                                 div(class='row')
                                     div(class='col-lg-9 ml-lg-auto')
-                                        button#eeFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button#ceFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card

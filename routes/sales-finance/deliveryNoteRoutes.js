@@ -15,6 +15,9 @@ router.param('id', deliveryNoteController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(deliveryNoteController.getAllTableDeliveryNote);
+router
   .route('/')
   .get(deliveryNoteController.getAllDeliveryNote)
   .post(deliveryNoteController.createDeliveryNote);

@@ -15,6 +15,10 @@ router.param('id', quotationController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(quotationController.getAllTableQuotation);
+
+router
   .route('/')
   .get(quotationController.getAllQuotation)
   .post(quotationController.createQuotation);
