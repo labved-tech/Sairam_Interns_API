@@ -42,10 +42,11 @@ exports.getMenuSection = catchAsync(async (req, res, next) => {
 
 exports.createMenuSection = catchAsync(async (req, res, next) => {
   console.log('Creating Menu Sections');
-  //console.log(doc);
+  const { body } = req;
+  console.log(body);
 
   // parse through models
-  const doc = new MenuSection(req.body);
+  const doc = new MenuSection(body);
   const priority = req.body.priority * 1;
   doc.priority = priority;
 

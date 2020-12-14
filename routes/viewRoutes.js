@@ -16,12 +16,12 @@ router.use((req, res, next) => {
 router.get('/test', viewsController.getTest);
 router.get('/overview', authController.protect, viewsController.getOverview);
 
-// EXAMPLE RELATED ROUTES
-router.get('/menu/manager', viewsController.getMenuManager);
-router.get('/menu/section', viewsController.getMenuSection);
-router.get('/menu/items', viewsController.getMenuItems);
-router.get('/menu/subitems1', viewsController.getMenuSubItems1);
-router.get('/menu/subitems2', viewsController.getMenuSubItems2);
+// MENU
+router.get('/menu/manager', viewsController.getMenuManagerForm);
+router.get('/menu/section', viewsController.getMenuSectionForm);
+router.get('/menu/items', viewsController.getMenuItemsForm);
+router.get('/menu/subitems1', viewsController.getMenuSubItems1Form);
+router.get('/menu/subitems2', viewsController.getMenuSubItems2Form);
 
 // EXAMPLE RELATED ROUTES
 router.get('/standardForm', viewsController.getForm);
