@@ -60,6 +60,7 @@ router.get(
   '/ratings/attribute/groups/table',
   viewsController.ratingAttributeGroupsTable
 );
+router.get('/ratings/attribute/groups/table', viewsController.ratingAttributeGroupsTable);
 router.get('/ratings/entries/table', viewsController.ratingEntriesTable);
 
 // ANALYTICS RELATED ROUTES
@@ -86,6 +87,7 @@ router.get('/sales-finance/packingList', viewsController.packingList);
 router.get('/sales-finance/quotation', viewsController.quotation);
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
+router.get('/sales-finance/address/table', viewsController.addressTable);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);

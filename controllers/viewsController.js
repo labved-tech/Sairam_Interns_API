@@ -270,6 +270,11 @@ exports.performaInvoice = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
 };
 
+exports.addressTable = (req, res) => {
+  console.log('We are in address Form Page');
+  res.status(200).render('./../views/pages/sales-finance/addressTable', doc);
+};
+
 // COMMENTS RELATED CONTROLLER
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
