@@ -16,12 +16,12 @@ router.use((req, res, next) => {
 router.get('/test', viewsController.getTest);
 router.get('/overview', authController.protect, viewsController.getOverview);
 
-// EXAMPLE RELATED ROUTES
-router.get('/menu/manager', viewsController.getMenuManager);
-router.get('/menu/section', viewsController.getMenuSection);
-router.get('/menu/items', viewsController.getMenuItems);
-router.get('/menu/subitems1', viewsController.getMenuSubItems1);
-router.get('/menu/subitems2', viewsController.getMenuSubItems2);
+// MENU
+router.get('/menu/manager', viewsController.getMenuManagerForm);
+router.get('/menu/section', viewsController.getMenuSectionForm);
+router.get('/menu/items', viewsController.getMenuItemsForm);
+router.get('/menu/subitems1', viewsController.getMenuSubItems1Form);
+router.get('/menu/subitems2', viewsController.getMenuSubItems2Form);
 
 // EXAMPLE RELATED ROUTES
 router.get('/standardForm', viewsController.getForm);
@@ -60,7 +60,10 @@ router.get(
   '/ratings/attribute/groups/table',
   viewsController.ratingAttributeGroupsTable
 );
-router.get('/ratings/attribute/groups/table', viewsController.ratingAttributeGroupsTable);
+router.get(
+  '/ratings/attribute/groups/table',
+  viewsController.ratingAttributeGroupsTable
+);
 router.get('/ratings/entries/table', viewsController.ratingEntriesTable);
 
 // ANALYTICS RELATED ROUTES
@@ -88,17 +91,28 @@ router.get('/sales-finance/quotation', viewsController.quotation);
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
 router.get('/sales-finance/address/table', viewsController.addressTable);
-router.get('/sales-finance/deliveryNote/table', viewsController.deliveryNoteTable);
-router.get('/sales-finance/packingList/table', viewsController.packingListTable);
+router.get(
+  '/sales-finance/deliveryNote/table',
+  viewsController.deliveryNoteTable
+);
+router.get(
+  '/sales-finance/packingList/table',
+  viewsController.packingListTable
+);
 router.get('/sales-finance/quotation/table', viewsController.quotationTable);
 router.get('/sales-finance/taxInvoice/table', viewsController.taxInvoiceTable);
-router.get('/sales-finance/performaInvoice/table', viewsController.performaInvoiceTable);
+router.get(
+  '/sales-finance/performaInvoice/table',
+  viewsController.performaInvoiceTable
+);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
+router.get('/event/entries/table', viewsController.eventEntriesTable);
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
+router.get('/comment/entries/table', viewsController.commentEntriesTable);
 
 // CONTRACT RELATED ROUTES
 router.get('/contract/entries', viewsController.contractEntries);
@@ -119,22 +133,25 @@ router.get('/lead/response/table', viewsController.leadResponseTable);
 router.get('/lead/entries/table', viewsController.leadEntriesTable);
 
 // DIRECTORY RELATED ROUTES
-router.get(
-  '/directory/attributes/groups',
-  viewsController.directoryAttributesGroups
-);
+router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
 router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
 router.get('/directory', viewsController.directory);
-// router.get(
-//   '/directory/categories/table',
-//   viewsController.ratingCategoriesTable
-// );
-// router.get(
-//   '/directory/attributes/groups/table',
-//   viewsController.directoryAttributesGroupsTable
-// );
+<<<<<<< Updated upstream
+router.get(
+  '/directory/categories/table',
+  viewsController.directoryCategoriesTable
+);
+router.get(
+  '/directory/attributes/groups/table',
+  viewsController.directoryAttributeGroupsTable
+);
+=======
+
+router.get('/directory/categories/table', viewsController.directoryCategoriesTable);
+router.get('/directory/attributes/groups/table', viewsController.directoryAttributesGroupsTable);
+>>>>>>> Stashed changes
 router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);

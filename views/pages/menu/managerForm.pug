@@ -1,0 +1,218 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/plugins/custom/jstree/jstree.bundle.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/custom/jstree/jstree.bundle.js')
+    script(src='/js/pages/crud/myForm/menu/menuForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                div(class='row')
+                    div(class='col-lg-4')
+                        // begin::Card
+                        div(class='card card-custom menu menu-compact gutter-b')
+                            div(class='card-header')
+                                div(class='card-title')
+                                    h3(class='card-label')
+                                        | Preview
+                                div(class='card-toolbar')
+                                    div(class='menu-tools justify-content-center')
+                                        span(class='menu-toggle' data-toggle='tooltip' title='View code')
+                            div(class='card-body')
+                                #kt_tree_1(class='tree-demo')
+                                    ul
+                                        li
+                                            | Root node 1
+                                            ul
+                                                li(data-jstree='{ "selected" : true }')
+                                                    a(href='javascript:;')
+                                                        | Initially selected
+                                                li(data-jstree='{ "icon" : "flaticon2-gear text-success " }')
+                                                    | custom icon URL
+                                                li(data-jstree='{ "opened" : true }')
+                                                    | initially open
+                                                    ul
+                                                        li(data-jstree='{ "disabled" : true }')
+                                                            | Disabled Node
+                                                        li(data-jstree='{ "type" : "file" }')
+                                                            | Another node
+                                                li(data-jstree='{ "icon" : "flaticon2-rectangular text-danger" }')
+                                                    | Custom icon class (bootstrap)
+                                        li(data-jstree='{ "type" : "file" }')
+                                            a(href='http://www.keenthemes.com')
+                                                | Clickable link node
+                        // end::Card
+
+                    div(class='col-lg-8')
+                        // begin::Card
+                        div(class='card card-custom gutter-b' style='background-color : transparent')
+                            div(class='card-body'  style='background-color : white')
+                                // begin::Menu Tabbed Cards
+                                div(class='menu-preview')
+                                    ul#menuTab(class='nav nav-tabs' role='tablist')
+                                        li(class='nav-item')
+                                            a#section-tab(class='nav-link active' data-toggle='tab' href='#section')
+                                                span(class='nav-text') Section
+                                        li(class='nav-item')
+                                            a#item-tab(class='nav-link' data-toggle='tab' href='#item')
+                                                span(class='nav-text') Item
+                                        li(class='nav-item')
+                                            a#subItem1-tab(class='nav-link ' data-toggle='tab' href='#subItem1')
+                                                span(class='nav-text') Sub Item 1
+                                        li(class='nav-item')
+                                            a#subItem2-tab(class='nav-link ' data-toggle='tab' href='#subItem2')
+                                                span(class='nav-text') Sub Item 2
+
+                                    #menuTabContent(class='tab-content mt-5')
+                                        #section(class='tab-pane fade show active' role='tabpanel' aria-labelledby='section-tab')
+                                            div(class='card-body')
+                                                // begin::Form
+                                                form#menuSectionForm(class='form')
+                                                    div(class='row')
+                                                        //div(class='col-md-1')
+                                                        div(class='col-lg-12')
+                                                            span
+                                                            // menuManager - Dropdown List : Single Select2
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Manager
+                                                                div(class='col-6')
+                                                                    select#menuManager(class='form-control select2' name='menuManager' data-placeholder='Select manager')
+                                                                        option(value="" disabled="" selected="" hidden="")
+                                                                        option(value='AK') Alaska
+                                                                        option(value='HI') Hawaii
+                                                                        option(value='CA') California
+
+                                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+
+                                                            // menuSectionName - Text Box
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Name
+                                                                    span(class='text-danger')  *
+                                                                div(class='col-6')
+                                                                    input#menuSectionName(type='text' class='form-control' name='menuSectionName' placeholder='Name')
+                                                            
+                                                            // menuSectionDescription - Text Box
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Description
+                                                                    span(class='text-danger')  *
+                                                                div(class='col-6')
+                                                                    input#menuSectionDescription(type='text' class='form-control' name='menuSectionDescription' placeholder='Description')
+
+                                                            // menuSectionPriority - Number : Number Controls Same Sides
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Priority :
+                                                                div(class='col-6')
+                                                                    input#menuSectionPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuSectionPriority' placeholder='1')
+                                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                            
+                                                            div(class='row  text-right')
+                                                                div(class='col-lg-12 ml-lg-auto')
+                                                                    button#menuSectionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
+                                                                    button(type='reset' class='btn btn-light-primary font-weight-bold') Reset 
+
+                                        #item(class='tab-pane fade' role='tabpanel' aria-labelledby='item-tab')
+                                            div(class='card-body')
+                                                // begin::Form
+                                                form#menuItemForm(class='form')
+                                                    div(class='row')
+                                                        //div(class='col-md-1')
+                                                        div(class='col-lg-12')
+                                                            span
+                                                            // menuSection - Dropdown List : Single Select2
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Section
+                                                                div(class='col-6')
+                                                                    select#menuSection(class='form-control select2' name='menuSection' data-placeholder='Select Section')
+                                                                        option(value="" disabled="" selected="" hidden="")
+                                                                        option(value='AK') Alaska
+                                                                        option(value='HI') Hawaii
+                                                                        option(value='CA') California
+
+                                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+
+                                                            // menuItemName - Text Box
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Name
+                                                                    span(class='text-danger')  *
+                                                                div(class='col-6')
+                                                                    input#menuItemName(type='text' class='form-control' name='menuItemName' placeholder='Name')
+                                                            
+                                                            // menuItemRoute - Text Box
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Description
+                                                                    span(class='text-danger')  *
+                                                                div(class='col-6')
+                                                                    input#menuItemRoute(type='text' class='form-control' name='menuItemRoute' placeholder='http://google.com/xxxx')
+
+                                                            // menuItemPriority - Number : Number Controls Same Sides
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Priority :
+                                                                div(class='col-6')
+                                                                    input#menuItemPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuItemPriority' placeholder='1')
+                                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                            
+                                                            div(class='row  text-right')
+                                                                div(class='col-lg-12 ml-lg-auto')
+                                                                    button#menuItemFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
+                                                                    button(type='reset' class='btn btn-light-primary font-weight-bold') Reset
+
+                                        #subItem1(class='tab-pane fade' role='tabpanel' aria-labelledby='subItem1-tab')
+                                            div(class='card-body')
+                                                // begin::Form
+                                                form#menuSubItem1Form(class='form')
+                                                    div(class='row')
+                                                        //div(class='col-md-1')
+                                                        div(class='col-lg-12')
+                                                            span
+                                                            // menuItem - Dropdown List : Single Select2
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Manager
+                                                                div(class='col-6')
+                                                                    select#menuItem(class='form-control select2' name='menuItem' data-placeholder='Select Item')
+                                                                        option(value="" disabled="" selected="" hidden="")
+                                                                        option(value='AK') Alaska
+                                                                        option(value='HI') Hawaii
+                                                                        option(value='CA') California
+
+                                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
+
+                                                            // menuSectionName - Text Box
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Name
+                                                                    span(class='text-danger')  *
+                                                                div(class='col-6')
+                                                                    input#menuSectionName(type='text' class='form-control' name='menuSectionName' placeholder='Name')
+                                                            
+                                                            // menuSectionDescription - Text Box
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Description
+                                                                    span(class='text-danger')  *
+                                                                div(class='col-6')
+                                                                    input#menuSectionDescription(type='text' class='form-control' name='menuSectionDescription' placeholder='Description')
+
+                                                            // menuSectionPriority - Number : Number Controls Same Sides
+                                                            div(class='form-group row')
+                                                                label(class='col-3 col-form-label form-control-label text-right') Priority :
+                                                                div(class='col-6')
+                                                                    input#menuSectionPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuSectionPriority' placeholder='1')
+                                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                            
+                                                            div(class='row  text-right')
+                                                                div(class='col-lg-12 ml-lg-auto')
+                                                                    button#menuSectionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
+                                                                    button(type='reset' class='btn btn-light-primary font-weight-bold') Reset 
+                                                                    
+                                        #subItem2(class='tab-pane fade' role='tabpanel' aria-labelledby='subItem2-tab') Sub Item 2 content
+                                    // end::Menu Tabbed Cards
+                            // end::Card
+
+
+                    div(class='col-lg-8')
+                        

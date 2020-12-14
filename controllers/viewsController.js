@@ -17,31 +17,31 @@ exports.getTest = (req, res) => {
 
 /* MENU */
 // MANAGER
-exports.getMenuManager = (req, res) => {
+exports.getMenuManagerForm = (req, res) => {
   console.log('We are in Menu Manager');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/menu/managerForm');
 };
 // SECTION
-exports.getMenuSection = (req, res) => {
+exports.getMenuSectionForm = (req, res) => {
   console.log('We are in Menu Section');
 
   res.status(200).render('./pages/overview');
 };
 // ITEMS
-exports.getMenuItems = (req, res) => {
+exports.getMenuItemsForm = (req, res) => {
   console.log('We are in Menu Items');
 
   res.status(200).render('./pages/overview');
 };
 // SUB-ITEMS1
-exports.getMenuSubItems1 = (req, res) => {
+exports.getMenuSubItems1Form = (req, res) => {
   console.log('We are in Menu sub items 1');
 
   res.status(200).render('./pages/overview');
 };
 // SUB-ITEMS2
-exports.getMenuSubItems2 = (req, res) => {
+exports.getMenuSubItems2Form = (req, res) => {
   console.log('We are in Menu sub items 2');
 
   res.status(200).render('./pages/overview');
@@ -207,6 +207,12 @@ exports.eventEntries = (req, res) => {
   res.status(200).render('./../views/pages/event/eventEntries');
 };
 
+// EVENT RELATED CONTROLLER
+exports.eventEntriesTable = (req, res) => {
+  console.log('We are in event Entries Table  Page');
+  res.status(200).render('./../views/pages/event/eventEntriesTable', doc);
+};
+
 // LEADS RELATED CONTROLLER
 exports.leadCategories = (req, res) => {
   console.log('We are in Lead Categories Form Page');
@@ -302,6 +308,12 @@ exports.performaInvoiceTable = (req, res) => {
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries');
+};
+
+// COMMENTS TABLE RELATED CONTROLLER
+exports.commentEntriesTable = (req, res) => {
+  console.log('We are in comment Entries Table Page');
+  res.status(200).render('./../views/pages/comments/commentEntriesTable', doc);
 };
 
 // CONTRACT RELATED CONTROLLER

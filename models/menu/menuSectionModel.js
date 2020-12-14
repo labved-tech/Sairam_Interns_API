@@ -10,11 +10,9 @@ const menuSectionSchema = new Schema(
     name: {
       type: String,
       unique: [true, 'Already exists'],
-      //ref: 'menu-items',
     },
     description: { type: String },
     priority: { type: Number },
-    //_manager: { type: mongoose.ObjectId, ref: 'menu-manager' },
     _item: [{ type: mongoose.ObjectId, ref: 'menu-items' }],
     createdBy: { type: mongoose.ObjectId, required: true },
     updatedBy: { type: mongoose.ObjectId, required: true },
