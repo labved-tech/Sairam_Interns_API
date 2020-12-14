@@ -7,7 +7,7 @@ const deliveryNoteController = require('./../../controllers/sales-finance/delive
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in DeliveryNoteRoutes');
+  console.log('We are in Delivery Note Routes');
   next();
 });
 

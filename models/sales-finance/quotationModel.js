@@ -33,7 +33,7 @@ const quotationSchema = new Schema({
     type: { type: String },
     meta: { type: Object },
   },
-  QuotationNumber: { type: Number },
+  quotationNumber: { type: Number },
   createdBy: { type: mongoose.ObjectId  },
   updatedBy: { type: mongoose.ObjectId },
 },

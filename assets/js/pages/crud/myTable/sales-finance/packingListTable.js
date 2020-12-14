@@ -3,11 +3,11 @@
 
 // Class definition
 
-const AddressTable = (function () {
+const PackingListTable = (function () {
     var dataSet;
     // Private functions
   
-    const addressTable = async () =>  {
+    const packingListTable = async () =>  {
   
       const options = {
         // datasource definition
@@ -16,17 +16,17 @@ const AddressTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/address/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/packingList/table`,
               params: {
-                fields: '_id, address, city, state, country, status,pinCode, createdBy,createdAt,updatedAt',
+                fields: '_id, packingListnumber, taxInvoiceNumber, source, sourceAddress,sourceEmail, sourceContactNumber,sourceGstin,consignee,consigneeAddress,consigneeEmail,consigneeContactNumber,consigneeGstin,shipMethod,carrierName,carrierTrackingNumber, shippingNotes,fileProof,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                 // sample data mapping
                 console.log('raw', raw);
                 dataSet = raw;
             
-                if (typeof raw.address !== 'undefined') {
-                  dataSet = raw.address;
+                if (typeof raw.packingList !== 'undefined') {
+                  dataSet = raw.packingList;
                   console.log('dataSet', dataSet);
                 }
                 return dataSet;
@@ -71,25 +71,76 @@ const AddressTable = (function () {
             textAlign: 'center',
           },
           {
-            field: 'address',
-            title: 'Address',
+            field: 'packingListnumber',
+            title: 'PackingList No',
           },
           {
-            field: 'city',
-            title: 'City',
+            field: 'taxInvoiceNumber',
+            title: 'Tax Invoice No',
           },
           {
-            field: 'state',
-            title: 'State',
+            field: 'source',
+            title: 'Source',
           },
           {
-            field: 'country',
-            title: 'Country ',
+            field: 'sourceAddress',
+            title: 'Source Address',
           },
           {
-            field: 'pinCode',
-            title: 'Pin Code',
+            field: 'sourceEmail',
+            title: 'Source Email',
           },
+
+          {
+            field: 'sourceContactNumber',
+            title: 'Source Contact No',
+          },
+          {
+            field: 'sourceGstin',
+            title: 'Source Gst',
+          },
+          {
+            field: 'consignee',
+            title: 'Consignee',
+          },
+          {
+            field: 'consigneeAddress',
+            title: 'Consignee Address',
+          },
+          {
+            field: 'consigneeEmail',
+            title: 'Consignee Email',
+          },
+
+          {
+            field: 'consigneeContactNumber',
+            title: 'Consignee Contact No',
+          },
+          {
+            field: 'consigneeGstin',
+            title: 'Consignee Gst',
+          },
+          {
+            field: 'shipMethod',
+            title: 'Ship Method ',
+          },
+          {
+            field: 'carrierName',
+            title: 'Carrier Name',
+          },
+          {
+            field: 'carrierTrackingNumber',
+            title: 'Carrier Tracking No',
+          },
+          {
+            field: 'shippingNotes',
+            title: 'Shipping Notes',
+          },
+          {
+            field: 'fileProof',
+            title: 'File Proof',
+          },
+
           {
             field: 'createdBy',
             title: 'createdBy',
@@ -223,12 +274,12 @@ const AddressTable = (function () {
     return {
       // public functions
       init: function () {
-        addressTable();
+        packingListTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    AddressTable.init();
+    PackingListTable.init();
   });
   

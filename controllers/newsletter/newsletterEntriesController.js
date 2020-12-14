@@ -85,13 +85,13 @@ exports.getAllTableNewsletterEntries = catchAsync(async (req, res, next) => {
 
   // EXECUTE QUERY
   const newsletterEntries = await query;
-  //newsletterEntries = await Example.find();
+  //newsletterEntries = await NewsletterEntries.find();
   //console.log(newsletterEntries);
 
   // SEND RESPONSE
   res.status(200).json({
     status: 'success',
-    message: 'Got All Example',
+    message: 'Got All Newsletter Entries',
     newsletterEntries,
     meta: {
       page: page, // current page

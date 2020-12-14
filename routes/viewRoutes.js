@@ -91,20 +91,11 @@ router.get('/sales-finance/quotation', viewsController.quotation);
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
 router.get('/sales-finance/address/table', viewsController.addressTable);
-router.get(
-  '/sales-finance/deliveryNote/table',
-  viewsController.deliveryNoteTable
-);
-router.get(
-  '/sales-finance/packingList/table',
-  viewsController.packingListTable
-);
+router.get('/sales-finance/deliveryNote/table',viewsController.deliveryNoteTable);
+router.get('/sales-finance/packingList/table',viewsController.packingListTable);
 router.get('/sales-finance/quotation/table', viewsController.quotationTable);
 router.get('/sales-finance/taxInvoice/table', viewsController.taxInvoiceTable);
-router.get(
-  '/sales-finance/performaInvoice/table',
-  viewsController.performaInvoiceTable
-);
+router.get('/sales-finance/performaInvoice/table',viewsController.performaInvoiceTable);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);

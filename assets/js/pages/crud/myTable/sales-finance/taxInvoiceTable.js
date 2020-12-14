@@ -3,11 +3,11 @@
 
 // Class definition
 
-const AddressTable = (function () {
+const TaxInvoiceTable = (function () {
     var dataSet;
     // Private functions
   
-    const addressTable = async () =>  {
+    const taxInvoiceTable = async () =>  {
   
       const options = {
         // datasource definition
@@ -16,17 +16,17 @@ const AddressTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/address/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/taxInvoice/table`,
               params: {
-                fields: '_id, address, city, state, country, status,pinCode, createdBy,createdAt,updatedAt',
+                fields: '_id, taxInvoiceNo, header, date, _orderId,orderDate,_buyerId,billingName,billingAddress,billingEmail,billingContactNumber,billingGSTIN,consigneeName,consigneeAddress,consigneeContactNumber,_sellerId,sellerName,sellerAddress,sellerContactNumber,carrierTrackingNo,carrierCharges,totalBeforeTax,CGSTTotal,SGSTTotal,IGSTTotal,grandTotal,termsAndConditions,footer,meta,source, createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                 // sample data mapping
                 console.log('raw', raw);
                 dataSet = raw;
             
-                if (typeof raw.address !== 'undefined') {
-                  dataSet = raw.address;
+                if (typeof raw.taxInvoice !== 'undefined') {
+                  dataSet = raw.taxInvoice;
                   console.log('dataSet', dataSet);
                 }
                 return dataSet;
@@ -71,24 +71,118 @@ const AddressTable = (function () {
             textAlign: 'center',
           },
           {
-            field: 'address',
-            title: 'Address',
+            field: 'taxInvoiceNo',
+            title: 'Tax Invoice No',
           },
           {
-            field: 'city',
-            title: 'City',
+            field: 'header',
+            title: 'Header',
           },
           {
-            field: 'state',
-            title: 'State',
+            field: 'date',
+            title: 'Date',
           },
           {
-            field: 'country',
-            title: 'Country ',
+            field: '_orderId',
+            title: 'Order Id',
           },
           {
-            field: 'pinCode',
-            title: 'Pin Code',
+            field: 'orderDate',
+            title: 'Order Date',
+          },
+          {
+            field: '_buyerId',
+            title: 'Buyer Id ',
+          },
+          {
+            field: 'billingName',
+            title: 'Billing Name',
+          },
+          {
+            field: 'billingAddress',
+            title: 'Billing Address',
+          },
+          {
+            field: 'billingEmail',
+            title: 'Billing Email',
+          },
+          {
+            field: 'contactNumber',
+            title: 'Billing Contact No',
+          },
+
+          {
+            field: 'consigneeName',
+            title: 'Consignee Name',
+          },
+          {
+            field: 'consigneeAddress',
+            title: 'Consignee Address',
+          },
+          {
+            field: 'consigneeContactNumber',
+            title: 'Consignee Contact No',
+          },
+          {
+            field: '_sellerId',
+            title: 'Seller Id',
+          },
+          {
+            field: 'sellerName',
+            title: 'Seller Name',
+          },
+          {
+            field: 'sellerAddress',
+            title: 'Seller Address',
+          },
+          {
+            field: 'sellerContactNumber',
+            title: 'Seller Contact No',
+          },
+          {
+            field: 'carrierTrackingNo',
+            title: 'Carrier Tracking No',
+          },
+          {
+            field: 'carrierCharges',
+            title: 'Carrier Charges',
+          },
+
+          {
+            field: 'totalBeforeTax',
+            title: 'Total Before Tax',
+          },
+          {
+            field: 'CGSTTotal',
+            title: 'CGST Total',
+          },
+          {
+            field: 'SGSTTotal',
+            title: 'SGST Total',
+          },
+          {
+            field: 'IGSTTotal',
+            title: 'IGST Total',
+          },
+          {
+            field: 'grandTotal',
+            title: 'Grand Total',
+          },
+          {
+            field: 'termsAndConditions',
+            title: 'Terms And Conditions',
+          },
+          {
+            field: 'footer',
+            title: 'Footer',
+          },
+          {
+            field: 'meta',
+            title: 'Meta',
+          },
+          {
+            field: 'source',
+            title: 'Source',
           },
           {
             field: 'createdBy',
@@ -223,12 +317,12 @@ const AddressTable = (function () {
     return {
       // public functions
       init: function () {
-        addressTable();
+        taxInvoiceTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    AddressTable.init();
+    TaxInvoiceTable.init();
   });
   

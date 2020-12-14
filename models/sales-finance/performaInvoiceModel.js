@@ -9,7 +9,7 @@ const performaInvoiceSchema = new Schema({
   performaInvoiceNo: { type: String },
   moduleReferance: { type: String },
   header: { type: String },
-  Date: { type: Date },
+  date: { type: Date },
   _orderId: { type: mongoose.ObjectId },
   orderDate: { type: Date },
   _buyerId: { type: mongoose.ObjectId },

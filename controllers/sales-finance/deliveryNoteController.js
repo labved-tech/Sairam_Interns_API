@@ -108,14 +108,14 @@ exports.getAllTableDeliveryNote = catchAsync(async (req, res, next) => {
 
 exports.getAllDeliveryNote = catchAsync(async (req, res, next) => {
   console.log('Getting All Delivery Note');
-  const deliveryNotes = await DeliveryNote.find().then();
+  const deliveryNote = await DeliveryNote.find().then();
 
   res.status(200).json({
     status: 'success',
     message: 'Got All Delivery Note',
     results: deliveryNotes.length,
     data: {
-      deliveryNotes,
+      deliveryNote,
     },
   });
 

@@ -3,11 +3,11 @@
 
 // Class definition
 
-const AddressTable = (function () {
+const QuotationTable = (function () {
     var dataSet;
     // Private functions
   
-    const addressTable = async () =>  {
+    const quotationTable = async () =>  {
   
       const options = {
         // datasource definition
@@ -16,17 +16,17 @@ const AddressTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/address/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/quotation/table`,
               params: {
-                fields: '_id, address, city, state, country, status,pinCode, createdBy,createdAt,updatedAt',
+                fields: '_id, moduleReferance, header, date, _buyerId,buyerName,buyerAddress,buyerEmail,buyerContactNumber,buyerContactNumbertype,billingContactNumber,_sellerId,sellerName,sellerAttentionName,sellerAddress,sellerContactNumber,sellerContactNumbertype,subject,body,termsAndConditions,footer,QuotationNumber,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                 // sample data mapping
                 console.log('raw', raw);
                 dataSet = raw;
             
-                if (typeof raw.address !== 'undefined') {
-                  dataSet = raw.address;
+                if (typeof raw.performaInvoice !== 'undefined') {
+                  dataSet = raw.performaInvoice;
                   console.log('dataSet', dataSet);
                 }
                 return dataSet;
@@ -71,25 +71,92 @@ const AddressTable = (function () {
             textAlign: 'center',
           },
           {
-            field: 'address',
-            title: 'Address',
+            field: 'moduleReference',
+            title: 'Module Reference',
+          },
+
+          {
+            field: 'header',
+            title: 'Header',
           },
           {
-            field: 'city',
-            title: 'City',
+            field: 'date',
+            title: 'Date',
           },
           {
-            field: 'state',
-            title: 'State',
+            field: '_buyerId',
+            title: 'Buyer Id',
           },
           {
-            field: 'country',
-            title: 'Country ',
+            field: 'buyerName',
+            title: 'Buyer Name',
           },
           {
-            field: 'pinCode',
-            title: 'Pin Code',
+            field: 'buyerAddress',
+            title: 'Buyer Address',
           },
+          {
+            field: 'buyerEmail',
+            title: 'Buyer Email ',
+          },
+          {
+            field: 'buyerContactNumber',
+            title: 'Buyer Contact No',
+          },
+          {
+            field: 'buyerContactNumbertype',
+            title: 'Buyer Contact No Type',
+          },
+          {
+            field: '_sellerId',
+            title: 'SellerId',
+          },
+          {
+            field: 'sellerName',
+            title: 'SellerName',
+          },
+          {
+            field: 'sellerAttentionName',
+            title: 'Seller Attention Name',
+          },
+          {
+            field: 'sellerAddress',
+            title: 'Seller Address',
+          },
+          {
+            field: 'sellerEmail',
+            title: 'SellerEmail',
+          },
+          {
+            field: 'sellerContactNumber',
+            title: 'Seller Contact No',
+          },
+          {
+            field: 'sellerContactNumbertype',
+            title: 'Seller Contact No Type',
+          },
+          {
+            field: 'subject',
+            title: 'Subject',
+          },
+
+          {
+            field: 'body',
+            title: 'Body',
+          },
+          {
+            field: 'termsAndConditions',
+            title: 'Terms And Conditions',
+          },
+          {
+            field: 'footer',
+            title: 'Footer',
+          },
+          {
+            field: 'quotationNumber',
+            title: 'Quotation No',
+          },
+
           {
             field: 'createdBy',
             title: 'createdBy',
@@ -223,12 +290,12 @@ const AddressTable = (function () {
     return {
       // public functions
       init: function () {
-        addressTable();
+        quotationTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    AddressTable.init();
+    QuotationTable.init();
   });
   
