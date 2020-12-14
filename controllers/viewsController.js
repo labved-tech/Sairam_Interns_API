@@ -207,6 +207,12 @@ exports.eventEntries = (req, res) => {
   res.status(200).render('./../views/pages/event/eventEntries');
 };
 
+// EVENT RELATED CONTROLLER
+exports.eventEntriesTable = (req, res) => {
+  console.log('We are in event Entries Table  Page');
+  res.status(200).render('./../views/pages/event/eventEntriesTable', doc);
+};
+
 // LEADS RELATED CONTROLLER
 exports.leadCategories = (req, res) => {
   console.log('We are in Lead Categories Form Page');
@@ -302,6 +308,12 @@ exports.performaInvoiceTable = (req, res) => {
 exports.commentEntries = (req, res) => {
   console.log('We are in comment Entries Form Page');
   res.status(200).render('./../views/pages/comments/commentEntries');
+};
+
+// COMMENTS TABLE RELATED CONTROLLER
+exports.commentEntriesTable = (req, res) => {
+  console.log('We are in comment Entries Table Page');
+  res.status(200).render('./../views/pages/comments/commentEntriesTable', doc);
 };
 
 // CONTRACT RELATED CONTROLLER

@@ -15,6 +15,10 @@ router.param('id', commentEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(commentEntriesController.getAllTableCommentEntries);
+
+router
   .route('/')
   .get(commentEntriesController.getAllCommentEntries)
   .post(commentEntriesController.createCommentEntries);

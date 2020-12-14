@@ -42,13 +42,42 @@ const ContractCRUD = (function () {
         const ceadditionalAttributes = KTUtil.getById('ceadditionalAttributes');
         const cesignedContractUploaded = KTUtil.getById('cesignedContractUploaded');
 
+
+        //Intialize
+
+        $('#ceacceptedDate').datepicker({
+            rtl: KTUtil.isRTL(),
+            todayBtn: 'linked',
+            clearBtn: true,
+            todayHighlight: true,
+            orientation: 'bottom left',
+            templates: arrows,
+        });
+        $('#cevalidFrom').datepicker({
+            rtl: KTUtil.isRTL(),
+            todayBtn: 'linked',
+            clearBtn: true,
+            todayHighlight: true,
+            orientation: 'bottom left',
+            templates: arrows,
+        });
+        $('#cevalidTill').datepicker({
+            rtl: KTUtil.isRTL(),
+            todayBtn: 'linked',
+            clearBtn: true,
+            todayHighlight: true,
+            orientation: 'bottom left',
+            templates: arrows,
+        });
+
+
         // Return Form
         if (!createContractEntriesForm) {
             return;
         }
 
         // Validation
-        const fv = FormValidation.formValidation(createTicketCategoriesForm, {
+        const fv = FormValidation.formValidation(createContractEntriesForm, {
             fields: {
                 cecontractOwnerId: {
                     validators: {
@@ -238,21 +267,22 @@ const ContractCRUD = (function () {
     };
 
     /*   Private functions */
-    const _createContractTemplatesForm = function () {
+    /*const _createContractTemplatesForm = function () {
 
         // Getting Document related information
         const createContractEntriesForm = KTUtil.getById('createContractEntriesForm');
         const ceFormSubmitButton = KTUtil.getById('ceFormSubmitButton');
         const cebillingType = KTUtil.getById('cebillingType');
-        const cecontractOwnerId = KTUtil.getById('cecontractOwnerId');
-        return {
-            // public functions
-            init: function () {
-                _createContractEntriesForm();
-            },
-        };
-    })();
+        const cecontractOwnerId = KTUtil.getById('cecontractOwnerId');*/
 
-    jQuery(document).ready(function () {
-        ContractCRUD.init();
-    });
+    return {
+        // public functions
+        init: function () {
+            _createContractEntriesForm();
+        },
+    };
+})();
+
+jQuery(document).ready(function () {
+    ContractCRUD.init();
+});

@@ -96,9 +96,11 @@ router.get('/sales-finance/performaInvoice/table', viewsController.performaInvoi
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
+router.get('/event/entries/table', viewsController.eventEntriesTable);
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
+router.get('/comment/entries/table', viewsController.commentEntriesTable);
 
 // CONTRACT RELATED ROUTES
 router.get('/contract/entries', viewsController.contractEntries);
@@ -127,7 +129,6 @@ router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
 router.get('/directory', viewsController.directory);
-<<<<<<< Updated upstream
 // router.get(
 //   '/directory/categories/table',
 //   viewsController.ratingCategoriesTable
@@ -136,10 +137,8 @@ router.get('/directory', viewsController.directory);
 //   '/directory/attributes/groups/table',
 //   viewsController.directoryAttributesGroupsTable
 // );
-=======
 router.get('/directory/categories/table', viewsController.directoryCategoriesTable);
 router.get('/directory/attributes/groups/table', viewsController.directoryAttributesGroupsTable);
->>>>>>> Stashed changes
 router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);

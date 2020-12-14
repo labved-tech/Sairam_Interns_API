@@ -15,6 +15,10 @@ router.param('id', eventEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(eventEntriesController.getAllTableEventEntries);
+
+router
   .route('/')
   .get(eventEntriesController.getAllEventEntries)
   .post(eventEntriesController.createEventEntries);
