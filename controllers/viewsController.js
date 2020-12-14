@@ -490,9 +490,7 @@ exports.farmExportedStrategyTable = (req, res) => {
   res
     .status(200)
     .render(
-      `./../views/pages/precision-agriculture/farmExportedStrategyTable`,
-      doc
-    );
+      `./../views/pages/precision-agriculture/farmExportedStrategyTable`);
 };
 
 exports.farmRegionsTable = (req, res) => {
