@@ -108,12 +108,20 @@ router.get('/comment/entries/table', viewsController.commentEntriesTable);
 // CONTRACT RELATED ROUTES
 router.get('/contract/entries', viewsController.contractEntries);
 router.get('/contract/templates', viewsController.contractTemplates);
+router.get('/contract/entries/table', viewsController.contractEntriesTable);
+router.get('/contract/templates/table', viewsController.contractTemplatesTable);
 
 // TICKET AND SUPPORTS RELATED ROUTES
 router.get('/ticket-support/categories', viewsController.ticketCategories);
 router.get('/ticket-support/entries', viewsController.ticketEntries);
 router.get('/ticket-support/Products', viewsController.ticketProducts);
 router.get('/ticket-support/Response', viewsController.ticketResponse);
+
+// TICKET AND SUPPORTS TABLE RELATED ROUTES
+router.get('/ticket-support/categories/table', viewsController.ticketCategoriesTable);
+router.get('/ticket-support/entries/table', viewsController.ticketEntriesTable);
+router.get('/ticket-support/Products/table', viewsController.ticketProductsTable);
+router.get('/ticket-support/Response/table', viewsController.ticketResponseTable);
 
 // LEADS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);

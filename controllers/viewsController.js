@@ -313,7 +313,7 @@ exports.commentEntries = (req, res) => {
 // COMMENTS TABLE RELATED CONTROLLER
 exports.commentEntriesTable = (req, res) => {
   console.log('We are in comment Entries Table Page');
-  res.status(200).render('./../views/pages/comments/commentEntriesTable', doc);
+  res.status(200).render('./../views/pages/comments/commentEntriesTable');
 };
 
 // CONTRACT RELATED CONTROLLER
@@ -325,6 +325,15 @@ exports.contractTemplates = (req, res) => {
   console.log('We are in contract Templates Form Page');
   res.status(200).render('./../views/pages/contract/contractTemplates');
 };
+exports.contractTemplatesTable = (req, res) => {
+  console.log('We are in Contract Templates Table Page');
+  res.status(200).render('./../views/pages/contract/contractTemplatesTable');
+};
+exports.contractEntriesTable = (req, res) => {
+  console.log('We are in contract Entries Table Page');
+  res.status(200).render('./../views/pages/contract/contractEntriesTable');
+};
+
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
@@ -345,6 +354,24 @@ exports.ticketProducts = (req, res) => {
 exports.ticketResponse = (req, res) => {
   console.log('We are in ticketResponse  Form Page');
   res.status(200).render('./../views/pages/ticket-support/ticketResponse');
+};
+
+// TICKET AND SUPPORTS  TABLE RELATED CONTROLLER
+exports.ticketCategoriesTable = (req, res) => {
+  console.log('We are in ticketCategories Table Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketCategoriesTable');
+};
+exports.ticketEntriesTable = (req, res) => {
+  console.log('We are in ticketEntries Table Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketEntriesTable');
+};
+exports.ticketProductsTable = (req, res) => {
+  console.log('We are in ticketProducts Table Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketProductsTable');
+};
+exports.ticketResponseTable = (req, res) => {
+  console.log('We are in ticketResponse  Table Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketResponseTable');
 };
 
 // DIRECTORY RELATED CONTROLLER

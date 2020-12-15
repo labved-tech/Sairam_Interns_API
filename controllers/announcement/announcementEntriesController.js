@@ -85,13 +85,13 @@ exports.getAllTableAnnouncementEntries = catchAsync(async (req, res, next) => {
 
   // EXECUTE QUERY
   const announcementEntries = await query;
-  //announcementEntries = await Example.find();
+  //announcementEntries = await AnnouncementEntries.find();
   //console.log(announcementEntries);
 
   // SEND RESPONSE
   res.status(200).json({
     status: 'success',
-    message: 'Got All Example',
+    message: 'Got All Announcement Entries',
     announcementEntries,
     meta: {
       page: page, // current page
