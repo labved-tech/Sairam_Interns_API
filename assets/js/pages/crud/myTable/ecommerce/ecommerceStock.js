@@ -3,11 +3,11 @@
 
 // Class definition
 
-const EcommerceLocations = (function () {
+const EcommerceStock = (function () {
     var dataSet;
     // Private functions
   
-    const ecommerceLocationsTable = async () =>  {
+    const ecommerceStockTable = async () =>  {
   
         const options = {
           // datasource definition
@@ -16,17 +16,17 @@ const EcommerceLocations = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/ecommerce/locations/table`,
+                url: `${HOST_URL}/api/v1/ecommerce/stock/table`,
                 params: {
-                  fields: '_id,address,gpsCoordinates,landlineNumber,mobileNumber,GSTNNo,PANNo,licenseNo,status,name,description,notes,_reviewAttributeId,additionalContactInfo.name,additionalContactInfo.info,createdAt,updatedAt',
+                  fields: '_id,_productId,type,unitPrice,availableStock,name,description,notes,_locationId,status,maxQuantityPerOrderNumber,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
                   console.log('raw', raw);
                   dataSet = raw;
               
-                  if (typeof raw.ecommerceLocations !== 'undefined') {
-                    dataSet = raw.ecommerceLocations;
+                  if (typeof raw.ecommerceStock !== 'undefined') {
+                    dataSet = raw.ecommerceStock;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -54,7 +54,7 @@ const EcommerceLocations = (function () {
       
           pagination: true,
           search: {
-            input: $('#createEcommerceLocationsTable'),
+            input: $('#createEcommerceStockTable'),
             key: 'generalSearch',
           },
       
@@ -81,36 +81,20 @@ const EcommerceLocations = (function () {
               }
             },
             {
-              field: 'address',
-              title: 'Address',
+              field: '_productId',
+              title: 'Product ID',
             },
             {
-              field: 'gpsCoordinates',
-              title: 'GPS Co-ordinates',
+              field: 'type',
+              title: 'Type',
             },
             {
-              field: 'landlineNumber',
-              title: 'Landline Number',
+              field: 'unitPrice',
+              title: 'Unit Price',
             },
             {
-              field: 'mobileNumber',
-              title: 'Mobile Number',
-            },
-            {
-              field: 'GSTNNo',
-              title: 'GSTN Number',
-            },
-            {
-              field: 'PANNo',
-              title: 'PAN Number',
-            },
-            {
-              field: 'licenseNo',
-              title: 'License Number',
-            },
-            {
-              field: 'status',
-              title: 'Status',
+              field: 'availableStock',
+              title: 'Available Stock',
             },
             {
               field: 'description',
@@ -118,75 +102,19 @@ const EcommerceLocations = (function () {
             },
             {
               field: 'notes',
-              title: 'Priority',
+              title: 'Notes',
             },
             {
-              field: '_reviewAttributeId',
-              title: 'Date Converted',
-            },
-            {
-              field: 'lost',
-              title: 'Lost',
-            },
-            {
-              field: 'lastLeadStatus',
-              title: 'Last Lead Status',
-            },
-            {
-              field: 'lastStatusChange',
-              title: 'Last Status Change',
+              field: '_locationId',
+              title: 'Location ID',
             },
             {
               field: 'status',
               title: 'Status',
             },
             {
-              field: 'address.address1',
-              title: 'Address',
-            },
-            {
-              field: 'address.street',
-              title: 'Street',
-            },
-            {
-              field: 'address.city',
-              title: 'City',
-            },
-            {
-              field: 'address.state',
-              title: 'State',
-            },
-            {
-              field: 'address.country',
-              title: 'Country',
-            },
-            {
-              field: 'address.postalCode',
-              title: 'Postal Code',
-            },
-            {
-              field: 'source.name',
-              title: 'Source Name',
-            },
-            {
-              field: 'additionalContactInfo.name',
-              title: 'Last Status Name',
-            },
-            {
-              field: 'additionalContactInfo.statusOrder',
-              title: 'Lead Status Order',
-            },
-            {
-              field: 'additionalContactInfo.colour',
-              title: 'Lead Status Colour',
-            },
-            {
-              field: 'additionalContactInfo.isDefault',
-              title: 'Lead Status Default',
-            },
-            {
-              field: 'additionalContactInfo.notes',
-              title: 'Lead Status Notes',
+              field: 'maxQuantityPerOrderNumber',
+              title: 'Maximum Quantity Per Order',
             },
             {
               field: 'createdBy',
@@ -321,12 +249,12 @@ const EcommerceLocations = (function () {
     return {
       // public functions
       init: function () {
-        ecommerceLocationsTable();
+        ecommerceStockTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    EcommerceLocations.init();
+    EcommerceStock.init();
   });
   
