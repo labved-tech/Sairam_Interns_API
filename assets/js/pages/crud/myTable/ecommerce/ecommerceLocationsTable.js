@@ -3,11 +3,11 @@
 
 // Class definition
 
-const EcommerceAddress = (function () {
+const EcommerceLocations = (function () {
     var dataSet;
     // Private functions
   
-    const ecommerceAddressTable = async () =>  {
+    const ecommerceLocationsTable = async () =>  {
   
         const options = {
           // datasource definition
@@ -16,17 +16,17 @@ const EcommerceAddress = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/ecommerce/address/table`,
+                url: `${HOST_URL}/api/v1/ecommerce/locations/table`,
                 params: {
-                  fields: '_id,address1,street,city,state,country,postalcode,createdBy,createdAt,updatedAt',
+                  fields: '_id,address,gpsCoordinates,landlineNumber,mobileNumber,GSTNNo,PANNo,licenseNo,status,name,description,notes,_reviewAttributeId,additionalContactInfo.name,additionalContactInfo.info,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
                   console.log('raw', raw);
                   dataSet = raw;
               
-                  if (typeof raw.ecommerceAddress !== 'undefined') {
-                    dataSet = raw.ecommerceAddress;
+                  if (typeof raw.ecommerceLocations !== 'undefined') {
+                    dataSet = raw.ecommerceLocations;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -54,7 +54,7 @@ const EcommerceAddress = (function () {
       
           pagination: true,
           search: {
-            input: $('#createEcommerceAddressTable'),
+            input: $('#createEcommerceLocationsTable'),
             key: 'generalSearch',
           },
       
@@ -71,34 +71,122 @@ const EcommerceAddress = (function () {
               textAlign: 'center',
             },
             {
-              field: 'address1',
-              title: 'Address',
+              field: 'name',
+              title: 'Name ',
               template: function (row) {
                 return '\
                   <div>\
-                  <a href="#">' + row.address1 + '</a></div>\
+                  <a href="#">' + row.name + '</a></div>\
                 ';
               }
             },
             {
-              field: 'street',
+              field: 'address',
+              title: 'Address',
+            },
+            {
+              field: 'gpsCoordinates',
+              title: 'GPS Co-ordinates',
+            },
+            {
+              field: 'landlineNumber',
+              title: 'Landline Number',
+            },
+            {
+              field: 'mobileNumber',
+              title: 'Mobile Number',
+            },
+            {
+              field: 'GSTNNo',
+              title: 'GSTN Number',
+            },
+            {
+              field: 'PANNo',
+              title: 'PAN Number',
+            },
+            {
+              field: 'licenseNo',
+              title: 'License Number',
+            },
+            {
+              field: 'status',
+              title: 'Status',
+            },
+            {
+              field: 'description',
+              title: 'Description',
+            },
+            {
+              field: 'notes',
+              title: 'Priority',
+            },
+            {
+              field: '_reviewAttributeId',
+              title: 'Date Converted',
+            },
+            {
+              field: 'lost',
+              title: 'Lost',
+            },
+            {
+              field: 'lastLeadStatus',
+              title: 'Last Lead Status',
+            },
+            {
+              field: 'lastStatusChange',
+              title: 'Last Status Change',
+            },
+            {
+              field: 'status',
+              title: 'Status',
+            },
+            {
+              field: 'address.address1',
+              title: 'Address',
+            },
+            {
+              field: 'address.street',
               title: 'Street',
             },
             {
-              field: 'city',
+              field: 'address.city',
               title: 'City',
             },
             {
-              field: 'state',
+              field: 'address.state',
               title: 'State',
             },
             {
-              field: 'country',
+              field: 'address.country',
               title: 'Country',
             },
             {
-              field: 'postalcode',
+              field: 'address.postalCode',
               title: 'Postal Code',
+            },
+            {
+              field: 'source.name',
+              title: 'Source Name',
+            },
+            {
+              field: 'additionalContactInfo.name',
+              title: 'Last Status Name',
+            },
+            {
+              field: 'additionalContactInfo.statusOrder',
+              title: 'Lead Status Order',
+            },
+            {
+              field: 'additionalContactInfo.colour',
+              title: 'Lead Status Colour',
+            },
+            {
+              field: 'additionalContactInfo.isDefault',
+              title: 'Lead Status Default',
+            },
+            {
+              field: 'additionalContactInfo.notes',
+              title: 'Lead Status Notes',
             },
             {
               field: 'createdBy',
@@ -233,12 +321,12 @@ const EcommerceAddress = (function () {
     return {
       // public functions
       init: function () {
-        ecommerceAddressTable();
+        ecommerceLocationsTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    EcommerceAddress.init();
+    EcommerceLocations.init();
   });
   
