@@ -108,7 +108,7 @@ router.use('/farm', precisionAgricultureRouter);
 router.use('/project', projectManagementRouter);
 
 // COMMENTS MODULE
-router.use('/commentEntries', commentEntriesRouter);
+router.use('/comment/entries', commentEntriesRouter);
 
 // ECOMMERCE MODULE
 router.use('/ecommerce', ecommerceRouter);

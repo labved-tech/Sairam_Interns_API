@@ -15,6 +15,10 @@ router.param('id', ticketEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(ticketEntriesController.getAllTableTicketEntries);
+
+router
   .route('/')
   .get(ticketEntriesController.getAllTicketEntries)
   .post(ticketEntriesController.createTicketEntries);
