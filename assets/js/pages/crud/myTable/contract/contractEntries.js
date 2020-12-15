@@ -16,9 +16,9 @@ const LeadEntries = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/lead/entries/table`,
+                url: `${HOST_URL}/api/v1/contract/entries/table`,
                 params: {
-                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,address.address1,address.street,address.city,address.state,address.country,address.postalCode,leadStatus.name,leadStatus.statusOrder,leadStatus.colour,leadStatus.isDefault,leadStatus.notes,status,source.namecreatedAt,updatedAt',
+                  fields: '_id,_contractOwnerId,_clientId,clientAccepted,acceptedDate,contractNumber,_contractTemplateId,rel,_relId,validFrom,validTill,validity,billingType,rate,contractFileURL,additionalAttributes,signedContractUploaded,termsAndConditions,status,tax.HSNCode,tax.CGSTRate,tax.SGSTRate,tax.IGSTRate,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
@@ -71,122 +71,102 @@ const LeadEntries = (function () {
               textAlign: 'center',
             },
             {
-              field: 'name',
-              title: 'Name ',
+              field: '_contractOwnerId',
+              title: 'Contract Owner ID ',
               template: function (row) {
                 return '\
                   <div>\
-                  <a href="#">' + row.name + '</a></div>\
+                  <a href="#">' + row._contractOwnerId + '</a></div>\
                 ';
               }
             },
             {
-              field: 'title',
-              title: 'Title',
+              field: '_clientId',
+              title: 'Client ID',
             },
             {
-              field: '_categoryId',
-              title: 'Category ID',
+              field: 'clientAccepted',
+              title: 'Client Accepted',
             },
             {
-              field: 'company',
-              title: 'Company',
+              field: 'acceptedDate',
+              title: 'Accepted Date',
             },
             {
-              field: 'description',
-              title: 'Description',
+              field: 'contractNumber',
+              title: 'Contract Number',
             },
             {
-              field: 'email',
-              title: 'Email',
+              field: '_contractTemplateId',
+              title: 'Contract Template ID',
             },
             {
-              field: 'website',
-              title: 'website',
+              field: 'rel',
+              title: 'Rel',
             },
             {
-              field: 'assignedTo',
-              title: 'Assigned TO',
+              field: '_relId',
+              title: 'Rel ID',
             },
             {
-              field: '_sourceId',
-              title: 'Source ID',
+              field: 'validFrom',
+              title: 'Valid From',
             },
             {
-              field: 'lastContact',
-              title: 'Last Contact',
+              field: 'validTill',
+              title: 'Valid Till',
             },
             {
-              field: 'priority',
-              title: 'Priority',
+              field: 'validity',
+              title: 'Validity ',
             },
             {
-              field: 'dateConverted',
-              title: 'Date Converted',
+              field: 'billingType',
+              title: 'Billing Type',
             },
             {
-              field: 'lost',
-              title: 'Lost',
+              field: 'rate',
+              title: 'Rate',
             },
             {
-              field: 'lastLeadStatus',
-              title: 'Last Lead Status',
+              field: 'contractFileURL',
+              title: 'Contract File URL',
             },
             {
-              field: 'lastStatusChange',
-              title: 'Last Status Change',
+              field: 'additionalAttributes',
+              title: 'Additional Attributes',
+            },
+            {
+              field: 'signedContractUploaded',
+              title: 'Signed Contract Uploaded',
+            },
+            {
+              field: 'termsAndConditions',
+              title: 'Terms And Conditions',
             },
             {
               field: 'status',
               title: 'Status',
             },
             {
-              field: 'address.address1',
-              title: 'Address',
+              field: 'tax._contractOwnerId',
+              title: 'Tax: Contract Owner ID',
             },
             {
-              field: 'address.street',
-              title: 'Street',
+              field: 'tax.HSNCode',
+              title: 'Tax: HSN Code',
             },
             {
-              field: 'address.city',
-              title: 'City',
+              field: 'tax.CGSTRate',
+              title: 'Tax: CGST Rate',
             },
             {
-              field: 'address.state',
-              title: 'State',
+              field: 'tax.SGSTRate',
+              title: 'Tax: SGST Rate',
             },
             {
-              field: 'address.country',
-              title: 'Country',
-            },
-            {
-              field: 'address.postalCode',
-              title: 'Postal Code',
-            },
-            {
-              field: 'source.name',
-              title: 'Source Name',
-            },
-            {
-              field: 'leadStatus.name',
-              title: 'Last Status Name',
-            },
-            {
-              field: 'leadStatus.statusOrder',
-              title: 'Lead Status Order',
-            },
-            {
-              field: 'leadStatus.colour',
-              title: 'Lead Status Colour',
-            },
-            {
-              field: 'leadStatus.isDefault',
-              title: 'Lead Status Default',
-            },
-            {
-              field: 'leadStatus.notes',
-              title: 'Lead Status Notes',
+              field: 'tax.IGSTRate',
+              title: 'Tax: IGST Rate',
             },
             {
               field: 'createdBy',

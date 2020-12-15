@@ -18,7 +18,7 @@ const LeadEntries = (function () {
                 method: 'get',
                 url: `${HOST_URL}/api/v1/lead/entries/table`,
                 params: {
-                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,address.address1,address.street,address.city,address.state,address.country,address.postalCode,leadStatus.name,leadStatus.statusOrder,leadStatus.colour,leadStatus.isDefault,leadStatus.notes,status,source.namecreatedAt,updatedAt',
+                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,address.address1,address.street,address.city,address.state,address.country,address.postalCode,leadStatus.name,leadStatus.statusOrder,leadStatus.colour,leadStatus.isDefault,leadStatus.notes,status,source.name,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
