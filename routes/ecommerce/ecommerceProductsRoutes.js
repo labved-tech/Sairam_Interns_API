@@ -15,6 +15,10 @@ router.param('id', ecommerceProductsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(ecommerceProductsController.getAllTableEcommerceProducts);
+
+router
   .route('/')
   .get(ecommerceProductsController.getAllEcommerceProducts)
   .post(ecommerceProductsController.createEcommerceProducts);
