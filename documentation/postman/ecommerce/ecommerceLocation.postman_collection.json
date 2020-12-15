@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e8202604-5802-4f2b-acd0-1af933649452",
+		"_postman_id": "faf1504d-0559-4b6d-9a1e-3bc6acd38c13",
 		"name": "ecommerceLocation",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \"abc\",\r\n  \"landlineNumber\": \"abc\",\r\n  \"mobileNumber\": \"abc\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"Name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \"abc\",\r\n  \"landlineNumber\": \"abc\",\r\n  \"mobileNumber\": \"abc\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,7 +153,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \"abc\",\r\n  \"landlineNumber\": \"abc\",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"Name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
+					"raw": "{\r\n  \"address\": \"in chennai\",\r\n  \"gpsCoordinates\": \"abc\",\r\n  \"landlineNumber\": \"abc\",\r\n  \"mobileNumber\": \" 7871802093\",\r\n  \"additionalContactInfo\": {\r\n    \"name\": \"vignesh BS\",\r\n    \"info\": \"student\"\r\n  },\r\n  \"GSTNo\": \"one\",\r\n  \"PANNo\": \"one\",\r\n  \"licenseNo\": \"one\",\r\n  \"status\": \"one\",\r\n  \"verifyDocuments\": [\r\n    {\r\n      \"name\": \"vignesh\",\r\n      \"URL\": \"website\",\r\n      \"type\": \"fun\"\r\n    }\r\n  ],\r\n  \"name\": \" viky\",\r\n  \"description\": \"man\",\r\n  \"notes\": \"subject\",\r\n  \"_reviewAttributeId\": \"5f990bb3c727e952a076f3b7\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
