@@ -9,9 +9,36 @@ const MenuManager = require('../../models/menu/menuManagerModel');
 /* DATABASE */
 
 /* CONTROLLERS */
-exports.getAllMenuManager = catchAsync(async (req, res, next) => {
-  console.log('Getting All Menu');
+exports.getAllMenuManagerSel2 = catchAsync(async (req, res, next) => {
+  console.log('Getting All Menu Manager for Select2');
   const { body } = req;
+  console.log(body);
+
+  let manager;
+  manager = await MenuManager.find().then();
+  manager = JSON.stringify(manager);
+
+  const mapObj = {
+    _id: 'id',
+    name: 'text',
+  };
+
+  manager = manager.replace(/_id|name/gi, function (matched) {
+    return mapObj[matched];
+  });
+
+  manager = JSON.parse(manager);
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Got Menu Manager',
+    manager,
+  });
+});
+
+exports.getAllMenuManager = catchAsync(async (req, res, next) => {
+  console.log('Getting All Menu Manager');
+  // const { body } = req;
   // console.log(body);
 
   const manager = await MenuManager.find().then();

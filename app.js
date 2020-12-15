@@ -41,20 +41,18 @@ app.use((req, res, next) => {
       scriptSrc: [
         "'self'",
         "'unsafe-inline'", // to be remove after testing
-
-        //`'nonce-${res.locals.nonce}'`,
         'code.jquery.com',
         'maxcdn.bootstrapcdn.com',
       ],
       styleSrc: [
         "'self'",
         "'unsafe-inline'",
-        //`'nonce-${res.locals.nonce}'`,
         'maxcdn.bootstrapcdn.com',
         'fonts.googleapis.com',
       ],
       fontSrc: ["'self'", 'fonts.gstatic.com'],
       imgSrc: ["'self'", "'unsafe-inline'", 'data:'],
+      frameSrc: ["'unsafe-inline'"],
     },
     reportOnly: false,
   })(req, res, next);
