@@ -325,6 +325,7 @@ exports.contractTemplates = (req, res) => {
   console.log('We are in contract Templates Form Page');
   res.status(200).render('./../views/pages/contract/contractTemplates');
 };
+
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
