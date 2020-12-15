@@ -3,9 +3,9 @@ const express = require('express');
 
 /* MIDDLEWARE */
 const router = express.Router();
+const menuSectionRouter = require('./menuSectionRoutes');
+const menuManagerRouter = require('./menuManagerRoutes');
 const menuController = require('../../controllers/menu/menuController');
-const menuManagerController = require('../../controllers/menu/menuManagerController');
-const menuSectionController = require('../../controllers/menu/menuSectionController');
 const menuItemsController = require('../../controllers/menu/menuItemsController');
 const menuSubItems1Controller = require('../../controllers/menu/menuSubItems1Controller');
 const menuSubItems2Controller = require('../../controllers/menu/menuSubItems2Controller');
@@ -17,33 +17,13 @@ router.use((req, res, next) => {
 });
 
 /* ROUTES */
-
-// MANAGER
 router.route('/genMenu').get(menuController.getAllMenu);
+router.route('/genMenuTree').get(menuController.getAllMenuTree);
 
-router
-  .route('/manager')
-  .get(menuManagerController.getAllMenuManager)
-  .post(menuManagerController.createMenuManager);
-router
-  .route('/manager/:id')
-  .get(menuManagerController.getMenuManager)
-  .patch(menuManagerController.updateMenuManager)
-  .delete(menuManagerController.deleteMenuManager);
-
-// SECTION
-router
-  .route('/section')
-  .get(menuSectionController.getAllMenuSection)
-  .post(menuSectionController.createMenuSection);
-router
-  .route('/section/:id')
-  .get(menuSectionController.getMenuSection)
-  .patch(menuSectionController.updateMenuSection)
-  .delete(menuSectionController.deleteMenuSection);
+router.use('/manager', menuManagerRouter);
+router.use('/section', menuSectionRouter);
 
 // ITEM
-
 router
   .route('/items')
   .get(menuItemsController.getAllMenuItem)
