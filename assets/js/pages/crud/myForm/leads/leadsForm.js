@@ -321,6 +321,14 @@ const LeadsCRUD = (function () {
     });
 
     // Date & Time : Date
+    $('#leLastContact').datepicker({
+      rtl: KTUtil.isRTL(),
+      todayBtn: 'linked',
+      clearBtn: true,
+      todayHighlight: true,
+      orientation: 'bottom left',
+      templates: arrows,
+    });  
     $('#leLastStatusChange').datepicker({
       rtl: KTUtil.isRTL(),
       todayBtn: 'linked',
