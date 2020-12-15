@@ -15,6 +15,9 @@ router.param('id', ecommerceLocationsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(ecommerceLocationsController.getAllTableEcommerceLocations);
+router
   .route('/')
   .get(ecommerceLocationsController.getAllEcommerceLocations)
   .post(ecommerceLocationsController.createEcommerceLocations);
