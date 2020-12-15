@@ -16,7 +16,7 @@ router.param('id', contractEntriesController.checkID);
 /* ROUTES */
 router
   .route('/table')
-  .get(contractEntriesController.getAllTableContractCategories);
+  .get(contractEntriesController.getAllTableContractEntries);
 router
   .route('/')
   .get(contractEntriesController.getAllContractEntries)
