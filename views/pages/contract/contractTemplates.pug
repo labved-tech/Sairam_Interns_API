@@ -5,7 +5,7 @@ block css-files
 
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/event/eventForm.js' )
+    script(src='/js/pages/crud/myForm/contract/contractForm.js' )
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -18,37 +18,100 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | contractTemplates Form
+                            | Contract Templates Form
                     div(class='card-body')
                         // begin::Form
-                        form#createcontractEntriesForm(class='form' )
+                        form#createcontractTemplatesForm(class='form' )
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')
 
-                                        // billingType
+                                        //ctBillingType
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') billingType
+                                            label(class='col-3 col-form-label form-control-label text-right') Billing Type
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctBillingType(type='text' class='form-control' name='ctBillingType' placeholder='Enter Billing Type')
+
+                                        //ctValue
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Value
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctValue(type='text' class='form-control' name='ctValue' placeholder='Enter Value')
+
+                                        //ctID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contract Owner ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#dlChangeLevelId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dlChangeLevelId' placeholder='ex. 5fa92064cff6f652644266de')
-                                                    span(class='form-text text-muted') Should be as mentioned. 
+                                                    input#ctID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ctID' placeholder='')
 
-                                        // validity
+                                        //ctURL
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') validity
+                                            label(class='col-3 col-form-label form-control-label text-right') Contract File Template URL
+                                                span(class='text-danger')  *
                                             div(class='col-4')
-                                                #dlActivePeriod(class='input-group date' data-target-input='nearest')
-                                                    input#dlActivePeriod(type='text' class='form-control datetimepicker-input' name='dlActivePeriod' placeholder='Select date & time' data-target='#dlActivePeriod')
-                                                    div(class='input-group-append' data-target='#dlActivePeriod' data-toggle='datetimepicker')
-                                                        span(class='input-group-text')
-                                                            i(class='ki ki-calendar')
-                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                input#ctURL(type='text' class='form-control' name='ctURL' placeholder='')
 
+                                        //ctIsRepeat
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') ContractOwner ID
+                                            label(class='col-3 col-form-label form-control-label text-right') Is Repeat
                                             div(class='col-4')
-                                                div(class='typeahead')
-                                                    input#ceCommentorId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceCommentorId' placeholder='ex. 5fa92064cff6f652644266de')
-                                                    span(class='form-text text-muted') Should be as mentioned.
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#ctIsRepeat(type='checkbox' checked='checked' name='ctIsRepeat')
+                                                        span
+
+                                        //ctRepeatInterval
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Repeat Interval
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctRepeatInterval(type='text' class='form-control' name='ctRepeatInterval' placeholder='')
+
+                                        //ctRepeatIntervalType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Repeat Interval Type
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctRepeatIntervalType(type='text' class='form-control' name='ctRepeatIntervalType' placeholder='')
+
+                                        //ctCurrentRepeatNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Current Repeat Number
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctCurrentRepeatNo(type='text' class='form-control' name='ctCurrentRepeatNo' placeholder='')
+
+                                        //ctTotalRepeatNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Repeat No
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctTotalRepeatNo(type='text' class='form-control' name='ctTotalRepeatNo' placeholder='')
+
+                                        //ctTotalRepeatAllowed
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Repeat Allowed
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctTotalRepeatAllowed(type='text' class='form-control' name='ctTotalRepeatAllowed' placeholder='')
+
+                                        //ctValidity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Validity
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#ctValidity(type='text' class='form-control' name='ctValidity' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#ctFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
