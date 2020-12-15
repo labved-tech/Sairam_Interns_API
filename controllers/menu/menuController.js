@@ -2,6 +2,7 @@
 const mongoose = require('mongoose');
 
 /* MIDDLEWARES */
+const { text } = require('express');
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
 const MenuManager = require('../../models/menu/menuManagerModel');
@@ -14,19 +15,96 @@ exports.getAllMenu = catchAsync(async (req, res, next) => {
   console.log(req.query);
 
   const menuManagerStr = req.query.manager;
+  let manager;
 
-  const manager = await MenuManager.find({ name: menuManagerStr })
-    .populate({
-      path: '_section',
-      populate: {
-        path: '_item',
+  if (menuManagerStr === undefined) {
+    manager = await MenuManager.find()
+      .populate({
+        path: '_section',
         populate: {
-          path: '_subItem1',
-          populate: { path: '_subItem2' },
+          path: '_item',
+          populate: {
+            path: '_subItem1',
+            populate: { path: '_subItem2' },
+          },
         },
-      },
-    })
-    .then();
+      })
+      .then();
+  } else {
+    manager = await MenuManager.find({ name: menuManagerStr })
+      .populate({
+        path: '_section',
+        populate: {
+          path: '_item',
+          populate: {
+            path: '_subItem1',
+            populate: { path: '_subItem2' },
+          },
+        },
+      })
+      .then();
+  }
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Got Menu',
+    manager,
+  });
+});
+
+exports.getAllMenuTree = catchAsync(async (req, res, next) => {
+  console.log('Getting All Menu');
+  console.log(req.query);
+
+  const menuManagerStr = req.query.manager;
+  let manager;
+
+  if (menuManagerStr === undefined) {
+    manager = await MenuManager.find()
+      .populate({
+        path: '_section',
+        populate: {
+          path: '_item',
+          populate: {
+            path: '_subItem1',
+            populate: { path: '_subItem2' },
+          },
+        },
+      })
+      .then();
+  } else {
+    manager = await MenuManager.find({ name: menuManagerStr })
+      .populate({
+        path: '_section',
+        populate: {
+          path: '_item',
+          populate: {
+            path: '_subItem1',
+            populate: { path: '_subItem2' },
+          },
+        },
+      })
+      .then();
+  }
+  manager = JSON.stringify(manager);
+
+  const mapObj = {
+    _section: 'children',
+    _item: 'children',
+    _subItem1: 'children',
+    _subItem2: 'children',
+    _id: 'id',
+    name: 'text',
+  };
+
+  manager = manager.replace(
+    /_section|_item|_subItem1|_subItem2|_id|name/gi,
+    function (matched) {
+      return mapObj[matched];
+    }
+  );
+  // manager = manager.replace('"_section":', '"children":');
+  manager = JSON.parse(manager);
 
   res.status(200).json({
     status: 'success',
