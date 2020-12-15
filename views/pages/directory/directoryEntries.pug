@@ -27,3 +27,29 @@ block content
                                 div(class='col-xl-8')
                                     div(class='my-5')  
                                         h3(class=' text-dark font-weight-bold mb-10') General
+
+                                        // deAuthor
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Author
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deAuthor(type='text' class='form-control' name='deAuthor' placeholder='ex. Vignesh')
+                                                span(class='form-text text-muted') Enter the author
+
+                                        //deDate
+                                        div(class = 'form-group row')
+                                            label(class = 'col-3 col-form-label form-control-label text-right') Date
+                                                span(class='text-danger')
+                                            div(class='col-4')
+                                                input#deDate(type='text' class='form-control' name='deDate' placeholder='Select Date')
+
+                                        //deImage
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Image 
+                                            div(class='col-4')
+                                                select#deImage(class='form-control selectpicker' multiple=''  data-live-search='true' name='deImage')
+                                                    //option(value='' disabled='' selected='') Choose country
+                                                    option Image 1
+                                                    option Image 2
+                                                    option Image 3
+                                                span(class='form-text text-muted')
