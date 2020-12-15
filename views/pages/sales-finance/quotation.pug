@@ -4,7 +4,7 @@ block css-files
    
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/sales-finance/QuotationForm.js')
+    script(src='/js/pages/crud/myForm/sales-finance/quotationForm.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -169,7 +169,7 @@ block content
                                                 | Terms and Condition
                                                 span(class='text-danger')
                                             div(class='col-7 ')
-                                                textarea#quTermsCondition(class='form-control' name='quTermsCondition' rows='3')
+                                                textarea#quTermsCondition(class='form-control' name='quTermsCondition' rows='4')
                                                 span(class='form-text text-muted') 
 
 
@@ -196,6 +196,19 @@ block content
                                                             span(class='form-text text-muted') Select Payment Method                              
                                                         div(class='col-2')
                                                             input#quMeta(type='text', class='form-control', placeholder='Meta' name='quMeta')
+                                                        div(class='col-2')                                 
+                                                        div(class='col-md-3')
+                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                                i(class='la la-remove')
+                                                        
+                                                        span(class='form-text text-muted')
+
+                                            div(class='form-group row')
+                                                label(class='col-3 col-form-label form-control-label text-right')
+                                                div(class='col-4')
+                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                        i(class='la la-plus')
+                                                        | Add
 
                                         //quNumber
                                         div(class='form-group row')

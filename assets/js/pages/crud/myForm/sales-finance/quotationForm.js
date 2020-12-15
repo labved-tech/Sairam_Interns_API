@@ -5,46 +5,78 @@
 const QuotationCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
-// Private functions
-const _createQuotationForm = function () {
-    // Getting Document related information
-    const createQuotationForm = KTUtil.getById('createQuotationForm ');
-    const quFormSubmitButton = KTUtil.getById('quFormSubmitButton');
-    const quModuleRef = KTUtil.getById('quModuleRef');
-    const quHeader = KTUtil.getById('quHeader');
-    const quDate = KTUtil.getById('quDate');
-    const quBuyerID = KTUtil.getById('quBuyerID');
-    const quBuyerName = KTUtil.getById('quBuyerName');
-    const quBuyerAddress = KTUtil.getById('quBuyerAddress');
-    const quBuyerEmail = KTUtil.getById('quBuyerEmail');
-    const quBuyerContact = KTUtil.getById('quBuyerContact');
-    const quContactTypeB = KTUtil.getById('quContactTypeB');
-    const quSellerID = KTUtil.getById('quSellerID');
-    const quSellerName = KTUtil.getById('quSellerName');
-    const quSellerAName = KTUtil.getById('quSellerAName');
-    const quSellerAddress = KTUtil.getById('quSellerAddress');
-    const quSellerEmail = KTUtil.getById('quSellerEmail');
-    const quSellerContact = KTUtil.getById('quSellerContact');
-    const quContactTypeS = KTUtil.getById('quContactTypeS');
-    const quSubject = KTUtil.getById('quSubject');
-    const quBody = KTUtil.getById('quBody');
-    const quItemTable = KTUtil.getById('quItemTable');
-    const quTermsCondition = KTUtil.getById('quTermsCondition');
-    const quNumber = KTUtil.getById('quNumber');
-    const quFooter = KTUtil.getById('quFooter');
-    const quPayID = KTUtil.getById('quPayID');
-    const quPayType = KTUtil.getById('quPayType');
-    const quMeta = KTUtil.getById('quMeta');
-
-    // intialising
-    $(quDate).datepicker({
-        placeholder: "Select Date"
-    });
-
-    if (!createQuotationForm) {
-        return;
+    // Date Picker
+    let arrows;
+    if (KTUtil.isRTL()) {
+        arrows = {
+            leftArrow: '<i class="la la-angle-right"></i>',
+            rightArrow: '<i class="la la-angle-left"></i>',
+        };
+    } else {
+        arrows = {
+            leftArrow: '<i class="la la-angle-left"></i>',
+            rightArrow: '<i class="la la-angle-right"></i>',
+        };
     }
 
+    // Private functions
+    const _createQuotationForm = function () {
+        // Getting Document related information
+        const createQuotationForm = KTUtil.getById('createQuotationForm ');
+        const quFormSubmitButton = KTUtil.getById('quFormSubmitButton');
+        const quModuleRef = KTUtil.getById('quModuleRef');
+        const quHeader = KTUtil.getById('quHeader');
+        const quDate = KTUtil.getById('quDate');
+        const quBuyerID = KTUtil.getById('quBuyerID');
+        const quBuyerName = KTUtil.getById('quBuyerName');
+        const quBuyerAddress = KTUtil.getById('quBuyerAddress');
+        const quBuyerEmail = KTUtil.getById('quBuyerEmail');
+        const quBuyerContact = KTUtil.getById('quBuyerContact');
+        const quContactTypeB = KTUtil.getById('quContactTypeB');
+        const quSellerID = KTUtil.getById('quSellerID');
+        const quSellerName = KTUtil.getById('quSellerName');
+        const quSellerAName = KTUtil.getById('quSellerAName');
+        const quSellerAddress = KTUtil.getById('quSellerAddress');
+        const quSellerEmail = KTUtil.getById('quSellerEmail');
+        const quSellerContact = KTUtil.getById('quSellerContact');
+        const quContactTypeS = KTUtil.getById('quContactTypeS');
+        const quSubject = KTUtil.getById('quSubject');
+        const quBody = KTUtil.getById('quBody');
+        const quItemTable = KTUtil.getById('quItemTable');
+        const quTermsCondition = KTUtil.getById('quTermsCondition');
+        const quNumber = KTUtil.getById('quNumber');
+        const quFooter = KTUtil.getById('quFooter');
+        const quPayID = KTUtil.getById('quPayID');
+        const quPayType = KTUtil.getById('quPayType');
+        const quMeta = KTUtil.getById('quMeta');
+
+        // intialising
+        $(quDate).datepicker({
+            placeholder: "Select Date"
+        });
+
+        if (!createQuotationForm) {
+            return;
+        }
+
+        // Form Repeat #3 : Multiple
+        $('#quPayment').repeater({
+            initEmpty: false,
+
+            defaultValues: {
+                'text-input': 'foo'
+            },
+
+            show: function () {
+                $(this).slideDown();
+            },
+
+            hide: function (deleteElement) {
+                if (confirm('Are you sure you want to delete this element?')) {
+                    $(this).slideUp(deleteElement);
+                }
+            }
+        });
 
     FormValidation.formValidation(createQuotationForm, {
         fields: {

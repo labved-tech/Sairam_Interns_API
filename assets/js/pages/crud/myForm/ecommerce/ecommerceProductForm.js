@@ -2,10 +2,10 @@
 'use strict';
 
 // Class definition
-const EcommerceProductCRUD = (function () {
+const EcommerceProductsCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
-    const _createEcommerceProduct = function () {
+    const _createEcommerceProducts = function () {
         // Getting Document related information
         const createEcommerceProductsForm = KTUtil.getById('createEcommerceProductsForm');           
         const epFormSubmitButton = KTUtil.getById('epFormSubmitButton');
@@ -13,14 +13,14 @@ const EcommerceProductCRUD = (function () {
         const epName = KTUtil.getById('epName');
         const epDescription = KTUtil.getById('epDescription');
         const epID = KTUtil.getById('epID');
-        const epunitPrice = KTUtil.getById('epunitPrice');
+        const epUnitPrice = KTUtil.getById('epUnitPrice');
         const epMRP = KTUtil.getById('epMRP');
         const epNote = KTUtil.getById('epNote');
         const epRanking = KTUtil.getById('epRanking');
         const epMaxQtyNo = KTUtil.getById('epMaxQtyNo');
 
         const epSellerID = KTUtil.getById('epSellerID');
-        const epreviewID = KTUtil.getById('epreviewID');
+        const epReviewID = KTUtil.getById('epReviewID');
         const epStatus = KTUtil.getById('epStatus');
         const epHSN = KTUtil.getById('epHSN');
 
@@ -68,7 +68,7 @@ const EcommerceProductCRUD = (function () {
                                 message: 'Product ID is required',
                                 },
                             },
-                        }, 
+                    }, 
                     epName: {
                     validators: {
                         notEmpty: {
@@ -104,35 +104,35 @@ const EcommerceProductCRUD = (function () {
                             message: 'Notes are required',
                         },
                     },
-                },  
+                    },  
                     epRanking : {
                     validators: {
                         notEmpty: {
                             message: 'Location ID is required',
                         },
                     },
-                },       
+                    },       
                     epSellerID: {
                     validators: {
                         notEmpty: {
                           message: 'Status is required',
                         },
                     },
-                },
-                    epreviewID: {
+                    },
+                epReviewID: {
                     validators: {
                         notEmpty: {
                             message: 'This Field is required',
                         },
                     },
-                },  
+                    },  
               epStatus: {
                   validators: {
                       notEmpty: {
                           message: 'This field is required',
                       },
                   },
-              },        
+                    },        
 
               epHSN: {
                 validators: {
@@ -140,7 +140,7 @@ const EcommerceProductCRUD = (function () {
                         message: 'This field is required',
                     },
                 },
-            },        
+                    },        
         },
         plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
@@ -163,13 +163,13 @@ const EcommerceProductCRUD = (function () {
                     name: epName.value,
                     description: epDescription.value,
                     categoryId: epID.value,
-                    unitPrice: (epunitPrice.value)*1,
+                    unitPrice: (epUnitPrice.value)*1,
                     MRP: (epMRP.value)*1,
                     note: epNote.value,
                     ranking: (epRanking.value)*1,
                     maxQuantityPerOrderNumber: (epMaxQtyNo.value)*1,
                     sellerId: epSellerID.value,
-                    _reviewAttributeId: epreviewID.value,
+                    _reviewAttributeId: epReviewID.value,
                     status: epStatus.value,
                     HSNCode: epHSN.value,
                 },
@@ -214,14 +214,14 @@ const EcommerceProductCRUD = (function () {
             return {
                 // public functions
                 init: function () {
-                    _createEcommerceProduct();
+                    _createEcommerceProducts();
                 }
                 }
             })();
             
             
             jQuery(document).ready(function () {
-                EcommerceProductCRUD.init();
+                EcommerceProductsCRUD.init();
             });
                                
                     
