@@ -3,11 +3,11 @@
 
 // Class definition
 
-const LeadEntries = (function () {
+const ContractEntries = (function () {
     var dataSet;
     // Private functions
   
-    const leadEntriesTable = async () =>  {
+    const contractEntriesTable = async () =>  {
   
         const options = {
           // datasource definition
@@ -25,8 +25,8 @@ const LeadEntries = (function () {
                   console.log('raw', raw);
                   dataSet = raw;
               
-                  if (typeof raw.leadEntries !== 'undefined') {
-                    dataSet = raw.leadEntries;
+                  if (typeof raw.contractEntries !== 'undefined') {
+                    dataSet = raw.contractEntries;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -54,7 +54,7 @@ const LeadEntries = (function () {
       
           pagination: true,
           search: {
-            input: $('#createLeadEntriesTable'),
+            input: $('#createContractEntriesTable'),
             key: 'generalSearch',
           },
       
@@ -301,12 +301,12 @@ const LeadEntries = (function () {
     return {
       // public functions
       init: function () {
-        leadEntriesTable();
+        contractEntriesTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    LeadEntries.init();
+    ContractEntries.init();
   });
   
