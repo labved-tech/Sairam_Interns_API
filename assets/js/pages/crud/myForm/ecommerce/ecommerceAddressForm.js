@@ -93,7 +93,7 @@ const EcommerceAddressCRUD = (function () {
                 city:eaCity.value,
                 state:eaState.value,
                 country:eaCountry.value,
-                postalCode:eaPostalCode.value,
+                postalcode:eaPostalCode.value,
               
           },
         }).then(function (res) {
