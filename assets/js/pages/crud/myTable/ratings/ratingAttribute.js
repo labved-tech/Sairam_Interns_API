@@ -7,7 +7,7 @@ const RatingTable = (function () {
     var dataSet;
     // Private functions
 
-    const ratingAttributeTable = async () => {
+    const _ratingAttributeTable = async () => {
 
         const options = {
             // datasource definition
@@ -16,16 +16,16 @@ const RatingTable = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/rating/Attribute/table`,
+                        url: `${HOST_URL}/api/v1/ratings/Attribute/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: ' name, type, description, notes, status, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
                             console.log('raw', raw);
                             dataSet = raw;
 
-                            if (typeof raw.examples !== 'undefined') {
+                            if (typeof raw.ratingAttribute !== 'undefined') {
                                 dataSet = raw.ratingAttribute;
                                 console.log('dataSet', dataSet);
                             }
@@ -71,20 +71,20 @@ const RatingTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
+                    field: 'type',
+                    title: 'Type',
                 },
                 {
-                    field: 'priority',
-                    title: 'Priority',
+                    field: 'description',
+                    title: 'Description',
                 },
                 {
-                    field: 'expires',
-                    title: 'Expires In',
+                    field: 'notes',
+                    title: 'Notes',
                 },
                 {
                     field: 'status',
@@ -223,7 +223,7 @@ const RatingTable = (function () {
     return {
         // public functions
         init: function () {
-            ratingAttributeTable();
+            _ratingAttributeTable();
         },
     };
 })();

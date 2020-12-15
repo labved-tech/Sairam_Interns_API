@@ -53,3 +53,116 @@ block content
                                                     option Image 2
                                                     option Image 3
                                                 span(class='form-text text-muted')
+
+                                        //deMessage
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Message
+                                            div(class='col-9')
+                                                div#deMessage(class='summernote' name='deMessage')
+                                                span(class='form-text text-muted') Add message that you wish to send.
+
+                                        // deTitle
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Title
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deTitle(type='text' class='form-control' name='deTitle' placeholder='Monthly - Summary')
+
+                                        // deslug
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Slug
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deslug(type='text' class='form-control' name='deslug' placeholder='ex. YYYY')
+                                                span(class='form-text text-muted') slug
+
+                                        //deSellerID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller ID 
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#deSellerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='deSellerID' placeholder='')
+
+                                        //deStatus
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#deStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='deStatus' placeholder='')
+                                                    span(class='form-text text-muted')    
+
+                                        //deLocation
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Location
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deLocation(type='text' class='form-control' name='deLocation' placeholder='ex. Chennai')
+                                                span(class='form-text text-muted') Enter the location
+
+                                        //deName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deName(type='text' class='form-control' name='deName' placeholder='ex. Chennai')
+                                                span(class='form-text text-muted') Enter the Name 
+
+                                        //deParentId
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Parent Id 
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#deParentId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='deParentId' placeholder='')
+
+                                        //deCommentStatus
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                | Comment Status
+                                                span(class='text-danger') *
+                                            div(class='col-9 ')
+                                                textarea#deCommentStatus(class='form-control' name='deCommentStatus' rows='3')
+                                                span(class='form-text text-muted') Comment your Status
+
+                                        //deMeta
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Meta
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#deMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='deMeta' placeholder='')
+
+                                        //deCategories
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Categories 
+                                            div(class='col-4')
+                                                select#deCategories(class='form-control selectpicker' multiple=''  data-live-search='true' name='deCategories')
+                                                    //option(value='' disabled='' selected='') Choose country
+                                                    option Categories 1
+                                                    option Categories 2
+                                                    option Categories 3
+                                                span(class='form-text text-muted')
+
+                                        //deLevel
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Level
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deLevel(type='text' class='form-control' name='deLevel' placeholder='')
+                                                span(class='form-text text-muted') Enter the Level
+
+                                        //deLogo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Logo
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deLogo(type='text' class='form-control' name='deLogo' placeholder='')
+                                                span(class='form-text text-muted') Enter the logo 
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#deFormsubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
