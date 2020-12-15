@@ -325,6 +325,15 @@ exports.contractTemplates = (req, res) => {
   console.log('We are in contract Templates Form Page');
   res.status(200).render('./../views/pages/contract/contractTemplates');
 };
+exports.contractTemplatesTable = (req, res) => {
+  console.log('We are in Contract Templates Table Page');
+  res.status(200).render('./../views/pages/contract/contractTemplatesTable');
+};
+exports.contractEntriesTable = (req, res) => {
+  console.log('We are in contract Entries Table Page');
+  res.status(200).render('./../views/pages/contract/contractEntriesTable');
+};
+
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
