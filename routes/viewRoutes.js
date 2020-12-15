@@ -108,6 +108,8 @@ router.get('/comment/entries/table', viewsController.commentEntriesTable);
 // CONTRACT RELATED ROUTES
 router.get('/contract/entries', viewsController.contractEntries);
 router.get('/contract/templates', viewsController.contractTemplates);
+router.get('/contract/entries/table', viewsController.contractEntriesTable);
+router.get('/contract/templates/table', viewsController.contractTemplatesTable);
 
 // TICKET AND SUPPORTS RELATED ROUTES
 router.get('/ticket-support/categories', viewsController.ticketCategories);
