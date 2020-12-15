@@ -16,7 +16,7 @@ const LeadEntries = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/contract/entries/table`,
+                url: `${HOST_URL}/api/v1/contracts/entries/table`,
                 params: {
                   fields: '_id,_contractOwnerId,_clientId,clientAccepted,acceptedDate,contractNumber,_contractTemplateId,rel,_relId,validFrom,validTill,validity,billingType,rate,contractFileURL,additionalAttributes,signedContractUploaded,termsAndConditions,status,tax.HSNCode,tax.CGSTRate,tax.SGSTRate,tax.IGSTRate,createdAt,updatedAt',
                 },
