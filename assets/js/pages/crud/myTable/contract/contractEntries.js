@@ -3,11 +3,11 @@
 
 // Class definition
 
-const EcommerceLocations = (function () {
+const ContractEntries = (function () {
     var dataSet;
     // Private functions
   
-    const ecommerceLocationsTable = async () =>  {
+    const contractEntriesTable = async () =>  {
   
         const options = {
           // datasource definition
@@ -16,17 +16,17 @@ const EcommerceLocations = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/ecommerce/locations/table`,
+                url: `${HOST_URL}/api/v1/contracts/entries/table`,
                 params: {
-                  fields: '_id,address,gpsCoordinates,landlineNumber,mobileNumber,GSTNNo,PANNo,licenseNo,status,name,description,notes,_reviewAttributeId,additionalContactInfo.name,additionalContactInfo.info,createdAt,updatedAt',
+                  fields: '_id,_contractOwnerId,_clientId,clientAccepted,acceptedDate,contractNumber,_contractTemplateId,rel,_relId,validFrom,validTill,validity,billingType,rate,contractFileURL,additionalAttributes,signedContractUploaded,termsAndConditions,status,tax.HSNCode,tax.CGSTRate,tax.SGSTRate,tax.IGSTRate,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
                   console.log('raw', raw);
                   dataSet = raw;
               
-                  if (typeof raw.ecommerceLocations !== 'undefined') {
-                    dataSet = raw.ecommerceLocations;
+                  if (typeof raw.contractEntries !== 'undefined') {
+                    dataSet = raw.contractEntries;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -54,7 +54,7 @@ const EcommerceLocations = (function () {
       
           pagination: true,
           search: {
-            input: $('#createEcommerceLocationsTable'),
+            input: $('#createContractEntriesTable'),
             key: 'generalSearch',
           },
       
@@ -71,122 +71,102 @@ const EcommerceLocations = (function () {
               textAlign: 'center',
             },
             {
-              field: 'name',
-              title: 'Name ',
+              field: '_contractOwnerId',
+              title: 'Contract Owner ID ',
               template: function (row) {
                 return '\
                   <div>\
-                  <a href="#">' + row.name + '</a></div>\
+                  <a href="#">' + row._contractOwnerId + '</a></div>\
                 ';
               }
             },
             {
-              field: 'address',
-              title: 'Address',
+              field: '_clientId',
+              title: 'Client ID',
             },
             {
-              field: 'gpsCoordinates',
-              title: 'GPS Co-ordinates',
+              field: 'clientAccepted',
+              title: 'Client Accepted',
             },
             {
-              field: 'landlineNumber',
-              title: 'Landline Number',
+              field: 'acceptedDate',
+              title: 'Accepted Date',
             },
             {
-              field: 'mobileNumber',
-              title: 'Mobile Number',
+              field: 'contractNumber',
+              title: 'Contract Number',
             },
             {
-              field: 'GSTNNo',
-              title: 'GSTN Number',
+              field: '_contractTemplateId',
+              title: 'Contract Template ID',
             },
             {
-              field: 'PANNo',
-              title: 'PAN Number',
+              field: 'rel',
+              title: 'Rel',
             },
             {
-              field: 'licenseNo',
-              title: 'License Number',
+              field: '_relId',
+              title: 'Rel ID',
+            },
+            {
+              field: 'validFrom',
+              title: 'Valid From',
+            },
+            {
+              field: 'validTill',
+              title: 'Valid Till',
+            },
+            {
+              field: 'validity',
+              title: 'Validity ',
+            },
+            {
+              field: 'billingType',
+              title: 'Billing Type',
+            },
+            {
+              field: 'rate',
+              title: 'Rate',
+            },
+            {
+              field: 'contractFileURL',
+              title: 'Contract File URL',
+            },
+            {
+              field: 'additionalAttributes',
+              title: 'Additional Attributes',
+            },
+            {
+              field: 'signedContractUploaded',
+              title: 'Signed Contract Uploaded',
+            },
+            {
+              field: 'termsAndConditions',
+              title: 'Terms And Conditions',
             },
             {
               field: 'status',
               title: 'Status',
             },
             {
-              field: 'description',
-              title: 'Description',
+              field: 'tax._contractOwnerId',
+              title: 'Tax: Contract Owner ID',
             },
             {
-              field: 'notes',
-              title: 'Priority',
+              field: 'tax.HSNCode',
+              title: 'Tax: HSN Code',
             },
             {
-              field: '_reviewAttributeId',
-              title: 'Date Converted',
+              field: 'tax.CGSTRate',
+              title: 'Tax: CGST Rate',
             },
             {
-              field: 'lost',
-              title: 'Lost',
+              field: 'tax.SGSTRate',
+              title: 'Tax: SGST Rate',
             },
             {
-              field: 'lastLeadStatus',
-              title: 'Last Lead Status',
-            },
-            {
-              field: 'lastStatusChange',
-              title: 'Last Status Change',
-            },
-            {
-              field: 'status',
-              title: 'Status',
-            },
-            {
-              field: 'address.address1',
-              title: 'Address',
-            },
-            {
-              field: 'address.street',
-              title: 'Street',
-            },
-            {
-              field: 'address.city',
-              title: 'City',
-            },
-            {
-              field: 'address.state',
-              title: 'State',
-            },
-            {
-              field: 'address.country',
-              title: 'Country',
-            },
-            {
-              field: 'address.postalCode',
-              title: 'Postal Code',
-            },
-            {
-              field: 'source.name',
-              title: 'Source Name',
-            },
-            {
-              field: 'additionalContactInfo.name',
-              title: 'Last Status Name',
-            },
-            {
-              field: 'additionalContactInfo.statusOrder',
-              title: 'Lead Status Order',
-            },
-            {
-              field: 'additionalContactInfo.colour',
-              title: 'Lead Status Colour',
-            },
-            {
-              field: 'additionalContactInfo.isDefault',
-              title: 'Lead Status Default',
-            },
-            {
-              field: 'additionalContactInfo.notes',
-              title: 'Lead Status Notes',
+              field: 'tax.IGSTRate',
+              title: 'Tax: IGST Rate',
             },
             {
               field: 'createdBy',
@@ -321,12 +301,12 @@ const EcommerceLocations = (function () {
     return {
       // public functions
       init: function () {
-        ecommerceLocationsTable();
+        contractEntriesTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    EcommerceLocations.init();
+    ContractEntries.init();
   });
   

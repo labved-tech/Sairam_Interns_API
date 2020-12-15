@@ -26,7 +26,7 @@ exports.getMenuManagerForm = (req, res) => {
 exports.getMenuSectionForm = (req, res) => {
   console.log('We are in Menu Section');
 
-  res.status(200).render('./pages/overview');
+  res.status(200).render('./pages/menu/menuSection');
 };
 // ITEMS
 exports.getMenuItemsForm = (req, res) => {
@@ -325,6 +325,15 @@ exports.contractTemplates = (req, res) => {
   console.log('We are in contract Templates Form Page');
   res.status(200).render('./../views/pages/contract/contractTemplates');
 };
+exports.contractTemplatesTable = (req, res) => {
+  console.log('We are in Contract Templates Table Page');
+  res.status(200).render('./../views/pages/contract/contractTemplatesTable');
+};
+exports.contractEntriesTable = (req, res) => {
+  console.log('We are in contract Entries Table Page');
+  res.status(200).render('./../views/pages/contract/contractEntriesTable');
+};
+
 // TICKET AND SUPPORTS RELATED CONTROLLER
 exports.ticketCategories = (req, res) => {
   console.log('We are in ticketCategories Form Page');
@@ -519,8 +528,7 @@ exports.farmExportedStrategyTable = (req, res) => {
   console.log('We are in Farm Exported Strategy Tables Page');
   res
     .status(200)
-    .render(
-      `./../views/pages/precision-agriculture/farmExportedStrategyTable`);
+    .render(`./../views/pages/precision-agriculture/farmExportedStrategyTable`);
 };
 
 exports.farmRegionsTable = (req, res) => {

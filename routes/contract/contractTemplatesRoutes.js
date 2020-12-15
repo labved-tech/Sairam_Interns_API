@@ -15,6 +15,10 @@ router.param('id', contractTemplatesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(contractTemplatesController.getAllTableContractTemplates);
+
+router
   .route('/')
   .get(contractTemplatesController.getAllContractTemplates)
   .post(contractTemplatesController.createContractTemplates);

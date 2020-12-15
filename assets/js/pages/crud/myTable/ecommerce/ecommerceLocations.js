@@ -3,11 +3,11 @@
 
 // Class definition
 
-const LeadEntries = (function () {
+const EcommerceLocations = (function () {
     var dataSet;
     // Private functions
   
-    const leadEntriesTable = async () =>  {
+    const ecommerceLocationsTable = async () =>  {
   
         const options = {
           // datasource definition
@@ -16,17 +16,17 @@ const LeadEntries = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/lead/entries/table`,
+                url: `${HOST_URL}/api/v1/ecommerce/locations/table`,
                 params: {
-                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,address.address1,address.street,address.city,address.state,address.country,address.postalCode,leadStatus.name,leadStatus.statusOrder,leadStatus.colour,leadStatus.isDefault,leadStatus.notes,status,source.name,createdAt,updatedAt',
+                  fields: '_id,address,gpsCoordinates,landlineNumber,mobileNumber,GSTNNo,PANNo,licenseNo,status,name,description,notes,_reviewAttributeId,additionalContactInfo.name,additionalContactInfo.info,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
                   console.log('raw', raw);
                   dataSet = raw;
               
-                  if (typeof raw.leadEntries !== 'undefined') {
-                    dataSet = raw.leadEntries;
+                  if (typeof raw.ecommerceLocations !== 'undefined') {
+                    dataSet = raw.ecommerceLocations;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -54,7 +54,7 @@ const LeadEntries = (function () {
       
           pagination: true,
           search: {
-            input: $('#createLeadEntriesTable'),
+            input: $('#createEcommerceLocationsTable'),
             key: 'generalSearch',
           },
       
@@ -81,112 +81,56 @@ const LeadEntries = (function () {
               }
             },
             {
-              field: 'title',
-              title: 'Title',
+              field: 'address',
+              title: 'Address',
             },
             {
-              field: '_categoryId',
-              title: 'Category ID',
+              field: 'gpsCoordinates',
+              title: 'GPS Co-ordinates',
             },
             {
-              field: 'company',
-              title: 'Company',
+              field: 'landlineNumber',
+              title: 'Landline Number',
             },
             {
-              field: 'description',
-              title: 'Description',
+              field: 'mobileNumber',
+              title: 'Mobile Number',
             },
             {
-              field: 'email',
-              title: 'Email',
+              field: 'GSTNNo',
+              title: 'GSTN Number',
             },
             {
-              field: 'website',
-              title: 'website',
+              field: 'PANNo',
+              title: 'PAN Number',
             },
             {
-              field: 'assignedTo',
-              title: 'Assigned TO',
-            },
-            {
-              field: '_sourceId',
-              title: 'Source ID',
-            },
-            {
-              field: 'lastContact',
-              title: 'Last Contact',
-            },
-            {
-              field: 'priority',
-              title: 'Priority',
-            },
-            {
-              field: 'dateConverted',
-              title: 'Date Converted',
-            },
-            {
-              field: 'lost',
-              title: 'Lost',
-            },
-            {
-              field: 'lastLeadStatus',
-              title: 'Last Lead Status',
-            },
-            {
-              field: 'lastStatusChange',
-              title: 'Last Status Change',
+              field: 'licenseNo',
+              title: 'License Number',
             },
             {
               field: 'status',
               title: 'Status',
             },
             {
-              field: 'address.address1',
-              title: 'Address',
+              field: 'description',
+              title: 'Description',
             },
             {
-              field: 'address.street',
-              title: 'Street',
+              field: 'notes',
+              title: 'Notes',
             },
             {
-              field: 'address.city',
-              title: 'City',
+              field: '_reviewAttributeId',
+              title: 'Review Attribute ID',
             },
             {
-              field: 'address.state',
-              title: 'State',
+              field: 'additionalContactInfo.name',
+              title: 'Additional Information: Name',
             },
             {
-              field: 'address.country',
-              title: 'Country',
-            },
-            {
-              field: 'address.postalCode',
-              title: 'Postal Code',
-            },
-            {
-              field: 'source.name',
-              title: 'Source Name',
-            },
-            {
-              field: 'leadStatus.name',
-              title: 'Last Status Name',
-            },
-            {
-              field: 'leadStatus.statusOrder',
-              title: 'Lead Status Order',
-            },
-            {
-              field: 'leadStatus.colour',
-              title: 'Lead Status Colour',
-            },
-            {
-              field: 'leadStatus.isDefault',
-              title: 'Lead Status Default',
-            },
-            {
-              field: 'leadStatus.notes',
-              title: 'Lead Status Notes',
+              field: 'additionalContactInfo.info',
+              title: 'Additional Information',
             },
             {
               field: 'createdBy',
@@ -321,12 +265,12 @@ const LeadEntries = (function () {
     return {
       // public functions
       init: function () {
-        leadEntriesTable();
+        ecommerceLocationsTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    LeadEntries.init();
+    EcommerceLocations.init();
   });
   

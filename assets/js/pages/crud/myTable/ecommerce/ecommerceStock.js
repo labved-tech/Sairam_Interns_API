@@ -3,11 +3,11 @@
 
 // Class definition
 
-const LeadEntries = (function () {
+const EcommerceStock = (function () {
     var dataSet;
     // Private functions
   
-    const leadEntriesTable = async () =>  {
+    const ecommerceStockTable = async () =>  {
   
         const options = {
           // datasource definition
@@ -16,17 +16,17 @@ const LeadEntries = (function () {
             source: {
               read: {
                 method: 'get',
-                url: `${HOST_URL}/api/v1/lead/entries/table`,
+                url: `${HOST_URL}/api/v1/ecommerce/stock/table`,
                 params: {
-                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,address.address1,address.street,address.city,address.state,address.country,address.postalCode,leadStatus.name,leadStatus.statusOrder,leadStatus.colour,leadStatus.isDefault,leadStatus.notes,status,source.name,createdAt,updatedAt',
+                  fields: '_id,_productId,type,unitPrice,availableStock,name,description,notes,_locationId,status,maxQuantityPerOrderNumber,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
                   console.log('raw', raw);
                   dataSet = raw;
               
-                  if (typeof raw.leadEntries !== 'undefined') {
-                    dataSet = raw.leadEntries;
+                  if (typeof raw.ecommerceStock !== 'undefined') {
+                    dataSet = raw.ecommerceStock;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -54,7 +54,7 @@ const LeadEntries = (function () {
       
           pagination: true,
           search: {
-            input: $('#createLeadEntriesTable'),
+            input: $('#createEcommerceStockTable'),
             key: 'generalSearch',
           },
       
@@ -81,112 +81,40 @@ const LeadEntries = (function () {
               }
             },
             {
-              field: 'title',
-              title: 'Title',
+              field: '_productId',
+              title: 'Product ID',
             },
             {
-              field: '_categoryId',
-              title: 'Category ID',
+              field: 'type',
+              title: 'Type',
             },
             {
-              field: 'company',
-              title: 'Company',
+              field: 'unitPrice',
+              title: 'Unit Price',
+            },
+            {
+              field: 'availableStock',
+              title: 'Available Stock',
             },
             {
               field: 'description',
               title: 'Description',
             },
             {
-              field: 'email',
-              title: 'Email',
+              field: 'notes',
+              title: 'Notes',
             },
             {
-              field: 'website',
-              title: 'website',
-            },
-            {
-              field: 'assignedTo',
-              title: 'Assigned TO',
-            },
-            {
-              field: '_sourceId',
-              title: 'Source ID',
-            },
-            {
-              field: 'lastContact',
-              title: 'Last Contact',
-            },
-            {
-              field: 'priority',
-              title: 'Priority',
-            },
-            {
-              field: 'dateConverted',
-              title: 'Date Converted',
-            },
-            {
-              field: 'lost',
-              title: 'Lost',
-            },
-            {
-              field: 'lastLeadStatus',
-              title: 'Last Lead Status',
-            },
-            {
-              field: 'lastStatusChange',
-              title: 'Last Status Change',
+              field: '_locationId',
+              title: 'Location ID',
             },
             {
               field: 'status',
               title: 'Status',
             },
             {
-              field: 'address.address1',
-              title: 'Address',
-            },
-            {
-              field: 'address.street',
-              title: 'Street',
-            },
-            {
-              field: 'address.city',
-              title: 'City',
-            },
-            {
-              field: 'address.state',
-              title: 'State',
-            },
-            {
-              field: 'address.country',
-              title: 'Country',
-            },
-            {
-              field: 'address.postalCode',
-              title: 'Postal Code',
-            },
-            {
-              field: 'source.name',
-              title: 'Source Name',
-            },
-            {
-              field: 'leadStatus.name',
-              title: 'Last Status Name',
-            },
-            {
-              field: 'leadStatus.statusOrder',
-              title: 'Lead Status Order',
-            },
-            {
-              field: 'leadStatus.colour',
-              title: 'Lead Status Colour',
-            },
-            {
-              field: 'leadStatus.isDefault',
-              title: 'Lead Status Default',
-            },
-            {
-              field: 'leadStatus.notes',
-              title: 'Lead Status Notes',
+              field: 'maxQuantityPerOrderNumber',
+              title: 'Maximum Quantity Per Order',
             },
             {
               field: 'createdBy',
@@ -321,12 +249,12 @@ const LeadEntries = (function () {
     return {
       // public functions
       init: function () {
-        leadEntriesTable();
+        ecommerceStockTable();
       },
     };
   })();
   
   jQuery(document).ready(function () {
-    LeadEntries.init();
+    EcommerceStock.init();
   });
   

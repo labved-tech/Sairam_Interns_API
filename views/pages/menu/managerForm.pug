@@ -30,57 +30,8 @@ block content
                                     div(class=' col-12')
                                         select#demoSelect2Single(class='form-control select2' name='demoSelect2Single')
 
-                                #kt_tree_1(class='tree-demo')
-                                    ul
-                                        li
-                                            | Root node 1
-                                            ul
-                                                li(data-jstree='{ "selected" : true }')
-                                                    a(href='javascript:;')
-                                                        | Initially selected
-                                                li(data-jstree='{ "icon" : "flaticon2-gear text-success " }')
-                                                    | custom icon URL
-                                                li(data-jstree='{ "opened" : true }')
-                                                    | initially open
-                                                    ul
-                                                        li(data-jstree='{ "disabled" : true }')
-                                                            | Disabled Node
-                                                        li(data-jstree='{ "type" : "file" }')
-                                                            | Another node
-                                                li(data-jstree='{ "icon" : "flaticon2-rectangular text-danger" }')
-                                                    | Custom icon class (bootstrap)
-                                        li(data-jstree='{ "type" : "file" }')
-                                            a(href='http://www.keenthemes.com')
-                                                | Clickable link node
-
                                 #treeMenuPreview(class='tree-demo')
-                                    ul
-                                        li
-                                            | Aside
-                                            ul
-                                                li(data-jstree='{ "selected" : true }')
-                                                    a(href='#')
-                                                        | Initially selected
-                                                    ul
-                                                        li(data-jstree='{ "selected" : true }')
-                                                            a(href='#')
-                                                                | test
-
-                                                li(data-jstree='{ "icon" : "flaticon2-gear text-success " }')
-                                                    | custom icon URL
-                                                li(data-jstree='{ "opened" : true }')
-                                                    | initially open
-                                                    ul
-                                                        li(data-jstree='{ "disabled" : true }')
-                                                            | Disabled Node
-                                                        li(data-jstree='{ "type" : "file" }')
-                                                            | Another node
-                                                li(data-jstree='{ "icon" : "flaticon2-rectangular text-danger" }')
-                                                    | Custom icon class (bootstrap)
-                                        li(data-jstree='{ "type" : "file" }')
-                                            a(href='http://www.keenthemes.com')
-                                                | Top
-
+                                    
                         // end::Card
 
                     div(class='col-lg-8')
@@ -148,7 +99,29 @@ block content
                                                             div(class='row  text-right')
                                                                 div(class='col-lg-12 ml-lg-auto')
                                                                     button#menuSectionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Create
+                                                                    div(class='btn-group')
+                                                                        button(type='button' class='btn btn-primary font-weight-bold')
+                                                                            i(class='ki ki-check icon-sm')
+                                                                            | 					Save Form
+                                                                        button(type='button' class='btn btn-primary dropdown-toggle dropdown-toggle-split' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                                                    
+                                                                        div(class='dropdown-menu dropdown-menu-sm dropdown-menu-right')
+                                                                            ul(class='nav nav-hover flex-column')
+                                                                                li(class='nav-item')
+                                                                                    a(href='#' class='nav-link')
+                                                                                        i(class='nav-icon flaticon2-reload')
+                                                                                        span(class='nav-text') Create
+                                                                                li(class='nav-item')
+                                                                                    a(href='#' class='nav-link')
+                                                                                        i(class='nav-icon flaticon2-add-1')
+                                                                                        span(class='nav-text') Update
+                                                                                li(class='nav-item')
+                                                                                    a(href='#' class='nav-link')
+                                                                                        i(class='nav-icon flaticon2-power')
+                                                                                        span(class='nav-text') Delete
                                                                     button(type='reset' class='btn btn-light-primary font-weight-bold') Reset 
+
+
 
                                         #item(class='tab-pane fade' role='tabpanel' aria-labelledby='item-tab')
                                             div(class='card-body')

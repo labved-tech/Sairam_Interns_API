@@ -15,6 +15,9 @@ router.param('id', contractEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(contractEntriesController.getAllTableContractEntries);
+router
   .route('/')
   .get(contractEntriesController.getAllContractEntries)
   .post(contractEntriesController.createContractEntries);

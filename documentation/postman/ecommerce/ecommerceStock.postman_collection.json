@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "78709138-c4d4-459d-806f-983812ef3032",
+		"_postman_id": "baaf1619-3e98-4787-b6de-93e1d05c0b5d",
 		"name": "ecommerceStock",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_productId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"type\": \"abc\",\r\n  \"unitPrice\": 5,\r\n  \"discount\": [\r\n    {\r\n      \"createdBy\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discountVol\": 8,\r\n      \"discountPercent\": 5,\r\n      \"Name\": \"viky\",\r\n      \"Description\": \"man\"\r\n    }\r\n  ],\r\n  \"availableStock\": 6,\r\n  \"tax\": [\r\n    {\r\n      \"CGST\": \"abcc\",\r\n      \"SGST\": \" def\",\r\n      \"IGST\": \" ijk\"\r\n    }\r\n  ],\r\n  \"Name\": \"ghu\",\r\n  \"Description\": \"xxyyzz\",\r\n  \"Notes\":\"done\",\r\n  \"_locationId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"pqr\",\r\n  \"maxQuantityPerOrderNumber\": 6\r\n}",
+					"raw": "{\r\n  \"_productId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"type\": \"abc\",\r\n  \"unitPrice\": 5,\r\n  \"discount\": [\r\n    {\r\n      \"createdBy\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discountVol\": 8,\r\n      \"discountPercent\": 5,\r\n      \"Name\": \"viky\",\r\n      \"Description\": \"man\"\r\n    }\r\n  ],\r\n  \"availableStock\": 6,\r\n  \"tax\": [\r\n    {\r\n      \"CGST\": \"abcc\",\r\n      \"SGST\": \" def\",\r\n      \"IGST\": \" ijk\"\r\n    }\r\n  ],\r\n  \"name\": \"ghu\",\r\n  \"description\": \"xxyyzz\",\r\n  \"notes\":\"done\",\r\n  \"_locationId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"pqr\",\r\n  \"maxQuantityPerOrderNumber\": 6\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -153,7 +153,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"_productId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"type\": \"abc\",\r\n  \"unitPrice\": 5,\r\n  \"discount\": [\r\n    {\r\n      \"createdBy\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discountVol\": 8,\r\n      \"discountPercent\": 5,\r\n      \"Name\": \"viky\",\r\n      \"Description\": \"man\"\r\n    }\r\n  ],\r\n  \"availableStock\": 6,\r\n  \"tax\": [\r\n    {\r\n      \"CGST\": \"abcc\",\r\n      \"SGST\": \" def\",\r\n      \"IGST\": \" ijk\"\r\n    }\r\n  ],\r\n  \"Name\": \"ghu\",\r\n  \"Description\": \"xxyyzz\",\r\n  \"Notes\":\"done\",\r\n  \"_locationId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"pqr\",\r\n  \"maxQuantityPerOrderNumber\": 6\r\n}",
+					"raw": "{\r\n  \"_productId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"type\": \"abc\",\r\n  \"unitPrice\": 5,\r\n  \"discount\": [\r\n    {\r\n      \"createdBy\": \"5f990bb3c727e952a076f3b7\",\r\n      \"discountVol\": 8,\r\n      \"discountPercent\": 5,\r\n      \"Name\": \"viky\",\r\n      \"Description\": \"man\"\r\n    }\r\n  ],\r\n  \"availableStock\": 6,\r\n  \"tax\": [\r\n    {\r\n      \"CGST\": \"abcc\",\r\n      \"SGST\": \" def\",\r\n      \"IGST\": \" ijk\"\r\n    }\r\n  ],\r\n  \"name\": \"ghu\",\r\n  \"description\": \"xxyyzz\",\r\n  \"notes\":\"done\",\r\n  \"_locationId\":\"5f990bb3c727e952a076f3b7\",\r\n  \"status\": \"pqr\",\r\n  \"maxQuantityPerOrderNumber\": 6\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
