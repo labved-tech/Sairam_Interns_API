@@ -18,7 +18,7 @@ const LeadEntries = (function () {
                 method: 'get',
                 url: `${HOST_URL}/api/v1/lead/entries/table`,
                 params: {
-                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,status,source,leadStatus,contactInformationcreatedAt,updatedAt',
+                  fields: '_id,name,title,_categoryId,company,description,email,website,assignedTo,_sourceId,lastContact,priority,dateConverted,lost,lastLeadStatus,lastStatusChange,address.address1,address.street,address.city,address.state,address.country,address.postalCode,leadStatus.name,leadStatus.statusOrder,leadStatus.colour,leadStatus.isDefault,leadStatus.notes,status,source.namecreatedAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
@@ -139,6 +139,54 @@ const LeadEntries = (function () {
             {
               field: 'status',
               title: 'Status',
+            },
+            {
+              field: 'address.address1',
+              title: 'Address',
+            },
+            {
+              field: 'address.street',
+              title: 'Street',
+            },
+            {
+              field: 'address.city',
+              title: 'City',
+            },
+            {
+              field: 'address.state',
+              title: 'State',
+            },
+            {
+              field: 'address.country',
+              title: 'Country',
+            },
+            {
+              field: 'address.postalCode',
+              title: 'Postal Code',
+            },
+            {
+              field: 'source.name',
+              title: 'Source Name',
+            },
+            {
+              field: 'leadStatus.name',
+              title: 'Last Status Name',
+            },
+            {
+              field: 'leadStatus.statusOrder',
+              title: 'Lead Status Order',
+            },
+            {
+              field: 'leadStatus.colour',
+              title: 'Lead Status Colour',
+            },
+            {
+              field: 'leadStatus.isDefault',
+              title: 'Lead Status Default',
+            },
+            {
+              field: 'leadStatus.notes',
+              title: 'Lead Status Notes',
             },
             {
               field: 'createdBy',
