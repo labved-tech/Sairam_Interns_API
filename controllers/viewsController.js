@@ -261,15 +261,15 @@ exports.packingList = (req, res) => {
   res.status(200).render('./../views/pages/sales-finance/packingList');
 };
 exports.packingListBox = (req, res) => {
-  console.log('We are in Packing List Form Page');
+  console.log('We are in Packing List Box Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingListBox');
 };
 exports.packingListItem = (req, res) => {
-  console.log('We are in Packing List Form Page');
+  console.log('We are in Packing List Item Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingListItem');
 };
 exports.packingListShipping = (req, res) => {
-  console.log('We are in Packing List Form Page');
+  console.log('We are in Packing List Shipping Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingListShipping');
 };
 exports.quotation = (req, res) => {
@@ -286,6 +286,15 @@ exports.performaInvoice = (req, res) => {
   console.log('We are in Performa Invoice Form Page');
   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
 };
+
+// exports.performaInvoice = (req, res) => {
+//   console.log('We are in Performa Invoice Form Page');
+//   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
+// };
+// exports.performaInvoice = (req, res) => {
+//   console.log('We are in Performa Invoice Form Page');
+//   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
+// };
 
 exports.addressTable = (req, res) => {
   console.log('We are in Address Table Page');

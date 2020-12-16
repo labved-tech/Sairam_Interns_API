@@ -155,6 +155,43 @@ const SalesFinanceCRUD = (function () {
         const dnReceivedBy = KTUtil.getById('dnReceivedBy');
         const dnFileProof = KTUtil.getById('dnFileProof');
 
+    // Dropdown List : Single Select1 With Search
+    $('dnShipMethod').selectpicker({
+    });
+        // Number : Number Controls Same Sides: Box Length
+        $('#dnSourceGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+        // Number : Number Controls Same Sides: Box Length
+        $('#dnCosigneeGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+
+
         if (!createDeliveryNoteForm) {
             return;
         }
