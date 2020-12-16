@@ -130,6 +130,14 @@ block content
                                                 div(class='typeahead')
                                                     input#deMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='deMeta' placeholder='')
 
+                                        //deCommentCount
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Comment Count
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#deCommentCount(type='text' class='form-control' name='deCommentCount' placeholder='Enter your email')
+                                                span(class='form-text text-muted')
+
                                         //deCategories
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Categories 

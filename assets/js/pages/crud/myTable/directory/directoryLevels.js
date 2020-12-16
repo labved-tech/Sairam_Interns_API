@@ -7,7 +7,7 @@ const directoryTable = (function () {
     var dataSet;
     // Private functions
 
-    const directoryLevelsTable = async () => {
+    const _directoryLevelsTable = async () => {
 
         const options = {
             // datasource definition
@@ -18,7 +18,7 @@ const directoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/Levels/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: '_id, name, description, activePeriod, changeLevelId, listingsInPackage, riseUpEnabled, sticky, featured, ownPage, unlimitedCategories, map, mapMakers, logoEnabled, imageLimit, videoLimit, contentFields, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,24 +71,68 @@ const directoryTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
+                    field: 'description',
+                    title: 'Description',
                 },
                 {
-                    field: 'priority',
-                    title: 'Priority',
+                    field: 'activePeriod',
+                    title: 'ActivePeriod',
                 },
                 {
-                    field: 'expires',
-                    title: 'Expires In',
+                    field: 'changeLevelId',
+                    title: 'ChangeLevelId',
                 },
                 {
-                    field: 'status',
-                    title: 'Status',
+                    field: 'listingsInPackage',
+                    title: 'ListingsInPackage',
+                },
+                {
+                    field: 'riseUpEnabled',
+                    title: 'RiseUpEnabled',
+                },
+                {
+                    field: 'sticky',
+                    title: 'Sticky',
+                },
+                {
+                    field: 'featured',
+                    title: 'Featured',
+                },
+                {
+                    field: 'ownPage',
+                    title: 'OwnPage',
+                },
+                {
+                    field: 'unlimitedCategories',
+                    title: 'UnlimitedCategories',
+                },
+                {
+                    field: 'map',
+                    title: 'Map',
+                },
+                {
+                    field: 'mapMakers',
+                    title: 'MapMakers',
+                },
+                {
+                    field: 'logoEnabled',
+                    title: 'LogoEnabled',
+                },
+                {
+                    field: 'imageLimit',
+                    title: 'ImageLimit',
+                },
+                {
+                    field: 'videoLimit',
+                    title: 'VideoLimit',
+                },
+                {
+                    field: 'contentFields',
+                    title: 'ContentFields',
                 },
                 {
                     field: 'createdBy',
@@ -223,7 +267,7 @@ const directoryTable = (function () {
     return {
         // public functions
         init: function () {
-            directoryLevelsTable();
+            _directoryLevelsTable();
         },
     };
 })();

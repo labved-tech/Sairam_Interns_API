@@ -634,6 +634,7 @@ const DirectoryCRUD = (function () {
         const deName = KTUtil.getById('deName');
         const deParentId = KTUtil.getById('deParentId');
         const deCommentStatus = KTUtil.getById('deCommentStatus');
+        const deCommentCount = KTUtil.getById('deCommentCount');
         const deMeta = KTUtil.getById('deMeta');
         const deCategories = KTUtil.getById('deCategories');
         const deLevel = KTUtil.getById('deLevel');
@@ -742,6 +743,13 @@ const DirectoryCRUD = (function () {
                         },
                     },
                 },
+                deCommentCount: {
+                    validators: {
+                        notEmpty: {
+                            message: 'CommentCount is required',
+                        },
+                    },
+                },
                 deMeta: {
                     validators: {
                         notEmpty: {
@@ -804,6 +812,7 @@ const DirectoryCRUD = (function () {
                         name: deName.value,
                         parentId: deParentId.value,
                         commentStatus: deCommentStatus.value,
+                        CommentCount: deCommentCount.value,
                         meta: deMeta.value,
                         categories: deCategories.value,
                         level: deLevel.value,

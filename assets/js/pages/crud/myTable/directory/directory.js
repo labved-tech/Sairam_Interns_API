@@ -7,7 +7,7 @@ const DirectoryTable = (function () {
     var dataSet;
     // Private functions
 
-    const directoryTable = async () => {
+    const _directoryTable = async () => {
 
         const options = {
             // datasource definition
@@ -18,7 +18,7 @@ const DirectoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: '_id, name, single, plural, slug, categories, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,24 +71,20 @@ const DirectoryTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
+                    field: 'single',
+                    title: 'Single',
                 },
                 {
-                    field: 'priority',
-                    title: 'Priority',
+                    field: 'slug',
+                    title: 'Slug',
                 },
                 {
-                    field: 'expires',
-                    title: 'Expires In',
-                },
-                {
-                    field: 'status',
-                    title: 'Status',
+                    field: 'categories',
+                    title: 'Categories',
                 },
                 {
                     field: 'createdBy',
@@ -223,7 +219,7 @@ const DirectoryTable = (function () {
     return {
         // public functions
         init: function () {
-            directoryTable();
+            _directoryTable();
         },
     };
 })();
