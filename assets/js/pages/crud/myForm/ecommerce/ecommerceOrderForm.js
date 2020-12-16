@@ -206,7 +206,7 @@ const EcommerceOrderCRUD = (function () {
                     _userId: eoUserID.value
                 },
             }).then(function (res) {
-            KTUtil.btnRelease(epFormSubmitButton);
+            KTUtil.btnRelease(eoFormSubmitButton);
                 console.log(res);
                 
                 // TOASTR EXAMPLE
