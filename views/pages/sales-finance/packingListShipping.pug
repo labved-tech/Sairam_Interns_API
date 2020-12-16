@@ -1,0 +1,76 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content  
+     #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Packing List
+                    div(class='card-body')
+                        // begin::Form
+                        form#createPackingListShippingForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //Shipping
+                                        h3(class=' text-dark font-weight-bold mb-10') Shipping
+
+                                        //plShippingMethod
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Shipping Method
+                                            div(class='col-4')
+                                                select#plShippingMethod(class='form-control selectpicker' data-size='7' data-live-search='true'  name='plShippingMethod')
+                                                    option(value='' disabled='' selected='') Choose Method
+                                                    option(value='dhl') DHL
+                                                    option(value='fedx') FedX
+                                                    option(value='other') Other
+
+                                        //plCarrierName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Name
+                                            div(class='col-4')
+                                                input#plCarrierName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plCarrierName' placeholder='')
+
+                                        //plCarrierTrackingNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Tracking No
+                                            div(class='col-4')
+                                                input#plCarrierTrackingNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plCarrierTrackingNo' placeholder='')
+
+                                        //plShippingNotes
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='plShippingNotes')
+                                                | Shipping Notes
+                                                span(class='text-danger') *
+                                            div(class='col-7 ')
+                                                textarea#plShippingNotes(class='form-control' name ='plShippingNotes' rows='4')
+                                                span(class='form-text text-muted') Add Shipping Notes
+
+                                        //plFileProof
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') File Proof
+                                            div(class='col-4')
+                                                input#plFileProof(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plFileProof' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#plShippingFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
