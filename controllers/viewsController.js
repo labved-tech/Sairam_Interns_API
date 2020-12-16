@@ -592,6 +592,11 @@ exports.ecommerceOrder = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceOrder');
 };
 
+exports.ecommerceOrderItems = (req, res) => {
+  console.log('We are in Ecommerce Order : Items Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceOrderItems');
+};
+
 exports.ecommerceProducts = (req, res) => {
   console.log('We are in Ecommerce Order Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceProducts');
