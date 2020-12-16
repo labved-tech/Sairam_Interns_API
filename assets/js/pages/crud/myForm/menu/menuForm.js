@@ -85,9 +85,6 @@ const menuCRUD = (function () {
         });
     };
 
-
-
-
     const _createMenuSectionForm = function () {
 
         // Getting Document related information
@@ -219,13 +216,21 @@ const menuCRUD = (function () {
             };
 
             if (res.data.status == 'success') {
+                // hiding modal form
+                $('#exampleModal').modal('hide');
+
+                // show sucess toastr
                 toastr.success(`${res.data.message}`, `${res.data.status}`);
+
+                // reload table
+                $('#kt_datatable_2').KTDatatable().reload();
+
+
             } else if (res.data.status == 'error') {
                 toastr.error(`${res.data.message}`, `${res.data.status}`)
                 }
             else {
                     $('#exampleModal').modal('hide');
-                    return false;
                 }
             });
 
@@ -514,7 +519,7 @@ const menuCRUD = (function () {
                   method: 'get',
                   url: `${HOST_URL}/api/v1/menu/section/table`,
                   params: {
-                    fields: '_id,name,createdBy,createdAt,updatedAt',
+                    fields: '_id, name, description, priority, createdBy,createdAt,updatedAt',
                   },
                   map: function(raw) {
                     // sample data mapping
@@ -583,10 +588,10 @@ const menuCRUD = (function () {
               {
                 field: 'priority',
                   title: 'Priority',
-                  template: function (row) {
-                      return '\
-                    ';
-                }
+                //   template: function (row) {
+                //       return '\
+                //     ';
+                // }
               },
               {
                 field: 'details',

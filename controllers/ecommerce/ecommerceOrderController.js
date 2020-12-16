@@ -138,20 +138,20 @@ exports.getEcommerceOrder = catchAsync(async (req, res, next) => {
 exports.createEcommerceOrder = catchAsync(async (req, res, next) => {
   console.log('Creating EcommerceOrder');
   const { body } = req;
-
+  console.log(body)
   // parse through models
   const doc = new EcommerceOrder(req.body);
 
-  //  arrayOfObject
-  if (doc.arrayOfObject) {
-    const arrayOfObjectLength = doc.arrayOfObject.length;
-    console.log(`arrayOfObject length ${arrayOfObjectLength}`);
+  //  items
+  if (doc.items) {
+    const itemsLength = doc.items.length;
+    console.log(`items length ${itemsLength}`);
 
-    for (let i = 0; i < arrayOfObjectLength; i++) {
-      doc.arrayOfObject[i].createdBy = '5f990bb3c727e952a076f3b7';
-      doc.arrayOfObject[i].updatedBy = '5f990bb3c727e952a076f3b7';
-      doc.arrayOfObject[i].createdAt = Date.now();
-      doc.arrayOfObject[i].updatedAt = Date.now();
+    for (let i = 0; i < itemsLength; i++) {
+      doc.items[i].createdBy = '5f990bb3c727e952a076f3b7';
+      doc.items[i].updatedBy = '5f990bb3c727e952a076f3b7';
+      doc.items[i].createdAt = Date.now();
+      doc.items[i].updatedAt = Date.now();
     }
   }
 
