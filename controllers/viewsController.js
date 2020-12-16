@@ -566,6 +566,16 @@ exports.ecommerceStock = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceStock');
 };
 
+exports.ecommerceStockDiscount = (req, res) => {
+  console.log('We are in Ecommerce Stock : Discount Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockDiscount');
+};
+
+exports.ecommerceStockTax = (req, res) => {
+  console.log('We are in Ecommerce Stock : Tax Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockTax');
+};
+
 exports.ecommerceOrder = (req, res) => {
   console.log('We are in Ecommerce Order Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceOrder');

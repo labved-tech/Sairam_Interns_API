@@ -1,10 +1,11 @@
 extends ./../../base.pug
 
 block css-files
-   
+
 block js-files
     script(src='/plugins/global/axios/axios.min.js')
-    script(src='/js/pages/crud/myForm/ecommerce/ecommerceOrderbForm.js')
+    script(src='/js/pages/crud/myForm/ecommerce/ecommerceOrderForm.js' )
+    
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -16,68 +17,17 @@ block content
                 // begin::Card
                 div(class='card card-custom')
                     div(class='card-header')
-                        h3(class='card-title') Ecommerce Order
+                        h3(class='card-title')
+                            | Ecommerce Order
                     div(class='card-body')
                         // begin::Form
                         form#createEcommerceOrderForm(class='form')
                             div(class='row')
-                                div(class='col-md-1')
-                                div(class='col-xl-6')
-                                    div(class='my-5')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5') 
 
-                                        //eoItem
-                                        h3(class=' text-dark font-weight-bold mb-10') Items
-
-
-                                        //eoID
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') ID
-                                            div(class='col-6')
-                                                div(class='typeahead')
-                                                    input#eoID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoID' placeholder='')
-
-                                        //eoProductName
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  Product Name
-                                            div(class='col-5')
-                                                input#eoProductName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoProductName' placeholder='')
-
-                                        //epProductID
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Product ID
-                                            div(class='col-5')
-                                                input#epProductID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epProductID' placeholder='')
-
-                                        //eoHSN
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') HSN Code 
-                                            div(class='col-5')
-                                                input#eoHSN(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoHSN' placeholder='')
-
-                                        //eoQuantity
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Quantity
-                                            div(class='col-5')
-                                                input#eoQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoQuantity' placeholder='')
-
-                                        //eoUnitPrice
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Unit Price
-                                            div(class='col-5')
-                                                input#eoUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoUnitPrice' placeholder='')
-
-                                        //eoMeta
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Meta
-                                            div(class='col-6')
-                                                div(class='typeahead')
-                                                    input#eoMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoMeta' placeholder='')
-
-                                        //eoDiscount
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Discount
-                                            div(class='col-5')
-                                                input#eoDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoDiscount' placeholder='')
+                                        h3(class=' text-dark font-weight-bold mb-10') General
 
                                         //eoNumItems
                                         div(class='form-group row')
@@ -114,6 +64,12 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Net Total
                                             div(class='col-5')
                                                 input#eoNetTotal(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoNetTotal' placeholder='')
+                                        
+                                        //eoStatus
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
+                                            div(class='col-5')
+                                                input#eoStatus(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoStatus' placeholder='')
 
                                         //eoUserID
                                         div(class='form-group row')
@@ -122,44 +78,10 @@ block content
                                                 div(class='typeahead')
                                                     input#eoUserID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoUserID' placeholder='')
 
-                                        //eoTax
-                                        h3(class=' text-dark font-weight-bold mb-10') Tax
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  CGST 
-                                            div(class='col-5')
-                                                input#eoCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoCGST' placeholder='')
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  SGST 
-                                            div(class='col-5')
-                                                input#eoSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoSGST' placeholder='')
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  IGST
-                                            div(class='col-5')
-                                                input#eoIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoIGST' placeholder='')
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate CGST
-                                            div(class='col-5')
-                                                input#calcCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcCGST' placeholder='')
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate SGST
-                                            div(class='col-5')
-                                                input#calcSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcSGST' placeholder='')
-
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate IGST
-                                            div(class='col-5')
-                                                input#calcIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcIGST' placeholder='')
-
-
                             div(class='card-footer')
                                 div(class='row text-right')
                                     div(class='col-12 ml-lg-auto')
-                                        button#eoFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button#createEcommerceOrderFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
                                         button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
                         // end::Form
                 // end::Card

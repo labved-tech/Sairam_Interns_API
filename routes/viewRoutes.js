@@ -184,6 +184,8 @@ router.get('/ecommerce/address/', viewsController.ecommerceAddress);
 router.get('/ecommerce/locations/', viewsController.ecommerceLocations);
 router.get('/ecommerce/locations/verify-documents', viewsController.ecommerceLocationsVerifyDocuments);
 router.get('/ecommerce/stock/', viewsController.ecommerceStock);
+router.get('/ecommerce/stock/discount', viewsController.ecommerceStockDiscount);
+router.get('/ecommerce/stock/tax', viewsController.ecommerceStockTax);
 router.get('/ecommerce/order/', viewsController.ecommerceOrder);
 router.get('/ecommerce/products/', viewsController.ecommerceProducts);
 router.get('/ecommerce/address/table', viewsController.ecommerceAddressTable);
