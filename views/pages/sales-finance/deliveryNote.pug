@@ -36,6 +36,8 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') Tax Invoice Number
                                             div(class='col-4')
                                                 input#dnTaxInvoiceNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='dnTaxInvoiceNo' placeholder='')
+                                        //Source
+                                        h3(class=' text-dark font-weight-bold mb-10') Source
 
                                         // dnSource
                                         div(class='form-group row')
@@ -61,13 +63,15 @@ block content
                                         //dnSourceGST
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Source GST
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#dnSourceGST(type='text' class='form-control' name='dnSourceGST' placeholder='')
+                                            div(class='col-4')
+                                                input#dnSourceGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='dnSourceGST' placeholder='')
+
+                                        //Cosignee
+                                        h3(class=' text-dark font-weight-bold mb-10') Cosignee
 
                                         //dnCosignee
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee Name
                                                 span(class='text-danger')  
                                             div(class='col-6')
                                                 input#dnCosignee(type='text' class='form-control' name='dnCosignee' placeholder='')
@@ -95,10 +99,11 @@ block content
 
                                         //dnCosigneeGST
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee GST 
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#dnCosigneeGST(type='text' class='form-control' name='dnCosigneeGST' placeholder='')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee GST
+                                            div(class='col-4')
+                                                input#dnCosigneeGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='dnCosigneeGST' placeholder='')
+                                        //Shipping
+                                        h3(class=' text-dark font-weight-bold mb-10') Shipping
 
                                         //dnBox
                                         div(class='form-group row')
@@ -109,12 +114,13 @@ block content
 
                                         //dnShipMethod
                                         div(class='form-group row')
-                                            label(class=' col-3 col-form-label form-control-label text-right ') Shipping Method
-                                            div(class='col-5')
-                                                select#dnShipMethod(class='form-control selectpicker' multiple=''  data-live-search='true' name='dnShipMethod' )
-                                                    option FedEx
-                                                    option DHL      
-                                                span(class='form-text text-muted') Select Shipping                                
+                                            label(class='col-3 col-form-label form-control-label text-right') Shipping Method
+                                            div(class='col-4')
+                                                select#dnShipMethod(class='form-control selectpicker' data-size='7' data-live-search='true'  name='dnShipMethod')
+                                                    option(value='' disabled='' selected='') Choose Method
+                                                    option(value='dhl') DHL
+                                                    option(value='fedx') FedX
+                                                    option(value='other') Other
 
                                         //dnCarrierName
                                         div(class='form-group row')
