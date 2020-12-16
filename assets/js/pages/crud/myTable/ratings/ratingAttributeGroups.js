@@ -7,7 +7,7 @@ const RatingTable = (function () {
     var dataSet;
     // Private functions
 
-    const RatingAttributeGroupsTable = async () => {
+    const _ratingAttributeGroupsTable = async () => {
 
         const options = {
             // datasource definition
@@ -18,7 +18,7 @@ const RatingTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/rating/attribute/groups/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: 'name, attributId, status, description, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,24 +71,20 @@ const RatingTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
-                },
-                {
-                    field: 'priority',
-                    title: 'Priority',
-                },
-                {
-                    field: 'expires',
-                    title: 'Expires In',
+                    field: 'attributId',
+                    title: 'AttributId',
                 },
                 {
                     field: 'status',
                     title: 'Status',
+                },
+                {
+                    field: 'description',
+                    title: 'Description',
                 },
                 {
                     field: 'createdBy',
@@ -223,7 +219,7 @@ const RatingTable = (function () {
     return {
         // public functions
         init: function () {
-            ratingAttributeGroupsTable();
+            _ratingAttributeGroupsTable();
         },
     };
 })();

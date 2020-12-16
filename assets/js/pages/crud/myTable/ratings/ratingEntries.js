@@ -7,7 +7,7 @@ const RatingTable = (function () {
     var dataSet;
     // Private functions
 
-    const ratingEntriesTable = async () => {
+    const _ratingEntriesTable = async () => {
 
         const options = {
             // datasource definition
@@ -16,9 +16,9 @@ const RatingTable = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/rating/entries/table`,
+                        url: `${HOST_URL}/api/v1/ratings/entries/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: 'relType, relId, attributeId, type, value, userId, status, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,20 +71,28 @@ const RatingTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
+                    field: 'relType',
+                    title: 'RelType',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
+                    field: 'relId',
+                    title: 'RelId',
                 },
                 {
-                    field: 'priority',
-                    title: 'Priority',
+                    field: 'attributeId',
+                    title: 'AttributeId',
                 },
                 {
-                    field: 'expires',
-                    title: 'Expires In',
+                    field: 'type',
+                    title: 'Type',
+                },
+                {
+                    field: 'value',
+                    title: 'Value',
+                },
+                {
+                    field: 'userId',
+                    title: 'UserId',
                 },
                 {
                     field: 'status',
@@ -223,7 +231,7 @@ const RatingTable = (function () {
     return {
         // public functions
         init: function () {
-            ratingEntriesTable();
+            _ratingEntriesTable();
         },
     };
 })();
