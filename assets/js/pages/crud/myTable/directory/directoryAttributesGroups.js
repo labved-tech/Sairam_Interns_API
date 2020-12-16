@@ -7,7 +7,7 @@ const DirectoryTable = (function () {
     var dataSet;
     // Private functions
 
-    const directoryAttributesGroupsTable = async () => {
+    const _directoryAttributesGroupsTable = async () => {
 
         const options = {
             // datasource definition
@@ -18,7 +18,7 @@ const DirectoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/attributes/groups/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: '_id, status, name, description, attributes.id, attributes.name, attributes.type, attributes.description, attributes.notes, attributes.notes, attributes.status, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,23 +71,39 @@ const DirectoryTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
-                },
-                {
-                    field: 'from',
-                    title: 'From',
-                },
-                {
-                    field: 'priority',
-                    title: 'Priority',
-                },
-                {
-                    field: 'expires',
-                    title: 'Expires In',
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
                     field: 'status',
+                    title: 'Status',
+                },
+                {
+                    field: 'description',
+                    title: 'Description',
+                },
+                {
+                    field: 'attributes.id',
+                    title: 'Id',
+                },
+                {
+                    field: 'attributes.name',
+                    title: 'Name',
+                },
+                {
+                    field: 'attributes.type',
+                    title: 'Type',
+                },
+                {
+                    field: 'attributes.description',
+                    title: 'Description',
+                },
+                {
+                    field: 'attributes.notes',
+                    title: 'Notes',
+                },
+                {
+                    field: 'attributes.status',
                     title: 'Status',
                 },
                 {
@@ -223,7 +239,7 @@ const DirectoryTable = (function () {
     return {
         // public functions
         init: function () {
-            directoryAttributesGroups();
+            _directoryAttributesGroups();
         },
     };
 })();

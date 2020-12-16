@@ -18,7 +18,8 @@ const DirectoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/entries/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            _sellerId: { type: mongoose.ObjectId },
+                            fields: '_id, author, date, image, message, title, slug, status, location, name, _parentId, commentStatus, commentCount, meta, categories, level, logo, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,24 +72,68 @@ const DirectoryTable = (function () {
                     textAlign: 'center',
                 },
                 {
+                    field: 'author',
+                    title: 'Author',
+                },
+                {
+                    field: 'date',
+                    title: 'Date',
+                },
+                {
+                    field: 'image',
+                    title: 'Image',
+                },
+                {
+                    field: 'message',
+                    title: 'Message',
+                },
+                {
                     field: 'title',
                     title: 'Title',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
+                    field: 'slug',
+                    title: 'Slug',
                 },
                 {
-                    field: 'priority',
-                    title: 'Priority',
-                },
-                {
-                    field: 'expires',
-                    title: 'Expires In',
+                    field: '_sellerId',
+                    title: 'SellerId',
                 },
                 {
                     field: 'status',
                     title: 'Status',
+                },
+                {
+                    field: 'location',
+                    title: 'Location',
+                },
+                {
+                    field: 'name',
+                    title: 'Name',
+                },
+                {
+                    field: '_parentId',
+                    title: 'ParentId',
+                },
+                {
+                    field: 'commentStatus',
+                    title: 'CommentStatus',
+                },
+                {
+                    field: 'meta',
+                    title: 'Meta',
+                },
+                {
+                    field: 'categories',
+                    title: 'Categories',
+                },
+                {
+                    field: 'level',
+                    title: 'Level',
+                },
+                {
+                    field: 'logo',
+                    title: 'Logo',
                 },
                 {
                     field: 'createdBy',

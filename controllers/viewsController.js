@@ -567,9 +567,24 @@ exports.ecommerceLocations = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceLocations');
 };
 
+exports.ecommerceLocationsVerifyDocuments = (req, res) => {
+  console.log('We are in Ecommerce Location : Verify Documents Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceLocationsVerifyDocuments');
+};
+
 exports.ecommerceStock = (req, res) => {
   console.log('We are in Ecommerce Stock Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceStock');
+};
+
+exports.ecommerceStockDiscount = (req, res) => {
+  console.log('We are in Ecommerce Stock : Discount Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockDiscount');
+};
+
+exports.ecommerceStockTax = (req, res) => {
+  console.log('We are in Ecommerce Stock : Tax Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockTax');
 };
 
 exports.ecommerceOrder = (req, res) => {

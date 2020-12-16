@@ -112,48 +112,6 @@ block content
                                             div(class='col-6')
                                                 input#elaciInfo(type='text' class='form-control' name='elaciInfo' placeholder='')                                      
 
-                                        h3(class=' text-dark font-weight-bold mb-10') Verify Documents 
-
-                                        #elVerifyDocuments
-                                            #elVerifyDocuments(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') 
-                                                div(data-repeater-list='', class='col-9')
-                                                    div(data-repeater-item='', class='form-group row align-items-center')
-
-                                                        div(class='form-group row')
-                                                            label(class='col-3 col-form-label form-control-label text-right') Name 
-                                                            div(class='col-6')
-                                                                input#elvdName(type='text' class='form-control' name='elvdName' placeholder='')                                      
-
-
-                                                        div(class='form-group row')
-                                                            label(class='col-3 col-form-label form-control-label text-right') URL 
-                                                            div(class='col-7')
-                                                                div(class='typeahead')
-                                                                    input#elvdURL(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elvdURL' placeholder='')
-                                                                    span(class='form-text text-muted') Should be as mentioned.
-
-                                                        div(class='form-group row')
-                                                            label(class='col-3 col-form-label form-control-label text-right') Type 
-                                                            div(class='col-7')
-                                                                div(class='typeahead')
-                                                                    input#elvdType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='elvdType' placeholder='')
-                                                                    span(class='form-text text-muted') 
-                                                        
-                                                        div(class='col-md-3')
-                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
-                                                                i(class='la la-trash-o')
-                                                                | Delete
-                                                        
-                                                        span(class='form-text text-muted')
-
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right')
-                                                div(class='col-4')
-                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
-                                                        i(class='la la-plus')
-                                                        | Add
-
                             div(class='card-footer')
                                 div(class='row  text-right')
                                     div(class='col-lg-9 ml-lg-auto')

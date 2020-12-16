@@ -18,7 +18,7 @@ const DirectoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/categories/table`,
                         params: {
-                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
+                            fields: '_id, name, slug, _attributeGroupsId, _ratingAttributeGroupId, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
@@ -71,24 +71,20 @@ const DirectoryTable = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'title',
-                    title: 'Title',
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
-                    field: 'from',
-                    title: 'From',
+                    field: 'slug',
+                    title: 'Slug',
                 },
                 {
-                    field: 'priority',
-                    title: 'Priority',
+                    field: '_attributeGroupsId',
+                    title: 'AttributeGroupsId',
                 },
                 {
-                    field: 'expires',
-                    title: 'Expires In',
-                },
-                {
-                    field: 'status',
-                    title: 'Status',
+                    field: '_ratingAttributeGroupId',
+                    title: 'RatingAttributeGroupId',
                 },
                 {
                     field: 'createdBy',
