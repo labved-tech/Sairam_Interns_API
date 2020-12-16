@@ -138,10 +138,10 @@ exports.getPackingList = catchAsync(async (req, res, next) => {
 exports.createPackingList = catchAsync(async (req, res, next) => {
   console.log('Creating PackingList');
   const { body } = req;
+  console.log(body)
 
   // parse through models
   const doc = new PackingList(body);
-  console.log(body);
 
   // box
   if (doc.box) {

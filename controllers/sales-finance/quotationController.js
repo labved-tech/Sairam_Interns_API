@@ -134,6 +134,9 @@ exports.getQuotation = catchAsync(async (req, res, next) => {
 
 exports.createQuotation = catchAsync(async (req, res, next) => {
   console.log('Creating Quotation');
+  const { body } = req;
+
+
   // parse through models
   const doc = new Quotation(req.body);
   console.log(doc);

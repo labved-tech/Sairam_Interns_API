@@ -31,7 +31,7 @@ block content
                                         //quModuleRef
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Module Reference
-                                                span(class='text-danger')  *
+                                                span(class='text-danger')  
                                             div(class='col-5')
                                                 input#quModuleRef(type='text' class='form-control' name='quModuleRef' placeholder='')
 
@@ -108,14 +108,14 @@ block content
                                             div(class='col-6')
                                                 input#quBuyerContact(type='text' class='form-control' name='quBuyerContact' placeholder='')
 
-                                        //quContactTypeB 
+                                        //quContactTypeB
                                         div(class='form-group row')
-                                            label(class=' col-3 col-form-label form-control-label text-right ')  Buyer Contact Type
-                                            div(class='col-5')
-                                                select#quContactTypeB(class='form-control selectpicker' multiple=''  data-live-search='true' name='quContactTypeB' )
-                                                    option Telephone
-                                                    option Mobile Phone
-                                                span(class='form-text text-muted') Select Contact Type                                  
+                                            label(class='col-3 col-form-label form-control-label text-right') Buyer Contact Type 
+                                            div(class='col-4')
+                                                select#quContactTypeB(class='form-control selectpicker' data-size='7' data-live-search='true'  name='quContactTypeB')
+                                                    option(value='' disabled='' selected='') Select Contact Type  
+                                                    option(value='t') Telephone
+                                                    option(value='ph') Mobile Phone
                                         //General
                                         h3(class=' text-dark font-weight-bold mb-10') Seller Details
 
@@ -163,14 +163,15 @@ block content
                                             div(class='col-4')
                                                 input#quSellerContact(type='text' class='form-control' name='quSellerContact' placeholder='')
 
-                                        //quContactTypeS 
+                                        //quContactTypeS
                                         div(class='form-group row')
-                                            label(class=' col-3 col-form-label form-control-label text-right ')  Seller Contact Type
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller Contact Type
                                             div(class='col-4')
-                                                select#quContactTypeS(class='form-control selectpicker' multiple=''  data-live-search='true' name='quContactTypeS' )
-                                                    option Telephone
-                                                    option Mobile Phone
-                                                span(class='form-text text-muted') Select Contact Type                                  
+                                                select#quContactTypeS(class='form-control selectpicker' data-size='7' data-live-search='true'  name='quContactTypeS')
+                                                    option(value='' disabled='' selected='') Select Contact Type  
+                                                    option(value='t') Telephone
+                                                    option(value='ph') Mobile Phone
+
 
 
                                         //quTermsCondition

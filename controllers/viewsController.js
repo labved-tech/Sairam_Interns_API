@@ -246,16 +246,25 @@ exports.leadEntriesTable = (req, res) => {
 };
 
 // SALES AND FINANCE RELATED CONTROLLER
+   //ADDRESS
 exports.address = (req, res) => {
   console.log('We are in address Form Page');
   res.status(200).render('./../views/pages/sales-finance/address');
 };
-
+exports.addressTable = (req, res) => {
+  console.log('We are in Address Table Page');
+  res.status(200).render('./../views/pages/sales-finance/addressTable');
+};
+    //DELIVERY NOTE
 exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote');
 };
-
+exports.deliveryNoteTable = (req, res) => {
+  console.log('We are in Delivery Note Table Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNoteTable');
+};
+    //PACKING LIST
 exports.packingList = (req, res) => {
   console.log('We are in Packing List Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingList');
@@ -272,54 +281,49 @@ exports.packingListShipping = (req, res) => {
   console.log('We are in Packing List Shipping Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingListShipping');
 };
-exports.quotation = (req, res) => {
-  console.log('We are in Quotation Form Page');
-  res.status(200).render('./../views/pages/sales-finance/quotation');
-};
-
-exports.taxInvoice = (req, res) => {
-  console.log('We are in Tax Invoice Form Page');
-  res.status(200).render('./../views/pages/sales-finance/taxInvoice');
-};
-
-exports.performaInvoice = (req, res) => {
-  console.log('We are in Performa Invoice Form Page');
-  res.status(200).render('./../views/pages/sales-finance/performaInvoice');
-};
-
-// exports.performaInvoice = (req, res) => {
-//   console.log('We are in Performa Invoice Form Page');
-//   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
-// };
-// exports.performaInvoice = (req, res) => {
-//   console.log('We are in Performa Invoice Form Page');
-//   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
-// };
-
-exports.addressTable = (req, res) => {
-  console.log('We are in Address Table Page');
-  res.status(200).render('./../views/pages/sales-finance/addressTable');
-};
-
-exports.deliveryNoteTable = (req, res) => {
-  console.log('We are in Delivery Note Table Page');
-  res.status(200).render('./../views/pages/sales-finance/deliveryNoteTable');
-};
 exports.packingListTable = (req, res) => {
   console.log('We are in Packing List Table Page');
   res.status(200).render('./../views/pages/sales-finance/packingListTable');
 };
-
+    //QUOTATION
+exports.quotation = (req, res) => {
+  console.log('We are in Quotation Form Page');
+  res.status(200).render('./../views/pages/sales-finance/quotation');
+};
 exports.quotationTable = (req, res) => {
   console.log('We are in Quotation Table Page');
   res.status(200).render('./../views/pages/sales-finance/quotationTable');
 };
-
+    //TAX INVOICE
+exports.taxInvoice = (req, res) => {
+  console.log('We are in Tax Invoice Form Page');
+  res.status(200).render('./../views/pages/sales-finance/taxInvoice');
+};
+exports.taxInvoicePayment= (req, res) => {
+  console.log('We are in Tax Invoice Payment Form Page');
+ res.status(200).render('./../views/pages/sales-finance/taxInvoicePayment');
+};
+exports.taxInvoiceItem = (req, res) => {
+ console.log('We are in Tax Invoice  Item Form Page');
+  res.status(200).render('./../views/pages/sales-finance/taxInvoiceItem');
+};
 exports.taxInvoiceTable = (req, res) => {
   console.log('We are in Tax Invoice Table Page');
   res.status(200).render('./../views/pages/sales-finance/taxInvoiceTable');
 };
-
+    //PERFORMA INVOICE
+exports.performaInvoice = (req, res) => {
+  console.log('We are in Performa Invoice Form Page');
+  res.status(200).render('./../views/pages/sales-finance/performaInvoice');
+};
+ exports.performaInvoicePayment= (req, res) => {
+   console.log('We are in Performa Invoice Payment Form Page');
+  res.status(200).render('./../views/pages/sales-finance/performaInvoicePayment');
+ };
+ exports.performaInvoiceItem = (req, res) => {
+  console.log('We are in Performa Invoice  Item Form Page');
+   res.status(200).render('./../views/pages/sales-finance/performaInvoiceItem');
+ };
 exports.performaInvoiceTable = (req, res) => {
   console.log('We are in Performa Invoice Table Page');
   res.status(200).render('./../views/pages/sales-finance/performaInvoiceTable');

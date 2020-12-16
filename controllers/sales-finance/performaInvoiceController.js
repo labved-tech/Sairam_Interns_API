@@ -136,6 +136,8 @@ exports.getPerformaInvoice = catchAsync(async (req, res, next) => {
 exports.createPerformaInvoice = catchAsync(async (req, res, next) => {
   console.log('Creating Performa Invoice');
   const { body } = req;
+  console.log(body)
+
 
   // parse through models
   const doc = new PerformaInvoice(body);

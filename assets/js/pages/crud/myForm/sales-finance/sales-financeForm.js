@@ -400,7 +400,7 @@ const SalesFinanceCRUD = (function () {
     };
     const _createPackingListForm = function () {
         // Getting Document related information
-        const createPackingListForm = KTUtil.getById('createPackingListForm ');
+        const createPackingListForm = KTUtil.getById('createPackingListForm');
         const plFormSubmitButton = KTUtil.getById('plFormSubmitButton');
         const plPackingListNo = KTUtil.getById('plPackingListNo');
         const plTaxInvoiceNo = KTUtil.getById('plTaxInvoiceNo');
@@ -448,28 +448,7 @@ const SalesFinanceCRUD = (function () {
             prefix: '$'
           });  
 
-          $('#plSourceAddress').typeahead(
-            {
-              hint: true,
-              highlight: true,
-              minLength: 1,
-            },
-            {
-              name: 'plSourceAddress'
-              
-            }
-          );
-          $('#plCosigneeAddress').typeahead(
-            {
-              hint: true,
-              highlight: true,
-              minLength: 1,
-            },
-            {
-              name: 'plCosigneeAddress'
-              
-            }
-          );          
+       
       
 
         if (!createPackingListForm) {
@@ -587,12 +566,12 @@ const SalesFinanceCRUD = (function () {
                         packingListnumber: (plPackingListNo.value) * 1,
                         taxInvoiceNumber: (plTaxInvoiceNo.value) * 1,
                         source: plSource.value,
-                        sourceAddress: plSourceAddress.value,
+                        // sourceAddress: plSourceAddress.value,
                         sourceEmail: plSourceEmail.value,
                         sourceContactNumber: plSourceContact.value,
                         sourceGstin: (plSourceGST.value) * 1,
                         consignee: plCosignee.value,
-                        consigneeAddress: plCosigneeAddress.value,
+                        // consigneeAddress: plCosigneeAddress.value,
                         consigneeEmail: plCosigneeEmail.value,
                         consigneeContactNumber: plCosigneeContact.value,
                         consigneeGstin: plCosigneeGST.value,
@@ -1031,7 +1010,7 @@ const SalesFinanceCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/sales-finance/packingList/box`,
+                    url: `${HOST_URL}/api/v1/sales-finance/packing-list`,
                     data: {
                         boxNumber :(plBoxNo.value)*1,
                         length: (plBoxlength.value)*1,
@@ -1168,7 +1147,7 @@ const SalesFinanceCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/sales-finance/packingList/item`,
+                    url: `${HOST_URL}/api/v1/sales-finance/packing-list`,
                     data: {
                         itemCode :plItemCode.value,
                         name: plName.value,
@@ -1289,7 +1268,7 @@ const SalesFinanceCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/sales-finance/packingList/shipping`,
+                    url: `${HOST_URL}/api/v1/sales-finance/packing-list`,
                     data: {
                         shipMethod :plShippingMethod.value,
                         carrierName: plCarrierName.value,

@@ -16,7 +16,7 @@ const PerformaInvoiceTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/performaInvoice/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/performa-invoice/table`,
               params: {
                 fields: '_id, performaInvoiceNo, moduleReferance, header, date, _orderId,orderDate,_buyerId,billingName,billingAddress,billingEmail,billingContactNumber,consigneeName,consigneeAddress,consigneeContactNumber,_sellerId,sellerName,sellerAddress,sellerContactNumber,sellerGSTIN,totalBeforeTax,CGSTTotal,SGSTTotal,IGSTTotal,grandTotal,termsAndConditions,footer,meta,source,performaInvoiceNumber, createdBy,createdAt,updatedAt',
               },

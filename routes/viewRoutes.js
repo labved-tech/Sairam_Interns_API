@@ -86,13 +86,23 @@ router.get(
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);
 router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
+
 router.get('/sales-finance/packingList', viewsController.packingList);
 router.get('/sales-finance/packingList/box', viewsController.packingListBox);
 router.get('/sales-finance/packingList/item', viewsController.packingListItem);
 router.get('/sales-finance/packingList/shipping', viewsController.packingListShipping);
+
 router.get('/sales-finance/quotation', viewsController.quotation);
+
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
+router.get('/sales-finance/taxInvoice/payment', viewsController.taxInvoicePayment);
+router.get('/sales-finance/taxInvoice/item', viewsController.taxInvoiceItem);
+
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
+router.get('/sales-finance/performaInvoice/payment', viewsController.performaInvoicePayment);
+router.get('/sales-finance/performaInvoice/item', viewsController.performaInvoiceItem);
+
+  // SALES AND FINANCE TABLE
 router.get('/sales-finance/address/table', viewsController.addressTable);
 router.get('/sales-finance/deliveryNote/table',viewsController.deliveryNoteTable);
 router.get('/sales-finance/packingList/table',viewsController.packingListTable);

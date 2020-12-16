@@ -22,17 +22,19 @@ const QuotationCRUD = (function () {
     // Private functions
     const _createQuotationForm = function () {
         // Getting Document related information
-        const createQuotationForm = KTUtil.getById('createQuotationForm ');
+        const createQuotationForm = KTUtil.getById('createQuotationForm');
         const quFormSubmitButton = KTUtil.getById('quFormSubmitButton');
         const quModuleRef = KTUtil.getById('quModuleRef');
         const quHeader = KTUtil.getById('quHeader');
         const quDate = KTUtil.getById('quDate');
+
         const quBuyerID = KTUtil.getById('quBuyerID');
         const quBuyerName = KTUtil.getById('quBuyerName');
         const quBuyerAddress = KTUtil.getById('quBuyerAddress');
         const quBuyerEmail = KTUtil.getById('quBuyerEmail');
         const quBuyerContact = KTUtil.getById('quBuyerContact');
         const quContactTypeB = KTUtil.getById('quContactTypeB');
+
         const quSellerID = KTUtil.getById('quSellerID');
         const quSellerName = KTUtil.getById('quSellerName');
         const quSellerAName = KTUtil.getById('quSellerAName');
@@ -40,14 +42,14 @@ const QuotationCRUD = (function () {
         const quSellerEmail = KTUtil.getById('quSellerEmail');
         const quSellerContact = KTUtil.getById('quSellerContact');
         const quContactTypeS = KTUtil.getById('quContactTypeS');
+
         const quSubject = KTUtil.getById('quSubject');
         const quBody = KTUtil.getById('quBody');
         const quItemTable = KTUtil.getById('quItemTable');
         const quTermsCondition = KTUtil.getById('quTermsCondition');
         const quNumber = KTUtil.getById('quNumber');
         const quFooter = KTUtil.getById('quFooter');
-        const quPayID = KTUtil.getById('quPayID');
-        const quPayType = KTUtil.getById('quPayType');
+        const quType = KTUtil.getById('quType');
         const quMeta = KTUtil.getById('quMeta');
 
         // intialising
@@ -55,154 +57,145 @@ const QuotationCRUD = (function () {
             placeholder: "Select Date"
         });
 
+    // Dropdown List : Single Select1 With Search
+    $('quContactTypeB').selectpicker({
+    });
+    // Dropdown List : Single Select1 With Search
+    $('quContactTypeS').selectpicker({
+    });
+    // Dropdown List : Single Select1 With Search
+    $('quType').selectpicker({
+    });
+
         if (!createQuotationForm) {
             return;
         }
-
-        // Form Repeat #3 : Multiple
-        $('#quPayment').repeater({
-            initEmpty: false,
-
-            defaultValues: {
-                'text-input': 'foo'
-            },
-
-            show: function () {
-                $(this).slideDown();
-            },
-
-            hide: function (deleteElement) {
-                if (confirm('Are you sure you want to delete this element?')) {
-                    $(this).slideUp(deleteElement);
-                }
-            }
-        });
 
     FormValidation.formValidation(createQuotationForm, {
         fields: {
             quModuleRef: {
                 validators: {
                     notEmpty: {
-                        message: 'Packing List No  is required',
+                        message: 'Module Reference is required',
                     },
                 },
             },
             quHeader: {
                 validators: {
                     notEmpty: {
-                        message: 'Tax Invoice No is required',
+                        message: 'Header is required',
                     },
                 },
             },
             quDate: {
                 validators: {
                     notEmpty: {
-                        message: 'Source is required',
+                        message: 'Date is required',
                     },
                 },
             },
             quBuyerID: {
                 validators: {
                     notEmpty: {
-                        message: 'Source Address is required',
+                        message: 'Buyer ID is required',
                     },
                 },
             },
             quBuyerName: {
                 validators: {
                     notEmpty: {
-                        message: 'Source Contact is required',
+                        message: 'Buyer Name is required',
                     },
                 },
             },
             quBuyerAddress: {
                 validators: {
                     notEmpty: {
-                        message: 'Source GST is required',
+                        message: 'Buyer Address is required',
                     },
                 },
             },
             quBuyerEmail: {
                 validators: {
                     notEmpty: {
-                        message: 'Cosignee is required',
+                        message: 'Buyer Email is required',
                     },
                 },
             },
             quBuyerContact: {
                 validators: {
                     notEmpty: {
-                        message: 'Address is required',
+                        message: 'Buyer Contact is required',
                     },
                 },
             },
             quContactTypeB: {
                 validators: {
                     notEmpty: {
-                        message: 'Email is required',
+                        message: 'Contact Tyoe is required',
                     },
                 },
             },
             quSellerID: {
                 validators: {
                     notEmpty: {
-                        message: ' Contact is required',
+                        message: 'Seller Id is required',
                     },
                 },
             },
             quSellerName: {
                 validators: {
                     notEmpty: {
-                        message: 'Cosignee GST is required',
+                        message: 'Seller Name is required',
                     },
                 },
             },
             quSellerAName: {
                 validators: {
                     notEmpty: {
-                        message: 'This Field is required',
+                        message: 'Seller Attention Name is required',
                     },
                 },
             },
             quSellerAddress: {
                 validators: {
                     notEmpty: {
-                        message: 'Ship Method is required',
+                        message: 'Seller Address is required',
                     },
-                },
+                }, 
             },
             quSellerEmail: {
                 validators: {
                     notEmpty: {
-                        message: 'Carrier Name is required',
+                        message: 'Seller Email is required',
                     },
                 },
             },
             quSellerContact: {
                 validators: {
                     notEmpty: {
-                        message: 'Tracking No is required',
+                        message: 'Seller Contact is required',
                     },
                 },
             },
             quContactTypeS: {
                 validators: {
                     notEmpty: {
-                        message: 'Notes is required',
+                        message: 'Contact Type is required',
                     },
                 },
             },
             quSubject: {
                 validators: {
                     notEmpty: {
-                        message: 'This Field is required',
+                        message: 'Subject is required',
                     },
                 },
             },
             quBody: {
                 validators: {
                     notEmpty: {
-                        message: 'This Field is required',
+                        message: 'Body is required',
                     },
                 },
             },
@@ -221,11 +214,32 @@ const QuotationCRUD = (function () {
                     },
                 },
             },
+            quFooter: {
+                validators: {
+                    notEmpty: {
+                        message: 'Footer is required',
+                    },
+                },
+            },
+            quType: {
+                validators: {
+                    notEmpty: {
+                        message: 'Type is required',
+                    },
+                },
+            },
+            quMeta: {
+                validators: {
+                    notEmpty: {
+                        message: 'Meta is required',
+                    },
+                },
+            },
 
             quNumber: {
                 validators: {
                     notEmpty: {
-                        message: 'This Field is required',
+                        message: 'Quotation No is required',
                     },
                 },
             },
@@ -250,19 +264,19 @@ const QuotationCRUD = (function () {
                 method: 'post',
                 url: `${HOST_URL}/api/v1/sales-finance/quotation`,
                 data: {
-                    moduleReferance: quModuleRef.value,
+                    moduleReference: quModuleRef.value,
                     header: quHeader.value,
                     date: quDate.value,
-                    buyerId: quBuyerID.value,
+                    // buyerId: quBuyerID.value,
                     buyerName: quBuyerName.value,
-                    buyerAddress: quBuyerAddress.value,
+                    // buyerAddress: quBuyerAddress.value,
                     buyerEmail: quBuyerEmail.value,
                     buyerContactNumber: (quBuyerContact.value) * 1,
                     buyerContactNumbertype: quContactTypeB.value,
-                    sellerId : quSellerID.value,
+                    // sellerId : quSellerID.value,
                     sellerName: quSellerName.value,
                     sellerAttentionName: quSellerAName.value,
-                    sellerAddress: quSellerAddress.value,
+                    // sellerAddress: quSellerAddress.value,
                     sellerEmail: quSellerEmail.value,
                     sellerContactNumber: (quSellerContact.value) * 1,
                     sellerContactNumbertype: quContactTypeS,
@@ -272,11 +286,10 @@ const QuotationCRUD = (function () {
                     termsAndConditions: quTermsCondition.value,
                     footer: quFooter.value,
                     paymentMethod: {
-                        id: quPayID.value,
-                        type: quPayType.value,
-                        meta: quMeta.value
+                        type: quType.value,
+                        // meta: quMeta.value
                     },
-                    QuotationNumber: (quNumber.value) * 1
+                    quotationNumber: (quNumber.value) * 1
                 },
             }).then(function (res) {
                 KTUtil.btnRelease(quFormSubmitButton);

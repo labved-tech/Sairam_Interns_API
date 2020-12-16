@@ -16,7 +16,7 @@ const DeliveryNoteTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/deliveryNote/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/delivery-note/table`,
               params: {
                 fields: '_id, packingListnumber, taxInvoiceNumber, source, sourceAddress, sourceContactNumber,sourceGstin,consignee,consigneeAddress,consigneeEmail,consigneeContactNumber,consigneeGstin,shipMethod,carrierName,carrierTrackingNumber, shippingNotes,receivedBy,fileProof,createdBy,createdAt,updatedAt',
               },
