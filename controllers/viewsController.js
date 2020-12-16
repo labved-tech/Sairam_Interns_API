@@ -556,6 +556,11 @@ exports.ecommerceLocations = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceLocations');
 };
 
+exports.ecommerceLocationsVerifyDocuments = (req, res) => {
+  console.log('We are in Ecommerce Location : Verify Documents Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceLocationsVerifyDocuments');
+};
+
 exports.ecommerceStock = (req, res) => {
   console.log('We are in Ecommerce Stock Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceStock');

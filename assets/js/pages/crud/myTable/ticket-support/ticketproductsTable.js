@@ -16,7 +16,7 @@ const TicketProductsTable = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/ticket-support/categories/table`,
+                        url: `${HOST_URL}/api/v1/ticket-support/products/table`,
                         params: {
                             fields: '_id, name, description, notes,  status, createdBy,createdAt,updatedAt',
                         },
@@ -25,8 +25,8 @@ const TicketProductsTable = (function () {
                             console.log('raw', raw);
                             dataSet = raw;
 
-                            if (typeof raw.ticketProducts !== 'undefined') {
-                                dataSet = raw.ticketProducts;
+                            if (typeof raw.ticketproducts !== 'undefined') {
+                                dataSet = raw.ticketproducts;
                                 console.log('dataSet', dataSet);
                             }
                             return dataSet;

@@ -79,26 +79,6 @@ block content
                                             div(class='col-5')
                                                 input#eoDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoDiscount' placeholder='')
 
-                                        #eoTax
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Tax
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='typeahead')
-                                                            input#eoTaxID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoTaxID' placeholder='Tax ID')
-                                                        div(class='col-3')
-                                                            input#eoCGST(type='text', class='form-control', placeholder='CGST' name='eoCGST')
-                                                        div(class='col-3')
-                                                            input#eoSGST(type='text', class='form-control', placeholder='SGST' name='eoSGST')
-                                                        div(class='col-3')
-                                                            input#eoIGST(type='text', class='form-control', placeholder='IGST' name='eoIGST')
-                                                        div(class='col-3')
-                                                            input#calcCGST(type='text', class='form-control', placeholder='calcCGST' name='calcCGST')
-                                                        div(class='col-3')
-                                                            input#calcSGST(type='text', class='form-control', placeholder='calcSGST' name='calcSGST')
-                                                        div(class='col-3')
-                                                            input#calcIGST(type='text', class='form-control', placeholder='calcIGST' name='calcIGST')
-
                                         //eoNumItems
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') No of Items
@@ -141,6 +121,40 @@ block content
                                             div(class='col-6')
                                                 div(class='typeahead')
                                                     input#eoUserID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoUserID' placeholder='')
+
+                                        //eoTax
+                                        h3(class=' text-dark font-weight-bold mb-10') Tax
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  CGST 
+                                            div(class='col-5')
+                                                input#eoCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoCGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  SGST 
+                                            div(class='col-5')
+                                                input#eoSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoSGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  IGST
+                                            div(class='col-5')
+                                                input#eoIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoIGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate CGST
+                                            div(class='col-5')
+                                                input#calcCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcCGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate SGST
+                                            div(class='col-5')
+                                                input#calcSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcSGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate IGST
+                                            div(class='col-5')
+                                                input#calcIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcIGST' placeholder='')
+
 
                             div(class='card-footer')
                                 div(class='row text-right')
