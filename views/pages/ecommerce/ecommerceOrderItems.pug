@@ -27,75 +27,75 @@ block content
                                 div(class='col-xl-8')
                                     div(class='my-5') 
 
-                                        h3(class=' text-dark font-weight-bold mb-10') General
+                                        h3(class=' text-dark font-weight-bold mb-10') Items
 
-                                        //eoID
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') ID
-                                            div(class='col-6')
-                                                div(class='typeahead')
-                                                    input#eoID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoID' placeholder='')
-
-                                        //eoProductName
+                                        //eoiProductName
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right')  Product Name
                                             div(class='col-5')
-                                                input#eoProductName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoProductName' placeholder='')
+                                                input#eoiProductName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiProductName' placeholder='')
 
-                                        //epProductID
+                                        //eoiProductID
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Product ID
                                             div(class='col-5')
-                                                input#epProductID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epProductID' placeholder='')
+                                                input#eoiProductID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiProductID' placeholder='')
 
-                                        //eoHSN
+                                        //eoiManufacturerPartID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Manufacturer ID
+                                            div(class='col-5')
+                                                input#eoiManufacturerPartID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiManufacturerPartID' placeholder='')
+
+
+                                        //eoiHSN
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') HSN Code 
                                             div(class='col-5')
-                                                input#eoHSN(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoHSN' placeholder='')
+                                                input#eoiHSN(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiHSN' placeholder='')
 
-                                        //eoQuantity
+                                        //eoiQuantity
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Quantity
                                             div(class='col-5')
-                                                input#eoQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoQuantity' placeholder='')
+                                                input#eoiQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiQuantity' placeholder='')
 
-                                        //eoUnitPrice
+                                        //eoiUnitPrice
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Unit Price
                                             div(class='col-5')
-                                                input#eoUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoUnitPrice' placeholder='')
+                                                input#eoiUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiUnitPrice' placeholder='')
 
-                                        //eoMeta
+                                        //eoiMeta
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Meta
                                             div(class='col-6')
                                                 div(class='typeahead')
-                                                    input#eoMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoMeta' placeholder='')
+                                                    input#eoiMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoiMeta' placeholder='')
 
-                                        //eoDiscount
+                                        //eoiDiscount
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Discount
                                             div(class='col-5')
-                                                input#eoDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoDiscount' placeholder='')
+                                                input#eoiDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiDiscount' placeholder='')
 
-                                        //eoTax
+                                        //eoiTax
                                         h3(class=' text-dark font-weight-bold mb-10') Tax
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right')  CGST 
                                             div(class='col-5')
-                                                input#eoCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoCGST' placeholder='')
+                                                input#eoiCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiCGST' placeholder='')
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right')  SGST 
                                             div(class='col-5')
-                                                input#eoSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoSGST' placeholder='')
+                                                input#eoiSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiSGST' placeholder='')
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right')  IGST
                                             div(class='col-5')
-                                                input#eoIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoIGST' placeholder='')
+                                                input#eoiIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiIGST' placeholder='')
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right')  Calculate CGST

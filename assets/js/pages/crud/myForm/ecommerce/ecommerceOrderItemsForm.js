@@ -2,24 +2,32 @@
 'use strict';
 
 // Class definition
-const EcommerceOrderCRUD = (function () {
+const EcommerceOrderItemsCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
-    const _createEcommerceOrder = function () {
+    const _createEcommerceOrderItems = function () {
         // Getting Document related information
-        const createEcommerceOrderForm = KTUtil.getById('createEcommerceOrderForm');           
-        const createEcommerceOrderFormSubmitButton = KTUtil.getById('createEcommerceOrderFormSubmitButton');
-        const eoNumItems = KTUtil.getById('eoNumItems');
-        const eoGrossTotal = KTUtil.getById('eoGrossTotal');
-        const eoTaxTotal = KTUtil.getById('eoTaxTotal');
-        const eoShippingCharges = KTUtil.getById('eoShippingCharges');
-        const eoInsurance = KTUtil.getById('eoInsurance');
-        const eoNetTotal = KTUtil.getById('eoNetTotal');
-        const eoStatus = KTUtil.getById('eoStatus');
-        const eoUserID = KTUtil.getById('eoUserID');
+        const createEcommerceOrderItemsForm = KTUtil.getById('createEcommerceOrderItemsForm');           
+        const createEcommerceOrderItemsFormSubmitButton = KTUtil.getById('createEcommerceOrderItemsFormSubmitButton');
+        const eoiProductName = KTUtil.getById('eoiProductName');
+        const eoiProductID = KTUtil.getById('eoiProductID');
+        const eoiManufacturerPartID = KTUtil.getById('eoiManufacturerPartID');
+        const eoiHSN = KTUtil.getById('eoiHSN');
+        const eoiQuantity = KTUtil.getById('eoiQuantity');
+        const eoiUnitPrice = KTUtil.getById('eoiUnitPrice');
+        const eoiMeta = KTUtil.getById('eoiMeta');
+        const eoiDiscount = KTUtil.getById('eoiDiscount');
+
+        
+        const eoiCGST = KTUtil.getById('eoiCGST');
+        const eoiSGST = KTUtil.getById('eoiSGST');
+        const eoiIGST = KTUtil.getById('eoiIGST');
+        const calcCGST = KTUtil.getById('calcCGST');
+        const calcSGST = KTUtil.getById('calcSGST');
+        const calcIGST = KTUtil.getById('eoiIGST');
 
         // Number : Number Controls Same Sides: No of Items
-        $('#eoNumItems').TouchSpin({
+        $('#eoiQuantity').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -35,7 +43,7 @@ const EcommerceOrderCRUD = (function () {
             prefix: '$'
           });
         // Number : Number Controls Same Sides: Gross Total
-        $('#eoGrossTotal').TouchSpin({
+        $('#eoiUnitPrice').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -51,7 +59,7 @@ const EcommerceOrderCRUD = (function () {
             prefix: ''
           });  
         // Number : Number Controls Same Sides: Tax Total
-        $('#eoTaxTotal').TouchSpin({
+        $('#eoiDiscount').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -67,7 +75,7 @@ const EcommerceOrderCRUD = (function () {
             prefix: '$'
           });
         // Number : Number Controls Same Sides: Shipping Charges
-        $('#eoShippingCharges').TouchSpin({
+        $('#calcCGST').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -83,7 +91,7 @@ const EcommerceOrderCRUD = (function () {
             prefix: '$'
           });
         // Number : Number Controls Same Sides: Insurance Charges
-        $('#eoInsurance').TouchSpin({
+        $('#calcSGST').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -99,7 +107,7 @@ const EcommerceOrderCRUD = (function () {
             prefix: '$'
           });
         // Number : Number Controls Same Sides: Net Total
-        $('#eoNetTotal').TouchSpin({
+        $('#calcIGST').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -115,67 +123,109 @@ const EcommerceOrderCRUD = (function () {
             prefix: '$'
           });
 
-          if(!createEcommerceOrderForm) {
-            return;   
+        if(!createEcommerceOrderItemsForm) {
+        return;   
         }
 
-      FormValidation.formValidation(createEcommerceOrderForm, {
+      FormValidation.formValidation(createEcommerceOrderItemsForm, {
           fields: {
-                    eoNumItems: {
-                        validators: {
-                            notEmpty: {
-                                message: 'No of Items is required',
-                                },
-                            },
-                    }, 
-                    eoGrossTotal: {
+                    eoiProductName: {
                     validators: {
                         notEmpty: {
-                            message: 'Gross Total is required',
+                            message: 'Product Name is required',
                             },
                         },
                     },           
-                    eoTaxTotal: {
+                    eoiProductID: {
                     validators: {
                         notEmpty: {
-                            message: 'Tax Total is required',
+                            message: 'ID is required',
                             },
                         },
                     }, 
-                    eoShippingCharges: {
+                    eoiManufacturerPartID: {
                     validators: {
                         notEmpty: {
-                            message: 'Shipping Charges is required',
+                            message: 'ID is required',
+                            },
+                        },
+                    }, 
+                    eoiHSN: {
+                    validators: {
+                        notEmpty: {
+                            message: 'This field is required',
                             },
                         },
                     }, 
 
-                    eoInsurance: {
+                    eoiQuantity: {
                     validators: {
                         notEmpty: {
-                            message: 'Insurance Charges is required',
+                            message: 'Quantity is required',
                             },
                         },
                     }, 
-                    eoNetTotal: {
+                    eoiUnitPrice: {
                     validators: {
                         notEmpty: {
-                            message: 'Net Total are required',
+                            message: 'Unit Price is required',
                             },
                         },
                     },  
-                    eoStatus : {
+                    eoiMeta : {
                     validators: {
                         notEmpty: {
-                            message: 'Status  is required',
+                            message: 'This field is required',
                             },
                         },
-                    },       
-                    eoUserID: {
-                    validators: {
-                        notEmpty: {
-                          message: 'User Id is required',
+                    },
+                    eoiDiscount: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Discount is required',
+                            },
                         },
+                    },
+                    eoiCGST: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required',
+                            },
+                        },
+                    },
+                    eoiSGST: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required',
+                            },
+                        },
+                    },
+                    eoiIGST: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required',
+                            },
+                        },
+                    },
+                    calcCGST: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required',
+                            },
+                        },
+                    },
+                    calcSGST: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required',
+                            },
+                        },
+                    },
+                    calcIGST: {
+                        validators: {
+                            notEmpty: {
+                                message: 'This field is required',
+                            },
                         },
                     },
         },
@@ -185,28 +235,39 @@ const EcommerceOrderCRUD = (function () {
         // Bootstrap Framework Integration
         bootstrap: new FormValidation.plugins.Bootstrap(),
         // Validate fields when clicking the Submit button
-        createEcommerceOrderFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+        createEcommerceOrderItemsFormSubmitButton: new FormValidation.plugins.SubmitButton(),
         // Submit the form when all fields are valid
         //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
         },
     }).on('core.form.valid', function () {
-        KTUtil.btnWait(createEcommerceOrderFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+        KTUtil.btnWait(createEcommerceOrderItemsFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
         axios({
             method: 'Post',
             url: `${HOST_URL}/api/v1/ecommerce/order`,
                 data: {
-                    numItems: (eoNumItems.value)*1,
-                    grossTotal: (eoGrossTotal.value)*1,
-                    taxTotal: (eoTaxTotal.value)*1,
-                    shippingCharges: (eoShippingCharges.value)*1,
-                    insuranceCharges: (eoInsurance.value)*1,
-                    netTotal: (eoNetTotal.value)*1,
-                    status: eoStatus.value,
-                    _userId: eoUserID.value
+                        items:[{
+                        productName: eoiProductName.value,
+                        productId: eoiProductID.value,
+                        _manufacturerPartId: eoiManufacturerPartID.value,
+                        HSNCode: eoiHSN.value,
+                        quanity: eoiQuantity.value,
+                        unitPrice: eoiUnitPrice.value,
+                        meta: eoiMeta.value,
+                        discount: eoiDiscount.value,
+
+                        tax: {
+                            CGST:eoiCGST.value,
+                            SGST:eoiSGST.value,
+                            IGST:eoiIGST.value,
+                            calcCGST:calcCGST.value,
+                            calSGST:calcSGST.value,
+                            calcIGST:calcIGST.value,
+                        },
+                    }],    
                 },
             }).then(function (res) {
-            KTUtil.btnRelease(createEcommerceOrderFormSubmitButton);
+            KTUtil.btnRelease(createEcommerceOrderItemsFormSubmitButton);
                 console.log(res);
                 
                 // TOASTR EXAMPLE
@@ -246,14 +307,14 @@ const EcommerceOrderCRUD = (function () {
             return {
                 // public functions
                 init: function () {
-                    _createEcommerceOrder();
+                    _createEcommerceOrderItems();
                 }
                 }
             })();
             
             
             jQuery(document).ready(function () {
-                EcommerceOrderCRUD.init();
+                EcommerceOrderItemsCRUD.init();
             });
                                
                     

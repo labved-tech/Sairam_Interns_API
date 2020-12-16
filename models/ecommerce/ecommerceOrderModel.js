@@ -11,7 +11,7 @@ const ecommerceOrderSchema = new Schema(
       {
         _id: { type: mongoose.ObjectId },
         productName: { type: String },
-        productId: { type: String },
+        productId:  { type: mongoose.ObjectId },
         _manufacturerPartId: { type: mongoose.ObjectId },
         HSNCode: { type: String },
         quanity: { type: Number },
