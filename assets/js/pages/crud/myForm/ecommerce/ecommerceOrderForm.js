@@ -9,23 +9,17 @@ const EcommerceOrderCRUD = (function () {
         // Getting Document related information
         const createEcommerceOrderForm = KTUtil.getById('createEcommerceOrderForm');           
         const eoFormSubmitButton = KTUtil.getById('eoFormSubmitButton');
-        const epManufactureNo = KTUtil.getById('epManufactureNo');
-        const epName = KTUtil.getById('epName');
-        const epDescription = KTUtil.getById('epDescription');
-        const epID = KTUtil.getById('epID');
-        const epUnitPrice = KTUtil.getById('epUnitPrice');
-        const epMRP = KTUtil.getById('epMRP');
-        const epNote = KTUtil.getById('epNote');
-        const epRanking = KTUtil.getById('epRanking');
-        const epMaxQtyNo = KTUtil.getById('epMaxQtyNo');
+        const eoNumItems = KTUtil.getById('eoNumItems');
+        const eoGrossTotal = KTUtil.getById('eoGrossTotal');
+        const eoTaxTotal = KTUtil.getById('eoTaxTotal');
+        const eoShippingCharges = KTUtil.getById('eoShippingCharges');
+        const eoInsurance = KTUtil.getById('eoInsurance');
+        const eoNetTotal = KTUtil.getById('eoNetTotal');
+        const eoStatus = KTUtil.getById('eoStatus');
+        const eoUserID = KTUtil.getById('eoUserID');
 
-        const epSellerID = KTUtil.getById('epSellerID');
-        const epReviewID = KTUtil.getById('epReviewID');
-        const epStatus = KTUtil.getById('epStatus');
-        const epHSN = KTUtil.getById('epHSN');
-
-        // Number : Number Controls Same Sides: Unit Price
-        $('#epUnitPrice').TouchSpin({
+        // Number : Number Controls Same Sides: No of Items
+        $('#eoNumItems').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -40,8 +34,8 @@ const EcommerceOrderCRUD = (function () {
             maxboostedstep: 10,
             prefix: '$'
           });
-        // Number : Number Controls Same Sides: Max Quantity
-        $('#epMaxQtyNo').TouchSpin({
+        // Number : Number Controls Same Sides: Gross Total
+        $('#eoGrossTotal').TouchSpin({
             buttondown_class: 'btn btn-secondary',
             buttonup_class: 'btn btn-secondary',
             verticalbuttons: true,
@@ -55,92 +49,135 @@ const EcommerceOrderCRUD = (function () {
             boostat: 5,
             maxboostedstep: 10,
             prefix: ''
-          });      
+          });  
+        // Number : Number Controls Same Sides: Tax Total
+        $('#eoTaxTotal').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });
+        // Number : Number Controls Same Sides: Shipping Charges
+        $('#eoShippingCharges').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });
+        // Number : Number Controls Same Sides: Insurance Charges
+        $('#eoInsurance').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });
+        // Number : Number Controls Same Sides: Net Total
+        $('#eoNetTotal').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });
+
           if(!createEcommerceOrderForm) {
             return;   
         }
 
       FormValidation.formValidation(createEcommerceOrderForm, {
           fields: {
-                    epManufactureNo: {
+                    eoNumItems: {
                         validators: {
                             notEmpty: {
-                                message: 'Product ID is required',
+                                message: 'No of Items is required',
                                 },
                             },
                     }, 
-                    epName: {
+                    eoGrossTotal: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Gross Total is required',
                             },
                         },
                     },           
-                    epDescription: {
+                    eoTaxTotal: {
                     validators: {
                         notEmpty: {
-                            message: 'Price is required',
+                            message: 'Tax Total is required',
                             },
                         },
                     }, 
-                    epID: {
+                    eoShippingCharges: {
                     validators: {
                         notEmpty: {
-                            message: 'This field is required',
+                            message: 'Shipping Charges is required',
                             },
                         },
                     }, 
 
-                    epMRP: {
+                    eoInsurance: {
                     validators: {
                         notEmpty: {
-                            message: 'Description is required',
+                            message: 'Insurance Charges is required',
                             },
                         },
                     }, 
-                    epNote: {
+                    eoNetTotal: {
                     validators: {
                         notEmpty: {
-                            message: 'Notes are required',
+                            message: 'Net Total are required',
+                            },
                         },
-                    },
                     },  
-                    epRanking : {
+                    eoStatus : {
                     validators: {
                         notEmpty: {
-                            message: 'Location ID is required',
+                            message: 'Status  is required',
+                            },
                         },
-                    },
                     },       
-                    epSellerID: {
+                    eoUserID: {
                     validators: {
                         notEmpty: {
-                          message: 'Status is required',
+                          message: 'User Id is required',
+                        },
                         },
                     },
-                    },
-                epReviewID: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This Field is required',
-                        },
-                    },
-                    },  
-              epStatus: {
-                  validators: {
-                      notEmpty: {
-                          message: 'This field is required',
-                      },
-                  },
-                    },        
-
-              epHSN: {
-                validators: {
-                    notEmpty: {
-                        message: 'This field is required',
-                    },
-                },
-                    },        
         },
         plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
@@ -159,19 +196,14 @@ const EcommerceOrderCRUD = (function () {
             method: 'Post',
             url: `${HOST_URL}/api/v1/ecommerce/order`,
                 data: {
-                    manufacturerPartNo: epManufactureNo.value,
-                    name: epName.value,
-                    description: epDescription.value,
-                    categoryId: epID.value,
-                    unitPrice: (epUnitPrice.value)*1,
-                    MRP: (epMRP.value)*1,
-                    note: epNote.value,
-                    ranking: (epRanking.value)*1,
-                    maxQuantityPerOrderNumber: (epMaxQtyNo.value)*1,
-                    sellerId: epSellerID.value,
-                    _reviewAttributeId: epReviewID.value,
-                    status: epStatus.value,
-                    HSNCode: epHSN.value,
+                    numItems: (eoNumItems.value)*1,
+                    grossTotal: (eoGrossTotal.value)*1,
+                    taxTotal: (eoTaxTotal.value)*1,
+                    shippingCharges: (eoShippingCharges.value)*1,
+                    insuranceCharges: (eoInsurance.value)*1,
+                    netTotal: (eoNetTotal.value)*1,
+                    status: eoStatus.value,
+                    _userId: eoUserID.value
                 },
             }).then(function (res) {
             KTUtil.btnRelease(epFormSubmitButton);
