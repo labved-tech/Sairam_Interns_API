@@ -260,7 +260,18 @@ exports.packingList = (req, res) => {
   console.log('We are in Packing List Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingList');
 };
-
+exports.packingListBox = (req, res) => {
+  console.log('We are in Packing List Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListBox');
+};
+exports.packingListItem = (req, res) => {
+  console.log('We are in Packing List Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListItem');
+};
+exports.packingListShipping = (req, res) => {
+  console.log('We are in Packing List Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListShipping');
+};
 exports.quotation = (req, res) => {
   console.log('We are in Quotation Form Page');
   res.status(200).render('./../views/pages/sales-finance/quotation');
