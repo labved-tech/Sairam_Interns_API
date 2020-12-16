@@ -377,63 +377,6 @@ const SalesFinanceCRUD = (function () {
         const plCosigneeEmail = KTUtil.getById('plCosigneeEmail');
         const plCosigneeContact = KTUtil.getById('plCosigneeContact');
         const plCosigneeGST = KTUtil.getById('plCosigneeGST');
-        const plBoxNo = KTUtil.getById('plBoxNo');
-        const plBoxDimlength = KTUtil.getById('plBoxDimlength');
-        const plBoxDimBreadth = KTUtil.getById('plBoxDimBreadth');
-        const plBoxDimWidth = KTUtil.getById('plBoxDimWidth');
-        const plBoxDimUnits = KTUtil.getById('plBoxDimUnits');
-        const plBoxWeight = KTUtil.getById('plBoxWeight');
-        const plBoxWeightUnits = KTUtil.getById('plBoxWeightUnits');
-        const plSerialNo = KTUtil.getById('plSerialNo');
-        const plItemCode = KTUtil.getById('plItemCode');
-        const plName = KTUtil.getById('plName');
-        const plQuantity = KTUtil.getById('plQuantity');
-        const plItemUnits = KTUtil.getById('plItemUnits');
-        const plboxMeta = KTUtil.getById('plboxMeta');
-        const plShipMethod = KTUtil.getById('plShipMethod');
-        const plCarrierName = KTUtil.getById('plCarrierName');
-        const plTrackingNo = KTUtil.getById('plTrackingNo');
-        const plShippingNotes = KTUtil.getById('plShippingNotes');
-        const plFileProof = KTUtil.getById('plFileProof');
-
-        // Form Repeat #3 : Multiple
-        $('#plBoxRepeat').repeater({
-            initEmpty: false,
-
-            defaultValues: {
-                'text-input': 'foo'
-            },
-
-            show: function () {
-                $(this).slideDown();
-            },
-
-            hide: function (deleteElement) {
-                if (confirm('Are you sure you want to delete this element?')) {
-                    $(this).slideUp(deleteElement);
-                }
-            }
-        });
-        // Form Repeat #3 : Multiple
-        $('#plBoxItem').repeater({
-            initEmpty: false,
-
-            defaultValues: {
-                'text-input': 'foo'
-            },
-
-            show: function () {
-                $(this).slideDown();
-            },
-
-            hide: function (deleteElement) {
-                if (confirm('Are you sure you want to delete this element?')) {
-                    $(this).slideUp(deleteElement);
-                }
-            }
-        });
-
-
 
         if (!createPackingListForm) {
             return;
@@ -441,219 +384,91 @@ const SalesFinanceCRUD = (function () {
 
         FormValidation.formValidation(createPackingListForm, {
             fields: {
-                // plPackingListNo: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Packing List No  is required',
-                //         },
-                //     },
-                // },
-                // plTaxInvoiceNo: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Tax Invoice No is required',
-                //         },
-                //     },
-                // },
-                // plSource: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source is required',
-                //         },
-                //     },
-                // },
-                // plSourceEmail: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Email is required',
-                //         },
-                //     },
-                // },
+                 plPackingListNo: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Packing List No  is required',
+                         },
+                     },
+                 },
+                 plTaxInvoiceNo: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Tax Invoice No is required',
+                         },
+                     },
+                 },
+                 plSource: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source is required',
+                         },
+                     },
+                 },
+                 plSourceEmail: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Email is required',
+                         },
+                     },
+                 },
 
-                // plSourceAddress: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source Address is required',
-                //         },
-                //     },
-                // },
-                // plSourceContact: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source Contact is required',
-                //         },
-                //     },
-                // },
-                // plSourceGST: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source GST is required',
-                //         },
-                //     },
-                // },
-                // plCosignee: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Cosignee is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeAddress: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Address is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeEmail: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Email is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeContact: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: ' Contact is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeGST: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Cosignee GST is required',
-                //         },
-                //     },
-                // },
-                /*                 plBoxNo: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Box No is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimlength: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Length is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimBreadth: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Breadth is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimWidth: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Width is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimUnits: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Units is required',
-                                        },
-                                    },
-                                },
-                                plBoxWeight: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Weight is required',
-                                        },
-                                    },
-                                },
-                                plBoxWeightUnits: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Units is required',
-                                        },
-                                    },
-                                },
-                                plSerialNo: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Serial No is required',
-                                        },
-                                    },
-                                },
-                                plItemCode: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Item code is required',
-                                        },
-                                    },
-                                },
-                                plName: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Name is required',
-                                        },
-                                    },
-                                },
-                                plQuantity: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Quantity is required',
-                                        },
-                                    },
-                                },
-                                plItemUnits: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Units is required',
-                                        },
-                                    },
-                                },
-                                plboxMeta: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Box Meta is required',
-                                        },
-                                    },
-                                },
-                 */
-                //     plShipMethod: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Ship Method is required',
-                //             },
-                //         },
-                //     },
-                //     plCarrierName: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Carrier Name is required',
-                //             },
-                //         },
-                //     },
-                //     plTrackingNo: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Tracking No is required',
-                //             },
-                //         },
-                //     },
-                //     plShippingNotes: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Notes is required',
-                //             },
-                //         },
-                //     },
-                //     plFileProof: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'This Field is required',
-                //             },
-                //         },
-                //     },
-
+                 plSourceAddress: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source Address is required',
+                         },
+                     },
+                 },
+                 plSourceContact: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source Contact is required',
+                         },
+                     },
+                 },
+                 plSourceGST: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source GST is required',
+                         },
+                     },
+                 },
+                 plCosignee: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Cosignee is required',
+                         },
+                     },
+                 },
+                 plCosigneeAddress: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Address is required',
+                         },
+                     },
+                 },
+                 plCosigneeEmail: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Email is required',
+                         },
+                     },
+                 },
+                 plCosigneeContact: {
+                     validators: {
+                         notEmpty: {
+                             message: ' Contact is required',
+                         },
+                     },
+                 },
+                 plCosigneeGST: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Cosignee GST is required',
+                         },
+                     },
+                 },
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -687,38 +502,6 @@ const SalesFinanceCRUD = (function () {
                         consigneeEmail: plCosigneeEmail.value,
                         consigneeContactNumber: plCosigneeContact.value,
                         consigneeGstin: plCosigneeGST.value,
-                        box: [
-                            {
-                                boxNumber: (plBoxNo.value) * 1,
-                                dimensions:
-                                {
-                                    length: (plBoxDimlength.value) * 1,
-                                    bredth: (plBoxDimBreadth.value) * 1,
-                                    width: (plBoxDimWidth.value) * 1,
-                                    units: plBoxDimUnits.value
-                                },
-
-
-                                weight: (plBoxWeight) * 1,
-                                weightUnit: plBoxWeightUnits,
-                                items: [
-                                    {
-                                        _serialNo: plSerialNo.value,
-                                        itemCode: plItemCode.value,
-                                        name: plName.value,
-                                        quantity: (plQuantity.value) * 1,
-                                        unitOfMeasurement: plItemUnits.value,
-                                        boxmeta: plboxMeta.value
-                                    }
-                                ]
-                            }
-                        ],
-
-                        shipMethod: plShipMethod.value,
-                        carrierName: plCarrierName.value,
-                        carrierTrackingNumber: (plTrackingNo.value) * 1,
-                        shippingNotes: plShippingNotes.value,
-                        fileProof: plFileProof.value
                     },
                 }).then(function (res) {
                     KTUtil.btnRelease(plFormSubmitButton);
@@ -993,6 +776,128 @@ const SalesFinanceCRUD = (function () {
                       
 
     };
+    const _createPackingListForm = function () {
+
+        // Getting Document related information
+        const createPackingListBoxForm = KTUtil.getById('createPackingListBoxForm');
+        const plBoxFormSubmitButton = KTUtil.getById('plBoxFormSubmitButton');
+        const plBoxlength = KTUtil.getById('plBoxlength');
+        const plBoxBreadth = KTUtil.getById('plBoxBreadth');
+        const plBoxWidth = KTUtil.getById('plBoxWidth');
+        const plBoxUnits = KTUtil.getById('plBoxUnits');
+        const plBoxWeight = KTUtil.getById('plBoxWeight');
+        const plBoxWeightUnits = KTUtil.getById('plBoxWeightUnits');
+        
+
+        if (!createPackingListBoxForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createPackingListBoxForm, {
+            fields: {
+                plBoxlength: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Length is required',
+                        },
+                    },
+                },
+                plBoxBreadth: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Breadth is required',
+                        },
+                    },
+                },
+                plBoxWidth: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Box Width is required',
+                        },
+                    },
+                },
+                plBoxWeight: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Weight is required',
+                        },
+                    },
+                },
+                plBoxUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Units is required',
+                        },
+                    },
+                },
+                plBoxWeightUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Weight Units is required',
+                        },
+                    },
+                },
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                plBoxFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(plBoxFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/packingList/box`,
+                    data: {
+                        length: (plBoxlength.value)*1,
+                        breadth: (plBoxBreadth.value)*1,
+                        width: (plBoxWidth.value)*1,
+                        units: plBoxUnits.value,
+                        weight: (plBoxWeight.value) * 1,
+                        weightUnit: plBoxWeightUnits.value,
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(plBoxFormSubmitButton);
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
 
 
     return {
@@ -1002,6 +907,7 @@ const SalesFinanceCRUD = (function () {
             _createDeliveryNoteForm();
             _createPackingListForm();
             _createTaxInvoiceForm();
+            _createPackingListForm();
 
         },
     };
