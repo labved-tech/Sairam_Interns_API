@@ -378,6 +378,63 @@ const SalesFinanceCRUD = (function () {
         const plCosigneeContact = KTUtil.getById('plCosigneeContact');
         const plCosigneeGST = KTUtil.getById('plCosigneeGST');
 
+        // Number : Number Controls Same Sides:Source GST
+        $('#plSourceGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+        // Number : Number Controls Same Sides: Cosignee GST
+        $('#plCosigneeGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+
+          $('#plSourceAddress').typeahead(
+            {
+              hint: true,
+              highlight: true,
+              minLength: 1,
+            },
+            {
+              name: 'plSourceAddress'
+              
+            }
+          );
+          $('#plCosigneeAddress').typeahead(
+            {
+              hint: true,
+              highlight: true,
+              minLength: 1,
+            },
+            {
+              name: 'plCosigneeAddress'
+              
+            }
+          );          
+      
+
         if (!createPackingListForm) {
             return;
         }
@@ -776,18 +833,90 @@ const SalesFinanceCRUD = (function () {
                       
 
     };
-    const _createPackingListForm = function () {
+    const _createPackingListBoxForm = function () {
 
         // Getting Document related information
         const createPackingListBoxForm = KTUtil.getById('createPackingListBoxForm');
         const plBoxFormSubmitButton = KTUtil.getById('plBoxFormSubmitButton');
+        const plBoxNo = KTUtil.getById('plBoxNo');
         const plBoxlength = KTUtil.getById('plBoxlength');
         const plBoxBreadth = KTUtil.getById('plBoxBreadth');
         const plBoxWidth = KTUtil.getById('plBoxWidth');
         const plBoxUnits = KTUtil.getById('plBoxUnits');
         const plBoxWeight = KTUtil.getById('plBoxWeight');
         const plBoxWeightUnits = KTUtil.getById('plBoxWeightUnits');
+        // Number : Number Controls Same Sides: Box Length
+        $('#plBoxlength').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+        // Number : Number Controls Same Sides: Box Breadth
+        $('#plBoxBreadth').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+        // Number : Number Controls Same Sides: Box Width
+        $('#plBoxWidth').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+        // Number : Number Controls Same Sides: Box Weight
+        $('#plBoxWeight').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+    // Dropdown List : Single Select1 With Search
+    $('plBoxUnits').selectpicker({
+    });
+    // Dropdown List : Single Select1 With Search
+    $('plBoxWeightUnits').selectpicker({
+    });
         
+
 
         if (!createPackingListBoxForm) {
             return;
@@ -795,6 +924,14 @@ const SalesFinanceCRUD = (function () {
 
         FormValidation.formValidation(createPackingListBoxForm, {
             fields: {
+                plBoxNo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Box No is required',
+                        },
+                    },
+                },
+
                 plBoxlength: {
                     validators: {
                         notEmpty: {
@@ -859,6 +996,7 @@ const SalesFinanceCRUD = (function () {
                     method: 'post',
                     url: `${HOST_URL}/api/v1/sales-finance/packingList/box`,
                     data: {
+                        boxNumber :(plBoxNo.value)*1,
                         length: (plBoxlength.value)*1,
                         breadth: (plBoxBreadth.value)*1,
                         width: (plBoxWidth.value)*1,
@@ -898,6 +1036,262 @@ const SalesFinanceCRUD = (function () {
                 console.log('Something went wrong!!');
             });
     };
+    const _createPackingListItemForm = function () {
+
+        // Getting Document related information
+        const createPackingListItemForm = KTUtil.getById('createPackingListItemForm');
+        const plItemFormSubmitButton = KTUtil.getById('plItemFormSubmitButton');
+        const plItemCode = KTUtil.getById('plItemCode');
+        const plName = KTUtil.getById('plName');
+        const plQuantity = KTUtil.getById('plQuantity');
+        const plItemUnits = KTUtil.getById('plItemUnits');
+        const plBoxMeta = KTUtil.getById('plBoxMeta');
+
+        // Number : Number Controls Same Sides: Quantity
+        $('#plQuantity').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          }); 
+    // Dropdown List : Single Select1 With Search
+    $('plItemUnits').selectpicker({
+    });
+        
+
+
+        if (!createPackingListItemForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createPackingListItemForm, {
+            fields: {
+                plItemCode: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Item Code is required',
+                        },
+                    },
+                },
+                plName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Name is required',
+                        },
+                    },
+                },
+                plQuantity: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Quantity is required',
+                        },
+                    },
+                },
+                plBoxMeta: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Box Meta is required',
+                        },
+                    },
+                },
+                plItemUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Units is required',
+                        },
+                    },
+                },
+
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                plItemFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(plItemFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/packingList/item`,
+                    data: {
+                        itemCode :plItemCode.value,
+                        name: plName.value,
+                        quantity: (plQuantity.value)*1,
+                        unitOfMeasurement: plItemUnits.value,
+                        boxmeta: plBoxMeta.value,
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(plItemFormSubmitButton);
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
+
+    const _createPackingListShippingForm = function () {
+
+        // Getting Document related information
+        const createPackingListShippingForm = KTUtil.getById('createPackingListShippingForm');
+        const plShippingFormSubmitButton = KTUtil.getById('plShippingFormSubmitButton');
+        const plShippingMethod = KTUtil.getById('plShippingMethod');
+        const plCarrierName = KTUtil.getById('plCarrierName');
+        const plCarrierTrackingNo = KTUtil.getById('plCarrierTrackingNo');
+        const plShippingNotes = KTUtil.getById('plShippingNotes');
+        const plFileProof = KTUtil.getById('plFileProof');
+
+
+    // Dropdown List : Single Select1 With Search
+    $('plShippingMethod').selectpicker({
+    });
+        
+
+
+        if (!createPackingListShippingForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createPackingListShippingForm, {
+            fields: {
+                plShippingMethod: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Shipping Method is required',
+                        },
+                    },
+                },
+                plCarrierName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Carrier Name is required',
+                        },
+                    },
+                },
+                plCarrierTrackingNo: {
+                    validators: {
+                        notEmpty: {
+                            message: ' Carrier Tracking No is required',
+                        },
+                    },
+                },
+                plShippingNotes: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Shipping Notes is required',
+                        },
+                    },
+                },
+                plFileProof: {
+                    validators: {
+                        notEmpty: {
+                            message: 'File Proof is required',
+                        },
+                    },
+                },
+
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                plShippingFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(plShippingFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/packingList/shipping`,
+                    data: {
+                        shipMethod :plShippingMethod.value,
+                        carrierName: plCarrierName.value,
+                        carrierTrackingNumber: plCarrierTrackingNo.value,
+                        shippingNotes: plShippingNotes.value,
+                        fileProof: plFileProof.value,
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(plShippingFormSubmitButton);
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
 
 
     return {
@@ -907,7 +1301,9 @@ const SalesFinanceCRUD = (function () {
             _createDeliveryNoteForm();
             _createPackingListForm();
             _createTaxInvoiceForm();
-            _createPackingListForm();
+            _createPackingListBoxForm();
+            _createPackingListItemForm();
+            _createPackingListShippingForm();
 
         },
     };

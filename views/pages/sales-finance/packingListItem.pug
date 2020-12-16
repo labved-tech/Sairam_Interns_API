@@ -1,0 +1,74 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Packing List
+                    div(class='card-body')
+                        // begin::Form
+                        form#createPackingListItemForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //Item
+                                        h3(class=' text-dark font-weight-bold mb-10') Item
+
+                                        //plItemCode
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Item Code
+                                            div(class='col-4')
+                                                input#plItemCode(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plItemCode' placeholder='')
+
+                                        //plName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                            div(class='col-4')
+                                                input#plName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plName' placeholder='')
+
+                                        //plQuantity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Quantity
+                                            div(class='col-4')
+                                                input#plQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plQuantity' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //plItemUnits
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Units
+                                            div(class='col-4')
+                                                select#plItemUnits(class='form-control selectpicker' data-size='7' data-live-search='true'  name='plItemUnits')
+                                                    option(value='' disabled='' selected='') Choose Units
+                                                    option(value='kg') kg
+                                                    option(value='g') g
+
+                                        //plBoxMeta
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Box Meta
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#plBoxMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='plBoxMeta' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#plItemFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
