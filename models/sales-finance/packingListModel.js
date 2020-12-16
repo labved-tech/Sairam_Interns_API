@@ -26,7 +26,7 @@ const packingListSchema = new Schema(
           length: { type: Number },
           breadth: { type: Number },
           width: { type: Number },
-          units: { type: String },
+          units: { type: String }
         },
 
         weight: { type: Number },

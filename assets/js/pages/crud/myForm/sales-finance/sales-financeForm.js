@@ -155,6 +155,43 @@ const SalesFinanceCRUD = (function () {
         const dnReceivedBy = KTUtil.getById('dnReceivedBy');
         const dnFileProof = KTUtil.getById('dnFileProof');
 
+    // Dropdown List : Single Select1 With Search
+    $('dnShipMethod').selectpicker({
+    });
+        // Number : Number Controls Same Sides: Box Length
+        $('#dnSourceGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+        // Number : Number Controls Same Sides: Box Length
+        $('#dnCosigneeGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+
+
         if (!createDeliveryNoteForm) {
             return;
         }
@@ -377,63 +414,63 @@ const SalesFinanceCRUD = (function () {
         const plCosigneeEmail = KTUtil.getById('plCosigneeEmail');
         const plCosigneeContact = KTUtil.getById('plCosigneeContact');
         const plCosigneeGST = KTUtil.getById('plCosigneeGST');
-        const plBoxNo = KTUtil.getById('plBoxNo');
-        const plBoxDimlength = KTUtil.getById('plBoxDimlength');
-        const plBoxDimBreadth = KTUtil.getById('plBoxDimBreadth');
-        const plBoxDimWidth = KTUtil.getById('plBoxDimWidth');
-        const plBoxDimUnits = KTUtil.getById('plBoxDimUnits');
-        const plBoxWeight = KTUtil.getById('plBoxWeight');
-        const plBoxWeightUnits = KTUtil.getById('plBoxWeightUnits');
-        const plSerialNo = KTUtil.getById('plSerialNo');
-        const plItemCode = KTUtil.getById('plItemCode');
-        const plName = KTUtil.getById('plName');
-        const plQuantity = KTUtil.getById('plQuantity');
-        const plItemUnits = KTUtil.getById('plItemUnits');
-        const plboxMeta = KTUtil.getById('plboxMeta');
-        const plShipMethod = KTUtil.getById('plShipMethod');
-        const plCarrierName = KTUtil.getById('plCarrierName');
-        const plTrackingNo = KTUtil.getById('plTrackingNo');
-        const plShippingNotes = KTUtil.getById('plShippingNotes');
-        const plFileProof = KTUtil.getById('plFileProof');
 
-        // Form Repeat #3 : Multiple
-        $('#plBoxRepeat').repeater({
-            initEmpty: false,
+        // Number : Number Controls Same Sides:Source GST
+        $('#plSourceGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
+        // Number : Number Controls Same Sides: Cosignee GST
+        $('#plCosigneeGST').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+          });  
 
-            defaultValues: {
-                'text-input': 'foo'
+          $('#plSourceAddress').typeahead(
+            {
+              hint: true,
+              highlight: true,
+              minLength: 1,
             },
-
-            show: function () {
-                $(this).slideDown();
-            },
-
-            hide: function (deleteElement) {
-                if (confirm('Are you sure you want to delete this element?')) {
-                    $(this).slideUp(deleteElement);
-                }
+            {
+              name: 'plSourceAddress'
+              
             }
-        });
-        // Form Repeat #3 : Multiple
-        $('#plBoxItem').repeater({
-            initEmpty: false,
-
-            defaultValues: {
-                'text-input': 'foo'
+          );
+          $('#plCosigneeAddress').typeahead(
+            {
+              hint: true,
+              highlight: true,
+              minLength: 1,
             },
-
-            show: function () {
-                $(this).slideDown();
-            },
-
-            hide: function (deleteElement) {
-                if (confirm('Are you sure you want to delete this element?')) {
-                    $(this).slideUp(deleteElement);
-                }
+            {
+              name: 'plCosigneeAddress'
+              
             }
-        });
-
-
+          );          
+      
 
         if (!createPackingListForm) {
             return;
@@ -441,219 +478,91 @@ const SalesFinanceCRUD = (function () {
 
         FormValidation.formValidation(createPackingListForm, {
             fields: {
-                // plPackingListNo: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Packing List No  is required',
-                //         },
-                //     },
-                // },
-                // plTaxInvoiceNo: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Tax Invoice No is required',
-                //         },
-                //     },
-                // },
-                // plSource: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source is required',
-                //         },
-                //     },
-                // },
-                // plSourceEmail: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Email is required',
-                //         },
-                //     },
-                // },
+                 plPackingListNo: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Packing List No  is required',
+                         },
+                     },
+                 },
+                 plTaxInvoiceNo: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Tax Invoice No is required',
+                         },
+                     },
+                 },
+                 plSource: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source is required',
+                         },
+                     },
+                 },
+                 plSourceEmail: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Email is required',
+                         },
+                     },
+                 },
 
-                // plSourceAddress: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source Address is required',
-                //         },
-                //     },
-                // },
-                // plSourceContact: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source Contact is required',
-                //         },
-                //     },
-                // },
-                // plSourceGST: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Source GST is required',
-                //         },
-                //     },
-                // },
-                // plCosignee: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Cosignee is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeAddress: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Address is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeEmail: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Email is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeContact: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: ' Contact is required',
-                //         },
-                //     },
-                // },
-                // plCosigneeGST: {
-                //     validators: {
-                //         notEmpty: {
-                //             message: 'Cosignee GST is required',
-                //         },
-                //     },
-                // },
-                /*                 plBoxNo: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Box No is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimlength: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Length is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimBreadth: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Breadth is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimWidth: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Width is required',
-                                        },
-                                    },
-                                },
-                                plBoxDimUnits: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Units is required',
-                                        },
-                                    },
-                                },
-                                plBoxWeight: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Weight is required',
-                                        },
-                                    },
-                                },
-                                plBoxWeightUnits: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Units is required',
-                                        },
-                                    },
-                                },
-                                plSerialNo: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Serial No is required',
-                                        },
-                                    },
-                                },
-                                plItemCode: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Item code is required',
-                                        },
-                                    },
-                                },
-                                plName: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Name is required',
-                                        },
-                                    },
-                                },
-                                plQuantity: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Quantity is required',
-                                        },
-                                    },
-                                },
-                                plItemUnits: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Units is required',
-                                        },
-                                    },
-                                },
-                                plboxMeta: {
-                                    validators: {
-                                        notEmpty: {
-                                            message: 'Box Meta is required',
-                                        },
-                                    },
-                                },
-                 */
-                //     plShipMethod: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Ship Method is required',
-                //             },
-                //         },
-                //     },
-                //     plCarrierName: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Carrier Name is required',
-                //             },
-                //         },
-                //     },
-                //     plTrackingNo: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Tracking No is required',
-                //             },
-                //         },
-                //     },
-                //     plShippingNotes: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'Notes is required',
-                //             },
-                //         },
-                //     },
-                //     plFileProof: {
-                //         validators: {
-                //             notEmpty: {
-                //                 message: 'This Field is required',
-                //             },
-                //         },
-                //     },
-
+                 plSourceAddress: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source Address is required',
+                         },
+                     },
+                 },
+                 plSourceContact: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source Contact is required',
+                         },
+                     },
+                 },
+                 plSourceGST: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Source GST is required',
+                         },
+                     },
+                 },
+                 plCosignee: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Cosignee is required',
+                         },
+                     },
+                 },
+                 plCosigneeAddress: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Address is required',
+                         },
+                     },
+                 },
+                 plCosigneeEmail: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Email is required',
+                         },
+                     },
+                 },
+                 plCosigneeContact: {
+                     validators: {
+                         notEmpty: {
+                             message: ' Contact is required',
+                         },
+                     },
+                 },
+                 plCosigneeGST: {
+                     validators: {
+                         notEmpty: {
+                             message: 'Cosignee GST is required',
+                         },
+                     },
+                 },
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -687,38 +596,6 @@ const SalesFinanceCRUD = (function () {
                         consigneeEmail: plCosigneeEmail.value,
                         consigneeContactNumber: plCosigneeContact.value,
                         consigneeGstin: plCosigneeGST.value,
-                        box: [
-                            {
-                                boxNumber: (plBoxNo.value) * 1,
-                                dimensions:
-                                {
-                                    length: (plBoxDimlength.value) * 1,
-                                    bredth: (plBoxDimBreadth.value) * 1,
-                                    width: (plBoxDimWidth.value) * 1,
-                                    units: plBoxDimUnits.value
-                                },
-
-
-                                weight: (plBoxWeight) * 1,
-                                weightUnit: plBoxWeightUnits,
-                                items: [
-                                    {
-                                        _serialNo: plSerialNo.value,
-                                        itemCode: plItemCode.value,
-                                        name: plName.value,
-                                        quantity: (plQuantity.value) * 1,
-                                        unitOfMeasurement: plItemUnits.value,
-                                        boxmeta: plboxMeta.value
-                                    }
-                                ]
-                            }
-                        ],
-
-                        shipMethod: plShipMethod.value,
-                        carrierName: plCarrierName.value,
-                        carrierTrackingNumber: (plTrackingNo.value) * 1,
-                        shippingNotes: plShippingNotes.value,
-                        fileProof: plFileProof.value
                     },
                 }).then(function (res) {
                     KTUtil.btnRelease(plFormSubmitButton);
@@ -993,6 +870,465 @@ const SalesFinanceCRUD = (function () {
                       
 
     };
+    const _createPackingListBoxForm = function () {
+
+        // Getting Document related information
+        const createPackingListBoxForm = KTUtil.getById('createPackingListBoxForm');
+        const plBoxFormSubmitButton = KTUtil.getById('plBoxFormSubmitButton');
+        const plBoxNo = KTUtil.getById('plBoxNo');
+        const plBoxlength = KTUtil.getById('plBoxlength');
+        const plBoxBreadth = KTUtil.getById('plBoxBreadth');
+        const plBoxWidth = KTUtil.getById('plBoxWidth');
+        const plBoxUnits = KTUtil.getById('plBoxUnits');
+        const plBoxWeight = KTUtil.getById('plBoxWeight');
+        const plBoxWeightUnits = KTUtil.getById('plBoxWeightUnits');
+        // Number : Number Controls Same Sides: Box Length
+        $('#plBoxlength').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+        // Number : Number Controls Same Sides: Box Breadth
+        $('#plBoxBreadth').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+        // Number : Number Controls Same Sides: Box Width
+        $('#plBoxWidth').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+        // Number : Number Controls Same Sides: Box Weight
+        $('#plBoxWeight').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          });  
+    // Dropdown List : Single Select1 With Search
+    $('plBoxUnits').selectpicker({
+    });
+    // Dropdown List : Single Select1 With Search
+    $('plBoxWeightUnits').selectpicker({
+    });
+        
+
+
+        if (!createPackingListBoxForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createPackingListBoxForm, {
+            fields: {
+                plBoxNo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Box No is required',
+                        },
+                    },
+                },
+
+                plBoxlength: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Length is required',
+                        },
+                    },
+                },
+                plBoxBreadth: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Breadth is required',
+                        },
+                    },
+                },
+                plBoxWidth: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Box Width is required',
+                        },
+                    },
+                },
+                plBoxWeight: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Weight is required',
+                        },
+                    },
+                },
+                plBoxUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Units is required',
+                        },
+                    },
+                },
+                plBoxWeightUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Weight Units is required',
+                        },
+                    },
+                },
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                plBoxFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(plBoxFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/packingList/box`,
+                    data: {
+                        boxNumber :(plBoxNo.value)*1,
+                        length: (plBoxlength.value)*1,
+                        breadth: (plBoxBreadth.value)*1,
+                        width: (plBoxWidth.value)*1,
+                        units: plBoxUnits.value,
+                        weight: (plBoxWeight.value) * 1,
+                        weightUnit: plBoxWeightUnits.value,
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(plBoxFormSubmitButton);
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
+    const _createPackingListItemForm = function () {
+
+        // Getting Document related information
+        const createPackingListItemForm = KTUtil.getById('createPackingListItemForm');
+        const plItemFormSubmitButton = KTUtil.getById('plItemFormSubmitButton');
+        const plItemCode = KTUtil.getById('plItemCode');
+        const plName = KTUtil.getById('plName');
+        const plQuantity = KTUtil.getById('plQuantity');
+        const plItemUnits = KTUtil.getById('plItemUnits');
+        const plBoxMeta = KTUtil.getById('plBoxMeta');
+
+        // Number : Number Controls Same Sides: Quantity
+        $('#plQuantity').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+      
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+          }); 
+    // Dropdown List : Single Select1 With Search
+    $('plItemUnits').selectpicker({
+    });
+        
+
+
+        if (!createPackingListItemForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createPackingListItemForm, {
+            fields: {
+                plItemCode: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Item Code is required',
+                        },
+                    },
+                },
+                plName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Name is required',
+                        },
+                    },
+                },
+                plQuantity: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Quantity is required',
+                        },
+                    },
+                },
+                plBoxMeta: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Box Meta is required',
+                        },
+                    },
+                },
+                plItemUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Units is required',
+                        },
+                    },
+                },
+
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                plItemFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(plItemFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/packingList/item`,
+                    data: {
+                        itemCode :plItemCode.value,
+                        name: plName.value,
+                        quantity: (plQuantity.value)*1,
+                        unitOfMeasurement: plItemUnits.value,
+                        boxmeta: plBoxMeta.value,
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(plItemFormSubmitButton);
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
+
+    const _createPackingListShippingForm = function () {
+
+        // Getting Document related information
+        const createPackingListShippingForm = KTUtil.getById('createPackingListShippingForm');
+        const plShippingFormSubmitButton = KTUtil.getById('plShippingFormSubmitButton');
+        const plShippingMethod = KTUtil.getById('plShippingMethod');
+        const plCarrierName = KTUtil.getById('plCarrierName');
+        const plCarrierTrackingNo = KTUtil.getById('plCarrierTrackingNo');
+        const plShippingNotes = KTUtil.getById('plShippingNotes');
+        const plFileProof = KTUtil.getById('plFileProof');
+
+
+    // Dropdown List : Single Select1 With Search
+    $('plShippingMethod').selectpicker({
+    });
+        
+
+
+        if (!createPackingListShippingForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createPackingListShippingForm, {
+            fields: {
+                plShippingMethod: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Shipping Method is required',
+                        },
+                    },
+                },
+                plCarrierName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Carrier Name is required',
+                        },
+                    },
+                },
+                plCarrierTrackingNo: {
+                    validators: {
+                        notEmpty: {
+                            message: ' Carrier Tracking No is required',
+                        },
+                    },
+                },
+                plShippingNotes: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Shipping Notes is required',
+                        },
+                    },
+                },
+                plFileProof: {
+                    validators: {
+                        notEmpty: {
+                            message: 'File Proof is required',
+                        },
+                    },
+                },
+
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                plShippingFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(plShippingFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/packingList/shipping`,
+                    data: {
+                        shipMethod :plShippingMethod.value,
+                        carrierName: plCarrierName.value,
+                        carrierTrackingNumber: plCarrierTrackingNo.value,
+                        shippingNotes: plShippingNotes.value,
+                        fileProof: plFileProof.value,
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(plShippingFormSubmitButton);
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+    };
 
 
     return {
@@ -1002,6 +1338,9 @@ const SalesFinanceCRUD = (function () {
             _createDeliveryNoteForm();
             _createPackingListForm();
             _createTaxInvoiceForm();
+            _createPackingListBoxForm();
+            _createPackingListItemForm();
+            _createPackingListShippingForm();
 
         },
     };

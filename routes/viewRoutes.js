@@ -87,6 +87,9 @@ router.get(
 router.get('/sales-finance/address', viewsController.address);
 router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 router.get('/sales-finance/packingList', viewsController.packingList);
+router.get('/sales-finance/packingList/box', viewsController.packingListBox);
+router.get('/sales-finance/packingList/item', viewsController.packingListItem);
+router.get('/sales-finance/packingList/shipping', viewsController.packingListShipping);
 router.get('/sales-finance/quotation', viewsController.quotation);
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
@@ -182,8 +185,12 @@ router.get('/farm/strategy/table', viewsController.farmStrategyTable);
 // ECOMMERCE RELATED ROUTES
 router.get('/ecommerce/address/', viewsController.ecommerceAddress);
 router.get('/ecommerce/locations/', viewsController.ecommerceLocations);
+router.get('/ecommerce/locations/verify-documents', viewsController.ecommerceLocationsVerifyDocuments);
 router.get('/ecommerce/stock/', viewsController.ecommerceStock);
+router.get('/ecommerce/stock/discount', viewsController.ecommerceStockDiscount);
+router.get('/ecommerce/stock/tax', viewsController.ecommerceStockTax);
 router.get('/ecommerce/order/', viewsController.ecommerceOrder);
+router.get('/ecommerce/order/items', viewsController.ecommerceOrderItems);
 router.get('/ecommerce/products/', viewsController.ecommerceProducts);
 router.get('/ecommerce/address/table', viewsController.ecommerceAddressTable);
 router.get(

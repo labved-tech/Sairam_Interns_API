@@ -1,0 +1,95 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Packing List
+                    div(class='card-body')
+                        // begin::Form
+                        form#createPackingListBoxForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //Box
+                                        h3(class=' text-dark font-weight-bold mb-10') Box
+
+                                        //plBoxNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Box Number
+                                            div(class='col-4')
+                                                input#plBoxNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxNo' placeholder='')
+
+                                        //Dimensions
+                                        h4(class=' text-dark font-weight-bold mb-10') Dimensions
+
+                                        //plBoxlength
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Length
+                                            div(class='col-4')
+                                                input#plBoxlength(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxlength' placeholder='40')
+                                                span(class='form-text text-muted') 
+
+                                        //plBoxBreadth
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Breadth
+                                            div(class='col-4')
+                                                input#plBoxBreadth(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxBreadth' placeholder='40')
+                                                span(class='form-text text-muted')                                  
+
+                                        //plBoxWidth
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Width
+                                            div(class='col-4')
+                                                input#plBoxWidth(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxWidth' placeholder='40')
+                                                span(class='form-text text-muted') 
+
+                                        //plBoxUnits
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Units
+                                            div(class='col-4')
+                                                select#plBoxUnits(class='form-control selectpicker' data-size='7' data-live-search='true'  name='plBoxUnits')
+                                                    option(value='' disabled='' selected='') Choose Units
+                                                    option(value='cm') cm
+                                                    option(value='m') m
+
+                                        //plBoxWeight
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Weight
+                                            div(class='col-4')
+                                                input#plBoxWeight(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plBoxWeight' placeholder='40')
+                                                span(class='form-text text-muted') 
+
+                                        //plBoxWeightUnits
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Units
+                                            div(class='col-4')
+                                                select#plBoxWeightUnits(class='form-control selectpicker' data-size='7' data-live-search='true'  name='plBoxWeightUnits')
+                                                    option(value='' disabled='' selected='') Choose Units
+                                                    option(value='g') grams
+                                                    option(value='kg') kilograms
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#plBoxFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
+

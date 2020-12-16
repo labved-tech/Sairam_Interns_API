@@ -24,30 +24,8 @@ const EcommerceLocationsCRUD = (function () {
         const elRevieAttributeId = KTUtil.getById('elRevieAttributeId');
 
         const elaciName = KTUtil.getById('elaciName');
-        const elaciInfo = KTUtil.getById('elaciInfo');
-
-        const elvdName = KTUtil.getById('elvdName');
-        const elvdURL = KTUtil.getById('elvdURL');
-        const elvdType = KTUtil.getById('elvdType');   
+        const elaciInfo = KTUtil.getById('elaciInfo');  
       
-        //Repeat Multiple : Verify Documents Array
-        const elVerifyDocuments = KTUtil.getById('elVerifyDocuments'); // Form Repeat #2 : Multiple 
-        
-        $('#elVerifyDocuments').repeater({
-        initEmpty: false,
-
-        defaultValues: {
-            'text-input': 'foo'
-        },
-
-        show: function () {
-            $(this).slideDown();
-        },
-
-        hide: function (deleteElement) {
-            $(this).slideUp(deleteElement);
-        }
-        });
       
       
         if(!createEcommerceLocationsForm) {
@@ -154,27 +132,6 @@ const EcommerceLocationsCRUD = (function () {
                     },
                 },
                 },
-                elvdName: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Name is required',
-                    },
-                },
-                },  
-                elvdURL: {
-                    validators: {
-                        notEmpty: {
-                            message: 'URL is required',
-                    },
-                },
-                },        
-                elvdType: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Type is required',
-                    },
-                },
-                },    
         },
             plugins: {
             //Learn more: https://formvalidation.io/guide/plugins
@@ -213,14 +170,6 @@ const EcommerceLocationsCRUD = (function () {
                         name: elaciName.value,
                         info: elaciInfo.value,
                     },
-
-                    verifyDocuments: [
-                        {
-                        name: elvdName.value,
-                        URL: elvdURL.value,
-                        type: elvdType.value,
-                        },
-                    ],
             },
             }).then(function (res) {
             KTUtil.btnRelease(createEcommerceLocationsFormSubmitButton);
@@ -259,8 +208,9 @@ const EcommerceLocationsCRUD = (function () {
             });
             
             };     
-    
-            
+
+
+
         return {
         // public functions
         init: function () {

@@ -25,6 +25,9 @@ block content
                                 div(class='col-xl-6')
                                     div(class='my-5')
 
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+
 
                                         //tiNo
                                         div(class='form-group row')
@@ -68,6 +71,8 @@ block content
                                             div(class='col-6')
                                                 div(class='typeahead')
                                                     input#tiBuyerID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tiBuyerID' placeholder='')
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') Billing Details
 
                                         //tiBillingName
                                         div(class='form-group row')
@@ -105,6 +110,8 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-3')
                                                 input#tiBillingGST(type='text' class='form-control' name='tiBillingGST' placeholder='')
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') Cosignee Details
 
                                         //tiCosigneeName
                                         div(class='form-group row')
@@ -126,6 +133,8 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-5')
                                                 input#tiCosigneeContact(type='text' class='form-control' name='tiCosigneeContact' placeholder='Enter Contact')
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') Seller Details
 
                                         //tiSellerID
                                         div(class='form-group row')
@@ -178,63 +187,32 @@ block content
                                             div(class='col-6')
                                                 input#tiCarrierCharge(type='text' class='form-control' name='tiCarrierCharge' placeholder='')
 
-                                        #tiPayment
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Payment Meta
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='col-3')
-                                                            input#tiaccNo(type='text', class='form-control', placeholder='Meta' name='tiaccNo')
-                                                        div(class='col-3')
-                                                            select#tiBankName(class='form-control selectpicker' multiple=''  data-live-search='true' name='tiBankName' )
-                                                                option ICICI
-                                                                option HDFC
-                                                                option State Bank of India
-                                                                option other
-                                                            span(class='form-text text-muted') Select Bank                             
-                                                        div(class='col-3')
-                                                            input#tiBankIFSC(type='text', class='form-control', placeholder='Bank IFSC' name='tiBankIFSC')
+                                        //Bank Details
+                                        h3(class=' text-dark font-weight-bold mb-10') Payment Meta
+                                        //tiAccNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Account No
+                                            div(class='col-4')
+                                                input#tiAccNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiAccNo' placeholder='')
+                                        //tiBankName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Bank Name
+                                            div(class='col-4')
+                                                select#tiBankName(class='form-control selectpicker' data-size='7' data-live-search='true'  name='tiBankName')
+                                                    option(value='' disabled='' selected='') Choose Bank
+                                                    option(value='sbi') SBI
+                                                    option(value='hdfc') HDFC
+                                                    option(value='icici') ICICI
+                                                    option(value='other') Other
 
-                                        #tiItem
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Item Table
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='col-3')
-                                                            input#tiSerialNo(type='text', class='form-control', placeholder='Serial No' name='tiSerialNo')
-                                                        div(class='col-3')
-                                                            input#tiItemCode(type='text', class='form-control', placeholder='Item Code' name='tiItemCode')
-                                                        div(class='col-3')
-                                                            input#tiName(type='text', class='form-control', placeholder='Name' name='tiName')
-                                                        div(class='col-3')
-                                                            input#tiQuantity(type='text', class='form-control', placeholder='Qty' name='tiQuantity')
-                                                        div(class='col-3')
-                                                            select#tiItemUnits(class='form-control selectpicker' multiple=''  data-live-search='true' name='tiItemUnits' )
-                                                                option kg
-                                                                option g
-                                                            span(class='form-text text-muted') Select Units                           
-                                                        div(class='col-3')
-                                                            input#tiUnitPrice(type='text', class='form-control', placeholder='Unit Price' name='tiUnitPrice')
-                                                        div(class='col-3')
-                                                            input#tiDiscount(type='text', class='form-control', placeholder='Discount' name='tiDiscount')
-                                                        div(class='col-3')
-                                                            input#tiDiscountRate(type='text', class='form-control', placeholder='Discount Rate' name='tiDiscountRate')
-                                                        div(class='col-3')
-                                                            input#tiTaxValue(type='text', class='form-control', placeholder='Tax Value' name='tiTaxValue')
-                                                        div(class='col-3')
-                                                            input#tiCGST(type='text', class='form-control', placeholder='CGST' name='tiCGST')
-                                                        div(class='col-3')
-                                                            input#tiCGSTAmt(type='text', class='form-control', placeholder='CGST Amt' name='tiCGSTAmt')
-                                                        div(class='col-3')
-                                                            input#tiSGST(type='text', class='form-control', placeholder='SGST' name='tiSGST')
-                                                        div(class='col-3')
-                                                            input#tiSGSTAmt(type='text', class='form-control', placeholder='SGST Amt' name='tiSGSTAmt')
-                                                        div(class='col-3')
-                                                            input#tiIGST(type='text', class='form-control', placeholder='IGST' name='tiIGST')
-                                                        div(class='col-3')
-                                                            input#tiIGSTAmt(type='text', class='form-control', placeholder='IGST Amt' name='tiIGSTAmt')
-                                                        div(class='col-3')
-                                                            input#tiTotalPrice(type='text', class='form-control', placeholder='Total Price' name='tiTotalPrice')
+                                        //tiBankIFSC
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Bank IFSC
+                                            div(class='col-4')
+                                                input#tiBankIFSC(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiBankIFSC' placeholder='')
+
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') Other
 
                                         //tibeforeTax
                                         div(class='form-group row')

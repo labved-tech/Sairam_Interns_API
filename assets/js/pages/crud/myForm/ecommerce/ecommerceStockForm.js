@@ -110,46 +110,6 @@ const EcommerceStockCRUD = (function () {
             prefix: '$'
           });
         
-          //Repeat Multiple : Discount Array
-        const esDiscount = KTUtil.getById('esDiscount'); // Form Repeat #2 : Multiple 
-        
-        $('#esDiscount').repeater({
-        initEmpty: false,
-
-        defaultValues: {
-            'text-input': 'foo'
-        },
-
-        show: function () {
-            $(this).slideDown();
-        },
-
-        hide: function (deleteElement) {
-            $(this).slideUp(deleteElement);
-        }
-        });
-      
-      
-          //Repeat Multiple : Tax Array
-          const esTax = KTUtil.getById('esTax'); // Form Repeat #2 : Multiple 
-        
-          $('#esTax').repeater({
-          initEmpty: false,
-  
-          defaultValues: {
-              'text-input': 'foo'
-          },
-  
-          show: function () {
-              $(this).slideDown();
-          },
-  
-          hide: function (deleteElement) {
-              $(this).slideUp(deleteElement);
-          }
-          });
-        
-        
           if(!createEcommerceStockForm) {
               return;   
           }
@@ -226,55 +186,6 @@ const EcommerceStockCRUD = (function () {
                         },
                     },
                 },  
-                esdDiscountVol: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This field is required',
-                        },
-                    },
-                },        
-                esdDiscountPercent: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This field is required',
-                        },
-                    },
-                },
-                esdName: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Name is required',
-                        },
-                    },
-                },                         
-                esdDescription: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Description is required',
-                        },
-                    },
-                },
-                estCGST: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This field is required',
-                        },
-                    },
-                },  
-                estSGST: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This field is required',
-                        },
-                    },
-                },        
-                estIGST: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This field is required',
-                        },
-                    },
-                },    
         },
             plugins: {
             //Learn more: https://formvalidation.io/guide/plugins
@@ -306,19 +217,6 @@ const EcommerceStockCRUD = (function () {
                     _locationId: esLocationId.value,
                     status: esStatus.value,
                     maxQuantityPerOrderNumber: elmaxQuantityPerOrderNumber.value,
-
-                    discount:[ {
-                        discountVol:esdDiscountVol.value,
-                        discountPercent:esdDiscountPercent.value,
-                        name:esdName.value,
-                        description:esdDescription.value,
-                    }],
-
-                    tax:[{
-                        CGST:estCGST.value,
-                        SGST:estSGST.value,
-                        IGST:estIGST.value,
-                    }]
 
             },
             }).then(function (res) {

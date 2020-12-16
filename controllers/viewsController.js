@@ -260,7 +260,18 @@ exports.packingList = (req, res) => {
   console.log('We are in Packing List Form Page');
   res.status(200).render('./../views/pages/sales-finance/packingList');
 };
-
+exports.packingListBox = (req, res) => {
+  console.log('We are in Packing List Box Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListBox');
+};
+exports.packingListItem = (req, res) => {
+  console.log('We are in Packing List Item Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListItem');
+};
+exports.packingListShipping = (req, res) => {
+  console.log('We are in Packing List Shipping Form Page');
+  res.status(200).render('./../views/pages/sales-finance/packingListShipping');
+};
 exports.quotation = (req, res) => {
   console.log('We are in Quotation Form Page');
   res.status(200).render('./../views/pages/sales-finance/quotation');
@@ -275,6 +286,15 @@ exports.performaInvoice = (req, res) => {
   console.log('We are in Performa Invoice Form Page');
   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
 };
+
+// exports.performaInvoice = (req, res) => {
+//   console.log('We are in Performa Invoice Form Page');
+//   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
+// };
+// exports.performaInvoice = (req, res) => {
+//   console.log('We are in Performa Invoice Form Page');
+//   res.status(200).render('./../views/pages/sales-finance/performaInvoice');
+// };
 
 exports.addressTable = (req, res) => {
   console.log('We are in Address Table Page');
@@ -556,14 +576,34 @@ exports.ecommerceLocations = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceLocations');
 };
 
+exports.ecommerceLocationsVerifyDocuments = (req, res) => {
+  console.log('We are in Ecommerce Location : Verify Documents Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceLocationsVerifyDocuments');
+};
+
 exports.ecommerceStock = (req, res) => {
   console.log('We are in Ecommerce Stock Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceStock');
 };
 
+exports.ecommerceStockDiscount = (req, res) => {
+  console.log('We are in Ecommerce Stock : Discount Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockDiscount');
+};
+
+exports.ecommerceStockTax = (req, res) => {
+  console.log('We are in Ecommerce Stock : Tax Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceStockTax');
+};
+
 exports.ecommerceOrder = (req, res) => {
   console.log('We are in Ecommerce Order Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceOrder');
+};
+
+exports.ecommerceOrderItems = (req, res) => {
+  console.log('We are in Ecommerce Order : Items Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceOrderItems');
 };
 
 exports.ecommerceProducts = (req, res) => {

@@ -24,6 +24,9 @@ block content
                                 div(class='col-md-1')
                                 div(class='col-xl-6')
                                     div(class='my-5')
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') General
+
 
                                         //quModuleRef
                                         div(class='form-group row')
@@ -38,6 +41,27 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-6')
                                                 input#quHeader(type='text' class='form-control' name='quHeader' placeholder='')
+                                        //quSubject
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Subject
+                                                span(class='text-danger')  
+                                            div(class='col-4')
+                                                input#quSubject(type='text' class='form-control' name='quSubject' placeholder='')
+
+                                        //quBody
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Body
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quBody(type='text' class='form-control' name='quBody' placeholder='')
+
+                                        //quItemTable
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Item Table
+                                                span(class='text-danger')  
+                                            div(class='col-6')
+                                                input#quItemTable(type='text' class='form-control' name='quItemTable' placeholder='')
+
 
                                         //quDate
                                         div(class = 'form-group row')
@@ -45,6 +69,9 @@ block content
                                                 span(class='text-danger')
                                             div(class='col-4')
                                                 input#quDate(type='text' class='form-control' name='quDate' placeholder='Select Date')
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') Buyer Details
+
 
                                         //quBuyerID
                                         div(class='form-group row')
@@ -89,6 +116,9 @@ block content
                                                     option Telephone
                                                     option Mobile Phone
                                                 span(class='form-text text-muted') Select Contact Type                                  
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') Seller Details
+
 
                                         //quSellerID
                                         div(class='form-group row')
@@ -142,26 +172,6 @@ block content
                                                     option Mobile Phone
                                                 span(class='form-text text-muted') Select Contact Type                                  
 
-                                        //quSubject
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Subject
-                                                span(class='text-danger')  
-                                            div(class='col-4')
-                                                input#quSubject(type='text' class='form-control' name='quSubject' placeholder='')
-
-                                        //quBody
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Body
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#quBody(type='text' class='form-control' name='quBody' placeholder='')
-
-                                        //quItemTable
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Item Table
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#quItemTable(type='text' class='form-control' name='quItemTable' placeholder='')
 
                                         //quTermsCondition
                                         div(class='form-group row mb-1')
@@ -180,35 +190,25 @@ block content
                                             div(class='col-4')
                                                 input#quFooter(type='text' class='form-control' name='quFooter' placeholder='')
 
+                                        //Payment Method
+                                        h3(class=' text-dark font-weight-bold mb-10') Payment Method
+                                        //quType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Type
+                                            div(class='col-4')
+                                                select#quType(class='form-control selectpicker' data-size='7' data-live-search='true'  name='quType')
+                                                    option(value='' disabled='' selected='') Choose Type
+                                                    option(value='cc') Credit Card
+                                                    option(value='dc') Debit Card
+                                                    option(value='ch') Cash
+                                                    option(value='other') Other
+                                        //quMeta
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Meta
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#quMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quMeta' placeholder='')
 
-                                        #quPayment
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Payment Method
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='typeahead')
-                                                            input#quPayID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='quPayID' placeholder='Payement ID')
-                                                        div(class='col-4')
-                                                            select#quPayType(class='form-control selectpicker' multiple=''  data-live-search='true' name='quPayType' )
-                                                                option Credit Card
-                                                                option Debit Card
-                                                                option Cash
-                                                            span(class='form-text text-muted') Select Payment Method                              
-                                                        div(class='col-2')
-                                                            input#quMeta(type='text', class='form-control', placeholder='Meta' name='quMeta')
-                                                        div(class='col-2')                                 
-                                                        div(class='col-md-3')
-                                                            a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
-                                                                i(class='la la-remove')
-                                                        
-                                                        span(class='form-text text-muted')
-
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right')
-                                                div(class='col-4')
-                                                    a( data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
-                                                        i(class='la la-plus')
-                                                        | Add
 
                                         //quNumber
                                         div(class='form-group row')

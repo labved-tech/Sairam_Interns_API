@@ -8,7 +8,7 @@ block js-files
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
-        include ./../../parpials/_subheader/subheader-v1.pug
+        include ./../../partials/_subheader/subheader-v1.pug
         // begin::Entry
         div(class='d-flex flex-column-fluid')
             // begin::Container
@@ -25,6 +25,8 @@ block content
                                 div(class='col-xl-6')
                                     div(class='my-5')
 
+                                        //General
+                                        h3(class=' text-dark font-weight-bold mb-10') General
 
                                         //piNo
                                         div(class='form-group row')
@@ -68,6 +70,8 @@ block content
                                                 span(class='text-danger')
                                             div(class='col-4')
                                                 input#piOrderDate(type='text' class='form-control' name='piOrderDate' placeholder='Select Date')
+                                        //Billing
+                                        h3(class=' text-dark font-weight-bold mb-10') Billing Details
 
                                         //piBuyerID
                                         div(class='form-group row')
@@ -106,6 +110,9 @@ block content
                                             div(class='col-5')
                                                 input#piBillingContact(type='text' class='form-control' name='piBillingContact' placeholder='Enter Contact')
 
+                                        //Cosignee
+                                        h3(class=' text-dark font-weight-bold mb-10') Cosignee
+
                                         //piCosigneeName
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Cosignee Name
@@ -126,6 +133,9 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-5')
                                                 input#piCosigneeContact(type='text' class='form-control' name='piCosigneeContact' placeholder='Enter Contact')
+
+                                        //Seller
+                                        h3(class=' text-dark font-weight-bold mb-10') Seller
 
                                         //piSellerID
                                         div(class='form-group row')
@@ -154,73 +164,29 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-6')
                                                 input#piSellerContact(type='text' class='form-control' name='piSellerContact' placeholder='Enter Contact')
+                                        //Bank Details
+                                        h3(class=' text-dark font-weight-bold mb-10') Seller Bank Details
+                                        //piAccNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Account No
+                                            div(class='col-4')
+                                                input#piAccNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piAccNo' placeholder='')
+                                        //piBankName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Bank Name
+                                            div(class='col-4')
+                                                select#piBankName(class='form-control selectpicker' data-size='7' data-live-search='true'  name='piBankName')
+                                                    option(value='' disabled='' selected='') Choose Bank
+                                                    option(value='sbi') SBI
+                                                    option(value='hdfc') HDFC
+                                                    option(value='icici') ICICI
+                                                    option(value='other') Other
 
-                                        #piPayment
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Payment Method
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='typeahead')
-                                                            input#piPayID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='piPayID' placeholder='Payement ID')
-                                                        div(class='col-4')
-                                                            select#piPayType(class='form-control selectpicker' multiple=''  data-live-search='true' name='piPayType' )
-                                                                option Credit Card
-                                                                option Debit Card
-                                                                option Cash
-                                                            span(class='form-text text-muted') Select Payment Type                           
-
-                                                        div(class='col-3')
-                                                            input#piaccNo(type='text', class='form-control', placeholder='Meta' name='piaccNo')
-                                                        div(class='col-3')
-                                                            select#piBankName(class='form-control selectpicker' multiple=''  data-live-search='true' name='piBankName' )
-                                                                option ICICI
-                                                                option HDFC
-                                                                option State Bank of India
-                                                                option other
-                                                            span(class='form-text text-muted') Select Bank                             
-                                                        div(class='col-3')
-                                                            input#piBankIFSC(type='text', class='form-control', placeholder='Bank IFSC' name='piBankIFSC')
-
-                                        #piItem
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Item Table
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='col-3')
-                                                            input#piSerialNo(type='text', class='form-control', placeholder='Serial No' name='piSerialNo')
-                                                        div(class='col-3')
-                                                            input#piItemCode(type='text', class='form-control', placeholder='Item Code' name='piItemCode')
-                                                        div(class='col-3')
-                                                            input#piName(type='text', class='form-control', placeholder='Name' name='piName')
-                                                        div(class='col-3')
-                                                            input#piQuantity(type='text', class='form-control', placeholder='Qty' name='piQuantity')
-                                                        div(class='col-3')
-                                                            select#piItemUnits(class='form-control selectpicker' multiple=''  data-live-search='true' name='piItemUnits' )
-                                                                option kg
-                                                                option g
-                                                            span(class='form-text text-muted') Select Units                           
-                                                        div(class='col-3')
-                                                            input#piUnitPrice(type='text', class='form-control', placeholder='Unit Price' name='piUnitPrice')
-                                                        div(class='col-3')
-                                                            input#piDiscount(type='text', class='form-control', placeholder='Discount' name='piDiscount')
-                                                        div(class='col-3')
-                                                            input#piDiscountRate(type='text', class='form-control', placeholder='Discount Rate' name='piDiscountRate')
-                                                        div(class='col-3')
-                                                            input#piTaxValue(type='text', class='form-control', placeholder='Tax Value' name='piTaxValue')
-                                                        div(class='col-3')
-                                                            input#piCGST(type='text', class='form-control', placeholder='CGST' name='piCGST')
-                                                        div(class='col-3')
-                                                            input#piCGSTAmt(type='text', class='form-control', placeholder='CGST Amt' name='piCGSTAmt')
-                                                        div(class='col-3')
-                                                            input#piSGST(type='text', class='form-control', placeholder='SGST' name='piSGST')
-                                                        div(class='col-3')
-                                                            input#piSGSTAmt(type='text', class='form-control', placeholder='SGST Amt' name='piSGSTAmt')
-                                                        div(class='col-3')
-                                                            input#piIGST(type='text', class='form-control', placeholder='IGST' name='piIGST')
-                                                        div(class='col-3')
-                                                            input#piIGSTAmt(type='text', class='form-control', placeholder='IGST Amt' name='piIGSTAmt')
-                                                        div(class='col-3')
-                                                            input#piTotalPrice(type='text', class='form-control', placeholder='Total Price' name='piTotalPrice')
+                                        //piBankIFSC
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Bank IFSC
+                                            div(class='col-4')
+                                                input#piBankIFSC(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piBankIFSC' placeholder='')
 
                                         //pibeforeTax
                                         div(class='form-group row')
@@ -228,6 +194,12 @@ block content
                                                 span(class='text-danger')  
                                             div(class='col-6')
                                                 input#pibeforeTax(type='text' class='form-control' name='pibeforeTax' placeholder='')
+
+                                        //piSellerGST
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Seller GST
+                                            div(class='col-4')
+                                                input#piSellerGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piSellerGST' placeholder='')
 
                                         //piCGSTTotal
                                         div(class='form-group row')

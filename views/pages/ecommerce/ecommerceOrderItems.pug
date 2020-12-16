@@ -1,0 +1,123 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/ecommerce/ecommerceOrderItemsForm.js' )
+    
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Ecommerce Order : Items
+                    div(class='card-body')
+                        // begin::Form
+                        form#createEcommerceOrderItemsForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5') 
+
+                                        h3(class=' text-dark font-weight-bold mb-10') Items
+
+                                        //eoiProductName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Product Name
+                                            div(class='col-5')
+                                                input#eoiProductName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiProductName' placeholder='')
+
+                                        //eoiProductID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Product ID
+                                            div(class='col-5')
+                                                input#eoiProductID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiProductID' placeholder='')
+
+                                        //eoiManufacturerPartID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Manufacturer ID
+                                            div(class='col-5')
+                                                input#eoiManufacturerPartID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiManufacturerPartID' placeholder='')
+
+
+                                        //eoiHSN
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') HSN Code 
+                                            div(class='col-5')
+                                                input#eoiHSN(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiHSN' placeholder='')
+
+                                        //eoiQuantity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Quantity
+                                            div(class='col-5')
+                                                input#eoiQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiQuantity' placeholder='')
+
+                                        //eoiUnitPrice
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Unit Price
+                                            div(class='col-5')
+                                                input#eoiUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiUnitPrice' placeholder='')
+
+                                        //eoiMeta
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Meta
+                                            div(class='col-6')
+                                                div(class='typeahead')
+                                                    input#eoiMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eoiMeta' placeholder='')
+
+                                        //eoiDiscount
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Discount
+                                            div(class='col-5')
+                                                input#eoiDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiDiscount' placeholder='')
+
+                                        //eoiTax
+                                        h3(class=' text-dark font-weight-bold mb-10') Tax
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  CGST 
+                                            div(class='col-5')
+                                                input#eoiCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiCGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  SGST 
+                                            div(class='col-5')
+                                                input#eoiSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiSGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  IGST
+                                            div(class='col-5')
+                                                input#eoiIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='eoiIGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate CGST
+                                            div(class='col-5')
+                                                input#calcCGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcCGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate SGST
+                                            div(class='col-5')
+                                                input#calcSGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcSGST' placeholder='')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  Calculate IGST
+                                            div(class='col-5')
+                                                input#calcIGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='calcIGST' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#createEcommerceOrderItemsFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

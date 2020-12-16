@@ -27,27 +27,32 @@ block content
 
                                         //plPackingListNo
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Packing List Number
-                                            div(class='col-4')
-                                                input#plPackingListNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plPackingListNo' placeholder='')
+                                            label(class='col-3 col-form-label form-control-label text-right') Packing List No
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#plPackingListNo(type='text' class='form-control' name='plPackingListNo' placeholder='')
 
                                         //plTaxInvoiceNo
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Tax Invoice Number
-                                            div(class='col-4')
-                                                input#plTaxInvoiceNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plTaxInvoiceNo' placeholder='')
+                                            label(class='col-3 col-form-label form-control-label text-right') Tax Invoice No
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#plTaxInvoiceNo(type='text' class='form-control' name='plTaxInvoiceNo' placeholder='')
+
+                                        //Source
+                                        h3(class=' text-dark font-weight-bold mb-10') Source
 
                                         //plSource
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Source
                                                 span(class='text-danger')  
-                                            div(class='col-6')
+                                            div(class='col-5')
                                                 input#plSource(type='text' class='form-control' name='plSource' placeholder='Enter Source')
 
                                         //plSourceAddress
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Source Address
-                                            div(class='col-4')
+                                            div(class='col-6')
                                                 div(class='typeahead')
                                                     input#plourceAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='plSourceAddress' placeholder='')
 
@@ -62,15 +67,18 @@ block content
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Source Contact Number
                                                 span(class='text-danger')  
-                                            div(class='col-6')
+                                            div(class='col-5')
                                                 input#plSourceContact(type='text' class='form-control' name='plSourceContact' placeholder='Enter Contact Number')
 
                                         //plSourceGST
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Source GST
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#plSourceGST(type='text' class='form-control' name='plSourceGST' placeholder='')
+                                            div(class='col-4')
+                                                input#plSourceGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plSourceGST' placeholder='40')
+                                                span(class='form-text text-muted')                                  
+
+                                        //Cosignee
+                                        h3(class=' text-dark font-weight-bold mb-10') Cosignee
 
                                         //plCosignee
                                         div(class='form-group row')
@@ -82,7 +90,7 @@ block content
                                         //plCosigneeAddress
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Cosignee Address
-                                            div(class='col-4')
+                                            div(class='col-6')
                                                 div(class='typeahead')
                                                     input#plCosigneeAddress(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='plCosigneeAddress' placeholder='')
 
@@ -102,124 +110,10 @@ block content
 
                                         //plCosigneeGST
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee GST 
-                                                span(class='text-danger')  
-                                            div(class='col-6')
-                                                input#plCosigneeGST(type='text' class='form-control' name='plCosigneeGST' placeholder='')
-
-                                        //plBox
-                                        h3(class=' text-dark font-weight-bold mb-10') Box
-
-                                        #plBoxRepeat
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Dimension
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='col-2')
-                                                            input#plBoxNo(type='text', class='form-control', placeholder='Box No' name='plBoxNo')
-                                                        div(class='col-2')
-                                                            input#plBoxDimlength(type='text', class='form-control', placeholder='length' name='plBoxDimlength')
-                                                        div(class='col-2')
-                                                            input#plBoxDimBreadth(type='text', class='form-control', placeholder='breadth' name='plBoxDimBreadth')
-                                                        div(class='col-2')
-                                                            input#plBoxDimWidth(type='text', class='form-control', placeholder='Width' name='plBoxDimWidth')                                                                                              
-
-                                                        div(class=' col-2')
-                                                            select#plBoxDimUnits(class='form-control select2' name='plBoxDimUnits' data-placeholder='Select Units')
-                                                                option(value="" disabled="" selected="" hidden="")
-                                                                option(value='AK') Inch
-                                                                option(value='HI') cm
-                                                        div(class='col-3')
-                                                            input#plBoxWeight(type='text', class='form-control', placeholder='Weight' name='plBoxWeight')
-                                                        div(class=' col-2')
-                                                            select#plBoxWeightUnits(class='form-control select2' name='plBoxWeightUnits' data-placeholder='Select Units')
-                                                                option(value="" disabled="" selected="" hidden="")
-                                                                option(value='AK') kg
-                                                                option(value='HI') g
-                                                        div(class='col-2')
-                                                            a( data-repeater-delete='', class='btn font-weight-bold btn-danger btn-icon')
-                                                                i(class='la la-remove')
-
-                                                        span(class='form-text text-muted') Enter Box Details                                   
-
-                                            div(class='form-group row')
-                                                div(class='col-3 col-form-label form-control-label text-right')
-                                                div(class='col')
-                                                    div(data-repeater-create='', class='btn font-weight-bold btn-primary')
-                                                        i(class='la la-plus')
-                                                        |   Add
-                                        #plBoxItem
-                                            div(class='form-group row')
-                                                label(class='col-3 col-form-label form-control-label text-right') Items
-                                                div(data-repeater-list='', class='col-16')
-                                                    div(data-repeater-item='', class='form-group row')
-                                                        div(class='col-2')
-                                                            input#plSerialNo(type='text', class='form-control', placeholder='Serial No ' name='plSerialNo')
-                                                        div(class='col-2')
-                                                            input#plItemCode(type='text', class='form-control', placeholder='Item Code' name='plItemCode')
-                                                        div(class='col-2')
-                                                            input#plName(type='text', class='form-control', placeholder='Name' name='plName')
-                                                        div(class='col-2')
-                                                            input#plQuantity(type='text', class='form-control', placeholder='Quantity' name='plQuantity')                                                                                              
-                                                        div(class=' col-2')
-                                                            select#plItemUnits(class='form-control select2' name='plItemUnits' data-placeholder='Select Units')
-                                                                option(value="" disabled="" selected="" hidden="")
-                                                                option(value='AK') kg
-                                                                option(value='HI') g
-                                                        div(class='col-3')
-                                                                div(class='typeahead')
-                                                                    input#plboxMeta(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='plboxMeta' placeholder='Box Meta')
-
-                                                        div(class='col-2')
-                                                            a( data-repeater-delete='', class='btn font-weight-bold btn-danger btn-icon')
-                                                                i(class='la la-remove')
-
-                                                        span(class='form-text text-muted') Enter Item Details                                   
-
-                                            div(class='form-group row')
-                                                div(class='col-3 col-form-label form-control-label text-right')
-                                                div(class='col')
-                                                    div(data-repeater-create='', class='btn font-weight-bold btn-primary')
-                                                        i(class='la la-plus')
-                                                        |   Add
-                                        //plShipMethod
-                                        div(class='form-group row')
-                                            label(class=' col-3 col-form-label form-control-label text-right ') Shipping Method
-                                            div(class='col-5')
-                                                select#plShipMethod(class='form-control selectpicker' multiple=''  data-live-search='true' name='plShipMethod' )
-                                                    option FedEx
-                                                    option DHL  
-                                                    option Other    
-                                                span(class='form-text text-muted') Select Shipping                                
-                                        //plCarrierName
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Name
-                                                span(class='text-danger')  
-                                            div(class='col-5')
-                                                input#plCarrierName(type='text' class='form-control' name='plCarrierName' placeholder='')
-
-                                        //plTrackingNo
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Carrier Tracking No  
-                                                span(class='text-danger')  
-                                            div(class='col-5')
-                                                input#plTrackingNo(type='text' class='form-control' name='plTrackingNo' placeholder='')
-
-                                        //plShippingNotes
-                                        div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='plShippingNotes')
-                                                | Shipping Notes
-                                                span(class='text-danger')
-                                            div(class='col-7 ')
-                                                textarea#plShippingNotes(class='form-control' name='plShippingNotes' rows='3')
-                                                span(class='form-text text-muted') Add Shipping Notes
-
-                                        //plFileProof
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') File Proof
-                                                span(class='text-danger')  
-                                            div(class='col-5')
-                                                input#plFileProof(type='text' class='form-control' name='plFileProof' placeholder='')
+                                            label(class='col-3 col-form-label form-control-label text-right') Cosignee GST
+                                            div(class='col-4')
+                                                input#plCosigneeGST(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plCosigneeGST' placeholder='40')
+                                                span(class='form-text text-muted')                                  
 
                             div(class='card-footer')
                                 div(class='row text-right')
