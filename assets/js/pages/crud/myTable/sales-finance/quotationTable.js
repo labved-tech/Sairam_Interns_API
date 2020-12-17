@@ -18,15 +18,15 @@ const QuotationTable = (function () {
               method: 'get',
               url: `${HOST_URL}/api/v1/sales-finance/quotation/table`,
               params: {
-                fields: '_id, moduleReferance, header, date, _buyerId,buyerName,buyerAddress,buyerEmail,buyerContactNumber,buyerContactNumbertype,billingContactNumber,_sellerId,sellerName,sellerAttentionName,sellerAddress,sellerContactNumber,sellerContactNumbertype,subject,body,termsAndConditions,footer,QuotationNumber,createdBy,createdAt,updatedAt',
+                fields: '_id, moduleReference, header, date, _buyerId,buyerName,buyerAddress,buyerEmail,buyerContactNumber,buyerContactNumbertype,billingContactNumber,_sellerId,sellerName,sellerAttentionName,sellerAddress,sellerContactNumber,sellerContactNumbertype,subject,body,termsAndConditions,footer,QuotationNumber,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                 // sample data mapping
                 console.log('raw', raw);
                 dataSet = raw;
             
-                if (typeof raw.performaInvoice !== 'undefined') {
-                  dataSet = raw.performaInvoice;
+                if (typeof raw.quotation !== 'undefined') {
+                  dataSet = raw.quotation;
                   console.log('dataSet', dataSet);
                 }
                 return dataSet;

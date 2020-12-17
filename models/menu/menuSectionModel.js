@@ -9,7 +9,6 @@ const menuSectionSchema = new Schema(
   {
     name: {
       type: String,
-      unique: [true, 'Already exists'],
     },
     description: { type: String },
     priority: { type: Number },

@@ -16,7 +16,7 @@ const TaxInvoiceTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/taxInvoice/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/tax-invoice/table`,
               params: {
                 fields: '_id, taxInvoiceNo, header, date, _orderId,orderDate,_buyerId,billingName,billingAddress,billingEmail,billingContactNumber,billingGSTIN,consigneeName,consigneeAddress,consigneeContactNumber,_sellerId,sellerName,sellerAddress,sellerContactNumber,carrierTrackingNo,carrierCharges,totalBeforeTax,CGSTTotal,SGSTTotal,IGSTTotal,grandTotal,termsAndConditions,footer,meta,source, createdBy,createdAt,updatedAt',
               },

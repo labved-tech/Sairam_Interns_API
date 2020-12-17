@@ -16,7 +16,7 @@ const PackingListTable = (function () {
           source: {
             read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/packingList/table`,
+              url: `${HOST_URL}/api/v1/sales-finance/packing-list/table`,
               params: {
                 fields: '_id, packingListnumber, taxInvoiceNumber, source, sourceAddress,sourceEmail, sourceContactNumber,sourceGstin,consignee,consigneeAddress,consigneeEmail,consigneeContactNumber,consigneeGstin,shipMethod,carrierName,carrierTrackingNumber, shippingNotes,fileProof,createdBy,createdAt,updatedAt',
               },
@@ -27,7 +27,6 @@ const PackingListTable = (function () {
             
                 if (typeof raw.packingList !== 'undefined') {
                   dataSet = raw.packingList;
-                  console.log('dataSet', dataSet);
                 }
                 return dataSet;
               }

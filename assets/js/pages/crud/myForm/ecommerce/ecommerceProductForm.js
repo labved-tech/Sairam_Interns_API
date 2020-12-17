@@ -65,28 +65,43 @@ const EcommerceProductsCRUD = (function () {
                     epManufactureNo: {
                         validators: {
                             notEmpty: {
-                                message: 'Product ID is required',
+                                message: 'Manufacture Part No is required',
                                 },
                             },
                     }, 
                     epName: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Name is required',
                             },
                         },
-                    },           
+                    },  
+                    epUnitPrice: {
+                        validators: {
+                            notEmpty: {
+                                message: 'Unit Price is required',
+                                },
+                            },
+                        },           
+                        epMaxQtyNo: {
+                            validators: {
+                                notEmpty: {
+                                    message: ' Max Qty Per Order is required',
+                                    },
+                                },
+                            },           
+            
                     epDescription: {
                     validators: {
                         notEmpty: {
-                            message: 'Price is required',
+                            message: 'Description is required',
                             },
                         },
                     }, 
                     epID: {
                     validators: {
                         notEmpty: {
-                            message: 'This field is required',
+                            message: 'Category ID is required',
                             },
                         },
                     }, 
@@ -94,7 +109,7 @@ const EcommerceProductsCRUD = (function () {
                     epMRP: {
                     validators: {
                         notEmpty: {
-                            message: 'Description is required',
+                            message: 'MRP is required',
                             },
                         },
                     }, 
@@ -108,28 +123,28 @@ const EcommerceProductsCRUD = (function () {
                     epRanking : {
                     validators: {
                         notEmpty: {
-                            message: 'Location ID is required',
+                            message: 'Ranking is required',
                         },
                     },
                     },       
                     epSellerID: {
                     validators: {
                         notEmpty: {
-                          message: 'Status is required',
+                          message: 'Seller ID is required',
                         },
                     },
                     },
                 epReviewID: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Review Attribute ID is required',
                         },
                     },
                     },  
               epStatus: {
                   validators: {
                       notEmpty: {
-                          message: 'This field is required',
+                          message: 'Status is required',
                       },
                   },
                     },        
@@ -137,7 +152,7 @@ const EcommerceProductsCRUD = (function () {
               epHSN: {
                 validators: {
                     notEmpty: {
-                        message: 'This field is required',
+                        message: 'HSN Code  is required',
                     },
                 },
                     },        

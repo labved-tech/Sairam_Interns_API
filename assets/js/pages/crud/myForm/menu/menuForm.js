@@ -85,9 +85,6 @@ const menuCRUD = (function () {
         });
     };
 
-
-
-
     const _createMenuSectionForm = function () {
 
         // Getting Document related information
@@ -219,13 +216,21 @@ const menuCRUD = (function () {
             };
 
             if (res.data.status == 'success') {
+                // hiding modal form
+                $('#exampleModal').modal('hide');
+
+                // show sucess toastr
                 toastr.success(`${res.data.message}`, `${res.data.status}`);
+
+                // reload table
+                $('#kt_datatable_2').KTDatatable().reload();
+
+
             } else if (res.data.status == 'error') {
                 toastr.error(`${res.data.message}`, `${res.data.status}`)
                 }
             else {
                     $('#exampleModal').modal('hide');
-                    return false;
                 }
             });
 
@@ -514,7 +519,7 @@ const menuCRUD = (function () {
                   method: 'get',
                   url: `${HOST_URL}/api/v1/menu/section/table`,
                   params: {
-                    fields: '_id,name,createdBy,createdAt,updatedAt',
+                    fields: '_id, name, description, priority, createdBy,createdAt,updatedAt',
                   },
                   map: function(raw) {
                     // sample data mapping
@@ -583,10 +588,10 @@ const menuCRUD = (function () {
               {
                 field: 'priority',
                   title: 'Priority',
-                  template: function (row) {
-                      return '\
-                    ';
-                }
+                //   template: function (row) {
+                //       return '\
+                //     ';
+                // }
               },
               {
                 field: 'details',
@@ -609,8 +614,8 @@ const menuCRUD = (function () {
                 sortable: false,
                 width: 125,
                 overflow: 'visible',
-                autoHide: false,
-                template: function () {
+                  autoHide: false,
+                template: function (row) {
                   return '\
                               <div class="dropdown dropdown-inline">\
                                   <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
@@ -655,11 +660,11 @@ const menuCRUD = (function () {
                                       </ul>\
                                   </div>\
                               </div>\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
                                 <i class="far fa-edit">\
                                 </i>\
                               </a>\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
+                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
                                 <i class="far fa-trash-alt">\
                                 </i>\
                               </a>\
@@ -690,6 +695,7 @@ const menuCRUD = (function () {
             '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
           ).selectpicker();
       
+          // mass operation
           datatable.on('datatable-on-click-checkbox', function (e) {
             // datatable.checkbox() access to extension methods
             const ids = datatable.checkbox().getSelectedId();
@@ -703,6 +709,58 @@ const menuCRUD = (function () {
               $('#kt_datatable_group_action_form_2').collapse('hide');
             }
           });
+        
+            // delete operation
+            $('#kt_datatable_2').on('click', '.btnDelete', function () {
+                console.log('delete is clicked')             
+                
+                var id = $(this).attr("aria-label");
+                console.log(id)
+
+                $.ajax({
+                    method: 'DELETE',
+                    url: `${HOST_URL}/api/v1/menu/section/${id}`,
+                });
+
+            // reload table
+            $('#kt_datatable_2').KTDatatable().reload();
+            });
+        
+        // edit operation
+        $('#kt_datatable_2').on('click', '.btnEdit', function () {
+            console.log('edit is clicked')             
+
+            var id = $(this).attr("aria-label");
+            console.log(id);
+
+            // retrieving data
+            $.ajax({
+                method: 'GET',
+                url: `${HOST_URL}/api/v1/menu/section/${id}`,
+                success: function (raw) {
+                    console.log(raw);
+
+                    if (raw.status == 'success') {
+
+                        // updating fields with data
+                        document.querySelector('#menuManagerSelect').value = raw.menuSection.manager;
+                        document.querySelector('#menuSectionName').value = raw.menuSection.name;
+                        document.querySelector('#menuSectionDescription').value = raw.menuSection.description;
+                        document.querySelector('#menuSectionPriority').value = raw.menuSection.priority;
+
+                        // open modal
+                        $('#exampleModal').modal('show');
+                    }
+                },
+            });
+
+   
+
+            // reload table
+            $('#kt_datatable_2').KTDatatable().reload();
+            
+        });  
+
     }
 
   return {
