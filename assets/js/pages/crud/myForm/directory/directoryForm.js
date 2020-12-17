@@ -74,7 +74,7 @@ const DirectoryCRUD = (function () {
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
                 dcFormSubmitButton: new FormValidation.plugins.SubmitButton(),
-                // Submit the form when all fields are valid
+                // Submit the form when all fields are valid    
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
         })
@@ -90,7 +90,7 @@ const DirectoryCRUD = (function () {
                         name: dcName.value,
                         _attributeGroupsId: dcAttributeGroupsId.value,
                         _ratingAttributeGroupId: dcRatingAttributeGroupId.value,
-                        slug: dcSlug.value
+                        slug: dcSlug.value,
                     },
                 }).then(function (res) {
                     KTUtil.btnRelease(dcFormSubmitButton);
