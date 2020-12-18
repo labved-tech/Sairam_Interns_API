@@ -18,7 +18,6 @@ const DirectoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/entries/table`,
                         params: {
-                            _sellerId: { type: mongoose.ObjectId },
                             fields: '_id, author, date, image, message, title, slug, status, location, name, _parentId, commentStatus, commentCount, meta, categories, level, logo, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {

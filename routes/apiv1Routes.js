@@ -114,10 +114,10 @@ router.use('/comment/entries', commentEntriesRouter);
 router.use('/ecommerce', ecommerceRouter);
 
 // DIRECTORY MODULE
-/* router.use('/directory/attributes', directoryAttributesRouter);
+router.use('/directory/attributes', directoryAttributesRouter);
 router.use('/directory/categories', directoryCategoriesRouter);
 router.use('/directory/entries', directoryEntriesRouter);
-router.use('/directory/levels', directoryLevelsRouter); */
+router.use('/directory/levels', directoryLevelsRouter);
 router.use('/directory', directoryRouter);
 
 // EVENTS MODULE

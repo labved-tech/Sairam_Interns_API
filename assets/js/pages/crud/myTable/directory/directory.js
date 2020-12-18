@@ -18,7 +18,7 @@ const DirectoryTable = (function () {
                         method: 'get',
                         url: `${HOST_URL}/api/v1/directory/table`,
                         params: {
-                            fields: '_id, name, single, plural, slug, categories, createdBy,createdAt,updatedAt',
+                            fields: ' name, single, plural, slug, categories, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
