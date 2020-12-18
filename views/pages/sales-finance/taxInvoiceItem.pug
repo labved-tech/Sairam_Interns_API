@@ -1,0 +1,149 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/sales-financeForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Tax Invoice 
+                    div(class='card-body')
+                        // begin::Form
+                        form#createTaxItemForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //Item
+                                        h3(class=' text-dark font-weight-bold mb-10') Item
+
+                                        //tiSerialNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Serial No
+                                            div(class='col-4')
+                                                input#tiSerialNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiSerialNo' placeholder='')
+
+                                        //tiItemCode
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Item Code
+                                            div(class='col-4')
+                                                input#tiItemCode(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiItemCode' placeholder='')
+
+                                        //tiName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                            div(class='col-4')
+                                                input#tiName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiName' placeholder='')
+
+                                        //tiQuantity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Quantity
+                                            div(class='col-4')
+                                                input#tiQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiQuantity' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiItemUnits
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Units
+                                            div(class='col-4')
+                                                select#tiItemUnits(class='form-control selectpicker' data-size='7' data-live-search='true'  name='tiItemUnits')
+                                                    option(value='' disabled='' selected='') Choose Units
+                                                    option(value='kg') kg
+                                                    option(value='g') g
+
+                                        //tiUnitPrice
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Unit Price
+                                            div(class='col-4')
+                                                input#tiUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiUnitPrice' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiDiscount
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Discount
+                                            div(class='col-4')
+                                                input#tiDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiDiscount' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiDiscountRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Discount Rate
+                                            div(class='col-4')
+                                                input#tiDiscountRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiDiscountRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiTaxValue
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Tax Value
+                                            div(class='col-4')
+                                                input#tiTaxValue(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiTaxValue' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiCGSTRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') CGST Rate
+                                            div(class='col-4')
+                                                input#tiCGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiCGSTRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiCGSTAmt
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') CGST Amount
+                                            div(class='col-4')
+                                                input#tiCGSTAmt(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiCGSTAmt' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiSGSTRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') SGST Rate
+                                            div(class='col-4')
+                                                input#tiSGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiSGSTRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiSGSTAmt
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') SGST Amount
+                                            div(class='col-4')
+                                                input#tiSGSTAmt(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiSGSTAmt' placeholder='4')
+                                                span(class='form-text text-muted') 
+                                        //tiIGSTRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') IGST Rate
+                                            div(class='col-4')
+                                                input#tiIGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiIGSTRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiIGSTAmt
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') IGST Amount
+                                            div(class='col-4')
+                                                input#tiIGSTAmt(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiIGSTAmt' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //tiTotalPrice
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Price
+                                            div(class='col-4')
+                                                input#tiTotalPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='tiTotalPrice' placeholder='400')
+                                                span(class='form-text text-muted') 
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#tiItemFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

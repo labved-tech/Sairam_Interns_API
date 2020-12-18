@@ -1,0 +1,149 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/performaInvoiceForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title') Performa Invoice 
+                    div(class='card-body')
+                        // begin::Form
+                        form#createPerformaItemForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //Item
+                                        h3(class=' text-dark font-weight-bold mb-10') Item
+
+                                        //piSerialNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Serial No
+                                            div(class='col-4')
+                                                input#piSerialNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piSerialNo' placeholder='')
+
+                                        //piItemCode
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Item Code
+                                            div(class='col-4')
+                                                input#piItemCode(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piItemCode' placeholder='')
+
+                                        //piName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                            div(class='col-4')
+                                                input#piName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piName' placeholder='')
+
+                                        //piQuantity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Quantity
+                                            div(class='col-4')
+                                                input#piQuantity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piQuantity' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piItemUnits
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Units
+                                            div(class='col-4')
+                                                select#piItemUnits(class='form-control selectpicker' data-size='7' data-live-search='true'  name='piItemUnits')
+                                                    option(value='' disabled='' selected='') Choose Units
+                                                    option(value='kg') kg
+                                                    option(value='g') g
+
+                                        //piUnitPrice
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Unit Price
+                                            div(class='col-4')
+                                                input#piUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piUnitPrice' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piDiscount
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Discount
+                                            div(class='col-4')
+                                                input#piDiscount(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piDiscount' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piDiscountRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Discount Rate
+                                            div(class='col-4')
+                                                input#piDiscountRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piDiscountRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piTaxValue
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Tax Value
+                                            div(class='col-4')
+                                                input#piTaxValue(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piTaxValue' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piCGSTRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') CGST Rate
+                                            div(class='col-4')
+                                                input#piCGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piCGSTRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piCGSTAmt
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') CGST Amount
+                                            div(class='col-4')
+                                                input#piCGSTAmt(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piCGSTAmt' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piSGSTRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') SGST Rate
+                                            div(class='col-4')
+                                                input#piSGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piSGSTRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piSGSTAmt
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') SGST Amount
+                                            div(class='col-4')
+                                                input#piSGSTAmt(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piSGSTAmt' placeholder='4')
+                                                span(class='form-text text-muted') 
+                                        //piIGSTRate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') IGST Rate
+                                            div(class='col-4')
+                                                input#piIGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piIGSTRate' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piIGSTAmt
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') IGST Amount
+                                            div(class='col-4')
+                                                input#piIGSTAmt(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piIGSTAmt' placeholder='4')
+                                                span(class='form-text text-muted') 
+
+                                        //piTotalPrice
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Total Price
+                                            div(class='col-4')
+                                                input#piTotalPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piTotalPrice' placeholder='400')
+                                                span(class='form-text text-muted') 
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#piItemFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

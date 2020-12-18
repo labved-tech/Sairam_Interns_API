@@ -35,6 +35,37 @@ exports.getAllMenuManagerSel2 = catchAsync(async (req, res, next) => {
     manager,
   });
 });
+exports.getMenuManagerSel2 = catchAsync(async (req, res, next) => {
+  console.log('Getting All Menu Manager for Select2');
+  const { body } = req;
+  const { params } = req;
+  const { query } = req;
+  console.log('rawBody :', body);
+  console.log('rawParams :', params);
+  console.log('rawQuery :', query);
+
+  let manager;
+  manager = await MenuManager.findById(params.id).then();
+  console.log(manager);
+  manager = JSON.stringify(manager);
+
+  const mapObj = {
+    _id: 'id',
+    name: 'text',
+  };
+
+  manager = manager.replace(/_id|name/gi, function (matched) {
+    return mapObj[matched];
+  });
+
+  manager = JSON.parse(manager);
+
+  res.status(200).json({
+    status: 'success',
+    message: 'Got Menu Manager',
+    manager,
+  });
+});
 
 exports.getAllMenuManager = catchAsync(async (req, res, next) => {
   console.log('Getting All Menu Manager');

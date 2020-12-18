@@ -17,11 +17,12 @@ router.route('/table').get(menuSectionController.getAllTableMenuSection);
 router
   .route('/')
   .get(menuSectionController.getAllMenuSection)
-  .post(menuSectionController.createMenuSection);
+  .post(menuSectionController.createMenuSection)
+  .delete(menuSectionController.deleteMenuSection);
+
 router
   .route('/:id')
   .get(menuSectionController.getMenuSection)
-  .patch(menuSectionController.updateMenuSection)
-  .delete(menuSectionController.deleteMenuSection);
+  .patch(menuSectionController.updateMenuSection);
 
 module.exports = router;
