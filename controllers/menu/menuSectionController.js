@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const catchAsync = require('../../utils/catchAsync');
 const AppError = require('../../utils/appError');
 const MenuSection = require('../../models/menu/menuSectionModel');
+const MenuManager = require('../../models/menu/menuManagerModel');
 
 /* DATABASE */
 
@@ -121,10 +122,13 @@ exports.getMenuSection = catchAsync(async (req, res, next) => {
   console.log(`Getting Menu Sections with Id ${id}`);
 
   const menuSection = await MenuSection.findById(id).then();
+  const menuManager = await MenuManager.findById(id).then();
+
   res.status(200).json({
     status: 'success',
     message: `Got Menu Section Id=${id}`,
     menuSection,
+    menuManager,
   });
 
   next();
@@ -133,7 +137,7 @@ exports.getMenuSection = catchAsync(async (req, res, next) => {
 exports.createMenuSection = catchAsync(async (req, res, next) => {
   console.log('Creating Menu Sections');
   const { body } = req;
-  // console.log(body);
+  console.log(body);
 
   // parse through models
   const doc = new MenuSection(body);
@@ -152,12 +156,20 @@ exports.createMenuSection = catchAsync(async (req, res, next) => {
   // check the doc before doing database operation
   console.log(doc);
 
+  // creating document
   const menuSection = await MenuSection.create(doc).then();
+
+  // updating foreign key document
+  let menuManager = await MenuManager.findById(body.manager);
+  menuManager._section.push(menuSection._id);
+  await menuManager.save();
+  menuManager = await MenuManager.findById(body.manager);
 
   res.status(201).json({
     status: 'success',
     message: 'Created Menu Section',
     menuSection,
+    menuManager,
   });
 });
 
