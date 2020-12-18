@@ -139,9 +139,11 @@ exports.getContractEntries = catchAsync(async (req, res, next) => {
 
 exports.createContractEntries = catchAsync(async (req, res, next) => {
   console.log('Creating ContractEntries');
+  const { body } = req;
+  console.log(body);
 
   // parse through models
-  const doc = new ContractEntries(req.body);
+  const doc = new ContractEntries(body);
   console.log(doc);
 
   // validate seperately sub-documents if necessary

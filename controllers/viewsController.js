@@ -210,7 +210,7 @@ exports.eventEntries = (req, res) => {
 // EVENT RELATED CONTROLLER
 exports.eventEntriesTable = (req, res) => {
   console.log('We are in event Entries Table  Page');
-  res.status(200).render('./../views/pages/event/eventEntriesTable', doc);
+  res.status(200).render('./../views/pages/event/eventEntriesTable');
 };
 
 // LEADS RELATED CONTROLLER
