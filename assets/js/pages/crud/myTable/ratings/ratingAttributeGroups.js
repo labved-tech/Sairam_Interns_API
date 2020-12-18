@@ -16,7 +16,7 @@ const RatingTable = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/rating/attribute/groups/table`,
+                        url: `${HOST_URL}/api/v1/ratings/attribute-groups/table`,
                         params: {
                             fields: 'name, attributId, status, description, createdBy,createdAt,updatedAt',
                         },
