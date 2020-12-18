@@ -85,11 +85,16 @@ const menuCRUD = (function () {
         });
     };
 
-    const _createMenuSectionForm = function () {
+    const _createMenuSectionForm = function (method, route, button) {
+
+        console.log('method', method);
+        console.log('route', route);
+        console.log('button', button);
 
         // Getting Document related information
         const menuSectionForm = KTUtil.getById('menuSectionForm');
-        const menuSectionFormSubmitButton = KTUtil.getById('menuSectionFormSubmitButton');
+        const FormSubmitButton = KTUtil.getById(button);
+        // const menuSectionFormSubmitButton = KTUtil.getById('menuSectionFormSubmitButton');
         const menuManagerSelect = KTUtil.getById('menuManagerSelect');
         const menuSectionName = KTUtil.getById('menuSectionName');
         const menuSectionDescription = KTUtil.getById('menuSectionDescription');
@@ -166,19 +171,19 @@ const menuCRUD = (function () {
             // Bootstrap Framework Integration
             bootstrap: new FormValidation.plugins.Bootstrap(),
             // Validate fields when clicking the Submit button
-            menuSectionFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+            FormSubmitButton: new FormValidation.plugins.SubmitButton(),
             // Submit the form when all fields are valid
             //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
         },
         })
         .on('core.form.valid', function () {
             // Show loading state on button
-            KTUtil.btnWait(menuSectionFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+            KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
             // Accessing Restful API
             axios({
-            method: 'post',
-            url: `${HOST_URL}/api/v1/menu/section`,
+            method: method,
+            url: route,
                 data: {
                     manager: menuManagerSelect.value,
                     name: menuSectionName.value,
@@ -191,7 +196,7 @@ const menuCRUD = (function () {
             console.log(res);
 
             // Release button
-            KTUtil.btnRelease(menuSectionFormSubmitButton);
+            KTUtil.btnRelease(FormSubmitButton);
 
             // TOASTR EXAMPLE
             toastr.options = {
@@ -726,28 +731,30 @@ const menuCRUD = (function () {
                     console.log(raw);
 
                     if (raw.status == 'success') {
-                        console.log(raw.menuManager.name)
                         
                         // open modal
                         $('#exampleModal').modal('show');
 
-                        // updating fields with data
-                        // menu manager select2
+                        // fetching menu manager select2
                         $.ajax({
                             method: 'GET',
                             url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ raw.menuManager._id,
                             dataType: 'json',
                         }).then(function (data) {
                             console.log(data);
-
+                            
+                            // updating menuManagerSelect values
                             var option = new Option(data.manager.text, data.manager.id, true, true);
                             $('#menuManagerSelect').append(option).trigger('change');
+
                         });
 
-                        document.querySelector('#menuManagerSelect').value = raw.menuManager.name;
+                        // updating fields with data
                         document.querySelector('#menuSectionName').value = raw.menuSection.name;
                         document.querySelector('#menuSectionDescription').value = raw.menuSection.description;
                         document.querySelector('#menuSectionPriority').value = raw.menuSection.priority;
+
+                        _createMenuSectionForm('POST', `${HOST_URL}/api/v1/menu/section`,'addMenuSectionFormSubmitButton');
                     }
                 },
             });
@@ -799,7 +806,7 @@ const menuCRUD = (function () {
       init: function () {
         //_initializeMenuForm();
         //_createMenuForm();
-        _createMenuSectionForm();
+        //_createMenuSectionForm();
         _createMenuItemForm();
           _createMenuSubItem1Form();
           _viewMenuSectionTable();
