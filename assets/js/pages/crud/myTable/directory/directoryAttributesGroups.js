@@ -7,7 +7,7 @@ const DirectoryTable = (function () {
     var dataSet;
     // Private functions
 
-    const _directoryAttributesGroupsTable = async () => {
+    const directoryAttributesGroupsTable = async () => {
 
         const options = {
             // datasource definition
@@ -239,7 +239,7 @@ const DirectoryTable = (function () {
     return {
         // public functions
         init: function () {
-            _directoryAttributesGroups();
+            directoryAttributesGroups();
         },
     };
 })();
