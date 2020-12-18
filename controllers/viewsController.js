@@ -432,7 +432,7 @@ exports.directoryAttributeGroupsTable = (req, res) => {
   console.log('We are in Directory Attribute Groups Tables Page');
   res
     .status(200)
-    .render(`./../views/pages/directory/directoryAttributeGroupsTable`);
+    .render(`./../views/pages/directory/directoryAttributesGroupsTable`);
 };
 
 exports.directoryCategoriesTable = (req, res) => {
