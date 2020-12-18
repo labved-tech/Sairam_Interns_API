@@ -15,6 +15,9 @@ router.param('id', ratingAttributeGroupsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(ratingAttributeGroupsController.getAllTableRatingAttributeGroups);
+router
   .route('/')
   .get(ratingAttributeGroupsController.getAllRatingAttributeGroup)
   .post(ratingAttributeGroupsController.createRatingAttributeGroup);
