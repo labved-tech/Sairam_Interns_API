@@ -15,7 +15,7 @@ exports.getAllTableMenuSection = catchAsync(async (req, res, next) => {
   // BUILD QUERY
   // 1A) Filtering
   const queryObj = { ...req.query };
-  console.log('Raw :', queryObj);
+  //console.log('Raw :', queryObj);
 
   const excludedFields = [
     'pagination',
@@ -36,9 +36,9 @@ exports.getAllTableMenuSection = catchAsync(async (req, res, next) => {
 
   let queryStr = JSON.stringify(queryObj.query);
   queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
-  console.log(queryStr);
+  //console.log(queryStr);
   const tempObj = JSON.parse(queryStr);
-  console.log('Obj :', tempObj);
+  //console.log('Obj :', tempObj);
 
   query = MenuSection.find(searchObj);
 
@@ -122,7 +122,9 @@ exports.getMenuSection = catchAsync(async (req, res, next) => {
   console.log(`Getting Menu Sections with Id ${id}`);
 
   const menuSection = await MenuSection.findById(id).then();
-  const menuManager = await MenuManager.findById(id).then();
+  const menuManager = await MenuManager.findOne({
+    _section: id,
+  }).then();
 
   res.status(200).json({
     status: 'success',
@@ -191,14 +193,35 @@ exports.updateMenuSection = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteMenuSection = catchAsync(async (req, res, next) => {
-  const { id } = req.params;
-  console.log(`Deleting Menu Section Id ${id}`);
+  const { query } = req;
+  console.log('rawQuery :', query);
 
-  const menuSection = await MenuSection.findByIdAndDelete(id).then();
+  console.log(`Deleting Menu Section Id ${query._id}`);
+
+  const ids = query._id.split(',');
+
+  let menuManager;
+
+  // deleting relevant foreign key documents
+  if (ids.length === 1) {
+    menuManager = await MenuManager.updateMany(
+      { _section: ids[0] },
+      { $pullAll: { _section: ids } }
+    ).then();
+  } else {
+    menuManager = await MenuManager.updateMany(
+      { _section: ids },
+      { $pullAll: { _section: ids } }
+    ).then();
+  }
+
+  // deleting current documents
+  const menuSection = await MenuSection.deleteMany({ _id: ids }).then();
 
   res.status(200).json({
     status: 'success',
-    message: `Deleted Menu Section Id=${id}`,
+    message: `Deleted Menu Section Ids=${ids}`,
+    menuManager,
     menuSection,
   });
 
