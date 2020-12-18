@@ -184,7 +184,17 @@ const FarmEntriesCRUD = (function () {
             KTUtil.btnWait(createFarmEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
             
             // Accessing Restful API
-            feShareable.value = (feShareable.value == 'on') ? true:false
+                 feShareable.value = (feShareable.value == 'on') ? true : false;
+
+                //  let adminsArr = [];
+                //  adminObj = `_adminId : ${feaAdminId.value}`;
+                //  permissionObj = `permissions : ${feaPermissions.value}`
+
+                //  const doc = {adminObj, permissionObj}
+                //  adminsArr.push(doc)
+                 
+                 var test = div.find('[id*=feaAdminId]').val()
+                 console.log(test);
 
             axios({
             method: 'Post',

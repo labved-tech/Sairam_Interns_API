@@ -96,9 +96,7 @@ const menuCRUD = (function () {
         const menuSectionPriority = KTUtil.getById('menuSectionPriority');
        
         // menuManagerSelect - Dropdown List : Single Select2
-        let menuManagerSelect2 = $('#menuManagerSelect');
-
-        menuManagerSelect2.select2({
+        $('#menuManagerSelect').select2({
             ajax: {
                 url: `${HOST_URL}/api/v1/menu/manager/popSel2`,
                 dataType: 'json',
@@ -124,7 +122,6 @@ const menuCRUD = (function () {
 
         });
         
-
         // Return Form
         if (!menuSectionForm) {
         return;
@@ -510,6 +507,8 @@ const menuCRUD = (function () {
 
     const _viewMenuSectionTable = function () {
         var dataSet;
+
+        /* Table Initialize */
         const options = {
             // datasource definition
             data: {
@@ -519,7 +518,7 @@ const menuCRUD = (function () {
                   method: 'get',
                   url: `${HOST_URL}/api/v1/menu/section/table`,
                   params: {
-                    fields: '_id, name, description, priority, createdBy,createdAt,updatedAt',
+                    fields: '_id, name, description, priority, createdBy, createdAt, updatedAt',
                   },
                   map: function(raw) {
                     // sample data mapping
@@ -528,7 +527,6 @@ const menuCRUD = (function () {
                 
                     if (typeof raw.menuSection !== 'undefined') {
                       dataSet = raw.menuSection;
-                      console.log('dataSet', dataSet);
                     }
                     return dataSet;
                   }
@@ -679,8 +677,7 @@ const menuCRUD = (function () {
             // boolean or object (extension options)
             checkbox: true,
           };
-      
-      
+
           const datatable = $('#kt_datatable_2').KTDatatable(options);
       
           $('#kt_datatable_search_status_2').on('change', function () {
@@ -694,38 +691,26 @@ const menuCRUD = (function () {
           $(
             '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
           ).selectpicker();
-      
-          // mass operation
-          datatable.on('datatable-on-click-checkbox', function (e) {
-            // datatable.checkbox() access to extension methods
-            const ids = datatable.checkbox().getSelectedId();
-            const count = ids.length;
-      
-            $('#kt_datatable_selected_records_2').html(count);
-      
-            if (count > 0) {
-              $('#kt_datatable_group_action_form_2').collapse('show');
-            } else {
-              $('#kt_datatable_group_action_form_2').collapse('hide');
+             
+        // deleteOne operation
+        $('#kt_datatable_2').on('click', '.btnDelete', async function () {           
+            let ids = $(this).attr("aria-label");
+
+            ids = ids.toString();
+
+            const requests = {
+                params: {
+                    _id: ids,
+                }
             }
-          });
-        
-            // delete operation
-            $('#kt_datatable_2').on('click', '.btnDelete', function () {
-                console.log('delete is clicked')             
-                
-                var id = $(this).attr("aria-label");
-                console.log(id)
 
-                $.ajax({
-                    method: 'DELETE',
-                    url: `${HOST_URL}/api/v1/menu/section/${id}`,
-                });
+            await axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
 
-            // reload table
+        // reload table
             $('#kt_datatable_2').KTDatatable().reload();
-            });
-        
+            
+        });
+       
         // edit operation
         $('#kt_datatable_2').on('click', '.btnEdit', function () {
             console.log('edit is clicked')             
@@ -741,25 +726,71 @@ const menuCRUD = (function () {
                     console.log(raw);
 
                     if (raw.status == 'success') {
+                        console.log(raw.menuManager.name)
+                        
+                        // open modal
+                        $('#exampleModal').modal('show');
 
                         // updating fields with data
-                        document.querySelector('#menuManagerSelect').value = raw.menuSection.manager;
+                        // menu manager select2
+                        $.ajax({
+                            method: 'GET',
+                            url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ raw.menuManager._id,
+                            dataType: 'json',
+                        }).then(function (data) {
+                            console.log(data);
+
+                            var option = new Option(data.manager.text, data.manager.id, true, true);
+                            $('#menuManagerSelect').append(option).trigger('change');
+                        });
+
+                        document.querySelector('#menuManagerSelect').value = raw.menuManager.name;
                         document.querySelector('#menuSectionName').value = raw.menuSection.name;
                         document.querySelector('#menuSectionDescription').value = raw.menuSection.description;
                         document.querySelector('#menuSectionPriority').value = raw.menuSection.priority;
-
-                        // open modal
-                        $('#exampleModal').modal('show');
                     }
                 },
             });
+        });
 
-   
+        // mass operation
+        datatable.on('datatable-on-click-checkbox', function (e) {
+        // datatable.checkbox() access to extension methods
+        const ids = datatable.checkbox().getSelectedId();
+        const count = ids.length;
+    
+        $('#kt_datatable_selected_records_2').html(count);
+    
+        if (count > 0) {
+            $('#kt_datatable_group_action_form_2').collapse('show');
+        } else {
+            $('#kt_datatable_group_action_form_2').collapse('hide');
+        }
+        });
+
+        // deleteAll operation
+        $('#kt_datatable_group_action_form_2').on('click', '.btnDeleteAll', async function () {
+            console.log('deleteAll is clicked')
+
+            let ids = datatable.checkbox().getSelectedId();
+            ids = ids.toString();
+            console.log(ids)
+
+            const requests = {
+                params: {
+                    _id: ids,
+                }
+            }
+
+            await axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+
+            $('#kt_datatable_group_action_form_2').collapse('hide');
 
             // reload table
             $('#kt_datatable_2').KTDatatable().reload();
-            
-        });  
+        });
+
+
 
     }
 

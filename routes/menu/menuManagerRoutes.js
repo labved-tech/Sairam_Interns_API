@@ -14,6 +14,7 @@ router.use((req, res, next) => {
 /* ROUTES */
 // router.route('/table').get(menuManagerController.getAllTableMenuManager);
 router.route('/popSel2').get(menuManagerController.getAllMenuManagerSel2);
+router.route('/popSel2/:id').get(menuManagerController.getMenuManagerSel2);
 
 router
   .route('/')

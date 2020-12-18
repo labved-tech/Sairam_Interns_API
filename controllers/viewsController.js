@@ -299,10 +299,6 @@ exports.taxInvoice = (req, res) => {
   console.log('We are in Tax Invoice Form Page');
   res.status(200).render('./../views/pages/sales-finance/taxInvoice');
 };
-exports.taxInvoicePayment= (req, res) => {
-  console.log('We are in Tax Invoice Payment Form Page');
- res.status(200).render('./../views/pages/sales-finance/taxInvoicePayment');
-};
 exports.taxInvoiceItem = (req, res) => {
  console.log('We are in Tax Invoice  Item Form Page');
   res.status(200).render('./../views/pages/sales-finance/taxInvoiceItem');
