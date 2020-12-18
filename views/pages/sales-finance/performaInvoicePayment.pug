@@ -1,0 +1,71 @@
+extends ./../../base.pug
+
+block css-files
+   
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/sales-finance/performaInvoiceForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h2(class='card-title') Performa Invoice - Payment
+                    div(class='card-body')
+                        // begin::Form
+                        form#createPerformaPaymentForm(class='form')
+                            div(class='row')
+                                div(class='col-md-1')
+                                div(class='col-xl-6')
+                                    div(class='my-5')
+
+                                        //piPaymentType
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Payment Type
+                                            div(class='col-4')
+                                                select#piPaymentType(class='form-control selectpicker' data-size='7' data-live-search='true'  name='piPaymentType')
+                                                    option(value='' disabled='' selected='') Choose Method
+                                                    option(value='sbi') Debit Card
+                                                    option(value='hdfc') Credit Card
+                                                    option(value='icici') Cash
+                                                    option(value='other') Other
+
+                                        //Meta
+                                        h4(class=' text-dark font-weight-bold mb-10') Meta
+
+                                        //plPayAccNo
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Account No
+                                            div(class='col-4')
+                                                input#plPayAccNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='plPayAccNo' placeholder='')
+                                        //piPayBankName
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Bank Name
+                                            div(class='col-4')
+                                                select#piPayBankName(class='form-control selectpicker' data-size='7' data-live-search='true'  name='piPayBankName')
+                                                    option(value='' disabled='' selected='') Choose Bank
+                                                    option(value='sbi') SBI
+                                                    option(value='hdfc') HDFC
+                                                    option(value='icici') ICICI
+                                                    option(value='other') Other
+
+                                        //piAccBankIFSC
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Bank IFSC
+                                            div(class='col-4')
+                                                input#piAccBankIFSC(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='piAccBankIFSC' placeholder='')
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#piPayFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

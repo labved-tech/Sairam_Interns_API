@@ -18,7 +18,7 @@ const EcommerceOrderTable = (function () {
               method: 'get',
               url: `${HOST_URL}/api/v1/ecommerce/order/table`,
               params: {
-                fields: '_id, numItems, grossTotal, taxTotal, shippingCharges,insuranceCharges,netTotal, status,_userId, createdBy,createdAt,updatedAt',
+                fields: '_id,numItems,grossTotal,taxTotal,shippingCharges,insuranceCharges,netTotal,status,_userId,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                 // sample data mapping

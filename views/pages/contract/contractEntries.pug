@@ -78,7 +78,7 @@ block content
 
                                         //rel
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') rel
+                                            label(class='col-3 col-form-label form-control-label text-right') Rel
                                                 span(class='text-danger')  
                                             div(class='col-6')
                                                 input#cerel(type='text' class='form-control' name='cerel' placeholder='')
@@ -92,7 +92,7 @@ block content
 
                                         //cevalidFrom
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') cevalidFrom
+                                            label(class='col-3 col-form-label form-control-label text-right') ValidFrom
                                             div(class='col-4')
                                                 div(class='input-group date')
                                                     input#cevalidFrom(type='text' class='form-control' readonly='' name='cevalidFrom' placeholder='Select date')
@@ -114,33 +114,23 @@ block content
 
                                         // validity
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') validity
+                                            label(class='col-3 col-form-label form-control-label text-right') Validity
                                             div(class='col-4')
-                                                #dlActivePeriod(class='input-group date' data-target-input='nearest')
-                                                    input#cevalidity(type='text' class='form-control datetimepicker-input' name='cevalidity' placeholder='Select date & time' data-target='#dlActivePeriod')
-                                                    div(class='input-group-append' data-target='#dlActivePeriod' data-toggle='datetimepicker')
-                                                        span(class='input-group-text')
-                                                            i(class='ki ki-calendar')
-                                                    span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                                input#cevalidity(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='cevalidity' placeholder='1')
 
                                         // billingType
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') billingType
-                                            div(class='col-4')
-                                                div(class='typeahead')
-                                                    input#cebillingType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='cebillingType' placeholder='ex. 5fa92064cff6f652644266de')
-                                                    span(class='form-text text-muted') Should be as mentioned.
+                                            label(class='col-3 col-form-label form-control-label text-right') relName
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#cebillingType(type='text' class='form-control' name='cebillingType' placeholder='ex. Sai Vignesh')
 
-                                        //rate
+                                        // Rate
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') last status change
+                                            label(class='col-3 col-form-label form-control-label text-right') Rate
                                             div(class='col-4')
-                                                div(class='input-group date')
-                                                    input#cerate(type='text' class='form-control' readonly='' name='cerate' placeholder='Select date')
-                                                    div(class='input-group-append')
-                                                        span(class='input-group-text')
-                                                            i(class='la la-calendar-check-o')
-                                                span(class='form-text text-muted')
+                                                input#cerate(type='text' class='form-control' value='' name='cerate' placeholder='Select time')
+                                                span(class='form-text text-muted') Enter the Rate
 
                                         // contractFileURL
                                         div(class='form-group row')
@@ -172,23 +162,23 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') HSNCode
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#fesUnits(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='fesUnits' placeholder='')
+                                                    input#ceHSNCode(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ceHSNCode' placeholder='')
                                                     span(class='form-text text-muted')  Enter the HSNCode of entered Size
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') CGSTRate:
                                             div(class='col-4')
-                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                input#ceCGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ceCGSTRate' placeholder='40')
                                                 span(class='form-text text-muted')
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') SGSTRate
                                             div(class='col-4')
-                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                input#ceSGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ceSGSTRate' placeholder='40')
                                                 span(class='form-text text-muted')
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right')  IGSTRate 
                                             div(class='col-4')
-                                                input#fesSize(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='fesSize' placeholder='40')
+                                                input#ceIGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ceIGSTRate' placeholder='40')
                                                 span(class='form-text text-muted')
 
                                         h3(class=' text-dark font-weight-bold mb-10') termsAndConditions

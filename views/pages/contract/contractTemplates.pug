@@ -21,18 +21,18 @@ block content
                             | Contract Templates Form
                     div(class='card-body')
                         // begin::Form
-                        form#createcontractTemplatesForm(class='form' )
+                        form#createContractTemplatesForm(class='form' )
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')
 
-                                        //ctBillingType
+                                        //ctbillingType
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Billing Type
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctBillingType(type='text' class='form-control' name='ctBillingType' placeholder='Enter Billing Type')
+                                                input#ctbillingType(type='text' class='form-control' name='ctbillingType' placeholder='Enter Billing Type')
 
                                         //ctValue
                                         div(class='form-group row')
@@ -41,71 +41,104 @@ block content
                                             div(class='col-4')
                                                 input#ctValue(type='text' class='form-control' name='ctValue' placeholder='Enter Value')
 
-                                        //ctID
+                                        //ctcontractOwnerId
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Contract Owner ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#ctID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ctID' placeholder='')
+                                                    input#ctcontractOwnerId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ctcontractOwnerId' placeholder='')
 
-                                        //ctURL
+                                        //ctcontractFileTemplateURL
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Contract File Template URL
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctURL(type='text' class='form-control' name='ctURL' placeholder='')
+                                                input#ctcontractFileTemplateURL(type='text' class='form-control' name='ctcontractFileTemplateURL' placeholder='')
 
-                                        //ctIsRepeat
+                                        //ctisRepeat
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Is Repeat
                                             div(class='col-4')
                                                 span(class='switch switch-sm')
                                                     label
-                                                        input#ctIsRepeat(type='checkbox' checked='checked' name='ctIsRepeat')
+                                                        input#ctisRepeat(type='checkbox' checked='checked' name='ctisRepeat')
                                                         span
 
-                                        //ctRepeatInterval
+                                        //ctrepeatInterval
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Repeat Interval
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctRepeatInterval(type='text' class='form-control' name='ctRepeatInterval' placeholder='')
+                                                input#ctrepeatInterval(type='text' class='form-control' name='ctrepeatInterval' placeholder='')
 
-                                        //ctRepeatIntervalType
+                                        //ctrepeatIntervalType
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Repeat Interval Type
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctRepeatIntervalType(type='text' class='form-control' name='ctRepeatIntervalType' placeholder='')
+                                                input#ctrepeatIntervalType(type='text' class='form-control' name='ctrepeatIntervalType' placeholder='')
 
-                                        //ctCurrentRepeatNo
+                                        //ctcurrentRepeatNumber
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Current Repeat Number
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctCurrentRepeatNo(type='text' class='form-control' name='ctCurrentRepeatNo' placeholder='')
+                                                input#ctcurrentRepeatNumber(type='text' class='form-control' name='ctcurrentRepeatNumber' placeholder='')
 
-                                        //ctTotalRepeatNo
+                                        //cttotalRepeatNumber
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Total Repeat No
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctTotalRepeatNo(type='text' class='form-control' name='ctTotalRepeatNo' placeholder='')
+                                                input#cttotalRepeatNumber(type='text' class='form-control' name='cttotalRepeatNumber' placeholder='')
 
-                                        //ctTotalRepeatAllowed
+                                        //cttotalRepeatAllowed
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Total Repeat Allowed
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctTotalRepeatAllowed(type='text' class='form-control' name='ctTotalRepeatAllowed' placeholder='')
+                                                input#cttotalRepeatAllowed(type='text' class='form-control' name='cttotalRepeatAllowed' placeholder='')
 
-                                        //ctValidity
+                                        //ctvalidity
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Validity
                                                 span(class='text-danger')  *
                                             div(class='col-4')
-                                                input#ctValidity(type='text' class='form-control' name='ctValidity' placeholder='')
+                                                input#ctvalidity(type='text' class='form-control' name='ctvalidity' placeholder='')
 
+                                        h3(class=' text-dark font-weight-bold mb-10') Tax
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') HSNCode
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ctHSNCode(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ctHSNCode' placeholder='')
+                                                    span(class='form-text text-muted')  Enter the HSNCode of entered Size
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') CGSTRate:
+                                            div(class='col-4')
+                                                input#ctCGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ctCGSTRate' placeholder='40')
+                                                span(class='form-text text-muted')
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') SGSTRate
+                                            div(class='col-4')
+                                                input#ctSGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ctSGSTRate' placeholder='40')
+                                                span(class='form-text text-muted')
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right')  IGSTRate 
+                                            div(class='col-4')
+                                                input#ctIGSTRate(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ctIGSTRate' placeholder='40')
+                                                span(class='form-text text-muted')
+
+                                        h3(class=' text-dark font-weight-bold mb-10') additionalAttributesIds
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#ctName(type='text' class='form-control' name='ctName' placeholder='ex. Sai Vignesh')
+                                                
                             div(class='card-footer')
                                 div(class='row text-right')
                                     div(class='col-12 ml-lg-auto')

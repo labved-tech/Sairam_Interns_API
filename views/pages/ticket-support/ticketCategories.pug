@@ -33,14 +33,12 @@ block content
                                             div(class='col-6')
                                                 input#tcName(type='text' class='form-control' name='tcName' placeholder='ex. Sai Vignesh')
 
-                                        // tcDescription
-                                        div(class='form-group row mb-1')
-                                            label(class='col-3 col-form-label form-control-label text-right' for='neDescription')
-                                                | Description
-                                                span(class='text-danger') *
-                                            div(class='col-7 ')
-                                                textarea#tcDescription(class='form-control' name ='tcDescription' rows='3')
-                                                span(class='form-text text-muted') Add Description
+                                        //tcDescription
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Description
+                                            div(class='col-9')
+                                                div#tcDescription(class='summernote' name='tcDescription')
+                                                span(class='form-text text-muted') Add message that you wish to send.
 
                                         // tcNotes
                                         div(class='form-group row mb-1')

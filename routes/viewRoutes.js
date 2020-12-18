@@ -95,7 +95,6 @@ router.get('/sales-finance/packingList/shipping', viewsController.packingListShi
 router.get('/sales-finance/quotation', viewsController.quotation);
 
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
-router.get('/sales-finance/taxInvoice/payment', viewsController.taxInvoicePayment);
 router.get('/sales-finance/taxInvoice/item', viewsController.taxInvoiceItem);
 
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
