@@ -632,29 +632,12 @@ const SalesFinanceCRUD = (function () {
         const tiSellerID = KTUtil.getById('tiSellerID');
         const tiSellerName = KTUtil.getById('tiSellerName');
         const tiSellerAddress = KTUtil.getById('tiSellerAddress');
-        const tiSellerEmail = KTUtil.getById('tiSellerEmail');
         const tiSellerContact = KTUtil.getById('tiSellerContact');
         const tiTrackingNo = KTUtil.getById('tiTrackingNo');
         const tiCarrierCharge = KTUtil.getById('tiCarrierCharge');
-        const tiaccNo = KTUtil.getById('tiaccNo');
+        const tiAccNo = KTUtil.getById('tiAccNo');
         const tiBankName = KTUtil.getById('tiBankName');
         const tiBankIFSC = KTUtil.getById('tiBankIFSC');
-        const tiSerialNo = KTUtil.getById('tiSerialNo');
-        const tiItemCode = KTUtil.getById('tiItemCode');
-        const tiName = KTUtil.getById('tiName');
-        const tiQuantity = KTUtil.getById('tiQuantity');
-        const tiItemUnits = KTUtil.getById('tiItemUnits');
-        const tiUnitPrice = KTUtil.getById('tiUnitPrice');
-        const tiDiscount = KTUtil.getById('tiDiscount');
-        const tiDiscountRate = KTUtil.getById('tiDiscountRate');
-        const tiTaxValue = KTUtil.getById('tiTaxValue');
-        const tiCGST = KTUtil.getById('tiCGST');
-        const tiCGSTAmt = KTUtil.getById('tiCGSTAmt');
-        const tiSGST = KTUtil.getById('tiSGST');
-        const tiSGSTAmt = KTUtil.getById('tiSGSTAmt');
-        const tiIGST = KTUtil.getById('tiIGST');
-        const tiIGSTAmt = KTUtil.getById('tiIGSTAmt');
-        const tiTotalPrice = KTUtil.getById('tiTotalPrice');
         const tibeforeTax = KTUtil.getById('tibeforeTax');
         const tiCGSTTotal = KTUtil.getById('tiCGSTTotal');
         const tiSGSTTotal = KTUtil.getById('tiSGSTTotal');
@@ -756,65 +739,46 @@ const SalesFinanceCRUD = (function () {
                 // Accessing Restful API
                 axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/sales-finance/delivery-note`,
+                    url: `${HOST_URL}/api/v1/sales-finance/tax-invoice`,
                     data: {
-                        "taxInvoiceNo": "shf786",
-                        "header": "header",
-                        "Date": "2020:11:7",
-                        "orderDate": "2020:11:7",
-                        "billingName": "yash",
-                        "billingAddress": {},
-                        "billingEmail": "ash@email.com",
-                        "contactNumber": "7888",
-                        "billingGSTIN": "",
-                         "consigneeName": "ted",
-                        "consigneeAddress": {},
-                        "consigneeContactNumber": "67899",
-                        "sellerName": "xyz",
-                        "sellerAddress": {},
-                        "sellerContactNumber": "698300032",
-                       " carrierTrackingNo": "7890",
-                        "carrierCharges": 100,
-                       " paymentMeta": {
-                          "accountNo": "9009",
-                                "bankName": "abcBank",
-                               " bankIFSC": "94etf"
-                        },
-                       " itemTable": [
-                          {
-                            "serialNo": "serialno90",
-                           " itemCode": "uk890",
-                            "name": "nancy",
-                            "quantity": 4,
-                            "unitofMeasurement": "SI",
-                           " unitPrice": 55,
-                           " dicount": 10,
-                            "discountRate":5,
-                            "taxableValue": 4,
-                            "CGSTRate": 2,
-                           " CGSTAmount": 1,
-                           " SGSTRate": 0.5,
-                            "SGSTAmount": 1,
-                            "IGSTRate": 0,
-                            "IGSTAmount": 0,
-                          "  totalPrice": 150
-                          }
-                        ],
-                      
-                      
-                       "totalBeforeTax": 100,
-                        "CGSTTotal":2,
-                        "SGSTTotal": 2,
-                        "IGSTTotal": 0,
-                        "grandTotal": 110,
-                        "termsAndConditions":{},
-                        "footer": "",
-                        "meta": {},
-                        "source": "local",
-                        "taxInvoiceNumber": 9000
-                      
+                        taxInvoiceNo: tiNo.value,
+                        header: tiHeader.value,
+                        date: tiDate.value,
+                        // _orderId: tiOrderID.value,
+                        orderDate: tiOrderDate.value,
+                        // _buyerId: tiBuyerID.value,                        
+                        billingName: tiBillingName.value,
+                        // billingAddress: tiBillingAddress.value, 
+                        billingEmail :tiBillingEmail.value,
+                        contactNumber: (tiBillingContact.value) * 1,
+                        billingGSTIN: tiBillingGST.value,
+                        // consigneeAddress: tiCosigneeAddress.value,
+                        consigneeName: tiCosigneeName.value,
+                        consigneeContactNumber: (tiCosigneeContact.value)*1,
+                         // _sellerId: tiSellerID.value, 
+                         sellerName: tiSellerName.value,
+                        // sellerAddress: tiSellerAddress.value, 
+                        sellerContactNumber :(tiSellerContact.value)*1,  
+                        carrierTrackingNo : tiTrackingNo.value,
+                        carrierCharges:(tiCarrierCharge.value)*1,  
+                        paymentMeta: {
+                            accountNo: tiAccNo.value,
+                            bankName: tiBankName.value,
+                            bankIFSC: tiBankIFSC.value,
+                          },
+                          totalBeforeTax: (tibeforeTax.value)*1,
+                          CGSTTotal: (tiCGSTTotal.value)*1,
+                          SGSTTotal: (tiSGSTTotal.value)*1,
+                          IGSTTotal: (tiIGSTTotal.value)*1,
+                          grandTotal: (tiGrandTotal.value)*1,
+                        //   termsAndConditions: tiTermsCondition.value,
+                          footer: tiFooter.value,
+                        //   meta: tiMeta.value,
+                          source: tiSource.value,          
+                        
                     },
-                }).then(function (res) {
+
+                    }).then(function (res) {
                     KTUtil.btnRelease(dnFormSubmitButton);
                     console.log(res)
                     // TOASTR EXAMPLE
