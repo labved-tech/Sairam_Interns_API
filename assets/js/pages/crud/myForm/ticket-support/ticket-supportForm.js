@@ -340,8 +340,8 @@ const TicketSupportCRUD = (function () {
                     method: 'post',
                     url: `${HOST_URL}/api/v1/ticket-support/response`,
                     data: {
-                        ticketId: trticketId.value,
-                        responderId: trresponderId.value,
+                        _ticketId: trticketId.value,
+                        _responderId: trresponderId.value,
                         responderName: trresponderName.value,
                         emailSent: tremailSent.value,
                         isStatusChange: trisStatusChange.value,
