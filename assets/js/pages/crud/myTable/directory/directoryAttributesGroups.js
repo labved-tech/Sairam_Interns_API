@@ -239,7 +239,7 @@ const DirectoryTable = (function () {
     return {
         // public functions
         init: function () {
-            _directoryAttributesGroups();
+            _directoryAttributesGroupsTable();
         },
     };
 })();

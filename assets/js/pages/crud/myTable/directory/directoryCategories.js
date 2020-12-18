@@ -7,7 +7,7 @@ const DirectoryTable = (function () {
     var dataSet;
     // Private functions
 
-    const directoryCategoriesTable = async () => {
+    const _directoryCategoriesTable = async () => {
 
         const options = {
             // datasource definition
@@ -219,7 +219,7 @@ const DirectoryTable = (function () {
     return {
         // public functions
         init: function () {
-            directoryCategoriesTable();
+            _directoryCategoriesTable();
         },
     };
 })();
