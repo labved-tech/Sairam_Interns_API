@@ -3,9 +3,9 @@
 
 // Class definition
 const LeadsCRUD = (function () {
-    const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-  
-    // Date Picker
+  const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
+
+  // Date Picker
   let arrows;
   if (KTUtil.isRTL()) {
     arrows = {
@@ -21,17 +21,17 @@ const LeadsCRUD = (function () {
   // Private functions
   const _createLeadCategories = function () {
     // Getting Document related information
-    const createLeadCategoriesForm = KTUtil.getById('createLeadCategoriesForm');           
+    const createLeadCategoriesForm = KTUtil.getById('createLeadCategoriesForm');
     const createLeadCategoriesFormSubmitButton = KTUtil.getById('createLeadCategoriesFormSubmitButton');
     const lcName = KTUtil.getById('lcName');
     const lcDescription = KTUtil.getById('lcDescription');
     const lcNotes = KTUtil.getById('lcNotes');
     const lcStatus = KTUtil.getById('lcStatus');
 
-    
 
-    if(!createLeadCategoriesForm) {
-      return;   
+
+    if (!createLeadCategoriesForm) {
+      return;
     }
 
     FormValidation.formValidation(createLeadCategoriesForm, {
@@ -76,82 +76,89 @@ const LeadsCRUD = (function () {
         //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
     }).on('core.form.valid', function () {
-        KTUtil.btnWait(createLeadCategoriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        
+      KTUtil.btnWait(createLeadCategoriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
       // Accessing Restful API
       axios({
         method: 'Post',
         url: `${HOST_URL}/api/v1/lead/categories/`,
-          data: {
-            name: lcName.value,
-            description: lcDescription.value,
-            notes: lcNotes.value,
-            status:lcStatus.value,
-              
+        data: {
+          name: lcName.value,
+          description: lcDescription.value,
+          notes: lcNotes.value,
+          status: lcStatus.value,
+
         },
       }).then(function (res) {
         KTUtil.btnRelease(createLeadCategoriesFormSubmitButton);
-          console.log(res);
-         
-           // TOASTR EXAMPLE
-          toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": true,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-          }; 
+        console.log(res);
 
-          if (res.data.status == 'success') {
-            toastr.success(`${res.data.message}`, `${res.data.status}`)
-          } else if (res.data.status == 'error') {
-            toastr.error(`${res.data.message}`, `${res.data.status}`)
-          }
-        });
-  
-        })
-        .on('core.form.invalid', function () { 
-          console.log('Something went wrong!!');
-  
-        });
-        
-      };
+        // TOASTR EXAMPLE
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": true,
+          "progressBar": false,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        };
+
+        if (res.data.status == 'success') {
+          toastr.success(`${res.data.message}`, `${res.data.status}`)
+        } else if (res.data.status == 'error') {
+          toastr.error(`${res.data.message}`, `${res.data.status}`)
+        }
+      });
+
+    })
+      .on('core.form.invalid', function () {
+        console.log('Something went wrong!!');
+
+      });
+
+  };
 
 
   const _createLeadResponse = function () {
-      // Getting Document related information
-      const createLeadResponseForm = KTUtil.getById('createLeadResponseForm');           
-      const createLeadResponseFormSubmitButton = KTUtil.getById('createLeadResponseFormSubmitButton');
-      const lrLeadId = KTUtil.getById('lrLeadId');
-      const lrResponderId = KTUtil.getById('lrResponderId');
-      const lrEmailSent = KTUtil.getById('lrEmailSent');
-      const lrIsStatusChange = KTUtil.getById('lrIsStatusChange');
-      const lrMessage = KTUtil.getById('lrMessage');
-      const lrStatus = KTUtil.getById('lrStatus');
+    // Getting Document related information
+    const createLeadResponseForm = KTUtil.getById('createLeadResponseForm');
+    const createLeadResponseFormSubmitButton = KTUtil.getById('createLeadResponseFormSubmitButton');
+    const lrLeadId = KTUtil.getById('lrLeadId');
+    const lrResponderId = KTUtil.getById('lrResponderId');
+    const lrEmailSent = KTUtil.getById('lrEmailSent');
+    const lrIsStatusChange = KTUtil.getById('lrIsStatusChange');
+    const lrMessage = KTUtil.getById('lrMessage');
+    const lrStatus = KTUtil.getById('lrStatus');
 
 
 
-      
 
-      if(!createLeadResponseForm) {
-        return;   
-      }
 
-      FormValidation.formValidation(createLeadResponseForm, {
-        fields: {
-          lrLeadId: {
+    if (!createLeadResponseForm) {
+      return;
+    }
+
+    FormValidation.formValidation(createLeadResponseForm, {
+      fields: {
+        lrLeadId: {
+          validators: {
+            notEmpty: {
+              message: 'Lead ID is required',
+            },
+          },
+          lrResponderId: {
             validators: {
               notEmpty: {
+<<<<<<< Updated upstream
                 message: 'Lead ID is required',
               },
             },
@@ -177,6 +184,26 @@ const LeadsCRUD = (function () {
           //     },
           //   },
           // },
+=======
+                message: 'Responder ID is required',
+              },
+            },
+          },
+          lrEmailSent: {
+            validators: {
+              notEmpty: {
+                message: 'Is Email Sent is required',
+              },
+            },
+          },
+          lrIsStatusChange: {
+            validators: {
+              notEmpty: {
+                message: 'Status Change is required',
+              },
+            },
+          },
+>>>>>>> Stashed changes
           lrMessage: {
             validators: {
               notEmpty: {
@@ -192,79 +219,80 @@ const LeadsCRUD = (function () {
             },
           },
         },
-        plugins: {
-          //Learn more: https://formvalidation.io/guide/plugins
-          trigger: new FormValidation.plugins.Trigger(),
-          // Bootstrap Framework Integration
-          bootstrap: new FormValidation.plugins.Bootstrap(),
-          // Validate fields when clicking the Submit button
-          createLeadResponseFormSubmitButton: new FormValidation.plugins.SubmitButton(),
-          // Submit the form when all fields are valid
-          //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+      },
+      plugins: {
+        //Learn more: https://formvalidation.io/guide/plugins
+        trigger: new FormValidation.plugins.Trigger(),
+        // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap(),
+        // Validate fields when clicking the Submit button
+        createLeadResponseFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+        // Submit the form when all fields are valid
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+      },
+    }).on('core.form.valid', function () {
+      KTUtil.btnWait(createLeadResponseFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+      lrIsStatusChange.value = (lrIsStatusChange.value == 'on') ? true : false
+      lrEmailSent.value = (lrEmailSent.value == 'on') ? true : false
+      console.log(lrIsStatusChange.value)
+      console.log(lrEmailSent.value)
+
+      // Accessing Restful API
+
+      axios({
+        method: 'Post',
+        url: `${HOST_URL}/api/v1/lead/response/`,
+        data: {
+          _leadId: lrLeadId.value,
+          _responderId: lrResponderId.value,
+          emailSent: lrEmailSent.value,
+          isStatusChange: lrIsStatusChange.value,
+          message: lrMessage.value,
+          status: lrStatus.value,
+
         },
-      }).on('core.form.valid', function () {
-          KTUtil.btnWait(createLeadResponseFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-          
-          lrIsStatusChange.value = (lrIsStatusChange.value == 'on') ? true:false
-          lrEmailSent.value = (lrEmailSent.value == 'on') ? true:false
-          console.log(lrIsStatusChange.value)
-          console.log(lrEmailSent.value)
+      }).then(function (res) {
+        KTUtil.btnRelease(createLeadResponseFormSubmitButton);
+        console.log(res);
 
-          // Accessing Restful API
-    
-        axios({
-          method: 'Post',
-          url: `${HOST_URL}/api/v1/lead/response/`,
-            data: {
-              _leadId: lrLeadId.value,
-              _responderId: lrResponderId.value,
-              emailSent: lrEmailSent.value,
-              isStatusChange:lrIsStatusChange.value,
-              message:lrMessage.value,
-              status:lrStatus.value,
-                
-          },
-        }).then(function (res) {
-          KTUtil.btnRelease(createLeadResponseFormSubmitButton);
-            console.log(res);
-          
-            // TOASTR EXAMPLE
-            toastr.options = {
-              "closeButton": false,
-              "debug": false,
-              "newestOnTop": true,
-              "progressBar": false,
-              "positionClass": "toast-top-right",
-              "preventDuplicates": false,
-              "onclick": null,
-              "showDuration": "300",
-              "hideDuration": "1000",
-              "timeOut": "5000",
-              "extendedTimeOut": "1000",
-              "showEasing": "swing",
-              "hideEasing": "linear",
-              "showMethod": "fadeIn",
-              "hideMethod": "fadeOut"
-            }; 
-
-            if (res.data.status == 'success') {
-              toastr.success(`${res.data.message}`, `${res.data.status}`)
-            } else if (res.data.status == 'error') {
-              toastr.error(`${res.data.message}`, `${res.data.status}`)
-            }
-          });
-    
-          })
-          .on('core.form.invalid', function () { 
-            console.log('Something went wrong!!');
-    
-          });
-          
+        // TOASTR EXAMPLE
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": true,
+          "progressBar": false,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
         };
+
+        if (res.data.status == 'success') {
+          toastr.success(`${res.data.message}`, `${res.data.status}`)
+        } else if (res.data.status == 'error') {
+          toastr.error(`${res.data.message}`, `${res.data.status}`)
+        }
+      });
+
+    })
+      .on('core.form.invalid', function () {
+        console.log('Something went wrong!!');
+
+      });
+
+  };
 
   const _createLeadEntries = function () {
     // Getting Document related information
-    const createLeadEntriesForm = KTUtil.getById('createLeadEntriesForm');           
+    const createLeadEntriesForm = KTUtil.getById('createLeadEntriesForm');
     const createLeadEntriesFormSubmitButton = KTUtil.getById('createLeadEntriesFormSubmitButton');
     const leName = KTUtil.getById('leName');
     const leTitle = KTUtil.getById('leTitle');
@@ -298,12 +326,12 @@ const LeadsCRUD = (function () {
     const leLsColour = KTUtil.getById('leLsColour');
     const leLsIsDefault = KTUtil.getById('leLsIsDefault');
     const leLsNotes = KTUtil.getById('leLsNotes');
-    
-    
+
+
     //Repeat Multiple
 
     const leContactEntries = KTUtil.getById('leContactEntries'); // Form Repeat #2 : Multiple 
-    
+
     $('#leContactEntries').repeater({
       initEmpty: false,
 
@@ -336,7 +364,7 @@ const LeadsCRUD = (function () {
       todayHighlight: true,
       orientation: 'bottom left',
       templates: arrows,
-    });  
+    });
     $('#leDateConverted').datepicker({
       rtl: KTUtil.isRTL(),
       todayBtn: 'linked',
@@ -344,10 +372,10 @@ const LeadsCRUD = (function () {
       todayHighlight: true,
       orientation: 'bottom left',
       templates: arrows,
-    });      
+    });
 
-    if(!createLeadEntriesForm) {
-      return;   
+    if (!createLeadEntriesForm) {
+      return;
     }
 
     FormValidation.formValidation(createLeadEntriesForm, {
@@ -365,12 +393,21 @@ const LeadsCRUD = (function () {
               message: 'Title required',
             },
           },
+<<<<<<< Updated upstream
         },
         
         leCategoryId: {
           validators: {
             notEmpty: {
               message: 'Category ID is required',
+=======
+
+          leCategoryId: {
+            validators: {
+              notEmpty: {
+                message: 'Category ID is required',
+              },
+>>>>>>> Stashed changes
             },
           },
         },
@@ -380,11 +417,19 @@ const LeadsCRUD = (function () {
               message: 'Company is required',
             },
           },
+<<<<<<< Updated upstream
         },
         leDescription: {         
           validators: {
             notEmpty: {
               message: 'This Field is required',
+=======
+          leDescription: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+>>>>>>> Stashed changes
             },
           },
         },
@@ -394,6 +439,7 @@ const LeadsCRUD = (function () {
               message: 'Email is required',
             },
           },
+<<<<<<< Updated upstream
         },
         leWebsite: {
           validators: {
@@ -543,6 +589,157 @@ const LeadsCRUD = (function () {
           },
         }, 
 
+=======
+          leWebsite: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leAssignedTo: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leSourceId: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLastContact: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          lePriority: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leDateConverted: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLost: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLastLeadStatus: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLastStatusChange: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leAdAddress1: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leAdCity: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leAdState: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leAdCountry: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leAdPostalCode: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leCiType: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leCiIsPublic: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leSName: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLsName: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLsColour: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLsIsDefault: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+          leLsNotes: {
+            validators: {
+              notEmpty: {
+                message: 'This Field is required',
+              },
+            },
+          },
+
+        },
+>>>>>>> Stashed changes
       },
       plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
@@ -555,109 +752,110 @@ const LeadsCRUD = (function () {
         //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
       },
     }).on('core.form.valid', function () {
-        KTUtil.btnWait(createLeadEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        
-        leLost.value = (leLost.value == 'on') ? true:false
-        leLsIsDefault.value = (leLsIsDefault.value == 'on') ? true:false
-        leCiIsPublic.value = (leCiIsPublic.value == 'on') ? true:false
+      KTUtil.btnWait(createLeadEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-        // Accessing Restful API
-  
+      leLost.value = (leLost.value == 'on') ? true : false
+      leLsIsDefault.value = (leLsIsDefault.value == 'on') ? true : false
+      leCiIsPublic.value = (leCiIsPublic.value == 'on') ? true : false
+
+      // Accessing Restful API
+
       axios({
         method: 'Post',
         url: `${HOST_URL}/api/v1/lead/Entries/`,
-          data: {
-            name: leName.value,
-            title: leTitle.value,
-            _categoryId:leCategoryId.value,
-            company:leCompany.value,
-            description:leDescription.value,
-            email:leEmail.value,
-            website:leWebsite.value,
-            assignedTo:leAssignedTo.value,
-            _sourceId:leSourceId.value,
-            lastContact:leLastContact.value,
-            priority:lePriority.value,
-            dateConverted:leDateConverted.value,
-            lost:leLost.value,
-            lastLeadStatus:leLastLeadStatus.value,
-            lastStatusChange:leLastStatusChange.value,
+        data: {
+          name: leName.value,
+          title: leTitle.value,
+          _categoryId: leCategoryId.value,
+          company: leCompany.value,
+          description: leDescription.value,
+          email: leEmail.value,
+          website: leWebsite.value,
+          assignedTo: leAssignedTo.value,
+          _sourceId: leSourceId.value,
+          lastContact: leLastContact.value,
+          priority: lePriority.value,
+          dateConverted: leDateConverted.value,
+          lost: leLost.value,
+          lastLeadStatus: leLastLeadStatus.value,
+          lastStatusChange: leLastStatusChange.value,
 
-            address:{
-              address1:leAdAddress1.value,
-              street:leAdStreet.value,
-              city:leAdCity.value,
-              state:leAdState.value,
-              country:leAdCountry.value,
-              postalCode:leAdPostalCode.value,
-            },
-            
-            contactInformation:{
-              type:leCiType.value,
-              isPublic:leCiIsPublic.value,
-            },
+          address: {
+            address1: leAdAddress1.value,
+            street: leAdStreet.value,
+            city: leAdCity.value,
+            state: leAdState.value,
+            country: leAdCountry.value,
+            postalCode: leAdPostalCode.value,
+          },
 
-            source:{
-              name:leSName.value,
-              
-            },
+          contactInformation: {
+            type: leCiType.value,
+            isPublic: leCiIsPublic.value,
+          },
 
-            leadStatus:{
-              name:leLsName.value,
-              colour:leLsColour.value,
-              isDefault:leLsIsDefault.value,
-              notes:leLsNotes.value,}
+          source: {
+            name: leSName.value,
+
+          },
+
+          leadStatus: {
+            name: leLsName.value,
+            colour: leLsColour.value,
+            isDefault: leLsIsDefault.value,
+            notes: leLsNotes.value,
+          }
         },
       }).then(function (res) {
         KTUtil.btnRelease(createLeadEntriesFormSubmitButton);
-          console.log(res);
-          
-            // TOASTR EXAMPLE
-          toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": true,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": false,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "1000",
-            "timeOut": "5000",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-          }; 
+        console.log(res);
 
-          if (res.data.status == 'success') {
-            toastr.success(`${res.data.message}`, `${res.data.status}`)
-          } else if (res.data.status == 'error') {
-            toastr.error(`${res.data.message}`, `${res.data.status}`)
-          }
-        });
-  
-        })
-        .on('core.form.invalid', function () { 
-          console.log('Something went wrong!!');
-  
-        });
-        
-        };     
+        // TOASTR EXAMPLE
+        toastr.options = {
+          "closeButton": false,
+          "debug": false,
+          "newestOnTop": true,
+          "progressBar": false,
+          "positionClass": "toast-top-right",
+          "preventDuplicates": false,
+          "onclick": null,
+          "showDuration": "300",
+          "hideDuration": "1000",
+          "timeOut": "5000",
+          "extendedTimeOut": "1000",
+          "showEasing": "swing",
+          "hideEasing": "linear",
+          "showMethod": "fadeIn",
+          "hideMethod": "fadeOut"
+        };
 
-         
+        if (res.data.status == 'success') {
+          toastr.success(`${res.data.message}`, `${res.data.status}`)
+        } else if (res.data.status == 'error') {
+          toastr.error(`${res.data.message}`, `${res.data.status}`)
+        }
+      });
+
+    })
+      .on('core.form.invalid', function () {
+        console.log('Something went wrong!!');
+
+      });
+
+  };
+
+
   return {
     // public functions
     init: function () {
-        _createLeadResponse();
-        _createLeadCategories();
-        _createLeadEntries();
+      _createLeadResponse();
+      _createLeadCategories();
+      _createLeadEntries();
     }
   }
 })();
 
 
 jQuery(document).ready(function () {
-    LeadsCRUD.init();
+  LeadsCRUD.init();
 });
