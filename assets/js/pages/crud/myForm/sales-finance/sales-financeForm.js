@@ -1272,6 +1272,401 @@ const SalesFinanceCRUD = (function () {
                 console.log('Something went wrong!!');
             });
     };
+    const _createTaxItemForm = function () {
+        // Getting Document related information
+        const createTaxItemForm = KTUtil.getById('createTaxItemForm');
+        const tiItemFormSubmitButton = KTUtil.getById('tiItemFormSubmitButton');
+        const tiItemCode = KTUtil.getById('tiItemCode');
+        const tiSerialNo = KTUtil.getById('tiSerialNo');
+        const tiName = KTUtil.getById('tiName');
+        const tiQuantity = KTUtil.getById('tiQuantity');
+        const tiItemUnits = KTUtil.getById('tiItemUnits');
+        const tiUnitPrice = KTUtil.getById('tiUnitPrice');
+        const tiDiscount = KTUtil.getById('tiDiscount');
+        const tiDiscountRate = KTUtil.getById('tiDiscountRate');
+        const tiTaxValue = KTUtil.getById('tiTaxValue');
+        const tiCGSTRate = KTUtil.getById('tiCGSTRate');
+        const tiCGSTAmt = KTUtil.getById('tiCGSTAmt');
+        const tiSGSTRate = KTUtil.getById('tiSGSTRate');
+        const tiSGSTAmt = KTUtil.getById('tiSGSTAmt');
+        const tiIGSTRate = KTUtil.getById('tiIGSTRate');
+        const tiIGSTAmt = KTUtil.getById('tiIGSTAmt');
+        const tiTotalPrice = KTUtil.getById('tiTotalPrice');
+        // Dropdown List : Single Select1 With Search
+        $('tiItemUnits').selectpicker({
+        });
+
+        // Number : Number Controls Same Sides: Quantity
+        $('#tiQuantity').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: ''
+        });
+        // Number : Number Controls Same Sides: Discount
+        $('#tiDiscount').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+        });
+        // Number : Number Controls Same Sides: CGST Rate
+        $('#tiCGSTRate').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '%'
+        });
+        // Number : Number Controls Same Sides: CGST Amount
+        $('#tiCGSTAmt').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+        });
+        // Number : Number Controls Same Sides: SGST Rate
+        $('#tiSGSTRate').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '%'
+        });
+        // Number : Number Controls Same Sides: SGST Amount
+        $('#tiSGSTAmt').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+        });
+        // Number : Number Controls Same Sides: Discount Rate
+        $('#tiDiscountRate').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '%'
+        });
+        // Number : Number Controls Same Sides: Tax Value
+        $('#tiTaxValue').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+        });
+        // Number : Number Controls Same Sides: IGST Rate
+        $('#tiIGSTRate').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '%'
+        });
+        // Number : Number Controls Same Sides: IGST Amount
+        $('#tiIGSTAmt').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+        });
+        // Number : Number Controls Same Sides: Unit Price
+        $('#tiUnitPrice').TouchSpin({
+            buttondown_class: 'btn btn-secondary',
+            buttonup_class: 'btn btn-secondary',
+            verticalbuttons: true,
+            verticalup: '<i class="ki ki-plus"></i>',
+            verticaldown: '<i class="ki ki-minus"></i>',
+
+            min: -1000000000,
+            max: 1000000000,
+            step: 1,
+            decimals: 2,
+            boostat: 5,
+            maxboostedstep: 10,
+            prefix: '$'
+        });
+
+
+
+
+        if (!createTaxItemForm) {
+            return;
+        }
+
+        FormValidation.formValidation(createTaxItemForm, {
+            fields: {
+                tiItemCode: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Item Code  is required',
+                        },
+                    },
+                },
+                tiSerialNo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Serial No  is required',
+                        },
+                    },
+                },
+                tiName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Name is required',
+                        },
+                    },
+                },
+                tiQuantity: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Quantity is required',
+                        },
+                    },
+                },
+                tiItemUnits: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Units is required',
+                        },
+                    },
+                },
+                tiUnitPrice: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Unit Price is required',
+                        },
+                    },
+                },
+                tiDiscount: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Discount is required',
+                        },
+                    },
+                },
+                tiDiscountRate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Discount Rate is required',
+                        },
+                    },
+                },
+                tiTaxValue: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Tax Value is required',
+                        },
+                    },
+                },
+                tiCGSTRate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'CGST Rate is required',
+                        },
+                    },
+                },
+                tiCGSTAmt: {
+                    validators: {
+                        notEmpty: {
+                            message: 'CGST Amount is required',
+                        },
+                    },
+                },
+                tiSGSTRate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'SGST Rate is required',
+                        },
+                    },
+                },
+                tiSGSTAmt: {
+                    validators: {
+                        notEmpty: {
+                            message: 'SGST Amount is required',
+                        },
+                    },
+                },
+                tiIGSTRate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'IGST Rate is required',
+                        },
+                    },
+                },
+                tiIGSTAmt: {
+                    validators: {
+                        notEmpty: {
+                            message: 'IGST Amount is required',
+                        },
+                    },
+                },
+                tiTotalPrice: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Total Price is required',
+                        },
+                    },
+                },
+
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                tiItemFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        })
+            .on('core.form.valid', function () {
+                KTUtil.btnWait(tiItemFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+
+                // Accessing Restful API
+                axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/sales-finance/tax-invoice`,
+                    data: {
+                        serialNo: tiSerialNo.value,
+                        itemCode: tiItemCode.value,
+                        name: tiName.value,
+                        quantity: (tiQuantity.value) * 1,
+                        unitofMeasurement: tiItemUnits.value,
+                        unitPrice: (tiUnitPrice.value) * 1,
+                        dicount: (tiDiscount.value) * 1,
+                        discountRate: (tiDiscountRate.value) * 1,
+                        taxableValue: (tiTaxValue.value) * 1,
+                        CGSTRate: (tiCGSTRate.value) * 1,
+                        CGSTAmount: (tiCGSTAmt.value) * 1,
+                        SGSTRate: (tiSGSTRate.value) * 1,
+                        SGSTAmount: (tiSGSTAmt.value) * 1,
+                        IGSTRate: (tiIGSTRate.value) * 1,
+                        IGSTAmount: (tiIGSTAmt.value) * 1,
+                        totalPrice: (tiTotalPrice.value) * 1,
+
+                    },
+                }).then(function (res) {
+                    KTUtil.btnRelease(tiItemFormSubmitButton);
+                    console.log(res)
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "3000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+                        toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    } else if (res.data.status == 'error') {
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                });
+            })
+            .on('core.form.invalid', function () {
+                console.log('Something went wrong!!');
+            });
+        }
 
 
     return {
@@ -1284,6 +1679,7 @@ const SalesFinanceCRUD = (function () {
             _createPackingListBoxForm();
             _createPackingListItemForm();
             _createPackingListShippingForm();
+            _createTaxItemForm();
 
         },
     };

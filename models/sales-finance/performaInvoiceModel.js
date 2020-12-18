@@ -21,7 +21,7 @@ const performaInvoiceSchema = new Schema(
     consigneeName: { type: String },
     consigneeAddress: { type: Object },
     consigneeContactNumber: { type: String },
-    _sellerId: { type: String },
+    _sellerId: { type: mongoose.ObjectId },
     sellerName: { type: String },
     sellerAddress: { type: Object },
     sellerContactNumber: { type: String },
