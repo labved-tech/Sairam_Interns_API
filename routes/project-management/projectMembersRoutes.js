@@ -15,6 +15,10 @@ router.param('id', projectMembersController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectMembersController.getAllTableProjectMembers);
+
+router
   .route('/')
   .get(projectMembersController.getAllProjectMembers)
   .post(projectMembersController.createProjectMembers);

@@ -15,6 +15,10 @@ router.param('id', taskRemindersController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(taskRemindersController.getAllTableTaskReminders);
+
+router
   .route('/')
   .get(taskRemindersController.getAllTaskReminders)
   .post(taskRemindersController.createTaskReminders);
