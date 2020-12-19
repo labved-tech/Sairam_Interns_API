@@ -193,8 +193,6 @@ const ProjectEntriesCRUD = (function () {
             KTUtil.btnWait(createProjectEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
             
             // Accessing Restful API
-            peShareable.value = (peShareable.value == 'on') ? true:false
-
             axios({
             method: 'Post',
             url: `${HOST_URL}/api/v1/project/entries/`,
