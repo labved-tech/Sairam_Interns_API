@@ -349,7 +349,6 @@ const TaskEntriesCRUD = (function () {
             KTUtil.btnWait(createTaskEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
             
             // Accessing Restful API
-            peShareable.value = (peShareable.value == 'on') ? true:false
 
             teDeadlineNotified.value = (teDeadlineNotified.value == 'on') ? true:false
             teIsRepeat.value = (teIsRepeat.value == 'on') ? true:false

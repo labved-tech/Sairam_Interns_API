@@ -15,6 +15,9 @@ router.param('id', taskEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(taskEntriesController.getAllTableTaskEntries);
+router
   .route('/')
   .get(taskEntriesController.getAllTaskEntries)
   .post(taskEntriesController.createTaskEntries);

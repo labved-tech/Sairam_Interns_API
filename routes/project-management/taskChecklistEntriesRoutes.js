@@ -15,6 +15,9 @@ router.param('id', taskChecklistEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(taskChecklistEntriesController.getAllTableTaskChecklistEntries);
+router
   .route('/')
   .get(taskChecklistEntriesController.getAllTaskChecklistEntries)
   .post(taskChecklistEntriesController.createTaskChecklistEntries);
