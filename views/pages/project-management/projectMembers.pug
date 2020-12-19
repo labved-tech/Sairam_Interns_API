@@ -1,0 +1,59 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myForm/project-management/projectDiscussionsForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Project Members
+                    div(class='card-body')
+                        // begin::Form
+                        form#createProjectMembersForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        //pmID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pmID' placeholder='')
+
+                                        //pmUserID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') User ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pmUserID' placeholder='')
+
+                                        //pmStatus
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
+                                            div(class='col-4')
+                                                select#pmStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='pmStatus')
+                                                    option(value='' disabled='' selected='') Choose Status
+                                                    option(value='g') Active
+                                                    option(value='g') Deleted
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#MembersFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
