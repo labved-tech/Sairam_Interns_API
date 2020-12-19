@@ -1,0 +1,88 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myForm/project-management/projectDiscussionsForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Project Task Reminders
+                    div(class='card-body')
+                        // begin::Form
+                        form#createProjectTaskRemindersForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        //ptrDescription
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='ptrDescription')
+                                                | Description
+                                                span(class='text-danger') *
+                                            div(class='col-7 ')
+                                                textarea#ptrDescription(class='form-control' name ='ptrDescription' rows='4')
+                                                span(class='form-text text-muted') Add Description
+
+                                        //ptrDate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Created
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#ptrDate(type='text' class='form-control' readonly='' name='ptrDate' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Select Date
+
+                                        //ptrIsNotified
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Is Notified
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#ptrIsNotified(type='checkbox' checked='checked' name='ptrIsNotified')
+                                                        span
+                                                span(class='form-text text-muted')
+                                        //taskID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Task ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#taskID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='taskID' placeholder='')
+
+
+                                        //ptrNotifyByEmail
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Notify By Email
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#ptrNotifyByEmail(type='checkbox' checked='checked' name='ptrNotifyByEmail')
+                                                        span
+                                                span(class='form-text text-muted')
+
+                                        //ptrCreator
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Creator
+                                            div(class='col-4')
+                                                input#ptrCreator(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ptrCreator' placeholder='')
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#TaskRemindersFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

@@ -24,3 +24,63 @@ block content
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5')
+
+                                        //pdID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pdID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pdID' placeholder='')
+
+                                        //pdSubject
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Subject
+                                            div(class='col-3')
+                                                input#pdSubject(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='pdSubject' placeholder='')
+
+                                        //pdDescription
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='pdDescription')
+                                                | Description
+                                                span(class='text-danger') *
+                                            div(class='col-6 ')
+                                                textarea#pdDescription(class='form-control' name ='pdDescription' rows='4')
+                                                span(class='form-text text-muted') Add Description
+
+                                        //pdDateCreated
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Created
+                                            div(class='col-3')
+                                                div(class='input-group date')
+                                                    input#pdDateCreated(type='text' class='form-control' readonly='' name='pdDateCreated' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Select Date
+
+                                        //pdLastActivity
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Last Activity
+                                            div(class='col-3')
+                                                div(class='input-group date')
+                                                    input#pdLastActivity(type='text' class='form-control' readonly='' name='pdLastActivity' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') Select Date
+
+                                        //pdStartedBy
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Started By
+                                            div(class='col-3')
+                                                input#pdStartedBy(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='pdStartedBy' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#DiscussionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
