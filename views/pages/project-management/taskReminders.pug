@@ -3,7 +3,7 @@ extends ./../../base.pug
 block css-files
 
 block js-files
-    script(src='/js/pages/crud/myForm/project-management/projectDiscussionsForm.js' )
+    script(src='/js/pages/crud/myForm/project-management/projectForm.js' )
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -30,14 +30,14 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right' for='ptrDescription')
                                                 | Description
                                                 span(class='text-danger') *
-                                            div(class='col-7 ')
+                                            div(class='col-6')
                                                 textarea#ptrDescription(class='form-control' name ='ptrDescription' rows='4')
                                                 span(class='form-text text-muted') Add Description
 
                                         //ptrDate
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Date Created
-                                            div(class='col-4')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date 
+                                            div(class='col-3')
                                                 div(class='input-group date')
                                                     input#ptrDate(type='text' class='form-control' readonly='' name='ptrDate' placeholder='Select date')
                                                     div(class='input-group-append')
@@ -75,7 +75,7 @@ block content
                                         //ptrCreator
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Creator
-                                            div(class='col-4')
+                                            div(class='col-3')
                                                 input#ptrCreator(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ptrCreator' placeholder='')
                             div(class='card-footer')
                                 div(class='row text-right')

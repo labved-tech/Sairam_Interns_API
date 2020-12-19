@@ -16,13 +16,13 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllTaskReminders = catchAsync(async (req, res, next) => {
-  console.log('Getting All taskReminders');
+  console.log('Getting All Task Reminders');
 
   const taskReminders = await TaskReminders.find().then();
 
   res.status(200).json({
     status: 'success',
-    message: 'Got All taskReminders',
+    message: 'Got All Task Reminders',
     results: taskReminders.length,
     data: {
       taskReminders,
@@ -34,12 +34,12 @@ exports.getAllTaskReminders = catchAsync(async (req, res, next) => {
 
 exports.getTaskReminders = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting taskReminders for Id ${id}`);
+  console.log(`Getting Task Reminders for Id ${id}`);
 
   const taskReminders = await TaskReminders.findById(id).then();
   res.status(200).json({
     status: 'success',
-    message: `Got taskReminders Id=${id}`,
+    message: `Got Task Reminders Id=${id}`,
     Data: { taskReminders },
   });
 
@@ -47,7 +47,7 @@ exports.getTaskReminders = catchAsync(async (req, res, next) => {
 });
 
 exports.createTaskReminders = catchAsync(async (req, res, next) => {
-  console.log('Creating taskReminders');
+  console.log('Creating Task Reminders');
   const { body } = req;
 
   // parse through models
@@ -74,7 +74,7 @@ exports.createTaskReminders = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    message: 'Created taskReminders',
+    message: 'Created Task Reminders',
     data: { taskReminders },
   });
 

@@ -1,0 +1,96 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myForm/project-management/projectForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | Project Task Status
+                    div(class='card-body')
+                        // begin::Form
+                        form#createProjectTaskStatusForm(class='form')
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        //ptsStatus
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
+                                            div(class='col-3')
+                                                select#ptsStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='ptsStatus')
+                                                    option(value='' disabled='' selected='') Choose Status
+                                                    option(value='active') Active
+                                                    option(value='on hold') On Hold
+                                                    option(value='deleted') Deleted
+
+
+                                        //ptsDeadlineNotified
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Deadline Notified
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#ptsDeadlineNotified(type='checkbox' checked='checked' name='ptsDeadlineNotified')
+                                                        span
+                                                span(class='form-text text-muted')
+
+                                        //ptsKanbanOrder
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Kanban Order
+                                            div(class='col-3')
+                                                input#ptsKanbanOrder(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ptsKanbanOrder' placeholder='')
+
+                                        //ptsMilestoneOrder
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Milestone Order
+                                            div(class='col-3')
+                                                input#ptsMilestoneOrder(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ptsMilestoneOrder' placeholder='')
+
+                                        //ptstaskID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Task ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptstaskID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptstaskID' placeholder='')
+
+                                        //ptsProjectID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptsProjectID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptsProjectID' placeholder='')
+
+                                        //ptsUserID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') User ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptsUserID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptsUserID' placeholder='')
+ 
+                                        //ptsProgress
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Progress
+                                            div(class='col-3')
+                                                input#ptsProgress(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ptsProgress' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#TaskStatusFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

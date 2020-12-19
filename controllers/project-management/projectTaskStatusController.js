@@ -22,7 +22,7 @@ exports.getAllProjectTaskStatus = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    message: 'Got All projectTaskStatus',
+    message: 'Got All Project Task Status',
     results: projectTaskStatuss.length,
     data: {
       projectTaskStatuss,
@@ -34,12 +34,12 @@ exports.getAllProjectTaskStatus = catchAsync(async (req, res, next) => {
 
 exports.getProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Getting projectTaskStatus for Id ${id}`);
+  console.log(`Getting Project Task Status for Id ${id}`);
 
   const projectTaskStatus = await ProjectTaskStatus.findById(id).then();
   res.status(200).json({
     status: 'success',
-    message: `Got projectTaskStatus Id=${id}`,
+    message: `Got Project Task Status Id=${id}`,
     Data: { projectTaskStatus },
   });
 
@@ -47,7 +47,7 @@ exports.getProjectTaskStatus = catchAsync(async (req, res, next) => {
 });
 
 exports.createProjectTaskStatus = catchAsync(async (req, res, next) => {
-  console.log('Creating projectTaskStatus');
+  console.log('Creating Project Task Status');
   const { body } = req;
 
   // parse through models
@@ -74,7 +74,7 @@ exports.createProjectTaskStatus = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    message: 'Created projectTaskStatus',
+    message: 'Created Project Task Status',
     data: { projectTaskStatus },
   });
 
@@ -85,7 +85,7 @@ exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const { body } = req;
 
-  console.log(`Updating ProjectTaskStatus Id ${id}`);
+  console.log(`Updating Project Task Status Id ${id}`);
 
   // parse through models
   const ProjectTaskStatusToUpdate = new ProjectTaskStatus(body);
@@ -106,7 +106,7 @@ exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    message: `Updated projectTaskStatus Id=${id}`,
+    message: `Updated Project Task Status Id=${id}`,
     data: { projectTaskStatus },
   });
 
@@ -115,7 +115,7 @@ exports.updateProjectTaskStatus = catchAsync(async (req, res, next) => {
 
 exports.deleteProjectTaskStatus = catchAsync(async (req, res, next) => {
   const { id } = req.params;
-  console.log(`Deleting projectTaskStatus Id ${id}`);
+  console.log(`Deleting Project Task Status Id ${id}`);
 
   const projectTaskStatus = await ProjectTaskStatus.findByIdAndDelete(
     id
@@ -123,7 +123,7 @@ exports.deleteProjectTaskStatus = catchAsync(async (req, res, next) => {
 
   res.status(200).json({
     status: 'success',
-    message: `Deleted projectTaskStatus Id=${id}`,
+    message: `Deleted Project Task Status Id=${id}`,
     data: { projectTaskStatus },
   });
 

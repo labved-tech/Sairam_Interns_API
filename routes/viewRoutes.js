@@ -229,7 +229,11 @@ router.get('/project/task-checklist-entries/', viewsController.taskChecklistEntr
 
 
 
-
+//PROJECT MANAGEMENT TABLE RELATED ROUTES
+router.get('/project/discussions/table', viewsController.projectDiscussionsTable);
+router.get('/project/members/table', viewsController.projectMembersTable);
+router.get('/project/task-status/table', viewsController.taskStatusTable);
+router.get('/project/task-reminders/table', viewsController.taskRemindersTable);
 
 
 
