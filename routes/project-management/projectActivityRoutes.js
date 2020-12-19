@@ -15,6 +15,9 @@ router.param('id', projectActivityController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectActivityController.getAllTableProjectActivity);
+router
   .route('/')
   .get(projectActivityController.getAllProjectActivity)
   .post(projectActivityController.createProjectActivity);

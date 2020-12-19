@@ -15,6 +15,9 @@ router.param('id', projectEntriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectEntriesController.getAllTableProjectEntries);
+router
   .route('/')
   .get(projectEntriesController.getAllProjectEntries)
   .post(projectEntriesController.createProjectEntries);

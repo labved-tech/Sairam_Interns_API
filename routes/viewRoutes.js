@@ -234,6 +234,13 @@ router.get('/project/discussions/table', viewsController.projectDiscussionsTable
 router.get('/project/members/table', viewsController.projectMembersTable);
 router.get('/project/task-status/table', viewsController.taskStatusTable);
 router.get('/project/task-reminders/table', viewsController.taskRemindersTable);
+router.get('/project/entries/table', viewsController.projectEntriesTable);
+router.get('/project/task-entries/table', viewsController.taskEntriesTable);
+router.get('/project/activity/table', viewsController.projectActivityTable);
+router.get('/project/task-checklist-entries/table', viewsController.taskChecklistEntriesTable);
+
+
+
 
 
 
