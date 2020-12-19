@@ -695,26 +695,26 @@ exports.projectEntriesTable = (req, res) => {
   console.log('We are in Project Entries Tables Page');
   res
     .status(200)
-    .render(`./../views/pages/precision-agriculture/projectEntriesTable`);
+    .render(`./../views/pages/project-management/projectEntriesTable`);
 };
 
 exports.projectActivityTable = (req, res) => {
   console.log('We are in Project Activity Tables Page');
   res
     .status(200)
-    .render(`./../views/pages/precision-agriculture/projectActivityTable`);
+    .render(`./../views/pages/project-management/projectActivityTable`);
 };
 
 exports.taskEntriesTable = (req, res) => {
   console.log('We are in Task Entries Tables Page');
   res
     .status(200)
-    .render(`./../views/pages/precision-agriculture/taskEntriesTable`);
+    .render(`./../views/pages/project-management/taskEntriesTable`);
 };
 
 exports.taskChecklistEntriesTable = (req, res) => {
   console.log('We are in Task Checklist Entries Tables Page');
   res
     .status(200)
-    .render(`./../views/pages/precision-agriculture/taskChecklistEntriesTable`);
+    .render(`./../views/pages/project-management/taskChecklistEntriesTable`);
 };
