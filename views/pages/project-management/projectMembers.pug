@@ -37,7 +37,7 @@ block content
                                             label(class='col-3 col-form-label form-control-label text-right') User ID
                                             div(class='col-4')
                                                 div(class='typeahead')
-                                                    input#pmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pmUserID' placeholder='')
+                                                    input#pmUserID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pmUserID' placeholder='')
 
                                         //pmStatus
                                         div(class='form-group row')
@@ -45,8 +45,8 @@ block content
                                             div(class='col-4')
                                                 select#pmStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='pmStatus')
                                                     option(value='' disabled='' selected='') Choose Status
-                                                    option(value='g') Active
-                                                    option(value='g') Deleted
+                                                    option(value='active') Active
+                                                    option(value='deleted') Deleted
 
                             div(class='card-footer')
                                 div(class='row text-right')

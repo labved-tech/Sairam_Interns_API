@@ -16,13 +16,13 @@ exports.checkID = (req, res, next, val) => {
 };
 
 exports.getAllProjectDiscussions = catchAsync(async (req, res, next) => {
-  console.log('Getting All projectDiscussions');
+  console.log('Getting All Project Discussions');
 
   const projectDiscussions = await ProjectDiscussions.find().then();
 
   res.status(200).json({
     status: 'success',
-    message: 'Got All projectDiscussions',
+    message: 'Got All Project Discussions',
     results: projectDiscussions.length,
     data: {
       projectDiscussions,
@@ -40,14 +40,14 @@ exports.getProjectDiscussions = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got projectDiscussions Id=${id}`,
-    Data: { projectDiscussions },
+    data: { projectDiscussions },
   });
 
   next();
 });
 
 exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
-  console.log('Creating projectDiscussions');
+  console.log('Creating Project Discussions');
   const { body } = req;
 
   // parse through models
@@ -74,7 +74,7 @@ exports.createProjectDiscussions = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    message: 'Created projectDiscussions',
+    message: 'Created Project Discussions',
     data: { projectDiscussions },
   });
 

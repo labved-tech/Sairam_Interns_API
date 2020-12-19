@@ -39,7 +39,7 @@ exports.getProjectMembers = catchAsync(async (req, res, next) => {
   const projectMembers = await ProjectMembers.findById(id).then();
   res.status(200).json({
     status: 'success',
-    message: `Got projectMembers Id=${id}`,
+    message: `Got Project Members Id=${id}`,
     Data: { projectMembers },
   });
 
@@ -47,7 +47,7 @@ exports.getProjectMembers = catchAsync(async (req, res, next) => {
 });
 
 exports.createProjectMembers = catchAsync(async (req, res, next) => {
-  console.log('Creating projectMembers');
+  console.log('Creating ProjectMembers');
   const { body } = req;
 
   // parse through models
@@ -74,7 +74,7 @@ exports.createProjectMembers = catchAsync(async (req, res, next) => {
 
   res.status(201).json({
     status: 'success',
-    message: 'Created projectMembers',
+    message: 'Created Project Members',
     data: { projectMembers },
   });
 
@@ -85,7 +85,7 @@ exports.updateProjectMembers = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   const { body } = req;
 
-  console.log(`Updating ProjectMembers Id ${id}`);
+  console.log(`Updating Project Members Id ${id}`);
 
   // parse through models
   const ProjectMembersToUpdate = new ProjectMembers(body);

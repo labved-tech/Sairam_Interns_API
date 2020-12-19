@@ -7,7 +7,7 @@ const projectDiscussionsController = require('../../controllers/project-manageme
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in projectDiscussions Routes');
+  console.log('We are in Project Discussions Routes');
   next();
 });
 
