@@ -211,6 +211,9 @@ router.get('/ecommerce/order/table', viewsController.ecommerceOrderTable);
 router.get('/ecommerce/products/table', viewsController.ecommerceProductsTable);
 
 // PROJECT MANAGEMENT RELATED ROUTES
+router.get('/project/discussions', viewsController.projectDiscussions);
+
+router.get('/project/entries/', viewsController.projectEntries);
 
 
 

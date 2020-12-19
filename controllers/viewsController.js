@@ -639,3 +639,13 @@ exports.ecommerceProductsTable = (req, res) => {
   console.log('We are in Ecommerce Order Tables Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceProductsTable');
 };
+
+// PROJECT MANAGEMENT RELATED CONTROLLER
+exports.projectEntries = (req, res) => {
+  console.log('We are in Project Entries Form Page');
+  res.status(200).render('./../views/pages/project-management/projectEntries');
+};
+exports.projectDiscussions = (req, res) => {
+  console.log('We are in Project Discussions Form Page');
+  res.status(200).render('./../views/pages/project-management/projectDiscussions');
+};
