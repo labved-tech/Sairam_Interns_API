@@ -184,7 +184,6 @@ const FarmEntriesCRUD = (function () {
             KTUtil.btnWait(createFarmEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
             
             // Accessing Restful API
-                 feShareable.value = (feShareable.value == 'on') ? true : false;
 
                 //  let adminsArr = [];
                 //  adminObj = `_adminId : ${feaAdminId.value}`;

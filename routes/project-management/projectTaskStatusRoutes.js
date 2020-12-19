@@ -15,6 +15,10 @@ router.param('id', projectTaskStatusController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectTaskStatusController.getAllTableProjectTaskStatus);
+
+router
   .route('/')
   .get(projectTaskStatusController.getAllProjectTaskStatus)
   .post(projectTaskStatusController.createProjectTaskStatus);

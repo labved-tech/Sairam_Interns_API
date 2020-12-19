@@ -85,164 +85,6 @@ const menuCRUD = (function () {
         });
     };
 
-    const _createMenuSectionForm = function (method, route, button) {
-
-        console.log('method', method);
-        console.log('route', route);
-        console.log('button', button);
-
-        // Getting Document related information
-        const menuSectionForm = KTUtil.getById('menuSectionForm');
-        const FormSubmitButton = KTUtil.getById(button);
-        // const menuSectionFormSubmitButton = KTUtil.getById('menuSectionFormSubmitButton');
-        const menuManagerSelect = KTUtil.getById('menuManagerSelect');
-        const menuSectionName = KTUtil.getById('menuSectionName');
-        const menuSectionDescription = KTUtil.getById('menuSectionDescription');
-        const menuSectionPriority = KTUtil.getById('menuSectionPriority');
-       
-        // menuManagerSelect - Dropdown List : Single Select2
-        $('#menuManagerSelect').select2({
-            ajax: {
-                url: `${HOST_URL}/api/v1/menu/manager/popSel2`,
-                dataType: 'json',
-                processResults: function (data) {
-                    return {
-                      results: data.manager
-                    };
-                  }
-            },
-        });
-        
-        // menuSectionPriority - Number : Number Controls Same Sides
-        $('#menuSectionPriority').TouchSpin({
-            buttondown_class: 'btn btn-secondary',
-            buttonup_class: 'btn btn-secondary',
-            verticalbuttons: true,
-            verticalup: '<i class="ki ki-plus"></i>',
-            verticaldown: '<i class="ki ki-minus"></i>',
-
-            min: 1,
-            max: 1000,
-            step: 1,
-
-        });
-        
-        // Return Form
-        if (!menuSectionForm) {
-        return;
-        }
-
-        // Validation
-        const fv = FormValidation.formValidation(menuSectionForm, {
-        fields: {
-            menuManagerSelect: {
-                validators: {
-                    notEmpty: {
-                    message: 'Manager is required',
-                    },
-                },
-            },
-            menuSectionName: {
-                validators: {
-                    notEmpty: {
-                    message: 'Name cannot be empty',
-                    },
-                },
-            },
-            menuSectionDescription: {
-                validators: {
-                    notEmpty: {
-                    message: 'Description cannot be empty',
-                    },
-                },
-            },
-            menuSectionPriority: {
-                validators: {
-                    notEmpty: {
-                    message: 'This field is required',
-                    },
-                },
-            },
-        },
-
-        plugins: {
-            //Learn more: https://formvalidation.io/guide/plugins
-            trigger: new FormValidation.plugins.Trigger(),
-            // Bootstrap Framework Integration
-            bootstrap: new FormValidation.plugins.Bootstrap(),
-            // Validate fields when clicking the Submit button
-            FormSubmitButton: new FormValidation.plugins.SubmitButton(),
-            // Submit the form when all fields are valid
-            //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-        },
-        })
-        .on('core.form.valid', function () {
-            // Show loading state on button
-            KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
-            // Accessing Restful API
-            axios({
-            method: method,
-            url: route,
-                data: {
-                    manager: menuManagerSelect.value,
-                    name: menuSectionName.value,
-                    description: menuSectionDescription.value,
-                    priority: menuSectionPriority.value,
-            },
-
-            }).then(function (res) {
-            // Return valid JSON
-            console.log(res);
-
-            // Release button
-            KTUtil.btnRelease(FormSubmitButton);
-
-            // TOASTR EXAMPLE
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": true,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            };
-
-            if (res.data.status == 'success') {
-                // hiding modal form
-                $('#exampleModal').modal('hide');
-
-                // show sucess toastr
-                toastr.success(`${res.data.message}`, `${res.data.status}`);
-
-                // reload table
-                $('#kt_datatable_2').KTDatatable().reload();
-
-
-            } else if (res.data.status == 'error') {
-                toastr.error(`${res.data.message}`, `${res.data.status}`)
-                }
-            else {
-                    $('#exampleModal').modal('hide');
-                }
-            });
-
-        })
-        .on('core.form.invalid', function () {
-            console.log('Something went wrong!!');
-
-        });
-
-    };
     const _createMenuItemForm = function () {
 
         // Getting Document related information
@@ -509,8 +351,171 @@ const menuCRUD = (function () {
         });
 
     };
+    var isLoading = false;
 
-    const _viewMenuSectionTable = function () {
+    function _MenuSectionFormPush(method, route, button) {
+
+        if (!isLoading) {
+            isLoading = true;
+            console.log('Inside _MenuSectionFormPush');
+
+            // Getting Document related information
+            const menuSectionForm = document.querySelector('#menuSectionForm');
+            const FormSubmitButton = document.querySelector('#'+button);
+            const menuManagerSelect = document.querySelector('#menuManagerSelect');
+            const menuSectionName = document.querySelector('#menuSectionName');
+            const menuSectionDescription = document.querySelector('#menuSectionDescription');
+            const menuSectionPriority = document.querySelector('#menuSectionPriority');
+
+
+            // menuManagerSelect - Dropdown List : Single Select2
+            $('#menuManagerSelect').select2({
+                ajax: {
+                    url: `${HOST_URL}/api/v1/menu/manager/popSel2`,
+                    dataType: 'json',
+                    processResults: function (data) {
+                        return {
+                        results: data.manager
+                        };
+                    }
+                },
+            });
+
+            // menuSectionPriority - Number : Number Controls Same Sides
+            $('#menuSectionPriority').TouchSpin({
+                buttondown_class: 'btn btn-secondary',
+                buttonup_class: 'btn btn-secondary',
+                verticalbuttons: true,
+                verticalup: '<i class="ki ki-plus"></i>',
+                verticaldown: '<i class="ki ki-minus"></i>',
+
+                min: 1,
+                max: 1000,
+                step: 1,
+            });
+
+        
+            // Return Form
+            if (!menuSectionForm) {
+            return;
+            }
+
+            // Validation
+            const fv = FormValidation.formValidation(menuSectionForm, {
+            fields: {
+                menuManagerSelect: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Manager is required',
+                        },
+                    },
+                },
+                menuSectionName: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Name cannot be empty',
+                        },
+                    },
+                },
+                menuSectionDescription: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Description cannot be empty',
+                        },
+                    },
+                },
+                menuSectionPriority: {
+                    validators: {
+                        notEmpty: {
+                        message: 'This field is required',
+                        },
+                    },
+                },
+            },
+
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                FormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+            })
+                .on('core.form.valid', function () {
+                    
+                // Show loading state on button
+                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+                // Accessing Restful API
+                axios({
+                method: method,
+                url: route,
+                    data: {
+                        manager: document.querySelector('#menuManagerSelect').value,
+                        name: document.querySelector('#menuSectionName').value,
+                        description: document.querySelector('#menuSectionDescription').value,
+                        priority: document.querySelector('#menuSectionPriority').value,
+                    },
+                }).then(function (res) {
+                    // Return valid JSON
+                    console.log(res);
+
+                    // Release button
+                    KTUtil.btnRelease(FormSubmitButton);
+
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                    };
+
+                    if (res.data.status == 'success') {
+
+                        // reseting & clearing
+                        fv.resetForm(); //reset validators in form
+                        $('#kt_datatable_2').KTDatatable().reload(); // reload table
+                        document.querySelector('#menuSectionForm').reset(); // clear form fields
+
+                        $('#exampleModal').modal('hide'); // hiding modal form
+                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+
+
+                    }
+                    else if (res.data.status == 'error') {
+                        $('#exampleModal').modal('hide'); // hiding modal form
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                    else {
+                        $('#exampleModal').modal('hide');
+                    }
+
+                    isLoading = false;
+                   });
+                })
+                .on('core.form.invalid', function () {
+                    console.log('Something went wrong!!');
+                });
+            
+    }
+
+    };
+    function _viewMenuSectionTable() {
         var dataSet;
 
         /* Table Initialize */
@@ -695,30 +700,26 @@ const menuCRUD = (function () {
       
           $(
             '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
-          ).selectpicker();
-             
-        // deleteOne operation
-        $('#kt_datatable_2').on('click', '.btnDelete', async function () {           
-            let ids = $(this).attr("aria-label");
+        ).selectpicker();
+                   
+        // create operation
+        $('#btnAddNew').on('click', function (e) {
+            //e.preventDefault();
+            console.log('btnAddNew is clicked');
 
-            ids = ids.toString();
+            $('#exampleModal').modal('show');   // open modal
+            $('#menuManagerSelect').val('');    // clearing select2
+            $('#addMenuSectionFormSubmitButton').removeAttr('hidden', '');  // show add button
+            $('#updateMenuSectionFormSubmitButton').attr('hidden', ''); // hide update button
 
-            const requests = {
-                params: {
-                    _id: ids,
-                }
-            }
+            _MenuSectionFormPush('POST', `${HOST_URL}/api/v1/menu/section`, 'addMenuSectionFormSubmitButton');  
 
-            await axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
-
-        // reload table
-            $('#kt_datatable_2').KTDatatable().reload();
-            
         });
-       
-        // edit operation
-        $('#kt_datatable_2').on('click', '.btnEdit', function () {
-            console.log('edit is clicked')             
+
+        // update operation
+        $('#kt_datatable_2').on('click', '.btnEdit', function (e) {
+            e.preventDefault();
+            console.log('btnEdit is clicked')
 
             var id = $(this).attr("aria-label");
             console.log(id);
@@ -734,6 +735,10 @@ const menuCRUD = (function () {
                         
                         // open modal
                         $('#exampleModal').modal('show');
+                        document.getElementById("menuSectionForm").reset(); // reset form
+
+                        $('#addMenuSectionFormSubmitButton').attr('hidden', ''); // hide add button
+                        $('#updateMenuSectionFormSubmitButton').removeAttr('hidden', ''); // show update button
 
                         // fetching menu manager select2
                         $.ajax({
@@ -754,10 +759,29 @@ const menuCRUD = (function () {
                         document.querySelector('#menuSectionDescription').value = raw.menuSection.description;
                         document.querySelector('#menuSectionPriority').value = raw.menuSection.priority;
 
-                        _createMenuSectionForm('POST', `${HOST_URL}/api/v1/menu/section`,'addMenuSectionFormSubmitButton');
+                        _MenuSectionFormPush('PATCH', `${HOST_URL}/api/v1/menu/section/${id}`,'updateMenuSectionFormSubmitButton');
                     }
                 },
             });
+        });
+
+        // deleteOne operation
+        $('#kt_datatable_2').on('click', '.btnDelete', function () {           
+            let ids = $(this).attr("aria-label");
+
+            ids = ids.toString();
+
+            const requests = {
+                params: {
+                    _id: ids,
+                }
+            }
+
+            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+
+        // reload table
+            $('#kt_datatable_2').KTDatatable().reload();
+            
         });
 
         // mass operation
@@ -776,7 +800,7 @@ const menuCRUD = (function () {
         });
 
         // deleteAll operation
-        $('#kt_datatable_group_action_form_2').on('click', '.btnDeleteAll', async function () {
+        $('#kt_datatable_group_action_form_2').on('click', '.btnDeleteAll', function () {
             console.log('deleteAll is clicked')
 
             let ids = datatable.checkbox().getSelectedId();
@@ -789,7 +813,7 @@ const menuCRUD = (function () {
                 }
             }
 
-            await axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
 
             $('#kt_datatable_group_action_form_2').collapse('hide');
 
@@ -807,8 +831,8 @@ const menuCRUD = (function () {
         //_initializeMenuForm();
         //_createMenuForm();
         //_createMenuSectionForm();
-        _createMenuItemForm();
-          _createMenuSubItem1Form();
+        //_createMenuItemForm();
+        //   _createMenuSubItem1Form();
           _viewMenuSectionTable();
     },
   };
