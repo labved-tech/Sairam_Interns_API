@@ -18,13 +18,107 @@ block content
                 div(class='card card-custom')
                     div(class='card-header')
                         h3(class='card-title')
-                            | Farm Entries Form
+                            | Project Entries Form
                     div(class='card-body')
                         // begin::Form
-                        form#createFarmEntriesForm(class='form')
+                        form#createProjectEntriesForm(class='form')
                             div(class='row')
                                 div(class='col-xl-2')
                                 div(class='col-xl-8')
                                     div(class='my-5') 
 
                                         h3(class=' text-dark font-weight-bold mb-10') General
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#peName(type='text' class='form-control' name='peName' placeholder='ex. Sai Vignesh')
+
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='peDescription')
+                                                | Description 
+                                            div(class='col-9 ')
+                                                textarea#peDescription(class='form-control' name='peDescription' rows='3')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status 
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#peStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='peStatus' placeholder='')
+                                                    span(class='form-text text-muted')  
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Start Date
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#peStartDate(type='text' class='form-control' readonly='' name='peStartDate' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Deadline 
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#peDeadline(type='text' class='form-control' readonly='' name='peDeadline' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Finished 
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#peFinished(type='text' class='form-control' readonly='' name='peFinished' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted') 
+
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Progress :
+                                            div(class='col-4')
+                                                input#peProgress(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='peProgress' placeholder='40')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Estimated Hours :
+                                            div(class='col-4')
+                                                input#peEstimatedHours(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='peEstimatedHours' placeholder='40')
+                                                span(class='form-text text-muted')
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Type
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#peType(type='text' class='form-control' name='peType' placeholder='')
+
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Farm ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#peFarmId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='peFarmId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Farm Region ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#peFarmRegionId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='peFarmRegionId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createProjectEntriesFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
