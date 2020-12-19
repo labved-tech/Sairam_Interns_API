@@ -210,4 +210,18 @@ router.get('/ecommerce/stock/table', viewsController.ecommerceStockTable);
 router.get('/ecommerce/order/table', viewsController.ecommerceOrderTable);
 router.get('/ecommerce/products/table', viewsController.ecommerceProductsTable);
 
+// PROJECT MANAGEMENT RELATED ROUTES
+
+
+
+
+
+
+
+
+
+
+
+
+
 module.exports = router;
