@@ -2,7 +2,7 @@
 'use strict';
 
 // Class definition
-const FarmCRUD = (function () {
+const ProjectEntriesCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
     
     let arrows;
@@ -26,7 +26,7 @@ const FarmCRUD = (function () {
         const peDescription = KTUtil.getById('peDescription');
         const peStatus = KTUtil.getById('peStatus');
         const peStartDate = KTUtil.getById('peStartDate');
-        const peDeadLine = KTUtil.getById('peDeadLine');
+        const peDeadline = KTUtil.getById('peDeadline');
         const peFinished = KTUtil.getById('peFinished');
         const peProgress = KTUtil.getById('peProgress');
         const peEstimatedHours = KTUtil.getById('peEstimatedHours');
@@ -43,15 +43,15 @@ const FarmCRUD = (function () {
             todayHighlight: true,
             orientation: 'bottom left',
             templates: arrows,
-        }); 
-        $('#peDeadLine').datepicker({
-        rtl: KTUtil.isRTL(),
-        todayBtn: 'linked',
-        clearBtn: true,
-        todayHighlight: true,
-        orientation: 'bottom left',
-        templates: arrows,
-        });      
+        });
+        $('#peDeadline').datepicker({
+            rtl: KTUtil.isRTL(),
+            todayBtn: 'linked',
+            clearBtn: true,
+            todayHighlight: true,
+            orientation: 'bottom left',
+            templates: arrows,
+        });    
         $('#peFinished').datepicker({
             rtl: KTUtil.isRTL(),
             todayBtn: 'linked',
@@ -129,7 +129,7 @@ const FarmCRUD = (function () {
                     },
                 },
                 },
-                peDeadLine: {
+                peDeadline: {
                 validators: {
                     notEmpty: {
                     message: 'Date is required',
@@ -203,7 +203,7 @@ const FarmCRUD = (function () {
                 description: peDescription.value,
                 status:peStatus.value,
                 startDate: peStartDate.value,
-                deadline:peDeadLine.value,
+                deadline:peDeadline.value,
                 finished:peFinished.value,
                 progress:peProgress.value,
                 estimatedHours: peEstimatedHours.value,
@@ -259,5 +259,5 @@ const FarmCRUD = (function () {
 })();
 
 jQuery(document).ready(function () {
-    FarmCRUD.init();
+    ProjectEntriesCRUD.init();
 });

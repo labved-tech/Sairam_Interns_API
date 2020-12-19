@@ -645,3 +645,15 @@ exports.projectEntries = (req, res) => {
   console.log('We are in Project Entries Form Page');
   res.status(200).render('./../views/pages/project-management/projectEntries');
 };
+exports.taskEntries = (req, res) => {
+  console.log('We are in Task Entries Form Page');
+  res.status(200).render('./../views/pages/project-management/taskEntries');
+};
+exports.projectActivity = (req, res) => {
+  console.log('We are in Project Activity Form Page');
+  res.status(200).render('./../views/pages/project-management/projectActivity');
+};
+exports.taskChecklistEntries = (req, res) => {
+  console.log('We are in Task Checklist Entries Form Page');
+  res.status(200).render('./../views/pages/project-management/taskChecklistEntries');
+};

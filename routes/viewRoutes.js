@@ -213,6 +213,11 @@ router.get('/ecommerce/products/table', viewsController.ecommerceProductsTable);
 // PROJECT MANAGEMENT RELATED ROUTES
 
 router.get('/project/entries/', viewsController.projectEntries);
+router.get('/project/task-entries/', viewsController.taskEntries);
+router.get('/project/activity/', viewsController.projectActivity);
+router.get('/project/task-checklist-entries/', viewsController.taskChecklistEntries);
+
+
 
 
 

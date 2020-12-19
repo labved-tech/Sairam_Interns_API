@@ -43,12 +43,15 @@ block content
                                                 span(class='form-text text-muted') 
 
                                         div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Status 
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
                                             div(class='col-4')
-                                                div(class='typeahead')
-                                                    input#peStatus(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='peStatus' placeholder='')
-                                                    span(class='form-text text-muted')  
-
+                                                select#peStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='peStatus' )
+                                                    option(value='') Select
+                                                    option(value='C') Completed
+                                                    option(value='NS') Not Yet Started
+                                                    option(value='W') Working                                              
+                                                span(class='form-text text-muted')
+                                        
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Start Date
                                             div(class='col-4')
@@ -94,7 +97,6 @@ block content
 
                                         div(class='form-group row')
                                             label(class='col-3 col-form-label form-control-label text-right') Type
-                                                span(class='text-danger')  *                                            
                                             div(class='col-6')
                                                 input#peType(type='text' class='form-control' name='peType' placeholder='')
 
