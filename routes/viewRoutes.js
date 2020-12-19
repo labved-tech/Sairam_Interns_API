@@ -215,6 +215,8 @@ router.get('/project/discussions', viewsController.projectDiscussions);
 
 router.get('/project/entries/', viewsController.projectEntries);
 
+router.get('/project/entries/', viewsController.projectEntries);
+
 
 
 
