@@ -139,7 +139,7 @@ exports.getMenuSection = catchAsync(async (req, res, next) => {
 exports.createMenuSection = catchAsync(async (req, res, next) => {
   console.log('Creating Menu Sections');
   const { body } = req;
-  console.log(body);
+  console.log('rawBody :', body);
 
   // parse through models
   const doc = new MenuSection(body);
@@ -156,7 +156,7 @@ exports.createMenuSection = catchAsync(async (req, res, next) => {
   await doc.validate();
 
   // check the doc before doing database operation
-  console.log(doc);
+  // console.log(doc);
 
   // creating document
   const menuSection = await MenuSection.create(doc).then();
@@ -176,6 +176,8 @@ exports.createMenuSection = catchAsync(async (req, res, next) => {
 });
 
 exports.updateMenuSection = catchAsync(async (req, res, next) => {
+  const { body } = req;
+  console.log('rawBody :', body);
   const { id } = req.params;
   console.log(`Updating Menu Section Id ${id}`);
 
