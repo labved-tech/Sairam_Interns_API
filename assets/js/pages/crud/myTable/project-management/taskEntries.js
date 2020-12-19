@@ -18,7 +18,7 @@ const TaskEntries = (function () {
                 method: 'get',
                 url: `${HOST_URL}/api/v1/project/task-entries/table`,
                 params: {
-                  fields: '_id,name,description,startDate,status,deadline,finished,progress,estimatedHours,type,_farmId,_farmRegionId,createdAt,updatedAt',
+                  fields: '_id,_projectId,name,taskType,description,status,dateFinished,isRepeat,repeatFromDate,repeatLastDate,repeatInterval,repeatIntervalType,currentRepeatNumber,totalRepeatAllowed,deadlineNotified,milestone,milestoneOrder,kanbanOrder,taskFormURL,startDate,dateadded,dueDate,assignedTo,createdAt,updatedAt',
                 },
                 map: function(raw) {
                   // sample data mapping
@@ -81,6 +81,10 @@ const TaskEntries = (function () {
               }
             },
             {
+              field: 'taskType',
+              title: 'Task Type',
+            },
+            {
               field: 'description',
               title: 'Description',
             },
@@ -89,32 +93,72 @@ const TaskEntries = (function () {
               title: 'Status',
             },
             {
-              field: 'deadline',
-              title: 'Deadline',
+              field: 'dateFinished',
+              title: 'Date Finished',
             },
             {
-              field: 'finished',
-              title: 'Finished',
+              field: 'isRepeat',
+              title: 'Is Repeat',
             },
             {
-              field: 'progress',
-              title: 'Progress',
+              field: 'repeatFromDate',
+              title: 'Repeat From Date',
             },
             {
-              field: 'estimatedHours',
-              title: 'Estimated Hours',
+              field: 'repeatLastDate',
+              title: 'Repeat Last Date',
             },
             {
-              field: 'type',
-              title: 'Type',
+              field: 'repeatInterval',
+              title: 'Repeat Interval',
             },
             {
-              field: '_farmId',
-              title: 'Farm ID',
+              field: 'repeatIntervalType',
+              title: 'Repeat Interval Type',
             },
             {
-              field: '_farmRegionId',
-              title: 'Farm Region ID',
+              field: 'currentRepeatNumber',
+              title: 'Current Repeat Number',
+            },
+            {
+              field: 'totalRepeatAllowed',
+              title: 'Total Repeat Allowed',
+            },
+            {
+              field: 'deadlineNotified',
+              title: 'Deadline Notified',
+            },
+            {
+              field: 'milestone',
+              title: 'Milestone',
+            },
+            {
+              field: 'milestoneOrder',
+              title: 'Milestone Order',
+            },
+            {
+              field: 'kanbanOrder',
+              title: 'Kanban Order',
+            },
+            {
+              field: 'taskFormURL',
+              title: 'Task Form URL',
+            },
+            {
+              field: 'startDate',
+              title: 'Start Date',
+            },
+            {
+              field: 'dateadded',
+              title: 'Date Added',
+            },
+            {
+              field: 'dueDate',
+              title: 'Due Date',
+            },
+            {
+              field: 'assignedTo',
+              title: 'Assigned To',
             },
             {
               field: 'createdBy',
