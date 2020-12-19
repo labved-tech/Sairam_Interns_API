@@ -986,14 +986,14 @@ const FarmCRUD = (function () {
             });
             
             };
-  return {
-    // public functions
-    init: function () {
-        _createFarmExportedStrategy();
-        _createFarmRegions();
-        _createFarmStrategy();
-    },
-  };
+    return {
+        // public functions
+        init: function () {
+            _createFarmExportedStrategy();
+            _createFarmRegions();
+            _createFarmStrategy();
+        },
+    };
 })();
 
 jQuery(document).ready(function () {
