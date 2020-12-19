@@ -540,7 +540,7 @@ exports.farmStrategy = (req, res) => {
   res.status(200).render('./../views/pages/precision-agriculture/farmStrategy');
 };
 
-// REPORTS TABLE RELATED CONTROLLER
+// PRECISION AGRICULTURE TABLE RELATED CONTROLLER
 exports.farmEntriesTable = (req, res) => {
   console.log('We are in Farm Entries Tables Page');
   res
@@ -689,4 +689,32 @@ exports.projectMembersTable = (req, res) => {
 exports.taskRemindersTable = (req, res) => {
   console.log('We are in Project Task Reminders Table Page');
   res.status(200).render('./../views/pages/project-management/taskRemindersTable');
+};
+
+exports.projectEntriesTable = (req, res) => {
+  console.log('We are in Project Entries Tables Page');
+  res
+    .status(200)
+    .render(`./../views/pages/precision-agriculture/projectEntriesTable`);
+};
+
+exports.projectActivityTable = (req, res) => {
+  console.log('We are in Project Activity Tables Page');
+  res
+    .status(200)
+    .render(`./../views/pages/precision-agriculture/projectActivityTable`);
+};
+
+exports.taskEntriesTable = (req, res) => {
+  console.log('We are in Task Entries Tables Page');
+  res
+    .status(200)
+    .render(`./../views/pages/precision-agriculture/taskEntriesTable`);
+};
+
+exports.taskChecklistEntriesTable = (req, res) => {
+  console.log('We are in Task Checklist Entries Tables Page');
+  res
+    .status(200)
+    .render(`./../views/pages/precision-agriculture/taskChecklistEntriesTable`);
 };
