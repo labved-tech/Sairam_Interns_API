@@ -101,13 +101,13 @@ router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
 router.get('/sales-finance/performaInvoice/payment', viewsController.performaInvoicePayment);
 router.get('/sales-finance/performaInvoice/item', viewsController.performaInvoiceItem);
 
-  // SALES AND FINANCE TABLE
+// SALES AND FINANCE TABLE
 router.get('/sales-finance/address/table', viewsController.addressTable);
-router.get('/sales-finance/deliveryNote/table',viewsController.deliveryNoteTable);
-router.get('/sales-finance/packingList/table',viewsController.packingListTable);
+router.get('/sales-finance/deliveryNote/table', viewsController.deliveryNoteTable);
+router.get('/sales-finance/packingList/table', viewsController.packingListTable);
 router.get('/sales-finance/quotation/table', viewsController.quotationTable);
 router.get('/sales-finance/taxInvoice/table', viewsController.taxInvoiceTable);
-router.get('/sales-finance/performaInvoice/table',viewsController.performaInvoiceTable);
+router.get('/sales-finance/performaInvoice/table', viewsController.performaInvoiceTable);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
@@ -221,7 +221,10 @@ router.get('/project/task-entries/', viewsController.taskEntries);
 router.get('/project/activity/', viewsController.projectActivity);
 router.get('/project/task-checklist-entries/', viewsController.taskChecklistEntries);
 
-
+router.get('/project/task-timers/', viewsController.taskTimers);
+router.get('/project/notes/', viewsController.projectNotes);
+router.get('/project/admins/', viewsController.projectAdmins);
+router.get('/milestone/', viewsController.milestone);
 
 
 
