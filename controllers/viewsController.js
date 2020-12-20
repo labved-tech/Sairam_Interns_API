@@ -673,6 +673,22 @@ exports.taskReminders = (req, res) => {
   console.log('We are in Project Task Reminders Form Page');
   res.status(200).render('./../views/pages/project-management/taskReminders');
 };
+exports.taskTimers = (req, res) => {
+  console.log('We are in Project Task Timers Form Page');
+  res.status(200).render('./../views/pages/project-management/taskTimers');
+};
+exports.projectNotes = (req, res) => {
+  console.log('We are in Project Notes Form Page');
+  res.status(200).render('./../views/pages/project-management/projectNotes');
+};
+exports.projectAdmins = (req, res) => {
+  console.log('We are in Project Admins Form Page');
+  res.status(200).render('./../views/pages/project-management/projectAdmins');
+};
+exports.milestone = (req, res) => {
+  console.log('We are in Milesstone Form Page');
+  res.status(200).render('./../views/pages/project-management/milestone');
+};
 //PROJECT MANAGEMENT TABLE RELATED CONTROLLER
 exports.projectDiscussionsTable = (req, res) => {
   console.log('We are in Project Discussions Table Page');

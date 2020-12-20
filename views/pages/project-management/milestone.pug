@@ -35,3 +35,77 @@ block content
                                                 span(class='text-danger')  *
                                             div(class='col-6')
                                                 input#mName(type='text' class='form-control' name='mName' placeholder='Enter Name')
+
+                                        //mDescription
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='mDescription')
+                                                | Description
+                                            div(class='col-9 ')
+                                                textarea#mDescription(class='form-control' name='mDescription' rows='3')
+                                                span(class='form-text text-muted')
+
+                                        //mDescriptionVisible
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Description Visible
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#mDescriptionVisible(type='checkbox' checked='checked' name='select')
+                                                        span
+                                                span(class='form-text text-muted')
+
+                                        //mDueDate
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Due date
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#mDueDate(type='text' class='form-control' readonly='' name='mDueDate' placeholder='Select Due date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //mProjectId
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#mProjectId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='mProjectId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //mcolor
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') color
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#mcolor(type='text' class='form-control' name='mcolor' placeholder='ex. red')
+                                                span(class='form-text text-muted') Enter the color
+
+                                        //mMilestoneOrder
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Milestone Order
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#mMilestoneOrder(type='text' class='form-control' name='mMilestoneOrder' placeholder='')
+                                                span(class='form-text text-muted')
+
+                                        //mDatecreated
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date created
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#mDatecreated(type='text' class='form-control' readonly='' name='mDatecreated' placeholder='Select Date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o') Enter the Date 
+                                                span(class='form-text text-muted')
+
+                            div(class='card-footer')
+                                div(class='row  text-right')
+                                    div(class='col-lg-9 ml-lg-auto')
+                                        button#createMilestoneFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
