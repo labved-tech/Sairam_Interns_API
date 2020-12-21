@@ -1,0 +1,100 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/project-management/projectTaskFilesForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            |  ProjectTaskFiles Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createprojectTaskFilesForm(class='form' )
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+                                        //file Name
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') file Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#ptffileName(type='text' class='form-control' name='ptffileName' placeholder='ex. Sai Vignesh')
+
+                                        //file Type
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') file Type
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptffileType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptffileType' placeholder='  ')
+                                                    span(class='form-text text-muted')
+
+                                        //Date Added
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Added
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#ptfdateadded(type='text' class='form-control' readonly='' name='ptfdateadded' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //Project Id
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptfprojectId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptfprojectId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //Task Id
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Task ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptftaskId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptftaskId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //User Id
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') User ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptfuserId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptfuserId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') External
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#ptfexternal(type='text' class='form-control' name='ptfexternal' placeholder='')
+
+                                        // thumbnailLink
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Contract File URL
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ptfthumbnailLink(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ptfthumbnailLink' placeholder='ex. http://localhost3000/projectTaskFiles.com')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#ptfFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit 
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

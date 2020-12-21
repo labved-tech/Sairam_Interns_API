@@ -15,6 +15,10 @@ router.param('id', projectDiscussionCommentsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectDiscussionCommentsController.getAllTableProjectDiscussionComments);
+
+router
   .route('/')
   .get(projectDiscussionCommentsController.getAllProjectDiscussionComments)
   .post(projectDiscussionCommentsController.createProjectDiscussionComments);

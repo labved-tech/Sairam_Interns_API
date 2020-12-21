@@ -1,0 +1,89 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/project-management/taskChecklistStatusForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            | task Checklist Status Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createTaskChecklistStatusForm(class='form' )
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        //TaskId
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Task ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#tcstaskId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tcstaskId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        // Finished
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Finished
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#tcsfinished(type='checkbox' checked='checked' name='tcsfinished')
+                                                        span
+                                                span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+
+                                        //TaskChecklistId
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Task Checklist ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#tcstaskChecklistId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='tcstaskChecklistId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //Date Added
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Date Added
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#tcsdateadded(type='text' class='form-control' readonly='' name='tcsdateadded' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //Added By
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Added By
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#tcsaddedBy(type='text' class='form-control' name='tcsaddedBy' placeholder='ex. Sai Vignesh')
+
+                                        //listOrder
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') list Order
+                                                span(class='text-danger')  *
+                                            div(class='col-4')
+                                                input#tcslistOrder(type='text' class='form-control' name='tcslistOrder' placeholder='')
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#tcsFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit 
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry

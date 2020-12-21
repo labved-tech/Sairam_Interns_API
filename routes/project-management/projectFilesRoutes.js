@@ -15,6 +15,10 @@ router.param('id', projectFilesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectFilesController.getAllTableProjectFiles);
+
+router
   .route('/')
   .get(projectFilesController.getAllProjectFiles)
   .post(projectFilesController.createProjectFiles);
