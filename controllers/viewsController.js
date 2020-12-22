@@ -750,3 +750,37 @@ exports.taskChecklistEntriesTable = (req, res) => {
     .status(200)
     .render(`./../views/pages/project-management/taskChecklistEntriesTable`);
 };
+//PROJECT MANAGEMENT CONTROLLER
+exports.taskcheckliststatus = (req, res) => {
+  console.log('We are in taskChecklistStatus Form Page');
+  res.status(200).render('./../views/pages/project-management/taskChecklistStatus');
+};
+exports.projectTaskFiles = (req, res) => {
+  console.log('We are in projectTaskFiles Form Page');
+  res.status(200).render('./../views/pages/project-management/projectTaskFiles');
+};
+exports.projectFiles = (req, res) => {
+  console.log('We are in projectFiles Form Page');
+  res.status(200).render('./../views/pages/project-management/projectFiles');
+};
+exports.projectDiscussionComments = (req, res) => {
+  console.log('We are in projectDiscussionComments Form Page');
+  res.status(200).render('./../views/pages/project-management/projectDiscussionComments');
+};
+// PROJECT MANAGEMENT TABLE CONTROLLER
+exports.taskcheckliststatusTable = (req, res) => {
+  console.log('We are in taskChecklistStatus Table Page');
+  res.status(200).render('./../views/pages/project-management/taskChecklistStatusTable');
+};
+exports.projectTaskFilesTable = (req, res) => {
+  console.log('We are in projectTaskFiles Table Page');
+  res.status(200).render('./../views/pages/project-management/projectTaskFilesTable');
+};
+exports.projectFilesTable = (req, res) => {
+  console.log('We are in projectFiles Table Page');
+  res.status(200).render('./../views/pages/project-management/projectFilesTable');
+};
+exports.projectDiscussionCommentsTable = (req, res) => {
+  console.log('We are in projectDiscussionComments Table Page');
+  res.status(200).render('./../views/pages/project-management/projectDiscussionCommentsTable');
+};

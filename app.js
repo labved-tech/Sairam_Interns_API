@@ -43,6 +43,7 @@ app.use((req, res, next) => {
         "'unsafe-inline'", // to be remove after testing
         'code.jquery.com',
         'maxcdn.bootstrapcdn.com',
+        'cdnjs.cloudflare.com',
       ],
       styleSrc: [
         "'self'",

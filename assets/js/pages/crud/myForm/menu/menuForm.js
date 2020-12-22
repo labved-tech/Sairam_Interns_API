@@ -351,13 +351,13 @@ const menuCRUD = (function () {
         });
 
     };
+
     var isLoading = false;
+    let fv;
 
     function _MenuSectionFormPush(method, route, button) {
 
-        if (!isLoading) {
-            isLoading = true;
-            console.log('Inside _MenuSectionFormPush');
+            console.log('Inside _MenuSectionFormPush', method, route, button);
 
             // Getting Document related information
             const menuSectionForm = document.querySelector('#menuSectionForm');
@@ -366,7 +366,6 @@ const menuCRUD = (function () {
             const menuSectionName = document.querySelector('#menuSectionName');
             const menuSectionDescription = document.querySelector('#menuSectionDescription');
             const menuSectionPriority = document.querySelector('#menuSectionPriority');
-
 
             // menuManagerSelect - Dropdown List : Single Select2
             $('#menuManagerSelect').select2({
@@ -394,14 +393,13 @@ const menuCRUD = (function () {
                 step: 1,
             });
 
-        
             // Return Form
             if (!menuSectionForm) {
             return;
             }
 
             // Validation
-            const fv = FormValidation.formValidation(menuSectionForm, {
+            fv = FormValidation.formValidation(menuSectionForm, {
             fields: {
                 menuManagerSelect: {
                     validators: {
@@ -444,77 +442,96 @@ const menuCRUD = (function () {
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
             })
-                .on('core.form.valid', function () {
+                .on('core.form.valid', async function () {
+
+                    this.method = method;
+                    this.route = route;
+                    this.button = button;
+
+                    console.log('method, url, button', method, route, button);
+
+
+                    if (!isLoading) {
+                        isLoading = true;
                     
-                // Show loading state on button
-                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+                        // Show loading state on button
+                        KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-                // Accessing Restful API
-                axios({
-                method: method,
-                url: route,
-                    data: {
-                        manager: document.querySelector('#menuManagerSelect').value,
-                        name: document.querySelector('#menuSectionName').value,
-                        description: document.querySelector('#menuSectionDescription').value,
-                        priority: document.querySelector('#menuSectionPriority').value,
-                    },
-                }).then(function (res) {
-                    // Return valid JSON
-                    console.log(res);
+                        // Accessing Restful API
+                        await axios({
+                            method: this.method,
+                            url: this.route,
+                            data: {
+                                manager: document.querySelector('#menuManagerSelect').value,
+                                name: document.querySelector('#menuSectionName').value,
+                                description: document.querySelector('#menuSectionDescription').value,
+                                priority: document.querySelector('#menuSectionPriority').value,
+                            },
+                        }).then(function (res) {
+                            // Return valid JSON
+                            // console.log(res);
 
-                    // Release button
-                    KTUtil.btnRelease(FormSubmitButton);
+                            // Release button
+                            KTUtil.btnRelease(FormSubmitButton);
 
-                    // TOASTR EXAMPLE
-                    toastr.options = {
-                    "closeButton": false,
-                    "debug": false,
-                    "newestOnTop": true,
-                    "progressBar": false,
-                    "positionClass": "toast-top-right",
-                    "preventDuplicates": false,
-                    "onclick": null,
-                    "showDuration": "300",
-                    "hideDuration": "1000",
-                    "timeOut": "5000",
-                    "extendedTimeOut": "1000",
-                    "showEasing": "swing",
-                    "hideEasing": "linear",
-                    "showMethod": "fadeIn",
-                    "hideMethod": "fadeOut"
-                    };
+                            // TOASTR EXAMPLE
+                            toastr.options = {
+                                "closeButton": false,
+                                "debug": false,
+                                "newestOnTop": true,
+                                "progressBar": false,
+                                "positionClass": "toast-top-right",
+                                "preventDuplicates": false,
+                                "onclick": null,
+                                "showDuration": "300",
+                                "hideDuration": "1000",
+                                "timeOut": "5000",
+                                "extendedTimeOut": "1000",
+                                "showEasing": "swing",
+                                "hideEasing": "linear",
+                                "showMethod": "fadeIn",
+                                "hideMethod": "fadeOut"
+                            };
 
-                    if (res.data.status == 'success') {
+                            if (res.data.status == 'success') {
+                                // reseting & clearing
+                                $('#exampleModal').modal('hide')  // hiding modal form
+                                toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                                $('#kt_datatable_2').KTDatatable().reload(); // reload table
+                            }
+                            else if (res.data.status == 'error') {
+                                $('#exampleModal').modal('hide')  // hiding modal form
+                                toastr.error(`${res.data.message}`, `${res.data.status}`)
+                            }
+                            else $('#exampleModal').modal('hide');
 
-                        // reseting & clearing
-                        fv.resetForm(); //reset validators in form
-                        $('#kt_datatable_2').KTDatatable().reload(); // reload table
-                        document.querySelector('#menuSectionForm').reset(); // clear form fields
+                            isLoading = false;
 
-                        $('#exampleModal').modal('hide'); // hiding modal form
-                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-
-
+                        });
                     }
-                    else if (res.data.status == 'error') {
-                        $('#exampleModal').modal('hide'); // hiding modal form
-                        toastr.error(`${res.data.message}`, `${res.data.status}`)
-                    }
-                    else {
-                        $('#exampleModal').modal('hide');
-                    }
-
-                    isLoading = false;
-                   });
                 })
                 .on('core.form.invalid', function () {
                     console.log('Something went wrong!!');
+                    isLoading = false;
                 });
-            
-    }
+        
+           
+    return isLoading;
 
     };
+
+/*     function clearValidation(formElement){
+        //Internal $.validator is exposed through $(form).validate()
+        var validator = $(formElement).validate();
+        //Iterate through named elements inside of the form, and mark them as error free
+        $('[name]',formElement).each(function(){
+          validator.successList.push(this);//mark as error free
+          validator.showErrors();//remove error messages if present
+        });
+        validator.resetForm();//remove error class on name elements and clear history
+        validator.reset();//remove all error and success data
+    } */
+    
     function _viewMenuSectionTable() {
         var dataSet;
 
@@ -701,18 +718,35 @@ const menuCRUD = (function () {
           $(
             '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
         ).selectpicker();
-                   
+
         // create operation
-        $('#btnAddNew').on('click', function (e) {
-            //e.preventDefault();
+        $('#btnAdd').on('click', async function (e) {
+            e.preventDefault();
             console.log('btnAddNew is clicked');
 
-            $('#exampleModal').modal('show');   // open modal
-            $('#menuManagerSelect').val('');    // clearing select2
+            // clearing forms
+            // $("#menuSectionForm")[0].reset(); // clear form fields
+            // $("#menuSectionForm").trigger('reset'); // clear form fields
+            // document.getElementById('menuSectionForm').reset();  // clear form fields
+            document.querySelector('#menuSectionForm').reset(); // clear form fields
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').remove(); // remove message
+            $('.is-invalid').removeClass('is-invalid'); // remove all invalid
+            $('.is-valid').removeClass('is-valid'); // remove all valid
+
+            // clearing fields
+            $('#menuManagerSelect').val('');  // clearing select2
+
+            // enabling disabling buttons
             $('#addMenuSectionFormSubmitButton').removeAttr('hidden', '');  // show add button
             $('#updateMenuSectionFormSubmitButton').attr('hidden', ''); // hide update button
 
-            _MenuSectionFormPush('POST', `${HOST_URL}/api/v1/menu/section`, 'addMenuSectionFormSubmitButton');  
+            // show modal
+            const form = $('#exampleModal').modal('show');   // open modal
+
+            // calling API Endpoint with validations feature
+            _MenuSectionFormPush('post', `${HOST_URL}/api/v1/menu/section`, 'addMenuSectionFormSubmitButton');
 
         });
 
@@ -722,36 +756,44 @@ const menuCRUD = (function () {
             console.log('btnEdit is clicked')
 
             var id = $(this).attr("aria-label");
-            console.log(id);
+            // console.log(id);
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').remove(); // remove message
+            $('.is-invalid').removeClass('is-invalid'); // remove all invalid
+            $('.is-valid').removeClass('is-valid'); // remove all valid
+
+            // clearing forms
+            document.querySelector('#menuSectionForm').reset(); // clear form fields
+            
+            // clearing fields
+            $('#menuManagerSelect').val('');    // clearing select2
+
+            // enabling disabling buttons
+            $('#addMenuSectionFormSubmitButton').attr('hidden', ''); // hide add button
+            $('#updateMenuSectionFormSubmitButton').removeAttr('hidden', ''); // show update button
+
+            // show modal
+            const form = $('#exampleModal').modal('show');   // open modal
 
             // retrieving data
             $.ajax({
                 method: 'GET',
                 url: `${HOST_URL}/api/v1/menu/section/${id}`,
-                success: function (raw) {
-                    console.log(raw);
+                success: async function (raw) {
+                    // console.log(raw);
 
                     if (raw.status == 'success') {
-                        
-                        // open modal
-                        $('#exampleModal').modal('show');
-                        document.getElementById("menuSectionForm").reset(); // reset form
-
-                        $('#addMenuSectionFormSubmitButton').attr('hidden', ''); // hide add button
-                        $('#updateMenuSectionFormSubmitButton').removeAttr('hidden', ''); // show update button
-
                         // fetching menu manager select2
                         $.ajax({
                             method: 'GET',
                             url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ raw.menuManager._id,
                             dataType: 'json',
                         }).then(function (data) {
-                            console.log(data);
-                            
+                           
                             // updating menuManagerSelect values
                             var option = new Option(data.manager.text, data.manager.id, true, true);
                             $('#menuManagerSelect').append(option).trigger('change');
-
                         });
 
                         // updating fields with data
@@ -759,10 +801,11 @@ const menuCRUD = (function () {
                         document.querySelector('#menuSectionDescription').value = raw.menuSection.description;
                         document.querySelector('#menuSectionPriority').value = raw.menuSection.priority;
 
-                        _MenuSectionFormPush('PATCH', `${HOST_URL}/api/v1/menu/section/${id}`,'updateMenuSectionFormSubmitButton');
+                        _MenuSectionFormPush('patch', `${HOST_URL}/api/v1/menu/section/${id}`, 'updateMenuSectionFormSubmitButton');
                     }
                 },
             });
+
         });
 
         // deleteOne operation
@@ -821,6 +864,12 @@ const menuCRUD = (function () {
             $('#kt_datatable_2').KTDatatable().reload();
         });
 
+        $('#exampleModal').on('show.bs.modal', function (e) {
+
+
+
+
+        });
 
 
     }

@@ -250,5 +250,16 @@ router.get('/milestone/table', viewsController.milestoneTable);
 
 
 
+//PROJECT MANAGEMENT RELATED ROUTES
+router.get('/project-management/taskcheckliststatus', viewsController.taskcheckliststatus);
+router.get('/project-management/projectTaskFiles', viewsController.projectTaskFiles);
+router.get('/project-management/projectFiles', viewsController.projectFiles);
+router.get('/project-management/projectDiscussionComments', viewsController.projectDiscussionComments);
+
+//PROJECT MANAGEMENT RELATED ROUTES
+router.get('/project-management/taskcheckliststatus/table', viewsController.taskcheckliststatusTable);
+router.get('/project-management/projectTaskFiles/table', viewsController.projectTaskFilesTable);
+router.get('/project-management/projectFiles/table', viewsController.projectFilesTable);
+router.get('/project-management/projectDiscussionComments/table', viewsController.projectDiscussionCommentsTable);
 
 module.exports = router;

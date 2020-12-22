@@ -1,0 +1,129 @@
+extends ./../../base.pug
+
+block css-files
+    link(href='/css/pages/wizard/wizard-4.css' rel='stylesheet' type='text/css')
+
+block js-files
+    script(src='/plugins/global/axios/axios.min.js')
+    script(src='/js/pages/crud/myForm/project-management/projectDiscussionCommentsForm.js' )
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class='card card-custom')
+                    div(class='card-header')
+                        h3(class='card-title')
+                            |  Project Files Form
+                    div(class='card-body')
+                        // begin::Form
+                        form#createprojectDiscussionCommentsForm(class='form' )
+                            div(class='row')
+                                div(class='col-xl-2')
+                                div(class='col-xl-8')
+                                    div(class='my-5')
+
+                                        //Discussion Id
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Discussion ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pdcdiscussionId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pdcdiscussionId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //Discussion Type
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') file Type
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pdcdiscussionType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pdcdiscussionType' placeholder='')
+                                                    span(class='form-text text-muted')
+                                        //Parent
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Parent
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#pdcparent(type='text' class='form-control' name='pdcparent' placeholder='Enter Parent')
+
+                                        //Created
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Created
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#pdccreated(type='text' class='form-control' readonly='' name='pdccreated' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        //Modified
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Modified
+                                            div(class='col-4')
+                                                div(class='input-group date')
+                                                    input#pdcmodified(type='text' class='form-control' readonly='' name='pdcmodified' placeholder='Select date')
+                                                    div(class='input-group-append')
+                                                        span(class='input-group-text')
+                                                            i(class='la la-calendar-check-o')
+                                                span(class='form-text text-muted')
+
+                                        // Content
+                                        div(class='form-group row mb-1')
+                                            label(class='col-3 col-form-label form-control-label text-right' for='neDescription')
+                                                | Content
+                                                span(class='text-danger') *
+                                            div(class='col-7 ')
+                                                textarea#pdccontent(class='form-control' name ='pdccontent' rows='3')
+                                                span(class='form-text text-muted') Content
+
+                                        //commentor ID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') commentor ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pdccommenterId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pdccommenterId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        //Full Name
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Full Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#pdcfullname(type='text' class='form-control' name='pdcfullname' placeholder='ex. Sai Vignesh')
+
+                                        //file Name
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') file Name
+                                                span(class='text-danger')  *                                            
+                                            div(class='col-6')
+                                                input#pdcfileName(type='text' class='form-control' name='pdcfileName' placeholder='ex. Sai Vignesh')
+
+                                        //file Type
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') file Type
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pdcfileType(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pdcfileType' placeholder='  ')
+                                                    span(class='form-text text-muted')
+
+                                        //Project Id
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#pdcprojectId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='pdcprojectId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                            div(class='card-footer')
+                                div(class='row text-right')
+                                    div(class='col-12 ml-lg-auto')
+                                        button#pdcFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit 
+                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+                        // end::Form
+                // end::Card
+            // end::Container
+        // end::Entry
