@@ -15,6 +15,9 @@ router.param('id', projectNotesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectNotesController.getAllTableProjectNotes);
+router
   .route('/')
   .get(projectNotesController.getAllProjectNotes)
   .post(projectNotesController.createProjectNotes);

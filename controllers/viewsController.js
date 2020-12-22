@@ -713,6 +713,22 @@ exports.projectEntriesTable = (req, res) => {
     .status(200)
     .render(`./../views/pages/project-management/projectEntriesTable`);
 };
+exports.taskTimersTable = (req, res) => {
+  console.log('We are in Project Task Timers Table Page');
+  res.status(200).render('./../views/pages/project-management/taskTimersTable');
+};
+exports.projectNotesTable = (req, res) => {
+  console.log('We are in Project Notes Table Page');
+  res.status(200).render('./../views/pages/project-management/projectNotesTable');
+};
+exports.projectAdminsTable = (req, res) => {
+  console.log('We are in Project Admins Table Page');
+  res.status(200).render('./../views/pages/project-management/projectAdminsTable');
+};
+exports.milestoneTable = (req, res) => {
+  console.log('We are in Milesstone Table Page');
+  res.status(200).render('./../views/pages/project-management/milestoneTable');
+};
 
 exports.projectActivityTable = (req, res) => {
   console.log('We are in Project Activity Tables Page');

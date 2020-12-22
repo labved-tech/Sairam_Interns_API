@@ -241,9 +241,10 @@ router.get('/project/entries/table', viewsController.projectEntriesTable);
 router.get('/project/task-entries/table', viewsController.taskEntriesTable);
 router.get('/project/activity/table', viewsController.projectActivityTable);
 router.get('/project/task-checklist-entries/table', viewsController.taskChecklistEntriesTable);
-
-
-
+router.get('/project/task-timers/table', viewsController.taskTimersTable);
+router.get('/project/notes/table', viewsController.projectNotesTable);
+router.get('/project/admins/table', viewsController.projectAdminsTable);
+router.get('/milestone/table', viewsController.milestoneTable);
 
 
 

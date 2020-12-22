@@ -15,6 +15,9 @@ router.param('id', projectAdminsController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(projectAdminsController.getAllTableProjectAdmins);
+router
   .route('/')
   .get(projectAdminsController.getAllProjectAdmins)
   .post(projectAdminsController.createProjectAdmins);

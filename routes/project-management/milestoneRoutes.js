@@ -15,6 +15,10 @@ router.param('id', milestoneController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(milestoneController.getAllTableMilestone);
+
+router
   .route('/')
   .get(milestoneController.getAllMilestone)
   .post(milestoneController.createMilestone);

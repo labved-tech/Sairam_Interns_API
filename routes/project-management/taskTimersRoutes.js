@@ -15,6 +15,9 @@ router.param('id', taskTimersController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(taskTimersController.getAllTableTaskTimers);
+router
   .route('/')
   .get(taskTimersController.getAllTaskTimers)
   .post(taskTimersController.createTaskTimers);
