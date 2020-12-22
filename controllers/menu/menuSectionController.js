@@ -184,14 +184,33 @@ exports.updateMenuSection = catchAsync(async (req, res, next) => {
   const priority = req.body.priority * 1;
   doc.priority = priority;
 
+  doc._id = id; // delete id
+
   const menuSection = await MenuSection.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
+
+  // remove all entries with section id
+  const ids = [];
+  ids.push(id);
+
+  let menuManager;
+
+  menuManager = await MenuManager.updateMany(
+    { _section: ids[0] },
+    { $pullAll: { _section: ids } }
+  ).then();
+
+  // updating foreign key document
+  menuManager = await MenuManager.findById(body.manager);
+  menuManager._section.push(menuSection._id);
+  await menuManager.save();
 
   res.status(201).json({
     status: 'success',
     message: `Updated Menu Section Id=${id}`,
     menuSection,
+    menuManager,
   });
 });
 

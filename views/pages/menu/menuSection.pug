@@ -132,6 +132,8 @@ block content
                             // end::Card
                         // end::Card
 
+                        // ##############################################################################################################################################################
+
                         // Modal
                         #exampleModal(class='modal fade' data-backdrop='static' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
@@ -144,6 +146,10 @@ block content
                                                 i(aria-hidden='true' class='ki ki-close')
                                         div(class='modal-body')
                                             div(data-scroll='true' data-height='350')
+                                                // menuSectionId - hidden
+                                                div(class= 'form-group row')
+                                                    input#menuSectionId(type='hidden' name='menuSectionId')
+
                                                 // menuManagerSelect - Dropdown List : Single Select2
                                                 div(class='form-group row')
                                                     label(class='col-3 col-form-label form-control-label text-right') Manager
@@ -173,6 +179,6 @@ block content
                                                         input#menuSectionPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuSectionPriority' placeholder='1')
                                                         span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                         div(class='modal-footer')
-                                            button(type='reset' class='btn btn-light-primary font-weight-bold' data-dismiss='modal') Reset
+                                            button#btnResetMenuSectionForm(type='reset' class='btn btn-light-primary font-weight-bold') Reset
                                             button#addMenuSectionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold') Add
                                             button#updateMenuSectionFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold') Update
