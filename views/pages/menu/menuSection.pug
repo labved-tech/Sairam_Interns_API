@@ -4,6 +4,8 @@ block css-files
 
 block js-files
     script(src='/js/pages/crud/myForm/menu/menuForm.js')
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js")
+
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -61,7 +63,7 @@ block content
                                     // end::Dropdown
                                     // begin::Button
                                     // Button trigger modal
-                                    button#btnAddNew(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                    button#btnAdd(type='button' class='btn btn-primary font-weight-bolder btnAdd')
                                         | Add New
 
                             div(class="card-body")

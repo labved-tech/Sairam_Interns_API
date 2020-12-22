@@ -143,8 +143,6 @@ exports.createMenuSection = catchAsync(async (req, res, next) => {
 
   // parse through models
   const doc = new MenuSection(body);
-  const priority = req.body.priority * 1;
-  doc.priority = priority;
 
   // update timestamps & Id's
   doc.createdBy = '5f990bb3c727e952a076f3b7'; // user id
@@ -181,7 +179,12 @@ exports.updateMenuSection = catchAsync(async (req, res, next) => {
   const { id } = req.params;
   console.log(`Updating Menu Section Id ${id}`);
 
-  const menuSection = await MenuSection.findByIdAndUpdate(id, req.body, {
+  // parse through models
+  const doc = new MenuSection(body);
+  const priority = req.body.priority * 1;
+  doc.priority = priority;
+
+  const menuSection = await MenuSection.findByIdAndUpdate(id, doc, {
     new: true,
   }).then();
 
@@ -190,8 +193,6 @@ exports.updateMenuSection = catchAsync(async (req, res, next) => {
     message: `Updated Menu Section Id=${id}`,
     menuSection,
   });
-
-  next();
 });
 
 exports.deleteMenuSection = catchAsync(async (req, res, next) => {

@@ -520,7 +520,7 @@ const menuCRUD = (function () {
 
     };
 
-    function clearValidation(formElement){
+/*     function clearValidation(formElement){
         //Internal $.validator is exposed through $(form).validate()
         var validator = $(formElement).validate();
         //Iterate through named elements inside of the form, and mark them as error free
@@ -530,7 +530,7 @@ const menuCRUD = (function () {
         });
         validator.resetForm();//remove error class on name elements and clear history
         validator.reset();//remove all error and success data
-    }
+    } */
     
     function _viewMenuSectionTable() {
         var dataSet;
@@ -720,26 +720,32 @@ const menuCRUD = (function () {
         ).selectpicker();
 
         // create operation
-        $('#btnAddNew').on('click', async function (e) {
-            //e.preventDefault();
+        $('#btnAdd').on('click', async function (e) {
+            e.preventDefault();
             console.log('btnAddNew is clicked');
 
-            const form = $('#exampleModal').modal('show');   // open modal
-            console.log(fv);
-
-            // var myForm = document.querySelector("#menuSectionForm");
-            // clearValidation(myForm);
-
             // clearing forms
-            // $("#menuSectionForm")[0].reset();
+            // $("#menuSectionForm")[0].reset(); // clear form fields
             // $("#menuSectionForm").trigger('reset'); // clear form fields
+            // document.getElementById('menuSectionForm').reset();  // clear form fields
             document.querySelector('#menuSectionForm').reset(); // clear form fields
-            if(fv)
-            fv.resetForm(true);
 
+            // clearing validator messages
+            $('.fv-plugins-message-container').remove(); // remove message
+            $('.is-invalid').removeClass('is-invalid'); // remove all invalid
+            $('.is-valid').removeClass('is-valid'); // remove all valid
+
+            // clearing fields
             $('#menuManagerSelect').val('');  // clearing select2
+
+            // enabling disabling buttons
             $('#addMenuSectionFormSubmitButton').removeAttr('hidden', '');  // show add button
             $('#updateMenuSectionFormSubmitButton').attr('hidden', ''); // hide update button
+
+            // show modal
+            const form = $('#exampleModal').modal('show');   // open modal
+
+            // calling API Endpoint with validations feature
             _MenuSectionFormPush('post', `${HOST_URL}/api/v1/menu/section`, 'addMenuSectionFormSubmitButton');
 
         });
@@ -752,12 +758,23 @@ const menuCRUD = (function () {
             var id = $(this).attr("aria-label");
             // console.log(id);
 
+            // clearing validator messages
+            $('.fv-plugins-message-container').remove(); // remove message
+            $('.is-invalid').removeClass('is-invalid'); // remove all invalid
+            $('.is-valid').removeClass('is-valid'); // remove all valid
+
             // clearing forms
             document.querySelector('#menuSectionForm').reset(); // clear form fields
+            
+            // clearing fields
             $('#menuManagerSelect').val('');    // clearing select2
+
+            // enabling disabling buttons
             $('#addMenuSectionFormSubmitButton').attr('hidden', ''); // hide add button
             $('#updateMenuSectionFormSubmitButton').removeAttr('hidden', ''); // show update button
-            $('#exampleModal').modal('show');   // open modal
+
+            // show modal
+            const form = $('#exampleModal').modal('show');   // open modal
 
             // retrieving data
             $.ajax({
