@@ -2,10 +2,10 @@
 'use strict';
 
 // Class definition
-const FarmCRUD = (function () {
+const ProjectAdminsCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
-    const _createProjectAdmins = function () {
+    const _createProjectAdminsForm = function () {
 
         const createProjectAdminsForm = KTUtil.getById('createProjectNotesForm');
         const createProjectAdminsFormSubmitButton = KTUtil.getById('createProjectNotesFormSubmitButton');
@@ -98,11 +98,11 @@ const FarmCRUD = (function () {
     return {
         // public functions
         init: function () {
-            _createProjectAdmins();
+            _createProjectAdminsForm();
         },
     };
 })();
 
 jQuery(document).ready(function () {
-    FarmCRUD.init();
+    ProjectAdminsCRUD.init();
 });
