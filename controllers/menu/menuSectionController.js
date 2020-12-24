@@ -15,7 +15,7 @@ exports.getAllTableMenuSection = catchAsync(async (req, res, next) => {
   // BUILD QUERY
   // 1A) Filtering
   const queryObj = { ...req.query };
-  //console.log('Raw :', queryObj);
+  // console.log('queryRaw :', queryObj);
 
   const excludedFields = [
     'pagination',
@@ -31,7 +31,7 @@ exports.getAllTableMenuSection = catchAsync(async (req, res, next) => {
   if (queryObj.query.generalSearch) {
     const searchStr = queryObj.query.generalSearch;
     searchObj = { $text: { $search: `${searchStr}` } };
-    console.log(searchObj);
+    //console.log(searchObj);
   }
 
   let queryStr = JSON.stringify(queryObj.query);
