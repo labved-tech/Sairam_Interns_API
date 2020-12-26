@@ -4,7 +4,7 @@ block css-files
 
 block js-files
     script(src='/js/pages/crud/myForm/menu/menuForm.js')
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js")
+    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.js")
 
 
 block content
@@ -135,7 +135,7 @@ block content
                         // ##############################################################################################################################################################
 
                         // Modal
-                        #exampleModal(class='modal fade' data-backdrop='static' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                        #exampleModal(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
@@ -180,5 +180,5 @@ block content
                                                         span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                         div(class='modal-footer')
                                             button#btnResetMenuSectionForm(type='reset' class='btn btn-light-primary font-weight-bold') Reset
-                                            button#addMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold') Add
+                                            button#addMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold') Save changes
                                             button#updateMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold') Update

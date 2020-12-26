@@ -75,10 +75,7 @@ const menuCRUD = (function () {
                     managerSelect.append(newOption).trigger('change');
                 }
             });
-        
-        
-        
-       
+
         // demoSelect2Single - Dropdown List : Single Select2
         $('#demoSelect2Single').select2({
 
@@ -351,28 +348,61 @@ const menuCRUD = (function () {
         });
 
     };
+    
+    let btnAddNewCount = 0;
+    const formOptions =    {
+        fields: {
+            menuManagerSelect: {
+                validators: {
+                    notEmpty: {
+                        message: 'Manager is required',
+                    },
+                },
+            },
+            menuSectionName: {
+                validators: {
+                    notEmpty: {
+                        message: 'Name cannot be empty',
+                    },
+                },
+            },
+            menuSectionDescription: {
+                validators: {
+                    notEmpty: {
+                        message: 'Description cannot be empty',
+                    },
+                },
+            },
+            menuSectionPriority: {
+                validators: {
+                    notEmpty: {
+                        message: 'This field is required',
+                    },
+                },
+            },
+        },
 
-    let isLoading;
-    isLoading = false;
-
-    var fv;
+        plugins: {
+            //Learn more: https://formvalidation.io/guide/plugins
+            trigger: new FormValidation.plugins.Trigger(),
+            // Bootstrap Framework Integration
+            bootstrap: new FormValidation.plugins.Bootstrap(),
+            // Validate fields when clicking the Submit button
+            FormSubmitButton: new FormValidation.plugins.SubmitButton(),
+            // Submit the form when all fields are valid
+            //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+        },
+    }
 
     function _MenuSectionFormPush() {
-        // console.log('Inside Loading')
-        // console.log('isLoading', isLoading)
-        // console.log(this === window);
-
-        // this.apiURL = apiOptions.url;
-        // this.apiMethod = apiOptions.method;
-        // this.apiButton = apiOptions.button;
 
         // Getting Document related information
-        this.menuSectionForm = document.querySelector('#menuSectionForm');
-        this.FormSubmitButton = document.querySelector('#addMenuSectionFormSubmitButton');
-        this.menuManagerSelect = document.querySelector('#menuManagerSelect');
-        this.menuSectionName = document.querySelector('#menuSectionName');
-        this.menuSectionDescription = document.querySelector('#menuSectionDescription');
-        this.menuSectionPriority = document.querySelector('#menuSectionPriority');
+        const menuSectionForm = document.querySelector('#menuSectionForm');
+        const FormSubmitButton = document.querySelector('#addMenuSectionFormSubmitButton');
+        const menuManagerSelect = document.querySelector('#menuManagerSelect');
+        const menuSectionName = document.querySelector('#menuSectionName');
+        const menuSectionDescription = document.querySelector('#menuSectionDescription');
+        const menuSectionPriority = document.querySelector('#menuSectionPriority');
 
         // initialize
         // menuManagerSelect - Dropdown List : Single Select2
@@ -402,57 +432,16 @@ const menuCRUD = (function () {
         });
 
         // Return Form
-        if (!this.menuSectionForm) {
+        if (!menuSectionForm) {
             return;
         }
 
         // Validation
-        this.fv = FormValidation.formValidation(this.menuSectionForm, {
-            fields: {
-                menuManagerSelect: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Manager is required',
-                        },
-                    },
-                },
-                menuSectionName: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Name cannot be empty',
-                        },
-                    },
-                },
-                menuSectionDescription: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Description cannot be empty',
-                        },
-                    },
-                },
-                menuSectionPriority: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This field is required',
-                        },
-                    },
-                },
-            },
-
-            plugins: {
-                //Learn more: https://formvalidation.io/guide/plugins
-                trigger: new FormValidation.plugins.Trigger(),
-                // Bootstrap Framework Integration
-                bootstrap: new FormValidation.plugins.Bootstrap(),
-                // Validate fields when clicking the Submit button
-                FormSubmitButton: new FormValidation.plugins.SubmitButton(),
-                // Submit the form when all fields are valid
-                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
-            },
-        });
+        // const fv = FormValidation.formValidation(menuSectionForm, formOptions);
     };
   
     function _viewMenuSectionTable() {
+        
         var dataSet;
 
         /* Table Initialize */
@@ -635,10 +624,150 @@ const menuCRUD = (function () {
             '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
         ).selectpicker();
 
+        const menuSectionForm = document.querySelector('#menuSectionForm');
+        let menuSectionFormValidator;
+
+         // modal closed
+        $('#exampleModal').on('hidden.bs.modal', function (e) {
+            e.preventDefault();
+            console.log('Modal is closed');
+
+            // clearing forms
+            menuSectionFormValidator.resetForm();
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            // clearing fields
+            $("#menuSectionForm").trigger('reset'); // clear form fields
+            $('#menuManagerSelect').val('');  // clearing select2  */
+
+            menuSectionFormValidator.destroy();
+
+        });
+
+        // modal opened
+        $('#exampleModal').on('shown.bs.modal', function (e) {
+            e.preventDefault();
+            console.log('Modal is open');
+            
+            // var modal = $(this);
+            // console.log(modal);
+
+        });
+
+        // btnReset modal
+        $('#btnResetMenuSectionForm').on('click',  function (e) {
+            console.log('btnResetMenuSectionForm is clicked');
+
+            // clearing forms
+            menuSectionFormValidator.resetForm();
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            // clearing fields
+            $('#menuManagerSelect').val('');  // clearing select2  */
+
+            menuSectionFormValidator.destroy();
+
+            // Validation
+            menuSectionFormValidator = FormValidation.formValidation(menuSectionForm, formOptions);
+
+        })
+
+        // addMenuSectionFormSubmitButton modal
+        $('#addMenuSectionFormSubmitButton').on('click', function (e) {
+            console.log('addMenuSectionFormSubmitButton is clicked');
+
+            const FormSubmitButton = document.querySelector('#addMenuSectionFormSubmitButton');
+            
+            // Validation
+            menuSectionFormValidator = FormValidation.formValidation(menuSectionForm, formOptions);
+
+            // validation failed
+            menuSectionFormValidator.on('core.form.invalid', async function () {
+                console.log('Something went wrong!!');    
+             });
+
+            // validation successful
+            menuSectionFormValidator.on('core.form.valid', async function () {
+
+                // Show loading state on button
+                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+    
+                // Accessing Restful API
+                await axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/menu/section`,
+                    data: {
+                        manager: document.querySelector('#menuManagerSelect').value,
+                        name: document.querySelector('#menuSectionName').value,
+                        description: document.querySelector('#menuSectionDescription').value,
+                        priority: document.querySelector('#menuSectionPriority').value,
+                    },
+                }).then(function (res) {
+                
+                    // Return valid JSON
+                    // console.log(res);
+    
+                    // Release button
+                    KTUtil.btnRelease(FormSubmitButton);
+    
+                    // TOASTR EXAMPLE
+                    toastr.options = {
+                        "closeButton": false,
+                        "debug": false,
+                        "newestOnTop": true,
+                        "progressBar": false,
+                        "positionClass": "toast-top-right",
+                        "preventDuplicates": false,
+                        "onclick": null,
+                        "showDuration": "300",
+                        "hideDuration": "1000",
+                        "timeOut": "5000",
+                        "extendedTimeOut": "1000",
+                        "showEasing": "swing",
+                        "hideEasing": "linear",
+                        "showMethod": "fadeIn",
+                        "hideMethod": "fadeOut"
+                    };
+    
+                    if (res.data.status == 'success') {
+                        // reseting & clearing
+                        $('#exampleModal').modal('hide')  // hiding modal form
+                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                        $('#kt_datatable_2').KTDatatable().reload(); // reload table
+                    }
+                    else if (res.data.status == 'error') {
+                        $('#exampleModal').modal('hide')  // hiding modal form
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                    else {
+                        $('#exampleModal').modal('hide')
+                    };
+                });
+            });
+        });
+
+        // Add New operation
+        $('#btnAdd').on('click', async function (e) {
+            // e.preventDefault();
+            console.log('btnAddNew is clicked');
+
+            // enabling disabling buttons
+            $('#addMenuSectionFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+            $('#updateMenuSectionFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+
+            // show modal
+            const formModal = $('#exampleModal').modal('show');   // open modal  
+
+            $('#exampleModal').find('.modal-title').text('Create Section Entry'); // Setting title for modal
+    
+        });
         
-        
-        // update operation
-/*         $('#kt_datatable_2').on('click', '.btnEdit', async function (e) {
+        // edit operation
+        $('#kt_datatable_2').on('click', '.btnEdit', async function (e) {
             //e.preventDefault();
             console.log('btnEdit is clicked');
 
@@ -699,7 +828,6 @@ const menuCRUD = (function () {
 
                             // Show loading state on button
                             KTUtil.btnWait(existingData.FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
 
                             // Accessing Restful API
                             await axios({
@@ -763,7 +891,7 @@ const menuCRUD = (function () {
                 },
             });
 
-        }); */
+        });
 
         // deleteOne operation
         $('#kt_datatable_2').on('click', '.btnDelete', function () {           
@@ -831,8 +959,8 @@ const menuCRUD = (function () {
         //_createMenuSectionForm();
         //_createMenuItemForm();
         //   _createMenuSubItem1Form();
-        // _MenuSectionFormPush();
-          _viewMenuSectionTable();
+        _MenuSectionFormPush();
+        _viewMenuSectionTable();
           
     },
   };
@@ -841,78 +969,9 @@ const menuCRUD = (function () {
 jQuery(document).ready(function () {
     menuCRUD.init();
 
-    let btnAddNewCount = 0;
-    let formValidator;
-
-    // modal closed
-    $(document).on('hidden.bs.modal', '#exampleModal', function (e) {
-        //e.preventDefault();
-        console.log('Modal is closed');
-
-        // clearing forms
-        $("#menuSectionForm").trigger('reset'); // clear form fields
-        // document.getElementById('menuSectionForm').reset();  // clear form fields
-        // document.querySelector('#menuSectionForm').reset(); // clear form fields
-        // $("#menuSectionForm")[0].reset(); // clear form fields
 
 
-        // clearing validator messages
-        $('.fv-plugins-message-container').remove(); // remove message
-        $('.is-invalid').removeClass('is-invalid'); // remove all invalid
-        $('.is-valid').removeClass('is-valid'); // remove all valid
-
-        // clearing fields
-        $('#menuManagerSelect').val('');  // clearing select2
-        });
-
-    // modal opened
-    $(document).on('show.bs.modal', '#exampleModal', function (e) {
-        //e.preventDefault();
-        console.log('Modal is open');
-
-        btnAddNewCount++;
-        console.log('btnAddNewCount', btnAddNewCount);
-
-        if(btnAddNewCount == 1)  {
-            // formValidator =  _MenuSectionFormPush();
-            // console.log('formValidator', formValidator);
-        }
-
-    });
-
-    // reset Operation
-    $(document).on('click', '#btnResetMenuSectionForm',  function (e) {
-        e.preventDefault();
-        console.log('btnResetMenuSectionForm is clicked');
-
-        // clearing forms
-        document.querySelector('#menuSectionForm').reset(); // clear form fields
-
-        // clearing validator messages
-        $('.fv-plugins-message-container').remove(); // remove message
-        $('.is-invalid').removeClass('is-invalid'); // remove all invalid
-        $('.is-valid').removeClass('is-valid'); // remove all valid
-
-        // clearing fields
-        $('#menuManagerSelect').val('');  // clearing select2
-    })
-
-    
-    // create operation
-    $(document).on('click', '#btnAdd', async function (e) {
-        // e.preventDefault();
-        console.log('btnAddNew is clicked');
-
-        // enabling disabling buttons
-        $('#addMenuSectionFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-        $('#updateMenuSectionFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
-
-        // show modal
-        const formModal = $('#exampleModal').modal('show');   // open modal
-
- 
-  
-    });
-
+    let isLoading;
+    isLoading = false;
 
 });
