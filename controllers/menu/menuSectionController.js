@@ -31,7 +31,7 @@ exports.getAllTableMenuSection = catchAsync(async (req, res, next) => {
   if (queryObj.query.generalSearch) {
     const searchStr = queryObj.query.generalSearch;
     searchObj = { $text: { $search: `${searchStr}` } };
-    //console.log(searchObj);
+    console.log(searchObj);
   }
 
   let queryStr = JSON.stringify(queryObj.query);
@@ -75,13 +75,13 @@ exports.getAllTableMenuSection = catchAsync(async (req, res, next) => {
     if (numRecords % limit === 0) pages = numRecords / limit;
     else pages = numRecords / limit + 1;
 
-    if (skip >= numRecords) throw new Error('This page does not exist');
+    // if (skip >= numRecords) throw new Error('This page does not exist');
   }
 
   // EXECUTE QUERY
   const menuSection = await query;
   //menuSection = await Example.find();
-  //console.log(menuSection);
+  console.log(menuSection);
 
   // SEND RESPONSE
   res.status(200).json({

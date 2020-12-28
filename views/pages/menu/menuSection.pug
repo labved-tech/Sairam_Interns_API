@@ -63,7 +63,7 @@ block content
                                     // end::Dropdown
                                     // begin::Button
                                     // Button trigger modal
-                                    button#btnNewItem(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                    button#btnOpenMenuSectionModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
                                         | Add New
 
                             div(class="card-body")
@@ -127,17 +127,17 @@ block content
                                             | Fetch Selected Records
                                 // end: Selected Rows Group Action Form
                                 // begin: Datatable
-                                #kt_datatable_2(class="datatable datatable-bordered datatable-head-custom")
+                                #tableMenuSection(class="datatable datatable-bordered datatable-head-custom")
                                 // end: Datatable
                             // end::Card
                         // end::Card
 
                         // ##################################### menuSectionFormModal ############################################################################################
-                        #menuSectionFormModal(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                        #modalMenuSection(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
-                                    form#menuSectionForm(class='form')
+                                    form#formMenuSection(class='form')
                                         div(class='modal-header')
                                             h5#menuSectionFormModalLabel(class='modal-title') Menu Section Item
                                             button#btnCloseMenuSectionForm(type='button' class='close' data-dismiss='modal' aria-label='Close')
@@ -153,7 +153,6 @@ block content
                                                     label(class='col-3 col-form-label form-control-label text-right') Manager
                                                     div(class='col-6')
                                                         select#menuManagerSelect(class='form-control select2' name='menuManagerSelect' data-placeholder='Select manager')
-
                                                         span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
 
                                                 // menuSectionName - Text Box

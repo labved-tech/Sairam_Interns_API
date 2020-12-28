@@ -312,12 +312,10 @@ const menuCRUD = (function () {
 
     };
     
-    let btnAddNewCount = 0;
-
     function _initializeMenuSectionForm() {
 
         // Getting Document related information
-        const menuSectionForm = document.querySelector('#menuSectionForm');
+        const menuSectionForm = document.querySelector('#formMenuSection');
         const FormSubmitButton = document.querySelector('#btnSaveMenuSectionFormSubmitButton');
         const menuManagerSelect = document.querySelector('#menuManagerSelect');
         const menuSectionName = document.querySelector('#menuSectionName');
@@ -355,9 +353,6 @@ const menuCRUD = (function () {
         if (!menuSectionForm) {
             return;
         }
-
-        // Validation
-        // const fv = FormValidation.formValidation(menuSectionForm, formOptions);
     };
   
     function _viewMenuSectionTable() {
@@ -368,62 +363,63 @@ const menuCRUD = (function () {
         const options = {
             // datasource definition
             data: {
-              type: 'remote',
-              source: {
+                type: 'remote',
+                source: {
                 read: {
-                  method: 'get',
-                  url: `${HOST_URL}/api/v1/menu/section/table`,
-                  params: {
+                    method: 'get',
+                    url: `${HOST_URL}/api/v1/menu/section/table`,
+                    params: {
                     fields: '_id, name, description, priority, createdBy, createdAt, updatedAt',
-                  },
-                  map: function(raw) {
+                    },
+                    map: function(raw) {
                     // sample data mapping
                     //console.log('raw', raw);
                     dataSet = raw;
                 
                     if (typeof raw.menuSection !== 'undefined') {
-                      dataSet = raw.menuSection;
+                        dataSet = raw.menuSection;
                     }
                     return dataSet;
-                  }
-        
+                    }
+
                 },
-              },
-              pageSize: 10,
-              serverPaging: true,
-              serverFiltering: true,
-              serverSorting: true,
-              //autoColumns: true,  // newly added
+                },
+                pageSize: 10,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+                autoColumns: true,  // newly added
             },
-        
+
             // layout definition
             layout: {
-              scroll: true, // enable/disable datatable scroll both horizontal and
-              footer: false, // display/hide footer
-              height: 450,
+                scroll: true, // enable/disable datatable scroll both horizontal and
+                footer: false, // display/hide footer
+                height: 450,
             },
-        
+
             // column sorting
             sortable: true,
             pagination: true,
             search: {
-              input: $('#kt_datatable_search_query_2'),
-              key: 'generalSearch',
+                input: $('#kt_datatable_search_query_2'),
+                key: 'generalSearch',
+                onEnter:true,
             },
-        
+
             // columns definition
             columns: [
-              {
+                {
                 field: '_id',
                 title: '#',
                 sortable: false,
                 width: 20,
                 selector: {
-                  class: '',
+                    class: '',
                 },
                 textAlign: 'center',
-              },
-              {
+                },
+                {
                 field: 'name',
                 title: 'Name',
                 // template: function (row) {
@@ -432,119 +428,113 @@ const menuCRUD = (function () {
                 //     <a href="#">' + row.name + '</a></div>\
                 //   ';
                 // }
-              },
-              {
+                },
+                {
                 field: 'description',
                 title: 'Description',
-              },
-              {
+                },
+                {
                 field: 'priority',
-                  title: 'Priority',
+                    title: 'Priority',
                 //   template: function (row) {
                 //       return '\
                 //     ';
                 // }
-              },
-/*               {
+                },
+        /*               {
                 field: 'details',
                 title: 'Details',
                 textAlign: 'center',
                 //width: 100,
                 sortable: false,
                 template: function () {
-                  return '\
+                    return '\
                     <a href="#" class="btn btn-sm btn-light" role="button">\
-                      view details\
+                        view details\
                     </a >';
                 },
-              }, */
-              {
+                }, */
+                {
                 field: 'Actions',
                 title: 'Actions',
                 sortable: false,
                 width: 125,
                 overflow: 'visible',
-                  autoHide: false,
+                    autoHide: false,
                 template: function (row) {
-                  return '\
-                              <div class="dropdown dropdown-inline">\
-                                  <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
+                    return '\
+                                <div class="dropdown dropdown-inline">\
+                                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
                                     <i class="fas fa-cog">\
                                     </i>\
-                                  </a>\
-                                  <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
-                                      <ul class="navi flex-column navi-hover py-2">\
-                                          <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
-                                              Choose an action:\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-print"></i></span>\
-                                                  <span class="navi-text">Print</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-copy"></i></span>\
-                                                  <span class="navi-text">Copy</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
-                                                  <span class="navi-text">Excel</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
-                                                  <span class="navi-text">CSV</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
-                                                  <span class="navi-text">PDF</span>\
-                                              </a>\
-                                          </li>\
-                                      </ul>\
-                                  </div>\
-                              </div>\
-                              <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+                                        <ul class="navi flex-column navi-hover py-2">\
+                                            <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
+                                                Choose an action:\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-print"></i></span>\
+                                                    <span class="navi-text">Print</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-copy"></i></span>\
+                                                    <span class="navi-text">Copy</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
+                                                    <span class="navi-text">Excel</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
+                                                    <span class="navi-text">CSV</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
+                                                    <span class="navi-text">PDF</span>\
+                                                </a>\
+                                            </li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                                <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
                                 <i class="far fa-edit">\
                                 </i>\
-                              </a>\
-                              <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
+                                </a>\
+                                <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
                                 <i class="far fa-trash-alt">\
                                 </i>\
-                              </a>\
-                          ';
+                                </a>\
+                            ';
                 },
-              },
+                },
+                {
+                    field: 'createdAt',
+                    title: 'Created At',
+                    type: 'date',
+                    format: 'MM/DD/YYYY',
+                },
             ],
-          }
+        }
           
-          // enable extension
-          options.extensions = {
+        // enable extension
+        options.extensions = {
             // boolean or object (extension options)
             checkbox: true,
-          };
+        };
 
-          const datatable = $('#kt_datatable_2').KTDatatable(options);
-      
-          $('#kt_datatable_search_status_2').on('change', function () {
-            datatable.search($(this).val().toLowerCase(), 'Status');
-          });
-      
-          $('#kt_datatable_search_type_2').on('change', function () {
-            datatable.search($(this).val().toLowerCase(), 'Type');
-          });
-      
-          $(
-            '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
-        ).selectpicker();
-
-        const menuSectionForm = document.querySelector('#menuSectionForm');
+        const datatable = $('#tableMenuSection').KTDatatable(options);
+    
+        const menuSectionForm = document.querySelector('#formMenuSection');
         let FormSubmitButton = document.querySelector('#btnAddNewMenuSectionFormSubmitButton');
         let formOptions =    {
             fields: {
@@ -593,27 +583,26 @@ const menuCRUD = (function () {
         let fv;
 
          // modal closed
-        $('#menuSectionFormModal').on('hidden.bs.modal', function (e) {
-            console.log('Modal is closed');
+         $('#modalMenuSection').on('hidden.bs.modal', function (e) {
+            //  console.log('Modal is closed');
 
             if (fv) {
                 // clearing forms
                 fv.resetForm();
-
-                // clearing validator messages
-                $('.fv-plugins-message-container').text(''); // remove message
-
-                // clearing fields
-                $("#menuSectionForm").trigger('reset'); // clear form fields
-                $('#menuManagerSelect').val('');  // clearing select2  */
-
                 fv.destroy();
-            }
+             }
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            // clearing fields
+            $("#formMenuSection").trigger('reset'); // clear form fields
+            $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
 
         });
 
         // modal opened
-        $('#menuSectionFormModal').on('shown.bs.modal', function (e) {
+        $('#modalMenuSection').on('shown.bs.modal', function (e) {
             // console.log('Modal is open');
             
             // var modal = $(this);
@@ -622,7 +611,7 @@ const menuCRUD = (function () {
         });
 
         // Add New Modal Window - opens modal with appropriate properties
-        $('#btnNewItem').on('click', async function (e) {
+        $('#btnOpenMenuSectionModal').on('click', async function (e) {
             // console.log('btnNewItem is clicked');
 
             FormSubmitButton = document.querySelector('#btnAddNewMenuSectionFormSubmitButton');
@@ -631,14 +620,14 @@ const menuCRUD = (function () {
             $('#btnAddNewMenuSectionFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
             $('#btnSaveMenuSectionFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-            $('#menuSectionFormModal').modal('show');   // open modal  
+            $('#modalMenuSection').modal('show');   // open modal  
 
-            $('#menuSectionFormModal').find('.modal-title').text('Create Section Item'); // Setting title for modal
+            $('#modalMenuSection').find('.modal-title').text('Create Section Item'); // Setting title for modal
     
         });
         
         // Edit Modal Window - opens modal with appropriate properties
-        $('#kt_datatable_2').on('click', '.btnEdit', async function (e) {
+        $('#tableMenuSection').on('click', '.btnEdit', async function (e) {
             // console.log('btnEdit is clicked');
 
             var id = $(this).attr("aria-label");
@@ -650,9 +639,9 @@ const menuCRUD = (function () {
             $('#btnAddNewMenuSectionFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
             $('#btnSaveMenuSectionFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-            $('#menuSectionFormModal').modal('show');   // open modal
+            $('#modalMenuSection').modal('show');   // open modal
 
-            $('#menuSectionFormModal').find('.modal-title').text('Edit Section Item'); // Setting title for modal
+            $('#modalMenuSection').find('.modal-title').text('Edit Section Item'); // Setting title for modal
 
             // retrieving data
             await axios({
@@ -689,30 +678,30 @@ const menuCRUD = (function () {
             });
         });
 
-        // btnReset modal - resets modal form entries
-        $('#btnResetMenuSectionForm').on('click',  function (e) {
+        // form reset operation
+        $('#formMenuSection').on('click', '.btnReset', function (e) {
             // console.log('btnResetMenuSectionForm is clicked');
 
             if (fv) {
                 // clearing forms
                 fv.resetForm();
-
-                // clearing validator messages
-                $('.fv-plugins-message-container').text(''); // remove message
-
-                // clearing fields
-                $('#menuManagerSelect').val('');  // clearing select2  */
-
                 fv.destroy();
             }
             else {
                 // initiate validation
                 fv = FormValidation.formValidation(menuSectionForm, formOptions);
             }
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            // clearing fields
+            $("#formMenuSection").trigger('reset'); // clear form fields
+            $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
         })
 
-        // btnAddNewMenuSectionFormSubmitButton modal - adds new entries
-        $('#btnAddNewMenuSectionFormSubmitButton').on('click', function (e) {
+        // form add operation
+        $('#formMenuSection').on('click', '.btnAdd', function (e) {
             // console.log('addMenuSectionFormSubmitButton is clicked');
 
             // clearing validator messages
@@ -754,22 +743,23 @@ const menuCRUD = (function () {
   
                     if (res.data.status == 'success') {
                         // reseting & clearing
-                        $('#menuSectionFormModal').modal('hide')  // hiding modal form
+                        $('#modalMenuSection').modal('hide')  // hiding modal form
                         toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#kt_datatable_2').KTDatatable().reload(); // reload table
+                        $('#tableMenuSection').KTDatatable().reload(); // reload table
                     }
                     else if (res.data.status == 'error') {
-                        $('#menuSectionFormModal').modal('hide')  // hiding modal form
+                        $('#modalMenuSection').modal('hide')  // hiding modal form
                         toastr.error(`${res.data.message}`, `${res.data.status}`)
                     }
                     else {
-                        $('#menuSectionFormModal').modal('hide')
+                        $('#modalMenuSection').modal('hide')
                     };
                 });
             });
         });
 
-        $('#btnSaveMenuSectionFormSubmitButton').on('click', function (e) {
+        // form save operation
+        $('#formMenuSection').on('click', '.btnSave', function (e) {
             // console.log('btnSaveMenuSectionFormSubmitButton is clicked');
 
             // clearing validator messages
@@ -812,24 +802,24 @@ const menuCRUD = (function () {
 
                     if (res.data.status == 'success') {
                         // reseting & clearing
-                        $('#menuSectionFormModal').modal('hide')  // hiding modal form
+                        $('#modalMenuSection').modal('hide')  // hiding modal form
                         toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#kt_datatable_2').KTDatatable().reload(); // reload table
+                        $('#tableMenuSection').KTDatatable().reload(); // reload table
 
                     }
                     else if (res.data.status == 'error') {
-                        $('#menuSectionFormModal').modal('hide')  // hiding modal form
+                        $('#modalMenuSection').modal('hide')  // hiding modal form
                         toastr.error(`${res.data.message}`, `${res.data.status}`)
                     }
                     else {
-                        $('#menuSectionFormModal').modal('hide') // hiding modal form
+                        $('#modalMenuSection').modal('hide') // hiding modal form
                     };
                 });
             });
         });
 
         // deleteOne operation
-        $('#kt_datatable_2').on('click', '.btnDelete', function (e) {           
+        $('#tableMenuSection').on('click', '.btnDelete', function (e) {           
             let ids = $(this).attr("aria-label");
 
             ids = ids.toString();
@@ -843,23 +833,35 @@ const menuCRUD = (function () {
             axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
 
             // reload table
-            $('#kt_datatable_2').KTDatatable().reload();
+            $('#tableMenuSection').KTDatatable().reload();
             
         });
 
+        $('#kt_datatable_search_status_2').on('change', function () {
+            datatable.search($(this).val().toLowerCase(), 'Status');
+        });
+        
+        $('#kt_datatable_search_type_2').on('change', function () {
+            datatable.search($(this).val().toLowerCase(), 'Type');
+        });
+        
+        $('#kt_datatable_search_status_2, #kt_datatable_search_type_2').selectpicker();
+
         // mass operation
-        datatable.on('datatable-on-click-checkbox', function (e) {
-        // datatable.checkbox() access to extension methods
-        const ids = datatable.checkbox().getSelectedId();
-        const count = ids.length;
-    
-        $('#kt_datatable_selected_records_2').html(count);
-    
-        if (count > 0) {
-            $('#kt_datatable_group_action_form_2').collapse('show');
-        } else {
-            $('#kt_datatable_group_action_form_2').collapse('hide');
-        }
+        datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+            // datatable.checkbox() access to extension methods
+            const ids = datatable.checkbox().getSelectedId();
+            const count = ids.length;
+        
+            $('#kt_datatable_selected_records_2').html(count);
+
+            console.log(count)
+        
+            if (count > 0) {
+                $('#kt_datatable_group_action_form_2').collapse('show');
+            } else {
+                $('#kt_datatable_group_action_form_2').collapse('hide');
+            }
         });
 
         // deleteAll operation
@@ -881,19 +883,15 @@ const menuCRUD = (function () {
             $('#kt_datatable_group_action_form_2').collapse('hide');
 
             // reload table
-            $('#kt_datatable_2').KTDatatable().reload();
+            $('#tableMenuSection').KTDatatable().reload();
         });
 
-    }
+    };
 
   return {
     // public functions
       init: function () {
-        //_initializeMenuForm();
-        //_createMenuForm();
-        //_createMenuSectionForm();
-        //_createMenuItemForm();
-        //   _createMenuSubItem1Form();
+
         _initializeMenuSectionForm();
         _viewMenuSectionTable();
           
@@ -903,10 +901,4 @@ const menuCRUD = (function () {
 
 jQuery(document).ready(function () {
     menuCRUD.init();
-
-
-
-    let isLoading;
-    isLoading = false;
-
 });
