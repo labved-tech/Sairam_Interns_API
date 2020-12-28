@@ -63,7 +63,7 @@ block content
                                     // end::Dropdown
                                     // begin::Button
                                     // Button trigger modal
-                                    button#btnAdd(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                    button#btnNewItem(type='button' class='btn btn-primary font-weight-bolder btnAdd')
                                         | Add New
 
                             div(class="card-body")
@@ -132,16 +132,14 @@ block content
                             // end::Card
                         // end::Card
 
-                        // ##############################################################################################################################################################
-
-                        // Modal
-                        #exampleModal(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                        // ##################################### menuSectionFormModal ############################################################################################
+                        #menuSectionFormModal(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
                                     form#menuSectionForm(class='form')
                                         div(class='modal-header')
-                                            h5#exampleModalLabel(class='modal-title') Menu Section Item
+                                            h5#menuSectionFormModalLabel(class='modal-title') Menu Section Item
                                             button#btnCloseMenuSectionForm(type='button' class='close' data-dismiss='modal' aria-label='Close')
                                                 i(aria-hidden='true' class='ki ki-close')
                                         div(class='modal-body')
@@ -179,6 +177,6 @@ block content
                                                         input#menuSectionPriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='menuSectionPriority' placeholder='1')
                                                         span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                         div(class='modal-footer')
-                                            button#btnResetMenuSectionForm(type='reset' class='btn btn-light-primary font-weight-bold') Reset
-                                            button#addMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold') Save changes
-                                            button#updateMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold') Update
+                                            button#btnResetMenuSectionForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                            button#btnAddNewMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                            button#btnSaveMenuSectionFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
