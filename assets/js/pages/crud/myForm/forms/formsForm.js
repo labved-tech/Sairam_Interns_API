@@ -197,17 +197,18 @@ const FormCRUD = (function () {
       },
     }).on('core.form.valid', function () {
         KTUtil.btnWait(createFormsFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        
+        console.log();
+
       // Accessing Restful API
       axios({
-        method: 'Post',
+        method: 'post',
         url: `${HOST_URL}/api/v1/forms/`,
           data: {
             name: fName.value,
             _ownerId: fOwnerId.value,
             aliveTill: fAliveTill.value,
-            accountInclude: fAccountInclude.value,
-            accountExclude: fAccountExclude.value,
+            accountInclude: $('#fAccountInclude').val(),
+            accountExclude: $('#fAccountExclude').val(),
               
         },
       }).then(function (res) {

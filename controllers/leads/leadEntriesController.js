@@ -105,7 +105,6 @@ exports.getAllTableLeadEntries = catchAsync(async (req, res, next) => {
   });
 });
 
-
 exports.getAllLeadEntries = catchAsync(async (req, res, next) => {
   console.log('Getting All LeadEntries');
 
@@ -138,6 +137,9 @@ exports.getLeadEntries = catchAsync(async (req, res, next) => {
 exports.createLeadEntries = catchAsync(async (req, res, next) => {
   console.log('Creating LeadEntries');
   const { body } = req;
+  console.log('rawBody :', body);
+  console.log(body.contactInformation.type);
+  console.log(body.contactInformation.isPublic);
 
   // parse through models
   const doc = new LeadEntries(body);

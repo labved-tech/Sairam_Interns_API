@@ -351,7 +351,7 @@ const LeadsCRUD = (function () {
     }
 
     FormValidation.formValidation(createLeadEntriesForm, {
-      fields: {
+/*       fields: {
         leName: {
           validators: {
             notEmpty: {
@@ -543,7 +543,7 @@ const LeadsCRUD = (function () {
           },
         }, 
 
-      },
+      }, */
       plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
         trigger: new FormValidation.plugins.Trigger(),
@@ -556,7 +556,8 @@ const LeadsCRUD = (function () {
       },
     }).on('core.form.valid', function () {
         KTUtil.btnWait(createLeadEntriesFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-        
+        console.log($('#leCiType').val());
+        console.log($('#leCiIsPublic').repeaterVal());
         leLost.value = (leLost.value == 'on') ? true:false
         leLsIsDefault.value = (leLsIsDefault.value == 'on') ? true:false
         leCiIsPublic.value = (leCiIsPublic.value == 'on') ? true:false
@@ -593,8 +594,8 @@ const LeadsCRUD = (function () {
             },
             
             contactInformation:{
-              type:leCiType.value,
-              isPublic:leCiIsPublic.value,
+              type: $('#leCiType').repeaterVal(),
+              isPublic:$('#leCiIsPublic').repeaterVal(),
             },
 
             source:{
