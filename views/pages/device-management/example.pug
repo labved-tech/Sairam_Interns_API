@@ -1,0 +1,78 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myForm/device-management/deviceManagementForm.js')
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                // begin::Card
+                div(class="card card-custom gutter-b")
+                    div(class="card-header flex-wrap border-0 pt-6 pb-0")
+                        div(class="card-title")
+                            h3(class="card-label")
+                                | Set Attribute
+                                span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
+                        div(class="card-toolbar")
+
+                    div(class="card-body")
+                        // begin::Form
+                        form#demoForm(class='form')
+                            // Form Repeat #2 : Multiple
+                            #kt_repeater_1
+                                div(class='form-group row')
+                                    div(data-repeater-list='attrFormData', class='col-12')
+                                        div(data-repeater-item='', class='form-group row align-items-left')
+
+                                            div(class='col-md-3')
+                                                label(class='col-form-label form-control-label') Attribute Key
+                                                input(type='text', class='form-control' name='txtKey' placeholder='Provide an attibute key, eg. Manufacturer')
+                                                div(class='d-md-none mb-2')
+
+                                            div(class='col-md-3')
+                                                label(class='col-form-label form-control-label') Datatype
+                                                //- input(type='text', class='form-control', placeholder='Enter full name')
+                                                select(class='form-control select2' name='demoSelect2Single' data-placeholder='Select Country')
+                                                    option(value='' disabled='' selected='') Choose Datatype
+                                                    option(value='string') String
+                                                    option(value='number') Number
+                                                    option(value='gps') GPS Coordinates
+                                                div(class='d-md-none mb-2')
+
+                                            div(class='col-md-3')
+                                                label(class='col-form-label form-control-label') Default Value
+                                                input(type='text', class='form-control' name='txtDefaultVal' placeholder='Enter default value eg. Honeywell')
+                                                div(class='d-md-none mb-2')
+
+                                            div(class='col-md-3')
+                                                label(class='col-form-label form-control-label') Delete
+                                                div
+                                                    a( data-repeater-delete='', class='btn btn-sm font-weight-bolder btn-light-danger')
+                                                        i(class='la la-trash-o')
+                                                    div(class='d-md-none mb-2')
+
+                                div(class='col-4 align-items-left')
+                                    div(class='form-group row')
+                                        label(class='col-3 col-form-label form-control-label')
+                                        div(class='col-12')
+                                            button#btnAddAttribute(type='button' data-repeater-create='', class='btn btn-sm font-weight-bolder btn-light-primary')
+                                                i(class='la la-plus')
+                                                | Add Another
+
+                            div(class='row text-right')
+                                div(class='col-12 ml-lg-auto')
+                                    button#btnSubmit(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
+                                    button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
+
+                        div(class='card-footer')
+
+                        // end::Form
+            // end::Card
+            // end::Container
+        // end::Entry

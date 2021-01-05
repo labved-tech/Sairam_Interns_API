@@ -90,7 +90,10 @@ router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 router.get('/sales-finance/packingList', viewsController.packingList);
 router.get('/sales-finance/packingList/box', viewsController.packingListBox);
 router.get('/sales-finance/packingList/item', viewsController.packingListItem);
-router.get('/sales-finance/packingList/shipping', viewsController.packingListShipping);
+router.get(
+  '/sales-finance/packingList/shipping',
+  viewsController.packingListShipping
+);
 
 router.get('/sales-finance/quotation', viewsController.quotation);
 
@@ -98,16 +101,31 @@ router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/taxInvoice/item', viewsController.taxInvoiceItem);
 
 router.get('/sales-finance/performaInvoice', viewsController.performaInvoice);
-router.get('/sales-finance/performaInvoice/payment', viewsController.performaInvoicePayment);
-router.get('/sales-finance/performaInvoice/item', viewsController.performaInvoiceItem);
+router.get(
+  '/sales-finance/performaInvoice/payment',
+  viewsController.performaInvoicePayment
+);
+router.get(
+  '/sales-finance/performaInvoice/item',
+  viewsController.performaInvoiceItem
+);
 
 // SALES AND FINANCE TABLE
 router.get('/sales-finance/address/table', viewsController.addressTable);
-router.get('/sales-finance/deliveryNote/table', viewsController.deliveryNoteTable);
-router.get('/sales-finance/packingList/table', viewsController.packingListTable);
+router.get(
+  '/sales-finance/deliveryNote/table',
+  viewsController.deliveryNoteTable
+);
+router.get(
+  '/sales-finance/packingList/table',
+  viewsController.packingListTable
+);
 router.get('/sales-finance/quotation/table', viewsController.quotationTable);
 router.get('/sales-finance/taxInvoice/table', viewsController.taxInvoiceTable);
-router.get('/sales-finance/performaInvoice/table', viewsController.performaInvoiceTable);
+router.get(
+  '/sales-finance/performaInvoice/table',
+  viewsController.performaInvoiceTable
+);
 
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
@@ -130,10 +148,19 @@ router.get('/ticket-support/Products', viewsController.ticketProducts);
 router.get('/ticket-support/Response', viewsController.ticketResponse);
 
 // TICKET AND SUPPORTS TABLE RELATED ROUTES
-router.get('/ticket-support/categories/table', viewsController.ticketCategoriesTable);
+router.get(
+  '/ticket-support/categories/table',
+  viewsController.ticketCategoriesTable
+);
 router.get('/ticket-support/entries/table', viewsController.ticketEntriesTable);
-router.get('/ticket-support/Products/table', viewsController.ticketProductsTable);
-router.get('/ticket-support/Response/table', viewsController.ticketResponseTable);
+router.get(
+  '/ticket-support/Products/table',
+  viewsController.ticketProductsTable
+);
+router.get(
+  '/ticket-support/Response/table',
+  viewsController.ticketResponseTable
+);
 
 // LEADS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
@@ -144,7 +171,10 @@ router.get('/lead/response/table', viewsController.leadResponseTable);
 router.get('/lead/entries/table', viewsController.leadEntriesTable);
 
 // DIRECTORY RELATED ROUTES
-router.get('/directory/attributes/groups', viewsController.directoryAttributesGroups);
+router.get(
+  '/directory/attributes/groups',
+  viewsController.directoryAttributesGroups
+);
 router.get('/directory/categories', viewsController.directoryCategories);
 router.get('/directory/levels', viewsController.directoryLevels);
 router.get('/directory/entries', viewsController.directoryEntries);
@@ -158,8 +188,14 @@ router.get(
   viewsController.directoryAttributeGroupsTable
 );
 
-router.get('/directory/categories/table', viewsController.directoryCategoriesTable);
-router.get('/directory/attributes/groups/table', viewsController.directoryAttributeGroupsTable);
+router.get(
+  '/directory/categories/table',
+  viewsController.directoryCategoriesTable
+);
+router.get(
+  '/directory/attributes/groups/table',
+  viewsController.directoryAttributeGroupsTable
+);
 router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);
@@ -194,7 +230,10 @@ router.get('/farm/strategy/table', viewsController.farmStrategyTable);
 // ECOMMERCE RELATED ROUTES
 router.get('/ecommerce/address/', viewsController.ecommerceAddress);
 router.get('/ecommerce/locations/', viewsController.ecommerceLocations);
-router.get('/ecommerce/locations/verify-documents', viewsController.ecommerceLocationsVerifyDocuments);
+router.get(
+  '/ecommerce/locations/verify-documents',
+  viewsController.ecommerceLocationsVerifyDocuments
+);
 router.get('/ecommerce/stock/', viewsController.ecommerceStock);
 router.get('/ecommerce/stock/discount', viewsController.ecommerceStockDiscount);
 router.get('/ecommerce/stock/tax', viewsController.ecommerceStockTax);
@@ -219,47 +258,73 @@ router.get('/project/task-reminders', viewsController.taskReminders);
 router.get('/project/entries/', viewsController.projectEntries);
 router.get('/project/task-entries/', viewsController.taskEntries);
 router.get('/project/activity/', viewsController.projectActivity);
-router.get('/project/task-checklist-entries/', viewsController.taskChecklistEntries);
+router.get(
+  '/project/task-checklist-entries/',
+  viewsController.taskChecklistEntries
+);
 
 router.get('/project/task-timers/', viewsController.taskTimers);
 router.get('/project/notes/', viewsController.projectNotes);
 router.get('/project/admins/', viewsController.projectAdmins);
 router.get('/milestone/', viewsController.milestone);
 
-
-
-
-
-
-
 //PROJECT MANAGEMENT TABLE RELATED ROUTES
-router.get('/project/discussions/table', viewsController.projectDiscussionsTable);
+router.get(
+  '/project/discussions/table',
+  viewsController.projectDiscussionsTable
+);
 router.get('/project/members/table', viewsController.projectMembersTable);
 router.get('/project/task-status/table', viewsController.taskStatusTable);
 router.get('/project/task-reminders/table', viewsController.taskRemindersTable);
 router.get('/project/entries/table', viewsController.projectEntriesTable);
 router.get('/project/task-entries/table', viewsController.taskEntriesTable);
 router.get('/project/activity/table', viewsController.projectActivityTable);
-router.get('/project/task-checklist-entries/table', viewsController.taskChecklistEntriesTable);
+router.get(
+  '/project/task-checklist-entries/table',
+  viewsController.taskChecklistEntriesTable
+);
 router.get('/project/task-timers/table', viewsController.taskTimersTable);
 router.get('/project/notes/table', viewsController.projectNotesTable);
 router.get('/project/admins/table', viewsController.projectAdminsTable);
 router.get('/milestone/table', viewsController.milestoneTable);
 
-
-
-
-
 //PROJECT MANAGEMENT RELATED ROUTES
-router.get('/project-management/taskcheckliststatus', viewsController.taskcheckliststatus);
-router.get('/project-management/projectTaskFiles', viewsController.projectTaskFiles);
+router.get(
+  '/project-management/taskcheckliststatus',
+  viewsController.taskcheckliststatus
+);
+router.get(
+  '/project-management/projectTaskFiles',
+  viewsController.projectTaskFiles
+);
 router.get('/project-management/projectFiles', viewsController.projectFiles);
-router.get('/project-management/projectDiscussionComments', viewsController.projectDiscussionComments);
+router.get(
+  '/project-management/projectDiscussionComments',
+  viewsController.projectDiscussionComments
+);
 
 //PROJECT MANAGEMENT RELATED ROUTES
-router.get('/project-management/taskcheckliststatus/table', viewsController.taskcheckliststatusTable);
-router.get('/project-management/projectTaskFiles/table', viewsController.projectTaskFilesTable);
-router.get('/project-management/projectFiles/table', viewsController.projectFilesTable);
-router.get('/project-management/projectDiscussionComments/table', viewsController.projectDiscussionCommentsTable);
+router.get(
+  '/project-management/taskcheckliststatus/table',
+  viewsController.taskcheckliststatusTable
+);
+router.get(
+  '/project-management/projectTaskFiles/table',
+  viewsController.projectTaskFilesTable
+);
+router.get(
+  '/project-management/projectFiles/table',
+  viewsController.projectFilesTable
+);
+router.get(
+  '/project-management/projectDiscussionComments/table',
+  viewsController.projectDiscussionCommentsTable
+);
+
+// DEVICE MANAGEMENT RELATED ROUTES
+router.get(
+  '/device-management/example',
+  viewsController.deviceManagementExample
+);
 
 module.exports = router;
