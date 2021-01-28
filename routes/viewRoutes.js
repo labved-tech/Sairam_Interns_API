@@ -41,14 +41,19 @@ router.get('/account-settings/users/add-new', viewsController.getAddUser);
 
 // ANNOUNCEMENT RELATED ROUTES
 router.get('/announcement/entries', viewsController.announcementEntries);
-router.get('/announcement/notification', viewsController.announcementNotify);
 router.get(
   '/announcement/entries/table',
   viewsController.announcementEntriesTable
 );
+router.get('/announcement/entries/all', viewsController.announcementEntriesAll);
+router.get('/announcement/notification', viewsController.announcementNotify);
 router.get(
-  '/announcement/notify/table',
+  '/announcement/notification/table',
   viewsController.announcementNotifyTable
+);
+router.get(
+  '/announcement/notification/all',
+  viewsController.announcementEntriesAll
 );
 
 // RATING RELATED ROUTES

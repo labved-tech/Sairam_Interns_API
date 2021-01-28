@@ -204,6 +204,7 @@ const AnnouncementTable = (function () {
       '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
     ).selectpicker();
 
+    // do not replace
     datatable.on('datatable-on-click-checkbox', function (e) {
       // datatable.checkbox() access to extension methods
       const ids = datatable.checkbox().getSelectedId();

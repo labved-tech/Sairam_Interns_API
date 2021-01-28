@@ -125,6 +125,19 @@ exports.announcementEntriesTable = (req, res) => {
     .render('./../views/pages/announcement/announcementEntriesTable');
 };
 
+exports.announcementEntriesAll = (req, res) => {
+  console.log('We are in Announcement Entries All Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementEntriesAll');
+};
+exports.announcementEntriesAll = (req, res) => {
+  console.log('We are in Announcement Notification All Page');
+  res
+    .status(200)
+    .render('./../views/pages/announcement/announcementNotificationAll');
+};
+
 exports.announcementNotifyTable = (req, res) => {
   console.log('We are in Announcement Notifications Table Page');
   res
