@@ -46,6 +46,7 @@ router.get(
   viewsController.announcementEntriesTable
 );
 router.get('/announcement/entries/all', viewsController.announcementEntriesAll);
+
 router.get('/announcement/notification', viewsController.announcementNotify);
 router.get(
   '/announcement/notification/table',
@@ -53,7 +54,7 @@ router.get(
 );
 router.get(
   '/announcement/notification/all',
-  viewsController.announcementEntriesAll
+  viewsController.announcementNotificationAll
 );
 
 // RATING RELATED ROUTES

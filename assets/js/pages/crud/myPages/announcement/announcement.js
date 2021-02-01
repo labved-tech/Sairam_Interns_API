@@ -7,130 +7,130 @@ const AnnouncementCRUD = (function () {
 
     /*   Private functions */
     function _AnnouncementEntries() {
-        var dataSet;
+      var dataSet;
 
-        /* Table Initialize */
-        const options = {
-            // datasource definition
-            data: {
-              type: 'remote',
-              source: {
-                read: {
-                  method: 'get',
-                  url: `${HOST_URL}/api/v1/announcement/entries/table`,
-                  params: {
-                    fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
-                  },
-                  map: function(raw) {
-                    // sample data mapping
-                    console.log('raw', raw);
-                    dataSet = raw;
-                
-                    if (typeof raw.announcementEntries !== 'undefined') {
-                      dataSet = raw.announcementEntries;
-                      console.log('dataSet', dataSet);
-                    }
-                    return dataSet;
-                  }
-        
-                },
+      /* Table Options */
+      const options = {
+        // datasource definition
+        data: {
+          type: 'remote',
+          source: {
+            read: {
+              method: 'get',
+              url: `${HOST_URL}/api/v1/announcement/entries/table`,
+              params: {
+                fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
               },
-              pageSize: 10,
-              serverPaging: true,
-              serverFiltering: true,
-              serverSorting: true,
-              //autoColumns: true,  // newly added
+              map: function(raw) {
+                // sample data mapping
+                console.log('raw', raw);
+                dataSet = raw;
+            
+                if (typeof raw.announcementEntries !== 'undefined') {
+                  dataSet = raw.announcementEntries;
+                  console.log('dataSet', dataSet);
+                }
+                return dataSet;
+              }
+    
             },
-        
-            // layout definition
-            layout: {
-              scroll: true, // enable/disable datatable scroll both horizontal and
-              footer: false, // display/hide footer
-              height: 450,
-        
+          },
+          pageSize: 10,
+          serverPaging: true,
+          serverFiltering: true,
+          serverSorting: true,
+          //autoColumns: true,  // newly added
+        },
+  
+        // layout definition
+        layout: {
+          scroll: true, // enable/disable datatable scroll both horizontal and
+          footer: false, // display/hide footer
+          height: 450,
+  
+        },
+  
+        // column sorting
+        sortable: true,
+  
+        pagination: true,
+        search: {
+          input: $('#tableAe_search_query_2'),
+          key: 'generalSearch',
+        },
+  
+        // columns definition
+        columns: [
+          {
+            field: '_id',
+            title: '#',
+            sortable: false,
+            width: 20,
+            selector: {
+              class: '',
             },
-        
-            // column sorting
-            sortable: true,
-        
-            pagination: true,
-            search: {
-              input: $('#tableAe_search_query_2'),
-              key: 'generalSearch',
+            textAlign: 'center',
+          },
+          {
+            field: 'title',
+            title: 'Title',
+          },
+          {
+            field: 'from',
+            title: 'From',
+          },
+          {
+            field: 'priority',
+            title: 'Priority',
+          },
+          {
+            field: 'expires',
+            title: 'Expires In',
+          },
+          {
+            field: 'status',
+            title: 'Status',
+          },
+          {
+            field: 'createdBy',
+            title: 'createdBy',
+          },
+          {
+            field: 'createdAt',
+            title: 'createdAt',
+          },
+          {
+            field: 'updatedAt',
+            title: 'updatedAt',
+          },
+          {
+            field: 'details',
+            title: 'Details',
+            textAlign: 'center',
+            //width: 100,
+            sortable: false,
+            template: function () {
+              return '\
+                <a href="#" class="btn btn-sm btn-light" role="button">\
+                  view details\
+                </a >\
+              '
+              ;
             },
-        
-            // columns definition
-            columns: [
-              {
-                field: '_id',
-                title: '#',
-                sortable: false,
-                width: 20,
-                selector: {
-                  class: '',
-                },
-                textAlign: 'center',
-              },
-              {
-                field: 'title',
-                title: 'Title',
-              },
-              {
-                field: 'from',
-                title: 'From',
-              },
-              {
-                field: 'priority',
-                title: 'Priority',
-              },
-              {
-                field: 'expires',
-                title: 'Expires In',
-              },
-              {
-                field: 'status',
-                title: 'Status',
-              },
-              {
-                field: 'createdBy',
-                title: 'createdBy',
-              },
-              {
-                field: 'createdAt',
-                title: 'createdAt',
-              },
-              {
-                field: 'updatedAt',
-                title: 'updatedAt',
-              },
-              {
-                field: 'details',
-                title: 'Details',
-                textAlign: 'center',
-                //width: 100,
-                sortable: false,
-                template: function () {
-                  return '\
-                    <a href="#" class="btn btn-sm btn-light" role="button">\
-                      view details\
-                    </a >\
-                  '
-                  ;
-                },
-              },
-              {
-                field: 'Actions',
-                title: 'Actions',
-                sortable: false,
-                width: 125,
-                overflow: 'visible',
-                autoHide: false,
-                template: function () {
+          },
+          {
+              field: 'Actions',
+              title: 'Actions',
+              sortable: false,
+              width: 125,
+              overflow: 'visible',
+                  autoHide: false,
+              template: function (row) {
                   return '\
                               <div class="dropdown dropdown-inline">\
                                   <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
-                                    <i class="fas fa-cog">\
-                                    </i>\
+                                  <i class="fas fa-cog">\
+                                  </i>\
                                   </a>\
                                   <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
                                       <ul class="navi flex-column navi-hover py-2">\
@@ -170,415 +170,123 @@ const AnnouncementCRUD = (function () {
                                       </ul>\
                                   </div>\
                               </div>\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2 btnEdit" title="Edit details">\
-                                <i class="far fa-edit">\
-                                </i>\
+                              <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
+                              <i class="far fa-edit">\
+                              </i>\
                               </a>\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete">\
-                                <i class="far fa-trash-alt">\
-                                </i>\
+                              <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
+                              <i class="far fa-trash-alt">\
+                              </i>\
                               </a>\
                           ';
-                },
-              },
-            ],
-        }
-          
-        // enable extension
+            },
+          },
+        ],
+      }
         options.extensions = {
         // boolean or object (extension options)
         checkbox: true,
-        };
+      };
 
-        const datatable = $('#tableAe').KTDatatable(options);
+      /* Table Initialize */
+      const datatable = $('#tableAe').KTDatatable(options);
 
-        const AeForm = document.querySelector('#formAe');
-        let FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
-        let formOptions =    {
-            fields: {
-                aeTitle: {
-                    validators: {
-                      notEmpty: {
-                        message: 'Title is required',
-                      },
-                    },
-                  },
-                  aeFrom: {
-                    validators: {
-                      notEmpty: {
-                        message: 'From email address cannot be empty',
-                      },
-                    },
-                  },
-                  aeExpires: {
-                    validators: {
-                      notEmpty: {
-                        message: 'Select expiry option',
-                      },
-                    },
-                  },
-                  aePriority: {
-                    validators: {
-                      notEmpty: {
-                        message: 'This field is required',
-                      },
-                    },
-                  },
-                  aeMessage: {
-                    validators: {
-                      callback: {
-                        message: 'The content is required and cannot be empty',
-                        callback: function (input) {
-                          const code = $('[name="aeMessage"]').summernote('code');
-                          // <p><br></p> is code generated by Summernote for empty content
-                          return (code !== '' && code !== '<p><br></p>');
-                        }
-                      },
-                    },
-                  },
+      /* Form */
+      const AeForm = document.querySelector('#formAe');
+      let FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
+      // Options
+      let formOptions =    {
+        fields: {
+          aeTitle: {
+            validators: {
+              notEmpty: {
+                message: 'Title is required',
+              },
             },
-            plugins: {
-                //Learn more: https://formvalidation.io/guide/plugins
-                trigger: new FormValidation.plugins.Trigger(),
-                // Bootstrap Framework Integration
-                bootstrap: new FormValidation.plugins.Bootstrap(),
-                // Validate fields when clicking the Submit button
-                FormSubmitButton: new FormValidation.plugins.SubmitButton(),
-                // Submit the form when all fields are valid
-                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+          },
+          aeFrom: {
+            validators: {
+              notEmpty: {
+                message: 'From email address cannot be empty',
+              },
             },
-        }
-
-        let fv;
-
-        /* Search Operations */
-        // search based on status
-        $('#tableAe_search_status_2').on('change', function () {
-            datatable.search($(this).val().toLowerCase(), 'Status');
-        });
-
-        // search based on type
-        $('#tableAe_search_type_2').on('change', function () {
-            datatable.search($(this).val().toLowerCase(), 'Type');
-        });
-
-        $('#tableAe_search_status_2, #tableAe_search_type_2').selectpicker();
-
-        /* Modal Operations */
-        // to open modal 
-       $('#btnOpenAeModal').on('click', async function (e) {
-            // console.log('btnNewItem is clicked');
-
-            FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
-
-            // enabling disabling buttons
-            $('#btnAddNewAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-            $('#btnSaveAeFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
-
-            $('#modalAe').modal('show');   // open modal  
-
-            $('#modalAe').find('.modal-title').text('Add New Announcement Entries'); // Setting title for modal
-
-       });
-        
-        // modal post closed
-        $('#modalAe').on('hidden.bs.modal', function (e) {
-           //  console.log('Modal is closed');
-
-           if (fv) {
-               // clearing forms
-               fv.resetForm();
-               fv.destroy();
-            }
-
-            // clearing validator messages
-            $('.fv-plugins-message-container').text(''); // remove message
-
-            // clearing fields
-            $("#formAe").trigger('reset'); // clear form fields
-            
-            // manually resetting other fields
-            $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
-
-       });
-
-       // modal post opened
-       $('#modalAe').on('shown.bs.modal', function (e) {
-
-            // Initializing 
-            $(aeMessage).summernote({
-                height: 400,
-                tabsize: 2,
-            });
-        
-            $(aeExpires).select2({
-                placeholder: "Select expiry"
-            });
-
-       });
-
-        /* Form Operations */
-       // form reset operation
-       $('#formAe').on('click', '.btnReset', function (e) {
-           // console.log('btnResetAeForm is clicked');
-
-           if (fv) {
-               // clearing forms
-               fv.resetForm();
-               fv.destroy();
-           }
-           else {
-               // initiate validation
-               fv = FormValidation.formValidation(AeForm, formOptions);
-           }
-
-           // clearing validator messages
-           $('.fv-plugins-message-container').text(''); // remove message
-
-           // clearing fields
-           $("#formAe").trigger('reset'); // clear form fields
-
-           // manually resetting other fields
-           $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
-       })
-
-       // form add operation
-       $('#formAe').on('click', '.btnAdd', function (e) {
-           // console.log('addAeFormSubmitButton is clicked');
-
-           // clearing validator messages
-           $('.fv-plugins-message-container').text(''); // remove message
-           
-           FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
-
-           // Validation
-           fv = FormValidation.formValidation(AeForm, formOptions);
-
-           // validation failed
-           fv.on('core.form.invalid', async function () {
-               // console.log('Something went wrong!!');    
-           });
-
-           // validation successful
-           fv.on('core.form.valid', async function () {
-
-               // Show loading state on button
-               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-   
-               // Accessing Restful API
-               await axios({
-                   method: 'post',
-                   url: `${HOST_URL}/api/v1/menu/section`,
-                   data: {
-                       manager: document.querySelector('#menuManagerSelect').value,
-                       name: document.querySelector('#aenName').value,
-                       description: document.querySelector('#aenDescription').value,
-                       priority: document.querySelector('#aenPriority').value,
-                   },
-               }).then(function (res) {
-               
-                   // Return valid JSON
-                   // console.log(res);
-   
-                   // Release button
-                   KTUtil.btnRelease(FormSubmitButton);
- 
-                   if (res.data.status == 'success') {
-                       // reseting & clearing
-                       $('#modalAe').modal('hide')  // hiding modal form
-                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                       $('#tableAe').KTDatatable().reload(); // reload table
-                   }
-                   else if (res.data.status == 'error') {
-                       $('#modalAe').modal('hide')  // hiding modal form
-                       toastr.error(`${res.data.message}`, `${res.data.status}`)
-                   }
-                   else {
-                       $('#modalAe').modal('hide')
-                   };
-               });
-           });
-       });
-
-       // form save operation
-       $('#formAe').on('click', '.btnSave', function (e) {
-           // console.log('btnSaveMenuSectionFormSubmitButton is clicked');
-
-           // clearing validator messages
-           $('.fv-plugins-message-container').text(''); // remove message
-           
-           FormSubmitButton = document.querySelector('#btnSaveMenuSectionFormSubmitButton');
-
-           // Validation
-           fv = FormValidation.formValidation(menuSectionForm, formOptions);
-
-           // validation failed
-           fv.on('core.form.invalid', async function () {
-               // console.log('Something went wrong!!');    
-           });
-
-           // validation successful
-           fv.on('core.form.valid', async function () {
-
-               const id = document.querySelector('#aeId').value;
-
-               // Show loading state on button
-               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
-               // Accessing Restful API
-               await axios({
-                   method: 'patch',
-                   url: `${HOST_URL}/api/v1/menu/section/${id}`,
-                   data: {
-                       manager: document.querySelector('#menuManagerSelect').value,
-                       name: document.querySelector('#menuSectionName').value,
-                       description: document.querySelector('#menuSectionDescription').value,
-                       priority: document.querySelector('#menuSectionPriority').value,
-                   },
-               }).then(function (res) {
-                   // Return valid JSON
-                   // console.log(res);
-
-                   // Release button
-                   KTUtil.btnRelease(FormSubmitButton);
-
-                   if (res.data.status == 'success') {
-                       // reseting & clearing
-                       $('#modalAe').modal('hide')  // hiding modal form
-                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                       $('#tableAe').KTDatatable().reload(); // reload table
-
-                   }
-                   else if (res.data.status == 'error') {
-                       $('#modalAe').modal('hide')  // hiding modal form
-                       toastr.error(`${res.data.message}`, `${res.data.status}`)
-                   }
-                   else {
-                       $('#modalAe').modal('hide') // hiding modal form
-                   };
-               });
-           });
-       });
-
-        /* Table Operations */
-        // Edit Modal Window - opens modal with appropriate properties
-        $('#tableAe').on('click', '.btnEdit', async function (e) {
-            // console.log('btnEdit is clicked');
-
-            var id = $(this).attr("aria-label");
-            // console.log(id);
-
-            FormSubmitButton = document.querySelector('#btnSaveAeFormSubmitButton');
-
-            // enabling disabling buttons
-            $('#btnAddNewAeFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-            $('#btnSaveAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
-
-            $('#modalAe').modal('show');   // open modal
-
-            $('#modalAe').find('.modal-title').text('Edit Section Item'); // Setting title for modal
-
-            // retrieving data
-            await axios({
-                method: 'GET',
-                url: `${HOST_URL}/api/v1/menu/section/${id}`,
-            }).then(async function (res) {
-                // Return valid JSON
-                // console.log(res);
-                
-                if (res.data.status == 'success') {
-            
-                    // fetching menu manager select2
-                    await axios({
-                        method: 'GET',
-                        url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
-                    }).then(function (res) {
-                        //Return valid JSON
-                        // console.log(res);
-        
-                        if (res.data.status === 'success') {
-                            // updating menuManagerSelect values
-                            var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                            $('#menuManagerSelect').append(option).trigger('change');
-                        }
-                    });
-
-                    // updating fields with data
-                    document.querySelector('#menuSectionId').value = res.data.menuSection._id;
-                    document.querySelector('#menuSectionName').value = res.data.menuSection.name;
-                    document.querySelector('#menuSectionDescription').value = res.data.menuSection.description;
-                    document.querySelector('#menuSectionPriority').value = res.data.menuSection.priority;
+          },
+          aeExpires: {
+            validators: {
+              notEmpty: {
+                message: 'Select expiry option',
+              },
+            },
+          },
+          aePriority: {
+            validators: {
+              notEmpty: {
+                message: 'This field is required',
+              },
+            },
+          },
+          aeMessage: {
+            validators: {
+              callback: {
+                message: 'The content is required and cannot be empty',
+                callback: function (input) {
+                  const code = $('[name="aeMessage"]').summernote('code');
+                  // <p><br></p> is code generated by Summernote for empty content
+                  return (code !== '' && code !== '<p><br></p>');
                 }
-                
-            });
-        });
+              },
+            },
+          },
+  
+  
+        },
+          plugins: {
+              //Learn more: https://formvalidation.io/guide/plugins
+              trigger: new FormValidation.plugins.Trigger(),
+              // Bootstrap Framework Integration
+              bootstrap: new FormValidation.plugins.Bootstrap(),
+              // Validate fields when clicking the Submit button
+              FormSubmitButton: new FormValidation.plugins.SubmitButton(),
+              // Submit the form when all fields are valid
+              //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+          },
+      }
 
-       // deleteOne operation
-       $('#tableAe').on('click', '.btnDelete', function (e) {           
-           let ids = $(this).attr("aria-label");
+      /* Search Operations */
+      // search based on status
+      $('#tableAe_search_status_2').on('change', function () {
+        datatable.search($(this).val().toLowerCase(), 'Status');
+      });
 
-           ids = ids.toString();
+      // search based on type
+      $('#tableAe_search_type_2').on('change', function () {
+          datatable.search($(this).val().toLowerCase(), 'Type');
+      });
 
-           const requests = {
-               params: {
-                   _id: ids,
-               }
-           }
+      $('#tableAe_search_status_2, #tableAe_search_type_2').selectpicker();
 
-           axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+      $('#btnOpenAeModal').on('click', async function (e) { 
+        console.log("openButton is clicked");
 
-           // reload table
-           $('#tableAe').KTDatatable().reload();
-           
-       });
+        // enabling disabling buttons
+        $('#btnAddNewAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+        $('#btnSaveAeFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-       // mass operation
-      //  datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-      //      // datatable.checkbox() access to extension methods
-      //      const ids = datatable.checkbox().getSelectedId();
-      //      const count = ids.length;
-       
-      //      $('#tableAe_selected_records_2').html(count);
+        FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
+  
+        $('#modalAe').modal('show');   // open modal  
+  
+        $('#modalAe').find('.modal-title').text('Add New Entries'); // Setting title for modal
+  
+      });
 
-      //      console.log(count)
-       
-      //      if (count > 0) {
-      //          $('#tableAe_group_action_form_2').collapse('show');
-      //      } else {
-      //          $('#tableAe_group_action_form_2').collapse('hide');
-      //      }
-      //  });
+    };
 
-       // deleteAll operation
-       $('#tableAe_group_action_form_2').on('click', '.btnDeleteAll', function () {
-           // console.log('deleteAll is clicked')
-
-           let ids = datatable.checkbox().getSelectedId();
-           ids = ids.toString();
-           // console.log(ids)
-
-           const requests = {
-               params: {
-                   _id: ids,
-               }
-           }
-
-           axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
-
-           $('#tableAe_group_action_form_2').collapse('hide');
-
-           // reload table
-           $('#tableAe').KTDatatable().reload();
-       });
-
-
-  };
-
-      /*   Private functions */
-      function _AnnouncementNotification() {
+    /*   Private functions */
+    function _AnnouncementNotification() {
         var dataSet;
 
-        /* Table Initialize */
+        /* Table Options */
         const options = {
           // datasource definition
           data: {
@@ -673,80 +381,79 @@ const AnnouncementCRUD = (function () {
               },
             },
             {
-              field: 'Actions',
-              title: 'Actions',
-              sortable: false,
-              width: 125,
-              overflow: 'visible',
-              autoHide: false,
-              template: function () {
-                return '\
-                              <div class="dropdown dropdown-inline">\
-                                  <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
+                field: 'Actions',
+                title: 'Actions',
+                sortable: false,
+                width: 125,
+                overflow: 'visible',
+                    autoHide: false,
+                template: function (row) {
+                    return '\
+                                <div class="dropdown dropdown-inline">\
+                                    <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
                                     <i class="fas fa-cog">\
                                     </i>\
-                                  </a>\
-                                  <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
-                                      <ul class="navi flex-column navi-hover py-2">\
-                                          <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
-                                              Choose an action:\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-print"></i></span>\
-                                                  <span class="navi-text">Print</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-copy"></i></span>\
-                                                  <span class="navi-text">Copy</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
-                                                  <span class="navi-text">Excel</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
-                                                  <span class="navi-text">CSV</span>\
-                                              </a>\
-                                          </li>\
-                                          <li class="navi-item">\
-                                              <a href="#" class="navi-link">\
-                                                  <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
-                                                  <span class="navi-text">PDF</span>\
-                                              </a>\
-                                          </li>\
-                                      </ul>\
-                                  </div>\
-                              </div>\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
+                                    </a>\
+                                    <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+                                        <ul class="navi flex-column navi-hover py-2">\
+                                            <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
+                                                Choose an action:\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-print"></i></span>\
+                                                    <span class="navi-text">Print</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-copy"></i></span>\
+                                                    <span class="navi-text">Copy</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
+                                                    <span class="navi-text">Excel</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
+                                                    <span class="navi-text">CSV</span>\
+                                                </a>\
+                                            </li>\
+                                            <li class="navi-item">\
+                                                <a href="#" class="navi-link">\
+                                                    <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
+                                                    <span class="navi-text">PDF</span>\
+                                                </a>\
+                                            </li>\
+                                        </ul>\
+                                    </div>\
+                                </div>\
+                                <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
                                 <i class="far fa-edit">\
                                 </i>\
-                              </a>\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
+                                </a>\
+                                <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
                                 <i class="far fa-trash-alt">\
                                 </i>\
-                              </a>\
-                          ';
+                                </a>\
+                            ';
               },
             },
           ],
         }
-    
-        // enable extension
         options.extensions = {
           // boolean or object (extension options)
           checkbox: true,
         };
 
+        /* Table Initialize */
         const datatable = $('#tableAn').KTDatatable(options);
 
-
+        /* Form Initialize */
         const AnForm = document.querySelector('#formAn');
         let FormSubmitButton = document.querySelector('#btnAddNewAnFormSubmitButton');
         let formOptions =    {
@@ -872,7 +579,6 @@ const AnnouncementCRUD = (function () {
         
         
     };
-  
 
     return {
       // public functions
