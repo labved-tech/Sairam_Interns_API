@@ -1,141 +1,141 @@
 /* eslint-disable */
-//'use strict';
+'use strict';
 
 // Class definition
 
 const EcommerceAddress = (function () {
-    var dataSet;
-    // Private functions
-  
-    const ecommerceAddressTable = async () =>  {
-  
-        const options = {
-          // datasource definition
-          data: {
-            type: 'remote',
-            source: {
-              read: {
-                method: 'get',
-                url: `${HOST_URL}/api/v1/ecommerce/address/table`,
-                params: {
-                  fields: '_id,address1,street,city,state,country,postalcode,createdBy,createdAt,updatedAt',
-                },
-                map: function(raw) {
-                  // sample data mapping
-                  console.log('raw', raw);
-                  dataSet = raw;
-              
-                  if (typeof raw.ecommerceAddress !== 'undefined') {
-                    dataSet = raw.ecommerceAddress;
-                    console.log('dataSet', dataSet);
-                  }
-                  return dataSet;
-                }
-      
-              },
+  var dataSet;
+  // Private functions
+
+  const ecommerceAddressTable = async () => {
+
+    const options = {
+      // datasource definition
+      data: {
+        type: 'remote',
+        source: {
+          read: {
+            method: 'get',
+            url: `${HOST_URL}/api/v1/ecommerce/address/table`,
+            params: {
+              fields: '_id,address1,street,city,state,country,postalcode,createdBy,createdAt,updatedAt',
             },
-            pageSize: 10,
-            serverPaging: true,
-            serverFiltering: true,
-            serverSorting: true,
-            //autoColumns: true,  // newly added
+            map: function (raw) {
+              // sample data mapping
+              console.log('raw', raw);
+              dataSet = raw;
+
+              if (typeof raw.ecommerceAddress !== 'undefined') {
+                dataSet = raw.ecommerceAddress;
+                console.log('dataSet', dataSet);
+              }
+              return dataSet;
+            }
+
           },
-      
-          // layout definition
-          layout: {
-            scroll: true, // enable/disable datatable scroll both horizontal and
-            footer: false, // display/hide footer
-            height: 450,
-      
+        },
+        pageSize: 10,
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true,
+        //autoColumns: true,  // newly added
+      },
+
+      // layout definition
+      layout: {
+        scroll: true, // enable/disable datatable scroll both horizontal and
+        footer: false, // display/hide footer
+        height: 450,
+
+      },
+
+      // column sorting
+      sortable: true,
+
+      pagination: true,
+      search: {
+        input: $('#createEcommerceAddressTable'),
+        key: 'generalSearch',
+      },
+
+      // columns definition
+      columns: [
+        {
+          field: '_id',
+          title: '#',
+          sortable: false,
+          width: 20,
+          selector: {
+            class: '',
           },
-      
-          // column sorting
-          sortable: true,
-      
-          pagination: true,
-          search: {
-            input: $('#createEcommerceAddressTable'),
-            key: 'generalSearch',
-          },
-      
-          // columns definition
-          columns: [
-            {
-              field: '_id',
-              title: '#',
-              sortable: false,
-              width: 20,
-              selector: {
-                class: '',
-              },
-              textAlign: 'center',
-            },
-            {
-              field: 'address1',
-              title: 'Address',
-              template: function (row) {
-                return '\
+          textAlign: 'center',
+        },
+        {
+          field: 'address1',
+          title: 'Address',
+          template: function (row) {
+            return '\
                   <div>\
                   <a href="#">' + row.address1 + '</a></div>\
                 ';
-              }
-            },
-            {
-              field: 'street',
-              title: 'Street',
-            },
-            {
-              field: 'city',
-              title: 'City',
-            },
-            {
-              field: 'state',
-              title: 'State',
-            },
-            {
-              field: 'country',
-              title: 'Country',
-            },
-            {
-              field: 'postalcode',
-              title: 'Postal Code',
-            },
-            {
-              field: 'createdBy',
-              title: 'createdBy',
-            },
-            {
-              field: 'createdAt',
-              title: 'createdAt',
-            },
-            {
-              field: 'updatedAt',
-              title: 'updatedAt',
-            },
-            {
-              field: 'details',
-              title: 'Details',
-              textAlign: 'center',
-              //width: 100,
-              sortable: false,
-              template: function () {
-                return '\
+          }
+        },
+        {
+          field: 'street',
+          title: 'Street',
+        },
+        {
+          field: 'city',
+          title: 'City',
+        },
+        {
+          field: 'state',
+          title: 'State',
+        },
+        {
+          field: 'country',
+          title: 'Country',
+        },
+        {
+          field: 'postalcode',
+          title: 'Postal Code',
+        },
+        {
+          field: 'createdBy',
+          title: 'createdBy',
+        },
+        {
+          field: 'createdAt',
+          title: 'createdAt',
+        },
+        {
+          field: 'updatedAt',
+          title: 'updatedAt',
+        },
+        {
+          field: 'details',
+          title: 'Details',
+          textAlign: 'center',
+          //width: 100,
+          sortable: false,
+          template: function () {
+            return '\
                   <a href="#" class="btn btn-sm btn-light" role="button">\
                     view details\
                   </a >\
                 '
-                ;
-              },
-            },
-            {
-              field: 'Actions',
-              title: 'Actions',
-              sortable: false,
-              width: 125,
-              overflow: 'visible',
-              autoHide: false,
-              template: function () {
-                return '\
+              ;
+          },
+        },
+        {
+          field: 'Actions',
+          title: 'Actions',
+          sortable: false,
+          width: 125,
+          overflow: 'visible',
+          autoHide: false,
+          template: function () {
+            return '\
                             <div class="dropdown dropdown-inline">\
                                 <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
                                   <i class="fas fa-cog">\
@@ -188,57 +188,56 @@ const EcommerceAddress = (function () {
                               </i>\
                             </a>\
                         ';
-              },
-            },
-          ],
-        }
-        
-        // enable extension
-        options.extensions = {
-          // boolean or object (extension options)
-          checkbox: true,
-        };
-    
-    
-        const datatable = $('#kt_datatable_2').KTDatatable(options);
-    
-        $('#kt_datatable_search_status_2').on('change', function () {
-          datatable.search($(this).val().toLowerCase(), 'Status');
-        });
-    
-        $('#kt_datatable_search_type_2').on('change', function () {
-          datatable.search($(this).val().toLowerCase(), 'Type');
-        });
-    
-        $(
-          '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
-        ).selectpicker();
-    
-        datatable.on('datatable-on-click-checkbox', function (e) {
-          // datatable.checkbox() access to extension methods
-          const ids = datatable.checkbox().getSelectedId();
-          const count = ids.length;
-    
-          $('#kt_datatable_selected_records_2').html(count);
-    
-          if (count > 0) {
-            $('#kt_datatable_group_action_form_2').collapse('show');
-          } else {
-            $('#kt_datatable_group_action_form_2').collapse('hide');
-          }
-        });
-    
-      };
-  
-    return {
-      // public functions
-      init: function () {
-        ecommerceAddressTable();
-      },
+          },
+        },
+      ],
+    }
+
+    // enable extension
+    options.extensions = {
+      // boolean or object (extension options)
+      checkbox: true,
     };
-  })();
-  
-  jQuery(document).ready(function () {
-    EcommerceAddress.init();
-  });
-  
+
+
+    const datatable = $('#kt_datatable_2').KTDatatable(options);
+
+    $('#kt_datatable_search_status_2').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Status');
+    });
+
+    $('#kt_datatable_search_type_2').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Type');
+    });
+
+    $(
+      '#kt_datatable_search_status_2, #kt_datatable_search_type_2'
+    ).selectpicker();
+
+    datatable.on('datatable-on-click-checkbox', function (e) {
+      // datatable.checkbox() access to extension methods
+      const ids = datatable.checkbox().getSelectedId();
+      const count = ids.length;
+
+      $('#kt_datatable_selected_records_2').html(count);
+
+      if (count > 0) {
+        $('#kt_datatable_group_action_form_2').collapse('show');
+      } else {
+        $('#kt_datatable_group_action_form_2').collapse('hide');
+      }
+    });
+
+  };
+
+  return {
+    // public functions
+    init: function () {
+      ecommerceAddressTable();
+    },
+  };
+})();
+
+jQuery(document).ready(function () {
+  EcommerceAddress.init();
+});
