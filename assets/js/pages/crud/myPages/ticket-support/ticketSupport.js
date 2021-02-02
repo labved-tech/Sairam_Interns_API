@@ -190,7 +190,7 @@ const TicketSupportCRUD = (function () {
         };
 
 
-        const datatable = $('#kt_datatable_2').KTDatatable(options);
+        const datatable = $('#tableTc').KTDatatable(options);
 
         const TcForm = document.querySelector('#formTc');
         let FormSubmitButton = document.querySelector('#btnAddNewTcFormSubmitButton');
