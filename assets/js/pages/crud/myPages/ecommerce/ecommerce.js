@@ -201,7 +201,7 @@ const EcommerceCRUD = (function () {
         };
 
 
-        const datatable = $('#kt_datatable_2').KTDatatable(options);
+        const datatable = $('#tableEa').KTDatatable(options);
 
         const EaForm = document.querySelector('#formEa');
         let FormSubmitButton = document.querySelector('#btnAddNewEaFormSubmitButton');
