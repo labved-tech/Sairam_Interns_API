@@ -273,32 +273,32 @@ const SalesFinanceCRUD = (function () {
 
       });
         
-      // modal post closed
-      $('#modalA').on('hidden.bs.modal', function (e) {
-          //  console.log('Modal is closed');
+    //   // modal post closed
+    //   $('#modalA').on('hidden.bs.modal', function (e) {
+    //       //  console.log('Modal is closed');
 
-          if (fv) {
-              // clearing forms
-              fv.resetForm();
-              fv.destroy();
-           }
+    //       if (fv) {
+    //           // clearing forms
+    //           fv.resetForm();
+    //           fv.destroy();
+    //        }
 
-           // clearing validator messages
-           $('.fv-plugins-message-container').text(''); // remove message
+    //        // clearing validator messages
+    //        $('.fv-plugins-message-container').text(''); // remove message
 
-           // clearing fields
-           $("#formA").trigger('reset'); // clear form fields
+    //        // clearing fields
+    //        $("#formA").trigger('reset'); // clear form fields
            
 
-      });
+    //   });
         
-      // modal post opened
-      $('#modalA').on('shown.bs.modal', function (e) {
+    //   // modal post opened
+    //   $('#modalA').on('shown.bs.modal', function (e) {
 
-      // Initializing 
+    //   // Initializing 
 
 
-      });
+    //   });
         
         
     };
