@@ -8,7 +8,7 @@ const announcementNotifyRouter = require('./announcementNotifyRoutes');
 
 /* GLOBAL MIDDLEWARE USAGE*/
 router.use((req, res, next) => {
-  console.log('We are in Announcement Routes');
+  console.log('Router : Announcement Routes');
   next();
 });
 

@@ -131,7 +131,7 @@ exports.announcementEntriesAll = (req, res) => {
     .status(200)
     .render('./../views/pages/announcement/announcementEntriesAll');
 };
-exports.announcementEntriesAll = (req, res) => {
+exports.announcementNotificationAll = (req, res) => {
   console.log('We are in Announcement Notification All Page');
   res
     .status(200)
@@ -260,6 +260,14 @@ exports.leadEntriesTable = (req, res) => {
 
 // SALES AND FINANCE RELATED CONTROLLER
 //ADDRESS
+
+exports.addressAll = (req, res) => {
+  console.log('We are in Address All Page');
+  res
+    .status(200)
+    .render('./../views/pages/sales-finance/addressAll');
+};
+
 exports.address = (req, res) => {
   console.log('We are in address Form Page');
   res.status(200).render('./../views/pages/sales-finance/address');

@@ -46,6 +46,7 @@ router.get(
   viewsController.announcementEntriesTable
 );
 router.get('/announcement/entries/all', viewsController.announcementEntriesAll);
+
 router.get('/announcement/notification', viewsController.announcementNotify);
 router.get(
   '/announcement/notification/table',
@@ -53,7 +54,7 @@ router.get(
 );
 router.get(
   '/announcement/notification/all',
-  viewsController.announcementEntriesAll
+  viewsController.announcementNotificationAll
 );
 
 // RATING RELATED ROUTES
@@ -90,6 +91,7 @@ router.get(
 
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);
+router.get('/sales-finance/address/all', viewsController.addressAll);
 router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 
 router.get('/sales-finance/packingList', viewsController.packingList);
