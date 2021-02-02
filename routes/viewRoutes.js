@@ -91,6 +91,7 @@ router.get(
 
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);
+router.get('/sales-finance/address/all', viewsController.addressAll);
 router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
 
 router.get('/sales-finance/packingList', viewsController.packingList);
