@@ -131,7 +131,7 @@ exports.announcementEntriesAll = (req, res) => {
     .status(200)
     .render('./../views/pages/announcement/announcementEntriesAll');
 };
-exports.announcementNotificationAll = (req, res) => {
+exports.announcementEntriesAll = (req, res) => {
   console.log('We are in Announcement Notification All Page');
   res
     .status(200)
@@ -402,6 +402,14 @@ exports.ticketCategoriesTable = (req, res) => {
     .status(200)
     .render('./../views/pages/ticket-support/ticketCategoriesTable');
 };
+
+exports.ticketCategoriesAll = (req, res) => {
+  console.log('We are in ticketCategories All Page');
+  res
+    .status(200)
+    .render('./../views/pages/ticket-support/ticketCategoriesAll');
+};
+
 exports.ticketEntriesTable = (req, res) => {
   console.log('We are in ticketEntries Table Page');
   res.status(200).render('./../views/pages/ticket-support/ticketEntriesTable');

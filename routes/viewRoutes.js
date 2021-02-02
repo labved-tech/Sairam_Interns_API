@@ -46,7 +46,6 @@ router.get(
   viewsController.announcementEntriesTable
 );
 router.get('/announcement/entries/all', viewsController.announcementEntriesAll);
-
 router.get('/announcement/notification', viewsController.announcementNotify);
 router.get(
   '/announcement/notification/table',
@@ -54,7 +53,7 @@ router.get(
 );
 router.get(
   '/announcement/notification/all',
-  viewsController.announcementNotificationAll
+  viewsController.announcementEntriesAll
 );
 
 // RATING RELATED ROUTES
@@ -157,6 +156,10 @@ router.get('/ticket-support/Response', viewsController.ticketResponse);
 router.get(
   '/ticket-support/categories/table',
   viewsController.ticketCategoriesTable
+);
+router.get(
+  '/ticket-support/categories/all',
+  viewsController.ticketCategoriesAll
 );
 router.get('/ticket-support/entries/table', viewsController.ticketEntriesTable);
 router.get(
