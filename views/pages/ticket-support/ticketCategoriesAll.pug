@@ -3,7 +3,7 @@ extends ./../../base.pug
 block css-files
 
 block js-files
-    script(src='/js/pages/crud/myPages/announcement/ticket-support/ticketSupport.js')
+    script(src='/js/pages/crud/myPages/ticket-support/ticketSupport.js')
 
 block content
     #kt_content(class='content d-flex flex-column flex-column-fluid')
@@ -125,7 +125,7 @@ block content
                                     | Fetch Selected Records
                         // end: Selected Rows Group Action Form
                         // begin: Datatable
-                        tableTc(class="datatable datatable-bordered datatable-head-custom")
+                        #tableTc(class="datatable datatable-bordered datatable-head-custom")
                         // end: Datatable
                     // end::Card
                 // end::Card
@@ -168,10 +168,8 @@ block content
                                             div(class='col-7 ')
                                                 textarea#tcNotes(class='form-control' name='tcNotes' rows='3')
                                                 span(class='form-text text-muted') Add Notes
-                                        div(class='separator separator-dashed my-10')
-                                        h3(class=' text-dark font-weight-bold mb-10') Target Conditions
-                                        
-                                        div(class='modal-footer')
-                                            button#btnResetTcForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
-                                            button#btnAddNewTcFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
-                                            button#btnSaveTcFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
+
+                                div(class='modal-footer')
+                                    button#btnResetTcForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                    button#btnAddNewTcFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                    button#btnSaveTcFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
