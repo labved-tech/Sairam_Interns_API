@@ -639,6 +639,11 @@ exports.ecommerceAddressTable = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceAddressTable');
 };
 
+exports.ecommerceAddressAll = (req, res) => {
+  console.log('We are in Ecommerce Address All Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceAddressAll');
+};
+
 exports.ecommerceLocationsTable = (req, res) => {
   console.log('We are in Ecommerce Location Tables Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceLocationsTable');
