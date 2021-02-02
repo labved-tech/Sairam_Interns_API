@@ -260,6 +260,14 @@ exports.leadEntriesTable = (req, res) => {
 
 // SALES AND FINANCE RELATED CONTROLLER
 //ADDRESS
+
+exports.addressAll = (req, res) => {
+  console.log('We are in Address All Page');
+  res
+    .status(200)
+    .render('./../views/pages/sales-finance/addressAll');
+};
+
 exports.address = (req, res) => {
   console.log('We are in address Form Page');
   res.status(200).render('./../views/pages/sales-finance/address');
@@ -645,6 +653,11 @@ exports.ecommerceProducts = (req, res) => {
 exports.ecommerceAddressTable = (req, res) => {
   console.log('We are in Ecommerce Address Tables Form Page');
   res.status(200).render('./../views/pages/ecommerce/ecommerceAddressTable');
+};
+
+exports.ecommerceAddressAll = (req, res) => {
+  console.log('We are in Ecommerce Address All Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceAddressAll');
 };
 
 exports.ecommerceLocationsTable = (req, res) => {

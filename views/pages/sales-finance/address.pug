@@ -60,12 +60,8 @@ block content
                                             div(class='col-6')
                                                 input#adPincode(type='text' class='form-control' name='adPincode' placeholder='Enter PinCode')
 
-                            div(class='card-footer')
-                                div(class='row text-right')
-                                    div(class='col-12 ml-lg-auto')
-                                        button#adFormSubmitButton(type='submit' class='btn btn-primary font-weight-bold mr-2') Submit
-                                        button(type='reset' class='btn btn-light-primary font-weight-bold') Cancel
-                        // end::Form
-                // end::Card
-            // end::Container
-        // end::Entry
+                                    div(class='modal-footer')
+                                        button#btnResetAForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                        button#btnAddNewAFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                        button#btnSaveAFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
+
