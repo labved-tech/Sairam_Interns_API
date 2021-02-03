@@ -87,7 +87,7 @@ router.get(
   '/newsletter/messages/table',
   viewsController.newsletterMessagesTable
 );
-router.get('/newsletter/entries/all', viewsController.newsletterEntriesAll);
+router.get('/newsletter/messages/all', viewsController.newsletterMessagesAll);
 
 // SALES AND FINANCE RELATED ROUTES
 router.get('/sales-finance/address', viewsController.address);
