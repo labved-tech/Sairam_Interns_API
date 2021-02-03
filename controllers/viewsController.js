@@ -182,6 +182,11 @@ exports.newsletterMessagesTable = (req, res) => {
   res.status(200).render('./../views/pages/newsletter/newsletterMessagesTable');
 };
 
+exports.newsletterEntriesAll = (req, res) => {
+  console.log('We are in Newsletter Entries Form Page');
+  res.status(200).render('./../views/pages/newsletter/newsletterEntriesAll');
+};
+
 // RATING RELATED CONTROLLER
 exports.ratingAttributeGroups = (req, res) => {
   console.log('We are in Rating AttributeGroups Form Page');
