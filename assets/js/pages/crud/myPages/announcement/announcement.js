@@ -23,16 +23,16 @@ const AnnouncementCRUD = (function () {
               },
               map: function(raw) {
                 // sample data mapping
-                console.log('raw', raw);
+                // console.log('raw', raw);
                 dataSet = raw;
-            
+
                 if (typeof raw.announcementEntries !== 'undefined') {
                   dataSet = raw.announcementEntries;
-                  console.log('dataSet', dataSet);
+                  // console.log('dataSet', dataSet);
                 }
                 return dataSet;
               }
-    
+
             },
           },
           pageSize: 10,
@@ -41,24 +41,24 @@ const AnnouncementCRUD = (function () {
           serverSorting: true,
           //autoColumns: true,  // newly added
         },
-  
+
         // layout definition
         layout: {
           scroll: true, // enable/disable datatable scroll both horizontal and
           footer: false, // display/hide footer
           height: 450,
-  
+
         },
-  
+
         // column sorting
         sortable: true,
-  
+
         pagination: true,
         search: {
           input: $('#tableAe_search_query_2'),
           key: 'generalSearch',
         },
-  
+
         // columns definition
         columns: [
           {
@@ -237,8 +237,8 @@ const AnnouncementCRUD = (function () {
               },
             },
           },
-  
-  
+
+
         },
           plugins: {
               //Learn more: https://formvalidation.io/guide/plugins
@@ -248,9 +248,11 @@ const AnnouncementCRUD = (function () {
               // Validate fields when clicking the Submit button
               FormSubmitButton: new FormValidation.plugins.SubmitButton(),
               // Submit the form when all fields are valid
-              //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+              //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
           },
       }
+
+      let fv;
 
       /* Search Operations */
       // search based on status
@@ -265,19 +267,57 @@ const AnnouncementCRUD = (function () {
 
       $('#tableAe_search_status_2, #tableAe_search_type_2').selectpicker();
 
-      $('#btnOpenAeModal').on('click', async function (e) { 
-        console.log("openButton is clicked");
+      // modal open
+      $('#btnOpenAeModal').on('click', async function (e) {
+        console.log('openButton is clicked');
 
         // enabling disabling buttons
         $('#btnAddNewAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
         $('#btnSaveAeFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
         FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
-  
-        $('#modalAe').modal('show');   // open modal  
-  
+
+        $('#modalAe').modal('show');   // open modal
+
         $('#modalAe').find('.modal-title').text('Add New Entries'); // Setting title for modal
-  
+
+      });
+
+      // modal post closed
+      $('#modalAe').on('hidden.bs.modal', function (e) {
+         console.log('Modal closed');
+
+        if (fv) {
+            // clearing forms
+            fv.resetForm();
+            fv.destroy();
+          }
+
+          // clearing validator messages
+          $('.fv-plugins-message-container').text(''); // remove message
+
+          // clearing fields
+          $("#formAe").trigger('reset'); // clear form fields
+
+          // manually resetting other fields
+          $('#aeExpires').empty().trigger('change');  // clearing select2  */
+
+      });
+
+      // modal post opened
+      $('#modalAe').on('shown.bs.modal', function (e) {
+         console.log('Modal open');
+
+         // Initializing
+        $('#aeMessage').summernote({
+          height: 400,
+          tabsize: 2,
+        });
+
+        $('#aeExpires').select2({
+          placeholder: "Select expiry"
+        });
+
       });
 
     };
@@ -300,16 +340,16 @@ const AnnouncementCRUD = (function () {
                 },
                 map: function (raw) {
                   // sample data mapping
-                  console.log('raw', raw);
+                  // console.log('raw', raw);
                   dataSet = raw;
-    
+
                   if (typeof raw.announcementNotification !== 'undefined') {
                     dataSet = raw.announcementNotification;
                     console.log('dataSet', dataSet);
                   }
                   return dataSet;
                 }
-    
+
               },
             },
             pageSize: 10,
@@ -318,24 +358,24 @@ const AnnouncementCRUD = (function () {
             serverSorting: true,
             //autoColumns: true,  // newly added
           },
-    
+
           // layout definition
           layout: {
             scroll: true, // enable/disable datatable scroll both horizontal and
             footer: false, // display/hide footer
             height: 450,
-    
+
           },
-    
+
           // column sorting
           sortable: true,
-    
+
           pagination: true,
           search: {
             input: $('#kt_datatable_search_query_2'),
             key: 'generalSearch',
           },
-    
+
           // columns definition
           columns: [
             {
@@ -352,7 +392,7 @@ const AnnouncementCRUD = (function () {
               field: '_announcementId',
               title: 'Announcement Id',
             },
-    
+
             {
               field: 'priority',
               title: 'Priority',
@@ -465,7 +505,7 @@ const AnnouncementCRUD = (function () {
                   },
                 },
               },
-      
+
               anRecipientID: {
                 validators: {
                   notEmpty: {
@@ -473,7 +513,7 @@ const AnnouncementCRUD = (function () {
                   },
                 },
               },
-      
+
               anPriority: {
                 validators: {
                   notEmpty: {
@@ -481,7 +521,7 @@ const AnnouncementCRUD = (function () {
                   },
                 },
               },
-      
+
               anName: {
                 validators: {
                   notEmpty: {
@@ -489,7 +529,7 @@ const AnnouncementCRUD = (function () {
                   },
                 },
               },
-      
+
               anEmail: {
                 validators: {
                   notEmpty: {
@@ -497,7 +537,7 @@ const AnnouncementCRUD = (function () {
                   },
                 },
               },
-      
+
               anIsEmailSent: {
                 validators: {
                   notEmpty: {
@@ -514,9 +554,11 @@ const AnnouncementCRUD = (function () {
                 // Validate fields when clicking the Submit button
                 FormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
-                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
-        }
+      }
+
+      let fv;
 
       /* Search Operations */
       // search based on status
@@ -530,9 +572,9 @@ const AnnouncementCRUD = (function () {
       });
 
         $('#tableAn_search_status_2, #tableAn_search_type_2').selectpicker();
-        
+
       /* Modal Operations */
-      // to open modal 
+      // to open modal
       $('#btnOpenAnModal').on('click', async function (e) {
       // console.log('btnNewItem is clicked');
 
@@ -542,12 +584,12 @@ const AnnouncementCRUD = (function () {
       $('#btnAddNewAnFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
       $('#btnSaveAnFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-      $('#modalAn').modal('show');   // open modal  
+      $('#modalAn').modal('show');   // open modal
 
       $('#modalAn').find('.modal-title').text('Add New Announcement Notification'); // Setting title for modal
 
       });
-        
+
       // modal post closed
       $('#modalAn').on('hidden.bs.modal', function (e) {
           //  console.log('Modal is closed');
@@ -563,21 +605,72 @@ const AnnouncementCRUD = (function () {
 
            // clearing fields
            $("#formAn").trigger('reset'); // clear form fields
-           
+
            // manually resetting other fields
            $('#anEmail').empty().trigger('change');  // clearing select2  */
 
       });
-        
+
       // modal post opened
       $('#modalAn').on('shown.bs.modal', function (e) {
 
-      // Initializing 
+      // Initializing
 
 
       });
-        
-        
+
+      // Edit Modal Window - opens modal with appropriate properties
+      $('#tableAe').on('click', '.btnEdit', async function (e) {
+        // console.log('btnEdit is clicked');
+
+        var id = $(this).attr("aria-label");
+        // console.log(id);
+
+        FormSubmitButton = document.querySelector('#btnSaveAeFormSubmitButton');
+
+        // enabling disabling buttons
+        $('#btnAddNewAeFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+        $('#btnSaveAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+        $('#modalAe').modal('show');   // open modal
+
+        $('#modalAe').find('.modal-title').text('Edit Entry'); // Setting title for modal
+
+        // retrieving data
+        await axios({
+            method: 'GET',
+            url: `${HOST_URL}/api/v1/announcement/entries/${id}`,
+        }).then(async function (res) {
+            // Return valid JSON
+            console.log(res);
+
+            if (res.data.status == 'success') {
+
+                // fetching menu manager select2
+                await axios({
+                    method: 'GET',
+                    url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+                }).then(function (res) {
+                    //Return valid JSON
+                    console.log(res);
+
+                    if (res.data.status === 'success') {
+                        // updating menuManagerSelect values
+                        var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                        $('#menuManagerSelect').append(option).trigger('change');
+                    }
+                });
+
+                // updating fields with data
+                document.querySelector('#menuSectionId').value = res.data.menuSection._id;
+                document.querySelector('#menuSectionName').value = res.data.menuSection.name;
+                document.querySelector('#menuSectionDescription').value = res.data.menuSection.description;
+                document.querySelector('#menuSectionPriority').value = res.data.menuSection.priority;
+            }
+
+        });
+      });
+
     };
 
     return {
