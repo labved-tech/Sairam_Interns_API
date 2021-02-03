@@ -138,14 +138,14 @@ block content
                                     // begin::Form
                                     form#formAe(class='form')
                                         div(class='modal-header')
-                                            h5(class='modal-title') Announcement Entries
+                                            h5(class='modal-title') Add New
                                             button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
                                                 i(aria-hidden='true' class='ki ki-close')
                                         div(class='modal-body')
                                             div(data-scroll='true' data-height='350')
-                                                // AnId - hidden
+                                                // AeId - hidden
                                                 div(class= 'form-group row')
-                                                    input#aeId(type='hidden' name='aeId')
+                                                    input#anId(type='hidden' name='aeId')
 
                                                 // aeTitle
                                                 div(class='form-group row')
@@ -192,15 +192,15 @@ block content
                                                         input#aePriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='aePriority' placeholder='1')
                                                 
 
-                                        // aeMessage
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Message
-                                            div(class='col-9')
-                                                div#aeMessage(class='summernote' name='aeMessage')
-                                                span(class='form-text text-muted') Add message that you wish to send.                                   
-                                        div(class='separator separator-dashed my-10')
-                                        h3(class=' text-dark font-weight-bold mb-10') Target Conditions
-
+                                                // aeMessage
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Message
+                                                    div(class='col-9')
+                                                        div#aeMessage(class='summernote' name='aeMessage')
+                                                        span(class='form-text text-muted') Add message that you wish to send.                                   
+                                                div(class='separator separator-dashed my-10')
+                                                h3(class=' text-dark font-weight-bold mb-10') Target Conditions
+                                                        
                                         
                                         div(class='modal-footer')
                                             button#btnResetAeForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset

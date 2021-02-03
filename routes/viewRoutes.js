@@ -53,7 +53,7 @@ router.get(
 );
 router.get(
   '/announcement/notification/all',
-  viewsController.announcementEntriesAll
+  viewsController.announcementNotificationAll
 );
 
 // RATING RELATED ROUTES
