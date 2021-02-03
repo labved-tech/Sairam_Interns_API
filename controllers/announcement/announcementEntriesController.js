@@ -127,7 +127,7 @@ exports.getAnnouncementEntries = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got Announcement Entries Id=${id}`,
-    Data: { announcementEntries },
+    announcementEntries,
   });
 
   next();
