@@ -182,9 +182,9 @@ exports.newsletterMessagesTable = (req, res) => {
   res.status(200).render('./../views/pages/newsletter/newsletterMessagesTable');
 };
 
-exports.newsletterEntriesAll = (req, res) => {
+exports.newsletterMessagesAll = (req, res) => {
   console.log('We are in Newsletter Entries Form Page');
-  res.status(200).render('./../views/pages/newsletter/newsletterEntriesAll');
+  res.status(200).render('./../views/pages/newsletter/newsletterMessagesAll');
 };
 
 // RATING RELATED CONTROLLER

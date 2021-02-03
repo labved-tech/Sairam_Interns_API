@@ -40,35 +40,35 @@ const SalesFinanceCRUD = (function () {
                 adAddress: {
                     validators: {
                         notEmpty: {
-                            message: 'Newsletter ID is required',
+                            message: 'This field is required',
                         },
                     },
                 },
                 adCity: {
                     validators: {
                         notEmpty: {
-                            message: 'Subject is required',
+                            message: 'This field is required',
                         },
                     },
                 },
                 adState: {
                     validators: {
                         notEmpty: {
-                            message: 'Recipient Email is required',
+                            message: 'This field is required',
                         },
                     },
                 },
                 adCountry: {
                     validators: {
                         notEmpty: {
-                            message: 'Recipient Email is required',
+                            message: 'This field is required',
                         },
                     },
                 },
                 adPincode: {
                     validators: {
                         notEmpty: {
-                            message: 'Recipient Email is required',
+                            message: 'This field is required',
                         },
                     },
                 },
