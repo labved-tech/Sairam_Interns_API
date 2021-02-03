@@ -131,7 +131,7 @@ exports.announcementEntriesAll = (req, res) => {
     .status(200)
     .render('./../views/pages/announcement/announcementEntriesAll');
 };
-exports.announcementEntriesAll = (req, res) => {
+exports.announcementNotificationAll = (req, res) => {
   console.log('We are in Announcement Notification All Page');
   res
     .status(200)
@@ -180,6 +180,11 @@ exports.newsletterEntriesTable = (req, res) => {
 exports.newsletterMessagesTable = (req, res) => {
   console.log('We are in Newsletter Messages Table Page');
   res.status(200).render('./../views/pages/newsletter/newsletterMessagesTable');
+};
+
+exports.newsletterMessagesAll = (req, res) => {
+  console.log('We are in Newsletter Entries Form Page');
+  res.status(200).render('./../views/pages/newsletter/newsletterMessagesAll');
 };
 
 // RATING RELATED CONTROLLER
@@ -263,9 +268,7 @@ exports.leadEntriesTable = (req, res) => {
 
 exports.addressAll = (req, res) => {
   console.log('We are in Address All Page');
-  res
-    .status(200)
-    .render('./../views/pages/sales-finance/addressAll');
+  res.status(200).render('./../views/pages/sales-finance/addressAll');
 };
 
 exports.address = (req, res) => {
@@ -413,9 +416,7 @@ exports.ticketCategoriesTable = (req, res) => {
 
 exports.ticketCategoriesAll = (req, res) => {
   console.log('We are in ticketCategories All Page');
-  res
-    .status(200)
-    .render('./../views/pages/ticket-support/ticketCategoriesAll');
+  res.status(200).render('./../views/pages/ticket-support/ticketCategoriesAll');
 };
 
 exports.ticketEntriesTable = (req, res) => {

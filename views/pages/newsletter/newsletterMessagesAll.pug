@@ -3,7 +3,7 @@ extends ./../../base.pug
 block css-files
 
 block js-files
-    script(src='/js/pages/crud/myPages/announcement/announcement.js')
+    script(src='/js/pages/crud/myPages/newsletter/newsletter.js')
 
 
 block content
@@ -18,7 +18,7 @@ block content
                             div(class="card-header flex-wrap border-0 pt-6 pb-0")
                                 div(class="card-title")
                                     h3(class="card-label")
-                                        | Announcement Entries
+                                        | Newsletter Messages
                                         span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
                                 div(class="card-toolbar")
                                     // begin::Dropdown
@@ -62,7 +62,7 @@ block content
                                     // end::Dropdown
                                     // begin::Button
                                     // Button trigger modal
-                                    button#btnOpenAeModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                    button#btnOpenNmModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
                                         | Add New
 
                             div(class="card-body")
@@ -73,13 +73,13 @@ block content
                                             div(class="row align-items-center")
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="input-icon")
-                                                        input#tableAe_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                        input#tableNm_search_query_2(type="text", class="form-control", placeholder="Search...")
                                                         span
                                                             i(class="flaticon2-search-1 text-muted")
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="d-flex align-items-center")
                                                         label(class="mr-3 mb-0 d-none d-md-block") Status:
-                                                        select#tableAe_search_status_2(class="form-control")
+                                                        select#tableNm_search_status_2(class="form-control")
                                                             option(value="") All
                                                             option(value="1") Pending
                                                             option(value="2") Delivered
@@ -90,7 +90,7 @@ block content
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="d-flex align-items-center")
                                                         label(class="mr-3 mb-0 d-none d-md-block") Type:
-                                                        select#tableAe_search_type_2(class="form-control")
+                                                        select#tableNm_search_type_2(class="form-control")
                                                             option(value="") All
                                                             option(value="1") Online
                                                             option(value="2") Retail
@@ -100,11 +100,11 @@ block content
                                                 | Search
                                 // end::Search Form
                                 // begin: Selected Rows Group Action Form
-                                #tableAe_group_action_form_2(class="mt-10 mb-5 collapse")
+                                #tableNm_group_action_form_2(class="mt-10 mb-5 collapse")
                                     div(class="d-flex align-items-center")
                                         div(class="font-weight-bold text-danger mr-3")
                                             | Selected 
-                                            span#tableAe_selected_records_2 0
+                                            span#tableNM_selected_records_2 0
                                             |  records:
                                         div(class="dropdown mr-2")
                                             button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
@@ -122,87 +122,82 @@ block content
                                                             span(class="nav-text") Canceled
                                         button#btnDeleteAll(class="btn btn-sm btn-danger mr-2 btnDeleteAll", type="button")
                                             | Delete All
-                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableAe_fetch_modal_2")
+                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableNm_fetch_modal_2")
                                             | Fetch Selected Records
                                 // end: Selected Rows Group Action Form
                                 // begin: Datatable
-                                #tableAe(class="datatable datatable-bordered datatable-head-custom")
+                                #tableNm(class="datatable datatable-bordered datatable-head-custom")
                                 // end: Datatable
                             // end::Card
                         // end::Card
 
-                        // ##################################### AeFormModal ############################################################################################
-                        #modalAe(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='AeModalLabel' aria-hidden='true')
+                        // ##################################### AnFormModal ############################################################################################
+                        #modalAn(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='AnModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
-                                    form#formAe(class='form')
+                                    form#formNm(class='form')
                                         div(class='modal-header')
-                                            h5(class='modal-title') Add New
+                                            h5(class='modal-title') Newsletter Messages
                                             button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
                                                 i(aria-hidden='true' class='ki ki-close')
                                         div(class='modal-body')
                                             div(data-scroll='true' data-height='350')
-                                                // AeId - hidden
+                                                // NmId - hidden
                                                 div(class= 'form-group row')
-                                                    input#anId(type='hidden' name='aeId')
+                                                    input#nmId(type='hidden' name='nmId')
 
-                                                // aeTitle
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Title
-                                                        span(class='text-danger')  *
-                                                    div(class='col-6')
-                                                        input#aeTitle(type='text' class='form-control' name='aeTitle' placeholder='Monthly - Summary')
+                                        
+                                        //nmID
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Newsletter ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#nmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='nmID' placeholder='')
+                                        
+                                        // nmSubject
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Subject
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#nmSubject(type='text' class='form-control' name='nmSubject' placeholder='Enter Subject')
 
-                                                // aeFrom
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') From
-                                                        span(class='text-danger')  *
-                                                    div(class='col-6')
-                                                        input#aeFrom(type='text' class='form-control' name='aeFrom' placeholder='andrewk@gmail.com')
-                                                        span(class='form-text text-muted') Provide Email Address from which you are going to send. 
-
-                                                // aeIsEmailReq
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Email Required ?
-                                                    div(class='col-4')
-                                                        span(class='switch switch-sm')
-                                                            label
-                                                                input#aeIsEmailReq(type='checkbox' checked='checked' name='aeIsEmailReq')
-                                                                span
-
-                                                // aeExpires
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Expires In
-                                                        span(class='text-danger')  *
-                                                    div(class=' col-4')
-                                                        select#aeExpires(class='form-control select2' name='aeExpires' data-placeholder='Select option')
-                                                            option(value="" disabled="" selected="" hidden="")
-                                                            option(value='n') Never
-                                                            option(value='1d') Daily
-                                                            option(value='7d') Weekly
-                                                            option(value='30d') Monthly
-                                                            option(value='1y') Yearly
-                                                        span(class='form-text text-muted') Lorem Ipsum is simply dummy text of the printing and typesetting industry.                                   
-
-                                                // aePriority
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Priority
-                                                    div(class='col-4')
-                                                        input#aePriority(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='aePriority' placeholder='1')
-                                                
-
-                                                // aeMessage
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Message
-                                                    div(class='col-9')
-                                                        div#aeMessage(class='summernote' name='aeMessage')
-                                                        span(class='form-text text-muted') Add message that you wish to send.                                   
-                                                div(class='separator separator-dashed my-10')
-                                                h3(class=' text-dark font-weight-bold mb-10') Target Conditions
-                                                        
+                                        // nmMessage
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Message
+                                            div(class='col-9')
+                                                div#nmMessage(class='summernote' name='nmMessage')
+                                                span(class='form-text text-muted') Add message that you wish to send.                                
+                                                                                        
+                                        // nmEmail  
+                                        div(class='form-group row')
+                                            label(class=' col-3 col-form-label form-control-label text-right ') Recipient Email
+                                            div(class='col-5')
+                                                select#nmEmail(class='form-control selectpicker' multiple=''  data-live-search='true' name='nmEmail' )
+                                                    option alexrider@gmail.com
+                                                    option percyjackson@gmail.com
+                                                    option jupiterjones@gmail.com
+                                                span(class='form-text text-muted') Select Email                                   
+                                        
+                                        //nmSent
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Sent
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#nmSent(type='checkbox' checked='checked' name='nmSent')
+                                                        span
+                                        
+                                        //nmVisited
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Visited
+                                            div(class='col-4')
+                                                span(class='switch switch-sm')
+                                                    label
+                                                        input#nmVisited(type='checkbox' checked='checked' name='nmVisited')
+                                                        span  
                                         
                                         div(class='modal-footer')
-                                            button#btnResetAeForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
-                                            button#btnAddNewAeFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
-                                            button#btnSaveAeFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
+                                            button#btnResetNmForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                            button#btnAddNewNmFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                            button#btnSaveNmFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
