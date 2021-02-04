@@ -320,59 +320,6 @@ const AnnouncementCRUD = (function () {
 
       });
 
-      // Edit Modal Window - opens modal with appropriate properties
-      $('#tableAe').on('click', '.btnEdit', async function (e) {
-        // console.log('btnEdit is clicked');
-
-        var id = $(this).attr("aria-label");
-        // console.log(id);
-
-        FormSubmitButton = document.querySelector('#btnSaveAeFormSubmitButton');
-
-        // enabling disabling buttons
-        $('#btnAddNewAeFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-        $('#btnSaveAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
-
-        $('#modalAe').modal('show');   // open modal
-
-        $('#modalAe').find('.modal-title').text('Edit Entry'); // Setting title for modal
-
-        // retrieving data
-        await axios({
-            method: 'GET',
-            url: `${HOST_URL}/api/v1/announcement/entries/${id}`,
-        }).then(async function (res) {
-            // Return valid JSON
-            console.log(res);
-
-          if (res.data.status == 'success') {
-              
-                // // fetching menu manager select2
-                // await axios({
-                //     method: 'GET',
-                //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
-                // }).then(function (res) {
-                //     //Return valid JSON
-                //     console.log(res);
-
-                //     if (res.data.status === 'success') {
-                //         // updating menuManagerSelect values
-                //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                //         $('#menuManagerSelect').append(option).trigger('change');
-                //     }
-                // });
-
-                // updating fields with data
-                document.querySelector('#aeId').value = res.data.announcementEntries._id;
-                document.querySelector('#aeTitle').value = res.data.announcementEntries.title;
-                document.querySelector('#aeFrom').value = res.data.announcementEntries.from;
-                document.querySelector('#aeIsEmailReq').value = res.data.announcementEntries.isEmailReq;
-                document.querySelector('#aePriority').value = res.data.announcementEntries.priority;
-                document.querySelector('#aeMessage').value = res.data.announcementEntries.message;                
-            }
-        });
-      });
-
       // form reset operation
       $('#formAe').on('click', '.btnReset', function (e) {
         // console.log('btnResetMenuSectionForm is clicked');
@@ -455,6 +402,158 @@ const AnnouncementCRUD = (function () {
                 };
             });
         });
+      });
+
+      // form save operation
+      $('#formAe').on('click', '.btnSave', function (e) {
+        console.log('btnSave is clicked');
+
+        // clearing validator messages
+        $('.fv-plugins-message-container').text(''); // remove message
+        
+        FormSubmitButton = document.querySelector('#btnSaveAeFormSubmitButton');
+
+        // Validation
+        fv = FormValidation.formValidation(AeForm, formOptions);
+
+        // validation failed
+        fv.on('core.form.invalid', async function () {
+            // console.log('Something went wrong!!');    
+        });
+
+        // validation successful
+        fv.on('core.form.valid', async function () {
+
+            const id = document.querySelector('#aeId').value;
+
+            // Show loading state on button
+            KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+            // Accessing Restful API
+            await axios({
+                method: 'patch',
+                url: `${HOST_URL}/api/v1/announcement/entries/${id}`,
+                data: {
+                    title: document.querySelector('#aeTitle').value,
+                    message: $('#aeMessage').summernote('code'),   // not working - Summernote WYSIWYG
+                    from: document.querySelector('#aeFrom').value,
+                    isEmailReq: document.querySelector('#aeIsEmailReq').value,   //if(aeIsEmailReq.value=== 'on') return true
+                    priority: document.querySelector('#aePriority').value * 1,
+                    expires: document.querySelector('#aeExpires').value,
+                },
+            }).then(function (res) {
+                // Return valid JSON
+                // console.log(res);
+
+                // Release button
+                KTUtil.btnRelease(FormSubmitButton);
+
+                if (res.data.status == 'success') {
+                    // reseting & clearing
+                    $('#modalAe').modal('hide')  // hiding modal form
+                    toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                    $('#tableAe').KTDatatable().reload(); // reload table
+
+                }
+                else if (res.data.status == 'error') {
+                    $('#modalAe').modal('hide')  // hiding modal form
+                    toastr.error(`${res.data.message}`, `${res.data.status}`)
+                }
+                else {
+                    $('#modalAe').modal('hide') // hiding modal form
+                };
+            });
+        });
+      });
+
+      // Edit Modal Window - opens modal with appropriate properties
+      $('#tableAe').on('click', '.btnEdit', async function (e) {
+        // console.log('btnEdit is clicked');
+
+        var id = $(this).attr("aria-label");
+        // console.log(id);
+
+        FormSubmitButton = document.querySelector('#btnSaveAeFormSubmitButton');
+
+        // enabling disabling buttons
+        $('#btnAddNewAeFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+        $('#btnSaveAeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+        $('#modalAe').modal('show');   // open modal
+
+        $('#modalAe').find('.modal-title').text('Edit Entry'); // Setting title for modal
+
+        // retrieving data
+        await axios({
+            method: 'GET',
+            url: `${HOST_URL}/api/v1/announcement/entries/${id}`,
+        }).then(async function (res) {
+            // Return valid JSON
+            console.log(res);
+
+          if (res.data.status == 'success') {
+              
+                // // fetching menu manager select2
+                // await axios({
+                //     method: 'GET',
+                //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+                // }).then(function (res) {
+                //     //Return valid JSON
+                //     console.log(res);
+
+                //     if (res.data.status === 'success') {
+                //         // updating menuManagerSelect values
+                //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                //         $('#menuManagerSelect').append(option).trigger('change');
+                //     }
+                // });
+
+                // updating fields with data
+                document.querySelector('#aeId').value = res.data.announcementEntries._id;
+                document.querySelector('#aeTitle').value = res.data.announcementEntries.title;
+                document.querySelector('#aeFrom').value = res.data.announcementEntries.from;
+                document.querySelector('#aeIsEmailReq').value = res.data.announcementEntries.isEmailReq;
+                document.querySelector('#aePriority').value = res.data.announcementEntries.priority;
+                document.querySelector('#aeMessage').value = res.data.announcementEntries.message;                
+            }
+        });
+      });
+
+      // deleteOne operation
+      $('#tableAe').on('click', '.btnDelete', function (e) {
+        console.log('btnDelete Clicked');
+        let ids = $(this).attr("aria-label");
+
+        ids = ids.toString();
+
+        const requests = {
+            params: {
+                _id: ids,
+            }
+        }
+
+        axios.delete(`${HOST_URL}/api/v1/announcement/entries`, requests);
+
+        // reload table
+        $('#tableAe').KTDatatable().reload();
+        
+      });
+
+      // deleteAll mass operation
+      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+        // datatable.checkbox() access to extension methods
+        const ids = datatable.checkbox().getSelectedId();
+        const count = ids.length;
+    
+        $('#tableAe_selected_records_2').html(count);
+
+        console.log(count)
+    
+        if (count > 0) {
+            $('#tableAe_group_action_form_2').collapse('show');
+        } else {
+            $('#tableAe_group_action_form_2').collapse('hide');
+        }
       });
 
     };

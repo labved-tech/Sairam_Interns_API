@@ -416,8 +416,7 @@ const NewsletterCRUD = (function () {
                 method: 'post',
                 url: `${HOST_URL}/api/v1/newsletter/messages`,
                 data: {
-                    title: document.querySelector('#nmID').value,
-                    message: $('#nmMessage').summernote('code'),   // not working - Summernote WYSIWYG
+                    message: $('#nmMessage').summernote('code'),   
                     subject: document.querySelector('#nmSubject').value,
                     email: document.querySelector('#nmEmail').value,  
                     sent: (document.querySelector('#nmSent').value == 'on' ) ? true:false,
