@@ -189,7 +189,6 @@ const TicketSupportCRUD = (function () {
             checkbox: true,
         };
 
-
         const datatable = $('#tableTc').KTDatatable(options);
 
         const TcForm = document.querySelector('#formTc');
@@ -350,7 +349,7 @@ const TicketSupportCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/menu/section`,
+                    url: `${HOST_URL}/api/v1/ticket-support/categories`,
                     data: {
                         manager: document.querySelector('#menuManagerSelect').value,
                         name: document.querySelector('#tcnName').value,

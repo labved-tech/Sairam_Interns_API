@@ -114,7 +114,6 @@ exports.getAllAddress = catchAsync(async (req, res, next) => {
     message: 'Got All Address',
     results: address.length,
     address,
-
   });
   next();
 });
@@ -127,7 +126,7 @@ exports.getAddress = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got Address Id=${id}`,
-    Data: { address },
+    address,
   });
 
   next();
