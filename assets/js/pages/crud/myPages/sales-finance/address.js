@@ -433,7 +433,7 @@ const SalesFinanceCRUD = (function () {
                    // reseting & clearing
                    $('#modalA').modal('hide')  // hiding modal form
                    toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                   $('#modalA').KTDatatable().reload(); // reload table
+                   $('#tableA').KTDatatable().reload(); // reload table
                }
                else if (res.data.status == 'error') {
                    $('#modalA').modal('hide')  // hiding modal form
