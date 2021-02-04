@@ -158,9 +158,9 @@ exports.createNewsletterMessages = catchAsync(async (req, res, next) => {
   res.status(201).json({
     status: 'success',
     message: 'Created Newsletter Messages',
-    newsletterMessages ,
+    newsletterMessages,
   });
-  
+
 });
 
 exports.updateNewsletterMessages = catchAsync(async (req, res, next) => {
