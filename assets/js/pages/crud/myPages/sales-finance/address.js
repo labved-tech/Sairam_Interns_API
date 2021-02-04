@@ -256,6 +256,195 @@ const SalesFinanceCRUD = (function () {
 
         $('#tableA_search_status_2, #tableA_search_type_2').selectpicker();
         
+      // modal open
+      $('#btnOpenAModal').on('click', async function (e) {
+        console.log('openButton is clicked');
+
+        // enabling disabling buttons
+        $('#btnAddNewAFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+        $('#btnSaveAFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+
+        FormSubmitButton = document.querySelector('#btnAddNewAFormSubmitButton');
+
+        $('#modalA').modal('show');   // open modal
+
+        $('#modalA').find('.modal-title').text('Add New Entries'); // Setting title for modal
+
+      });
+
+      // modal post closed
+      $('#modalA').on('hidden.bs.modal', function (e) {
+        console.log('Modal closed');
+
+       if (fv) {
+           // clearing forms
+           fv.resetForm();
+           fv.destroy();
+         }
+
+         // clearing validator messages
+         $('.fv-plugins-message-container').text(''); // remove message
+
+         // clearing fields
+         $("#formA").trigger('reset'); // clear form fields
+
+         // manually resetting other fields
+         $('#aeExpires').empty().trigger('change');  // clearing select2  */
+
+     });
+
+     // modal post opened
+     $('#modalA').on('shown.bs.modal', function (e) {
+        console.log('Modal open');
+
+        // Initializing
+       $('#aeMessage').summernote({
+         height: 400,
+         tabsize: 2,
+       });
+
+       $('#aeExpires').select2({
+         placeholder: "Select expiry"
+       });
+
+     });
+
+     // Edit Modal Window - opens modal with appropriate properties
+     $('#tableA').on('click', '.btnEdit', async function (e) {
+       // console.log('btnEdit is clicked');
+
+       var id = $(this).attr("aria-label");
+       // console.log(id);
+
+       FormSubmitButton = document.querySelector('#btnSaveAFormSubmitButton');
+
+       // enabling disabling buttons
+       $('#btnAddNewAFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+       $('#btnSaveAFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+       $('#modalA').modal('show');   // open modal
+
+       $('#modalA').find('.modal-title').text('Edit Entry'); // Setting title for modal
+
+       // retrieving data
+       await axios({
+           method: 'GET',
+           url: `${HOST_URL}/api/v1/sales-finance/address/${id}`,
+       }).then(async function (res) {
+           // Return valid JSON
+           console.log(res);
+
+         if (res.data.status == 'success') {
+             
+               // // fetching menu manager select2
+               // await axios({
+               //     method: 'GET',
+               //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+               // }).then(function (res) {
+               //     //Return valid JSON
+               //     console.log(res);
+
+               //     if (res.data.status === 'success') {
+               //         // updating menuManagerSelect values
+               //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+               //         $('#menuManagerSelect').append(option).trigger('change');
+               //     }
+               // });
+
+               // updating fields with data
+               document.querySelector('#aeId').value = res.data.address._id;
+               document.querySelector('#adAddress').value = res.data.address.address;
+               document.querySelector('#adCity').value = res.data.address.city;
+               document.querySelector('#adState').value = res.data.address.state;
+               document.querySelector('#aeCountry').value = res.data.address.country;
+               document.querySelector('#adPincode').value = res.data.address.pincode;
+           }
+       });
+     });
+
+     // form reset operation
+     $('#formA').on('click', '.btnReset', function (e) {
+       // console.log('btnResetMenuSectionForm is clicked');
+
+       if (fv) {
+           // clearing forms
+           fv.resetForm();
+           fv.destroy();
+       }
+       else {
+           // initiate validation
+           fv = FormValidation.formValidation(menuSectionForm, formOptions);
+       }
+
+       // clearing validator messages
+       $('.fv-plugins-message-container').text(''); // remove message
+
+       // clearing fields
+       $("#formA").trigger('reset'); // clear form fields
+
+       // clear manually
+       // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+     })
+
+     // form add operation
+     $('#formA').on('click', '.btnAdd', function (e) {
+       // console.log('addMenuSectionFormSubmitButton is clicked');
+
+       // clearing validator messages
+       $('.fv-plugins-message-container').text(''); // remove message
+       
+       FormSubmitButton = document.querySelector('#btnAddNewAFormSubmitButton');
+
+       // Validation
+       fv = FormValidation.formValidation(AForm, formOptions);
+
+       // validation failed
+       fv.on('core.form.invalid', async function () {
+           // console.log('Something went wrong!!');    
+       });
+
+       // validation successful
+       fv.on('core.form.valid', async function () {
+
+           // Show loading state on button
+           KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+           // Accessing Restful API
+           await axios({
+               method: 'post',
+               url: `${HOST_URL}/api/v1/sales-finance/address`,
+               data: {
+                   address: document.querySelector('#adAddress').value,
+                   city: document.querySelector('#adCity').value,
+                   state: document.querySelector('#adState').value ,
+                   country: document.querySelector('#adCountry').value ,
+                   pincode: document.querySelector('#adPincode').value
+               },
+           }).then(function (res) {
+           
+               // Return valid JSON
+               // console.log(res);
+
+               // Release button
+               KTUtil.btnRelease(FormSubmitButton);
+
+               if (res.data.status == 'success') {
+                   // reseting & clearing
+                   $('#modalA').modal('hide')  // hiding modal form
+                   toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                   $('#modalA').KTDatatable().reload(); // reload table
+               }
+               else if (res.data.status == 'error') {
+                   $('#modalA').modal('hide')  // hiding modal form
+                   toastr.error(`${res.data.message}`, `${res.data.status}`)
+               }
+               else {
+                   $('#modalA').modal('hide')
+               };
+           });
+       });
+      });      
+
       /* Modal Operations */
       // to open modal 
       $('#btnOpenAModal').on('click', async function (e) {
