@@ -195,7 +195,7 @@ const AnnouncementCRUD = (function () {
       const AeForm = document.querySelector('#formAe');
       let FormSubmitButton = document.querySelector('#btnAddNewAeFormSubmitButton');
       // Options
-      let formOptions =    {
+      let formOptions = {
         fields: {
           aeTitle: {
             validators: {
@@ -240,17 +240,17 @@ const AnnouncementCRUD = (function () {
 
 
         },
-          plugins: {
-              //Learn more: https://formvalidation.io/guide/plugins
-              trigger: new FormValidation.plugins.Trigger(),
-              // Bootstrap Framework Integration
-              bootstrap: new FormValidation.plugins.Bootstrap(),
-              // Validate fields when clicking the Submit button
-              FormSubmitButton: new FormValidation.plugins.SubmitButton(),
-              // Submit the form when all fields are valid
-              //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-          },
-      }
+        plugins: {
+          //Learn more: https://formvalidation.io/guide/plugins
+          trigger: new FormValidation.plugins.Trigger(),
+          // Bootstrap Framework Integration
+          bootstrap: new FormValidation.plugins.Bootstrap(),
+          // Validate fields when clicking the Submit button
+          FormSubmitButton: new FormValidation.plugins.SubmitButton(),
+          // Submit the form when all fields are valid
+          //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+        },
+      };
 
       let fv;
 

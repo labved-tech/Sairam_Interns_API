@@ -5,7 +5,7 @@
 const NewsletterCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
     /*   Private functions */
-    function _AnnouncementNotification() {
+    function _NewsletterMessages() {
         var dataSet;
 
         /* Table Options */
@@ -22,12 +22,12 @@ const NewsletterCRUD = (function () {
                 },
                 map: function (raw) {
                   // sample data mapping
-                  console.log('raw', raw);
+                  // console.log('raw', raw);
                   dataSet = raw;
     
                   if (typeof raw.newsletterMessages !== 'undefined') {
                     dataSet = raw.newsletterMessages;
-                    console.log('dataSet', dataSet);
+                    // console.log('dataSet', dataSet);
                   }
                   return dataSet;
                 }
@@ -239,19 +239,23 @@ const NewsletterCRUD = (function () {
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
             },
-        }
-    /* Search Operations */
+            }
+        };
+
+      let fv;
+      
+      /* Search Operations */
       // search based on status
-      $('tableNm_search_status_2').on('change', function () {
+      $('#tableNm_search_status_2').on('change', function () {
         datatable.search($(this).val().toLowerCase(), 'Status');
       });
 
       // search based on type
-      $('#tableNm_search_status_2').on('change', function () {
+      $('#tableNm_search_type_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Type');
       });
 
-        $('#tableNm_search_status_2, #tableNm_search_status_2').selectpicker();
+      $('#tableNm_search_status_2, #tableNm_search_type_2').selectpicker();
         
       /* Modal Operations */
       // to open modal 
@@ -304,59 +308,59 @@ const NewsletterCRUD = (function () {
         placeholder: "Select expiry"
       });
 
-    });
-
-     // Edit Modal Window - opens modal with appropriate properties
-     $('#tableNm').on('click', '.btnEdit', async function (e) {
-      // console.log('btnEdit is clicked');
-
-      var id = $(this).attr("aria-label");
-      // console.log(id);
-
-      FormSubmitButton = document.querySelector('#btnSaveNmFormSubmitButton');
-
-      // enabling disabling buttons
-      $('#btnAddNewNmFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-      $('#btnSaveNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
-
-      $('#modalNm').modal('show');   // open modal
-
-      $('#modalNm').find('.modal-title').text('Edit Entry'); // Setting title for modal
-        // retrieving data
-        await axios({
-          method: 'GET',
-          url: `${HOST_URL}/api/v1/newsletter/messages/${id}`,
-      }).then(async function (res) {
-          // Return valid JSON
-          console.log(res);
-
-        if (res.data.status == 'success') {
-            
-              // // fetching menu manager select2
-              // await axios({
-              //     method: 'GET',
-              //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
-              // }).then(function (res) {
-              //     //Return valid JSON
-              //     console.log(res);
-
-              //     if (res.data.status === 'success') {
-              //         // updating menuManagerSelect values
-              //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-              //         $('#menuManagerSelect').append(option).trigger('change');
-              //     }
-              // });
-
-              // updating fields with data
-              document.querySelector('#nmId').value = res.data.newsletterMessages._id;
-              document.querySelector('#nmSubject').value = res.data.newsletterMessages.subject;
-              document.querySelector('#nmMessage').value = res.data.newsletterMessages.message;
-              document.querySelector('#nmEmail').value = res.data.newsletterMessages.email;
-              document.querySelector('#nmSent').value = res.data.newsletterMessages.sent;
-              document.querySelector('#nmVisited').value = res.data.newsletterMessages.visited;                
-          }
       });
-    });
+
+      // Edit Modal Window - opens modal with appropriate properties
+      $('#tableNm').on('click', '.btnEdit', async function (e) {
+        // console.log('btnEdit is clicked');
+
+        var id = $(this).attr("aria-label");
+        // console.log(id);
+
+        FormSubmitButton = document.querySelector('#btnSaveNmFormSubmitButton');
+
+        // enabling disabling buttons
+        $('#btnAddNewNmFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+        $('#btnSaveNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+        $('#modalNm').modal('show');   // open modal
+
+        $('#modalNm').find('.modal-title').text('Edit Entry'); // Setting title for modal
+          // retrieving data
+          await axios({
+            method: 'GET',
+            url: `${HOST_URL}/api/v1/newsletter/messages/${id}`,
+        }).then(async function (res) {
+            // Return valid JSON
+            console.log(res);
+
+          if (res.data.status == 'success') {
+              
+                // // fetching menu manager select2
+                // await axios({
+                //     method: 'GET',
+                //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+                // }).then(function (res) {
+                //     //Return valid JSON
+                //     console.log(res);
+
+                //     if (res.data.status === 'success') {
+                //         // updating menuManagerSelect values
+                //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                //         $('#menuManagerSelect').append(option).trigger('change');
+                //     }
+                // });
+
+                // updating fields with data
+                document.querySelector('#nmId').value = res.data.newsletterMessages._id;
+                document.querySelector('#nmSubject').value = res.data.newsletterMessages.subject;
+                document.querySelector('#nmMessage').value = res.data.newsletterMessages.message;
+                document.querySelector('#nmEmail').value = res.data.newsletterMessages.email;
+                document.querySelector('#nmSent').value = res.data.newsletterMessages.sent;
+                document.querySelector('#nmVisited').value = res.data.newsletterMessages.visited;                
+            }
+        });
+      });
       // form reset operation
       $('#formNm').on('click', '.btnReset', function (e) {
         // console.log('btnResetMenuSectionForm is clicked');
@@ -435,9 +439,6 @@ const NewsletterCRUD = (function () {
             });
         });
       });
-
-    };
-
         
         
     };
