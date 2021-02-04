@@ -189,7 +189,8 @@ const TicketSupportCRUD = (function () {
             checkbox: true,
         };
 
-        const datatable = $('#tableTc').KTDatatable(options);
+
+        const datatable = $('#kt_datatable_2').KTDatatable(options);
 
         const TcForm = document.querySelector('#formTc');
         let FormSubmitButton = document.querySelector('#btnAddNewTcFormSubmitButton');
@@ -351,10 +352,9 @@ const TicketSupportCRUD = (function () {
                     method: 'post',
                     url: `${HOST_URL}/api/v1/ticket-support/categories`,
                     data: {
-                        manager: document.querySelector('#menuManagerSelect').value,
-                        name: document.querySelector('#tcnName').value,
-                        description: document.querySelector('#tcnDescription').value,
-                        notes: document.querySelector('#tcnPriority').value,
+                        name: document.querySelector('#tcName').value,
+                        description: document.querySelector('#tcDescription').value,
+                        notes: document.querySelector('#tcNotes').value,
                     },
                 }).then(function (res) {
 
@@ -409,12 +409,11 @@ const TicketSupportCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'patch',
-                    url: `${HOST_URL}/api/v1/menu/section/${id}`,
+                    url: `${HOST_URL}/api/v1/ticket-support/categories${id}`,
                     data: {
-                        manager: document.querySelector('#menuManagerSelect').value,
-                        name: document.querySelector('#menuSectionName').value,
-                        description: document.querySelector('#menuSectionDescription').value,
-                        notes: document.querySelector('#menuSectionPriority').value,
+                        name: document.querySelector('#tcName').value,
+                        description: document.querySelector('#tcDescription').value,
+                        notes: document.querySelector('#tcNotes').value,
                     },
                 }).then(function (res) {
                     // Return valid JSON
@@ -472,7 +471,7 @@ const TicketSupportCRUD = (function () {
                     // fetching menu manager select2
                     await axios({
                         method: 'GET',
-                        url: `${HOST_URL}/api/v1/menu/manager/popSel2/` + res.data.menuManager._id,
+                        url: `${HOST_URL}/api/v1/ticket-support/categories` + res.data.menuManager._id,
                     }).then(function (res) {
                         //Return valid JSON
                         // console.log(res);
