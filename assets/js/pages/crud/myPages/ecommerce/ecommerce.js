@@ -23,12 +23,12 @@ const EcommerceCRUD = (function () {
                         },
                         map: function (raw) {
                             // sample data mapping
-                            console.log('raw', raw);
+                            //console.log('raw', raw);
                             dataSet = raw;
 
                             if (typeof raw.ecommerceAddress !== 'undefined') {
                                 dataSet = raw.ecommerceAddress;
-                                console.log('dataSet', dataSet);
+                                //console.log('dataSet', dataSet);
                             }
                             return dataSet;
                         }
@@ -427,12 +427,14 @@ const EcommerceCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/menu/section`,
+                    url: `${HOST_URL}/api/v1/ecommerce/address`,
                     data: {
-                        manager: document.querySelector('#menuManagerSelect').value,
-                        name: document.querySelector('#eanName').value,
-                        description: document.querySelector('#eanDescription').value,
-                        priority: document.querySelector('#eanPriority').value,
+                        address1: document.querySelector('#eaAddress1').value,
+                        street: document.querySelector('#eaStreet').value,
+                        city: document.querySelector('#eaCity').value,
+                        state: document.querySelector('#eaState').value,
+                        country: document.querySelector('#eaCountry').value,
+                        postalcode: document.querySelector('#eaPostalCode').value
                     },
                 }).then(function (res) {
 
