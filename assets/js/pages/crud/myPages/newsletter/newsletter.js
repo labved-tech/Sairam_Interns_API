@@ -275,27 +275,169 @@ const NewsletterCRUD = (function () {
           //  console.log('Modal is closed');
 
           if (fv) {
-              // clearing forms
-              fv.resetForm();
-              fv.destroy();
-           }
-
-           // clearing validator messages
-           $('.fv-plugins-message-container').text(''); // remove message
-
-           // clearing fields
-           $("#formNm").trigger('reset'); // clear form fields
-           
-
+            // clearing forms
+            fv.resetForm();
+            fv.destroy();
+          }
+ 
+          // clearing validator messages
+          $('.fv-plugins-message-container').text(''); // remove message
+ 
+          // clearing fields
+          $("#formNm").trigger('reset'); // clear form fields
+ 
+          // manually resetting other fields
+          $('#nmExpires').empty().trigger('change');  // clearing select2  */
+ 
       });
         
       // modal post opened
       $('modalNm').on('shown.bs.modal', function (e) {
 
       // Initializing 
-
-
+      $('#nmMessage').summernote({
+        height: 400,
+        tabsize: 2,
       });
+
+      $('#nmEmail').select2({
+        placeholder: "Select expiry"
+      });
+
+    });
+
+     // Edit Modal Window - opens modal with appropriate properties
+     $('#tableNm').on('click', '.btnEdit', async function (e) {
+      // console.log('btnEdit is clicked');
+
+      var id = $(this).attr("aria-label");
+      // console.log(id);
+
+      FormSubmitButton = document.querySelector('#btnSaveNmFormSubmitButton');
+
+      // enabling disabling buttons
+      $('#btnAddNewNmFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+      $('#btnSaveNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+      $('#modalNm').modal('show');   // open modal
+
+      $('#modalNm').find('.modal-title').text('Edit Entry'); // Setting title for modal
+        // retrieving data
+        await axios({
+          method: 'GET',
+          url: `${HOST_URL}/api/v1/newsletter/messages/${id}`,
+      }).then(async function (res) {
+          // Return valid JSON
+          console.log(res);
+
+        if (res.data.status == 'success') {
+            
+              // // fetching menu manager select2
+              // await axios({
+              //     method: 'GET',
+              //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+              // }).then(function (res) {
+              //     //Return valid JSON
+              //     console.log(res);
+
+              //     if (res.data.status === 'success') {
+              //         // updating menuManagerSelect values
+              //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+              //         $('#menuManagerSelect').append(option).trigger('change');
+              //     }
+              // });
+
+              // updating fields with data
+              document.querySelector('#nmId').value = res.data.newsletterMessages._id;
+              document.querySelector('#nmSubject').value = res.data.newsletterMessages.subject;
+              document.querySelector('#nmMessage').value = res.data.newsletterMessages.message;
+              document.querySelector('#nmEmail').value = res.data.newsletterMessages.email;
+              document.querySelector('#nmSent').value = res.data.newsletterMessages.sent;
+              document.querySelector('#nmVisited').value = res.data.newsletterMessages.visited;                
+          }
+      });
+    });
+      // form reset operation
+      $('#formNm').on('click', '.btnReset', function (e) {
+        // console.log('btnResetMenuSectionForm is clicked');
+
+        if (fv) {
+            // clearing forms
+            fv.resetForm();
+            fv.destroy();
+        }
+        else {
+            // initiate validation
+            fv = FormValidation.formValidation(menuSectionForm, formOptions);
+        }
+
+        // clearing validator messages
+        $('.fv-plugins-message-container').text(''); // remove message
+
+        // clearing fields
+        $("#formNm").trigger('reset'); // clear form fields
+
+        // clear manually
+        // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+      })
+      // form add operation
+      $('#formNm').on('click', '.btnAdd', function (e) {
+        // console.log('addMenuSectionFormSubmitButton is clicked');
+
+        // clearing validator messages
+        $('.fv-plugins-message-container').text(''); // remove message
+        
+        FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
+
+        // Validation
+        fv = FormValidation.formValidation(NmForm, formOptions);
+
+        // validation failed
+        fv.on('core.form.invalid', async function () {
+            // console.log('Something went wrong!!');    
+        });
+
+        // validation successful
+        fv.on('core.form.valid', async function () {
+
+            // Show loading state on button
+            KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+            // Accessing Restful API
+            await axios({
+                method: 'post',
+                url: `${HOST_URL}/api/v1/newsletter/messages`,
+                data: {
+                    title: document.querySelector('#nmID').value,
+                    message: $('#nmMessage').summernote('code'),   // not working - Summernote WYSIWYG
+                    subject: document.querySelector('#nmSubject').value,
+                    email: document.querySelector('#nmEmail').value,   //if(aeIsEmailReq.value=== 'on') return true
+                    sent: document.querySelector('#nmSent').value * 1,
+                    visited: document.querySelector('#nmVisited').value,
+                },
+            }).then(function (res) {
+                // Release button
+                KTUtil.btnRelease(FormSubmitButton);
+
+                if (res.data.status == 'success') {
+                    // reseting & clearing
+                    $('#modalNm').modal('hide')  // hiding modal form
+                    toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                    $('#modalNm').KTDatatable().reload(); // reload table
+                }
+                else if (res.data.status == 'error') {
+                    $('#modalNm').modal('hide')  // hiding modal form
+                    toastr.error(`${res.data.message}`, `${res.data.status}`)
+                }
+                else {
+                    $('#modalNm').modal('hide')
+                };
+            });
+        });
+      });
+
+    };
+
         
         
     };
