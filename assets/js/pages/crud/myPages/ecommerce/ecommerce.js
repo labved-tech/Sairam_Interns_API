@@ -193,14 +193,13 @@ const EcommerceCRUD = (function () {
                 },
             ],
         }
-
         // enable extension
         options.extensions = {
             // boolean or object (extension options)
             checkbox: true,
         };
 
-
+        /* Table Initialize */
         const datatable = $('#tableEa').KTDatatable(options);
 
         const EaForm = document.querySelector('#formEa');
@@ -281,23 +280,24 @@ const EcommerceCRUD = (function () {
         /* Modal Operations */
         // to open modal 
         $('#btnOpenEaModal').on('click', async function (e) {
-            // console.log('btnNewItem is clicked');
-
-            FormSubmitButton = document.querySelector('#btnAddNewEaFormSubmitButton');
+            console.log('openButton is clicked');
 
             // enabling disabling buttons
             $('#btnAddNewEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
             $('#btnSaveEaFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-            $('#modalEa').modal('show');   // open modal  
+            FormSubmitButton = document.querySelector('#btnAddNewEaFormSubmitButton');
 
-            $('#modalEa').find('.modal-title').text('Add New Announcement Entries'); // Setting title for modal
+            $('#modalEa').modal('show');   // open modal
+
+            $('#modalEa').find('.modal-title').text('Add New Entries'); // Setting title for modal
+
 
         });
 
         // modal post closed
         $('#modalEa').on('hidden.bs.modal', function (e) {
-            //  console.log('Modal is closed');
+            console.log('Modal is closed');
 
             if (fv) {
                 // clearing forms
@@ -312,7 +312,7 @@ const EcommerceCRUD = (function () {
             $("#formEa").trigger('reset'); // clear form fields
 
             // manually resetting other fields
-            $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+            $('#EaExpires').empty().trigger('change');  // clearing select2  */
 
         });
 
@@ -323,10 +323,62 @@ const EcommerceCRUD = (function () {
 
         });
 
-        /* Form Operations */
+        // Edit Modal Window - opens modal with appropriate properties
+        $('#tableEa').on('click', '.btnEdit', async function (e) {
+            // console.log('btnEdit is clicked');
+
+            var id = $(this).attr("aria-label");
+            // console.log(id);
+
+            FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
+
+            // enabling disabling buttons
+            $('#btnAddNewEaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+            $('#btnSaveEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+            $('#modalEa').modal('show');   // open modal
+
+            $('#modalEa').find('.modal-title').text('Edit Entry'); // Setting title for modal
+
+            // retrieving data
+            await axios({
+                method: 'GET',
+                url: `${HOST_URL}/api/v1/ecommerce/address/${id}`,
+            }).then(async function (res) {
+                // Return valid JSON
+                console.log(res);
+
+                if (res.data.status == 'success') {
+
+                    // // fetching menu manager select2
+                    // await axios({
+                    //     method: 'GET',
+                    //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+                    // }).then(function (res) {
+                    //     //Return valid JSON
+                    //     console.log(res);
+
+                    //     if (res.data.status === 'success') {
+                    //         // updating menuManagerSelect values
+                    //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                    //         $('#menuManagerSelect').append(option).trigger('change');
+                    //     }
+                    // });
+
+                    // updating fields with data
+                    document.querySelector('#aeId').value = res.data.announcementEntries._id;
+                    document.querySelector('#aeTitle').value = res.data.announcementEntries.title;
+                    document.querySelector('#aeFrom').value = res.data.announcementEntries.from;
+                    document.querySelector('#aeIsEmailReq').value = res.data.announcementEntries.isEmailReq;
+                    document.querySelector('#aePriority').value = res.data.announcementEntries.priority;
+                    document.querySelector('#aeMessage').value = res.data.announcementEntries.message;
+                }
+            });
+        });
+
         // form reset operation
         $('#formEa').on('click', '.btnReset', function (e) {
-            // console.log('btnResetEaForm is clicked');
+            // console.log('btnResetMenuSectionForm is clicked');
 
             if (fv) {
                 // clearing forms
@@ -335,7 +387,7 @@ const EcommerceCRUD = (function () {
             }
             else {
                 // initiate validation
-                fv = FormValidation.formValidation(EaForm, formOptions);
+                fv = FormValidation.formValidation(menuSectionForm, formOptions);
             }
 
             // clearing validator messages
@@ -344,8 +396,8 @@ const EcommerceCRUD = (function () {
             // clearing fields
             $("#formEa").trigger('reset'); // clear form fields
 
-            // manually resetting other fields
-            $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+            // clear manually
+            // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
         })
 
         // form add operation
@@ -393,7 +445,7 @@ const EcommerceCRUD = (function () {
                         // reseting & clearing
                         $('#modalEa').modal('hide')  // hiding modal form
                         toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#tableEa').KTDatatable().reload(); // reload table
+                        $('#modalEa').KTDatatable().reload(); // reload table
                     }
                     else if (res.data.status == 'error') {
                         $('#modalEa').modal('hide')  // hiding modal form
@@ -406,187 +458,189 @@ const EcommerceCRUD = (function () {
             });
         });
 
-        // form save operation
-        $('#formEa').on('click', '.btnSave', function (e) {
-            // console.log('btnSaveMenuSectionFormSubmitButton is clicked');
+    };
 
-            // clearing validator messages
-            $('.fv-plugins-message-container').text(''); // remove message
+    // form save operation
+    $('#formEa').on('click', '.btnSave', function (e) {
+        // console.log('btnSaveMenuSectionFormSubmitButton is clicked');
 
-            FormSubmitButton = document.querySelector('#btnSaveMenuSectionFormSubmitButton');
+        // clearing validator messages
+        $('.fv-plugins-message-container').text(''); // remove message
 
-            // Validation
-            fv = FormValidation.formValidation(menuSectionForm, formOptions);
+        FormSubmitButton = document.querySelector('#btnSaveMenuSectionFormSubmitButton');
 
-            // validation failed
-            fv.on('core.form.invalid', async function () {
-                // console.log('Something went wrong!!');    
-            });
+        // Validation
+        fv = FormValidation.formValidation(menuSectionForm, formOptions);
 
-            // validation successful
-            fv.on('core.form.valid', async function () {
-
-                const id = document.querySelector('#eaId').value;
-
-                // Show loading state on button
-                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
-                // Accessing Restful API
-                await axios({
-                    method: 'patch',
-                    url: `${HOST_URL}/api/v1/menu/section/${id}`,
-                    data: {
-                        manager: document.querySelector('#menuManagerSelect').value,
-                        name: document.querySelector('#menuSectionName').value,
-                        description: document.querySelector('#menuSectionDescription').value,
-                        priority: document.querySelector('#menuSectionPriority').value,
-                    },
-                }).then(function (res) {
-                    // Return valid JSON
-                    // console.log(res);
-
-                    // Release button
-                    KTUtil.btnRelease(FormSubmitButton);
-
-                    if (res.data.status == 'success') {
-                        // reseting & clearing
-                        $('#modalEa').modal('hide')  // hiding modal form
-                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#tableEa').KTDatatable().reload(); // reload table
-
-                    }
-                    else if (res.data.status == 'error') {
-                        $('#modalEa').modal('hide')  // hiding modal form
-                        toastr.error(`${res.data.message}`, `${res.data.status}`)
-                    }
-                    else {
-                        $('#modalEa').modal('hide') // hiding modal form
-                    };
-                });
-            });
+        // validation failed
+        fv.on('core.form.invalid', async function () {
+            // console.log('Something went wrong!!');    
         });
 
-        /* Table Operations */
-        // Edit Modal Window - opens modal with appropriate properties
-        $('#tableEa').on('click', '.btnEdit', async function (e) {
-            // console.log('btnEdit is clicked');
+        // validation successful
+        fv.on('core.form.valid', async function () {
 
-            var id = $(this).attr("aria-label");
-            // console.log(id);
+            const id = document.querySelector('#eaId').value;
 
-            FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
+            // Show loading state on button
+            KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-            // enabling disabling buttons
-            $('#btnAddNewEaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-            $('#btnSaveEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
-
-            $('#modalEa').modal('show');   // open modal
-
-            $('#modalEa').find('.modal-title').text('Edit Section Item'); // Setting title for modal
-
-            // retrieving data
+            // Accessing Restful API
             await axios({
-                method: 'GET',
+                method: 'patch',
                 url: `${HOST_URL}/api/v1/menu/section/${id}`,
-            }).then(async function (res) {
+                data: {
+                    manager: document.querySelector('#menuManagerSelect').value,
+                    name: document.querySelector('#menuSectionName').value,
+                    description: document.querySelector('#menuSectionDescription').value,
+                    priority: document.querySelector('#menuSectionPriority').value,
+                },
+            }).then(function (res) {
                 // Return valid JSON
                 // console.log(res);
 
+                // Release button
+                KTUtil.btnRelease(FormSubmitButton);
+
                 if (res.data.status == 'success') {
+                    // reseting & clearing
+                    $('#modalEa').modal('hide')  // hiding modal form
+                    toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                    $('#tableEa').KTDatatable().reload(); // reload table
 
-                    // fetching menu manager select2
-                    await axios({
-                        method: 'GET',
-                        url: `${HOST_URL}/api/v1/menu/manager/popSel2/` + res.data.menuManager._id,
-                    }).then(function (res) {
-                        //Return valid JSON
-                        // console.log(res);
-
-                        if (res.data.status === 'success') {
-                            // updating menuManagerSelect values
-                            var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                            $('#menuManagerSelect').append(option).trigger('change');
-                        }
-                    });
-
-                    // updating fields with data
-                    document.querySelector('#menuSectionId').value = res.data.menuSection._id;
-                    document.querySelector('#menuSectionName').value = res.data.menuSection.name;
-                    document.querySelector('#menuSectionDescription').value = res.data.menuSection.description;
-                    document.querySelector('#menuSectionPriority').value = res.data.menuSection.priority;
                 }
-
+                else if (res.data.status == 'error') {
+                    $('#modalEa').modal('hide')  // hiding modal form
+                    toastr.error(`${res.data.message}`, `${res.data.status}`)
+                }
+                else {
+                    $('#modalEa').modal('hide') // hiding modal form
+                };
             });
         });
+    });
 
-        // deleteOne operation
-        $('#tableEa').on('click', '.btnDelete', function (e) {
-            let ids = $(this).attr("aria-label");
+    /* Table Operations */
+    // Edit Modal Window - opens modal with appropriate properties
+    $('#tableEa').on('click', '.btnEdit', async function (e) {
+        // console.log('btnEdit is clicked');
 
-            ids = ids.toString();
+        var id = $(this).attr("aria-label");
+        // console.log(id);
 
-            const requests = {
-                params: {
-                    _id: ids,
-                }
+        FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
+
+        // enabling disabling buttons
+        $('#btnAddNewEaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+        $('#btnSaveEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+        $('#modalEa').modal('show');   // open modal
+
+        $('#modalEa').find('.modal-title').text('Edit Section Item'); // Setting title for modal
+
+        // retrieving data
+        await axios({
+            method: 'GET',
+            url: `${HOST_URL}/api/v1/menu/section/${id}`,
+        }).then(async function (res) {
+            // Return valid JSON
+            // console.log(res);
+
+            if (res.data.status == 'success') {
+
+                // fetching menu manager select2
+                await axios({
+                    method: 'GET',
+                    url: `${HOST_URL}/api/v1/menu/manager/popSel2/` + res.data.menuManager._id,
+                }).then(function (res) {
+                    //Return valid JSON
+                    // console.log(res);
+
+                    if (res.data.status === 'success') {
+                        // updating menuManagerSelect values
+                        var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                        $('#menuManagerSelect').append(option).trigger('change');
+                    }
+                });
+
+                // updating fields with data
+                document.querySelector('#menuSectionId').value = res.data.menuSection._id;
+                document.querySelector('#menuSectionName').value = res.data.menuSection.name;
+                document.querySelector('#menuSectionDescription').value = res.data.menuSection.description;
+                document.querySelector('#menuSectionPriority').value = res.data.menuSection.priority;
             }
 
-            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
-
-            // reload table
-            $('#tableEa').KTDatatable().reload();
-
         });
+    });
 
-        // mass operation
-        //  datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-        //      // datatable.checkbox() access to extension methods
-        //      const ids = datatable.checkbox().getSelectedId();
-        //      const count = ids.length;
+    // deleteOne operation
+    $('#tableEa').on('click', '.btnDelete', function (e) {
+        let ids = $(this).attr("aria-label");
 
-        //      $('#tableEa_selected_records_2').html(count);
+        ids = ids.toString();
 
-        //      console.log(count)
-
-        //      if (count > 0) {
-        //          $('#tableEa_group_action_form_2').collapse('show');
-        //      } else {
-        //          $('#tableEa_group_action_form_2').collapse('hide');
-        //      }
-        //  });
-
-        // deleteAll operation
-        $('#tableEa_group_action_form_2').on('click', '.btnDeleteAll', function () {
-            // console.log('deleteAll is clicked')
-
-            let ids = datatable.checkbox().getSelectedId();
-            ids = ids.toString();
-            // console.log(ids)
-
-            const requests = {
-                params: {
-                    _id: ids,
-                }
+        const requests = {
+            params: {
+                _id: ids,
             }
+        }
 
-            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+        axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
 
-            $('#tableEa_group_action_form_2').collapse('hide');
+        // reload table
+        $('#tableEa').KTDatatable().reload();
 
-            // reload table
-            $('#tableEa').KTDatatable().reload();
-        });
+    });
+
+    // mass operation
+    //  datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+    //      // datatable.checkbox() access to extension methods
+    //      const ids = datatable.checkbox().getSelectedId();
+    //      const count = ids.length;
+
+    //      $('#tableEa_selected_records_2').html(count);
+
+    //      console.log(count)
+
+    //      if (count > 0) {
+    //          $('#tableEa_group_action_form_2').collapse('show');
+    //      } else {
+    //          $('#tableEa_group_action_form_2').collapse('hide');
+    //      }
+    //  });
+
+    // deleteAll operation
+    $('#tableEa_group_action_form_2').on('click', '.btnDeleteAll', function () {
+        // console.log('deleteAll is clicked')
+
+        let ids = datatable.checkbox().getSelectedId();
+        ids = ids.toString();
+        // console.log(ids)
+
+        const requests = {
+            params: {
+                _id: ids,
+            }
+        }
+
+        axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+
+        $('#tableEa_group_action_form_2').collapse('hide');
+
+        // reload table
+        $('#tableEa').KTDatatable().reload();
+    });
 
 
-    };
+};
 
-    return {
-        // public functions
-        init: function () {
-            _EcommerceAddress();
-        },
-    };
-})();
+return {
+    // public functions
+    init: function () {
+        _EcommerceAddress();
+    },
+};
+}) ();
 
 jQuery(document).ready(function () {
     EcommerceCRUD.init();
