@@ -444,7 +444,7 @@ const AnnouncementCRUD = (function () {
                     // reseting & clearing
                     $('#modalAe').modal('hide')  // hiding modal form
                     toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                    $('#modalAe').KTDatatable().reload(); // reload table
+                    $('#tableAe').KTDatatable().reload(); // reload table
                 }
                 else if (res.data.status == 'error') {
                     $('#modalAe').modal('hide')  // hiding modal form

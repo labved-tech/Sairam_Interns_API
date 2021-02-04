@@ -132,7 +132,7 @@ block content
                         // end::Card
 
                         // ##################################### AnFormModal ############################################################################################
-                        #modalAn(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='AnModalLabel' aria-hidden='true')
+                        #modalNm(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='AnModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
@@ -147,55 +147,54 @@ block content
                                                 div(class= 'form-group row')
                                                     input#nmId(type='hidden' name='nmId')
 
-                                        
-                                        //nmID
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Newsletter ID
-                                            div(class='col-4')
-                                                div(class='typeahead')
-                                                    input#nmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='nmID' placeholder='')
-                                        
-                                        // nmSubject
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Subject
-                                                span(class='text-danger')  *
-                                            div(class='col-6')
-                                                input#nmSubject(type='text' class='form-control' name='nmSubject' placeholder='Enter Subject')
+                                                //nmID
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Newsletter ID
+                                                    div(class='col-4')
+                                                        div(class='typeahead')
+                                                            input#nmID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='nmID' placeholder='')
+                                                
+                                                // nmSubject
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Subject
+                                                        span(class='text-danger')  *
+                                                    div(class='col-6')
+                                                        input#nmSubject(type='text' class='form-control' name='nmSubject' placeholder='Enter Subject')
 
-                                        // nmMessage
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Message
-                                            div(class='col-9')
-                                                div#nmMessage(class='summernote' name='nmMessage')
-                                                span(class='form-text text-muted') Add message that you wish to send.                                
-                                                                                        
-                                        // nmEmail  
-                                        div(class='form-group row')
-                                            label(class=' col-3 col-form-label form-control-label text-right ') Recipient Email
-                                            div(class='col-5')
-                                                select#nmEmail(class='form-control selectpicker' multiple=''  data-live-search='true' name='nmEmail' )
-                                                    option alexrider@gmail.com
-                                                    option percyjackson@gmail.com
-                                                    option jupiterjones@gmail.com
-                                                span(class='form-text text-muted') Select Email                                   
-                                        
-                                        //nmSent
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Sent
-                                            div(class='col-4')
-                                                span(class='switch switch-sm')
-                                                    label
-                                                        input#nmSent(type='checkbox' checked='checked' name='nmSent')
-                                                        span
-                                        
-                                        //nmVisited
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Visited
-                                            div(class='col-4')
-                                                span(class='switch switch-sm')
-                                                    label
-                                                        input#nmVisited(type='checkbox' checked='checked' name='nmVisited')
-                                                        span  
+                                                // nmMessage
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Message
+                                                    div(class='col-9')
+                                                        div#nmMessage(class='summernote' name='nmMessage')
+                                                        span(class='form-text text-muted') Add message that you wish to send.                                
+                                                                                                
+                                                // nmEmail  
+                                                div(class='form-group row')
+                                                    label(class=' col-3 col-form-label form-control-label text-right ') Recipient Email
+                                                    div(class='col-4')
+                                                        select#nmEmail(class='form-control selectpicker' multiple=''  data-live-search='true' name='nmEmail' )
+                                                            option alexrider@gmail.com
+                                                            option percyjackson@gmail.com
+                                                            option jupiterjones@gmail.com
+                                                        span(class='form-text text-muted') Select Email
+                                                
+                                                //nmSent
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Sent
+                                                    div(class='col-4')
+                                                        span(class='switch switch-sm')
+                                                            label
+                                                                input#nmSent(type='checkbox' checked='checked' name='nmSent')
+                                                                span
+                                                
+                                                //nmVisited
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Visited
+                                                    div(class='col-4')
+                                                        span(class='switch switch-sm')
+                                                            label
+                                                                input#nmVisited(type='checkbox' checked='checked' name='nmVisited')
+                                                                span  
                                         
                                         div(class='modal-footer')
                                             button#btnResetNmForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
