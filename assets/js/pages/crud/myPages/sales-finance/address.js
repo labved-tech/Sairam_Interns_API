@@ -242,7 +242,8 @@ const SalesFinanceCRUD = (function () {
               //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
           },
       }
-
+      let fv;
+      
 /* Search Operations */
       // search based on status
       $('#tableA_search_status_2').on('change', function () {
