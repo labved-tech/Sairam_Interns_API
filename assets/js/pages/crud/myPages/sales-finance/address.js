@@ -185,35 +185,35 @@ const SalesFinanceCRUD = (function () {
             adAddress: {
                 validators: {
                     notEmpty: {
-                        message: 'Newsletter ID is required',
+                        message: 'Address is required',
                     },
                 },
             },
             adCity: {
                 validators: {
                     notEmpty: {
-                        message: 'Subject is required',
+                        message: 'City is required',
                     },
                 },
             },
             adState: {
                 validators: {
                     notEmpty: {
-                        message: 'Recipient Email is required',
+                        message: 'State Email is required',
                     },
                 },
             },
             adCountry: {
                 validators: {
                     notEmpty: {
-                        message: 'Recipient Email is required',
+                        message: 'Country Email is required',
                     },
                 },
             },
             adPincode: {
                 validators: {
                     notEmpty: {
-                        message: 'Recipient Email is required',
+                        message: 'PinCode Email is required',
                     },
                 },
             },
@@ -243,7 +243,7 @@ const SalesFinanceCRUD = (function () {
           },
       }
       let fv;
-      
+
 /* Search Operations */
       // search based on status
       $('#tableA_search_status_2').on('change', function () {
@@ -358,7 +358,7 @@ const SalesFinanceCRUD = (function () {
                document.querySelector('#adCity').value = res.data.address.city;
                document.querySelector('#adState').value = res.data.address.state;
                document.querySelector('#aeCountry').value = res.data.address.country;
-               document.querySelector('#adPincode').value = res.data.address.pincode;
+               document.querySelector('#adPincode').value = res.data.address.pinCode;
            }
        });
      });
@@ -419,7 +419,7 @@ const SalesFinanceCRUD = (function () {
                    city: document.querySelector('#adCity').value,
                    state: document.querySelector('#adState').value ,
                    country: document.querySelector('#adCountry').value ,
-                   pincode: document.querySelector('#adPincode').value
+                   pinCode: document.querySelector('#adPincode').value
                },
            }).then(function (res) {
            
