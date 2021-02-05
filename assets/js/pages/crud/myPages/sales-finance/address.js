@@ -423,22 +423,22 @@ const SalesFinanceCRUD = (function () {
   
       });
 
-      // deleteAll mass operation
-      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-        // datatable.checkbox() access to extension methods
-        const ids = datatable.checkbox().getSelectedId();
-        const count = ids.length;
+      // // deleteAll mass operation
+      // datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+      //   // datatable.checkbox() access to extension methods
+      //   const ids = datatable.checkbox().getSelectedId();
+      //   const count = ids.length;
     
-        $('#tableA_selected_records_2').html(count);
+      //   $('#tableA_selected_records_2').html(count);
 
-        console.log(count)
+      //   console.log(count)
     
-        if (count > 0) {
-            $('#tableA_group_action_form_2').collapse('show');
-        } else {
-            $('#tableA_group_action_form_2').collapse('hide');
-        }
-      });
+      //   if (count > 0) {
+      //       $('#tableA_group_action_form_2').collapse('show');
+      //   } else {
+      //       $('#tableA_group_action_form_2').collapse('hide');
+      //   }
+      // });
 
      // form reset operation
      $('#formA').on('click', '.btnReset', function (e) {
