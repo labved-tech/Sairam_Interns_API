@@ -93,6 +93,7 @@ router.get('/newsletter/messages/all', viewsController.newsletterMessagesAll);
 router.get('/sales-finance/address', viewsController.address);
 router.get('/sales-finance/address/all', viewsController.addressAll);
 router.get('/sales-finance/deliveryNote', viewsController.deliveryNote);
+router.get('/sales-finance/deliveryNote/all', viewsController.deliveryNoteAll);
 
 router.get('/sales-finance/packingList', viewsController.packingList);
 router.get('/sales-finance/packingList/box', viewsController.packingListBox);
