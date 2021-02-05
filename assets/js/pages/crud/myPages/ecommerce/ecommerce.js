@@ -463,15 +463,15 @@ const EcommerceCRUD = (function () {
 
         // form save operation
         $('#formEa').on('click', '.btnSave', function (e) {
-            // console.log('btnSaveMenuSectionFormSubmitButton is clicked');
+            console.log('btnSave is clicked');
 
             // clearing validator messages
             $('.fv-plugins-message-container').text(''); // remove message
 
-            FormSubmitButton = document.querySelector('#btnSaveMenuSectionFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
 
             // Validation
-            fv = FormValidation.formValidation(menuSectionForm, formOptions);
+            fv = FormValidation.formValidation(EaForm, formOptions);
 
             // validation failed
             fv.on('core.form.invalid', async function () {
@@ -489,12 +489,15 @@ const EcommerceCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'patch',
-                    url: `${HOST_URL}/api/v1/menu/section/${id}`,
+                    url: `${HOST_URL}/api/v1/ecommerce/address/${id}`,
                     data: {
-                        manager: document.querySelector('#menuManagerSelect').value,
-                        name: document.querySelector('#menuSectionName').value,
-                        description: document.querySelector('#menuSectionDescription').value,
-                        priority: document.querySelector('#menuSectionPriority').value,
+                        address1: document.querySelector('#eaAddress1').value,
+                        street: document.querySelector('#eaStreet').value,
+                        city: document.querySelector('#eaCity').value,
+                        state: document.querySelector('#eaState').value,
+                        country: document.querySelector('#eaCountry').value,
+                        postalcode: document.querySelector('#eaPostalCode').value
+
                     },
                 }).then(function (res) {
                     // Return valid JSON
