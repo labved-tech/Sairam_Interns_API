@@ -55,7 +55,7 @@ const SalesFinanceCRUD = (function () {
   
         pagination: true,
         search: {
-          input: $('#tableA_search_query_2'),
+          input: $('#tableAd_search_query_2'),
           key: 'generalSearch',
         },
   
@@ -174,11 +174,11 @@ const SalesFinanceCRUD = (function () {
       };
   
       /* Table Initialize */
-      const datatable = $('#tableA').KTDatatable(options);
+      const datatable = $('#tableAd').KTDatatable(options);
   
       /* Form */
-      const AForm = document.querySelector('#formA');
-      let FormSubmitButton = document.querySelector('#btnAddNewAFormSubmitButton');
+      const AdForm = document.querySelector('#formA');
+      let FormSubmitButton = document.querySelector('#btnAddNewAdFormSubmitButton');
       // Options
       let formOptions =    {
         fields: {
@@ -234,35 +234,35 @@ const SalesFinanceCRUD = (function () {
   
       /* Search Operations */
       // search based on status
-      $('#tableA_search_status_2').on('change', function () {
+      $('#tableAd_search_status_2').on('change', function () {
         datatable.search($(this).val().toLowerCase(), 'Status');
       });
   
       // search based on type
-      $('#tableA_search_type_2').on('change', function () {
+      $('#tableAd_search_type_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Type');
       });
   
-      $('#tableA_search_status_2, #tableA_search_type_2').selectpicker();
+      $('#tableAd_search_status_2, #tableAd_search_type_2').selectpicker();
         
       // modal open
       $('#btnOpenAModal').on('click', async function (e) {
         console.log('openButton is clicked');
   
         // enabling disabling buttons
-        $('#btnAddNewAFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-        $('#btnSaveAFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+        $('#btnAddNewAdFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+        $('#btnSaveAdFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
   
-        FormSubmitButton = document.querySelector('#btnAddNewAFormSubmitButton');
+        FormSubmitButton = document.querySelector('#btnAddNewAdFormSubmitButton');
   
-        $('#modalA').modal('show');   // open modal
+        $('#modalAd').modal('show');   // open modal
   
-        $('#modalA').find('.modal-title').text('Add New Entries'); // Setting title for modal
+        $('#modalAd').find('.modal-title').text('Add New Entries'); // Setting title for modal
   
       });
   
       // modal post closed
-      $('#modalA').on('hidden.bs.modal', function (e) {
+      $('#modalAd').on('hidden.bs.modal', function (e) {
         console.log('Modal closed');
   
        if (fv) {
@@ -282,7 +282,7 @@ const SalesFinanceCRUD = (function () {
      });
   
      // modal post opened
-     $('#modalA').on('shown.bs.modal', function (e) {
+     $('#modalAd').on('shown.bs.modal', function (e) {
         console.log('Modal open');
   
         // Initializing
@@ -296,10 +296,10 @@ const SalesFinanceCRUD = (function () {
         // clearing validator messages
         $('.fv-plugins-message-container').text(''); // remove message
         
-        FormSubmitButton = document.querySelector('#btnSaveAFormSubmitButton');
+        FormSubmitButton = document.querySelector('#btnSaveAdFormSubmitButton');
 
         // Validation
-        fv = FormValidation.formValidation(AForm, formOptions);
+        fv = FormValidation.formValidation(AdForm, formOptions);
 
         // validation failed
         fv.on('core.form.invalid', async function () {
@@ -334,38 +334,38 @@ const SalesFinanceCRUD = (function () {
 
                 if (res.data.status == 'success') {
                     // reseting & clearing
-                    $('#modalA').modal('hide')  // hiding modal form
+                    $('#modalAd').modal('hide')  // hiding modal form
                     toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                    $('#tableA').KTDatatable().reload(); // reload table
+                    $('#tableAd').KTDatatable().reload(); // reload table
 
                 }
                 else if (res.data.status == 'error') {
-                    $('#modalA').modal('hide')  // hiding modal form
+                    $('#modalAd').modal('hide')  // hiding modal form
                     toastr.error(`${res.data.message}`, `${res.data.status}`)
                 }
                 else {
-                    $('#modalA').modal('hide') // hiding modal form
+                    $('#modalAd').modal('hide') // hiding modal form
                 };
             });
         });
       });
      
      // Edit Modal Window - opens modal with appropriate properties
-     $('#tableA').on('click', '.btnEdit', async function (e) {
+     $('#tableAd').on('click', '.btnEdit', async function (e) {
        // console.log('btnEdit is clicked');
   
        var id = $(this).attr("aria-label");
        // console.log(id);
   
-       FormSubmitButton = document.querySelector('#btnSaveAFormSubmitButton');
+       FormSubmitButton = document.querySelector('#btnSaveAdFormSubmitButton');
   
        // enabling disabling buttons
-       $('#btnAddNewAFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-       $('#btnSaveAFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+       $('#btnAddNewAdFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+       $('#btnSaveAdFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
   
-       $('#modalA').modal('show');   // open modal
+       $('#modalAd').modal('show');   // open modal
   
-       $('#modalA').find('.modal-title').text('Edit Entry'); // Setting title for modal
+       $('#modalAd').find('.modal-title').text('Edit Entry'); // Setting title for modal
   
        // retrieving data
        await axios({
@@ -404,7 +404,7 @@ const SalesFinanceCRUD = (function () {
      });
 
     // deleteOne operation
-    $('#tableA').on('click', '.btnDelete', function (e) {
+    $('#tableAd').on('click', '.btnDelete', function (e) {
       console.log('btnDelete Clicked');
       let ids = $(this).attr("aria-label");
 
@@ -419,26 +419,26 @@ const SalesFinanceCRUD = (function () {
       axios.delete(`${HOST_URL}/api/v1/sales-finance/address`, requests);
 
       // reload table
-      $('#tableA').KTDatatable().reload();
+      $('#tableAd').KTDatatable().reload();
   
       });
 
-      // // deleteAll mass operation
-      // datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-      //   // datatable.checkbox() access to extension methods
-      //   const ids = datatable.checkbox().getSelectedId();
-      //   const count = ids.length;
+      // deleteAll mass operation
+      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+        // datatable.checkbox() access to extension methods
+        const ids = datatable.checkbox().getSelectedId();
+        const count = ids.length;
     
-      //   $('#tableA_selected_records_2').html(count);
+        $('#tableAd_selected_records_2').html(count);
 
-      //   console.log(count)
+        console.log(count)
     
-      //   if (count > 0) {
-      //       $('#tableA_group_action_form_2').collapse('show');
-      //   } else {
-      //       $('#tableA_group_action_form_2').collapse('hide');
-      //   }
-      // });
+        if (count > 0) {
+            $('#tableAd_group_action_form_2').collapse('show');
+        } else {
+            $('#tableAd_group_action_form_2').collapse('hide');
+        }
+      });
 
      // form reset operation
      $('#formA').on('click', '.btnReset', function (e) {
@@ -451,7 +451,7 @@ const SalesFinanceCRUD = (function () {
        }
        else {
            // initiate validation
-           fv = FormValidation.formValidation(AForm, formOptions);
+           fv = FormValidation.formValidation(AdForm, formOptions);
        }
   
        // clearing validator messages
@@ -471,10 +471,10 @@ const SalesFinanceCRUD = (function () {
        // clearing validator messages
        $('.fv-plugins-message-container').text(''); // remove message
        
-       FormSubmitButton = document.querySelector('#btnAddNewAFormSubmitButton');
+       FormSubmitButton = document.querySelector('#btnAddNewAdFormSubmitButton');
   
        // Validation
-       fv = FormValidation.formValidation(AForm, formOptions);
+       fv = FormValidation.formValidation(AdForm, formOptions);
   
        // validation failed
        fv.on('core.form.invalid', async function () {
@@ -508,16 +508,16 @@ const SalesFinanceCRUD = (function () {
   
                if (res.data.status == 'success') {
                    // reseting & clearing
-                   $('#modalA').modal('hide')  // hiding modal form
+                   $('#modalAd').modal('hide')  // hiding modal form
                    toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                   $('#tableA').KTDatatable().reload(); // reload table
+                   $('#tableAd').KTDatatable().reload(); // reload table
                }
                else if (res.data.status == 'error') {
-                   $('#modalA').modal('hide')  // hiding modal form
+                   $('#modalAd').modal('hide')  // hiding modal form
                    toastr.error(`${res.data.message}`, `${res.data.status}`)
                }
                else {
-                   $('#modalA').modal('hide')
+                   $('#modalAd').modal('hide')
                };
            });
        });
@@ -528,20 +528,20 @@ const SalesFinanceCRUD = (function () {
       $('#btnOpenAModal').on('click', async function (e) {
       // console.log('btnNewItem is clicked');
   
-      FormSubmitButton = document.querySelector('#btnAddNewAFormSubmitButton');
+      FormSubmitButton = document.querySelector('#btnAddNewAdFormSubmitButton');
   
       // enabling disabling buttons
-      $('#btnAddNewAFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-      $('#btnSaveAFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+      $('#btnAddNewAdFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+      $('#btnSaveAdFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
   
-      $('#modalA').modal('show');   // open modal  
+      $('#modalAd').modal('show');   // open modal  
   
-      $('#modalA').find('.modal-title').text('Add New Address Notification'); // Setting title for modal
+      $('#modalAd').find('.modal-title').text('Add New Address Notification'); // Setting title for modal
   
       });
         
     //   // modal post closed
-    //   $('#modalA').on('hidden.bs.modal', function (e) {
+    //   $('#modalAd').on('hidden.bs.modal', function (e) {
     //       //  console.log('Modal is closed');
   
     //       if (fv) {
@@ -560,7 +560,7 @@ const SalesFinanceCRUD = (function () {
     //   });
         
     //   // modal post opened
-    //   $('#modalA').on('shown.bs.modal', function (e) {
+    //   $('#modalAd').on('shown.bs.modal', function (e) {
   
     //   // Initializing 
   
