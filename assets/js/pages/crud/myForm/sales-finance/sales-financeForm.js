@@ -360,7 +360,7 @@ const SalesFinanceCRUD = (function () {
                         box: dnBox.value,
                         shipMethod: dnShipMethod.value,
                         carrierName: dnCarrierName.value,
-                        carrierTrackingNumber: dnTrackingNo.value,
+                        carrierTrackingNumber: dnTrackingNo.value * 1,
                         shippingNotes: dnShippingNotes.value,
                         receivedBy: dnReceivedBy.value,
                         fileProof: dnFileProof.value

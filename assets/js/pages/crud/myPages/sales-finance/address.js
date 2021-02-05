@@ -2,7 +2,7 @@
 'use strict';
 
 /* Class definition */
-const SalesFinanceCRUD = (function () {
+const AddressCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
@@ -569,6 +569,9 @@ const SalesFinanceCRUD = (function () {
         
         
     };
+
+
+
     return {
         // public functions
           init: function () {
@@ -579,5 +582,5 @@ const SalesFinanceCRUD = (function () {
   })();
   
   jQuery(document).ready(function () {
-      SalesFinanceCRUD.init();
+      AddressCRUD.init();
   });    

@@ -346,7 +346,7 @@ const AnnouncementCRUD = (function () {
 
       // form add operation
       $('#formAe').on('click', '.btnAdd', function (e) {
-        // console.log('addMenuSectionFormSubmitButton is clicked');
+        // console.log('btnCreate is clicked');
 
         // clearing validator messages
         $('.fv-plugins-message-container').text(''); // remove message
