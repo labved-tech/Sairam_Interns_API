@@ -179,11 +179,11 @@ const EcommerceCRUD = (function () {
                                             </ul>\
                                         </div>\
                                     </div>\
-                                    <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
+                                    <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id + '">\
                                     <i class="far fa-edit">\
                                     </i>\
                                     </a>\
-                                    <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
+                                    <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id + '">\
                                     <i class="far fa-trash-alt">\
                                     </i>\
                                     </a>\
@@ -365,12 +365,12 @@ const EcommerceCRUD = (function () {
                     // });
 
                     // updating fields with data
-                    document.querySelector('#aeId').value = res.data.announcementEntries._id;
-                    document.querySelector('#aeTitle').value = res.data.announcementEntries.title;
-                    document.querySelector('#aeFrom').value = res.data.announcementEntries.from;
-                    document.querySelector('#aeIsEmailReq').value = res.data.announcementEntries.isEmailReq;
-                    document.querySelector('#aePriority').value = res.data.announcementEntries.priority;
-                    document.querySelector('#aeMessage').value = res.data.announcementEntries.message;
+                    document.querySelector('#eaAddress1').value = res.data.ecommerceAddress.address1;
+                    document.querySelector('#eaStreet').value = res.data.ecommerceAddress.street;
+                    document.querySelector('#eaCity').value = res.data.ecommerceAddress.city;
+                    document.querySelector('#eaState').value = res.data.ecommerceAddress.state;
+                    document.querySelector('#eaCountry').value = res.data.ecommerceAddress.country;
+                    document.querySelector('#eaPostalCode').value = res.data.ecommerceAddress.postalcode;
                 }
             });
         });
