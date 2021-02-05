@@ -76,9 +76,9 @@ const EcommerceCRUD = (function () {
                     title: 'Address',
                     template: function (row) {
                         return '\
-            <div>\
-            <a href="#">' + row.address1 + '</a></div>\
-          ';
+                                <div>\
+                                <a href="#">' + row.address1 + '</a></div>\
+                            ';
                     }
                 },
                 {
@@ -121,11 +121,10 @@ const EcommerceCRUD = (function () {
                     sortable: false,
                     template: function () {
                         return '\
-            <a href="#" class="btn btn-sm btn-light" role="button">\
-              view details\
-            </a >\
-          '
-                            ;
+                                <a href="#" class="btn btn-sm btn-light" role="button">\
+                                view details\
+                                </a >\
+                            ';
                     },
                 },
                 {
@@ -135,60 +134,60 @@ const EcommerceCRUD = (function () {
                     width: 125,
                     overflow: 'visible',
                     autoHide: false,
-                    template: function () {
+                    template: function (row) {
                         return '\
-                      <div class="dropdown dropdown-inline">\
-                          <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
-                            <i class="fas fa-cog">\
-                            </i>\
-                          </a>\
-                          <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
-                              <ul class="navi flex-column navi-hover py-2">\
-                                  <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
-                                      Choose an action:\
-                                  </li>\
-                                  <li class="navi-item">\
-                                      <a href="#" class="navi-link">\
-                                          <span class="navi-icon"><i class="fas fa-print"></i></span>\
-                                          <span class="navi-text">Print</span>\
-                                      </a>\
-                                  </li>\
-                                  <li class="navi-item">\
-                                      <a href="#" class="navi-link">\
-                                          <span class="navi-icon"><i class="fas fa-copy"></i></span>\
-                                          <span class="navi-text">Copy</span>\
-                                      </a>\
-                                  </li>\
-                                  <li class="navi-item">\
-                                      <a href="#" class="navi-link">\
-                                          <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
-                                          <span class="navi-text">Excel</span>\
-                                      </a>\
-                                  </li>\
-                                  <li class="navi-item">\
-                                      <a href="#" class="navi-link">\
-                                          <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
-                                          <span class="navi-text">CSV</span>\
-                                      </a>\
-                                  </li>\
-                                  <li class="navi-item">\
-                                      <a href="#" class="navi-link">\
-                                          <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
-                                          <span class="navi-text">PDF</span>\
-                                      </a>\
-                                  </li>\
-                              </ul>\
-                          </div>\
-                      </div>\
-                      <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
-                        <i class="far fa-edit">\
-                        </i>\
-                      </a>\
-                      <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
-                        <i class="far fa-trash-alt">\
-                        </i>\
-                      </a>\
-                  ';
+                                    <div class="dropdown dropdown-inline">\
+                                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
+                                        <i class="fas fa-cog">\
+                                        </i>\
+                                        </a>\
+                                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+                                            <ul class="navi flex-column navi-hover py-2">\
+                                                <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
+                                                    Choose an action:\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-print"></i></span>\
+                                                        <span class="navi-text">Print</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-copy"></i></span>\
+                                                        <span class="navi-text">Copy</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
+                                                        <span class="navi-text">Excel</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
+                                                        <span class="navi-text">CSV</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
+                                                        <span class="navi-text">PDF</span>\
+                                                    </a>\
+                                                </li>\
+                                            </ul>\
+                                        </div>\
+                                    </div>\
+                                    <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
+                                    <i class="far fa-edit">\
+                                    </i>\
+                                    </a>\
+                                    <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
+                                    <i class="far fa-trash-alt">\
+                                    </i>\
+                                    </a>\
+                                ';
                     },
                 },
             ],
@@ -448,7 +447,7 @@ const EcommerceCRUD = (function () {
                         // reseting & clearing
                         $('#modalEa').modal('hide')  // hiding modal form
                         toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#modalEa').KTDatatable().reload(); // reload table
+                        $('#tableEa').KTDatatable().reload(); // reload table
                     }
                     else if (res.data.status == 'error') {
                         $('#modalEa').modal('hide')  // hiding modal form
@@ -525,7 +524,7 @@ const EcommerceCRUD = (function () {
         /* Table Operations */
         // Edit Modal Window - opens modal with appropriate properties
         $('#tableEa').on('click', '.btnEdit', async function (e) {
-            // console.log('btnEdit is clicked');
+            console.log('btnEdit is clicked');
 
             var id = $(this).attr("aria-label");
             // console.log(id);
