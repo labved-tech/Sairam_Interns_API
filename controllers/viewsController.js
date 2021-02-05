@@ -460,6 +460,11 @@ exports.directory = (req, res) => {
   res.status(200).render('./../views/pages/directory/directory');
 };
 
+exports.directoryCategoriesAll = (req, res) => {
+  console.log('We are in directory Categories Form Page');
+  res.status(200).render('./../views/pages/directory/directoryCategoriesAll');
+};
+
 // DIRECTORY TABLE RELATED CONTROLLER
 
 exports.directoryAttributeGroupsTable = (req, res) => {
