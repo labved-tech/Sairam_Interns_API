@@ -363,6 +363,42 @@ const NewsletterCRUD = (function () {
             }
         });
       });
+    // deleteOne operation
+    $('#tableNm').on('click', '.btnDelete', function (e) {
+      console.log('btnDelete Clicked');
+      let ids = $(this).attr("aria-label");
+
+      ids = ids.toString();
+
+      const requests = {
+          params: {
+              _id: ids,
+          }
+      }
+
+      axios.delete(`${HOST_URL}/api/v1/newsletter/messages`, requests);
+
+      // reload table
+      $('#tableNm').KTDatatable().reload();
+  
+      });
+
+      // deleteAll mass operation
+      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+        // datatable.checkbox() access to extension methods
+        const ids = datatable.checkbox().getSelectedId();
+        const count = ids.length;
+    
+        $('#tableNm_selected_records_2').html(count);
+
+        console.log(count)
+    
+        if (count > 0) {
+            $('#tableNm_group_action_form_2').collapse('show');
+        } else {
+            $('#tableNm_group_action_form_2').collapse('hide');
+        }
+      });
       
       // form reset operation
       $('#formNm').on('click', '.btnReset', function (e) {
@@ -442,7 +478,50 @@ const NewsletterCRUD = (function () {
             });
         });
       });
-        
+      /* Modal Operations */
+      // to open modal 
+      $('#btnOpenNmModal').on('click', async function (e) {
+        // console.log('btnNewItem is clicked');
+    
+        FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
+    
+        // enabling disabling buttons
+        $('#btnAddNewNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+        $('#btnSaveNmFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+    
+        $('#modalNm').modal('show');   // open modal  
+    
+        $('#modalNm').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
+    
+        });
+          
+        // modal post closed
+        $('#modalNm').on('hidden.bs.modal', function (e) {
+            //  console.log('Modal is closed');
+    
+            if (fv) {
+                // clearing forms
+                fv.resetForm();
+                fv.destroy();
+             }
+    
+             // clearing validator messages
+             $('.fv-plugins-message-container').text(''); // remove message
+    
+             // clearing fields
+             $("#formNm").trigger('reset'); // clear form fields
+             
+    
+        });
+          
+        // modal post opened
+        $('#modalNm').on('shown.bs.modal', function (e) {
+    
+        // Initializing 
+    
+    
+        });
+          
         
     };
     return {

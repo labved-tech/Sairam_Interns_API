@@ -284,6 +284,10 @@ exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote');
 };
+exports.deliveryNoteAll= (req, res) => {
+  console.log('We are in Delivery Note All Page');
+  res.status(200).render('./../views/pages/sales-finance/deliveryNoteAll');
+};
 exports.deliveryNoteTable = (req, res) => {
   console.log('We are in Delivery Note Table Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNoteTable');
@@ -458,6 +462,11 @@ exports.directoryEntries = (req, res) => {
 exports.directory = (req, res) => {
   console.log('We are in directory Form Page');
   res.status(200).render('./../views/pages/directory/directory');
+};
+
+exports.directoryCategoriesAll = (req, res) => {
+  console.log('We are in directory Categories Form Page');
+  res.status(200).render('./../views/pages/directory/directoryCategoriesAll');
 };
 
 // DIRECTORY TABLE RELATED CONTROLLER

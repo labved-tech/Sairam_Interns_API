@@ -2,7 +2,7 @@
 'use strict';
 
 /* Class definition */
-const SalesFinanceCRUD = (function () {
+const AddressCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
@@ -423,22 +423,22 @@ const SalesFinanceCRUD = (function () {
   
       });
 
-      // // deleteAll mass operation
-      // datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-      //   // datatable.checkbox() access to extension methods
-      //   const ids = datatable.checkbox().getSelectedId();
-      //   const count = ids.length;
+      // deleteAll mass operation
+      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+        // datatable.checkbox() access to extension methods
+        const ids = datatable.checkbox().getSelectedId();
+        const count = ids.length;
     
-      //   $('#tableAd_selected_records_2').html(count);
+        $('#tableAd_selected_records_2').html(count);
 
-      //   console.log(count)
+        console.log(count)
     
-      //   if (count > 0) {
-      //       $('#tableAd_group_action_form_2').collapse('show');
-      //   } else {
-      //       $('#tableAd_group_action_form_2').collapse('hide');
-      //   }
-      // });
+        if (count > 0) {
+            $('#tableAd_group_action_form_2').collapse('show');
+        } else {
+            $('#tableAd_group_action_form_2').collapse('hide');
+        }
+      });
 
      // form reset operation
      $('#formA').on('click', '.btnReset', function (e) {
@@ -569,6 +569,9 @@ const SalesFinanceCRUD = (function () {
         
         
     };
+
+
+
     return {
         // public functions
           init: function () {
@@ -579,5 +582,5 @@ const SalesFinanceCRUD = (function () {
   })();
   
   jQuery(document).ready(function () {
-      SalesFinanceCRUD.init();
+      AddressCRUD.init();
   });    
