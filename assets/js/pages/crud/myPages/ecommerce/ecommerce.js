@@ -549,20 +549,20 @@ const EcommerceCRUD = (function () {
 
                 if (res.data.status == 'success') {
 
-                    // fetching menu manager select2
-                    await axios({
-                        method: 'GET',
-                        url: `${HOST_URL}/api/v1/menu/manager/popSel2/` + res.data.menuManager._id,
-                    }).then(function (res) {
-                        //Return valid JSON
-                        // console.log(res);
+                    // // fetching menu manager select2
+                    // await axios({
+                    //     method: 'GET',
+                    //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/` + res.data.menuManager._id,
+                    // }).then(function (res) {
+                    //     //Return valid JSON
+                    //     // console.log(res);
 
-                        if (res.data.status === 'success') {
-                            // updating menuManagerSelect values
-                            var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                            $('#menuManagerSelect').append(option).trigger('change');
-                        }
-                    });
+                    //     if (res.data.status === 'success') {
+                    //         // updating menuManagerSelect values
+                    //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                    //         $('#menuManagerSelect').append(option).trigger('change');
+                    //     }
+                    // });
 
                     // updating fields with data
                     document.querySelector('#menuSectionId').value = res.data.menuSection._id;
