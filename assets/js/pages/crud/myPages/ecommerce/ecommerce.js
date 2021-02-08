@@ -322,6 +322,7 @@ const EcommerceCRUD = (function () {
 
         });
 
+        /* Table Operations */
         // Edit Modal Window - opens modal with appropriate properties
         $('#tableEa').on('click', '.btnEdit', async function (e) {
             // console.log('btnEdit is clicked');
@@ -460,7 +461,6 @@ const EcommerceCRUD = (function () {
             });
         });
 
-
         // form save operation
         $('#formEa').on('click', '.btnSave', function (e) {
             console.log('btnSave is clicked');
@@ -521,59 +521,6 @@ const EcommerceCRUD = (function () {
                         $('#modalEa').modal('hide') // hiding modal form
                     };
                 });
-            });
-        });
-
-        /* Table Operations */
-        // Edit Modal Window - opens modal with appropriate properties
-        $('#tableEa').on('click', '.btnEdit', async function (e) {
-            console.log('btnEdit is clicked');
-
-            var id = $(this).attr("aria-label");
-            // console.log(id);
-
-            FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
-
-            // enabling disabling buttons
-            $('#btnAddNewEaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-            $('#btnSaveEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
-
-            $('#modalEa').modal('show');   // open modal
-
-            $('#modalEa').find('.modal-title').text('Edit Section Item'); // Setting title for modal
-
-            // retrieving data
-            await axios({
-                method: 'GET',
-                url: `${HOST_URL}/api/v1/menu/section/${id}`,
-            }).then(async function (res) {
-                // Return valid JSON
-                // console.log(res);
-
-                if (res.data.status == 'success') {
-
-                    // // fetching menu manager select2
-                    // await axios({
-                    //     method: 'GET',
-                    //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/` + res.data.menuManager._id,
-                    // }).then(function (res) {
-                    //     //Return valid JSON
-                    //     // console.log(res);
-
-                    //     if (res.data.status === 'success') {
-                    //         // updating menuManagerSelect values
-                    //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                    //         $('#menuManagerSelect').append(option).trigger('change');
-                    //     }
-                    // });
-
-                    // updating fields with data
-                    document.querySelector('#menuSectionId').value = res.data.menuSection._id;
-                    document.querySelector('#menuSectionName').value = res.data.menuSection.name;
-                    document.querySelector('#menuSectionDescription').value = res.data.menuSection.description;
-                    document.querySelector('#menuSectionPriority').value = res.data.menuSection.priority;
-                }
-
             });
         });
 

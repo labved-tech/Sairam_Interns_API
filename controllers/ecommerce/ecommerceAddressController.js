@@ -131,7 +131,7 @@ exports.getEcommerceAddress = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got ecommerceAddress Id=${id}`,
-    Data: { ecommerceAddress },
+    ecommerceAddress
   });
 
   next();
