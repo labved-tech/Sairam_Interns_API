@@ -131,7 +131,7 @@ exports.getTicketCategories = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got TicketCategories Id=${id}`,
-    Data: { ticketCategories },
+    ticketCategories,
   });
 
   next();

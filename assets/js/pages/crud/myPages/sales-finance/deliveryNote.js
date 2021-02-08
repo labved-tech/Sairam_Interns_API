@@ -547,7 +547,7 @@ const DeliveryNoteCRUD = (function () {
                       box: document.querySelector('#dnBox').value,
                       shipMethod: document.querySelector('#dnShipMethod').value,
                       carrierName: document.querySelector('#dnCarrierName').value,
-                      carrierTrackingNumber: document.querySelector('#dnTrackingNo').value * 1,
+                      carrierTrackingNumber: document.querySelector('#dnTrackingNo').value,
                       shippingNotes: document.querySelector('#dnShippingNotes').value,
                       receivedBy: document.querySelector('#dnReceivedBy').value,
                       fileProof: document.querySelector('#dnFileProof').value,
@@ -694,7 +694,7 @@ const DeliveryNoteCRUD = (function () {
                   // });
 
                   // updating fields with data
-                  //document.querySelector('#dnId').value = res.data.deliveryNote._id;
+                  document.querySelector('#dnId').value = res.data.deliveryNote._id;
                   document.querySelector('#dnPackingListNo').value  = res.data.deliveryNote.packingListnumber;
                   document.querySelector('#dnTaxInvoiceNo').value  = res.data.deliveryNote.taxInvoiceNumber;
                   document.querySelector('#dnSource').value = res.data.deliveryNote.source;
