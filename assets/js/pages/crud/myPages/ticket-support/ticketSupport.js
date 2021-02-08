@@ -25,12 +25,12 @@ const TicketSupportCRUD = (function () {
                         },
                         map: function (raw) {
                             // sample data mapping
-                            console.log('raw', raw);
+                            //console.log('raw', raw);
                             dataSet = raw;
 
                             if (typeof raw.ticketCategories !== 'undefined') {
                                 dataSet = raw.ticketCategories;
-                                console.log('dataSet', dataSet);
+                                //console.log('dataSet', dataSet);
                             }
                             return dataSet;
                         }
@@ -124,60 +124,60 @@ const TicketSupportCRUD = (function () {
                     width: 125,
                     overflow: 'visible',
                     autoHide: false,
-                    template: function () {
+                    template: function (row) {
                         return '\
-                          <div class="dropdown dropdown-inline">\
-                              <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
-                                <i class="fas fa-cog">\
-                                </i>\
-                              </a>\
-                              <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
-                                  <ul class="navi flex-column navi-hover py-2">\
-                                      <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
-                                          Choose an action:\
-                                      </li>\
-                                      <li class="navi-item">\
-                                          <a href="#" class="navi-link">\
-                                              <span class="navi-icon"><i class="fas fa-print"></i></span>\
-                                              <span class="navi-text">Print</span>\
-                                          </a>\
-                                      </li>\
-                                      <li class="navi-item">\
-                                          <a href="#" class="navi-link">\
-                                              <span class="navi-icon"><i class="fas fa-copy"></i></span>\
-                                              <span class="navi-text">Copy</span>\
-                                          </a>\
-                                      </li>\
-                                      <li class="navi-item">\
-                                          <a href="#" class="navi-link">\
-                                              <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
-                                              <span class="navi-text">Excel</span>\
-                                          </a>\
-                                      </li>\
-                                      <li class="navi-item">\
-                                          <a href="#" class="navi-link">\
-                                              <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
-                                              <span class="navi-text">CSV</span>\
-                                          </a>\
-                                      </li>\
-                                      <li class="navi-item">\
-                                          <a href="#" class="navi-link">\
-                                              <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
-                                              <span class="navi-text">PDF</span>\
-                                          </a>\
-                                      </li>\
-                                  </ul>\
-                              </div>\
-                          </div>\
-                          <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" title="Edit details">\
-                            <i class="far fa-edit">\
-                            </i>\
-                          </a>\
-                          <a href="javascript:;" class="btn btn-sm btn-clean btn-icon" title="Delete">\
-                            <i class="far fa-trash-alt">\
-                            </i>\
-                          </a>\
-                      ';
+                                    <div class="dropdown dropdown-inline">\
+                                        <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
+                                        <i class="fas fa-cog">\
+                                        </i>\
+                                        </a>\
+                                        <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">\
+                                            <ul class="navi flex-column navi-hover py-2">\
+                                                <li class="navi-header font-weight-bolder text-uppercase font-size-xs text-primary pb-2">\
+                                                    Choose an action:\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-print"></i></span>\
+                                                        <span class="navi-text">Print</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-copy"></i></span>\
+                                                        <span class="navi-text">Copy</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-file-excel"></i></span>\
+                                                        <span class="navi-text">Excel</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-file-csv"></i></span>\
+                                                        <span class="navi-text">CSV</span>\
+                                                    </a>\
+                                                </li>\
+                                                <li class="navi-item">\
+                                                    <a href="#" class="navi-link">\
+                                                        <span class="navi-icon"><i class="fas fa-file-pdf"></i></span>\
+                                                        <span class="navi-text">PDF</span>\
+                                                    </a>\
+                                                </li>\
+                                            </ul>\
+                                        </div>\
+                                    </div>\
+                                    <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id + '">\
+                                    <i class="far fa-edit">\
+                                    </i>\
+                                    </a>\
+                                    <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id + '">\
+                                    <i class="far fa-trash-alt">\
+                                    </i>\
+                                    </a>\
+                                ';
                     },
                 },
             ],
@@ -464,7 +464,7 @@ const TicketSupportCRUD = (function () {
                 url: `${HOST_URL}/api/v1/ticket-support/categories/${id}`,
             }).then(async function (res) {
                 // Return valid JSON
-                // console.log(res);
+                console.log(res);
 
                 if (res.data.status == 'success') {
 
@@ -485,9 +485,9 @@ const TicketSupportCRUD = (function () {
 
                     // updating fields with data
                     document.querySelector('#tcId').value = res.data.ticketCategories._id;
-                    document.querySelector('#tcName').value = res.data.tcName.name;
-                    document.querySelector('#tcDescription').value = res.data.tcDescription.description;
-                    document.querySelector('#tcNotes').value = res.data.tcNotes.notes;
+                    document.querySelector('#tcName').value = res.data.ticketCategories.name;
+                    document.querySelector('#tcDescription').value = res.data.ticketCategories.description;
+                    document.querySelector('#tcNotes').value = res.data.ticketCategories.notes;
                 }
             });
         });
