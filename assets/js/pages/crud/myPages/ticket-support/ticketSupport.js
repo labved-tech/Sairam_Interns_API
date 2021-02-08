@@ -57,7 +57,7 @@ const TicketSupportCRUD = (function () {
 
             pagination: true,
             search: {
-                input: $('#kt_datatable_search_query_2'),
+                input: $('#tableTc_search_query_2'),
                 key: 'generalSearch',
             },
 
@@ -388,10 +388,10 @@ const TicketSupportCRUD = (function () {
             // clearing validator messages
             $('.fv-plugins-message-container').text(''); // remove message
 
-            FormSubmitButton = document.querySelector('#btnSaveMenuSectionFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnSaveTcFormSubmitButton');
 
             // Validation
-            fv = FormValidation.formValidation(menuSectionForm, formOptions);
+            fv = FormValidation.formValidation(TcForm, formOptions);
 
             // validation failed
             fv.on('core.form.invalid', async function () {
@@ -461,14 +461,14 @@ const TicketSupportCRUD = (function () {
             // retrieving data
             await axios({
                 method: 'GET',
-                url: `${HOST_URL}/api/v1/menu/section/${id}`,
+                url: `${HOST_URL}/api/v1/ticket-support/categories/${id}`,
             }).then(async function (res) {
                 // Return valid JSON
                 // console.log(res);
 
                 if (res.data.status == 'success') {
 
-                    // fetching menu manager select2
+                    /*// fetching menu manager select2
                     await axios({
                         method: 'GET',
                         url: `${HOST_URL}/api/v1/ticket-support/categories` + res.data.menuManager._id,
@@ -481,15 +481,14 @@ const TicketSupportCRUD = (function () {
                             var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
                             $('#menuManagerSelect').append(option).trigger('change');
                         }
-                    });
+                    });*/
 
                     // updating fields with data
-                    document.querySelector('#menuSectionId').value = res.data.menuSection._id;
-                    document.querySelector('#menuSectionName').value = res.data.menuSection.name;
-                    document.querySelector('#menuSectionDescription').value = res.data.menuSection.description;
-                    document.querySelector('#menuSectionPriority').value = res.data.menuSection.priority;
+                    document.querySelector('#tcId').value = res.data.ticketCategories._id;
+                    document.querySelector('#tcName').value = res.data.tcName.name;
+                    document.querySelector('#tcDescription').value = res.data.tcDescription.description;
+                    document.querySelector('#tcNotes').value = res.data.tcNotes.notes;
                 }
-
             });
         });
 
@@ -505,29 +504,29 @@ const TicketSupportCRUD = (function () {
                 }
             }
 
-            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+            axios.delete(`${HOST_URL}/api/v1/ticket-support/categories`, requests);
 
             // reload table
             $('#tableTc').KTDatatable().reload();
 
         });
 
-        // mass operation
-        //  datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-        //      // datatable.checkbox() access to extension methods
-        //      const ids = datatable.checkbox().getSelectedId();
-        //      const count = ids.length;
+        //  deleteAll mass operation
+        datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+            // datatable.checkbox() access to extension methods
+            const ids = datatable.checkbox().getSelectedId();
+            const count = ids.length;
 
-        //      $('#tableTc_selected_records_2').html(count);
+            $('#tableTc_selected_records_2').html(count);
 
-        //      console.log(count)
+            console.log(count)
 
-        //      if (count > 0) {
-        //          $('#tableTc_group_action_form_2').collapse('show');
-        //      } else {
-        //          $('#tableTc_group_action_form_2').collapse('hide');
-        //      }
-        //  });
+            if (count > 0) {
+                $('#tableTc_group_action_form_2').collapse('show');
+            } else {
+                $('#tableTc_group_action_form_2').collapse('hide');
+            }
+        });
 
         // deleteAll operation
         $('#tableTc_group_action_form_2').on('click', '.btnDeleteAll', function () {

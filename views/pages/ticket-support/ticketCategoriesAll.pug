@@ -72,13 +72,13 @@ block content
                                     div(class="row align-items-center")
                                         div(class="col-md-4 my-2 my-md-0")
                                             div(class="input-icon")
-                                                input#kt_datatable_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                input#tableTc_search_query_2(type="text", class="form-control", placeholder="Search...")
                                                 span
                                                     i(class="flaticon2-search-1 text-muted")
                                         div(class="col-md-4 my-2 my-md-0")
                                             div(class="d-flex align-items-center")
                                                 label(class="mr-3 mb-0 d-none d-md-block") Status:
-                                                select#kt_datatable_search_status_2(class="form-control")
+                                                select#tableTc_search_status_2(class="form-control")
                                                     option(value="") All
                                                     option(value="1") Pending
                                                     option(value="2") Delivered
@@ -89,7 +89,7 @@ block content
                                         div(class="col-md-4 my-2 my-md-0")
                                             div(class="d-flex align-items-center")
                                                 label(class="mr-3 mb-0 d-none d-md-block") Type:
-                                                select#kt_datatable_search_type_2(class="form-control")
+                                                select#tableTc_search_type_2(class="form-control")
                                                     option(value="") All
                                                     option(value="1") Online
                                                     option(value="2") Retail
@@ -99,11 +99,11 @@ block content
                                         | Search
                         // end::Search Form
                         // begin: Selected Rows Group Action Form
-                        #kt_datatable_group_action_form_2(class="mt-10 mb-5 collapse")
+                        #tableTc_group_action_form_2(class="mt-10 mb-5 collapse")
                             div(class="d-flex align-items-center")
                                 div(class="font-weight-bold text-danger mr-3")
                                     | Selected 
-                                    span#kt_datatable_selected_records_2 0
+                                    span#tableTc_selected_records_2 0
                                     |  records:
                                 div(class="dropdown mr-2")
                                     button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
@@ -119,9 +119,9 @@ block content
                                             li(class="nav-item")
                                                 a(href="#", class="nav-link")
                                                     span(class="nav-text") Canceled
-                                button#kt_datatable_delete_all_2(class="btn btn-sm btn-danger mr-2", type="button")
+                                button#tableTc_delete_all_2(class="btn btn-sm btn-danger mr-2", type="button")
                                     | Delete All
-                                button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#kt_datatable_fetch_modal_2")
+                                button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableTc_fetch_modal_2")
                                     | Fetch Selected Records
                         // end: Selected Rows Group Action Form
                         // begin: Datatable
