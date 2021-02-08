@@ -212,7 +212,7 @@ router.get('/directory/levels/table', viewsController.directoryLevelsTable);
 router.get('/directory/entries/table', viewsController.directoryEntriesTable);
 router.get('/directory/table', viewsController.directoryTable);
 router.get('/directory/categories/all', viewsController.directoryCategoriesAll);
-
+router.get('/directory/all', viewsController.directoryAll);
 // PAGES RELATED ROUTES
 router.get('/pages', viewsController.pages);
 router.get('/pages/table', viewsController.pagesTable);
