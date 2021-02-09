@@ -557,7 +557,6 @@ const AnnouncementCRUD = (function () {
       });
 
     };
-
     /*   Private functions */
     function _AnnouncementNotification() {
         var dataSet;

@@ -15,6 +15,10 @@ router.param('id', directoryCategoriesController.checkID);
 
 /* ROUTES */
 router
+  .route('/table')
+  .get(directoryCategoriesController.getAllTableDirectoryCategories);
+
+router
   .route('/')
   .get(directoryCategoriesController.getAllDirectoryCategories)
   .post(directoryCategoriesController.createDirectoryCategories);

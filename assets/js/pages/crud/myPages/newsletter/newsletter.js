@@ -3,130 +3,130 @@
 
 /* Class definition */
 const NewsletterCRUD = (function () {
-    const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-    /*   Private functions */
-    function _NewsletterMessages() {
-        var dataSet;
+  const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
+  /*   Private functions */
+  function _NewsletterMessages() {
+    var dataSet;
 
-        /* Table Options */
-        const options = {
-          // datasource definition
-          data: {
-            type: 'remote',
-            source: {
-              read: {
-                method: 'get',
-                url: `${HOST_URL}/api/v1/newsletter/messages/table`,
-                params: {
-                  fields: '_id, _newsletterId, subject,message,recipientEmail,sent,visited, createdBy,createdAt,updatedAt,updatedBy',
-                },
-                map: function (raw) {
-                  // sample data mapping
-                  // console.log('raw', raw);
-                  dataSet = raw;
-    
-                  if (typeof raw.newsletterMessages !== 'undefined') {
-                    dataSet = raw.newsletterMessages;
-                    // console.log('dataSet', dataSet);
-                  }
-                  return dataSet;
-                }
-    
-              },
+    /* Table Options */
+    const options = {
+      // datasource definition
+      data: {
+        type: 'remote',
+        source: {
+          read: {
+            method: 'get',
+            url: `${HOST_URL}/api/v1/newsletter/messages/table`,
+            params: {
+              fields: '_id, _newsletterId, subject,message,recipientEmail,sent,visited, createdBy,createdAt,updatedAt,updatedBy',
             },
-            pageSize: 10,
-            serverPaging: true,
-            serverFiltering: true,
-            serverSorting: true,
-            //autoColumns: true,  // newly added
+            map: function (raw) {
+              // sample data mapping
+              // console.log('raw', raw);
+              dataSet = raw;
+
+              if (typeof raw.newsletterMessages !== 'undefined') {
+                dataSet = raw.newsletterMessages;
+                // console.log('dataSet', dataSet);
+              }
+              return dataSet;
+            }
+
           },
-    
-          // layout definition
-          layout: {
-            scroll: true, // enable/disable datatable scroll both horizontal and
-            footer: false, // display/hide footer
-            height: 450,
-    
+        },
+        pageSize: 10,
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true,
+        //autoColumns: true,  // newly added
+      },
+
+      // layout definition
+      layout: {
+        scroll: true, // enable/disable datatable scroll both horizontal and
+        footer: false, // display/hide footer
+        height: 450,
+
+      },
+
+      // column sorting
+      sortable: true,
+
+      pagination: true,
+      search: {
+        input: $('#kt_datatable_search_query_2'),
+        key: 'generalSearch',
+      },
+
+      // columns definition
+      columns: [
+        {
+          field: '_id',
+          title: '#',
+          sortable: false,
+          width: 20,
+          selector: {
+            class: '',
           },
-    
-          // column sorting
-          sortable: true,
-    
-          pagination: true,
-          search: {
-            input: $('#kt_datatable_search_query_2'),
-            key: 'generalSearch',
-          },
-    
-          // columns definition
-          columns: [
-            {
-              field: '_id',
-              title: '#',
-              sortable: false,
-              width: 20,
-              selector: {
-                class: '',
-              },
-              textAlign: 'center',
-            },
-            {
-                field: '_newsletterId',
-                title: 'Newsletter Id',
-              },
-      
-              {
-                field: 'subject',
-                title: 'Subject',
-              },
-              {
-                  field: 'message',
-                  title: 'Message',
-              },
-              {
-                  field: 'recipientEmail',
-                  title: 'Recipient Email',
-              },
-              {
-                  field: 'sent',
-                  title: 'Sent',
-              },
-              {
-                  field: 'visited',
-                  title: 'Visited',
-              },
-              {
-              field: 'createdAt',
-              title: 'createdAt',
-            },
-            {
-              field: 'updatedAt',
-              title: 'updatedAt',
-            },
-            {
-              field: 'details',
-              title: 'Details',
-              textAlign: 'center',
-              //width: 100,
-              sortable: false,
-              template: function () {
-                return '\
+          textAlign: 'center',
+        },
+        {
+          field: '_newsletterId',
+          title: 'Newsletter Id',
+        },
+
+        {
+          field: 'subject',
+          title: 'Subject',
+        },
+        {
+          field: 'message',
+          title: 'Message',
+        },
+        {
+          field: 'recipientEmail',
+          title: 'Recipient Email',
+        },
+        {
+          field: 'sent',
+          title: 'Sent',
+        },
+        {
+          field: 'visited',
+          title: 'Visited',
+        },
+        {
+          field: 'createdAt',
+          title: 'createdAt',
+        },
+        {
+          field: 'updatedAt',
+          title: 'updatedAt',
+        },
+        {
+          field: 'details',
+          title: 'Details',
+          textAlign: 'center',
+          //width: 100,
+          sortable: false,
+          template: function () {
+            return '\
                     <a href="#" class="btn btn-sm btn-light" role="button">\
                       view details\
                     </a >\
                   '
-                  ;
-              },
-            },
-            {
-                field: 'Actions',
-                title: 'Actions',
-                sortable: false,
-                width: 125,
-                overflow: 'visible',
-                    autoHide: false,
-                template: function (row) {
-                    return '\
+              ;
+          },
+        },
+        {
+          field: 'Actions',
+          title: 'Actions',
+          sortable: false,
+          width: 125,
+          overflow: 'visible',
+          autoHide: false,
+          template: function (row) {
+            return '\
                                 <div class="dropdown dropdown-inline">\
                                     <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
                                     <i class="fas fa-cog">\
@@ -170,97 +170,97 @@ const NewsletterCRUD = (function () {
                                         </ul>\
                                     </div>\
                                 </div>\
-                                <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
+                                <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id + '">\
                                 <i class="far fa-edit">\
                                 </i>\
                                 </a>\
-                                <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
+                                <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id + '">\
                                 <i class="far fa-trash-alt">\
                                 </i>\
                                 </a>\
                             ';
-              },
+          },
+        },
+      ],
+    }
+    options.extensions = {
+      // boolean or object (extension options)
+      checkbox: true,
+    };
+
+    /* Table Initialize */
+    const datatable = $('#tableNm').KTDatatable(options);
+
+    /* Form Initialize */
+    const NmForm = document.querySelector('#formNm');
+    let FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
+    let formOptions = {
+      fields: {
+        nmID: {
+          validators: {
+            notEmpty: {
+              message: 'Newsletter ID is required',
             },
-          ],
-        }
-        options.extensions = {
-          // boolean or object (extension options)
-          checkbox: true,
-        };
-
-        /* Table Initialize */
-        const datatable = $('#tableNm').KTDatatable(options);
-
-        /* Form Initialize */
-        const NmForm = document.querySelector('#formNm');
-        let FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
-        let formOptions =    {
-            fields: {
-                nmID: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Newsletter ID is required',
-                        },
-                    },
-                },
-                nmSubject: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Subject is required',
-                        },
-                    },
-                },
-                nmEmail: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Recipient Email is required',
-                        },
-                    },
-                },
-                nmMessage: {
-                    validators: {
-                        callback: {
-                            message: 'The content is required and cannot be empty',
-                            callback: function (input) {
-                            const code = $('[name="aeMessage"]').summernote('code');
-                            // <p><br></p> is code generated by Summernote for empty content
-                            return (code !== '' && code !== '<p><br></p>');
-                            }
-                        },
-                  },
-               },
+          },
+        },
+        nmSubject: {
+          validators: {
+            notEmpty: {
+              message: 'Subject is required',
             },
-            plugins: {
-                //Learn more: https://formvalidation.io/guide/plugins
-                trigger: new FormValidation.plugins.Trigger(),
-                // Bootstrap Framework Integration
-                bootstrap: new FormValidation.plugins.Bootstrap(),
-                // Validate fields when clicking the Submit button
-                FormSubmitButton: new FormValidation.plugins.SubmitButton(),
-                // Submit the form when all fields are valid
-                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+          },
+        },
+        nmEmail: {
+          validators: {
+            notEmpty: {
+              message: 'Recipient Email is required',
             },
+          },
+        },
+        nmMessage: {
+          validators: {
+            callback: {
+              message: 'The content is required and cannot be empty',
+              callback: function (input) {
+                const code = $('[name="nmMessage"]').summernote('code');
+                // <p><br></p> is code generated by Summernote for empty content
+                return (code !== '' && code !== '<p><br></p>');
+              }
+            },
+          },
+        },
+      },
+      plugins: {
+        //Learn more: https://formvalidation.io/guide/plugins
+        trigger: new FormValidation.plugins.Trigger(),
+        // Bootstrap Framework Integration
+        bootstrap: new FormValidation.plugins.Bootstrap(),
+        // Validate fields when clicking the Submit button
+        FormSubmitButton: new FormValidation.plugins.SubmitButton(),
+        // Submit the form when all fields are valid
+        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),     
+      },
 
-        };
+    };
 
-      let fv;
-      
-      /* Search Operations */
-      // search based on status
-      $('#tableNm_search_status_2').on('change', function () {
-        datatable.search($(this).val().toLowerCase(), 'Status');
-      });
+    let fv;
 
-      // search based on type
-      $('#tableNm_search_type_2').on('change', function () {
-          datatable.search($(this).val().toLowerCase(), 'Type');
-      });
+    /* Search Operations */
+    // search based on status
+    $('#tableNm_search_status_2').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Status');
+    });
 
-      $('#tableNm_search_status_2, #tableNm_search_type_2').selectpicker();
-        
-      /* Modal Operations */
-      // to open modal 
-      $('#btnOpenNmModal').on('click', async function (e) {
+    // search based on type
+    $('#tableNm_search_type_2').on('change', function () {
+      datatable.search($(this).val().toLowerCase(), 'Type');
+    });
+
+    $('#tableNm_search_status_2, #tableNm_search_type_2').selectpicker();
+
+    /* Modal Operations */
+    // to open modal 
+    $('#btnOpenNmModal').on('click', async function (e) {
       console.log('btnNewItem is clicked');
 
       FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
@@ -273,96 +273,96 @@ const NewsletterCRUD = (function () {
 
       $('#modalNm').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
 
-      });
-        
-      // modal post closed
-      $('#modalNm').on('hidden.bs.modal', function (e) {
-          // console.log('Modal closed');
+    });
 
-          if (fv) {
-            // clearing forms
-            fv.resetForm();
-            fv.destroy();
-          }
- 
-          // clearing validator messages
-          $('.fv-plugins-message-container').text(''); // remove message
- 
-          // clearing fields
-          $("#formNm").trigger('reset'); // clear form fields
- 
-          // manually resetting other fields
-          $('#nmExpires').empty().trigger('change');  // clearing select2  */
- 
-      });
-        
-      // modal post opened
-      $('#modalNm').on('shown.bs.modal', function (e) {
-        // console.log('Modal opened');
+    // modal post closed
+    $('#modalNm').on('hidden.bs.modal', function (e) {
+      console.log('Modal closed');
 
-        // Initializing 
-        $('#nmMessage').summernote({
-          height: 400,
-          tabsize: 2,
-        });
+      if (fv) {
+        // clearing forms
+        fv.resetForm();
+        fv.destroy();
+      }
 
-        $('#nmEmail').select2({
-          placeholder: "Select expiry"
-        });
+      // clearing validator messages
+      $('.fv-plugins-message-container').text(''); // remove message
 
+      // clearing fields
+      $("#formNm").trigger('reset'); // clear form fields
+
+      // manually resetting other fields
+      $('#nmExpires').empty().trigger('change');  // clearing select2  */
+
+    });
+
+    // modal post opened
+    $('#modalNm').on('shown.bs.modal', function (e) {
+      // console.log('Modal opened');
+
+      // Initializing 
+      $('#nmMessage').summernote({
+        height: 400,
+        tabsize: 2,
       });
 
-      // Edit Modal Window - opens modal with appropriate properties
-      $('#tableNm').on('click', '.btnEdit', async function (e) {
-        // console.log('btnEdit is clicked');
-
-        var id = $(this).attr("aria-label");
-        // console.log(id);
-
-        FormSubmitButton = document.querySelector('#btnSaveNmFormSubmitButton');
-
-        // enabling disabling buttons
-        $('#btnAddNewNmFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-        $('#btnSaveNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
-
-        $('#modalNm').modal('show');   // open modal
-
-        $('#modalNm').find('.modal-title').text('Edit Entry'); // Setting title for modal
-          // retrieving data
-          await axios({
-            method: 'GET',
-            url: `${HOST_URL}/api/v1/newsletter/messages/${id}`,
-        }).then(async function (res) {
-            // Return valid JSON
-            console.log(res);
-
-          if (res.data.status == 'success') {
-              
-                // // fetching menu manager select2
-                // await axios({
-                //     method: 'GET',
-                //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
-                // }).then(function (res) {
-                //     //Return valid JSON
-                //     console.log(res);
-
-                //     if (res.data.status === 'success') {
-                //         // updating menuManagerSelect values
-                //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                //         $('#menuManagerSelect').append(option).trigger('change');
-                //     }
-                // });
-
-                // updating fields with data
-                document.querySelector('#nmId').value = res.data.newsletterMessages._id;
-                document.querySelector('#nmSubject').value = res.data.newsletterMessages.subject;
-                document.querySelector('#nmMessage').value = res.data.newsletterMessages.message;
-                document.querySelector('#nmEmail').value = res.data.newsletterMessages.email;
-                document.querySelector('#nmSent').value = res.data.newsletterMessages.sent;
-                document.querySelector('#nmVisited').value = res.data.newsletterMessages.visited;                
-            }
-        });
+      $('#nmEmail').select2({
+        placeholder: "Select expiry"
       });
+
+    });
+
+    // Edit Modal Window - opens modal with appropriate properties
+    $('#tableNm').on('click', '.btnEdit', async function (e) {
+      // console.log('btnEdit is clicked');
+
+      var id = $(this).attr("aria-label");
+      // console.log(id);
+
+      FormSubmitButton = document.querySelector('#btnSaveNmFormSubmitButton');
+
+      // enabling disabling buttons
+      $('#btnAddNewNmFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+      $('#btnSaveNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+      $('#modalNm').modal('show');   // open modal
+
+      $('#modalNm').find('.modal-title').text('Edit Entry'); // Setting title for modal
+      // retrieving data
+      await axios({
+        method: 'GET',
+        url: `${HOST_URL}/api/v1/newsletter/messages/${id}`,
+      }).then(async function (res) {
+        // Return valid JSON
+        console.log(res);
+
+        if (res.data.status == 'success') {
+
+          // // fetching menu manager select2
+          // await axios({
+          //     method: 'GET',
+          //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+          // }).then(function (res) {
+          //     //Return valid JSON
+          //     console.log(res);
+
+          //     if (res.data.status === 'success') {
+          //         // updating menuManagerSelect values
+          //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+          //         $('#menuManagerSelect').append(option).trigger('change');
+          //     }
+          // });
+
+          // updating fields with data
+          document.querySelector('#nmId').value = res.data.newsletterMessages._id;
+          document.querySelector('#nmSubject').value = res.data.newsletterMessages.subject;
+          document.querySelector('#nmMessage').value = res.data.newsletterMessages.message;
+          document.querySelector('#nmEmail').value = res.data.newsletterMessages.email;
+          document.querySelector('#nmSent').value = res.data.newsletterMessages.sent;
+          document.querySelector('#nmVisited').value = res.data.newsletterMessages.visited;
+        }
+      });
+    });
     // deleteOne operation
     $('#tableNm').on('click', '.btnDelete', function (e) {
       console.log('btnDelete Clicked');
@@ -371,169 +371,169 @@ const NewsletterCRUD = (function () {
       ids = ids.toString();
 
       const requests = {
-          params: {
-              _id: ids,
-          }
+        params: {
+          _id: ids,
+        }
       }
 
       axios.delete(`${HOST_URL}/api/v1/newsletter/messages`, requests);
 
       // reload table
       $('#tableNm').KTDatatable().reload();
-  
-      });
 
-      // deleteAll mass operation
-      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-        // datatable.checkbox() access to extension methods
-        const ids = datatable.checkbox().getSelectedId();
-        const count = ids.length;
-    
-        $('#tableNm_selected_records_2').html(count);
+    });
 
-        console.log(count)
-    
-        if (count > 0) {
-            $('#tableNm_group_action_form_2').collapse('show');
-        } else {
-            $('#tableNm_group_action_form_2').collapse('hide');
-        }
-      });
-      
-      // form reset operation
-      $('#formNm').on('click', '.btnReset', function (e) {
-        // console.log('btnReset is clicked');
+    // deleteAll mass operation
+    datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+      // datatable.checkbox() access to extension methods
+      const ids = datatable.checkbox().getSelectedId();
+      const count = ids.length;
 
-        if (fv) {
-          // clearing forms
-          fv.resetForm();
-          fv.destroy();
-        }
-        else {
-          // initiate validation
-          fv = FormValidation.formValidation(NmForm, formOptions);
-        }
+      $('#tableNm_selected_records_2').html(count);
 
-        // clearing validator messages
-        $('.fv-plugins-message-container').text(''); // remove message
+      console.log(count)
 
-        // clearing fields
-        $("#formNm").trigger('reset'); // clear form fields
+      if (count > 0) {
+        $('#tableNm_group_action_form_2').collapse('show');
+      } else {
+        $('#tableNm_group_action_form_2').collapse('hide');
+      }
+    });
 
-        // clear manually
-        $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
-      });
+    // form reset operation
+    $('#formNm').on('click', '.btnReset', function (e) {
+      // console.log('btnReset is clicked');
 
-      // form add operation
-      $('#formNm').on('click', '.btnAdd', function (e) {
-        // console.log('addMenuSectionFormSubmitButton is clicked');
-
-        // clearing validator messages
-        $('.fv-plugins-message-container').text(''); // remove message
-        
-        FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
-
-        // Validation
+      if (fv) {
+        // clearing forms
+        fv.resetForm();
+        fv.destroy();
+      }
+      else {
+        // initiate validation
         fv = FormValidation.formValidation(NmForm, formOptions);
+      }
 
-        // validation failed
-        fv.on('core.form.invalid', async function () {
-            // console.log('Something went wrong!!');    
-        });
+      // clearing validator messages
+      $('.fv-plugins-message-container').text(''); // remove message
 
-        // validation successful
-        fv.on('core.form.valid', async function () {
+      // clearing fields
+      $("#formNm").trigger('reset'); // clear form fields
 
-            // Show loading state on button
-            KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+      // clear manually
+      $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+    });
 
-            // Accessing Restful API
-            await axios({
-                method: 'post',
-                url: `${HOST_URL}/api/v1/newsletter/messages`,
-                data: {
-                    message: $('#nmMessage').summernote('code'),   
-                    subject: document.querySelector('#nmSubject').value,
-                    email: document.querySelector('#nmEmail').value,  
-                    sent: (document.querySelector('#nmSent').value == 'on' ) ? true:false,
-                    visited: (document.querySelector('#nmVisited').value == 'on' ) ? true:false
-                },
-            }).then(function (res) {
-                // Release button
-                KTUtil.btnRelease(FormSubmitButton);
+    // form add operation
+    $('#formNm').on('click', '.btnAdd', function (e) {
+      // console.log('addMenuSectionFormSubmitButton is clicked');
 
-                if (res.data.status == 'success') {
-                    // reseting & clearing
-                    $('#modalNm').modal('hide')  // hiding modal form
-                    toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                    $('#tableNm').KTDatatable().reload(); // reload table
-                }
-                else if (res.data.status == 'error') {
-                    $('#modalNm').modal('hide')  // hiding modal form
-                    toastr.error(`${res.data.message}`, `${res.data.status}`)
-                }
-                else {
-                    $('#modalNm').modal('hide')
-                };
-            });
+      // clearing validator messages
+      $('.fv-plugins-message-container').text(''); // remove message
+
+      FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
+
+      // Validation
+      fv = FormValidation.formValidation(NmForm, formOptions);
+
+      // validation failed
+      fv.on('core.form.invalid', async function () {
+        // console.log('Something went wrong!!');    
+      });
+
+      // validation successful
+      fv.on('core.form.valid', async function () {
+
+        // Show loading state on button
+        KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+        // Accessing Restful API
+        await axios({
+          method: 'post',
+          url: `${HOST_URL}/api/v1/newsletter/messages`,
+          data: {
+            message: $('#nmMessage').summernote('code'),
+            subject: document.querySelector('#nmSubject').value,
+            email: document.querySelector('#nmEmail').value,
+            sent: (document.querySelector('#nmSent').value == 'on') ? true : false,
+            visited: (document.querySelector('#nmVisited').value == 'on') ? true : false
+          },
+        }).then(function (res) {
+          // Release button
+          KTUtil.btnRelease(FormSubmitButton);
+
+          if (res.data.status == 'success') {
+            // reseting & clearing
+            $('#modalNm').modal('hide')  // hiding modal form
+            toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+            $('#tableNm').KTDatatable().reload(); // reload table
+          }
+          else if (res.data.status == 'error') {
+            $('#modalNm').modal('hide')  // hiding modal form
+            toastr.error(`${res.data.message}`, `${res.data.status}`)
+          }
+          else {
+            $('#modalNm').modal('hide')
+          };
         });
       });
-      /* Modal Operations */
-      // to open modal 
-      $('#btnOpenNmModal').on('click', async function (e) {
-        // console.log('btnNewItem is clicked');
-    
-        FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
-    
-        // enabling disabling buttons
-        $('#btnAddNewNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-        $('#btnSaveNmFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
-    
-        $('#modalNm').modal('show');   // open modal  
-    
-        $('#modalNm').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
-    
-        });
-          
-        // modal post closed
-        $('#modalNm').on('hidden.bs.modal', function (e) {
-            //  console.log('Modal is closed');
-    
-            if (fv) {
-                // clearing forms
-                fv.resetForm();
-                fv.destroy();
-             }
-    
-             // clearing validator messages
-             $('.fv-plugins-message-container').text(''); // remove message
-    
-             // clearing fields
-             $("#formNm").trigger('reset'); // clear form fields
-             
-    
-        });
-          
-        // modal post opened
-        $('#modalNm').on('shown.bs.modal', function (e) {
-    
-        // Initializing 
-    
-    
-        });
-          
-        
-    };
-    return {
-        // public functions
-          init: function () {
-          _NewsletterMessages();
-          
-        },
-      };
-  })();
-  
+    });
+    /* Modal Operations */
+    // to open modal 
+    $('#btnOpenNmModal').on('click', async function (e) {
+      // console.log('btnNewItem is clicked');
+
+      FormSubmitButton = document.querySelector('#btnAddNewNmFormSubmitButton');
+
+      // enabling disabling buttons
+      $('#btnAddNewNmFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+      $('#btnSaveNmFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+
+      $('#modalNm').modal('show');   // open modal  
+
+      $('#modalNm').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
+
+    });
+
+    // modal post closed
+    $('#modalNm').on('hidden.bs.modal', function (e) {
+      //  console.log('Modal is closed');
+
+      if (fv) {
+        // clearing forms
+        fv.resetForm();
+        fv.destroy();
+      }
+
+      // clearing validator messages
+      $('.fv-plugins-message-container').text(''); // remove message
+
+      // clearing fields
+      $("#formNm").trigger('reset'); // clear form fields
+
+
+    });
+
+    // modal post opened
+    $('#modalNm').on('shown.bs.modal', function (e) {
+
+      // Initializing 
+
+
+    });
+
+
+  };
+  return {
+    // public functions
+    init: function () {
+      _NewsletterMessages();
+
+    },
+  };
+})();
+
 jQuery(document).ready(function () {
-      NewsletterCRUD.init();
-});    
+  NewsletterCRUD.init();
+});
 
