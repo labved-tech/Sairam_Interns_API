@@ -1,0 +1,435 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myPages/rating/rating.js')
+
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                        // begin::Card
+                        div(class="card card-custom gutter-b")
+                            div(class="card-header flex-wrap border-0 pt-6 pb-0")
+                                div(class="card-title")
+                                    h3(class="card-label")
+                                        | Rating Attribute Groups
+                                        span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
+                                div(class="card-toolbar")
+                                    // begin::Dropdown
+                                    div(class='dropdown dropdown-inline mr-2')
+                                        button(type='button' class='btn btn-light-primary font-weight-bolder dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                            i(class='fas fa-file-export')
+                                            |  Export
+                                        // begin::Dropdown Menu
+                                        div(class="dropdown-menu dropdown-menu-sm dropdown-menu-right")
+                                            // begin::Navigation
+                                            ul(class="navi flex-column navi-hover py-2")
+                                                li(class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2")
+                                                    | Choose an option:
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-print")
+                                                        span(class="navi-text") Print
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-copy")
+                                                        span(class="navi-text") Copy
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-excel")
+                                                        span(class="navi-text") Excel
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-csv")
+                                                        span(class="navi-text") CSV
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-pdf")
+                                                        span(class="navi-text") PDF
+                                            // end::Navigation
+                                        // end::Dropdown Menu
+                                    // end::Dropdown
+                                    // begin::Button
+                                    // Button trigger modal
+                                    button#btnOpenRagModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                        | Add New
+
+                            div(class="card-body")
+                                // begin::Search Form
+                                div(class="mb-7")
+                                    div(class="row align-items-center")
+                                        div(class="col-lg-9 col-xl-8")
+                                            div(class="row align-items-center")
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="input-icon")
+                                                        input#tableRag_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                        span
+                                                            i(class="flaticon2-search-1 text-muted")
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="d-flex align-items-center")
+                                                        label(class="mr-3 mb-0 d-none d-md-block") Status:
+                                                        select#tableRag_search_status_2(class="form-control")
+                                                            option(value="") All
+                                                            option(value="1") Pending
+                                                            option(value="2") Delivered
+                                                            option(value="3") Canceled
+                                                            option(value="4") Success
+                                                            option(value="5") Info
+                                                            option(value="6") Danger
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="d-flex align-items-center")
+                                                        label(class="mr-3 mb-0 d-none d-md-block") Type:
+                                                        select#tableRag_search_type_2(class="form-control")
+                                                            option(value="") All
+                                                            option(value="1") Online
+                                                            option(value="2") Retail
+                                                            option(value="3") Direct
+                                        div(class="col-lg-3 col-xl-4 mt-5 mt-lg-0")
+                                            a(href="#", class="btn btn-light-primary px-6 font-weight-bold")
+                                                | Search
+                                // end::Search Form
+                                // begin: Selected Rows Group Action Form
+                                #tableRag_group_action_form_2(class="mt-10 mb-5 collapse")
+                                    div(class="d-flex align-items-center")
+                                        div(class="font-weight-bold text-danger mr-3")
+                                            | Selected 
+                                            span#tableRag_selected_records_2 0
+                                            |  records:
+                                        div(class="dropdown mr-2")
+                                            button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
+                                                | Update status
+                                            div(class="dropdown-menu dropdown-menu-sm")
+                                                ul(class="nav nav-hover flex-column")
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Pending
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Delivered
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Canceled
+                                        button#btnDeleteAll(class="btn btn-sm btn-danger mr-2 btnDeleteAll", type="button")
+                                            | Delete All
+                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableRag_fetch_modal_2")
+                                            | Fetch Selected Records
+                                // end: Selected Rows Group Action Form
+                                // begin: Datatable
+                                #tableRag(class="datatable datatable-bordered datatable-head-custom")
+                                // end: Datatable
+                        // end::Card
+
+                        // ##################################### RagFormModal ############################################################################################
+                        #modalRag(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='RagModalLabel' aria-hidden='true')
+                            div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
+                                div(class='modal-content')
+                                    // begin::Form
+                                    form#formRag(class='form')
+                                        div(class='modal-header')
+                                            h5(class='modal-title') Add New
+                                            button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
+                                                i(aria-hidden='true' class='ki ki-close')
+                                        div(class='modal-body')
+                                            div(data-scroll='true' data-height='350')
+                                                // RagId - hidden
+                                                div(class= 'form-group row')
+                                                    input#ragId(type='hidden' name='eaId')
+
+                                        // Name
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Name
+                                                span(class='text-danger')  *
+                                            div(class='col-6')
+                                                input#ragName(type='text' class='form-control' name='ragName' placeholder='ex. Vignesh')
+                                                span(class='form-text text-muted') Enter your name
+
+                                        // Attribute Id
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Attribute ID
+                                            div(class='col-4')
+                                                div(class='typeahead')
+                                                    input#ragAttributeId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ragAttributeId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                    span(class='form-text text-muted') Should be as mentioned.
+
+                                        // Status
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Status
+                                            div(class='col-4')
+                                                select#ragStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='ragStatus' )
+                                                    option(value='') Select
+                                                    option(value='AF') Afghanistan
+                                                    option(value='AX') Åland Islands
+                                                    option(value='AL') Albania
+                                                    option(value='DZ') Algeria
+                                                    option(value='AS') American Samoa
+                                                    option(value='AD') Andorra
+                                                    option(value='AO') Angola
+                                                    option(value='AI') Anguilla
+                                                    option(value='AQ') Antarctica
+                                                    option(value='AG') Antigua and Barbuda
+                                                    option(value='AR') Argentina
+                                                    option(value='AM') Armenia
+                                                    option(value='AW') Aruba
+                                                    option(value='AU') Australia
+                                                    option(value='AT') Austria
+                                                    option(value='AZ') Azerbaijan
+                                                    option(value='BS') Bahamas
+                                                    option(value='BH') Bahrain
+                                                    option(value='BD') Bangladesh
+                                                    option(value='BB') Barbados
+                                                    option(value='BY') Belarus
+                                                    option(value='BE') Belgium
+                                                    option(value='BZ') Belize
+                                                    option(value='BJ') Benin
+                                                    option(value='BM') Bermuda
+                                                    option(value='BT') Bhutan
+                                                    option(value='BO') Bolivia, Plurinational State of
+                                                    option(value='BQ') Bonaire, Sint Eustatius and Saba
+                                                    option(value='BA') Bosnia and Herzegovina
+                                                    option(value='BW') Botswana
+                                                    option(value='BV') Bouvet Island
+                                                    option(value='BR') Brazil
+                                                    option(value='IO') British Indian Ocean Territory
+                                                    option(value='BN') Brunei Darussalam
+                                                    option(value='BG') Bulgaria
+                                                    option(value='BF') Burkina Faso
+                                                    option(value='BI') Burundi
+                                                    option(value='KH') Cambodia
+                                                    option(value='CM') Cameroon
+                                                    option(value='CA') Canada
+                                                    option(value='CV') Cape Verde
+                                                    option(value='KY') Cayman Islands
+                                                    option(value='CF') Central African Republic
+                                                    option(value='TD') Chad
+                                                    option(value='CL') Chile
+                                                    option(value='CN') China
+                                                    option(value='CX') Christmas Island
+                                                    option(value='CC') Cocos (Keeling) Islands
+                                                    option(value='CO') Colombia
+                                                    option(value='KM') Comoros
+                                                    option(value='CG') Congo
+                                                    option(value='CD') Congo, the Democratic Republic of the
+                                                    option(value='CK') Cook Islands
+                                                    option(value='CR') Costa Rica
+                                                    option(value='CI') Côte d'Ivoire
+                                                    option(value='HR') Croatia
+                                                    option(value='CU') Cuba
+                                                    option(value='CW') Curaçao
+                                                    option(value='CY') Cyprus
+                                                    option(value='CZ') Czech Republic
+                                                    option(value='DK') Denmark
+                                                    option(value='DJ') Djibouti
+                                                    option(value='DM') Dominica
+                                                    option(value='DO') Dominican Republic
+                                                    option(value='EC') Ecuador
+                                                    option(value='EG') Egypt
+                                                    option(value='SV') El Salvador
+                                                    option(value='GQ') Equatorial Guinea
+                                                    option(value='ER') Eritrea
+                                                    option(value='EE') Estonia
+                                                    option(value='ET') Ethiopia
+                                                    option(value='FK') Falkland Islands (Malvinas)
+                                                    option(value='FO') Faroe Islands
+                                                    option(value='FJ') Fiji
+                                                    option(value='FI') Finland
+                                                    option(value='FR') France
+                                                    option(value='GF') French Guiana
+                                                    option(value='PF') French Polynesia
+                                                    option(value='TF') French Southern Territories
+                                                    option(value='GA') Gabon
+                                                    option(value='GM') Gambia
+                                                    option(value='GE') Georgia
+                                                    option(value='DE') Germany
+                                                    option(value='GH') Ghana
+                                                    option(value='GI') Gibraltar
+                                                    option(value='GR') Greece
+                                                    option(value='GL') Greenland
+                                                    option(value='GD') Grenada
+                                                    option(value='GP') Guadeloupe
+                                                    option(value='GU') Guam
+                                                    option(value='GT') Guatemala
+                                                    option(value='GG') Guernsey
+                                                    option(value='GN') Guinea
+                                                    option(value='GW') Guinea-Bissau
+                                                    option(value='GY') Guyana
+                                                    option(value='HT') Haiti
+                                                    option(value='HM') Heard Island and McDonald Islands
+                                                    option(value='VA') Holy See (Vatican City State)
+                                                    option(value='HN') Honduras
+                                                    option(value='HK') Hong Kong
+                                                    option(value='HU') Hungary
+                                                    option(value='IS') Iceland
+                                                    option(value='IN') India
+                                                    option(value='ID') Indonesia
+                                                    option(value='IR') Iran, Islamic Republic of
+                                                    option(value='IQ') Iraq
+                                                    option(value='IE') Ireland
+                                                    option(value='IM') Isle of Man
+                                                    option(value='IL') Israel
+                                                    option(value='IT') Italy
+                                                    option(value='JM') Jamaica
+                                                    option(value='JP') Japan
+                                                    option(value='JE') Jersey
+                                                    option(value='JO') Jordan
+                                                    option(value='KZ') Kazakhstan
+                                                    option(value='KE') Kenya
+                                                    option(value='KI') Kiribati
+                                                    option(value='KP') Korea, Democratic People's Republic of
+                                                    option(value='KR') Korea, Republic of
+                                                    option(value='KW') Kuwait
+                                                    option(value='KG') Kyrgyzstan
+                                                    option(value='LA') Lao People's Democratic Republic
+                                                    option(value='LV') Latvia
+                                                    option(value='LB') Lebanon
+                                                    option(value='LS') Lesotho
+                                                    option(value='LR') Liberia
+                                                    option(value='LY') Libya
+                                                    option(value='LI') Liechtenstein
+                                                    option(value='LT') Lithuania
+                                                    option(value='LU') Luxembourg
+                                                    option(value='MO') Macao
+                                                    option(value='MK') Macedonia, the former Yugoslav Republic of
+                                                    option(value='MG') Madagascar
+                                                    option(value='MW') Malawi
+                                                    option(value='MY') Malaysia
+                                                    option(value='MV') Maldives
+                                                    option(value='ML') Mali
+                                                    option(value='MT') Malta
+                                                    option(value='MH') Marshall Islands
+                                                    option(value='MQ') Martinique
+                                                    option(value='MR') Mauritania
+                                                    option(value='MU') Mauritius
+                                                    option(value='YT') Mayotte
+                                                    option(value='MX') Mexico
+                                                    option(value='FM') Micronesia, Federated States of
+                                                    option(value='MD') Moldova, Republic of
+                                                    option(value='MC') Monaco
+                                                    option(value='MN') Mongolia
+                                                    option(value='ME') Montenegro
+                                                    option(value='MS') Montserrat
+                                                    option(value='MA') Morocco
+                                                    option(value='MZ') Mozambique
+                                                    option(value='MM') Myanmar
+                                                    option(value='NA') Namibia
+                                                    option(value='NR') Nauru
+                                                    option(value='NP') Nepal
+                                                    option(value='NL') Netherlands
+                                                    option(value='NC') New Caledonia
+                                                    option(value='NZ') New Zealand
+                                                    option(value='NI') Nicaragua
+                                                    option(value='NE') Niger
+                                                    option(value='NG') Nigeria
+                                                    option(value='NU') Niue
+                                                    option(value='NF') Norfolk Island
+                                                    option(value='MP') Northern Mariana Islands
+                                                    option(value='NO') Norway
+                                                    option(value='OM') Oman
+                                                    option(value='PK') Pakistan
+                                                    option(value='PW') Palau
+                                                    option(value='PS') Palestinian Territory, Occupied
+                                                    option(value='PA') Panama
+                                                    option(value='PG') Papua New Guinea
+                                                    option(value='PY') Paraguay
+                                                    option(value='PE') Peru
+                                                    option(value='PH') Philippines
+                                                    option(value='PN') Pitcairn
+                                                    option(value='PL') Poland
+                                                    option(value='PT') Portugal
+                                                    option(value='PR') Puerto Rico
+                                                    option(value='QA') Qatar
+                                                    option(value='RE') Réunion
+                                                    option(value='RO') Romania
+                                                    option(value='RU') Russian Federation
+                                                    option(value='RW') Rwanda
+                                                    option(value='BL') Saint Barthélemy
+                                                    option(value='SH') Saint Helena, Ascension and Tristan da Cunha
+                                                    option(value='KN') Saint Kitts and Nevis
+                                                    option(value='LC') Saint Lucia
+                                                    option(value='MF') Saint Martin (French part)
+                                                    option(value='PM') Saint Pierre and Miquelon
+                                                    option(value='VC') Saint Vincent and the Grenadines
+                                                    option(value='WS') Samoa
+                                                    option(value='SM') San Marino
+                                                    option(value='ST') Sao Tome and Principe
+                                                    option(value='SA') Saudi Arabia
+                                                    option(value='SN') Senegal
+                                                    option(value='RS') Serbia
+                                                    option(value='SC') Seychelles
+                                                    option(value='SL') Sierra Leone
+                                                    option(value='SG') Singapore
+                                                    option(value='SX') Sint Maarten (Dutch part)
+                                                    option(value='SK') Slovakia
+                                                    option(value='SI') Slovenia
+                                                    option(value='SB') Solomon Islands
+                                                    option(value='SO') Somalia
+                                                    option(value='ZA') South Africa
+                                                    option(value='GS') South Georgia and the South Sandwich Islands
+                                                    option(value='SS') South Sudan
+                                                    option(value='ES') Spain
+                                                    option(value='LK') Sri Lanka
+                                                    option(value='SD') Sudan
+                                                    option(value='SR') Suriname
+                                                    option(value='SJ') Svalbard and Jan Mayen
+                                                    option(value='SZ') Swaziland
+                                                    option(value='SE') Sweden
+                                                    option(value='CH') Switzerland
+                                                    option(value='SY') Syrian Arab Republic
+                                                    option(value='TW') Taiwan, Province of China
+                                                    option(value='TJ') Tajikistan
+                                                    option(value='TZ') Tanzania, United Republic of
+                                                    option(value='TH') Thailand
+                                                    option(value='TL') Timor-Leste
+                                                    option(value='TG') Togo
+                                                    option(value='TK') Tokelau
+                                                    option(value='TO') Tonga
+                                                    option(value='TT') Trinidad and Tobago
+                                                    option(value='TN') Tunisia
+                                                    option(value='TR') Turkey
+                                                    option(value='TM') Turkmenistan
+                                                    option(value='TC') Turks and Caicos Islands
+                                                    option(value='TV') Tuvalu
+                                                    option(value='UG') Uganda
+                                                    option(value='UA') Ukraine
+                                                    option(value='AE') United Arab Emirates
+                                                    option(value='GB') United Kingdom
+                                                    option(value='US' selected='') United States
+                                                    option(value='UM') United States Minor Outlying Islands
+                                                    option(value='UY') Uruguay
+                                                    option(value='UZ') Uzbekistan
+                                                    option(value='VU') Vanuatu
+                                                    option(value='VE') Venezuela, Bolivarian Republic of
+                                                    option(value='VN') Viet Nam
+                                                    option(value='VG') Virgin Islands, British
+                                                    option(value='VI') Virgin Islands, U.S.
+                                                    option(value='WF') Wallis and Futuna
+                                                    option(value='EH') Western Sahara
+                                                    option(value='YE') Yemen
+                                                    option(value='ZM') Zambia
+                                                    option(value='ZW') Zimbabwe                          
+                                                span(class='form-text text-muted') Enter the status  
+
+                                        // Description
+                                        div(class='form-group row')
+                                            label(class='col-3 col-form-label form-control-label text-right') Description
+                                            div(class='col-9')
+                                                div#ragDescription(class='summernote' name='ragDescription')
+                                                span(class='form-text text-muted') Enter the Description
+
+                                                        div(class='separator separator-dashed my-10')
+                                                        h3(class=' text-dark font-weight-bold mb-10') Target Conditions
+                                                
+                                        div(class='modal-footer')
+                                            button#btnResetRagForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                            button#btnAddNewRagFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                            button#btnSaveRagFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes

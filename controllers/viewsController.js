@@ -218,6 +218,13 @@ exports.ratingEntriesTable = (req, res) => {
   console.log('We are in Rating Entries Table Page');
   res.status(200).render('./../views/pages/rating/ratingEntriesTable');
 };
+// RATING ALL RELATED CONTROLLER
+exports.ratingAttributeGroupsAll = (req, res) => {
+  console.log('We are in Rating Attribute Groups All Page');
+  res
+    .status(200)
+    .render('./../views/pages/rating/ratingAttributeGroupsAll');
+};
 
 // EVENT RELATED CONTROLLER
 exports.eventEntries = (req, res) => {
@@ -284,7 +291,7 @@ exports.deliveryNote = (req, res) => {
   console.log('We are in Delivery Note Form Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNote');
 };
-exports.deliveryNoteAll= (req, res) => {
+exports.deliveryNoteAll = (req, res) => {
   console.log('We are in Delivery Note All Page');
   res.status(200).render('./../views/pages/sales-finance/deliveryNoteAll');
 };
