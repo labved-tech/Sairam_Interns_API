@@ -127,7 +127,7 @@ exports.getQuotation = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got Quotation Id=${id}`,
-    Data: { quotation },
+    quotation,
   });
   next();
 });

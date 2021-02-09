@@ -325,6 +325,10 @@ exports.quotation = (req, res) => {
   console.log('We are in Quotation Form Page');
   res.status(200).render('./../views/pages/sales-finance/quotation');
 };
+exports.quotationAll = (req, res) => {
+  console.log('We are in Quotation All Page');
+  res.status(200).render('./../views/pages/sales-finance/quotationAll');
+};
 exports.quotationTable = (req, res) => {
   console.log('We are in Quotation Table Page');
   res.status(200).render('./../views/pages/sales-finance/quotationTable');
