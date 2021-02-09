@@ -147,37 +147,37 @@ block content
                                                 div(class= 'form-group row')
                                                     input#dcId(type='hidden' name='dcId')
 
-                                        // dcName
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Name
-                                                span(class='text-danger')  *
-                                            div(class='col-6')
-                                                input#dcName(type='text' class='form-control' name='dcName' placeholder='ex. Vignesh')
-                                                span(class='form-text text-muted') Enter your name
+                                                // dcName
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Name
+                                                        span(class='text-danger')  *
+                                                    div(class='col-6')
+                                                        input#dcName(type='text' class='form-control' name='dcName' placeholder='ex. Vignesh')
+                                                        span(class='form-text text-muted') Enter your name
 
-                                        // dcslug
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') Slug
-                                                span(class='text-danger')  *
-                                            div(class='col-6')
-                                                input#dcSlug(type='text' class='form-control' name='dcSlug' placeholder='ex. YYYY')
-                                                span(class='form-text text-muted') slug
+                                                // dcslug
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Slug
+                                                        span(class='text-danger')  *
+                                                    div(class='col-6')
+                                                        input#dcSlug(type='text' class='form-control' name='dcSlug' placeholder='ex. YYYY')
+                                                        span(class='form-text text-muted') slug
 
-                                        // dcAttributeGroupsId
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') AttributeGroups ID
-                                            div(class='col-4')
-                                                div(class='typeahead')
-                                                    input#dcAttributeGroupsId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dcAttributeGroupsId' placeholder='ex. 5fa92064cff6f652644266de')
-                                                    span(class='form-text text-muted') Should be as mentioned.
+                                                // dcAttributeGroupsId
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') AttributeGroups ID
+                                                    div(class='col-4')
+                                                        div(class='typeahead')
+                                                            input#dcAttributeGroupsId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dcAttributeGroupsId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                            span(class='form-text text-muted') Should be as mentioned.
 
-                                        // dcRatingAttributeGroupId
-                                        div(class='form-group row')
-                                            label(class='col-3 col-form-label form-control-label text-right') RatingAttributeGroup ID
-                                            div(class='col-4')
-                                                div(class='typeahead')
-                                                    input#dcRatingAttributeGroupId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dcRatingAttributeGroupId' placeholder='ex. 5fa92064cff6f652644266de')
-                                                    span(class='form-text text-muted') Should be as mentioned.
+                                                // dcRatingAttributeGroupId
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') RatingAttributeGroup ID
+                                                    div(class='col-4')
+                                                        div(class='typeahead')
+                                                            input#dcRatingAttributeGroupId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='dcRatingAttributeGroupId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                            span(class='form-text text-muted') Should be as mentioned.
 
                                         div(class='modal-footer')
                                             button#btnResetDcForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset

@@ -128,7 +128,7 @@ exports.getNewsletterMessages = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got Newsletter Messages Id=${id}`,
-    data: { newsletterMessages },
+    newsletterMessages,
   });
 
   next();
