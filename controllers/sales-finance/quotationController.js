@@ -104,7 +104,6 @@ exports.getAllTableQuotation = catchAsync(async (req, res, next) => {
   });
 });
 
-
 exports.getAllQuotation = catchAsync(async (req, res, next) => {
   console.log('Getting All Quotation');
   const quotation = await Quotation.find().then();
@@ -135,7 +134,6 @@ exports.getQuotation = catchAsync(async (req, res, next) => {
 exports.createQuotation = catchAsync(async (req, res, next) => {
   console.log('Creating Quotation');
   const { body } = req;
-
 
   // parse through models
   const doc = new Quotation(req.body);
