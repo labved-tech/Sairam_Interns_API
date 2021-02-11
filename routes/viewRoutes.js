@@ -108,6 +108,7 @@ router.get(
 );
 
 router.get('/sales-finance/quotation', viewsController.quotation);
+router.get('/sales-finance/quotation/all', viewsController.quotationAll);
 
 router.get('/sales-finance/taxInvoice', viewsController.taxInvoice);
 router.get('/sales-finance/taxInvoice/item', viewsController.taxInvoiceItem);
