@@ -442,6 +442,10 @@ exports.ticketResponseTable = (req, res) => {
   console.log('We are in ticketResponse  Table Page');
   res.status(200).render('./../views/pages/ticket-support/ticketResponseTable');
 };
+exports.ticketResponseAll = (req, res) => {
+  console.log('We are in ticketResponse All Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketResponseAll');
+};
 
 // DIRECTORY RELATED CONTROLLER
 exports.directoryAttributesGroups = (req, res) => {

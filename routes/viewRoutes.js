@@ -177,6 +177,10 @@ router.get(
   '/ticket-support/Response/table',
   viewsController.ticketResponseTable
 );
+router.get(
+  '/ticket-support/Response/all',
+  viewsController.ticketResponseAll
+);
 
 // LEADS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
