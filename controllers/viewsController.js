@@ -601,6 +601,19 @@ exports.farmStrategy = (req, res) => {
   res.status(200).render('./../views/pages/precision-agriculture/farmStrategy');
 };
 
+exports.farmExportedStrategyAll = (req, res) => {
+  console.log('We are in Farm Exported Strategy All Page');
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmExportedStrategyAll');
+};
+
+exports.farmRegionsAll = (req, res) => {
+  console.log('We are in Farm Regions All Page');
+  res.status(200).render('./../views/pages/precision-agriculture/farmRegionsAll');
+};
+
+
 // PRECISION AGRICULTURE TABLE RELATED CONTROLLER
 exports.farmEntriesTable = (req, res) => {
   console.log('We are in Farm Entries Tables Page');

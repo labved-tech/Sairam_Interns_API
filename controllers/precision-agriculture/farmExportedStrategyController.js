@@ -131,7 +131,7 @@ exports.getFarmExportedStrategy = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got farmExportedStrategy Id=${id}`,
-    Data: { farmExportedStrategy },
+    farmExportedStrategy ,
   });
   next();
 });

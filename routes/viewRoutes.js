@@ -248,7 +248,8 @@ router.get(
 );
 router.get('/farm/regions/table', viewsController.farmRegionsTable);
 router.get('/farm/strategy/table', viewsController.farmStrategyTable);
-
+router.get('/farm/exported-strategy/all', viewsController.farmExportedStrategyAll);
+router.get('/farm/regions/all', viewsController.farmRegionsAll);
 // ECOMMERCE RELATED ROUTES
 router.get('/ecommerce/address/', viewsController.ecommerceAddress);
 router.get('/ecommerce/locations/', viewsController.ecommerceLocations);
