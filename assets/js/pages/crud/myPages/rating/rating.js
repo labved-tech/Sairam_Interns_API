@@ -1007,10 +1007,11 @@ const RatingCRUD = (function () {
                     // });
 
                     // updating fields with data
-                    document.querySelector('#raName').value = res.data.announcementEntries._id;
-                    document.querySelector('#raType').value = res.data.announcementEntries.title;
-                    document.querySelector('#raDescription').value = res.data.announcementEntries.from;
-                    document.querySelector('#raNotes').value = res.data.announcementEntries.isEmailReq;
+                    document.querySelector('#raId').value = res.data.ratingAttribute._id;
+                    document.querySelector('#raName').value = res.data.ratingAttribute.name;
+                    document.querySelector('#raType').value = res.data.ratingAttribute.type;
+                    document.querySelector('#raDescription').value = res.data.ratingAttribute.description;
+                    document.querySelector('#raNotes').value = res.data.ratingAttribute.notes;
                 }
             });
         });
