@@ -231,6 +231,12 @@ exports.ratingAttributeGroupsAll = (req, res) => {
     .status(200)
     .render('./../views/pages/rating/ratingAttributeGroupsAll');
 };
+exports.ratingAttributeAll = (req, res) => {
+  console.log('We are in Rating Attribute All Page');
+  res
+    .status(200)
+    .render('./../views/pages/rating/ratingAttributeAll');
+};
 
 // EVENT RELATED CONTROLLER
 exports.eventEntries = (req, res) => {
@@ -444,9 +450,17 @@ exports.ticketEntriesTable = (req, res) => {
   console.log('We are in ticketEntries Table Page');
   res.status(200).render('./../views/pages/ticket-support/ticketEntriesTable');
 };
+exports.ticketEntriesAll = (req, res) => {
+  console.log('We are in ticketEntries All Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketEntriesAll');
+};
 exports.ticketProductsTable = (req, res) => {
   console.log('We are in ticketProducts Table Page');
   res.status(200).render('./../views/pages/ticket-support/ticketProductsTable');
+};
+exports.ticketProductsAll = (req, res) => {
+  console.log('We are in ticketProducts All Page');
+  res.status(200).render('./../views/pages/ticket-support/ticketProductsAll');
 };
 exports.ticketResponseTable = (req, res) => {
   console.log('We are in ticketResponse  Table Page');

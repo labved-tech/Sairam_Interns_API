@@ -74,6 +74,10 @@ router.get(
   '/rating/attribute/groups/all',
   viewsController.ratingAttributeGroupsAll
 );
+router.get(
+  '/rating/attribute/all',
+  viewsController.ratingAttributeAll
+);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
@@ -173,8 +177,16 @@ router.get(
 );
 router.get('/ticket-support/entries/table', viewsController.ticketEntriesTable);
 router.get(
+  '/ticket-support/entries/all',
+  viewsController.ticketEntriesAll
+);
+router.get(
   '/ticket-support/Products/table',
   viewsController.ticketProductsTable
+);
+router.get(
+  '/ticket-support/Products/all',
+  viewsController.ticketProductsAll
 );
 router.get(
   '/ticket-support/Response/table',

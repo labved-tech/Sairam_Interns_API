@@ -91,7 +91,7 @@ exports.getAllTableTicketProducts = catchAsync(async (req, res, next) => {
   // SEND RESPONSE
   res.status(200).json({
     status: 'success',
-    message: 'Got All Event Entries Table',
+    message: 'Got All Ticket Products Table',
     ticketproducts,
     meta: {
       page: page, // current page
@@ -131,7 +131,7 @@ exports.getTicketProducts = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got Ticketproducts Id=${id}`,
-    Data: { ticketproducts },
+    ticketproducts,
   });
 
   next();
