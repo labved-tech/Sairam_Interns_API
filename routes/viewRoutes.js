@@ -77,10 +77,12 @@ router.get(
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
+router.get('/analytics/all', viewsController.analyticsAll);
 router.get('/analytics/table', viewsController.analyticsTable);
 
 // CHARTS RELATED ROUTES
 router.get('/charts', viewsController.charts);
+router.get('/charts/all', viewsController.chartsAll);
 router.get('/charts/table', viewsController.chartsTable);
 
 // NEWSLETTER RELATED ROUTES
@@ -224,6 +226,7 @@ router.get('/directory/categories/all', viewsController.directoryCategoriesAll);
 router.get('/directory/all', viewsController.directoryAll);
 // PAGES RELATED ROUTES
 router.get('/pages', viewsController.pages);
+router.get('/pages/all', viewsController.pagesAll);
 router.get('/pages/table', viewsController.pagesTable);
 
 // FORMS RELATED ROUTES
