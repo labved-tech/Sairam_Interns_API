@@ -132,7 +132,7 @@ exports.getReports = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got reports Id=${id}`,
-    Data: { reports },
+    reports,
   });
 
   next();

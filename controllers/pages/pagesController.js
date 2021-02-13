@@ -131,7 +131,7 @@ exports.getPages = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got pages Id=${id}`,
-    Data: { pages },
+    pages,
   });
 
   next();
