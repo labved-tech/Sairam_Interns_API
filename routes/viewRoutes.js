@@ -234,9 +234,12 @@ router.get('/form-response', viewsController.formResponse);
 router.get('/forms', viewsController.forms);
 router.get('/form-response/table', viewsController.formResponseTable);
 router.get('/forms/table', viewsController.formsTable);
+router.get('/form-response/all', viewsController.formResponseAll);
+router.get('/forms/all', viewsController.formsAll);
 
 // REPORTS RELATED ROUTES
 router.get('/reports', viewsController.reports);
+router.get('/reports/all', viewsController.reportsAll);
 router.get('/reports/table', viewsController.reportsTable);
 
 // PRECISION AGRICULTURES RELATED ROUTES

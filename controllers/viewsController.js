@@ -158,7 +158,7 @@ exports.analytics = (req, res) => {
 
 // ANALYTICS PAGE RELATED CONTROLLER
 exports.analyticsAll = (req, res) => {
-  console.log('We are in Analytics Form Page');
+  console.log('We are in Analytics All Page');
   res.status(200).render('./../views/pages/analytics/analyticsAll');
 };
 
@@ -535,7 +535,7 @@ exports.pages = (req, res) => {
 
 // Pages ALL RELATED CONTROLLER
 exports.pagesAll = (req, res) => {
-  console.log('We are in Pages Form Page');
+  console.log('We are in Pages All Page');
   res.status(200).render('./../views/pages/pages/pagesAll');
 };
 
@@ -553,7 +553,7 @@ exports.charts = (req, res) => {
 
 // CHARTS PAGE RELATED CONTROLLER
 exports.chartsAll = (req, res) => {
-  console.log('We are in Charts Form Page');
+  console.log('We are in Charts All Page');
   res.status(200).render('./../views/pages/charts/chartsAll');
 };
 
@@ -573,7 +573,15 @@ exports.forms = (req, res) => {
   console.log('We are in Forms Page');
   res.status(200).render('./../views/pages/forms/forms');
 };
+exports.formResponseAll = (req, res) => {
+  console.log('We are in Form Response All Page');
+  res.status(200).render('./../views/pages/forms/formResponseAll');
+};
 
+exports.formsAll = (req, res) => {
+  console.log('We are in Forms All Page');
+  res.status(200).render('./../views/pages/forms/formsAll');
+};
 // FORMS TABLE RELATED CONTROLLER
 exports.formResponseTable = (req, res) => {
   console.log('We are in Form Response Tables Page');
@@ -589,6 +597,12 @@ exports.formsTable = (req, res) => {
 exports.reports = (req, res) => {
   console.log('We are in Reports Form Page');
   res.status(200).render('./../views/pages/reports/reports');
+};
+
+// REPORTS PAGE RELATED CONTROLLER
+exports.reportsAll = (req, res) => {
+  console.log('We are in Reports All Page');
+  res.status(200).render('./../views/pages/reports/reportsAll');
 };
 
 // REPORTS TABLE RELATED CONTROLLER

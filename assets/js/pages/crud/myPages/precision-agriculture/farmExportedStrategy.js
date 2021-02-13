@@ -619,7 +619,7 @@ const FarmExportedStrategyCRUD = (function () {
                     //start: document.querySelector('#fesStart').value,
                     //expectedEnd: document.querySelector('#fesExpectedEnd').value,
                     stages: document.querySelector('#fesStages').value,
-                    shareable: document.querySelector('#fesShareable').value,
+                    //shareable: document.querySelector('#fesShareable').value,
                     shareableType: document.querySelector('#fesShareableType').value,
                     _contractTemplateId: document.querySelector('#fesContractTemplateId').value,
                     rate: document.querySelector('#fesRate').value,

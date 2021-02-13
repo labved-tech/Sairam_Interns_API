@@ -131,7 +131,7 @@ exports.getFormResponse = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got formResponse Id=${id}`,
-    Data: { formResponse },
+    formResponse,
   });
 
   next();
