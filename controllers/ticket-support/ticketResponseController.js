@@ -139,6 +139,9 @@ exports.getTicketResponse = catchAsync(async (req, res, next) => {
 
 exports.createTicketResponse = catchAsync(async (req, res, next) => {
   console.log('Creating TicketResponse');
+  const { body } = req;
+  console.log(body);
+
   // parse through models
   const doc = new TicketResponse(req.body);
   console.log(doc);

@@ -171,8 +171,16 @@ router.get(
 );
 router.get('/ticket-support/entries/table', viewsController.ticketEntriesTable);
 router.get(
+  '/ticket-support/entries/all',
+  viewsController.ticketEntriesAll
+);
+router.get(
   '/ticket-support/Products/table',
   viewsController.ticketProductsTable
+);
+router.get(
+  '/ticket-support/Products/all',
+  viewsController.ticketProductsAll
 );
 router.get(
   '/ticket-support/Response/table',
