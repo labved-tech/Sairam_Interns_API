@@ -2,25 +2,12 @@
 'use strict';
 
 /* Class definition */
-const FormsCRUD = (function () {
+const ReportsCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-
-    let arrows;
-    if (KTUtil.isRTL()) {
-        arrows = {
-        leftArrow: '<i class="la la-angle-right"></i>',
-        rightArrow: '<i class="la la-angle-left"></i>',
-        };
-    } else {
-        arrows = {
-        leftArrow: '<i class="la la-angle-left"></i>',
-        rightArrow: '<i class="la la-angle-right"></i>',
-        };
-    }   
 
 
     /*   Private functions */
-    function _Forms() {
+    function _Reports() {
       var dataSet;
 
       /* Table Options */
@@ -31,17 +18,17 @@ const FormsCRUD = (function () {
           source: {
               read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/forms/table`,
+              url: `${HOST_URL}/api/v1/reports/table`,
               params: {
-                fields: '_id,name,_ownerId,aliveTill,accountInclude,accountExclude,createdBy,createdAt,updatedAt',
+                fields: '_id,name,state,_ownerId,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                   // sample data mapping
                   // console.log('raw', raw);
                   dataSet = raw;
 
-                  if (typeof raw.forms !== 'undefined') {
-                  dataSet = raw.forms;
+                  if (typeof raw.reports !== 'undefined') {
+                  dataSet = raw.reports;
                   // console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -69,7 +56,7 @@ const FormsCRUD = (function () {
 
           pagination: true,
           search: {
-          input: $('#tableFr_search_query_2'),
+          input: $('#tableRp_search_query_2'),
           key: 'generalSearch',
           },
 
@@ -96,20 +83,12 @@ const FormsCRUD = (function () {
             }
           },
           {
+            field: 'state',
+            title: 'State',
+          },
+          {
             field: '_ownerId',
             title: 'Owner ID',
-          },
-          {
-            field: 'aliveTill',
-            title: 'Alive TIll',
-          },
-          {
-            field: 'accountInclude',
-            title: 'Account Include',
-          },
-          {
-            field: 'accountExclude',
-            title: 'Account Exclude',
           },
           {
             field: 'createdBy',
@@ -209,57 +188,41 @@ const FormsCRUD = (function () {
       };
 
       /* Table Initialize */
-      const datatable = $('#tableFr').KTDatatable(options);
+      const datatable = $('#tableRp').KTDatatable(options);
 
       /* Form */
-      const FrForm = document.querySelector('#formFr');
-      let FormSubmitButton = document.querySelector('#btnAddNewFrFormSubmitButton');
+      const RpForm = document.querySelector('#formRp');
+      let FormSubmitButton = document.querySelector('#btnAddNewRpFormSubmitButton');
       // Options
       let formOptions = {
           fields: {
           
-            fName: {
+            rName: {
                 validators: {
                   notEmpty: {
                     message: 'Name is required',
                   },
                 },
-              }, 
-              fOwnerId: {
-                validators: {
-                  notEmpty: {
-                    message: 'Owner ID is required',
-                  },
-                },
-              },
-            
-              fAliveTill : {
+              },  
+              rState : {
                   validators: {
                     notEmpty: {
-                      message: 'Date is required',
+                      message: 'State is required',
                     },
                   },
                 },
-                fAccountInclude : {
+                rOwnerId: {
                   validators: {
                     notEmpty: {
-                      message: 'This Field is required',
+                      message: 'Owner ID is required',
                     },
                   },
                 },
-                fAccountExclude : {
-                  validators: {
-                    notEmpty: {
-                      message: 'This Field is required',
-                    },
-                  },
-                },
-
           },
           plugins: {
           //Learn more: https://formvalidation.io/guide/plugins
           trigger: new FormValidation.plugins.Trigger(),
-          // Bootstrap Framework Integration
+          // Bootstrap Rpamework Integration
           bootstrap: new FormValidation.plugins.Bootstrap(),
           // Validate fields when clicking the Submit button
           FormSubmitButton: new FormValidation.plugins.SubmitButton(),
@@ -272,35 +235,35 @@ const FormsCRUD = (function () {
 
       /* Search Operations */
       // search based on status
-      $('#tableFr_search_status_2').on('change', function () {
+      $('#tableRp_search_status_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Status');
       });
 
       // search based on type
-      $('#tableFr_search_type_2').on('change', function () {
+      $('#tableRp_search_type_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Type');
       });
 
-      $('#tableFr_search_status_2, #tableFr_search_type_2').selectpicker();
+      $('#tableRp_search_status_2, #tableRp_search_type_2').selectpicker();
 
       // modal open
-      $('#btnOpenFrModal').on('click', async function (e) {
+      $('#btnOpenRpModal').on('click', async function (e) {
           console.log('openButton is clicked');
 
           // enabling disabling buttons
-          $('#btnAddNewFrFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-          $('#btnSaveFrFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+          $('#btnAddNewRpFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+          $('#btnSaveRpFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-          FormSubmitButton = document.querySelector('#btnAddNewFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnAddNewRpFormSubmitButton');
 
-          $('#modalFr').modal('show');   // open modal
+          $('#modalRp').modal('show');   // open modal
 
-          $('#modalFr').find('.modal-title').text('Add New Entries'); // Setting title for modal
+          $('#modalRp').find('.modal-title').text('Add New Entries'); // Setting title for modal
 
       });
 
       // modal post closed
-      $('#modalFr').on('hidden.bs.modal', function (e) {
+      $('#modalRp').on('hidden.bs.modal', function (e) {
           console.log('Modal closed');
 
           if (fv) {
@@ -313,45 +276,26 @@ const FormsCRUD = (function () {
           $('.fv-plugins-message-container').text(''); // remove message
 
           // clearing fields
-          $("#formFr").trigger('reset'); // clear form fields
+          $("#formRp").trigger('reset'); // clear form fields
 
           // manually resetting other fields
-        //   $('#fAccountInclude').empty().trigger('change');  
-        //   $('#fAccountExclude').empty().trigger('change');  
+          $('#fAccountInclude').empty().trigger('change');  
+          $('#fAccountExclude').empty().trigger('change');  
 
       });
 
       // modal post opened
-      $('#modalFr').on('shown.bs.modal', function (e) {
+      $('#modalRp').on('shown.bs.modal', function (e) {
           console.log('Modal open');
 
         
           // Initializing
-        // Date & Time : Date
-        $('#fAliveTill').datepicker({
-        rtl: KTUtil.isRTL(),
-        todayBtn: 'linked',
-        clearBtn: true,
-        todayHighlight: true,
-        orientation: 'bottom left',
-        templates: arrows,
-        });  
 
-        // Dropdown List : Multiple Select1  W Seacrh
-        $('fAccountInclude').selectpicker({
-        });
-
-
-        // Dropdown List : Multiple Select1  W Seacrh
-        $('fAccountExclude').selectpicker({
-        });
-
-  
 
       });
 
       // form reset operation
-      $('#formFr').on('click', '.btnReset', function (e) {
+      $('#formRp').on('click', '.btnReset', function (e) {
           // console.log('btnResetMenuSectionForm is clicked');
 
           if (fv) {
@@ -368,23 +312,23 @@ const FormsCRUD = (function () {
           $('.fv-plugins-message-container').text(''); // remove message
 
           // clearing fields
-          $("#formFr").trigger('reset'); // clear form fields
+          $("#formRp").trigger('reset'); // clear form fields
 
           // clear manually
           // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
       })
 
       // form add operation
-      $('#formFr').on('click', '.btnAdd', function (e) {
+      $('#formRp').on('click', '.btnAdd', function (e) {
           // console.log('btnCreate is clicked');
 
           // clearing validator messages
           $('.fv-plugins-message-container').text(''); // remove message
           
-          FormSubmitButton = document.querySelector('#btnAddNewFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnAddNewRpFormSubmitButton');
 
           // Validation
-          fv = FormValidation.formValidation(FrForm, formOptions);
+          fv = FormValidation.formValidation(RpForm, formOptions);
 
           // validation failed
           fv.on('core.form.invalid', async function () {
@@ -401,13 +345,11 @@ const FormsCRUD = (function () {
               // Accessing Restful API
               await axios({
                   method: 'post',
-                  url: `${HOST_URL}/api/v1/forms`,
+                  url: `${HOST_URL}/api/v1/reports`,
                   data: { 
-                    name: document.querySelector('#fName').value ,
-                    _ownerId: document.querySelector('#fOwnerId').value ,
-                    aliveTill: document.querySelector('#fAliveTill').value ,
-                    accountInclude: document.querySelector('#fAccountInclude').value ,
-                    accountExclude: document.querySelector('#fAccountExclude').value ,
+                    name: document.querySelector('#rName').value ,
+                    state: document.querySelector('#rState').value ,
+                    _ownerId: document.querySelector('#rOwnerId').value ,
             },
               }).then(function (res) {
               
@@ -419,32 +361,32 @@ const FormsCRUD = (function () {
 
                   if (res.data.status == 'success') {
                       // reseting & clearing
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalRp').modal('hide')  // hiding modal form
                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tableFr').KTDatatable().reload(); // reload table
+                      $('#tableRp').KTDatatable().reload(); // reload table
                   }
                   else if (res.data.status == 'error') {
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalRp').modal('hide')  // hiding modal form
                       toastr.error(`${res.data.message}`, `${res.data.status}`)
                   }
                   else {
-                      $('#modalFr').modal('hide')
+                      $('#modalRp').modal('hide')
                   };
               });
           });
       });
 
       // form save operation
-      $('#formFr').on('click', '.btnSave', function (e) {
+      $('#formRp').on('click', '.btnSave', function (e) {
           console.log('btnSave is clicked');
 
           // clearing validator messages
           $('.fv-plugins-message-container').text(''); // remove message
           
-          FormSubmitButton = document.querySelector('#btnSaveFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnSaveRpFormSubmitButton');
 
           // Validation
-          fv = FormValidation.formValidation(FrForm, formOptions);
+          fv = FormValidation.formValidation(RpForm, formOptions);
 
           // validation failed
           fv.on('core.form.invalid', async function () {
@@ -454,7 +396,7 @@ const FormsCRUD = (function () {
           // validation successful
           fv.on('core.form.valid', async function () {
 
-              const id = document.querySelector('#fId').value;
+              const id = document.querySelector('#rId').value;
 
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
@@ -462,13 +404,11 @@ const FormsCRUD = (function () {
               // Accessing Restful API
               await axios({
                   method: 'patch',
-                  url: `${HOST_URL}/api/v1/forms/${id}`,
+                  url: `${HOST_URL}/api/v1/reports/${id}`,
                   data: {
-                    name: document.querySelector('#fName').value ,
-                    _ownerId: document.querySelector('#fOwnerId').value ,
-                    aliveTill: document.querySelector('#fAliveTill').value ,
-                    accountInclude: document.querySelector('#fAccountInclude').value ,
-                    accountExclude: document.querySelector('#fAccountExclude').value ,
+                    name: document.querySelector('#rName').value ,
+                    state: document.querySelector('#rState').value ,
+                    _ownerId: document.querySelector('#rOwnerId').value ,
                   },
               }).then(function (res) {
                   // Return valid JSON
@@ -479,43 +419,43 @@ const FormsCRUD = (function () {
 
                   if (res.data.status == 'success') {
                       // reseting & clearing
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalRp').modal('hide')  // hiding modal form
                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tableFr').KTDatatable().reload(); // reload table
+                      $('#tableRp').KTDatatable().reload(); // reload table
 
                   }
                   else if (res.data.status == 'error') {
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalRp').modal('hide')  // hiding modal form
                       toastr.error(`${res.data.message}`, `${res.data.status}`)
                   }
                   else {
-                      $('#modalFr').modal('hide') // hiding modal form
+                      $('#modalRp').modal('hide') // hiding modal form
                   };
               });
           });
       });
 
       // Edit Modal Window - opens modal with appropriate properties
-      $('#tableFr').on('click', '.btnEdit', async function (e) {
+      $('#tableRp').on('click', '.btnEdit', async function (e) {
           // console.log('btnEdit is clicked');
 
           var id = $(this).attr("aria-label");
           // console.log(id);
 
-          FormSubmitButton = document.querySelector('#btnSaveFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnSaveRpFormSubmitButton');
 
           // enabling disabling buttons
-          $('#btnAddNewFrFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-          $('#btnSaveFrFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+          $('#btnAddNewRpFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+          $('#btnSaveRpFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-          $('#modalFr').modal('show');   // open modal
+          $('#modalRp').modal('show');   // open modal
 
-          $('#modalFr').find('.modal-title').text('Edit Entry'); // Setting title for modal
+          $('#modalRp').find('.modal-title').text('Edit Entry'); // Setting title for modal
 
           // retrieving data
           await axios({
               method: 'GET',
-              url: `${HOST_URL}/api/v1/forms/${id}`,
+              url: `${HOST_URL}/api/v1/reports/${id}`,
           }).then(async function (res) {
               // Return valid JSON
               console.log(res);
@@ -538,19 +478,17 @@ const FormsCRUD = (function () {
                   // });
 
                   // updating fields with data
-                  document.querySelector('#fId').value = res.data.forms._id;
-                  document.querySelector('#fName').value  = res.data.forms.name;
-                  document.querySelector('#fOwnerId').value  = res.data.forms._ownerId;
-                  document.querySelector('#fAliveTill').value = res.data.forms.aliveTill;
-                  document.querySelector('#fAccountInclude').value = res.data.forms.accountInclude;
-                  document.querySelector('#fAccountExclude').value = res.data.forms.accountExclude;
+                  document.querySelector('#rId').value = res.data.reports._id;
+                  document.querySelector('#rName').value  = res.data.reports.name;
+                  document.querySelector('#rState').value  = res.data.reports.state;
+                  document.querySelector('#rOwnerId').value = res.data.reports._ownerId;
               }
               
           });
       });
 
       // deleteOne operation
-      $('#tableFr').on('click', '.btnDelete', function (e) {
+      $('#tableRp').on('click', '.btnDelete', function (e) {
           console.log('btnDelete Clicked');
           let ids = $(this).attr("aria-label");
 
@@ -562,10 +500,10 @@ const FormsCRUD = (function () {
               }
           }
 
-          axios.delete(`${HOST_URL}/api/v1/forms`, requests);
+          axios.delete(`${HOST_URL}/api/v1/reports`, requests);
 
           // reload table
-          $('#tableFr').KTDatatable().reload();
+          $('#tableRp').KTDatatable().reload();
           
       });
 
@@ -575,14 +513,14 @@ const FormsCRUD = (function () {
           const ids = datatable.checkbox().getSelectedId();
           const count = ids.length;
       
-          $('#tableFr_selected_records_2').html(count);
+          $('#tableRp_selected_records_2').html(count);
 
           console.log(count)
       
           if (count > 0) {
-              $('#tableFr_group_action_form_2').collapse('show');
+              $('#tableRp_group_action_form_2').collapse('show');
           } else {
-              $('#tableFr_group_action_form_2').collapse('hide');
+              $('#tableRp_group_action_form_2').collapse('hide');
           }
       });
 
@@ -592,12 +530,12 @@ const FormsCRUD = (function () {
     return {
         // public functions
           init: function () {
-          _Forms();
+          _Reports();
           
         },
       };
   })();
   
   jQuery(document).ready(function () {
-      FormsCRUD.init();
+      ReportsCRUD.init();
   });    

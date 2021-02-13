@@ -2,25 +2,13 @@
 'use strict';
 
 /* Class definition */
-const FormsCRUD = (function () {
+const PagesCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
-
-    let arrows;
-    if (KTUtil.isRTL()) {
-        arrows = {
-        leftArrow: '<i class="la la-angle-right"></i>',
-        rightArrow: '<i class="la la-angle-left"></i>',
-        };
-    } else {
-        arrows = {
-        leftArrow: '<i class="la la-angle-left"></i>',
-        rightArrow: '<i class="la la-angle-right"></i>',
-        };
-    }   
+ 
 
 
     /*   Private functions */
-    function _Forms() {
+    function _Pages() {
       var dataSet;
 
       /* Table Options */
@@ -31,17 +19,17 @@ const FormsCRUD = (function () {
           source: {
               read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/forms/table`,
+              url: `${HOST_URL}/api/v1/pages/table`,
               params: {
-                fields: '_id,name,_ownerId,aliveTill,accountInclude,accountExclude,createdBy,createdAt,updatedAt',
+                fields: '_id,name,state,_ownerid,contents,createdBy,createdAt,updatedAt',
               },
               map: function(raw) {
                   // sample data mapping
                   // console.log('raw', raw);
                   dataSet = raw;
 
-                  if (typeof raw.forms !== 'undefined') {
-                  dataSet = raw.forms;
+                  if (typeof raw.pages !== 'undefined') {
+                  dataSet = raw.pages;
                   // console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -69,7 +57,7 @@ const FormsCRUD = (function () {
 
           pagination: true,
           search: {
-          input: $('#tableFr_search_query_2'),
+          input: $('#tablePg_search_query_2'),
           key: 'generalSearch',
           },
 
@@ -96,20 +84,16 @@ const FormsCRUD = (function () {
             }
           },
           {
-            field: '_ownerId',
+            field: 'state',
+            title: 'State',
+          },
+          {
+            field: '_ownerid',
             title: 'Owner ID',
           },
           {
-            field: 'aliveTill',
-            title: 'Alive TIll',
-          },
-          {
-            field: 'accountInclude',
-            title: 'Account Include',
-          },
-          {
-            field: 'accountExclude',
-            title: 'Account Exclude',
+            field: 'contents',
+            title: 'Contents',
           },
           {
             field: 'createdBy',
@@ -209,57 +193,48 @@ const FormsCRUD = (function () {
       };
 
       /* Table Initialize */
-      const datatable = $('#tableFr').KTDatatable(options);
+      const datatable = $('#tablePg').KTDatatable(options);
 
       /* Form */
-      const FrForm = document.querySelector('#formFr');
-      let FormSubmitButton = document.querySelector('#btnAddNewFrFormSubmitButton');
+      const PgForm = document.querySelector('#formPg');
+      let FormSubmitButton = document.querySelector('#btnAddNewPgFormSubmitButton');
       // Options
       let formOptions = {
           fields: {
           
-            fName: {
+            pName: {
                 validators: {
                   notEmpty: {
                     message: 'Name is required',
                   },
                 },
-              }, 
-              fOwnerId: {
-                validators: {
-                  notEmpty: {
-                    message: 'Owner ID is required',
-                  },
-                },
-              },
-            
-              fAliveTill : {
+              },  
+              pState : {
                   validators: {
                     notEmpty: {
-                      message: 'Date is required',
+                      message: 'State is required',
                     },
                   },
                 },
-                fAccountInclude : {
+                pOwnerId: {
                   validators: {
                     notEmpty: {
-                      message: 'This Field is required',
+                      message: 'Owner ID is required',
                     },
                   },
                 },
-                fAccountExclude : {
+                pContents: {
                   validators: {
                     notEmpty: {
-                      message: 'This Field is required',
+                      message: 'Content is required',
                     },
                   },
                 },
-
           },
           plugins: {
           //Learn more: https://formvalidation.io/guide/plugins
           trigger: new FormValidation.plugins.Trigger(),
-          // Bootstrap Framework Integration
+          // Bootstrap Pgamework Integration
           bootstrap: new FormValidation.plugins.Bootstrap(),
           // Validate fields when clicking the Submit button
           FormSubmitButton: new FormValidation.plugins.SubmitButton(),
@@ -272,35 +247,35 @@ const FormsCRUD = (function () {
 
       /* Search Operations */
       // search based on status
-      $('#tableFr_search_status_2').on('change', function () {
+      $('#tablePg_search_status_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Status');
       });
 
       // search based on type
-      $('#tableFr_search_type_2').on('change', function () {
+      $('#tablePg_search_type_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Type');
       });
 
-      $('#tableFr_search_status_2, #tableFr_search_type_2').selectpicker();
+      $('#tablePg_search_status_2, #tablePg_search_type_2').selectpicker();
 
       // modal open
-      $('#btnOpenFrModal').on('click', async function (e) {
+      $('#btnOpenPgModal').on('click', async function (e) {
           console.log('openButton is clicked');
 
           // enabling disabling buttons
-          $('#btnAddNewFrFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-          $('#btnSaveFrFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+          $('#btnAddNewPgFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+          $('#btnSavePgFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-          FormSubmitButton = document.querySelector('#btnAddNewFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnAddNewPgFormSubmitButton');
 
-          $('#modalFr').modal('show');   // open modal
+          $('#modalPg').modal('show');   // open modal
 
-          $('#modalFr').find('.modal-title').text('Add New Entries'); // Setting title for modal
+          $('#modalPg').find('.modal-title').text('Add New Entries'); // Setting title for modal
 
       });
 
       // modal post closed
-      $('#modalFr').on('hidden.bs.modal', function (e) {
+      $('#modalPg').on('hidden.bs.modal', function (e) {
           console.log('Modal closed');
 
           if (fv) {
@@ -313,45 +288,29 @@ const FormsCRUD = (function () {
           $('.fv-plugins-message-container').text(''); // remove message
 
           // clearing fields
-          $("#formFr").trigger('reset'); // clear form fields
+          $("#formPg").trigger('reset'); // clear form fields
 
           // manually resetting other fields
-        //   $('#fAccountInclude').empty().trigger('change');  
-        //   $('#fAccountExclude').empty().trigger('change');  
+        //   $('#pContents').empty().trigger('change'); 
 
       });
 
       // modal post opened
-      $('#modalFr').on('shown.bs.modal', function (e) {
+      $('#modalPg').on('shown.bs.modal', function (e) {
           console.log('Modal open');
 
         
           // Initializing
-        // Date & Time : Date
-        $('#fAliveTill').datepicker({
-        rtl: KTUtil.isRTL(),
-        todayBtn: 'linked',
-        clearBtn: true,
-        todayHighlight: true,
-        orientation: 'bottom left',
-        templates: arrows,
-        });  
 
         // Dropdown List : Multiple Select1  W Seacrh
-        $('fAccountInclude').selectpicker({
+        $('pContents').selectpicker({
         });
-
-
-        // Dropdown List : Multiple Select1  W Seacrh
-        $('fAccountExclude').selectpicker({
-        });
-
   
 
       });
 
       // form reset operation
-      $('#formFr').on('click', '.btnReset', function (e) {
+      $('#formPg').on('click', '.btnReset', function (e) {
           // console.log('btnResetMenuSectionForm is clicked');
 
           if (fv) {
@@ -368,23 +327,23 @@ const FormsCRUD = (function () {
           $('.fv-plugins-message-container').text(''); // remove message
 
           // clearing fields
-          $("#formFr").trigger('reset'); // clear form fields
+          $("#formPg").trigger('reset'); // clear form fields
 
           // clear manually
           // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
       })
 
       // form add operation
-      $('#formFr').on('click', '.btnAdd', function (e) {
+      $('#formPg').on('click', '.btnAdd', function (e) {
           // console.log('btnCreate is clicked');
 
           // clearing validator messages
           $('.fv-plugins-message-container').text(''); // remove message
           
-          FormSubmitButton = document.querySelector('#btnAddNewFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnAddNewPgFormSubmitButton');
 
           // Validation
-          fv = FormValidation.formValidation(FrForm, formOptions);
+          fv = FormValidation.formValidation(PgForm, formOptions);
 
           // validation failed
           fv.on('core.form.invalid', async function () {
@@ -401,13 +360,12 @@ const FormsCRUD = (function () {
               // Accessing Restful API
               await axios({
                   method: 'post',
-                  url: `${HOST_URL}/api/v1/forms`,
+                  url: `${HOST_URL}/api/v1/pages`,
                   data: { 
-                    name: document.querySelector('#fName').value ,
-                    _ownerId: document.querySelector('#fOwnerId').value ,
-                    aliveTill: document.querySelector('#fAliveTill').value ,
-                    accountInclude: document.querySelector('#fAccountInclude').value ,
-                    accountExclude: document.querySelector('#fAccountExclude').value ,
+                    name: document.querySelector('#pName').value ,
+                    state: document.querySelector('#pState').value ,
+                    _ownerid: document.querySelector('#pOwnerId').value ,
+                    contents: document.querySelector('#pContents').value ,
             },
               }).then(function (res) {
               
@@ -419,32 +377,32 @@ const FormsCRUD = (function () {
 
                   if (res.data.status == 'success') {
                       // reseting & clearing
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalPg').modal('hide')  // hiding modal form
                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tableFr').KTDatatable().reload(); // reload table
+                      $('#tablePg').KTDatatable().reload(); // reload table
                   }
                   else if (res.data.status == 'error') {
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalPg').modal('hide')  // hiding modal form
                       toastr.error(`${res.data.message}`, `${res.data.status}`)
                   }
                   else {
-                      $('#modalFr').modal('hide')
+                      $('#modalPg').modal('hide')
                   };
               });
           });
       });
 
       // form save operation
-      $('#formFr').on('click', '.btnSave', function (e) {
+      $('#formPg').on('click', '.btnSave', function (e) {
           console.log('btnSave is clicked');
 
           // clearing validator messages
           $('.fv-plugins-message-container').text(''); // remove message
           
-          FormSubmitButton = document.querySelector('#btnSaveFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnSavePgFormSubmitButton');
 
           // Validation
-          fv = FormValidation.formValidation(FrForm, formOptions);
+          fv = FormValidation.formValidation(PgForm, formOptions);
 
           // validation failed
           fv.on('core.form.invalid', async function () {
@@ -454,7 +412,7 @@ const FormsCRUD = (function () {
           // validation successful
           fv.on('core.form.valid', async function () {
 
-              const id = document.querySelector('#fId').value;
+              const id = document.querySelector('#pId').value;
 
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
@@ -462,13 +420,12 @@ const FormsCRUD = (function () {
               // Accessing Restful API
               await axios({
                   method: 'patch',
-                  url: `${HOST_URL}/api/v1/forms/${id}`,
+                  url: `${HOST_URL}/api/v1/pages/${id}`,
                   data: {
-                    name: document.querySelector('#fName').value ,
-                    _ownerId: document.querySelector('#fOwnerId').value ,
-                    aliveTill: document.querySelector('#fAliveTill').value ,
-                    accountInclude: document.querySelector('#fAccountInclude').value ,
-                    accountExclude: document.querySelector('#fAccountExclude').value ,
+                    name: document.querySelector('#pName').value ,
+                    state: document.querySelector('#pState').value ,
+                    _ownerid: document.querySelector('#pOwnerId').value ,
+                    contents: document.querySelector('#pContents').value ,
                   },
               }).then(function (res) {
                   // Return valid JSON
@@ -479,43 +436,43 @@ const FormsCRUD = (function () {
 
                   if (res.data.status == 'success') {
                       // reseting & clearing
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalPg').modal('hide')  // hiding modal form
                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tableFr').KTDatatable().reload(); // reload table
+                      $('#tablePg').KTDatatable().reload(); // reload table
 
                   }
                   else if (res.data.status == 'error') {
-                      $('#modalFr').modal('hide')  // hiding modal form
+                      $('#modalPg').modal('hide')  // hiding modal form
                       toastr.error(`${res.data.message}`, `${res.data.status}`)
                   }
                   else {
-                      $('#modalFr').modal('hide') // hiding modal form
+                      $('#modalPg').modal('hide') // hiding modal form
                   };
               });
           });
       });
 
       // Edit Modal Window - opens modal with appropriate properties
-      $('#tableFr').on('click', '.btnEdit', async function (e) {
+      $('#tablePg').on('click', '.btnEdit', async function (e) {
           // console.log('btnEdit is clicked');
 
           var id = $(this).attr("aria-label");
           // console.log(id);
 
-          FormSubmitButton = document.querySelector('#btnSaveFrFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnSavePgFormSubmitButton');
 
           // enabling disabling buttons
-          $('#btnAddNewFrFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-          $('#btnSaveFrFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+          $('#btnAddNewPgFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+          $('#btnSavePgFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-          $('#modalFr').modal('show');   // open modal
+          $('#modalPg').modal('show');   // open modal
 
-          $('#modalFr').find('.modal-title').text('Edit Entry'); // Setting title for modal
+          $('#modalPg').find('.modal-title').text('Edit Entry'); // Setting title for modal
 
           // retrieving data
           await axios({
               method: 'GET',
-              url: `${HOST_URL}/api/v1/forms/${id}`,
+              url: `${HOST_URL}/api/v1/pages/${id}`,
           }).then(async function (res) {
               // Return valid JSON
               console.log(res);
@@ -538,19 +495,18 @@ const FormsCRUD = (function () {
                   // });
 
                   // updating fields with data
-                  document.querySelector('#fId').value = res.data.forms._id;
-                  document.querySelector('#fName').value  = res.data.forms.name;
-                  document.querySelector('#fOwnerId').value  = res.data.forms._ownerId;
-                  document.querySelector('#fAliveTill').value = res.data.forms.aliveTill;
-                  document.querySelector('#fAccountInclude').value = res.data.forms.accountInclude;
-                  document.querySelector('#fAccountExclude').value = res.data.forms.accountExclude;
+                  document.querySelector('#pId').value = res.data.pages._id;
+                  document.querySelector('#pName').value  = res.data.pages.name;
+                  document.querySelector('#pState').value  = res.data.pages.state;
+                  document.querySelector('#pOwnerId').value = res.data.pages._ownerid;
+                  document.querySelector('#pContents').value = res.data.pages.contents;
               }
               
           });
       });
 
       // deleteOne operation
-      $('#tableFr').on('click', '.btnDelete', function (e) {
+      $('#tablePg').on('click', '.btnDelete', function (e) {
           console.log('btnDelete Clicked');
           let ids = $(this).attr("aria-label");
 
@@ -562,10 +518,10 @@ const FormsCRUD = (function () {
               }
           }
 
-          axios.delete(`${HOST_URL}/api/v1/forms`, requests);
+          axios.delete(`${HOST_URL}/api/v1/pages`, requests);
 
           // reload table
-          $('#tableFr').KTDatatable().reload();
+          $('#tablePg').KTDatatable().reload();
           
       });
 
@@ -575,14 +531,14 @@ const FormsCRUD = (function () {
           const ids = datatable.checkbox().getSelectedId();
           const count = ids.length;
       
-          $('#tableFr_selected_records_2').html(count);
+          $('#tablePg_selected_records_2').html(count);
 
           console.log(count)
       
           if (count > 0) {
-              $('#tableFr_group_action_form_2').collapse('show');
+              $('#tablePg_group_action_form_2').collapse('show');
           } else {
-              $('#tableFr_group_action_form_2').collapse('hide');
+              $('#tablePg_group_action_form_2').collapse('hide');
           }
       });
 
@@ -592,12 +548,12 @@ const FormsCRUD = (function () {
     return {
         // public functions
           init: function () {
-          _Forms();
+          _Pages();
           
         },
       };
   })();
   
   jQuery(document).ready(function () {
-      FormsCRUD.init();
+      PagesCRUD.init();
   });    
