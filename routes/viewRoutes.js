@@ -74,6 +74,10 @@ router.get(
   '/rating/attribute/groups/all',
   viewsController.ratingAttributeGroupsAll
 );
+router.get(
+  '/rating/attribute/all',
+  viewsController.ratingAttributeAll
+);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);

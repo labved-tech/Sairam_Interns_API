@@ -225,6 +225,12 @@ exports.ratingAttributeGroupsAll = (req, res) => {
     .status(200)
     .render('./../views/pages/rating/ratingAttributeGroupsAll');
 };
+exports.ratingAttributeAll = (req, res) => {
+  console.log('We are in Rating Attribute All Page');
+  res
+    .status(200)
+    .render('./../views/pages/rating/ratingAttributeAll');
+};
 
 // EVENT RELATED CONTROLLER
 exports.eventEntries = (req, res) => {
