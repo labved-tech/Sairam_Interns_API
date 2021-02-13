@@ -7,6 +7,20 @@
 const TicketSupportCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
+    // Date Picker
+    let arrows;
+    if (KTUtil.isRTL()) {
+        arrows = {
+            leftArrow: '<i class="la la-angle-right"></i>',
+            rightArrow: '<i class="la la-angle-left"></i>',
+        };
+    } else {
+        arrows = {
+            leftArrow: '<i class="la la-angle-left"></i>',
+            rightArrow: '<i class="la la-angle-right"></i>',
+        };
+    }
+
     // Private functions
 
     function _TicketEntries() {
@@ -488,7 +502,7 @@ const TicketSupportCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/ticket-support/products`,
+                    url: `${HOST_URL}/api/v1/ticket-support/entries`,
                     data: {
                         name: document.querySelector('#teuserId').value,
                         teuserName: document.querySelector('#teuserName').value,
@@ -558,7 +572,7 @@ const TicketSupportCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'patch',
-                    url: `${HOST_URL}/api/v1/ticket-support/entries${id}`,
+                    url: `${HOST_URL}/api/v1/ticket-support/entries/${id}`,
                     data: {
 
                         name: document.querySelector('#teuserId').value,
@@ -622,7 +636,7 @@ const TicketSupportCRUD = (function () {
             // retrieving data
             await axios({
                 method: 'GET',
-                url: `${HOST_URL}/api/v1/ticket-support/Products/${id}`,
+                url: `${HOST_URL}/api/v1/ticket-support/entries/${id}`,
             }).then(async function (res) {
                 // Return valid JSON
                 console.log(res);
@@ -632,7 +646,7 @@ const TicketSupportCRUD = (function () {
                     /*// fetching menu manager select2
                     await axios({
                         method: 'GET',
-                        url: `${HOST_URL}/api/v1/ticket-support/Products` + res.data.menuManager._id,
+                        url: `${HOST_URL}/api/v1/ticket-support/entries` + res.data.menuManager._id,
                     }).then(function (res) {
                         //Return valid JSON
                         // console.log(res);
@@ -665,7 +679,7 @@ const TicketSupportCRUD = (function () {
                 }
             }
 
-            axios.delete(`${HOST_URL}/api/v1/ticket-support/Products`, requests);
+            axios.delete(`${HOST_URL}/api/v1/ticket-support/entries`, requests);
 
             // reload table
             $('#tableTe').KTDatatable().reload();
