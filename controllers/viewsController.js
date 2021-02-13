@@ -156,6 +156,12 @@ exports.analytics = (req, res) => {
   res.status(200).render('./../views/pages/analytics/analytics');
 };
 
+// ANALYTICS PAGE RELATED CONTROLLER
+exports.analyticsAll = (req, res) => {
+  console.log('We are in Analytics Form Page');
+  res.status(200).render('./../views/pages/analytics/analyticsAll');
+};
+
 // ANALYTICS TABLE RELATED CONTROLLER
 exports.analyticsTable = (req, res) => {
   console.log('We are in Analytics Tables Page');
@@ -532,6 +538,13 @@ exports.pages = (req, res) => {
   console.log('We are in Pages Form Page');
   res.status(200).render('./../views/pages/pages/pages');
 };
+
+// Pages ALL RELATED CONTROLLER
+exports.pagesAll = (req, res) => {
+  console.log('We are in Pages Form Page');
+  res.status(200).render('./../views/pages/pages/pagesAll');
+};
+
 // PAGES TABLE RELATED CONTROLLER
 exports.pagesTable = (req, res) => {
   console.log('We are in Pages Tables Page');
@@ -542,6 +555,12 @@ exports.pagesTable = (req, res) => {
 exports.charts = (req, res) => {
   console.log('We are in Charts Form Page');
   res.status(200).render('./../views/pages/charts/charts');
+};
+
+// CHARTS PAGE RELATED CONTROLLER
+exports.chartsAll = (req, res) => {
+  console.log('We are in Charts Form Page');
+  res.status(200).render('./../views/pages/charts/chartsAll');
 };
 
 // CHARTS TABLE RELATED CONTROLLER
@@ -606,6 +625,19 @@ exports.farmStrategy = (req, res) => {
   console.log('We are in Farm Strategy Form Page');
   res.status(200).render('./../views/pages/precision-agriculture/farmStrategy');
 };
+
+exports.farmExportedStrategyAll = (req, res) => {
+  console.log('We are in Farm Exported Strategy All Page');
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmExportedStrategyAll');
+};
+
+exports.farmRegionsAll = (req, res) => {
+  console.log('We are in Farm Regions All Page');
+  res.status(200).render('./../views/pages/precision-agriculture/farmRegionsAll');
+};
+
 
 // PRECISION AGRICULTURE TABLE RELATED CONTROLLER
 exports.farmEntriesTable = (req, res) => {

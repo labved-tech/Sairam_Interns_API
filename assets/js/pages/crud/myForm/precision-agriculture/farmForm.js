@@ -122,10 +122,10 @@ const FarmCRUD = (function () {
 
         FormValidation.formValidation(createFarmExportedStrategyForm, {
             fields: {
-            fesName: {
-                validators: {
+                fesName: {
+                    validators: {
                     notEmpty: {
-                    message: 'Name is required',
+                        message: 'Name is required',
                     },
                 },
                 },  

@@ -130,7 +130,7 @@ exports.getFarmRegions = async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got farmRegions Id=${id}`,
-    Data: { farmRegions },
+    farmRegions,
   });
   next();
 };

@@ -132,7 +132,7 @@ exports.getCharts = catchAsync(async (req, res, next) => {
     res.status(200).json({
       status: 'success',
       message: `Got charts Id=${id}`,
-      Data: { charts },
+      charts,
     });
 
 
