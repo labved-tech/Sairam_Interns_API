@@ -366,6 +366,7 @@ const EcommerceCRUD = (function () {
                     // });
 
                     // updating fields with data
+                    document.querySelector('#eaId').value = res.data.ecommerceAddress._id;
                     document.querySelector('#eaAddress1').value = res.data.ecommerceAddress.address1;
                     document.querySelector('#eaStreet').value = res.data.ecommerceAddress.street;
                     document.querySelector('#eaCity').value = res.data.ecommerceAddress.city;
