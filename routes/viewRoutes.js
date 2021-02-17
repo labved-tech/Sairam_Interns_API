@@ -149,6 +149,8 @@ router.get(
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
 router.get('/event/entries/table', viewsController.eventEntriesTable);
+router.get('/event/entries/all', viewsController.eventEntriesAll);
+
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);

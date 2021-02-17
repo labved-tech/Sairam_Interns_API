@@ -249,6 +249,10 @@ exports.eventEntriesTable = (req, res) => {
   console.log('We are in event Entries Table  Page');
   res.status(200).render('./../views/pages/event/eventEntriesTable');
 };
+exports.eventEntriesAll = (req, res) => {
+  console.log('We are in event Entries All  Page');
+  res.status(200).render('./../views/pages/event/eventEntriesAll');
+};
 
 // LEADS RELATED CONTROLLER
 exports.leadCategories = (req, res) => {
