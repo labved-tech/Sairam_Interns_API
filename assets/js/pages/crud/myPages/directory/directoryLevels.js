@@ -2,10 +2,10 @@
 'use strict';
 
 /* Class definition */
-const DirectoryCRUD = (function () {
+const DirectoryLevelsCRUD = (function () {
   const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
   /*   Private functions */
-  function _Directory() {
+  function _DirectoryLevels() {
     var dataSet;
 
     /* Table Options */
@@ -16,17 +16,17 @@ const DirectoryCRUD = (function () {
         source: {
           read: {
             method: 'get',
-            url: `${HOST_URL}/api/v1/directory/table`,
+            url: `${HOST_URL}/api/v1/directory/levels/table`,
             params: {
-              fields: '_id, name, single, plural, slug, categories, createdBy,createdAt,updatedAt,updatedBy',
+              fields: '_id, name, description, activePeriod, changeLevelId, listingsInPackage, riseUpEnabled, sticky, featured, ownPage, unlimitedCategories, map, mapMakers, logoEnabled, imageLimit, videoLimit, contentFields, createdBy,createdAt,updatedAt',
             },
             map: function (raw) {
               // sample data mapping
               // console.log('raw', raw);
               dataSet = raw;
 
-              if (typeof raw.directory !== 'undefined') {
-                dataSet = raw.directory;
+              if (typeof raw.directoryLevels !== 'undefined') {
+                dataSet = raw.directoryLevels;
                 // console.log('dataSet', dataSet);
               }
               return dataSet;
@@ -76,17 +76,71 @@ const DirectoryCRUD = (function () {
         },
 
         {
-          field: 'single',
-          title: 'Single',
+          field: 'description',
+          title: 'Description',
         },
         {
-          field: 'slug',
-          title: 'Slug',
+          field: 'activePeriod',
+          title: 'ActivePeriod',
         },
         {
-          field: 'categories',
-          title: 'Categories',
+          field: 'changeLevelId',
+          title: 'changeLevelId ',
         },
+        {
+            field: 'listingsInPackage',
+            title: 'listingsInPackage',
+          },
+          {
+            field: 'riseUpEnabled',
+            title: 'RiseUpEnabled',
+          },
+          {
+            field: 'recipientEmail',
+            title: 'Recipient Email',
+          },
+          {
+            field: 'sticky',
+            title: 'Sticky',
+          },
+        
+        {
+          field: 'featured',
+          title: 'Featured',
+        },
+        {
+          field: 'ownPage',
+          title: 'OwnPage',
+        },
+        {
+            field: 'unlimitedCategories',
+            title: 'UnlimitedCategories',
+          },
+          {
+            field: 'map',
+            title: 'Map',
+          },
+          {
+            field: 'mapMakers',
+            title: 'MapMakers',
+          },
+          {
+            field: 'logoEnabled',
+            title: 'LogoEnabled',
+          },
+          {
+            field: 'imageLimit',
+            title: 'ImageLimit',
+          },
+          {
+            field: 'videoLimit',
+            title: 'VideoLimit',
+          },
+          {
+            field: 'contentFields',
+            title: 'ContentFields',
+          },
+            
         {
           field: 'createdAt',
           title: 'createdAt',
@@ -181,49 +235,70 @@ const DirectoryCRUD = (function () {
     };
 
     /* Table Initialize */
-    const datatable = $('#tableDy').KTDatatable(options);
+    const datatable = $('#tableDl').KTDatatable(options);
 
     /* Form Initialize */
-    const DyForm = document.querySelector('#formDy');
-    let FormSubmitButton = document.querySelector('#btnAddNewDyFormSubmitButton');
+    const DlForm = document.querySelector('#formDl');
+    let FormSubmitButton = document.querySelector('#btnAddNewDlFormSubmitButton');
     let formOptions = {
       fields: {
-        dName: {
+        dlName: {
           validators: {
             notEmpty: {
-              message: 'Name is required',
+              message: 'Name ID is required',
             },
           },
         },
-        dSingular: {
+        dlActivePeriod: {
           validators: {
             notEmpty: {
-              message: 'Singular is required',
+              message: 'ActivePeriod is required',
             },
           },
         },
-        dPlural: {
+        dlChangeLevelId: {
           validators: {
             notEmpty: {
-              message: 'Plural  is required',
+              message: 'ChangeLevelId  is required',
             },
           },
         },
-        dSlug: {
-          validators: {
-            notEmpty: {
-              message: 'Slug is required',
+        dlListingsInPackage: {
+            validators: {
+              notEmpty: {
+                message: 'ListingsInPackage  is required',
+              },
             },
           },
-        },
-        dCategories: {
-          validators: {
-            notEmpty: {
-              message: 'Categories  is required',
+          dlImageLimit: {
+            validators: {
+              notEmpty: {
+                message: 'ImageLimit  is required',
+              },
             },
           },
-        },
-
+          dlUpdatedAt: {
+            validators: {
+              notEmpty: {
+                message: 'UpdatedAt  is required',
+              },
+            },
+          },
+          dlVideoLimit: {
+            validators: {
+              notEmpty: {
+                message: 'VideoLimit  is required',
+              },
+            },
+          },
+          dlContentFields: {
+            validators: {
+              notEmpty: {
+                message: 'ContentFields  is required',
+              },
+            },
+          },
+          
       },
       plugins: {
         //Learn more: https://formvalidation.io/guide/plugins
@@ -242,37 +317,37 @@ const DirectoryCRUD = (function () {
 
     /* Search Operations */
     // search based on status
-    $('#tableDy_search_status_2').on('change', function () {
+    $('#tableDl_search_status_2').on('change', function () {
       datatable.search($(this).val().toLowerCase(), 'Status');
     });
 
     // search based on type
-    $('#tableDy_search_type_2').on('change', function () {
+    $('#tableDl_search_type_2').on('change', function () {
       datatable.search($(this).val().toLowerCase(), 'Type');
     });
 
-    $('#tableDy_search_status_2, #tableDy_search_type_2').selectpicker();
+    $('#tableDl_search_status_2, #tableDl_search_type_2').selectpicker();
 
     /* Modal Operations */
     // to open modal 
-    $('#btnOpenDyModal').on('click', async function (e) {
+    $('#btnOpenDlModal').on('click', async function (e) {
       console.log('btnNewItem is clicked');
 
-      FormSubmitButton = document.querySelector('#btnAddNewDyFormSubmitButton');
+      FormSubmitButton = document.querySelector('#btnAddNewDlFormSubmitButton');
 
       // enabling disabling buttons
-      $('#btnAddNewDyFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-      $('#btnSaveDyFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+      $('#btnAddNewDlFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+      $('#btnSaveDlFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-      $('#modalDy').modal('show');   // open modal  
+      $('#modalDl').modal('show');   // open modal  
 
-      $('#modalDy').find('.modal-title').text('Add New Directory'); // Setting title for modal
+      $('#modalDl').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
 
     });
 
     // modal post closed
-    $('#modalDy').on('hidden.bs.modal', function (e) {
-      // console.log('Modal closed');
+    $('#modalDl').on('hidden.bs.modal', function (e) {
+      console.log('Modal closed');
 
       if (fv) {
         // clearing forms
@@ -284,45 +359,44 @@ const DirectoryCRUD = (function () {
       $('.fv-plugins-message-container').text(''); // remove message
 
       // clearing fields
-      $("#formDy").trigger('reset'); // clear form fields
+      $("#formDl").trigger('reset'); // clear form fields
 
       // manually resetting other fields
-      $('#dyExpires').empty().trigger('change');  // clearing select2  */
 
     });
 
     // modal post opened
-    $('#modalDy').on('shown.bs.modal', function (e) {
+    $('#modalDl').on('shown.bs.modal', function (e) {
       // console.log('Modal opened');
 
       // Initializing 
-
-      $('#dCategories').select2({
-        placeholder: "Select expiry"
+      $('#dlDescription').summernote({
+        height: 400,
+        tabsize: 2,
       });
 
     });
 
     // Edit Modal Window - opens modal with appropriate properties
-    $('#tableDy').on('click', '.btnEdit', async function (e) {
+    $('#tableDl').on('click', '.btnEdit', async function (e) {
       // console.log('btnEdit is clicked');
 
       var id = $(this).attr("aria-label");
       // console.log(id);
 
-      FormSubmitButton = document.querySelector('#btnSaveDyFormSubmitButton');
+      FormSubmitButton = document.querySelector('#btnSaveDlFormSubmitButton');
 
       // enabling disabling buttons
-      $('#btnAddNewDyFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-      $('#btnSaveDyFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+      $('#btnAddNewDlFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+      $('#btnSaveDlFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-      $('#modalDy').modal('show');   // open modal
+      $('#modalDl').modal('show');   // open modal
 
-      $('#modalDy').find('.modal-title').text('Edit Entry'); // Setting title for modal
+      $('#modalDl').find('.modal-title').text('Edit Entry'); // Setting title for modal
       // retrieving data
       await axios({
         method: 'GET',
-        url: `${HOST_URL}/api/v1/directory/${id}`,
+        url: `${HOST_URL}/api/v1/newsletter/messages/${id}`,
       }).then(async function (res) {
         // Return valid JSON
         console.log(res);
@@ -345,17 +419,25 @@ const DirectoryCRUD = (function () {
           // });
 
           // updating fields with data
-          document.querySelector('#dyId').value = res.data.newsletterMessages._id;
-          document.querySelector('#dName').value = res.data.newsletterMessages.name;
-          document.querySelector('#dSingular').value = res.data.newsletterMessages.singular;
-          document.querySelector('#dPlural').value = res.data.newsletterMessages.plural;
-          document.querySelector('#dSlug').value = res.data.newsletterMessages.slug;
-          document.querySelector('#dCategories').value = res.data.newsletterMessages.categories;
+          document.querySelector('#dlId').value = res.data.newsletterMessages._id;
+          document.querySelector('#dlName').value = res.data.newsletterMessages.name;
+          document.querySelector('#dlDescription').value = res.data.newsletterMessages.description;
+          document.querySelector('#dlChangeLevelId').value = res.data.newsletterMessages.changeLevelId;
+          document.querySelector('#dlListingsInPackage').value = res.data.newsletterMessages.listingsInPackage;
+          document.querySelector('#dlRiseUpEnabled').value = res.data.newsletterMessages.riseUpEnabled;
+          document.querySelector('#dlSticky').value = res.data.newsletterMessages.sticky;
+          document.querySelector('#dlFeatured').value = res.data.newsletterMessages.featured;
+          document.querySelector('#dlOwnPage').value = res.data.newsletterMessages.ownPage;
+          document.querySelector('#dlUnlimitedCategories').value = res.data.newsletterMessages.unlimitedCategories;
+          document.querySelector('#dlMap').value = res.data.newsletterMessages.map;
+          document.querySelector('#dlMapMakers').value = res.data.newsletterMessages.mapMakers;
+          document.querySelector('#dlLogoEnabled').value = res.data.newsletterMessages.logoEnabled;
+
         }
       });
     });
     // deleteOne operation
-    $('#tableDy').on('click', '.btnDelete', function (e) {
+    $('#tableDl').on('click', '.btnDelete', function (e) {
       console.log('btnDelete Clicked');
       let ids = $(this).attr("aria-label");
 
@@ -367,10 +449,10 @@ const DirectoryCRUD = (function () {
         }
       }
 
-      axios.delete(`${HOST_URL}/api/v1/directory/`, requests);
+      axios.delete(`${HOST_URL}/api/v1/directory/levels`, requests);
 
       // reload table
-      $('#tableDy').KTDatatable().reload();
+      $('#tableDl').KTDatatable().reload();
 
     });
 
@@ -380,19 +462,19 @@ const DirectoryCRUD = (function () {
       const ids = datatable.checkbox().getSelectedId();
       const count = ids.length;
 
-      $('#tableDy_selected_records_2').html(count);
+      $('#tableDl_selected_records_2').html(count);
 
       console.log(count)
 
       if (count > 0) {
-        $('#tableDy_group_action_form_2').collapse('show');
+        $('#tableDl_group_action_form_2').collapse('show');
       } else {
-        $('#tableDy_group_action_form_2').collapse('hide');
+        $('#tableDl_group_action_form_2').collapse('hide');
       }
     });
 
     // form reset operation
-    $('#formDy').on('click', '.btnReset', function (e) {
+    $('#formDl').on('click', '.btnReset', function (e) {
       // console.log('btnReset is clicked');
 
       if (fv) {
@@ -402,34 +484,34 @@ const DirectoryCRUD = (function () {
       }
       else {
         // initiate validation
-        fv = FormValidation.formValidation(DyForm, formOptions);
+        fv = FormValidation.formValidation(DlForm, formOptions);
       }
 
       // clearing validator messages
       $('.fv-plugins-message-container').text(''); // remove message
 
       // clearing fields
-      $("#formDy").trigger('reset'); // clear form fields
+      $("#formDl").trigger('reset'); // clear form fields
 
       // clear manually
       $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
     });
 
     // form add operation
-    $('#formDy').on('click', '.btnAdd', function (e) {
-      console.log('addMenuSectionFormSubmitButton is clicked');
+    $('#formDl').on('click', '.btnAdd', function (e) {
+      // console.log('addMenuSectionFormSubmitButton is clicked');
 
       // clearing validator messages
       $('.fv-plugins-message-container').text(''); // remove message
 
-      FormSubmitButton = document.querySelector('#btnAddNewDyFormSubmitButton');
+      FormSubmitButton = document.querySelector('#btnAddNewDlFormSubmitButton');
 
       // Validation
-      fv = FormValidation.formValidation(DyForm, formOptions);
+      fv = FormValidation.formValidation(DlForm, formOptions);
 
       // validation failed
       fv.on('core.form.invalid', async function () {
-        console.log('Something went wrong!!');    
+        // console.log('Something went wrong!!');    
       });
 
       // validation successful
@@ -441,13 +523,21 @@ const DirectoryCRUD = (function () {
         // Accessing Restful API
         await axios({
           method: 'post',
-          url: `${HOST_URL}/api/v1/newsletter/messages`,
+          url: `${HOST_URL}/api/v1/directory/levels`,
           data: {
-            name: document.querySelector('#dName').value,
-            singular: document.querySelector('#dSingular').value,
-            plural: document.querySelector('#dPlural').value,
-            slug: document.querySelector('#dSlug').value,
-            categories: document.querySelector('#dCategories').value,
+            description: $('#dlDescription').summernote('code'),
+            changeLevelId: document.querySelector('#dlChangeLevelId').value,
+            listingsInPackage: document.querySelector('#dlListingsInPackage').value,
+            riseUpEnabled: (document.querySelector('#dlRiseUpEnabled').value == 'on') ? true : false,
+            sticky: (document.querySelector('#dlSticky').value == 'on') ? true : false
+            featured: (document.querySelector('#dlFeatured').value == 'on') ? true : false,
+            ownPage: (document.querySelector('#dlOwnPage').value == 'on') ? true : false
+            unlimitedCategories: (document.querySelector('#dlUnlimitedCategories').value == 'on') ? true : false,
+            map: (document.querySelector('#dlMap').value == 'on') ? true : false
+            mapMakers: (document.querySelector('#dlMapMakers').value == 'on') ? true : false,
+            logoEnabled: (document.querySelector('#dlLogoEnabled').value == 'on') ? true : false
+            ImageLimit: (document.querySelector('#dlImageLimit').value == 'on') ? true : false,
+            updatedAt: (document.querySelector('#dlUpdatedAt').value == 'on') ? true : false
 
           },
         }).then(function (res) {
@@ -456,39 +546,39 @@ const DirectoryCRUD = (function () {
 
           if (res.data.status == 'success') {
             // reseting & clearing
-            $('#modalDy').modal('hide')  // hiding modal form
+            $('#modalDl').modal('hide')  // hiding modal form
             toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-            $('#tableDy').KTDatatable().reload(); // reload table
+            $('#tableDl').KTDatatable().reload(); // reload table
           }
           else if (res.data.status == 'error') {
-            $('#modalDy').modal('hide')  // hiding modal form
+            $('#modalDl').modal('hide')  // hiding modal form
             toastr.error(`${res.data.message}`, `${res.data.status}`)
           }
           else {
-            $('#modalDy').modal('hide')
+            $('#modalDl').modal('hide')
           };
         });
       });
     });
     /* Modal Operations */
     // to open modal 
-    $('#btnOpenDyModal').on('click', async function (e) {
+    $('#btnOpenDlModal').on('click', async function (e) {
       // console.log('btnNewItem is clicked');
 
-      FormSubmitButton = document.querySelector('#btnAddNewDyFormSubmitButton');
+      FormSubmitButton = document.querySelector('#btnAddNewDlFormSubmitButton');
 
       // enabling disabling buttons
-      $('#btnAddNewDyFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-      $('#btnSaveDyFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+      $('#btnAddNewDlFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+      $('#btnSaveDlFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-      $('#modalDy').modal('show');   // open modal  
+      $('#modalDl').modal('show');   // open modal  
 
-      $('#modalDy').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
+      $('#modalDl').find('.modal-title').text('Add New Newsletter Messages'); // Setting title for modal
 
     });
 
     // modal post closed
-    $('#modalDy').on('hidden.bs.modal', function (e) {
+    $('#modalDl').on('hidden.bs.modal', function (e) {
       //  console.log('Modal is closed');
 
       if (fv) {
@@ -501,13 +591,13 @@ const DirectoryCRUD = (function () {
       $('.fv-plugins-message-container').text(''); // remove message
 
       // clearing fields
-      $("#formDy").trigger('reset'); // clear form fields
+      $("#formDl").trigger('reset'); // clear form fields
 
 
     });
 
     // modal post opened
-    $('#modalDy').on('shown.bs.modal', function (e) {
+    $('#modalDl').on('shown.bs.modal', function (e) {
 
       // Initializing 
 
@@ -519,13 +609,13 @@ const DirectoryCRUD = (function () {
   return {
     // public functions
     init: function () {
-      _Directory();
+        _DirectoryLevels();
 
     },
   };
 })();
 
 jQuery(document).ready(function () {
-  DirectoryCRUD.init();
+    DirectoryLevelsCRUD.init();
 });
 

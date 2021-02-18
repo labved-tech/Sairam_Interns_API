@@ -507,6 +507,10 @@ exports.directoryAll = (req, res) => {
   console.log('We are in directory Form Page');
   res.status(200).render('./../views/pages/directory/directoryAll');
 };
+exports.directoryLevelsAll = (req, res) => {
+  console.log('We are in directory Form Page');
+  res.status(200).render('./../views/pages/directory/directoryLevelsAll');
+};
 // DIRECTORY TABLE RELATED CONTROLLER
 
 exports.directoryAttributeGroupsTable = (req, res) => {
