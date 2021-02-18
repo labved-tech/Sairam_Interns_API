@@ -226,49 +226,100 @@ const EcommerceCRUD = (function () {
         // Options
         let formOptions = {
             fields: {
-                eaAddress1: {
+                epManufactureNo: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Manufacture Part No is required',
                         },
                     },
                 },
-                eaStreet: {
+                epName: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Name is required',
                         },
                     },
                 },
-                eaCity: {
+                epUnitPrice: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Unit Price is required',
                         },
                     },
                 },
-                eaState: {
+                epMaxQtyNo: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
-                        },
-                    },
-                },
-                eaCountry: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This Field is required',
-                        },
-                    },
-                },
-                eaPostalCode: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This Field is required',
+                            message: ' Max Qty Per Order is required',
                         },
                     },
                 },
 
+                epDescription: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
+                    },
+                },
+                epID: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Category ID is required',
+                        },
+                    },
+                },
+
+                epMRP: {
+                    validators: {
+                        notEmpty: {
+                            message: 'MRP is required',
+                        },
+                    },
+                },
+                epNote: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Notes are required',
+                        },
+                    },
+                },
+                epRanking: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Ranking is required',
+                        },
+                    },
+                },
+                epSellerID: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Seller ID is required',
+                        },
+                    },
+                },
+                epReviewID: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Review Attribute ID is required',
+                        },
+                    },
+                },
+                epStatus: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Status is required',
+                        },
+                    },
+                },
+
+                epHSN: {
+                    validators: {
+                        notEmpty: {
+                            message: 'HSN Code  is required',
+                        },
+                    },
+                },
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -276,7 +327,7 @@ const EcommerceCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                createEcommerceAddressFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                epFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
@@ -427,12 +478,19 @@ const EcommerceCRUD = (function () {
                     method: 'post',
                     url: `${HOST_URL}/api/v1/ecommerce/products`,
                     data: {
-                        title: document.querySelector('#aeTitle').value,
-                        message: $('#aeMessage').summernote('code'),   // not working - Summernote WYSIWYG
-                        from: document.querySelector('#aeFrom').value,
-                        isEmailReq: document.querySelector('#aeIsEmailReq').value,   //if(aeIsEmailReq.value=== 'on') return true
-                        priority: document.querySelector('#aePriority').value * 1,
-                        expires: document.querySelector('#aeExpires').value,
+                        manufacturerPartNo: document.querySelector('#epManufactureNo').value,
+                        name: document.querySelector('#epName').value,
+                        description: $('#epDescription').summernote('code'),   // not working - Summernote WYSIWYG
+                        categoryId: document.querySelector('#epID').value,
+                        unitPrice: document.querySelector('#epUnitPrice').value * 1,
+                        MRP: document.querySelector('#epMRP').value * 1,
+                        note: document.querySelector('#epNote').value,
+                        ranking: document.querySelector('#epRanking').value * 1,
+                        maxQuantityPerOrderNumber: document.querySelector('#epMaxQtyNo').value * 1,
+                        sellerId: document.querySelector('#epSellerID').value,
+                        _reviewAttributeId: document.querySelector('#epReviewID').value,
+                        status: document.querySelector('#epStatus').value,
+                        HSNCode: document.querySelector('#epHSN').value,
                     },
                 }).then(function (res) {
 
@@ -489,12 +547,19 @@ const EcommerceCRUD = (function () {
                     method: 'patch',
                     url: `${HOST_URL}/api/v1/ecommerce/products/${id}`,
                     data: {
-                        title: document.querySelector('#aeTitle').value,
-                        message: $('#aeMessage').summernote('code'),   // not working - Summernote WYSIWYG
-                        from: document.querySelector('#aeFrom').value,
-                        isEmailReq: document.querySelector('#aeIsEmailReq').value,   //if(aeIsEmailReq.value=== 'on') return true
-                        priority: document.querySelector('#aePriority').value * 1,
-                        expires: document.querySelector('#aeExpires').value,
+                        manufacturerPartNo: document.querySelector('#epManufactureNo').value,
+                        name: document.querySelector('#epName').value,
+                        description: $('#epDescription').summernote('code'),   // not working - Summernote WYSIWYG
+                        categoryId: document.querySelector('#epID').value,
+                        unitPrice: document.querySelector('#epUnitPrice').value * 1,
+                        MRP: document.querySelector('#epMRP').value * 1,
+                        note: document.querySelector('#epNote').value,
+                        ranking: document.querySelector('#epRanking').value * 1,
+                        maxQuantityPerOrderNumber: document.querySelector('#epMaxQtyNo').value * 1,
+                        sellerId: document.querySelector('#epSellerID').value,
+                        _reviewAttributeId: document.querySelector('#epReviewID').value,
+                        status: document.querySelector('#epStatus').value,
+                        HSNCode: document.querySelector('#epHSN').value,
                     },
                 }).then(function (res) {
                     // Return valid JSON
@@ -565,12 +630,20 @@ const EcommerceCRUD = (function () {
                     // });
 
                     // updating fields with data
-                    document.querySelector('#aeId').value = res.data.announcementEntries._id;
-                    document.querySelector('#aeTitle').value = res.data.announcementEntries.title;
-                    document.querySelector('#aeFrom').value = res.data.announcementEntries.from;
-                    document.querySelector('#aeIsEmailReq').value = res.data.announcementEntries.isEmailReq;
-                    document.querySelector('#aePriority').value = res.data.announcementEntries.priority;
-                    document.querySelector('#aeMessage').value = res.data.announcementEntries.message;
+                    document.querySelector('#epId').value = res.data.ecommerceProducts._id;
+                    document.querySelector('#epManufactureNo').value = res.data.ecommerceProducts.manufacturerPartNo;
+                    document.querySelector('#epName').value = res.data.ecommerceProducts.name;
+                    document.querySelector('#epDescription').value = res.data.ecommerceProducts.description;
+                    document.querySelector('#epID').value = res.data.ecommerceProducts.categoryId;
+                    document.querySelector('#epUnitPrice').value = res.data.ecommerceProducts.unitPrice;
+                    document.querySelector('#epMRP').value = res.data.ecommerceProducts.MRP;
+                    document.querySelector('#epNote').value = res.data.ecommerceProducts.note;
+                    document.querySelector('#epRanking').value = res.data.ecommerceProducts.ranking;
+                    document.querySelector('#epMaxQtyNo').value = res.data.ecommerceProducts.maxQuantityPerOrderNumber;
+                    document.querySelector('#epSellerID').value = res.data.ecommerceProducts.sellerId;
+                    document.querySelector('#epReviewID').value = res.data.ecommerceProducts._reviewAttributeId;
+                    document.querySelector('#epStatus').value = res.data.ecommerceProducts.status;
+                    document.querySelector('#epHSN').value = res.data.ecommerceProducts.HSNCode;
                 }
             });
         });
