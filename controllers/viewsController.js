@@ -774,7 +774,7 @@ exports.ecommerceProductsTable = (req, res) => {
 
 exports.ecommerceProductsAll = (req, res) => {
   console.log('We are in Ecommerce Address All Form Page');
-  res.status(200).render('./../views/pages/ecommerce/ecommerceProductssAll');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceProductsAll');
 };
 
 // PROJECT MANAGEMENT RELATED CONTROLLER

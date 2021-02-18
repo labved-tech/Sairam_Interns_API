@@ -2,7 +2,7 @@
 'use strict';
 
 /* Class definition */
-const EcommerceCRUD = (function () {
+const EcommerceProductsCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
@@ -217,6 +217,11 @@ const EcommerceCRUD = (function () {
                 },
             ],
         }
+        options.extensions = {
+            // boolean or object (extension options)
+            checkbox: true,
+        };
+  
         /* Table Initialize */
         const datatable = $('#tableEp').KTDatatable(options);
 
@@ -697,5 +702,5 @@ const EcommerceCRUD = (function () {
 })();
 
 jQuery(document).ready(function () {
-    EcommerceCRUD.init();
+    EcommerceProductsCRUD.init();
 });
