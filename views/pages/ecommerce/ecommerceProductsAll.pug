@@ -1,9 +1,8 @@
 extends ./../../base.pug
 
 block css-files
-
 block js-files
-    script(src='/js/pages/crud/myPages/rating/ratingAttribute.js')
+    script(src='/js/pages/crud/myPages/ecommerce/ecomerceProducts.js')
 
 
 block content
@@ -18,7 +17,7 @@ block content
                             div(class="card-header flex-wrap border-0 pt-6 pb-0")
                                 div(class="card-title")
                                     h3(class="card-label")
-                                        | Rating Attribute
+                                        | Ecommerce Products
                                         span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
                                 div(class="card-toolbar")
                                     // begin::Dropdown
@@ -62,7 +61,7 @@ block content
                                     // end::Dropdown
                                     // begin::Button
                                     // Button trigger modal
-                                    button#btnOpenRaModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                    button#btnOpenEpModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
                                         | Add New
 
                             div(class="card-body")
@@ -73,13 +72,13 @@ block content
                                             div(class="row align-items-center")
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="input-icon")
-                                                        input#tableRa_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                        input#tableEp_search_query_2(type="text", class="form-control", placeholder="Search...")
                                                         span
                                                             i(class="flaticon2-search-1 text-muted")
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="d-flex align-items-center")
                                                         label(class="mr-3 mb-0 d-none d-md-block") Status:
-                                                        select#tableRa_search_status_2(class="form-control")
+                                                        select#tableEp_search_status_2(class="form-control")
                                                             option(value="") All
                                                             option(value="1") Pending
                                                             option(value="2") Delivered
@@ -90,7 +89,7 @@ block content
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="d-flex align-items-center")
                                                         label(class="mr-3 mb-0 d-none d-md-block") Type:
-                                                        select#tableRa_search_type_2(class="form-control")
+                                                        select#tableEp_search_type_2(class="form-control")
                                                             option(value="") All
                                                             option(value="1") Online
                                                             option(value="2") Retail
@@ -100,11 +99,11 @@ block content
                                                 | Search
                                 // end::Search Form
                                 // begin: Selected Rows Group Action Form
-                                #tableRa_group_action_form_2(class="mt-10 mb-5 collapse")
+                                #tableEp_group_action_form_2(class="mt-10 mb-5 collapse")
                                     div(class="d-flex align-items-center")
                                         div(class="font-weight-bold text-danger mr-3")
                                             | Selected 
-                                            span#tableRa_selected_records_2 0
+                                            span#tableEp_selected_records_2 0
                                             |  records:
                                         div(class="dropdown mr-2")
                                             button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
@@ -122,73 +121,121 @@ block content
                                                             span(class="nav-text") Canceled
                                         button#btnDeleteAll(class="btn btn-sm btn-danger mr-2 btnDeleteAll", type="button")
                                             | Delete All
-                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableRa_fetch_modal_2")
+                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableEp_fetch_modal_2")
                                             | Fetch Selected Records
                                 // end: Selected Rows Group Action Form
                                 // begin: Datatable
-                                #tableRa(class="datatable datatable-bordered datatable-head-custom")
+                                #tableEp(class="datatable datatable-bordered datatable-head-custom")
                                 // end: Datatable
                         // end::Card
 
-                        // ##################################### RaFormModal ############################################################################################
-                        #modalRa(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='RaModalLabel' aria-hidden='true')
+                        // ##################################### EpFormModal ############################################################################################
+                        #modalEp(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='EpModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
-                                    form#formRa(class='form')
+                                    form#formEp(class='form')
                                         div(class='modal-header')
                                             h5(class='modal-title') Add New
                                             button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
                                                 i(aria-hidden='true' class='ki ki-close')
                                         div(class='modal-body')
                                             div(data-scroll='true' data-height='350')
-                                                // RaId - hidden
+                                                // EpId - hidden
                                                 div(class= 'form-group row')
-                                                    input#raId(type='hidden' name='raId')
+                                                    input#epId(type='hidden' name='epId')
 
-                                                // raName
+                                                //epManufactureNo
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Manufacture Part No
+                                                    div(class='col-5')
+                                                        input#epManufactureNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epManufactureNo' placeholder='')
+
+                                                //epName
                                                 div(class='form-group row')
                                                     label(class='col-3 col-form-label form-control-label text-right') Name
-                                                        span(class='text-danger')  *
-                                                    div(class='col-6')
-                                                        input#raName(type='text' class='form-control' name='raName' placeholder='ex. Vignesh')
-                                                        span(class='form-text text-muted') Enter your name
+                                                    div(class='col-5')
+                                                        input#epName(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epName' placeholder='')
 
-                                                // raType
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Type
-                                                    div(class=' col-4')
-                                                        select#raType(class='form-control select2' name='raType')
-                                                            option(value='AK') Alaska
-                                                            option(value='HI') Hawaii
-                                                            option(value='CA') California
-                                                            option(value='NV') Nevada
-                                                            option(value='OR') Oregon
-                                                            option(value='WA') Washington
-                                                            option(value='AZ') Arizona
-                                                            option(value='CO') Colorado
-                                                            option(value='ID') Idaho
-                                                            option(value='MT') Montana
-                                                            option(value='NE') Nebraska
-                                                        span(class='form-text text-muted') Enter the type
-
-                                                // raDescription
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Description
-                                                    div(class='col-9')
-                                                        div#raDescription(class='summernote' name='raDescription')
-                                                        span(class='form-text text-muted') Add message that you wish to send.
-
-                                                // raNotes
+                                                //epDescription
                                                 div(class='form-group row mb-1')
-                                                    label(class='col-3 col-form-label form-control-label text-right' for='raNotes')
-                                                        | Notes
-                                                        span(class='text-danger') *
+                                                    label(class='col-3 col-form-label form-control-label text-right' for='epDescription')
+                                                        | Description
+                                                        span(class='text-danger')
                                                     div(class='col-9 ')
-                                                        textarea#raNotes(class='form-control' name='raNotes' rows='3')
-                                                        span(class='form-text text-muted') Enter your notes
-                                                
-                                        div(class='modal-footer')
-                                            button#btnResetRaForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
-                                            button#btnAddNewRaFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
-                                            button#btnSaveRaFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
+                                                        textarea#epDescription(class='form-control' name='epDescription' rows='4')
+                                                        span(class='form-text text-muted') Add Description
+
+                                                //epID
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Category ID
+                                                    div(class='col-6')
+                                                        div(class='typeahead')
+                                                            input#epID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='epID' placeholder='')
+
+                                                //epUnitPrice
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Unit Price
+                                                    div(class='col-5')
+                                                        input#epUnitPrice(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epUnitPrice' placeholder='')
+
+                                                //epMRP
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') MRP
+                                                    div(class='col-5')
+                                                        input#epMRP(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epMRP' placeholder='')
+
+                                                //epNote
+                                                div(class='form-group row mb-1')
+                                                    label(class='col-3 col-form-label form-control-label text-right' for='epNote')
+                                                        | Notes
+                                                        span(class='text-danger')
+                                                    div(class='col-9 ')
+                                                        textarea#epNote(class='form-control' name='epNote' rows='4')
+                                                        span(class='form-text text-muted') Add Notes
+
+                                                //epRanking
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Ranking
+                                                    div(class='col-5')
+                                                        input#epRanking(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epRanking' placeholder='')
+
+                                                //epMaxQtyNo
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Max Qty Per Order
+                                                    div(class='col-5')
+                                                        input#epMaxQtyNo(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epMaxQtyNo' placeholder='')
+
+                                                //epSellerID
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Seller ID
+                                                    div(class='col-6')
+                                                        input#epSellerID(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epSellerID' placeholder='')
+
+                                                //epReviewID
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Review Attribute ID
+                                                    div(class='col-6')
+                                                        div(class='typeahead')
+                                                            input#epReviewID(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='epReviewID' placeholder='Enter ID')
+
+                                                //epStatus  
+                                                div(class='form-group row')
+                                                    label(class=' col-3 col-form-label form-control-label text-right ') Status
+                                                    div(class='col-5')
+                                                        select#epStatus(class='form-control selectpicker' multiple=''  data-live-search='true' name='epStatus' )
+                                                            option Active
+                                                            option On Hold
+                                                            option Deleted
+                                                        span(class='form-text text-muted') Select Status                                
+
+                                                //epHSN
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') HSN Code 
+                                                    div(class='col-5')
+                                                        input#epHSN(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='epHSN' placeholder='')
+
+                                                div(class='modal-footer')
+                                                    button#btnResetEpForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                                    button#btnAddNewEpFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                                    button#btnSaveEpFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes

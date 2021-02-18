@@ -660,9 +660,20 @@ const TicketSupportCRUD = (function () {
 
                     // updating fields with data
                     document.querySelector('#teId').value = res.data.ticketProducts._id;
-                    document.querySelector('#teName').value = res.data.ticketProducts.name;
-                    document.querySelector('#teDescription').value = res.data.ticketProducts.description;
-                    document.querySelector('#teNotes').value = res.data.ticketProducts.notes;
+                    document.querySelector('#teuserId').value, res.data.ticketProducts.name;
+                    document.querySelector('#teuserName').value = res.data.ticketProducts.teuserName;
+                    document.querySelector('#teuserEmail').value = res.data.ticketProducts.teuserEmail;
+                    document.querySelector('#teuserPhoneNumber').value = res.data.ticketProducts.teuserPhoneNumber;
+                    document.querySelector('#tecategory').value = res.data.ticketProducts.tecategory;
+                    document.querySelector('#teproduct').value = res.data.ticketProducts.teproduct;
+                    document.querySelector('#tesubject').value = res.data.ticketProducts.tesubject;
+                    document.querySelector('#tebody').value = res.data.ticketProducts.tebody;
+                    document.querySelector('#teLastStatusChange').value = res.data.ticketProducts.teLastStatusChange;
+                    document.querySelector('#teassignedTo').value = res.data.ticketProducts.teassignedTo;
+                    document.querySelector('#tepriority').value = res.data.ticketProducts.tepriority;
+                    document.querySelector('#teLastActivityDate').value = res.data.ticketProducts.teLastActivityDate;
+                    document.querySelector('#telastActivityBy').value = res.data.ticketProducts.telastActivityBy;
+                    document.querySelector('#teagencyId').value = res.data.ticketProducts.teagencyId;
                 }
             });
         });

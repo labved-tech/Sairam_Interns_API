@@ -149,6 +149,8 @@ router.get(
 // EVENT RELATED ROUTES
 router.get('/event/entries', viewsController.eventEntries);
 router.get('/event/entries/table', viewsController.eventEntriesTable);
+router.get('/event/entries/all', viewsController.eventEntriesAll);
+
 
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
@@ -292,6 +294,7 @@ router.get('/ecommerce/stock/table', viewsController.ecommerceStockTable);
 router.get('/ecommerce/order/table', viewsController.ecommerceOrderTable);
 router.get('/ecommerce/products/table', viewsController.ecommerceProductsTable);
 router.get('/ecommerce/address/all', viewsController.ecommerceAddressAll);
+router.get('/ecommerce/products/all', viewsController.ecommerceProductsAll);
 
 // PROJECT MANAGEMENT RELATED ROUTES
 router.get('/project/discussions', viewsController.projectDiscussions);

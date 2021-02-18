@@ -1,15 +1,15 @@
 /* eslint-disable */
-'use strict';
+//'use strict';
 
 /* Class definition */
-const EcommerceCRUD = (function () {
+const RatingCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
-    function _EcommerceAddress() {
+    function _RatingAttributeGroups() {
         var dataSet;
 
-        /* Table Initialize */
+        /* Table Options */
         const options = {
             // datasource definition
             data: {
@@ -17,18 +17,18 @@ const EcommerceCRUD = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/ecommerce/address/table`,
+                        url: `${HOST_URL}/api/v1/ratings/attribute-groups/table`,
                         params: {
-                            fields: '_id,address1,street,city,state,country,postalcode,createdBy,createdAt,updatedAt',
+                            fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
-                            //console.log('raw', raw);
+                            // console.log('raw', raw);
                             dataSet = raw;
 
-                            if (typeof raw.ecommerceAddress !== 'undefined') {
-                                dataSet = raw.ecommerceAddress;
-                                //console.log('dataSet', dataSet);
+                            if (typeof raw.ratingAttributeGroups !== 'undefined') {
+                                dataSet = raw.ratingAttributeGroups;
+                                // console.log('dataSet', dataSet);
                             }
                             return dataSet;
                         }
@@ -55,7 +55,7 @@ const EcommerceCRUD = (function () {
 
             pagination: true,
             search: {
-                input: $('#createEcommerceAddressTable'),
+                input: $('#tableRag_search_query_2'),
                 key: 'generalSearch',
             },
 
@@ -72,34 +72,20 @@ const EcommerceCRUD = (function () {
                     textAlign: 'center',
                 },
                 {
-                    field: 'address1',
-                    title: 'Address',
-                    template: function (row) {
-                        return '\
-                                <div>\
-                                <a href="#">' + row.address1 + '</a></div>\
-                            ';
-                    }
+                    field: 'name',
+                    title: 'Name',
                 },
                 {
-                    field: 'street',
-                    title: 'Street',
+                    field: 'attributId',
+                    title: 'AttributId',
                 },
                 {
-                    field: 'city',
-                    title: 'City',
+                    field: 'status',
+                    title: 'Status',
                 },
                 {
-                    field: 'state',
-                    title: 'State',
-                },
-                {
-                    field: 'country',
-                    title: 'Country',
-                },
-                {
-                    field: 'postalcode',
-                    title: 'Postal Code',
+                    field: 'description',
+                    title: 'Description',
                 },
                 {
                     field: 'createdBy',
@@ -121,10 +107,11 @@ const EcommerceCRUD = (function () {
                     sortable: false,
                     template: function () {
                         return '\
-                                <a href="#" class="btn btn-sm btn-light" role="button">\
-                                view details\
-                                </a >\
-                            ';
+                <a href="#" class="btn btn-sm btn-light" role="button">\
+                  view details\
+                </a >\
+                '
+                            ;
                     },
                 },
                 {
@@ -192,62 +179,52 @@ const EcommerceCRUD = (function () {
                 },
             ],
         }
-        // enable extension
         options.extensions = {
             // boolean or object (extension options)
             checkbox: true,
         };
 
         /* Table Initialize */
-        const datatable = $('#tableEa').KTDatatable(options);
-
-        const EaForm = document.querySelector('#formEa');
-        let FormSubmitButton = document.querySelector('#btnAddNewEaFormSubmitButton');
+        const datatable = $('#tableRag').KTDatatable(options);
+        /* Form */
+        const RagForm = document.querySelector('#formRag');
+        let FormSubmitButton = document.querySelector('#btnAddNewRagFormSubmitButton');
+        // Options
         let formOptions = {
             fields: {
-                eaAddress1: {
+                ragName: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Name is required',
                         },
                     },
                 },
-                eaStreet: {
+                ragAttributeId: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: '_attributeId is required',
                         },
                     },
                 },
-                eaCity: {
+                ragStatus: {
                     validators: {
                         notEmpty: {
-                            message: 'This Field is required',
+                            message: 'Status is required',
                         },
                     },
                 },
-                eaState: {
+                ragDescription: {
                     validators: {
-                        notEmpty: {
-                            message: 'This Field is required',
+                        callback: {
+                            message: 'The content is required and cannot be empty',
+                            callback: function (input) {
+                                const code = $('[name="ragDescription"]').summernote('code');
+                                // <p><br></p> is code generated by Summernote for empty content
+                                return (code !== '' && code !== '<p><br></p>');
+                            }
                         },
                     },
                 },
-                eaCountry: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This Field is required',
-                        },
-                    },
-                },
-                eaPostalCode: {
-                    validators: {
-                        notEmpty: {
-                            message: 'This Field is required',
-                        },
-                    },
-                },
-
             },
             plugins: {
                 //Learn more: https://formvalidation.io/guide/plugins
@@ -255,48 +232,45 @@ const EcommerceCRUD = (function () {
                 // Bootstrap Framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                createEcommerceAddressFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                RagFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
-        }
+        };
 
         let fv;
 
         /* Search Operations */
         // search based on status
-        $('#tableEa_search_status_2').on('change', function () {
+        $('#tableRag_search_status_2').on('change', function () {
             datatable.search($(this).val().toLowerCase(), 'Status');
         });
 
         // search based on type
-        $('#tableEa_search_type_2').on('change', function () {
+        $('#tableRag_search_type_2').on('change', function () {
             datatable.search($(this).val().toLowerCase(), 'Type');
         });
 
-        $('#tableEa_search_status_2, #tableEa_search_type_2').selectpicker();
+        $('#tableRag_search_status_2, #tableRag_search_type_2').selectpicker();
 
-        /* Modal Operations */
-        // to open modal 
-        $('#btnOpenEaModal').on('click', async function (e) {
+        // modal open
+        $('#btnOpenRagModal').on('click', async function (e) {
             console.log('openButton is clicked');
 
             // enabling disabling buttons
-            $('#btnAddNewEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-            $('#btnSaveEaFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+            $('#btnAddNewRagFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+            $('#btnSaveRagFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-            FormSubmitButton = document.querySelector('#btnAddNewEaFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnAddNewRagFormSubmitButton');
 
-            $('#modalEa').modal('show');   // open modal
+            $('#modalRag').modal('show');   // open modal
 
-            $('#modalEa').find('.modal-title').text('Add New Entries'); // Setting title for modal
-
+            $('#modalRag').find('.modal-title').text('Add New Entries'); // Setting title for modal
 
         });
-
         // modal post closed
-        $('#modalEa').on('hidden.bs.modal', function (e) {
-            console.log('Modal is closed');
+        $('#modalRag').on('hidden.bs.modal', function (e) {
+            console.log('Modal closed');
 
             if (fv) {
                 // clearing forms
@@ -308,42 +282,188 @@ const EcommerceCRUD = (function () {
             $('.fv-plugins-message-container').text(''); // remove message
 
             // clearing fields
-            $("#formEa").trigger('reset'); // clear form fields
+            $("#formRag").trigger('reset'); // clear form fields
 
             // manually resetting other fields
-            $('#EaExpires').empty().trigger('change');  // clearing select2  */
+            $('#ragExpires').empty().trigger('change');  // clearing select2  */
 
         });
 
         // modal post opened
-        $('#modalEa').on('shown.bs.modal', function (e) {
+        $('#modalRag').on('shown.bs.modal', function (e) {
+            console.log('Modal open');
 
-            // Initializing
-
+            // Initialise
+            $(ragDescription).summernote({
+                height: 400,
+                tabsize: 2,
+            });
         });
 
-        /* Table Operations */
+        // form reset operation
+        $('#formRag').on('click', '.btnReset', function (e) {
+            // console.log('btnResetMenuSectionForm is clicked');
+
+            if (fv) {
+                // clearing forms
+                fv.resetForm();
+                fv.destroy();
+            }
+            else {
+                // initiate validation
+                fv = FormValidation.formValidation(menuSectionForm, formOptions);
+            }
+  
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            // clearing fields
+            $("#formRag").trigger('reset'); // clear form fields
+
+            // clear manually
+            // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+        })
+
+        // form add operation
+        $('#formRag').on('click', '.btnAdd', function (e) {
+            // console.log('btnCreate is clicked');
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            FormSubmitButton = document.querySelector('#btnAddNewRagFormSubmitButton');
+
+            // Validation
+            fv = FormValidation.formValidation(RagForm, formOptions);
+
+            // validation failed
+            fv.on('core.form.invalid', async function () {
+                // console.log('Something went wrong!!');    
+            });
+
+            // validation successful
+            fv.on('core.form.valid', async function () {
+
+                // Show loading state on button
+                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+                // Accessing Restful API
+                await axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/ratings/attribute-groups`,
+                    data: {
+                        name: document.querySelector('#ragName').value,
+                        description: $('#ragDescription').summernote('code'),   // not working - Summernote WYSIWYG
+                        _attributeId: document.querySelector('#ragAttributeId').value,
+                        status: document.querySelector('#ragStatus').value,
+                    },
+                }).then(function (res) {
+
+                    // Return valid JSON
+                    // console.log(res);
+
+                    // Release button
+                    KTUtil.btnRelease(FormSubmitButton);
+
+                    if (res.data.status == 'success') {
+                        // reseting & clearing
+                        $('#modalRag').modal('hide')  // hiding modal form
+                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                        $('#tableRag').KTDatatable().reload(); // reload table
+                    }
+                    else if (res.data.status == 'error') {
+                        $('#modalRag').modal('hide')  // hiding modal form
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                    else {
+                        $('#modalRag').modal('hide')
+                    };
+                });
+            });
+        });
+
+        // form save operation
+        $('#formRag').on('click', '.btnSave', function (e) {
+            console.log('btnSave is clicked');
+
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
+
+            FormSubmitButton = document.querySelector('#btnSaveRagFormSubmitButton');
+
+            // Validation
+            fv = FormValidation.formValidation(RagForm, formOptions);
+
+            // validation failed
+            fv.on('core.form.invalid', async function () {
+                // console.log('Something went wrong!!');    
+            });
+
+            // validation successful
+            fv.on('core.form.valid', async function () {
+
+                const id = document.querySelector('#ragId').value;
+
+                // Show loading state on button
+                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+                // Accessing Restful API
+                await axios({
+                    method: 'patch',
+                    url: `${HOST_URL}/api/v1/ratings/attribute-groups/${id}`,
+                    data: {
+                        name: document.querySelector('#ragName').value,
+                        description: $('#ragDescription').summernote('code'),   // not working - Summernote WYSIWYG
+                        _attributeId: document.querySelector('#ragAttributeId').value,
+                        status: document.querySelector('#ragStatus').value,
+                    },
+                }).then(function (res) {
+                    // Return valid JSON
+                    // console.log(res);
+
+                    // Release button
+                    KTUtil.btnRelease(FormSubmitButton);
+
+                    if (res.data.status == 'success') {
+                        // reseting & clearing
+                        $('#modalRag').modal('hide')  // hiding modal form
+                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                        $('#tableRag').KTDatatable().reload(); // reload table
+
+                    }
+                    else if (res.data.status == 'error') {
+                        $('#modalRag').modal('hide')  // hiding modal form
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                    else {
+                        $('#modalRag').modal('hide') // hiding modal form
+                    };
+                });
+            });
+        });
+
         // Edit Modal Window - opens modal with appropriate properties
-        $('#tableEa').on('click', '.btnEdit', async function (e) {
+        $('#tableRag').on('click', '.btnEdit', async function (e) {
             // console.log('btnEdit is clicked');
 
             var id = $(this).attr("aria-label");
             // console.log(id);
 
-            FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnSaveRagFormSubmitButton');
 
             // enabling disabling buttons
-            $('#btnAddNewEaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-            $('#btnSaveEaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+            $('#btnAddNewRagFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+            $('#btnSaveRagFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-            $('#modalEa').modal('show');   // open modal
+            $('#modalRag').modal('show');   // open modal
 
-            $('#modalEa').find('.modal-title').text('Edit Entry'); // Setting title for modal
+            $('#modalRag').find('.modal-title').text('Edit Entry'); // Setting title for modal
 
             // retrieving data
             await axios({
                 method: 'GET',
-                url: `${HOST_URL}/api/v1/ecommerce/address/${id}`,
+                url: `${HOST_URL}/api/v1/ratings/attribute-groups/${id}`,
             }).then(async function (res) {
                 // Return valid JSON
                 console.log(res);
@@ -366,166 +486,18 @@ const EcommerceCRUD = (function () {
                     // });
 
                     // updating fields with data
-                    document.querySelector('#eaAddress1').value = res.data.ecommerceAddress.address1;
-                    document.querySelector('#eaStreet').value = res.data.ecommerceAddress.street;
-                    document.querySelector('#eaCity').value = res.data.ecommerceAddress.city;
-                    document.querySelector('#eaState').value = res.data.ecommerceAddress.state;
-                    document.querySelector('#eaCountry').value = res.data.ecommerceAddress.country;
-                    document.querySelector('#eaPostalCode').value = res.data.ecommerceAddress.postalcode;
+                    document.querySelector('#ragId').value = res.data.ratingAttributeGroups._id;
+                    document.querySelector('#ragName').value = res.data.ratingAttributeGroups.name;
+                    document.querySelector('#ragAttributeId').value = res.data.ratingAttributeGroups.title;
+                    document.querySelector('#ragStatus').value = res.data.ratingAttributeGroups.from;
+                    document.querySelector('#ragDescription').value = res.data.ratingAttributeGroups.isEmailReq;
                 }
             });
         });
 
-        /* Form Operations */
-        // form reset operation
-        $('#formEa').on('click', '.btnReset', function (e) {
-            // console.log('btnResetMenuSectionForm is clicked');
-
-            if (fv) {
-                // clearing forms
-                fv.resetForm();
-                fv.destroy();
-            }
-            else {
-                // initiate validation
-                fv = FormValidation.formValidation(menuSectionForm, formOptions);
-            }
-
-            // clearing validator messages
-            $('.fv-plugins-message-container').text(''); // remove message
-
-            // clearing fields
-            $("#formEa").trigger('reset'); // clear form fields
-
-            // clear manually
-            // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
-        })
-
-        // form add operation
-        $('#formEa').on('click', '.btnAdd', function (e) {
-            // console.log('addEaFormSubmitButton is clicked');
-
-            // clearing validator messages
-            $('.fv-plugins-message-container').text(''); // remove message
-
-            FormSubmitButton = document.querySelector('#btnAddNewEaFormSubmitButton');
-
-            // Validation
-            fv = FormValidation.formValidation(EaForm, formOptions);
-
-            // validation failed
-            fv.on('core.form.invalid', async function () {
-                // console.log('Something went wrong!!');    
-            });
-
-            // validation successful
-            fv.on('core.form.valid', async function () {
-
-                // Show loading state on button
-                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
-                // Accessing Restful API
-                await axios({
-                    method: 'post',
-                    url: `${HOST_URL}/api/v1/ecommerce/address`,
-                    data: {
-                        address1: document.querySelector('#eaAddress1').value,
-                        street: document.querySelector('#eaStreet').value,
-                        city: document.querySelector('#eaCity').value,
-                        state: document.querySelector('#eaState').value,
-                        country: document.querySelector('#eaCountry').value,
-                        postalcode: document.querySelector('#eaPostalCode').value
-                    },
-                }).then(function (res) {
-
-                    // Return valid JSON
-                    // console.log(res);
-
-                    // Release button
-                    KTUtil.btnRelease(FormSubmitButton);
-
-                    if (res.data.status == 'success') {
-                        // reseting & clearing
-                        $('#modalEa').modal('hide')  // hiding modal form
-                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#tableEa').KTDatatable().reload(); // reload table
-                    }
-                    else if (res.data.status == 'error') {
-                        $('#modalEa').modal('hide')  // hiding modal form
-                        toastr.error(`${res.data.message}`, `${res.data.status}`)
-                    }
-                    else {
-                        $('#modalEa').modal('hide')
-                    };
-                });
-            });
-        });
-
-        // form save operation
-        $('#formEa').on('click', '.btnSave', function (e) {
-            console.log('btnSave is clicked');
-
-            // clearing validator messages
-            $('.fv-plugins-message-container').text(''); // remove message
-
-            FormSubmitButton = document.querySelector('#btnSaveEaFormSubmitButton');
-
-            // Validation
-            fv = FormValidation.formValidation(EaForm, formOptions);
-
-            // validation failed
-            fv.on('core.form.invalid', async function () {
-                // console.log('Something went wrong!!');    
-            });
-
-            // validation successful
-            fv.on('core.form.valid', async function () {
-
-                const id = document.querySelector('#eaId').value;
-
-                // Show loading state on button
-                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
-                // Accessing Restful API
-                await axios({
-                    method: 'patch',
-                    url: `${HOST_URL}/api/v1/ecommerce/address/${id}`,
-                    data: {
-                        address1: document.querySelector('#eaAddress1').value,
-                        street: document.querySelector('#eaStreet').value,
-                        city: document.querySelector('#eaCity').value,
-                        state: document.querySelector('#eaState').value,
-                        country: document.querySelector('#eaCountry').value,
-                        postalcode: document.querySelector('#eaPostalCode').value
-
-                    },
-                }).then(function (res) {
-                    // Return valid JSON
-                    // console.log(res);
-
-                    // Release button
-                    KTUtil.btnRelease(FormSubmitButton);
-
-                    if (res.data.status == 'success') {
-                        // reseting & clearing
-                        $('#modalEa').modal('hide')  // hiding modal form
-                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#tableEa').KTDatatable().reload(); // reload table
-
-                    }
-                    else if (res.data.status == 'error') {
-                        $('#modalEa').modal('hide')  // hiding modal form
-                        toastr.error(`${res.data.message}`, `${res.data.status}`)
-                    }
-                    else {
-                        $('#modalEa').modal('hide') // hiding modal form
-                    };
-                });
-            });
-        });
-
         // deleteOne operation
-        $('#tableEa').on('click', '.btnDelete', function (e) {
+        $('#tableRag').on('click', '.btnDelete', function (e) {
+            console.log('btnDelete Clicked');
             let ids = $(this).attr("aria-label");
 
             ids = ids.toString();
@@ -536,63 +508,40 @@ const EcommerceCRUD = (function () {
                 }
             }
 
-            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
+            axios.delete(`${HOST_URL}/api/v1/ratings/attribute-groups`, requests);
 
             // reload table
-            $('#tableEa').KTDatatable().reload();
+            $('#tableRag').KTDatatable().reload();
 
         });
 
-        // mass operation
-        //  datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-        //      // datatable.checkbox() access to extension methods
-        //      const ids = datatable.checkbox().getSelectedId();
-        //      const count = ids.length;
+        // deleteAll mass operation
+        datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+            // datatable.checkbox() access to extension methods
+            const ids = datatable.checkbox().getSelectedId();
+            const count = ids.length;
 
-        //      $('#tableEa_selected_records_2').html(count);
+            $('#tableRag_selected_records_2').html(count);
 
-        //      console.log(count)
+            console.log(count)
 
-        //      if (count > 0) {
-        //          $('#tableEa_group_action_form_2').collapse('show');
-        //      } else {
-        //          $('#tableEa_group_action_form_2').collapse('hide');
-        //      }
-        //  });
-
-        // deleteAll operation
-        $('#tableEa_group_action_form_2').on('click', '.btnDeleteAll', function () {
-            // console.log('deleteAll is clicked')
-
-            let ids = datatable.checkbox().getSelectedId();
-            ids = ids.toString();
-            // console.log(ids)
-
-            const requests = {
-                params: {
-                    _id: ids,
-                }
+            if (count > 0) {
+                $('#tableRag_group_action_form_2').collapse('show');
+            } else {
+                $('#tableRag_group_action_form_2').collapse('hide');
             }
-
-            axios.delete(`${HOST_URL}/api/v1/menu/section`, requests);
-
-            $('#tableEa_group_action_form_2').collapse('hide');
-
-            // reload table
-            $('#tableEa').KTDatatable().reload();
         });
 
-
-    }
+    };
 
     return {
         // public functions
         init: function () {
-            _EcommerceAddress();
+            _RatingAttributeGroups();
         },
     };
 })();
 
 jQuery(document).ready(function () {
-    EcommerceCRUD.init();
+    RatingCRUD.init();
 });
