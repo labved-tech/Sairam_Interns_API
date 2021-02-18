@@ -17,7 +17,7 @@ const RatingCRUD = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/ratings/attribute/groups/table`,
+                        url: `${HOST_URL}/api/v1/ratings/attribute-groups/table`,
                         params: {
                             fields: '_id, title, from, priority, expires, status, createdBy,createdAt,updatedAt',
                         },
@@ -313,6 +313,7 @@ const RatingCRUD = (function () {
                 // initiate validation
                 fv = FormValidation.formValidation(menuSectionForm, formOptions);
             }
+  
 
             // clearing validator messages
             $('.fv-plugins-message-container').text(''); // remove message
@@ -350,7 +351,7 @@ const RatingCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/ratings/attribute/groups`,
+                    url: `${HOST_URL}/api/v1/ratings/attribute-groups`,
                     data: {
                         name: document.querySelector('#ragName').value,
                         description: $('#ragDescription').summernote('code'),   // not working - Summernote WYSIWYG
@@ -410,7 +411,7 @@ const RatingCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'patch',
-                    url: `${HOST_URL}/api/v1/ratings/attribute/groups/${id}`,
+                    url: `${HOST_URL}/api/v1/ratings/attribute-groups/${id}`,
                     data: {
                         name: document.querySelector('#ragName').value,
                         description: $('#ragDescription').summernote('code'),   // not working - Summernote WYSIWYG
@@ -462,7 +463,7 @@ const RatingCRUD = (function () {
             // retrieving data
             await axios({
                 method: 'GET',
-                url: `${HOST_URL}/api/v1/ratings/attribute/groups/${id}`,
+                url: `${HOST_URL}/api/v1/ratings/attribute-groups/${id}`,
             }).then(async function (res) {
                 // Return valid JSON
                 console.log(res);
@@ -485,10 +486,11 @@ const RatingCRUD = (function () {
                     // });
 
                     // updating fields with data
-                    document.querySelector('#ragName').value = res.data.announcementEntries._id;
-                    document.querySelector('#ragAttributeId').value = res.data.announcementEntries.title;
-                    document.querySelector('#ragStatus').value = res.data.announcementEntries.from;
-                    document.querySelector('#ragDescription').value = res.data.announcementEntries.isEmailReq;
+                    document.querySelector('#ragId').value = res.data.ratingAttributeGroups._id;
+                    document.querySelector('#ragName').value = res.data.ratingAttributeGroups.name;
+                    document.querySelector('#ragAttributeId').value = res.data.ratingAttributeGroups.title;
+                    document.querySelector('#ragStatus').value = res.data.ratingAttributeGroups.from;
+                    document.querySelector('#ragDescription').value = res.data.ratingAttributeGroups.isEmailReq;
                 }
             });
         });
@@ -506,7 +508,7 @@ const RatingCRUD = (function () {
                 }
             }
 
-            axios.delete(`${HOST_URL}/api/v1/ratings/attribute/groups`, requests);
+            axios.delete(`${HOST_URL}/api/v1/ratings/attribute-groups`, requests);
 
             // reload table
             $('#tableRag').KTDatatable().reload();

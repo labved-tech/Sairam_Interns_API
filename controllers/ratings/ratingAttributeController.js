@@ -128,7 +128,7 @@ exports.getRatingAttribute = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got RatingAttribute Id=${id}`,
-    Data: { ratingAttribute },
+    ratingAttribute,
   });
 
   next();
