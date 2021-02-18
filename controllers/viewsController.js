@@ -772,6 +772,11 @@ exports.ecommerceProductsTable = (req, res) => {
   res.status(200).render('./../views/pages/ecommerce/ecommerceProductsTable');
 };
 
+exports.ecommerceProductsAll = (req, res) => {
+  console.log('We are in Ecommerce Address All Form Page');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceProductssAll');
+};
+
 // PROJECT MANAGEMENT RELATED CONTROLLER
 exports.projectEntries = (req, res) => {
   console.log('We are in Project Entries Form Page');

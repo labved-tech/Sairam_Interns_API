@@ -292,6 +292,7 @@ router.get('/ecommerce/stock/table', viewsController.ecommerceStockTable);
 router.get('/ecommerce/order/table', viewsController.ecommerceOrderTable);
 router.get('/ecommerce/products/table', viewsController.ecommerceProductsTable);
 router.get('/ecommerce/address/all', viewsController.ecommerceAddressAll);
+router.get('/ecommerce/products/all', viewsController.ecommerceProductsAll);
 
 // PROJECT MANAGEMENT RELATED ROUTES
 router.get('/project/discussions', viewsController.projectDiscussions);
