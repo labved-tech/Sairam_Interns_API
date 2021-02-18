@@ -130,7 +130,7 @@ exports.getRatingAttributeGroup = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got RatingAttributeGroup Id=${id}`,
-    Data: { ratingAttributeGroups },
+    ratingAttributeGroups,
   });
 
   next();

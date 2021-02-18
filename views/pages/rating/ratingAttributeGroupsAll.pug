@@ -3,7 +3,7 @@ extends ./../../base.pug
 block css-files
 
 block js-files
-    script(src='/js/pages/crud/myPages/rating/rating.js')
+    script(src='/js/pages/crud/myPages/rating/ratingAttributeGroups.js')
 
 
 block content
@@ -426,8 +426,6 @@ block content
                                                         div#ragDescription(class='summernote' name='ragDescription')
                                                         span(class='form-text text-muted') Enter the Description
 
-                                                                div(class='separator separator-dashed my-10')
-                                                                h3(class=' text-dark font-weight-bold mb-10') Target Conditions
                                                 
                                         div(class='modal-footer')
                                             button#btnResetRagForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
