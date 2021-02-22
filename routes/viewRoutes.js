@@ -206,7 +206,8 @@ router.get('/lead/response', viewsController.leadResponse);
 router.get('/lead/categories/table', viewsController.leadCategoriesTable);
 router.get('/lead/response/table', viewsController.leadResponseTable);
 router.get('/lead/entries/table', viewsController.leadEntriesTable);
-
+router.get('/lead/categories/all', viewsController.leadCategoriesAll);
+router.get('/lead/response/all', viewsController.leadResponseAll);
 // DIRECTORY RELATED ROUTES
 router.get(
   '/directory/attributes/groups',

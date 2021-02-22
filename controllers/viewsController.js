@@ -270,6 +270,16 @@ exports.leadEntries = (req, res) => {
   res.status(200).render('./../views/pages/leads/leadEntries');
 };
 
+exports.leadCategoriesAll = (req, res) => {
+  console.log('We are in Lead Categories All Form Page');
+  res.status(200).render('./../views/pages/leads/leadCategoriesAll');
+};
+
+exports.leadResponseAll = (req, res) => {
+  console.log('We are in Lead Response All Form Page');
+  res.status(200).render('./../views/pages/leads/leadResponseAll');
+};
+
 // LEADS TABLE RELATED CONTROLLER
 exports.leadCategoriesTable = (req, res) => {
   console.log('We are in Lead Categories Tables Page');
