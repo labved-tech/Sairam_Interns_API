@@ -3,7 +3,7 @@ extends ./../../base.pug
 block css-files
 
 block js-files
-    script(src='/js/pages/crud/myPages/ecommerce/ecommerceAddress.js')
+    script(src='/js/pages/crud/myPages/leads/leadCategories.js')
 
 
 block content
@@ -18,7 +18,7 @@ block content
                             div(class="card-header flex-wrap border-0 pt-6 pb-0")
                                 div(class="card-title")
                                     h3(class="card-label")
-                                        | Ecommerce Address
+                                        | Lead Categories
                                         span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
                                 div(class="card-toolbar")
                                     // begin::Dropdown
@@ -62,7 +62,7 @@ block content
                                     // end::Dropdown
                                     // begin::Button
                                     // Button trigger modal
-                                    button#btnOpenEaModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                    button#btnOpenLcModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
                                         | Add New
 
                             div(class="card-body")
@@ -73,13 +73,13 @@ block content
                                             div(class="row align-items-center")
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="input-icon")
-                                                        input#tableEa_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                        input#tableLc_search_query_2(type="text", class="form-control", placeholder="Search...")
                                                         span
                                                             i(class="flaticon2-search-1 text-muted")
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="d-flex align-items-center")
                                                         label(class="mr-3 mb-0 d-none d-md-block") Status:
-                                                        select#tableEa_search_status_2(class="form-control")
+                                                        select#tableLc_search_status_2(class="form-control")
                                                             option(value="") All
                                                             option(value="1") Pending
                                                             option(value="2") Delivered
@@ -90,7 +90,7 @@ block content
                                                 div(class="col-md-4 my-2 my-md-0")
                                                     div(class="d-flex align-items-center")
                                                         label(class="mr-3 mb-0 d-none d-md-block") Type:
-                                                        select#tableEa_search_type_2(class="form-control")
+                                                        select#tableLc_search_type_2(class="form-control")
                                                             option(value="") All
                                                             option(value="1") Online
                                                             option(value="2") Retail
@@ -100,11 +100,11 @@ block content
                                                 | Search
                                 // end::Search Form
                                 // begin: Selected Rows Group Action Form
-                                #tableEa_group_action_form_2(class="mt-10 mb-5 collapse")
+                                #tableLc_group_action_form_2(class="mt-10 mb-5 collapse")
                                     div(class="d-flex align-items-center")
                                         div(class="font-weight-bold text-danger mr-3")
                                             | Selected 
-                                            span#tableEa_selected_records_2 0
+                                            span#tableLc_selected_records_2 0
                                             |  records:
                                         div(class="dropdown mr-2")
                                             button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
@@ -122,73 +122,63 @@ block content
                                                             span(class="nav-text") Canceled
                                         button#btnDeleteAll(class="btn btn-sm btn-danger mr-2 btnDeleteAll", type="button")
                                             | Delete All
-                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableEa_fetch_modal_2")
+                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableLc_fetch_modal_2")
                                             | Fetch Selected Records
                                 // end: Selected Rows Group Action Form
                                 // begin: Datatable
-                                #tableEa(class="datatable datatable-bordered datatable-head-custom")
+                                #tableLc(class="datatable datatable-bordered datatable-head-custom")
                                 // end: Datatable
+                            // end::Card
                         // end::Card
 
-                        // ##################################### EaFormModal ############################################################################################
-                        #modalEa(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='EaModalLabel' aria-hidden='true')
+                        // ##################################### LcFormModal ############################################################################################
+                        #modalLc(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='LcModalLabel' aria-hidden='true')
                             div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
                                 div(class='modal-content')
                                     // begin::Form
-                                    form#formEa(class='form')
+                                    form#formLc(class='form')
                                         div(class='modal-header')
                                             h5(class='modal-title') Add New
                                             button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
                                                 i(aria-hidden='true' class='ki ki-close')
                                         div(class='modal-body')
                                             div(data-scroll='true' data-height='350')
-                                                // EaId - hidden
+                                                // lcId - hidden
                                                 div(class= 'form-group row')
-                                                    input#eaId(type='hidden' name='eaId')
+                                                    input#lcId(type='hidden' name='lcId')
 
                                                 div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Address 1
-                                                    div(class='col-4')
-                                                        div(class='typeahead')
-                                                            input#eaAddress1(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaAddress1' placeholder='  ')
-                                                            span(class='form-text text-muted')  
-
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Street
-                                                    div(class='col-4')
-                                                        div(class='typeahead')
-                                                            input#eaStreet(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaStreet' placeholder='  ')
-                                                            span(class='form-text text-muted')  
-
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') City
-                                                    div(class='col-4')
-                                                        div(class='typeahead')
-                                                            input#eaCity(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaCity' placeholder='ex. Bangalore ')
-                                                            span(class='form-text text-muted')  
-
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') State
-                                                    div(class='col-4')
-                                                        div(class='typeahead')
-                                                            input#eaState(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaState' placeholder='ex. Karnataka  ')
-                                                            span(class='form-text text-muted')  
-
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Country
-                                                    div(class='col-4')
-                                                        div(class='typeahead')
-                                                            input#eaCountry(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='eaCountry' placeholder='ex. India  ')
-                                                            span(class='form-text text-muted')              
-
-                                                div(class='form-group row')
-                                                    label(class='col-3 col-form-label form-control-label text-right') Postal Code
+                                                    label(class='col-3 col-form-label form-control-label text-right') Name
+                                                        span(class='text-danger')  *                                            
                                                     div(class='col-6')
-                                                        input#eaPostalCode(type='text' class='form-control' name='eaPostalCode' placeholder='ex. 600112')
-
-
+                                                        input#lcName(type='text' class='form-control' name='lcName' placeholder='ex. Sai Vignesh')
                                                 
-                                                div(class='modal-footer')
-                                                    button#btnResetEaForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
-                                                    button#btnAddNewEaFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
-                                                    button#btnSaveEaFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
+                                                div(class='form-group row mb-1')
+                                                    label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                        | Description 
+                                                        span(class='text-danger') *
+                                                    div(class='col-9 ')
+                                                        textarea#lcDescription(class='form-control' name='lcDescription' rows='3')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row mb-1')
+                                                    label(class='col-3 col-form-label form-control-label text-right' for='demoTextarea')
+                                                        | Notes 
+                                                    div(class='col-9 ')
+                                                        textarea#lcNotes(class='form-control' name='lcNotes' rows='3')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Status
+                                                    div(class='col-4')
+                                                        select#lcStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='lcStatus' )
+                                                            option(value='') Select
+                                                            option(value='C') Completed
+                                                            option(value='NS') Not Yet Started
+                                                            option(value='W') Working                                              
+                                                        span(class='form-text text-muted')
+
+                                        div(class='modal-footer')
+                                            button#btnResetLcForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                            button#btnAddNewLcFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                            button#btnSaveLcFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes

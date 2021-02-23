@@ -131,7 +131,7 @@ exports.getLeadCategories = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got leadCategories Id=${id}`,
-    Data: { leadCategories },
+    leadCategories ,
   });
   next();
 });

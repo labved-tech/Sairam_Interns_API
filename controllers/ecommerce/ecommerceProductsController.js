@@ -129,7 +129,7 @@ exports.getEcommerceProducts = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got EcommerceProducts Id=${id}`,
-    Data: { ecommerceProducts },
+    ecommerceProducts,
   });
 
   next();

@@ -270,6 +270,16 @@ exports.leadEntries = (req, res) => {
   res.status(200).render('./../views/pages/leads/leadEntries');
 };
 
+exports.leadCategoriesAll = (req, res) => {
+  console.log('We are in Lead Categories All Form Page');
+  res.status(200).render('./../views/pages/leads/leadCategoriesAll');
+};
+
+exports.leadResponseAll = (req, res) => {
+  console.log('We are in Lead Response All Form Page');
+  res.status(200).render('./../views/pages/leads/leadResponseAll');
+};
+
 // LEADS TABLE RELATED CONTROLLER
 exports.leadCategoriesTable = (req, res) => {
   console.log('We are in Lead Categories Tables Page');
@@ -510,6 +520,10 @@ exports.directoryCategoriesAll = (req, res) => {
 exports.directoryAll = (req, res) => {
   console.log('We are in directory Form Page');
   res.status(200).render('./../views/pages/directory/directoryAll');
+};
+exports.directoryLevelsAll = (req, res) => {
+  console.log('We are in directory Form Page');
+  res.status(200).render('./../views/pages/directory/directoryLevelsAll');
 };
 // DIRECTORY TABLE RELATED CONTROLLER
 
@@ -774,7 +788,7 @@ exports.ecommerceProductsTable = (req, res) => {
 
 exports.ecommerceProductsAll = (req, res) => {
   console.log('We are in Ecommerce Address All Form Page');
-  res.status(200).render('./../views/pages/ecommerce/ecommerceProductssAll');
+  res.status(200).render('./../views/pages/ecommerce/ecommerceProductsAll');
 };
 
 // PROJECT MANAGEMENT RELATED CONTROLLER
