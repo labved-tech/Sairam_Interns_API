@@ -7,7 +7,7 @@ const EcommerceProductsCRUD = (function () {
 
     const _createEcommerceProducts = function () {
         // Getting Document related information
-        const createEcommerceProductsForm = KTUtil.getById('createEcommerceProductsForm');           
+        const createEcommerceProductsForm = KTUtil.getById('createEcommerceProductsForm');
         const epFormSubmitButton = KTUtil.getById('epFormSubmitButton');
         const epManufactureNo = KTUtil.getById('epManufactureNo');
         const epName = KTUtil.getById('epName');
@@ -31,7 +31,7 @@ const EcommerceProductsCRUD = (function () {
             verticalbuttons: true,
             verticalup: '<i class="ki ki-plus"></i>',
             verticaldown: '<i class="ki ki-minus"></i>',
-      
+
             min: -1000000000,
             max: 1000000000,
             step: 1,
@@ -39,7 +39,7 @@ const EcommerceProductsCRUD = (function () {
             boostat: 5,
             maxboostedstep: 10,
             prefix: '$'
-          });
+        });
         // Number : Number Controls Same Sides: Max Quantity
         $('#epMaxQtyNo').TouchSpin({
             buttondown_class: 'btn btn-secondary',
@@ -47,7 +47,7 @@ const EcommerceProductsCRUD = (function () {
             verticalbuttons: true,
             verticalup: '<i class="ki ki-plus"></i>',
             verticaldown: '<i class="ki ki-minus"></i>',
-      
+
             min: -1000000000,
             max: 1000000000,
             step: 1,
@@ -55,188 +55,186 @@ const EcommerceProductsCRUD = (function () {
             boostat: 5,
             maxboostedstep: 10,
             prefix: ''
-          });      
-          if(!createEcommerceProductsForm) {
-            return;   
+        });
+        if (!createEcommerceProductsForm) {
+            return;
         }
 
-      FormValidation.formValidation(createEcommerceProductsForm, {
-          fields: {
-                    epManufactureNo: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Manufacture Part No is required',
-                                },
-                            },
-                    }, 
-                    epName: {
+        FormValidation.formValidation(createEcommerceProductsForm, {
+            fields: {
+                epManufactureNo: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Manufacture Part No is required',
+                        },
+                    },
+                },
+                epName: {
                     validators: {
                         notEmpty: {
                             message: 'Name is required',
-                            },
                         },
-                    },  
-                    epUnitPrice: {
-                        validators: {
-                            notEmpty: {
-                                message: 'Unit Price is required',
-                                },
-                            },
-                        },           
-                        epMaxQtyNo: {
-                            validators: {
-                                notEmpty: {
-                                    message: ' Max Qty Per Order is required',
-                                    },
-                                },
-                            },           
-            
-                    epDescription: {
+                    },
+                },
+                epUnitPrice: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Unit Price is required',
+                        },
+                    },
+                },
+                epMaxQtyNo: {
+                    validators: {
+                        notEmpty: {
+                            message: ' Max Qty Per Order is required',
+                        },
+                    },
+                },
+
+                epDescription: {
                     validators: {
                         notEmpty: {
                             message: 'Description is required',
-                            },
                         },
-                    }, 
-                    epID: {
+                    },
+                },
+                epID: {
                     validators: {
                         notEmpty: {
                             message: 'Category ID is required',
-                            },
                         },
-                    }, 
+                    },
+                },
 
-                    epMRP: {
+                epMRP: {
                     validators: {
                         notEmpty: {
                             message: 'MRP is required',
-                            },
                         },
-                    }, 
-                    epNote: {
+                    },
+                },
+                epNote: {
                     validators: {
                         notEmpty: {
                             message: 'Notes are required',
                         },
                     },
-                    },  
-                    epRanking : {
+                },
+                epRanking: {
                     validators: {
                         notEmpty: {
                             message: 'Ranking is required',
                         },
                     },
-                    },       
-                    epSellerID: {
+                },
+                epSellerID: {
                     validators: {
                         notEmpty: {
-                          message: 'Seller ID is required',
+                            message: 'Seller ID is required',
                         },
                     },
-                    },
+                },
                 epReviewID: {
                     validators: {
                         notEmpty: {
                             message: 'Review Attribute ID is required',
                         },
                     },
-                    },  
-              epStatus: {
-                  validators: {
-                      notEmpty: {
-                          message: 'Status is required',
-                      },
-                  },
-                    },        
-
-              epHSN: {
-                validators: {
-                    notEmpty: {
-                        message: 'HSN Code  is required',
+                },
+                epStatus: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Status is required',
+                        },
                     },
                 },
-                    },        
-        },
-        plugins: {
-        //Learn more: https://formvalidation.io/guide/plugins
-        trigger: new FormValidation.plugins.Trigger(),
-        // Bootstrap Framework Integration
-        bootstrap: new FormValidation.plugins.Bootstrap(),
-        // Validate fields when clicking the Submit button
-        epFormSubmitButton: new FormValidation.plugins.SubmitButton(),
-        // Submit the form when all fields are valid
-        //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-        },
-    }).on('core.form.valid', function () {
-        KTUtil.btnWait(epFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-        axios({
-            method: 'Post',
-            url: `${HOST_URL}/api/v1/ecommerce/products`,
+                epHSN: {
+                    validators: {
+                        notEmpty: {
+                            message: 'HSN Code  is required',
+                        },
+                    },
+                },
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                epFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        }).on('core.form.valid', function () {
+            KTUtil.btnWait(epFormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+
+            axios({
+                method: 'Post',
+                url: `${HOST_URL}/api/v1/ecommerce/products`,
                 data: {
                     manufacturerPartNo: epManufactureNo.value,
                     name: epName.value,
                     description: epDescription.value,
                     categoryId: epID.value,
-                    unitPrice: (epUnitPrice.value)*1,
-                    MRP: (epMRP.value)*1,
+                    unitPrice: (epUnitPrice.value) * 1,
+                    MRP: (epMRP.value) * 1,
                     note: epNote.value,
-                    ranking: (epRanking.value)*1,
-                    maxQuantityPerOrderNumber: (epMaxQtyNo.value)*1,
+                    ranking: (epRanking.value) * 1,
+                    maxQuantityPerOrderNumber: (epMaxQtyNo.value) * 1,
                     sellerId: epSellerID.value,
                     _reviewAttributeId: epReviewID.value,
                     status: epStatus.value,
                     HSNCode: epHSN.value,
                 },
             }).then(function (res) {
-            KTUtil.btnRelease(epFormSubmitButton);
+                KTUtil.btnRelease(epFormSubmitButton);
                 console.log(res);
-                
+
                 // TOASTR EXAMPLE
                 toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": true,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-                }; 
-    
+                    "closeButton": false,
+                    "debug": false,
+                    "newestOnTop": true,
+                    "progressBar": false,
+                    "positionClass": "toast-top-right",
+                    "preventDuplicates": false,
+                    "onclick": null,
+                    "showDuration": "300",
+                    "hideDuration": "1000",
+                    "timeOut": "5000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+
                 if (res.data.status == 'success') {
-                toastr.success(`${res.data.message}`, `${res.data.status}`)
+                    toastr.success(`${res.data.message}`, `${res.data.status}`)
                 } else if (res.data.status == 'error') {
-                toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    toastr.error(`${res.data.message}`, `${res.data.status}`)
                 }
             });
-        
-            })
-            .on('core.form.invalid', function () { 
+
+        })
+            .on('core.form.invalid', function () {
                 console.log('Something went wrong!!');
-        
+
             });
-            
-            };
-                   
-            return {
-                // public functions
-                init: function () {
-                    _createEcommerceProducts();
-                }
-                }
-            })();
-            
-            
-            jQuery(document).ready(function () {
-                EcommerceProductsCRUD.init();
-            });
-                               
-                    
+
+    };
+
+    return {
+        // public functions
+        init: function () {
+            _createEcommerceProducts();
+        }
+    }
+})();
+
+jQuery(document).ready(function () {
+    EcommerceProductsCRUD.init();
+});
+
