@@ -130,7 +130,7 @@ exports.getTaskEntries = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got taskEntries Id=${id}`,
-    Data: { taskEntries },
+    taskEntries,
   });
 
   next();

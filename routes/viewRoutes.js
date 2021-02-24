@@ -311,6 +311,14 @@ router.get(
   viewsController.taskChecklistEntries
 );
 
+router.get('/project/entries/all', viewsController.projectEntriesAll);
+router.get('/project/task-entries/all', viewsController.taskEntriesAll);
+router.get('/project/activity/all', viewsController.projectActivityAll);
+router.get(
+  '/project/task-checklist-entries/all',
+  viewsController.taskChecklistEntriesAll
+);
+
 router.get('/project/task-timers/', viewsController.taskTimers);
 router.get('/project/notes/', viewsController.projectNotes);
 router.get('/project/admins/', viewsController.projectAdmins);

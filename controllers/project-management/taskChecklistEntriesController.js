@@ -131,7 +131,7 @@ exports.getTaskChecklistEntries = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got taskChecklistEntries Id=${id}`,
-    Data: { taskChecklistEntries },
+    taskChecklistEntries,
   });
 
   next();

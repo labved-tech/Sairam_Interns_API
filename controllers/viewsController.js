@@ -810,6 +810,27 @@ exports.taskChecklistEntries = (req, res) => {
     .status(200)
     .render('./../views/pages/project-management/taskChecklistEntries');
 };
+
+exports.projectEntriesAll = (req, res) => {
+  console.log('We are in Project Entries All Form Page');
+  res.status(200).render('./../views/pages/project-management/projectEntriesAll');
+};
+exports.taskEntriesAll = (req, res) => {
+  console.log('We are in Task Entries All Form Page');
+  res.status(200).render('./../views/pages/project-management/taskEntriesAll');
+};
+exports.projectActivityAll = (req, res) => {
+  console.log('We are in Project Activity All Form Page');
+  res.status(200).render('./../views/pages/project-management/projectActivityAll');
+};
+exports.taskChecklistEntriesAll = (req, res) => {
+  console.log('We are in Task Checklist Entries All Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/taskChecklistEntriesAll');
+};
+
+
 exports.projectDiscussions = (req, res) => {
   console.log('We are in Project Discussions Form Page');
   res

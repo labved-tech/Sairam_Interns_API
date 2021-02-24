@@ -130,7 +130,7 @@ exports.getProjectEntries = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got projectEntries Id=${id}`,
-    Data: { projectEntries },
+    projectEntries,
   });
 
   next();

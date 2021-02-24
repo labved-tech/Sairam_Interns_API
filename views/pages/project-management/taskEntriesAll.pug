@@ -1,0 +1,323 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myPages/project-management/taskEntries.js')
+
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                        // begin::Card
+                        div(class="card card-custom gutter-b")
+                            div(class="card-header flex-wrap border-0 pt-6 pb-0")
+                                div(class="card-title")
+                                    h3(class="card-label")
+                                        | Task Entries
+                                        span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
+                                div(class="card-toolbar")
+                                    // begin::Dropdown
+                                    div(class='dropdown dropdown-inline mr-2')
+                                        button(type='button' class='btn btn-light-primary font-weight-bolder dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                            i(class='fas fa-file-export')
+                                            |  Export
+                                        // begin::Dropdown Menu
+                                        div(class="dropdown-menu dropdown-menu-sm dropdown-menu-right")
+                                            // begin::Navigation
+                                            ul(class="navi flex-column navi-hover py-2")
+                                                li(class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2")
+                                                    | Choose an option:
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-print")
+                                                        span(class="navi-text") Print
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-copy")
+                                                        span(class="navi-text") Copy
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-excel")
+                                                        span(class="navi-text") Excel
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-csv")
+                                                        span(class="navi-text") CSV
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-pdf")
+                                                        span(class="navi-text") PDF
+                                            // end::Navigation
+                                        // end::Dropdown Menu
+                                    // end::Dropdown
+                                    // begin::Button
+                                    // Button trigger modal
+                                    button#btnOpenTeModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                        | Add New
+
+                            div(class="card-body")
+                                // begin::Search Form
+                                div(class="mb-7")
+                                    div(class="row align-items-center")
+                                        div(class="col-lg-9 col-xl-8")
+                                            div(class="row align-items-center")
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="input-icon")
+                                                        input#tableTe_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                        span
+                                                            i(class="flaticon2-search-1 text-muted")
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="d-flex align-items-center")
+                                                        label(class="mr-3 mb-0 d-none d-md-block") Status:
+                                                        select#tableTe_search_status_2(class="form-control")
+                                                            option(value="") All
+                                                            option(value="1") Pending
+                                                            option(value="2") Delivered
+                                                            option(value="3") Canceled
+                                                            option(value="4") Success
+                                                            option(value="5") Info
+                                                            option(value="6") Danger
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="d-flex align-items-center")
+                                                        label(class="mr-3 mb-0 d-none d-md-block") Type:
+                                                        select#tableTe_search_type_2(class="form-control")
+                                                            option(value="") All
+                                                            option(value="1") Online
+                                                            option(value="2") Retail
+                                                            option(value="3") Direct
+                                        div(class="col-lg-3 col-xl-4 mt-5 mt-lg-0")
+                                            a(href="#", class="btn btn-light-primary px-6 font-weight-bold")
+                                                | Search
+                                // end::Search Form
+                                // begin: Selected Rows Group Action Form
+                                #tableTe_group_action_form_2(class="mt-10 mb-5 collapse")
+                                    div(class="d-flex align-items-center")
+                                        div(class="font-weight-bold text-danger mr-3")
+                                            | Selected 
+                                            span#tableTe_selected_records_2 0
+                                            |  records:
+                                        div(class="dropdown mr-2")
+                                            button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
+                                                | Update status
+                                            div(class="dropdown-menu dropdown-menu-sm")
+                                                ul(class="nav nav-hover flex-column")
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Pending
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Delivered
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Canceled
+                                        button#btnDeleteAll(class="btn btn-sm btn-danger mr-2 btnDeleteAll", type="button")
+                                            | Delete All
+                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableTe_fetch_modal_2")
+                                            | Fetch Selected Records
+                                // end: Selected Rows Group Action Form
+                                // begin: Datatable
+                                #tableTe(class="datatable datatable-bordered datatable-head-custom")
+                                // end: Datatable
+                            // end::Card
+                        // end::Card
+
+                        // ##################################### TeFormModal ############################################################################################
+                        #modalTe(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='TeModalLabel' aria-hidden='true')
+                            div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
+                                div(class='modal-content')
+                                    // begin::Form
+                                    form#formTe(class='form')
+                                        div(class='modal-header')
+                                            h5(class='modal-title') Add New
+                                            button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
+                                                i(aria-hidden='true' class='ki ki-close')
+                                        div(class='modal-body')
+                                            div(data-scroll='true' data-height='350')
+                                                // dnId - hidden
+                                                div(class= 'form-group row')
+                                                    input#dnId(type='hidden' name='dnId')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Project ID
+                                                    div(class='col-4')
+                                                        div(class='typeahead')
+                                                            input#teProjectId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='teProjectId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                            span(class='form-text text-muted') Should be as mentioned.
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Name
+                                                        span(class='text-danger')  *                                            
+                                                    div(class='col-6')
+                                                        input#teName(type='text' class='form-control' name='teName' placeholder='ex. Sai Vignesh')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Task Type
+                                                    div(class='col-6')
+                                                        input#teTaskType(type='text' class='form-control' name='teTaskType' placeholder='')
+
+                                                div(class='form-group row mb-1')
+                                                    label(class='col-3 col-form-label form-control-label text-right' for='teDescription')
+                                                        | Description 
+                                                    div(class='col-9 ')
+                                                        textarea#teDescription(class='form-control' name='teDescription' rows='3')
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Status
+                                                    div(class='col-4')
+                                                        select#teStatus(class='form-control selectpicker' data-size='7' data-live-search='true'  name='teStatus' )
+                                                            option(value='') Select
+                                                            option(value='C') Completed
+                                                            option(value='NS') Not Yet Started
+                                                            option(value='W') Working                                              
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Date Finished
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#teDateFinished(type='text' class='form-control' readonly='' name='teDateFinished' placeholder='Select date')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Is Repeat
+                                                    div(class='col-4')
+                                                        span(class='switch switch-sm')
+                                                            label
+                                                                input#teIsRepeat(type='checkbox' checked='checked' name='teIsRepeat')
+                                                                span
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Repeat Form Date 
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#teRepeatFormDate(type='text' class='form-control' readonly='' name='teRepeatFormDate' placeholder='Select date')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Repeat Last Date 
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#teRepeatLastDate(type='text' class='form-control' readonly='' name='teRepeatLastDate' placeholder='Select date')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Repeat Interval :
+                                                    div(class='col-4')
+                                                        input#teRepeatInterval(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='teRepeatInterval' placeholder='40')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Repeat Interval Type
+                                                    div(class='col-6')
+                                                        input#teRepeatIntervalType(type='text' class='form-control' name='teRepeatIntervalType' placeholder='')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Current Repeat Number :
+                                                    div(class='col-4')
+                                                        input#teCurrentRepeatNumber(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='teCurrentRepeatNumber' placeholder='40')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Total Repeat Allowed :
+                                                    div(class='col-4')
+                                                        input#teTotalRepeatAllowed(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='teTotalRepeatAllowed' placeholder='40')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Deadline Notified
+                                                    div(class='col-4')
+                                                        span(class='switch switch-sm')
+                                                            label
+                                                                input#teDeadlineNotified(type='checkbox' checked='checked' name='teDeadlineNotified')
+                                                                span
+                                                        span(class='form-text text-muted') 
+
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Milestone 
+                                                    div(class='col-6')
+                                                        input#teMilestone(type='text' class='form-control' name='teMilestone' placeholder='')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Milestone Order :
+                                                    div(class='col-4')
+                                                        input#teMilestoneOrder(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='teMilestoneOrder' placeholder='40')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Kanban Order :
+                                                    div(class='col-4')
+                                                        input#teKanbanOrder(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='teKanbanOrder' placeholder='40')
+                                                        span(class='form-text text-muted')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Task Form URL 
+                                                    div(class='col-6')
+                                                        input#teTaskFormURL(type='text' class='form-control' name='teTaskFormURL' placeholder='xyz.com/example')
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Start Date
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#teStartDate(type='text' class='form-control' readonly='' name='teStartDate' placeholder='Select date')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Date Added  
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#teDateAdded(type='text' class='form-control' readonly='' name='teDateAdded' placeholder='Select date')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Due Date 
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#teDueDate(type='text' class='form-control' readonly='' name='teDueDate' placeholder='Select date')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                div(class='form-group row')
+                                                    label(class=' col-3 col-form-label form-control-label text-right ') Assigned To 
+                                                    div(class='col-4')
+                                                        select#teAssignedTo(class='form-control selectpicker' multiple=''  data-live-search='true' name='teAssignedTo')
+                                                            //option(value='' disabled='' selected='') Choose country
+                                                            option Account 1
+                                                            option Account 2
+                                                            option Account 3
+                                                        span(class='form-text text-muted') 
+
+                                        div(class='modal-footer')
+                                            button#btnResetTeForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                            button#btnAddNewTeFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                            button#btnSaveTeFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
