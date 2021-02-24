@@ -1,12 +1,25 @@
 /* eslint-disable */
 'use strict';
 
+let arrows;
+if (KTUtil.isRTL()) {
+    arrows = {
+    leftArrow: '<i class="la la-angle-right"></i>',
+    rightArrow: '<i class="la la-angle-left"></i>',
+    };
+} else {
+    arrows = {
+    leftArrow: '<i class="la la-angle-left"></i>',
+    rightArrow: '<i class="la la-angle-right"></i>',
+    };
+}  
+
 /* Class definition */
-const DeliveryNoteCRUD = (function () {
+const ProjectActivityCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
-    function _DeliveryNote() {
+    function _ProjectActivity() {
       var dataSet;
 
       /* Table Options */
@@ -17,7 +30,7 @@ const DeliveryNoteCRUD = (function () {
           source: {
               read: {
               method: 'get',
-              url: `${HOST_URL}/api/v1/sales-finance/delivery-note/table`,
+              url: `${HOST_URL}/api/v1/project/activity/table`,
               params: {
                 fields: '_id,_projectId,_userId,fullName,visibleToUser,descriptionKey,additionalData,dateadded,createdAt,updatedAt',
                 },
@@ -26,8 +39,8 @@ const DeliveryNoteCRUD = (function () {
                   // console.log('raw', raw);
                   dataSet = raw;
 
-                  if (typeof raw.deliveryNote !== 'undefined') {
-                  dataSet = raw.deliveryNote;
+                  if (typeof raw.projectActivity !== 'undefined') {
+                  dataSet = raw.projectActivity;
                   // console.log('dataSet', dataSet);
                   }
                   return dataSet;
@@ -55,7 +68,7 @@ const DeliveryNoteCRUD = (function () {
 
           pagination: true,
           search: {
-          input: $('#tableDn_search_query_2'),
+          input: $('#tablePa_search_query_2'),
           key: 'generalSearch',
           },
 
@@ -203,11 +216,11 @@ const DeliveryNoteCRUD = (function () {
       };
 
       /* Table Initialize */
-      const datatable = $('#tableDn').KTDatatable(options);
+      const datatable = $('#tablePa').KTDatatable(options);
 
       /* Form */
-      const DnForm = document.querySelector('#formDn');
-      let FormSubmitButton = document.querySelector('#btnAddNewDnFormSubmitButton');
+      const PaForm = document.querySelector('#formPa');
+      let FormSubmitButton = document.querySelector('#btnAddNewPaFormSubmitButton');
       // Options
       let formOptions = {
           fields: {
@@ -273,35 +286,35 @@ const DeliveryNoteCRUD = (function () {
 
       /* Search Operations */
       // search based on status
-      $('#tableDn_search_status_2').on('change', function () {
+      $('#tablePa_search_status_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Status');
       });
 
       // search based on type
-      $('#tableDn_search_type_2').on('change', function () {
+      $('#tablePa_search_type_2').on('change', function () {
           datatable.search($(this).val().toLowerCase(), 'Type');
       });
 
-      $('#tableDn_search_status_2, #tableDn_search_type_2').selectpicker();
+      $('#tablePa_search_status_2, #tablePa_search_type_2').selectpicker();
 
       // modal open
-      $('#btnOpenDnModal').on('click', async function (e) {
+      $('#btnOpenPaModal').on('click', async function (e) {
           console.log('openButton is clicked');
 
           // enabling disabling buttons
-          $('#btnAddNewDnFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-          $('#btnSaveDnFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+          $('#btnAddNewPaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+          $('#btnSavePaFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-          FormSubmitButton = document.querySelector('#btnAddNewDnFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnAddNewPaFormSubmitButton');
 
-          $('#modalDn').modal('show');   // open modal
+          $('#modalPa').modal('show');   // open modal
 
-          $('#modalDn').find('.modal-title').text('Add New Entries'); // Setting title for modal
+          $('#modalPa').find('.modal-title').text('Add New Entries'); // Setting title for modal
 
       });
 
       // modal post closed
-      $('#modalDn').on('hidden.bs.modal', function (e) {
+      $('#modalPa').on('hidden.bs.modal', function (e) {
           console.log('Modal closed');
 
           if (fv) {
@@ -314,54 +327,30 @@ const DeliveryNoteCRUD = (function () {
           $('.fv-plugins-message-container').text(''); // remove message
 
           // clearing fields
-          $("#formDn").trigger('reset'); // clear form fields
+          $("#formPa").trigger('reset'); // clear form fields
 
           // manually resetting other fields
       });
 
       // modal post opened
-      $('#modalDn').on('shown.bs.modal', function (e) {
+      $('#modalPa').on('shown.bs.modal', function (e) {
           console.log('Modal open');
 
           // Initializing
-
-          // Number : Number Controls Same Sides: Box Length
-        $('#dnSourceGST').TouchSpin({
-            buttondown_class: 'btn btn-secondary',
-            buttonup_class: 'btn btn-secondary',
-            verticalbuttons: true,
-            verticalup: '<i class="ki ki-plus"></i>',
-            verticaldown: '<i class="ki ki-minus"></i>',
-      
-            min: -1000000000,
-            max: 1000000000,
-            step: 1,
-            decimals: 2,
-            boostat: 5,
-            maxboostedstep: 10,
-            prefix: '$'
-          });  
-        // Number : Number Controls Same Sides: Box Length
-        $('#dnCosigneeGST').TouchSpin({
-            buttondown_class: 'btn btn-secondary',
-            buttonup_class: 'btn btn-secondary',
-            verticalbuttons: true,
-            verticalup: '<i class="ki ki-plus"></i>',
-            verticaldown: '<i class="ki ki-minus"></i>',
-      
-            min: -1000000000,
-            max: 1000000000,
-            step: 1,
-            decimals: 2,
-            boostat: 5,
-            maxboostedstep: 10,
-            prefix: '$'
-          });  
-
+        
+          // Date & Time : Date
+        $('#paDateAdded').datepicker({
+            rtl: KTUtil.isRTL(),
+            todayBtn: 'linked',
+            clearBtn: true,
+            todayHighlight: true,
+            orientation: 'bottom left',
+            templates: arrows,
+        });
       });
 
       // form reset operation
-      $('#formDn').on('click', '.btnReset', function (e) {
+      $('#formPa').on('click', '.btnReset', function (e) {
           // console.log('btnResetMenuSectionForm is clicked');
 
           if (fv) {
@@ -378,23 +367,23 @@ const DeliveryNoteCRUD = (function () {
           $('.fv-plugins-message-container').text(''); // remove message
 
           // clearing fields
-          $("#formDn").trigger('reset'); // clear form fields
+          $("#formPa").trigger('reset'); // clear form fields
 
           // clear manually
           // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
       })
 
       // form add operation
-      $('#formDn').on('click', '.btnAdd', function (e) {
+      $('#formPa').on('click', '.btnAdd', function (e) {
           // console.log('btnCreate is clicked');
 
           // clearing validator messages
           $('.fv-plugins-message-container').text(''); // remove message
           
-          FormSubmitButton = document.querySelector('#btnAddNewDnFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnAddNewPaFormSubmitButton');
 
           // Validation
-          fv = FormValidation.formValidation(DnForm, formOptions);
+          fv = FormValidation.formValidation(PaForm, formOptions);
 
           // validation failed
           fv.on('core.form.invalid', async function () {
@@ -408,29 +397,21 @@ const DeliveryNoteCRUD = (function () {
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
+              paVisibleToUser.value = (paVisibleToUser.value == 'on') ? true:false
+              console.log(paVisibleToUser.value)
+
               // Accessing Restful API
               await axios({
-                  method: 'post',
-                  url: `${HOST_URL}/api/v1/sales-finance/delivery-note`,
+                  method: 'post',   
+                  url: `${HOST_URL}/api/v1/project/activity`,
                   data: { 
-                      packingListnumber: document.querySelector('#dnPackingListNo').value * 1,
-                      taxInvoiceNumber: document.querySelector('#dnTaxInvoiceNo').value * 1,
-                      source: document.querySelector('#dnSource').value,
-                      sourceAddress: document.querySelector('#dnSourceAddress').value,
-                      sourceContactNumber: document.querySelector('#dnSourceContact').value,
-                      sourceGstin:document.querySelector('#dnSourceGST').value,
-                      consignee:document.querySelector('#dnCosignee').value,
-                      consigneeAddress: document.querySelector('#dnCosigneeAddress').value,
-                      consigneeEmail: document.querySelector('#dnCosigneeEmail').value,
-                      consigneeContactNumber: document.querySelector('#dnCosigneeContact').value,
-                      consigneeGstin: document.querySelector('#dnCosigneeGST').value,
-                      box: document.querySelector('#dnBox').value,
-                      shipMethod: document.querySelector('#dnShipMethod').value,
-                      carrierName: document.querySelector('#dnCarrierName').value,
-                      carrierTrackingNumber: document.querySelector('#dnTrackingNo').value,
-                      shippingNotes: document.querySelector('#dnShippingNotes').value,
-                      receivedBy: document.querySelector('#dnReceivedBy').value,
-                      fileProof: document.querySelector('#dnFileProof').value,
+                      _projectId: document.querySelector('#paProjectId').value,
+                      _userId: document.querySelector('#paUserId').value,
+                      fullName:document.querySelector('#paFullName').value,
+                      visibleToUser: document.querySelector('#paVisibleToUser').value,
+                      descriptionKey: document.querySelector('#paDescriptionKey').value,
+                      additionalData: document.querySelector('#paAdditionalData').value,
+                      dateadded: document.querySelector('#paDateAdded').value,
                   },
               }).then(function (res) {
               
@@ -442,32 +423,32 @@ const DeliveryNoteCRUD = (function () {
 
                   if (res.data.status == 'success') {
                       // reseting & clearing
-                      $('#modalDn').modal('hide')  // hiding modal form
+                      $('#modalPa').modal('hide')  // hiding modal form
                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tableDn').KTDatatable().reload(); // reload table
+                      $('#tablePa').KTDatatable().reload(); // reload table
                   }
                   else if (res.data.status == 'error') {
-                      $('#modalDn').modal('hide')  // hiding modal form
+                      $('#modalPa').modal('hide')  // hiding modal form
                       toastr.error(`${res.data.message}`, `${res.data.status}`)
                   }
                   else {
-                      $('#modalDn').modal('hide')
+                      $('#modalPa').modal('hide')
                   };
               });
           });
       });
 
       // form save operation
-      $('#formDn').on('click', '.btnSave', function (e) {
+      $('#formPa').on('click', '.btnSave', function (e) {
           console.log('btnSave is clicked');
 
           // clearing validator messages
           $('.fv-plugins-message-container').text(''); // remove message
           
-          FormSubmitButton = document.querySelector('#btnSaveDnFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnSavePaFormSubmitButton');
 
           // Validation
-          fv = FormValidation.formValidation(DnForm, formOptions);
+          fv = FormValidation.formValidation(PaForm, formOptions);
 
           // validation failed
           fv.on('core.form.invalid', async function () {
@@ -477,34 +458,26 @@ const DeliveryNoteCRUD = (function () {
           // validation successful
           fv.on('core.form.valid', async function () {
 
-              const id = document.querySelector('#dnId').value;
+              const id = document.querySelector('#paId').value;
 
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
+              paVisibleToUser.value = (paVisibleToUser.value == 'on') ? true:false
+              console.log(paVisibleToUser.value)
+
               // Accessing Restful API
               await axios({
                   method: 'patch',
-                  url: `${HOST_URL}/api/v1/sales-finance/delivery-note/${id}`,
+                  url: `${HOST_URL}/api/v1/project/activity/${id}`,
                   data: {
-                    packingListnumber: document.querySelector('#dnPackingListNo').value * 1,
-                    taxInvoiceNumber: document.querySelector('#dnTaxInvoiceNo').value * 1,
-                    source: document.querySelector('#dnSource').value,
-                    sourceAddress: document.querySelector('#dnSourceAddress').value,
-                    sourceContactNumber: document.querySelector('#dnSourceContact').value,
-                    sourceGstin:document.querySelector('#dnSourceGST').value,
-                    consignee:document.querySelector('#dnCosignee').value,
-                    consigneeAddress: document.querySelector('#dnCosigneeAddress').value,
-                    consigneeEmail: document.querySelector('#dnCosigneeEmail').value,
-                    consigneeContactNumber: document.querySelector('#dnCosigneeContact').value,
-                    consigneeGstin: document.querySelector('#dnCosigneeGST').value,
-                    box: document.querySelector('#dnBox').value,
-                    shipMethod: document.querySelector('#dnShipMethod').value,
-                    carrierName: document.querySelector('#dnCarrierName').value,
-                    carrierTrackingNumber: document.querySelector('#dnTrackingNo').value * 1,
-                    shippingNotes: document.querySelector('#dnShippingNotes').value,
-                    receivedBy: document.querySelector('#dnReceivedBy').value,
-                    fileProof: document.querySelector('#dnFileProof').value,
+                    _projectId: document.querySelector('#paProjectId').value,
+                    _userId: document.querySelector('#paUserId').value,
+                    fullName:document.querySelector('#paFullName').value,
+                    visibleToUser: document.querySelector('#paVisibleToUser').value,
+                    descriptionKey: document.querySelector('#paDescriptionKey').value,
+                    additionalData: document.querySelector('#paAdditionalData').value,
+                    dateadded: document.querySelector('#paDateAdded').value,
                   },
               }).then(function (res) {
                   // Return valid JSON
@@ -515,43 +488,43 @@ const DeliveryNoteCRUD = (function () {
 
                   if (res.data.status == 'success') {
                       // reseting & clearing
-                      $('#modalDn').modal('hide')  // hiding modal form
+                      $('#modalPa').modal('hide')  // hiding modal form
                       toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tableDn').KTDatatable().reload(); // reload table
+                      $('#tablePa').KTDatatable().reload(); // reload table
 
                   }
                   else if (res.data.status == 'error') {
-                      $('#modalDn').modal('hide')  // hiding modal form
+                      $('#modalPa').modal('hide')  // hiding modal form
                       toastr.error(`${res.data.message}`, `${res.data.status}`)
                   }
                   else {
-                      $('#modalDn').modal('hide') // hiding modal form
+                      $('#modalPa').modal('hide') // hiding modal form
                   };
               });
           });
       });
 
       // Edit Modal Window - opens modal with appropriate properties
-      $('#tableDn').on('click', '.btnEdit', async function (e) {
+      $('#tablePa').on('click', '.btnEdit', async function (e) {
           // console.log('btnEdit is clicked');
 
           var id = $(this).attr("aria-label");
           // console.log(id);
 
-          FormSubmitButton = document.querySelector('#btnSaveDnFormSubmitButton');
+          FormSubmitButton = document.querySelector('#btnSavePaFormSubmitButton');
 
           // enabling disabling buttons
-          $('#btnAddNewDnFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-          $('#btnSaveDnFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+          $('#btnAddNewPaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+          $('#btnSavePaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-          $('#modalDn').modal('show');   // open modal
+          $('#modalPa').modal('show');   // open modal
 
-          $('#modalDn').find('.modal-title').text('Edit Entry'); // Setting title for modal
+          $('#modalPa').find('.modal-title').text('Edit Entry'); // Setting title for modal
 
           // retrieving data
           await axios({
               method: 'GET',
-              url: `${HOST_URL}/api/v1/sales-finance/delivery-note/${id}`,
+              url: `${HOST_URL}/api/v1/project/activity/${id}`,
           }).then(async function (res) {
               // Return valid JSON
               console.log(res);
@@ -574,32 +547,21 @@ const DeliveryNoteCRUD = (function () {
                   // });
 
                   // updating fields with data
-                  document.querySelector('#dnId').value = res.data.deliveryNote._id;
-                  document.querySelector('#dnPackingListNo').value  = res.data.deliveryNote.packingListnumber;
-                  document.querySelector('#dnTaxInvoiceNo').value  = res.data.deliveryNote.taxInvoiceNumber;
-                  document.querySelector('#dnSource').value = res.data.deliveryNote.source;
-                  document.querySelector('#dnSourceAddress').value = res.data.deliveryNote.sourceAddress;
-                  document.querySelector('#dnSourceContact').value = res.data.deliveryNote.sourceContactNumber;
-                  document.querySelector('#dnSourceGST').value = res.data.deliveryNote.sourceGstin;
-                  document.querySelector('#dnCosignee').value = res.data.deliveryNote.consignee;
-                  document.querySelector('#dnCosigneeAddress').value = res.data.deliveryNote.consigneeAddress;
-                  document.querySelector('#dnCosigneeEmail').value = res.data.deliveryNote.cosigneeEmail;
-                  document.querySelector('#dnCosigneeContact').value = res.data.deliveryNote.cosigneeContact;
-                  document.querySelector('#dnCosigneeGST').value = res.data.deliveryNote.consigneeGstin;
-                  document.querySelector('#dnBox').value = res.data.deliveryNote.box;
-                  document.querySelector('#dnShipMethod').value = res.data.deliveryNote.shipMethod;
-                  document.querySelector('#dnCarrierName').value = res.data.deliveryNote.carrierName;
-                  document.querySelector('#dnTrackingNo').value  = res.data.deliveryNote.carrierTrackingNumber;
-                  document.querySelector('#dnShippingNotes').value = res.data.deliveryNote.shippingNotes;
-                  document.querySelector('#dnReceivedBy').value = res.data.deliveryNote.receivedBy;
-                  document.querySelector('#dnFileProof').value = res.data.deliveryNote.fileProof;
+                  document.querySelector('#paId').value = res.data.projectActivity._id;
+                  document.querySelector('#paProjectId').value = res.data.projectActivity._projectId;
+                  document.querySelector('#paUserId').value = res.data.projectActivity._userId;
+                  document.querySelector('#paFullName').value = res.data.projectActivity.fullName;
+                  document.querySelector('#paVisibleToUser').value = res.data.projectActivity.visibleToUser;
+                  document.querySelector('#paDescriptionKey').value = res.data.projectActivity.cosigneeEmail;
+                  document.querySelector('#paAdditionalData').value = res.data.projectActivity.cosigneeContact;
+                  document.querySelector('#paDateAdded').value = res.data.projectActivity.dateadded;
               }
               
           });
       });
 
       // deleteOne operation
-      $('#tableDn').on('click', '.btnDelete', function (e) {
+      $('#tablePa').on('click', '.btnDelete', function (e) {
           console.log('btnDelete Clicked');
           let ids = $(this).attr("aria-label");
 
@@ -611,10 +573,10 @@ const DeliveryNoteCRUD = (function () {
               }
           }
 
-          axios.delete(`${HOST_URL}/api/v1/sales-finance/deliveryNote`, requests);
+          axios.delete(`${HOST_URL}/api/v1/sales-finance/projectActivity`, requests);
 
           // reload table
-          $('#tableDn').KTDatatable().reload();
+          $('#tablePa').KTDatatable().reload();
           
       });
 
@@ -624,14 +586,14 @@ const DeliveryNoteCRUD = (function () {
           const ids = datatable.checkbox().getSelectedId();
           const count = ids.length;
       
-          $('#tableDn_selected_records_2').html(count);
+          $('#tablePa_selected_records_2').html(count);
 
           console.log(count)
       
           if (count > 0) {
-              $('#tableDn_group_action_form_2').collapse('show');
+              $('#tablePa_group_action_form_2').collapse('show');
           } else {
-              $('#tableDn_group_action_form_2').collapse('hide');
+              $('#tablePa_group_action_form_2').collapse('hide');
           }
       });
 
@@ -641,12 +603,12 @@ const DeliveryNoteCRUD = (function () {
     return {
         // public functions
           init: function () {
-          _DeliveryNote();
+          _ProjectActivity();
           
         },
       };
   })();
   
   jQuery(document).ready(function () {
-      DeliveryNoteCRUD.init();
+      ProjectActivityCRUD.init();
   });    

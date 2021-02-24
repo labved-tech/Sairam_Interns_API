@@ -437,7 +437,12 @@ const LeadResponseCRUD = (function () {
 
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
+              
+              lrIsStatusChange.value = (lrIsStatusChange.value == 'on') ? true:false
+              lrEmailSent.value = (lrEmailSent.value == 'on') ? true:false
+              console.log(lrIsStatusChange.value)
+              console.log(lrEmailSent.value)
+              
               // Accessing Restful API
               await axios({
                   method: 'patch',
