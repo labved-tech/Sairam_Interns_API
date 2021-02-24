@@ -101,83 +101,83 @@ const ProjectEntriesCRUD = (function () {
 
         FormValidation.formValidation(createProjectEntriesForm, {
             fields: {
-            peName: {
-                validators: {
-                    notEmpty: {
-                    message: 'Name is required',
-                    },
-                },
-                },  
-                peDescription : {
+                peName: {
                     validators: {
-                    notEmpty: {
-                        message: 'Description is required',
+                        notEmpty: {
+                        message: 'Name is required',
+                        },
+                    },
+                    },  
+                    peDescription : {
+                        validators: {
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
+                        },
+                    },
+                    peStatus: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Status is required',
+                        },
+                    },
+                    }, 
+                    peStartDate: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Date is required',
+                        },
                     },
                     },
-                },
-                peStatus: {
-                validators: {
-                    notEmpty: {
-                    message: 'Status is required',
+                    peDeadline: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Date is required',
+                        },
                     },
-                },
-                }, 
-                peStartDate: {
-                validators: {
-                    notEmpty: {
-                    message: 'Date is required',
                     },
-                },
-                },
-                peDeadline: {
-                validators: {
-                    notEmpty: {
-                    message: 'Date is required',
+                    peFinished: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Date is required',
+                        },
                     },
-                },
-                },
-                peFinished: {
-                validators: {
-                    notEmpty: {
-                    message: 'Date is required',
                     },
-                },
-                },
-                peProgress: {
-                validators: {
-                    notEmpty: {
-                    message: 'Progress is required',
+                    peProgress: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Progress is required',
+                        },
                     },
-                },
-                },
-                peEstimatedHours: {
-                validators: {
-                    notEmpty: {
-                    message: 'Estimated Hours is required',
                     },
-                },
-                },
-                peType: {
-                validators: {
-                    notEmpty: {
-                    message: 'Type is required',
+                    peEstimatedHours: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Estimated Hours is required',
+                        },
                     },
-                },
-                },
-                peFarmId: {
-                validators: {
-                    notEmpty: {
-                    message: 'Farm ID is required',
                     },
-                },
-                },
-                peFarmRegionId: {
-                validators: {
-                    notEmpty: {
-                    message: 'Farm Region ID is required',
+                    peType: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Type is required',
+                        },
                     },
-                },
-                },
+                    },
+                    peFarmId: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Farm ID is required',
+                        },
+                    },
+                    },
+                    peFarmRegionId: {
+                    validators: {
+                        notEmpty: {
+                        message: 'Farm Region ID is required',
+                        },
+                    },
+                    },
             },
             plugins: {
             //Learn more: https://formvalidation.io/guide/plugins
