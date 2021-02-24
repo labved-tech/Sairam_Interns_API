@@ -19,7 +19,7 @@ const DeliveryNoteCRUD = (function () {
               method: 'get',
               url: `${HOST_URL}/api/v1/sales-finance/delivery-note/table`,
               params: {
-                fields: '_id, packingListnumber, taxInvoiceNumber, source, sourceAddress, sourceContactNumber,sourceGstin,consignee,consigneeAddress,consigneeEmail,consigneeContactNumber,consigneeGstin,shipMethod,carrierName,carrierTrackingNumber, shippingNotes,receivedBy,fileProof,createdBy,createdAt,updatedAt',
+                fields: '_id,_taskId,finished,description,dateadded,addedBy,listOrder,createdAt,updatedAt',
             },
               map: function(raw) {
                   // sample data mapping
@@ -72,75 +72,35 @@ const DeliveryNoteCRUD = (function () {
               textAlign: 'center',
           },
           {
-            field: 'packingListnumber',
-            title: 'PackingList No',
+            field: 'addedBy',
+            title: 'Added By',
+            template: function (row) {
+              return '\
+                <div>\
+                <a href="#">' + row.addedBy + '</a></div>\
+              ';
+            }
           },
           {
-            field: 'taxInvoiceNumber',
-            title: 'Tax Invoice No',
+            field: '_taskId',
+            title: 'Task ID',
           },
           {
-            field: 'source',
-            title: 'Source',
+            field: 'finished',
+            title: 'FInished',
           },
           {
-            field: 'sourceAddress',
-            title: 'Source Address',
+            field: 'description',
+            title: 'Description',
           },
           {
-            field: 'sourceContactNumber',
-            title: 'Source Contact No',
+            field: 'dateadded',
+            title: 'Date Added',
           },
           {
-            field: 'sourceGstin',
-            title: 'Source Gst',
+            field: 'listOrder',
+            title: 'List Order',
           },
-          {
-            field: 'consignee',
-            title: 'Consignee',
-          },
-          {
-            field: 'consigneeAddress',
-            title: 'Consignee Address',
-          },
-          {
-            field: 'consigneeEmail',
-            title: 'Consignee Email',
-          },
-
-          {
-            field: 'consigneeContactNumber',
-            title: 'Consignee Contact No',
-          },
-          {
-            field: 'consigneeGstin',
-            title: 'Consignee Gst',
-          },
-          {
-            field: 'shipMethod',
-            title: 'Ship Method ',
-          },
-          {
-            field: 'carrierName',
-            title: 'Carrier Name',
-          },
-          {
-            field: 'carrierTrackingNumber',
-            title: 'Carrier Tracking No',
-          },
-          {
-            field: 'shippingNotes',
-            title: 'Shipping Notes',
-          },
-          {
-            field: 'receivedBy',
-            title: 'Received By',
-          },
-          {
-            field: 'fileProof',
-            title: 'File Proof',
-          },
-
           {
             field: 'createdBy',
             title: 'createdBy',
@@ -248,132 +208,41 @@ const DeliveryNoteCRUD = (function () {
       let formOptions = {
           fields: {
           
-          dnPackingListNo: {
-              validators: {
-                  notEmpty: {
-                      message: 'Packing List No  is required',
-                  },
-              },
-          },
-          dnTaxInvoiceNo: {
-              validators: {
-                  notEmpty: {
-                      message: 'Tax Invoice No is required',
-                  },
-              },
-          },
-          dnSource: {
-              validators: {
-                  notEmpty: {
-                      message: 'Source is required',
-                  },
-              },
-          },
-          dnSourceAddress: {
-              validators: {
-                  notEmpty: {
-                      message: 'Source Address is required',
-                  },
-              },
-          },
-          dnSourceContact: {
-              validators: {
-                  notEmpty: {
-                      message: 'Source Contact is required',
-                  },
-              },
-          },
-          dnSourceGST: {
-              validators: {
-                  notEmpty: {
-                      message: 'Source GST is required',
-                  },
-              },
-          },
-          dnCosignee: {
-              validators: {
-                  notEmpty: {
-                      message: 'Cosignee is required',
-                  },
-              },
-          },
-          dnCosigneeAddress: {
-              validators: {
-                  notEmpty: {
-                      message: 'Address is required',
-                  },
-              },
-          },
-          dnCosigneeEmail: {
-              validators: {
-                  notEmpty: {
-                      message: 'Email is required',
-                  },
-              },
-          },
-          dnCosigneeContact: {
-              validators: {
-                  notEmpty: {
-                      message: ' Contact is required',
-                  },
-              },
-          },
-          dnCosigneeGST: {
-              validators: {
-                  notEmpty: {
-                      message: 'Cosignee GST is required',
-                  },
-              },
-          },
-          dnBox: {
-              validators: {
-                  notEmpty: {
-                      message: 'This Field is required',
-                  },
-              },
-          },
-          dnShipMethod: {
-              validators: {
-                  notEmpty: {
-                      message: 'Ship Method is required',
-                  },
-              },
-          },
-          dnCarrierName: {
-              validators: {
-                  notEmpty: {
-                      message: 'Carrier Name is required',
-                  },
-              },
-          },
-          dnTrackingNo: {
-              validators: {
-                  notEmpty: {
-                      message: 'Tracking No is required',
-                  },
-              },
-          },
-          dnShippingNotes: {
-              validators: {
-                  notEmpty: {
-                      message: 'Notes is required',
-                  },
-              },
-          },
-          dnReceivedBy: {
-              validators: {
-                  notEmpty: {
-                      message: 'This Field is required',
-                  },
-              },
-          },
-          dnFileProof: {
-              validators: {
-                  notEmpty: {
-                      message: 'This Field is required',
-                  },
-              },
-          },
+            tceTaskId: {
+                validators: {
+                    notEmpty: {
+                        message: 'Task ID is required',
+                },
+            },
+            },  
+            tceDescription : {
+                    validators: {
+                    notEmpty: {
+                            message: 'Description is required',
+                },
+                },
+            },
+            tceDateAdded: {
+                validators: {
+                    notEmpty: {
+                        message: 'Date is required',
+                },
+            },
+            },
+            tceAddedBy: {
+                validators: {
+                    notEmpty: {
+                        message: 'This Field is required',
+                },
+            },
+            },
+            tceListOrder: {
+                validators: {
+                    notEmpty: {
+                        message: 'Current Repeat Number is required',
+                },
+            },
+            },
 
 
           },
