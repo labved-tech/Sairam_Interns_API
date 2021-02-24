@@ -601,7 +601,9 @@ const FarmExportedStrategyCRUD = (function () {
 
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
-
+              
+              fesShareable.value = (fesShareable.value == 'on') ? true:false
+              console.log(fesShareable.value)
               // Accessing Restful API
               await axios({
                   method: 'post',
@@ -678,6 +680,8 @@ const FarmExportedStrategyCRUD = (function () {
               // Show loading state on button
               KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
+              fesShareable.value = (fesShareable.value == 'on') ? true:false
+              console.log(fesShareable.value)
               // Accessing Restful API
               await axios({
                   method: 'patch',
