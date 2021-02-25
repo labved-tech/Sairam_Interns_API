@@ -130,7 +130,7 @@ exports.getDirectory = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got Directory Id=${id}`,
-    Data: { directory },
+    directory,
   });
 
   next();

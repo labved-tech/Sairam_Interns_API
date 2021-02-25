@@ -334,8 +334,8 @@ const DirectoryCategoriesCRUD = (function () {
           document.querySelector('#dcId').value = res.data.directoryCategories._id;
           document.querySelector('#dcName').value = res.data.directoryCategories.name;
           document.querySelector('#dcSlug').value = res.data.directoryCategories.slug;
-          document.querySelector('#dcAttributeGroupsId').value = res.data.directoryCategories.attributeGroupsId;
-          document.querySelector('#dcRatingAttributeGroupId').value = res.data.directoryCategories.ratingAttributeGroupId;
+          document.querySelector('#dcAttributeGroupsId').value = res.data.directoryCategories._attributeGroupsId;
+          document.querySelector('#dcRatingAttributeGroupId').value = res.data.directoryCategories._ratingAttributeGroupId;
 
         }
       });
@@ -431,8 +431,8 @@ const DirectoryCategoriesCRUD = (function () {
           data: {
             name: document.querySelector('#dcName').value,
             slug: document.querySelector('#dcSlug').value,
-            attributeGroupsId: document.querySelector('#dcAttributeGroupsId').value,
-            ratingAttributeGroupId: document.querySelector('#dcRatingAttributeGroupId').value,
+            _attributeGroupsId: document.querySelector('#dcAttributeGroupsId').value,
+            _ratingAttributeGroupId: document.querySelector('#dcRatingAttributeGroupId').value,
           },
         }).then(function (res) {
           // Release button

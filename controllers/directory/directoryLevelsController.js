@@ -130,7 +130,7 @@ exports.getDirectoryLevels = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got DirectoryLevels Id=${id}`,
-    Data: { directoryLevels },
+    directoryLevels,
   });
 
   next();
