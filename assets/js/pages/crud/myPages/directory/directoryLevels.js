@@ -529,13 +529,13 @@ const DirectoryLevelsCRUD = (function () {
             changeLevelId: document.querySelector('#dlChangeLevelId').value,
             listingsInPackage: document.querySelector('#dlListingsInPackage').value,
             riseUpEnabled: (document.querySelector('#dlRiseUpEnabled').value == 'on') ? true : false,
-            sticky: (document.querySelector('#dlSticky').value == 'on') ? true : false
+            sticky: (document.querySelector('#dlSticky').value == 'on') ? true : false,
             featured: (document.querySelector('#dlFeatured').value == 'on') ? true : false,
-            ownPage: (document.querySelector('#dlOwnPage').value == 'on') ? true : false
+            ownPage: (document.querySelector('#dlOwnPage').value == 'on') ? true : false,
             unlimitedCategories: (document.querySelector('#dlUnlimitedCategories').value == 'on') ? true : false,
-            map: (document.querySelector('#dlMap').value == 'on') ? true : false
+            map: (document.querySelector('#dlMap').value == 'on') ? true : false,
             mapMakers: (document.querySelector('#dlMapMakers').value == 'on') ? true : false,
-            logoEnabled: (document.querySelector('#dlLogoEnabled').value == 'on') ? true : false
+            logoEnabled: (document.querySelector('#dlLogoEnabled').value == 'on') ? true : false,
             ImageLimit: (document.querySelector('#dlImageLimit').value == 'on') ? true : false,
             updatedAt: (document.querySelector('#dlUpdatedAt').value == 'on') ? true : false
 
