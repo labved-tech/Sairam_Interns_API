@@ -303,6 +303,11 @@ router.get('/project/members', viewsController.projectMembers);
 router.get('/project/task-status', viewsController.taskStatus);
 router.get('/project/task-reminders', viewsController.taskReminders);
 
+router.get('/project/discussions/all', viewsController.projectDiscussionsAll);
+router.get('/project/members/all', viewsController.projectMembersAll);
+router.get('/project/task-status/all', viewsController.taskStatusAll);
+router.get('/project/task-reminders/all', viewsController.taskRemindersAll);
+
 router.get('/project/entries/', viewsController.projectEntries);
 router.get('/project/task-entries/', viewsController.taskEntries);
 router.get('/project/activity/', viewsController.projectActivity);

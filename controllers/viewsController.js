@@ -849,6 +849,26 @@ exports.taskReminders = (req, res) => {
   console.log('We are in Project Task Reminders Form Page');
   res.status(200).render('./../views/pages/project-management/taskReminders');
 };
+
+exports.projectDiscussions = (req, res) => {
+  console.log('We are in Project Discussions Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/projectDiscussionsAll');
+};
+exports.taskStatus = (req, res) => {
+  console.log('We are in Project Task Status Form Page');
+  res.status(200).render('./../views/pages/project-management/taskStatusAll');
+};
+exports.projectMembers = (req, res) => {
+  console.log('We are in Project Memebers Form Page');
+  res.status(200).render('./../views/pages/project-management/projectMembersAll');
+};
+exports.taskReminders = (req, res) => {
+  console.log('We are in Project Task Reminders Form Page');
+  res.status(200).render('./../views/pages/project-management/taskRemindersAll');
+};
+
 exports.taskTimers = (req, res) => {
   console.log('We are in Project Task Timers Form Page');
   res.status(200).render('./../views/pages/project-management/taskTimers');
