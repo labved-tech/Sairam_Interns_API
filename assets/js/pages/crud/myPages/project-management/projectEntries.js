@@ -8,164 +8,164 @@ const ProjectEntriesCRUD = (function () {
     let arrows;
     if (KTUtil.isRTL()) {
         arrows = {
-        leftArrow: '<i class="la la-angle-right"></i>',
-        rightArrow: '<i class="la la-angle-left"></i>',
+            leftArrow: '<i class="la la-angle-right"></i>',
+            rightArrow: '<i class="la la-angle-left"></i>',
         };
     } else {
         arrows = {
-        leftArrow: '<i class="la la-angle-left"></i>',
-        rightArrow: '<i class="la la-angle-right"></i>',
+            leftArrow: '<i class="la la-angle-left"></i>',
+            rightArrow: '<i class="la la-angle-right"></i>',
         };
-    }   
+    }
 
     /*   Private functions */
     function _ProjectEntries() {
-      var dataSet;
+        var dataSet;
 
-      /* Table Options */
-      const options = {
-          // datasource definition
-          data: {
-          type: 'remote',
-          source: {
-              read: {
-              method: 'get',
-              url: `${HOST_URL}/api/v1/project/entries/table`,
-              params: {
-                fields: '_id,name,description,startDate,status,deadline,finished,progress,estimatedHours,type,_farmId,_farmRegionId,createdAt,updatedAt',
+        /* Table Options */
+        const options = {
+            // datasource definition
+            data: {
+                type: 'remote',
+                source: {
+                    read: {
+                        method: 'get',
+                        url: `${HOST_URL}/api/v1/project/entries/table`,
+                        params: {
+                            fields: '_id,name,description,startDate,status,deadline,finished,progress,estimatedHours,type,_farmId,_farmRegionId,createdAt,updatedAt',
+                        },
+                        map: function (raw) {
+                            // sample data mapping
+                            // console.log('raw', raw);
+                            dataSet = raw;
+
+                            if (typeof raw.projectEntries !== 'undefined') {
+                                dataSet = raw.projectEntries;
+                                // console.log('dataSet', dataSet);
+                            }
+                            return dataSet;
+                        }
+
+                    },
                 },
-              map: function(raw) {
-                  // sample data mapping
-                  // console.log('raw', raw);
-                  dataSet = raw;
+                pageSize: 10,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true,
+                //autoColumns: true,  // newly added
+            },
 
-                  if (typeof raw.projectEntries !== 'undefined') {
-                  dataSet = raw.projectEntries;
-                  // console.log('dataSet', dataSet);
-                  }
-                  return dataSet;
-              }
+            // layout definition
+            layout: {
+                scroll: true, // enable/disable datatable scroll both horizontal and
+                footer: false, // display/hide footer
+                height: 450,
 
-              },
-          },
-          pageSize: 10,
-          serverPaging: true,
-          serverFiltering: true,
-          serverSorting: true,
-          //autoColumns: true,  // newly added
-          },
+            },
 
-          // layout definition
-          layout: {
-          scroll: true, // enable/disable datatable scroll both horizontal and
-          footer: false, // display/hide footer
-          height: 450,
+            // column sorting
+            sortable: true,
 
-          },
+            pagination: true,
+            search: {
+                input: $('#tablePe_search_query_2'),
+                key: 'generalSearch',
+            },
 
-          // column sorting
-          sortable: true,
-
-          pagination: true,
-          search: {
-          input: $('#tablePe_search_query_2'),
-          key: 'generalSearch',
-          },
-
-          // columns definition
-          columns: [
-          {
-              field: '_id',
-              title: '#',
-              sortable: false,
-              width: 20,
-              selector: {
-              class: '',
-              },
-              textAlign: 'center',
-          },
-          {
-            field: 'name',
-            title: 'Name',
-            template: function (row) {
-              return '\
+            // columns definition
+            columns: [
+                {
+                    field: '_id',
+                    title: '#',
+                    sortable: false,
+                    width: 20,
+                    selector: {
+                        class: '',
+                    },
+                    textAlign: 'center',
+                },
+                {
+                    field: 'name',
+                    title: 'Name',
+                    template: function (row) {
+                        return '\
                 <div>\
                 <a href="#">' + row.name + '</a></div>\
               ';
-            }
-          },
-          {
-            field: 'description',
-            title: 'Description',
-          },
-          {
-            field: 'status',
-            title: 'Status',
-          },
-          {
-            field: 'deadline',
-            title: 'Deadline',
-          },
-          {
-            field: 'finished',
-            title: 'Finished',
-          },
-          {
-            field: 'progress',
-            title: 'Progress',
-          },
-          {
-            field: 'estimatedHours',
-            title: 'Estimated Hours',
-          },
-          {
-            field: 'type',
-            title: 'Type',
-          },
-          {
-            field: '_farmId',
-            title: 'Farm ID',
-          },
-          {
-            field: '_farmRegionId',
-            title: 'Farm Region ID',
-          },
-          {
-            field: 'createdBy',
-            title: 'createdBy',
-          },
-          {
-            field: 'createdAt',
-            title: 'createdAt',
-          },
-          {
-            field: 'updatedAt',
-            title: 'updatedAt',
-          },
-          {
-              field: 'details',
-              title: 'Details',
-              textAlign: 'center',
-              //width: 100,
-              sortable: false,
-              template: function () {
-              return '\
+                    }
+                },
+                {
+                    field: 'description',
+                    title: 'Description',
+                },
+                {
+                    field: 'status',
+                    title: 'Status',
+                },
+                {
+                    field: 'deadline',
+                    title: 'Deadline',
+                },
+                {
+                    field: 'finished',
+                    title: 'Finished',
+                },
+                {
+                    field: 'progress',
+                    title: 'Progress',
+                },
+                {
+                    field: 'estimatedHours',
+                    title: 'Estimated Hours',
+                },
+                {
+                    field: 'type',
+                    title: 'Type',
+                },
+                {
+                    field: '_farmId',
+                    title: 'Farm ID',
+                },
+                {
+                    field: '_farmRegionId',
+                    title: 'Farm Region ID',
+                },
+                {
+                    field: 'createdBy',
+                    title: 'createdBy',
+                },
+                {
+                    field: 'createdAt',
+                    title: 'createdAt',
+                },
+                {
+                    field: 'updatedAt',
+                    title: 'updatedAt',
+                },
+                {
+                    field: 'details',
+                    title: 'Details',
+                    textAlign: 'center',
+                    //width: 100,
+                    sortable: false,
+                    template: function () {
+                        return '\
                   <a href="#" class="btn btn-sm btn-light" role="button">\
                   view details\
                   </a >\
               '
-              ;
-              },
-          },
-          {
-              field: 'Actions',
-              title: 'Actions',
-              sortable: false,
-              width: 125,
-              overflow: 'visible',
-                  autoHide: false,
-              template: function (row) {
-                  return '\
+                            ;
+                    },
+                },
+                {
+                    field: 'Actions',
+                    title: 'Actions',
+                    sortable: false,
+                    width: 125,
+                    overflow: 'visible',
+                    autoHide: false,
+                    template: function (row) {
+                        return '\
                               <div class="dropdown dropdown-inline">\
                                   <a href="javascript:;" class="btn btn-sm btn-clean btn-icon mr-2" data-toggle="dropdown">\
                                   <i class="fas fa-cog">\
@@ -209,509 +209,509 @@ const ProjectEntriesCRUD = (function () {
                                       </ul>\
                                   </div>\
                               </div>\
-                              <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id +'">\
+                              <a href="javascript:;" id="btnEdit" class="btn btn-sm btn-clean btn-icon btnEdit" title="Edit details" data-filed="_id" aria-label="'+ row._id + '">\
                               <i class="far fa-edit">\
                               </i>\
                               </a>\
-                              <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id +'">\
+                              <a href="javascript:;" id="btnDelete" class="btn btn-sm btn-clean btn-icon btnDelete" title="Delete" data-filed="_id" aria-label="'+ row._id + '">\
                               <i class="far fa-trash-alt">\
                               </i>\
                               </a>\
                           ';
-              },
-          },
-          ],
-      }
-          options.extensions = {
-          // boolean or object (extension options)
-          checkbox: true,
-      };
-
-      /* Table Initialize */
-      const datatable = $('#tablePe').KTDatatable(options);
-
-      /* Form */
-      const PeForm = document.querySelector('#formPe');
-      let FormSubmitButton = document.querySelector('#btnAddNewPeFormSubmitButton');
-      // Options
-      let formOptions = {
-          fields: {
-            peName: {
-                validators: {
-                    notEmpty: {
-                    message: 'Name is required',
                     },
                 },
-                },  
-                peDescription : {
+            ],
+        }
+        options.extensions = {
+            // boolean or object (extension options)
+            checkbox: true,
+        };
+
+        /* Table Initialize */
+        const datatable = $('#tablePe').KTDatatable(options);
+
+        /* Form */
+        const PeForm = document.querySelector('#formPe');
+        let FormSubmitButton = document.querySelector('#btnAddNewPeFormSubmitButton');
+        // Options
+        let formOptions = {
+            fields: {
+                peName: {
                     validators: {
-                    notEmpty: {
-                        message: 'Description is required',
+                        notEmpty: {
+                            message: 'Name is required',
+                        },
                     },
+                },
+                peDescription: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
                     },
                 },
                 peStatus: {
-                validators: {
-                    notEmpty: {
-                    message: 'Status is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Status is required',
+                        },
                     },
                 },
-                }, 
                 peStartDate: {
-                validators: {
-                    notEmpty: {
-                    message: 'Date is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Date is required',
+                        },
                     },
-                },
                 },
                 peDeadline: {
-                validators: {
-                    notEmpty: {
-                    message: 'Date is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Date is required',
+                        },
                     },
-                },
                 },
                 peFinished: {
-                validators: {
-                    notEmpty: {
-                    message: 'Date is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Date is required',
+                        },
                     },
-                },
                 },
                 peProgress: {
-                validators: {
-                    notEmpty: {
-                    message: 'Progress is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Progress is required',
+                        },
                     },
-                },
                 },
                 peEstimatedHours: {
-                validators: {
-                    notEmpty: {
-                    message: 'Estimated Hours is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Estimated Hours is required',
+                        },
                     },
-                },
                 },
                 peType: {
-                validators: {
-                    notEmpty: {
-                    message: 'Type is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Type is required',
+                        },
                     },
-                },
                 },
                 peFarmId: {
-                validators: {
-                    notEmpty: {
-                    message: 'Farm ID is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Farm ID is required',
+                        },
                     },
-                },
                 },
                 peFarmRegionId: {
-                validators: {
-                    notEmpty: {
-                    message: 'Farm Region ID is required',
+                    validators: {
+                        notEmpty: {
+                            message: 'Farm Region ID is required',
+                        },
                     },
                 },
-                },
 
 
-          },
-          plugins: {
-          //Learn more: https://formvalidation.io/guide/plugins
-          trigger: new FormValidation.plugins.Trigger(),
-          // Bootstrap Framework Integration
-          bootstrap: new FormValidation.plugins.Bootstrap(),
-          // Validate fields when clicking the Submit button
-          FormSubmitButton: new FormValidation.plugins.SubmitButton(),
-          // Submit the form when all fields are valid
-          //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
-          },
-      };
+            },
+            plugins: {
+                //Learn more: https://formvalidation.io/guide/plugins
+                trigger: new FormValidation.plugins.Trigger(),
+                // Bootstrap Framework Integration
+                bootstrap: new FormValidation.plugins.Bootstrap(),
+                // Validate fields when clicking the Submit button
+                FormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                // Submit the form when all fields are valid
+                //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
+            },
+        };
 
-      let fv;
+        let fv;
 
-      /* Search Operations */
-      // search based on status
-      $('#tablePe_search_status_2').on('change', function () {
-          datatable.search($(this).val().toLowerCase(), 'Status');
-      });
-
-      // search based on type
-      $('#tablePe_search_type_2').on('change', function () {
-          datatable.search($(this).val().toLowerCase(), 'Type');
-      });
-
-      $('#tablePe_search_status_2, #tablePe_search_type_2').selectpicker();
-
-      // modal open
-      $('#btnOpenPeModal').on('click', async function (e) {
-          console.log('openButton is clicked');
-
-          // enabling disabling buttons
-          $('#btnAddNewPeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-          $('#btnSavePeFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
-
-          FormSubmitButton = document.querySelector('#btnAddNewPeFormSubmitButton');
-
-          $('#modalPe').modal('show');   // open modal
-
-          $('#modalPe').find('.modal-title').text('Add New Entries'); // Setting title for modal
-
-      });
-
-      // modal post closed
-      $('#modalPe').on('hidden.bs.modal', function (e) {
-          console.log('Modal closed');
-
-          if (fv) {
-              // clearing forms
-              fv.resetForm();
-              fv.destroy();
-          }
-
-          // clearing validator messages
-          $('.fv-plugins-message-container').text(''); // remove message
-
-          // clearing fields
-          $("#formPe").trigger('reset'); // clear form fields
-
-          // manually resetting other fields
-      });
-
-      // modal post opened
-      $('#modalPe').on('shown.bs.modal', function (e) {
-          console.log('Modal open');
-
-        // Initializing
-
-        // Date & Time : Date
-        $('#peStartDate').datepicker({
-            rtl: KTUtil.isRTL(),
-            todayBtn: 'linked',
-            clearBtn: true,
-            todayHighlight: true,
-            orientation: 'bottom left',
-            templates: arrows,
+        /* Search Operations */
+        // search based on status
+        $('#tablePe_search_status_2').on('change', function () {
+            datatable.search($(this).val().toLowerCase(), 'Status');
         });
-        $('#peDeadline').datepicker({
-            rtl: KTUtil.isRTL(),
-            todayBtn: 'linked',
-            clearBtn: true,
-            todayHighlight: true,
-            orientation: 'bottom left',
-            templates: arrows,
-        });    
-        $('#peFinished').datepicker({
-            rtl: KTUtil.isRTL(),
-            todayBtn: 'linked',
-            clearBtn: true,
-            todayHighlight: true,
-            orientation: 'bottom left',
-            templates: arrows,
-            });  
 
-        // Progress
-        $('#peProgress').TouchSpin({
-        buttondown_class: 'btn btn-secondary',
-        buttonup_class: 'btn btn-secondary',
-        verticalbuttons: true,
-        verticalup: '<i class="ki ki-plus"></i>',
-        verticaldown: '<i class="ki ki-minus"></i>',
-
-        min: 0,
-        max: 10000,
-        step: 5,
-        decimals: 0,
-        boostat: 5,
-        maxboostedstep: 10,
-        prefix:''
+        // search based on type
+        $('#tablePe_search_type_2').on('change', function () {
+            datatable.search($(this).val().toLowerCase(), 'Type');
         });
-        // Estimated Hours
-        $('#peEstimatedHours').TouchSpin({
-        buttondown_class: 'btn btn-secondary',
-        buttonup_class: 'btn btn-secondary',
-        verticalbuttons: true,
-        verticalup: '<i class="ki ki-plus"></i>',
-        verticaldown: '<i class="ki ki-minus"></i>',
 
-        min: 0,
-        max: 10000,
-        step: 5,
-        decimals: 0,
-        boostat: 5,
-        maxboostedstep: 10,
-        prefix: ''
+        $('#tablePe_search_status_2, #tablePe_search_type_2').selectpicker();
+
+        // modal open
+        $('#btnOpenPeModal').on('click', async function (e) {
+            console.log('openButton is clicked');
+
+            // enabling disabling buttons
+            $('#btnAddNewPeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+            $('#btnSavePeFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+
+            FormSubmitButton = document.querySelector('#btnAddNewPeFormSubmitButton');
+
+            $('#modalPe').modal('show');   // open modal
+
+            $('#modalPe').find('.modal-title').text('Add New Entries'); // Setting title for modal
+
         });
-        
 
-      });
+        // modal post closed
+        $('#modalPe').on('hidden.bs.modal', function (e) {
+            console.log('Modal closed');
 
-      // form reset operation
-      $('#formPe').on('click', '.btnReset', function (e) {
-          // console.log('btnResetMenuSectionForm is clicked');
+            if (fv) {
+                // clearing forms
+                fv.resetForm();
+                fv.destroy();
+            }
 
-          if (fv) {
-              // clearing forms
-              fv.resetForm();
-              fv.destroy();
-          }
-          else {
-              // initiate validation
-              fv = FormValidation.formValidation(menuSectionForm, formOptions);
-          }
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
 
-          // clearing validator messages
-          $('.fv-plugins-message-container').text(''); // remove message
+            // clearing fields
+            $("#formPe").trigger('reset'); // clear form fields
 
-          // clearing fields
-          $("#formPe").trigger('reset'); // clear form fields
+            // manually resetting other fields
+        });
 
-          // clear manually
-          // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
-      })
+        // modal post opened
+        $('#modalPe').on('shown.bs.modal', function (e) {
+            console.log('Modal open');
 
-      // form add operation
-      $('#formPe').on('click', '.btnAdd', function (e) {
-          // console.log('btnCreate is clicked');
+            // Initializing
 
-          // clearing validator messages
-          $('.fv-plugins-message-container').text(''); // remove message
-          
-          FormSubmitButton = document.querySelector('#btnAddNewPeFormSubmitButton');
+            // Date & Time : Date
+            $('#peStartDate').datepicker({
+                rtl: KTUtil.isRTL(),
+                todayBtn: 'linked',
+                clearBtn: true,
+                todayHighlight: true,
+                orientation: 'bottom left',
+                templates: arrows,
+            });
+            $('#peDeadline').datepicker({
+                rtl: KTUtil.isRTL(),
+                todayBtn: 'linked',
+                clearBtn: true,
+                todayHighlight: true,
+                orientation: 'bottom left',
+                templates: arrows,
+            });
+            $('#peFinished').datepicker({
+                rtl: KTUtil.isRTL(),
+                todayBtn: 'linked',
+                clearBtn: true,
+                todayHighlight: true,
+                orientation: 'bottom left',
+                templates: arrows,
+            });
 
-          // Validation
-          fv = FormValidation.formValidation(PeForm, formOptions);
+            // Progress
+            $('#peProgress').TouchSpin({
+                buttondown_class: 'btn btn-secondary',
+                buttonup_class: 'btn btn-secondary',
+                verticalbuttons: true,
+                verticalup: '<i class="ki ki-plus"></i>',
+                verticaldown: '<i class="ki ki-minus"></i>',
 
-          // validation failed
-          fv.on('core.form.invalid', async function () {
-              // console.log('Something went wrong!!');    
-          });
+                min: 0,
+                max: 10000,
+                step: 5,
+                decimals: 0,
+                boostat: 5,
+                maxboostedstep: 10,
+                prefix: ''
+            });
+            // Estimated Hours
+            $('#peEstimatedHours').TouchSpin({
+                buttondown_class: 'btn btn-secondary',
+                buttonup_class: 'btn btn-secondary',
+                verticalbuttons: true,
+                verticalup: '<i class="ki ki-plus"></i>',
+                verticaldown: '<i class="ki ki-minus"></i>',
 
-          // validation successful
-          fv.on('core.form.valid', async function () {
+                min: 0,
+                max: 10000,
+                step: 5,
+                decimals: 0,
+                boostat: 5,
+                maxboostedstep: 10,
+                prefix: ''
+            });
 
 
-              // Show loading state on button
-              KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+        });
 
-              // Accessing Restful API
-              await axios({
-                  method: 'post',
-                  url: `${HOST_URL}/api/v1/project/entries`,
-                  data: { 
-                      name: document.querySelector('#peName').value,
-                      description: document.querySelector('#peDescription').value,
-                      status:document.querySelector('#peStatus').value,
-                      startDate: document.querySelector('#peStartDate').value,
-                      deadline: document.querySelector('#peDeadline').value,
-                      finished: document.querySelector('#peFinished').value,
-                      progress: document.querySelector('#peProgress').value,
-                      estimatedHours: document.querySelector('#peEstimatedHours').value,
-                      type: document.querySelector('#peType').value,
-                      _farmId: document.querySelector('#peFarmId').value,
-                      _farmRegionId: document.querySelector('#peFarmRegionId').value,
-                  },
-              }).then(function (res) {
-              
-                  // Return valid JSON
-                  // console.log(res);
+        // form reset operation
+        $('#formPe').on('click', '.btnReset', function (e) {
+            // console.log('btnResetMenuSectionForm is clicked');
 
-                  // Release button
-                  KTUtil.btnRelease(FormSubmitButton);
+            if (fv) {
+                // clearing forms
+                fv.resetForm();
+                fv.destroy();
+            }
+            else {
+                // initiate validation
+                fv = FormValidation.formValidation(menuSectionForm, formOptions);
+            }
 
-                  if (res.data.status == 'success') {
-                      // reseting & clearing
-                      $('#modalPe').modal('hide')  // hiding modal form
-                      toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tablePe').KTDatatable().reload(); // reload table
-                  }
-                  else if (res.data.status == 'error') {
-                      $('#modalPe').modal('hide')  // hiding modal form
-                      toastr.error(`${res.data.message}`, `${res.data.status}`)
-                  }
-                  else {
-                      $('#modalPe').modal('hide')
-                  };
-              });
-          });
-      });
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
 
-      // form save operation
-      $('#formPe').on('click', '.btnSave', function (e) {
-          console.log('btnSave is clicked');
+            // clearing fields
+            $("#formPe").trigger('reset'); // clear form fields
 
-          // clearing validator messages
-          $('.fv-plugins-message-container').text(''); // remove message
-          
-          FormSubmitButton = document.querySelector('#btnSavePeFormSubmitButton');
+            // clear manually
+            // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
+        })
 
-          // Validation
-          fv = FormValidation.formValidation(PeForm, formOptions);
+        // form add operation
+        $('#formPe').on('click', '.btnAdd', function (e) {
+            // console.log('btnCreate is clicked');
 
-          // validation failed
-          fv.on('core.form.invalid', async function () {
-              // console.log('Something went wrong!!');    
-          });
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
 
-          // validation successful
-          fv.on('core.form.valid', async function () {
+            FormSubmitButton = document.querySelector('#btnAddNewPeFormSubmitButton');
 
-              const id = document.querySelector('#peId').value;
+            // Validation
+            fv = FormValidation.formValidation(PeForm, formOptions);
 
-              // Show loading state on button
-              KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
+            // validation failed
+            fv.on('core.form.invalid', async function () {
+                // console.log('Something went wrong!!');    
+            });
 
-              // Accessing Restful API
-              await axios({
-                  method: 'patch',
-                  url: `${HOST_URL}/api/v1/project/entries/${id}`,
-                  data: {
-                    name: document.querySelector('#peName').value,
-                    description: document.querySelector('#peDescription').value,
-                    status:document.querySelector('#peStatus').value,
-                    startDate: document.querySelector('#peStartDate').value,
-                    deadline: document.querySelector('#peDeadline').value,
-                    finished: document.querySelector('#peFinished').value,
-                    progress: document.querySelector('#peProgress').value,
-                    estimatedHours: document.querySelector('#peEstimatedHours').value,
-                    type: document.querySelector('#peType').value,
-                    _farmId: document.querySelector('#peFarmId').value,
-                    _farmRegionId: document.querySelector('#peFarmRegionId').value,
-                  },
-              }).then(function (res) {
-                  // Return valid JSON
-                  // console.log(res);
+            // validation successful
+            fv.on('core.form.valid', async function () {
 
-                  // Release button
-                  KTUtil.btnRelease(FormSubmitButton);
 
-                  if (res.data.status == 'success') {
-                      // reseting & clearing
-                      $('#modalPe').modal('hide')  // hiding modal form
-                      toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                      $('#tablePe').KTDatatable().reload(); // reload table
+                // Show loading state on button
+                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-                  }
-                  else if (res.data.status == 'error') {
-                      $('#modalPe').modal('hide')  // hiding modal form
-                      toastr.error(`${res.data.message}`, `${res.data.status}`)
-                  }
-                  else {
-                      $('#modalPe').modal('hide') // hiding modal form
-                  };
-              });
-          });
-      });
+                // Accessing Restful API
+                await axios({
+                    method: 'post',
+                    url: `${HOST_URL}/api/v1/project/entries`,
+                    data: {
+                        name: document.querySelector('#peName').value,
+                        description: document.querySelector('#peDescription').value,
+                        status: document.querySelector('#peStatus').value,
+                        startDate: document.querySelector('#peStartDate').value,
+                        deadline: document.querySelector('#peDeadline').value,
+                        finished: document.querySelector('#peFinished').value,
+                        progress: document.querySelector('#peProgress').value,
+                        estimatedHours: document.querySelector('#peEstimatedHours').value,
+                        type: document.querySelector('#peType').value,
+                        _farmId: document.querySelector('#peFarmId').value,
+                        _farmRegionId: document.querySelector('#peFarmRegionId').value,
+                    },
+                }).then(function (res) {
 
-      // Edit Modal Window - opens modal with appropriate properties
-      $('#tablePe').on('click', '.btnEdit', async function (e) {
-          // console.log('btnEdit is clicked');
+                    // Return valid JSON
+                    // console.log(res);
 
-          var id = $(this).attr("aria-label");
-          // console.log(id);
+                    // Release button
+                    KTUtil.btnRelease(FormSubmitButton);
 
-          FormSubmitButton = document.querySelector('#btnSavePeFormSubmitButton');
+                    if (res.data.status == 'success') {
+                        // reseting & clearing
+                        $('#modalPe').modal('hide')  // hiding modal form
+                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                        $('#tablePe').KTDatatable().reload(); // reload table
+                    }
+                    else if (res.data.status == 'error') {
+                        $('#modalPe').modal('hide')  // hiding modal form
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                    else {
+                        $('#modalPe').modal('hide')
+                    };
+                });
+            });
+        });
 
-          // enabling disabling buttons
-          $('#btnAddNewPeFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-          $('#btnSavePeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+        // form save operation
+        $('#formPe').on('click', '.btnSave', function (e) {
+            console.log('btnSave is clicked');
 
-          $('#modalPe').modal('show');   // open modal
+            // clearing validator messages
+            $('.fv-plugins-message-container').text(''); // remove message
 
-          $('#modalPe').find('.modal-title').text('Edit Entry'); // Setting title for modal
+            FormSubmitButton = document.querySelector('#btnSavePeFormSubmitButton');
 
-          // retrieving data
-          await axios({
-              method: 'GET',
-              url: `${HOST_URL}/api/v1/project/entries/${id}`,
-          }).then(async function (res) {
-              // Return valid JSON
-              console.log(res);
+            // Validation
+            fv = FormValidation.formValidation(PeForm, formOptions);
 
-          if (res.data.status == 'success') {
-              
-                  // // fetching menu manager select2
-                  // await axios({
-                  //     method: 'GET',
-                  //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
-                  // }).then(function (res) {
-                  //     //Return valid JSON
-                  //     console.log(res);
+            // validation failed
+            fv.on('core.form.invalid', async function () {
+                // console.log('Something went wrong!!');    
+            });
 
-                  //     if (res.data.status === 'success') {
-                  //         // updating menuManagerSelect values
-                  //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
-                  //         $('#menuManagerSelect').append(option).trigger('change');
-                  //     }
-                  // });
+            // validation successful
+            fv.on('core.form.valid', async function () {
 
-                  // updating fields with data
-                  document.querySelector('#peId').value = res.data.projectEntries._id;
-                  document.querySelector('#peName').value = res.data.projectEntries.name;
-                  document.querySelector('#peDescription').value = res.data.projectEntries.description;
-                  document.querySelector('#peStatus').value = res.data.projectEntries.status;
-                  document.querySelector('#peStartDate').value = res.data.projectEntries.startDate;
-                  document.querySelector('#peDeadline').value = res.data.projectEntries.deadline;
-                  document.querySelector('#peFinished').value = res.data.projectEntries.finished;
-                  document.querySelector('#peProgress').value = res.data.projectEntries.progress;
-                  document.querySelector('#peEstimatedHours').value = res.data.projectEntries.estimatedHours;
-                  document.querySelector('#peType').value = res.data.projectEntries.type;
-                  document.querySelector('#peFarmId').value  = res.data.projectEntries._farmId;
-                  document.querySelector('#peFarmRegionId').value = res.data.projectEntries._farmRegionId;
-              }
-              
-          });
-      });
+                const id = document.querySelector('#peId').value;
 
-      // deleteOne operation
-      $('#tablePe').on('click', '.btnDelete', function (e) {
-          console.log('btnDelete Clicked');
-          let ids = $(this).attr("aria-label");
+                // Show loading state on button
+                KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-          ids = ids.toString();
+                // Accessing Restful API
+                await axios({
+                    method: 'patch',
+                    url: `${HOST_URL}/api/v1/project/entries/${id}`,
+                    data: {
+                        name: document.querySelector('#peName').value,
+                        description: document.querySelector('#peDescription').value,
+                        status: document.querySelector('#peStatus').value,
+                        startDate: document.querySelector('#peStartDate').value,
+                        deadline: document.querySelector('#peDeadline').value,
+                        finished: document.querySelector('#peFinished').value,
+                        progress: document.querySelector('#peProgress').value,
+                        estimatedHours: document.querySelector('#peEstimatedHours').value,
+                        type: document.querySelector('#peType').value,
+                        _farmId: document.querySelector('#peFarmId').value,
+                        _farmRegionId: document.querySelector('#peFarmRegionId').value,
+                    },
+                }).then(function (res) {
+                    // Return valid JSON
+                    // console.log(res);
 
-          const requests = {
-              params: {
-                  _id: ids,
-              }
-          }
+                    // Release button
+                    KTUtil.btnRelease(FormSubmitButton);
 
-          axios.delete(`${HOST_URL}/api/v1/project/entries`, requests);
+                    if (res.data.status == 'success') {
+                        // reseting & clearing
+                        $('#modalPe').modal('hide')  // hiding modal form
+                        toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
+                        $('#tablePe').KTDatatable().reload(); // reload table
 
-          // reload table
-          $('#tablePe').KTDatatable().reload();
-          
-      });
+                    }
+                    else if (res.data.status == 'error') {
+                        $('#modalPe').modal('hide')  // hiding modal form
+                        toastr.error(`${res.data.message}`, `${res.data.status}`)
+                    }
+                    else {
+                        $('#modalPe').modal('hide') // hiding modal form
+                    };
+                });
+            });
+        });
 
-      // deleteAll mass operation
-      datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
-          // datatable.checkbox() access to extension methods
-          const ids = datatable.checkbox().getSelectedId();
-          const count = ids.length;
-      
-          $('#tablePe_selected_records_2').html(count);
+        // Edit Modal Window - opens modal with appropriate properties
+        $('#tablePe').on('click', '.btnEdit', async function (e) {
+            // console.log('btnEdit is clicked');
 
-          console.log(count)
-      
-          if (count > 0) {
-              $('#tablePe_group_action_form_2').collapse('show');
-          } else {
-              $('#tablePe_group_action_form_2').collapse('hide');
-          }
-      });
+            var id = $(this).attr("aria-label");
+            // console.log(id);
 
-      };
+            FormSubmitButton = document.querySelector('#btnSavePeFormSubmitButton');
+
+            // enabling disabling buttons
+            $('#btnAddNewPeFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+            $('#btnSavePeFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+
+            $('#modalPe').modal('show');   // open modal
+
+            $('#modalPe').find('.modal-title').text('Edit Entry'); // Setting title for modal
+
+            // retrieving data
+            await axios({
+                method: 'GET',
+                url: `${HOST_URL}/api/v1/project/entries/${id}`,
+            }).then(async function (res) {
+                // Return valid JSON
+                console.log(res);
+
+                if (res.data.status == 'success') {
+
+                    // // fetching menu manager select2
+                    // await axios({
+                    //     method: 'GET',
+                    //     url: `${HOST_URL}/api/v1/menu/manager/popSel2/`+ res.data.menuManager._id,
+                    // }).then(function (res) {
+                    //     //Return valid JSON
+                    //     console.log(res);
+
+                    //     if (res.data.status === 'success') {
+                    //         // updating menuManagerSelect values
+                    //         var option = new Option(res.data.manager.text, res.data.manager.id, true, true);
+                    //         $('#menuManagerSelect').append(option).trigger('change');
+                    //     }
+                    // });
+
+                    // updating fields with data
+                    document.querySelector('#peId').value = res.data.projectEntries._id;
+                    document.querySelector('#peName').value = res.data.projectEntries.name;
+                    document.querySelector('#peDescription').value = res.data.projectEntries.description;
+                    document.querySelector('#peStatus').value = res.data.projectEntries.status;
+                    document.querySelector('#peStartDate').value = res.data.projectEntries.startDate;
+                    document.querySelector('#peDeadline').value = res.data.projectEntries.deadline;
+                    document.querySelector('#peFinished').value = res.data.projectEntries.finished;
+                    document.querySelector('#peProgress').value = res.data.projectEntries.progress;
+                    document.querySelector('#peEstimatedHours').value = res.data.projectEntries.estimatedHours;
+                    document.querySelector('#peType').value = res.data.projectEntries.type;
+                    document.querySelector('#peFarmId').value = res.data.projectEntries._farmId;
+                    document.querySelector('#peFarmRegionId').value = res.data.projectEntries._farmRegionId;
+                }
+
+            });
+        });
+
+        // deleteOne operation
+        $('#tablePe').on('click', '.btnDelete', function (e) {
+            console.log('btnDelete Clicked');
+            let ids = $(this).attr("aria-label");
+
+            ids = ids.toString();
+
+            const requests = {
+                params: {
+                    _id: ids,
+                }
+            }
+
+            axios.delete(`${HOST_URL}/api/v1/project/entries`, requests);
+
+            // reload table
+            $('#tablePe').KTDatatable().reload();
+
+        });
+
+        // deleteAll mass operation
+        datatable.on('datatable-on-check datatable-on-uncheck', function (e) {
+            // datatable.checkbox() access to extension methods
+            const ids = datatable.checkbox().getSelectedId();
+            const count = ids.length;
+
+            $('#tablePe_selected_records_2').html(count);
+
+            console.log(count)
+
+            if (count > 0) {
+                $('#tablePe_group_action_form_2').collapse('show');
+            } else {
+                $('#tablePe_group_action_form_2').collapse('hide');
+            }
+        });
+
+    };
 
 
     return {
         // public functions
-          init: function () {
-          _ProjectEntries();
-          
+        init: function () {
+            _ProjectEntries();
+
         },
-      };
-  })();
-  
-  jQuery(document).ready(function () {
-      ProjectEntriesCRUD.init();
-  });    
+    };
+})();
+
+jQuery(document).ready(function () {
+    ProjectEntriesCRUD.init();
+});    
