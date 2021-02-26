@@ -227,15 +227,11 @@ exports.ratingEntriesTable = (req, res) => {
 // RATING ALL RELATED CONTROLLER
 exports.ratingAttributeGroupsAll = (req, res) => {
   console.log('We are in Rating Attribute Groups All Page');
-  res
-    .status(200)
-    .render('./../views/pages/rating/ratingAttributeGroupsAll');
+  res.status(200).render('./../views/pages/rating/ratingAttributeGroupsAll');
 };
 exports.ratingAttributeAll = (req, res) => {
   console.log('We are in Rating Attribute All Page');
-  res
-    .status(200)
-    .render('./../views/pages/rating/ratingAttributeAll');
+  res.status(200).render('./../views/pages/rating/ratingAttributeAll');
 };
 
 // EVENT RELATED CONTROLLER
@@ -675,9 +671,10 @@ exports.farmExportedStrategyAll = (req, res) => {
 
 exports.farmRegionsAll = (req, res) => {
   console.log('We are in Farm Regions All Page');
-  res.status(200).render('./../views/pages/precision-agriculture/farmRegionsAll');
+  res
+    .status(200)
+    .render('./../views/pages/precision-agriculture/farmRegionsAll');
 };
-
 
 // PRECISION AGRICULTURE TABLE RELATED CONTROLLER
 exports.farmEntriesTable = (req, res) => {
@@ -813,7 +810,9 @@ exports.taskChecklistEntries = (req, res) => {
 
 exports.projectEntriesAll = (req, res) => {
   console.log('We are in Project Entries All Form Page');
-  res.status(200).render('./../views/pages/project-management/projectEntriesAll');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/projectEntriesAll');
 };
 exports.taskEntriesAll = (req, res) => {
   console.log('We are in Task Entries All Form Page');
@@ -821,7 +820,9 @@ exports.taskEntriesAll = (req, res) => {
 };
 exports.projectActivityAll = (req, res) => {
   console.log('We are in Project Activity All Form Page');
-  res.status(200).render('./../views/pages/project-management/projectActivityAll');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/projectActivityAll');
 };
 exports.taskChecklistEntriesAll = (req, res) => {
   console.log('We are in Task Checklist Entries All Form Page');
@@ -829,7 +830,6 @@ exports.taskChecklistEntriesAll = (req, res) => {
     .status(200)
     .render('./../views/pages/project-management/taskChecklistEntriesAll');
 };
-
 
 exports.projectDiscussions = (req, res) => {
   console.log('We are in Project Discussions Form Page');
@@ -850,23 +850,27 @@ exports.taskReminders = (req, res) => {
   res.status(200).render('./../views/pages/project-management/taskReminders');
 };
 
-exports.projectDiscussions = (req, res) => {
+exports.projectDiscussionsAll = (req, res) => {
   console.log('We are in Project Discussions Form Page');
   res
     .status(200)
     .render('./../views/pages/project-management/projectDiscussionsAll');
 };
-exports.taskStatus = (req, res) => {
+exports.taskStatusAll = (req, res) => {
   console.log('We are in Project Task Status Form Page');
   res.status(200).render('./../views/pages/project-management/taskStatusAll');
 };
-exports.projectMembers = (req, res) => {
+exports.projectMembersAll = (req, res) => {
   console.log('We are in Project Memebers Form Page');
-  res.status(200).render('./../views/pages/project-management/projectMembersAll');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/projectMembersAll');
 };
-exports.taskReminders = (req, res) => {
+exports.taskRemindersAll = (req, res) => {
   console.log('We are in Project Task Reminders Form Page');
-  res.status(200).render('./../views/pages/project-management/taskRemindersAll');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/taskRemindersAll');
 };
 
 exports.taskTimers = (req, res) => {
