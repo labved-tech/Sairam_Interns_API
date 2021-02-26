@@ -3,7 +3,7 @@
 
 // Class definition
 
-const directoryTable = (function () {
+const DirectoryTable = (function () {
     var dataSet;
     // Private functions
 

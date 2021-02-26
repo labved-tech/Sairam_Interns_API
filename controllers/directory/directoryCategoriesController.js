@@ -130,7 +130,7 @@ exports.getDirectoryCategories = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: 'success',
     message: `Got DirectoryCategories Id=${id}`,
-    Data: { directoryCategories },
+    directoryCategories,
   });
 
   next();
