@@ -74,10 +74,7 @@ router.get(
   '/rating/attribute/groups/all',
   viewsController.ratingAttributeGroupsAll
 );
-router.get(
-  '/rating/attribute/all',
-  viewsController.ratingAttributeAll
-);
+router.get('/rating/attribute/all', viewsController.ratingAttributeAll);
 
 // ANALYTICS RELATED ROUTES
 router.get('/analytics', viewsController.analytics);
@@ -151,7 +148,6 @@ router.get('/event/entries', viewsController.eventEntries);
 router.get('/event/entries/table', viewsController.eventEntriesTable);
 router.get('/event/entries/all', viewsController.eventEntriesAll);
 
-
 // COMMENTS RELATED ROUTES
 router.get('/comment/entries', viewsController.commentEntries);
 router.get('/comment/entries/table', viewsController.commentEntriesTable);
@@ -178,26 +174,17 @@ router.get(
   viewsController.ticketCategoriesAll
 );
 router.get('/ticket-support/entries/table', viewsController.ticketEntriesTable);
-router.get(
-  '/ticket-support/entries/all',
-  viewsController.ticketEntriesAll
-);
+router.get('/ticket-support/entries/all', viewsController.ticketEntriesAll);
 router.get(
   '/ticket-support/Products/table',
   viewsController.ticketProductsTable
 );
-router.get(
-  '/ticket-support/Products/all',
-  viewsController.ticketProductsAll
-);
+router.get('/ticket-support/Products/all', viewsController.ticketProductsAll);
 router.get(
   '/ticket-support/Response/table',
   viewsController.ticketResponseTable
 );
-router.get(
-  '/ticket-support/Response/all',
-  viewsController.ticketResponseAll
-);
+router.get('/ticket-support/Response/all', viewsController.ticketResponseAll);
 
 // LEADS RELATED ROUTES
 router.get('/lead/categories', viewsController.leadCategories);
@@ -271,7 +258,10 @@ router.get(
 );
 router.get('/farm/regions/table', viewsController.farmRegionsTable);
 router.get('/farm/strategy/table', viewsController.farmStrategyTable);
-router.get('/farm/exported-strategy/all', viewsController.farmExportedStrategyAll);
+router.get(
+  '/farm/exported-strategy/all',
+  viewsController.farmExportedStrategyAll
+);
 router.get('/farm/regions/all', viewsController.farmRegionsAll);
 // ECOMMERCE RELATED ROUTES
 router.get('/ecommerce/address/', viewsController.ecommerceAddress);
