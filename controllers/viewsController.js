@@ -885,6 +885,12 @@ exports.projectAdmins = (req, res) => {
   console.log('We are in Project Admins Form Page');
   res.status(200).render('./../views/pages/project-management/projectAdmins');
 };
+exports.projectAdminsAll = (req, res) => {
+  console.log('We are in Project Admins Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/projectAdminsAll');
+};
 exports.milestone = (req, res) => {
   console.log('We are in Milesstone Form Page');
   res.status(200).render('./../views/pages/project-management/milestone');
