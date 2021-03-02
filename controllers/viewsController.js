@@ -877,6 +877,12 @@ exports.taskTimers = (req, res) => {
   console.log('We are in Project Task Timers Form Page');
   res.status(200).render('./../views/pages/project-management/taskTimers');
 };
+exports.taskTimersAll = (req, res) => {
+  console.log('We are in Project Task Timers Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/taskTimersAll');
+};
 exports.projectNotes = (req, res) => {
   console.log('We are in Project Notes Form Page');
   res.status(200).render('./../views/pages/project-management/projectNotes');

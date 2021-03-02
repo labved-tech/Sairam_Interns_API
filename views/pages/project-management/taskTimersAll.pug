@@ -1,0 +1,206 @@
+extends ./../../base.pug
+
+block css-files
+
+block js-files
+    script(src='/js/pages/crud/myPages/project-management/taskTimers.js')
+
+
+block content
+    #kt_content(class='content d-flex flex-column flex-column-fluid')
+        include ./../../partials/_subheader/subheader-v1.pug
+        // begin::Entry
+        div(class='d-flex flex-column-fluid')
+            // begin::Container
+            div(class='container')
+                        // begin::Card
+                        div(class="card card-custom gutter-b")
+                            div(class="card-header flex-wrap border-0 pt-6 pb-0")
+                                div(class="card-title")
+                                    h3(class="card-label")
+                                        | Task Timers
+                                        span(class="d-block text-muted pt-2 font-size-sm") ajax row selection and group actions
+                                div(class="card-toolbar")
+                                    // begin::Dropdown
+                                    div(class='dropdown dropdown-inline mr-2')
+                                        button(type='button' class='btn btn-light-primary font-weight-bolder dropdown-toggle' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+                                            i(class='fas fa-file-export')
+                                            |  Export
+                                        // begin::Dropdown Menu
+                                        div(class="dropdown-menu dropdown-menu-sm dropdown-menu-right")
+                                            // begin::Navigation
+                                            ul(class="navi flex-column navi-hover py-2")
+                                                li(class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2")
+                                                    | Choose an option:
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-print")
+                                                        span(class="navi-text") Print
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-copy")
+                                                        span(class="navi-text") Copy
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-excel")
+                                                        span(class="navi-text") Excel
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-csv")
+                                                        span(class="navi-text") CSV
+                                                li(class="navi-item")
+                                                    a(href="#", class="navi-link")
+                                                        span(class="navi-icon")
+                                                            i(class="fas fa-file-pdf")
+                                                        span(class="navi-text") PDF
+                                            // end::Navigation
+                                        // end::Dropdown Menu
+                                    // end::Dropdown
+                                    // begin::Button
+                                    // Button trigger modal
+                                    button#btnOpenTtModal(type='button' class='btn btn-primary font-weight-bolder btnAdd')
+                                        | Add New
+
+                            div(class="card-body")
+                                // begin::Search Form
+                                div(class="mb-7")
+                                    div(class="row align-items-center")
+                                        div(class="col-lg-9 col-xl-8")
+                                            div(class="row align-items-center")
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="input-icon")
+                                                        input#tableTt_search_query_2(type="text", class="form-control", placeholder="Search...")
+                                                        span
+                                                            i(class="flaticon2-search-1 text-muted")
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="d-flex align-items-center")
+                                                        label(class="mr-3 mb-0 d-none d-md-block") Status:
+                                                        select#tableTt_search_status_2(class="form-control")
+                                                            option(value="") All
+                                                            option(value="1") Pending
+                                                            option(value="2") Delivered
+                                                            option(value="3") Canceled
+                                                            option(value="4") Success
+                                                            option(value="5") Info
+                                                            option(value="6") Danger
+                                                div(class="col-md-4 my-2 my-md-0")
+                                                    div(class="d-flex align-items-center")
+                                                        label(class="mr-3 mb-0 d-none d-md-block") Type:
+                                                        select#tableTt_search_type_2(class="form-control")
+                                                            option(value="") All
+                                                            option(value="1") Online
+                                                            option(value="2") Retail
+                                                            option(value="3") Direct
+                                        div(class="col-lg-3 col-xl-4 mt-5 mt-lg-0")
+                                            a(href="#", class="btn btn-light-primary px-6 font-weight-bold")
+                                                | Search
+                                // end::Search Form
+                                // begin: Selected Rows Group Action Form
+                                #tableTt_group_action_form_2(class="mt-10 mb-5 collapse")
+                                    div(class="d-flex align-items-center")
+                                        div(class="font-weight-bold text-danger mr-3")
+                                            | Selected 
+                                            span#tableTt_selected_records_2 0
+                                            |  records:
+                                        div(class="dropdown mr-2")
+                                            button(type="button", class="btn btn-primary btn-sm dropdown-toggle", data-toggle="dropdown")
+                                                | Update status
+                                            div(class="dropdown-menu dropdown-menu-sm")
+                                                ul(class="nav nav-hover flex-column")
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Pending
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Delivered
+                                                    li(class="nav-item")
+                                                        a(href="#", class="nav-link")
+                                                            span(class="nav-text") Canceled
+                                        button#btnDeleteAll(class="btn btn-sm btn-danger mr-2 btnDeleteAll", type="button")
+                                            | Delete All
+                                        button(class="btn btn-sm btn-success", type="button", data-toggle="modal", data-target="#tableTt_fetch_modal_2")
+                                            | Fetch Selected Records
+                                // end: Selected Rows Group Action Form
+                                // begin: Datatable
+                                #tableTt(class="datatable datatable-bordered datatable-head-custom")
+                                // end: Datatable
+                            // end::Card
+                        // end::Card
+
+                        // ##################################### TtFormModal ############################################################################################
+                        #modalTt(class='modal fade' data-backdrop='static' data-keyboard='true' tabindex='-1' role='dialog' aria-labelledby='TtModalLabel' aria-hidden='true')
+                            div(class='modal-dialog modal-dialog-top modal-xl modal-dialog-scrollable' role='document')
+                                div(class='modal-content')
+                                    // begin::Form
+                                    form#formTt(class='form')
+                                        div(class='modal-header')
+                                            h5(class='modal-title') Add New
+                                            button(type='button' class='close btnClose' data-dismiss='modal' aria-label='Close')
+                                                i(aria-hidden='true' class='ki ki-close')
+                                        div(class='modal-body')
+                                            div(data-scroll='true' data-height='350')
+                                                // ttId - hidden
+                                                div(class= 'form-group row')
+                                                    input#ttId(type='hidden' name='ttId')
+
+                                                //ttTaskId
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Task ID
+                                                    div(class='col-4')
+                                                        div(class='typeahead')
+                                                            input#ttTaskId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ttTaskId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                            span(class='form-text text-muted') Should be as mentioned.
+
+                                                //ttStartTime
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Start Time
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#ttStartTime(type='text' class='form-control' readonly='' name='ttStartTime' placeholder='Select Start time')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                //ttEndTime
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') End Time 
+                                                    div(class='col-4')
+                                                        div(class='input-group date')
+                                                            input#ttEndTime(type='text' class='form-control' readonly='' name='ttEndTime' placeholder='Select End Time')
+                                                            div(class='input-group-append')
+                                                                span(class='input-group-text')
+                                                                    i(class='la la-calendar-check-o')
+                                                        span(class='form-text text-muted') 
+
+                                                //ttTimeSpend
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') Time Spend 
+                                                    div(class='col-4')
+                                                        input#ttTimeSpend(type='text' class='form-control bootstrap-touchspin-vertical-btn' value='' name='ttTimeSpend' placeholder='')
+                                                        span(class='form-text text-muted')
+
+                                                //ttNote
+                                                div(class='form-group row mb-1')
+                                                    label(class='col-3 col-form-label form-control-label text-right' for='ttNote')
+                                                        | Note
+                                                    div(class='col-9 ')
+                                                        textarea#ttNote(class='form-control' name='ttNote' rows='3')
+                                                        span(class='form-text text-muted')
+
+                                                //ttUserId
+                                                div(class='form-group row')
+                                                    label(class='col-3 col-form-label form-control-label text-right') User ID
+                                                    div(class='col-4')
+                                                        div(class='typeahead')
+                                                            input#ttUserId(class='form-control', type='text', dir="<?php echo isset( $_REQUEST['rtl'] ) && $_REQUEST['rtl'] ? 'rtl' : 'ltr' ?>",  name='ttUserId' placeholder='ex. 5fa92064cff6f652644266de')
+                                                            span(class='form-text text-muted') Should be as mentioned.
+
+                                        div(class='modal-footer')
+                                            button#btnResetTtForm(type='reset' class='btn btn-light-primary font-weight-bold btnReset') Reset
+                                            button#btnAddNewTtFormSubmitButton(class='btn btn-primary font-weight-bold btnAdd') Add
+                                            button#btnSaveTtFormSubmitButton(class='btn btn-primary font-weight-bold btnSave') Save changes
