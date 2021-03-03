@@ -418,11 +418,6 @@ const TaskTimersCRUD = (function () {
                 // Show loading state on button
                 KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
 
-                teDeadlineNotified.value = (teDeadlineNotified.value == 'on') ? true : false
-                teIsRepeat.value = (teIsRepeat.value == 'on') ? true : false
-                console.log(teDeadlineNotified.value)
-                console.log(teIsRepeat.value)
-
                 // Accessing Restful API
                 await axios({
                     method: 'post',

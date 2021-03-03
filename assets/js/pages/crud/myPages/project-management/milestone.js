@@ -2,11 +2,11 @@
 'use strict';
 
 /* Class definition */
-const ProjectAdminsCRUD = (function () {
+const MilestoneCRUD = (function () {
     const _buttonSpinnerClasses = 'spinner spinner-right spinner-white pr-15';
 
     /*   Private functions */
-    function _ProjectAdmins() {
+    function _Milestone() {
         var dataSet;
 
 
@@ -18,17 +18,17 @@ const ProjectAdminsCRUD = (function () {
                 source: {
                     read: {
                         method: 'get',
-                        url: `${HOST_URL}/api/v1/project/admins/table`,
+                        url: `${HOST_URL}/api/v1/project/milestone/table`,
                         params: {
-                            fields: '_id,_projectId,_userId,createdAt,updatedAt',
+                            fields: '_id,name,description,descriptionVisible,dueDate,_projectId,color,milestone_order,datecreated,createdAt,updatedAt',
                         },
                         map: function (raw) {
                             // sample data mapping
                             console.log('raw', raw);
                             dataSet = raw;
 
-                            if (typeof raw.projectAdmins !== 'undefined') {
-                                dataSet = raw.projectAdmins;
+                            if (typeof raw.milestone !== 'undefined') {
+                                dataSet = raw.milestone;
                                 console.log('dataSet', dataSet);
                             }
                             return dataSet;
@@ -56,7 +56,7 @@ const ProjectAdminsCRUD = (function () {
 
             pagination: true,
             search: {
-                input: $('#createProjectAdminsTable'),
+                input: $('#createMilestoneTable'),
                 key: 'generalSearch',
             },
 
@@ -83,12 +83,36 @@ const ProjectAdminsCRUD = (function () {
                     }
                 },
                 {
+                    field: 'name',
+                    title: 'Name',
+                },
+                {
+                    field: 'description',
+                    title: 'Description',
+                },
+                {
+                    field: 'descriptionVisible',
+                    title: 'Description Visible',
+                },
+                {
+                    field: 'dueDate',
+                    title: 'Due Date',
+                },
+                {
                     field: '_projectId',
                     title: 'Project ID',
                 },
                 {
-                    field: '_userId',
-                    title: 'User ID',
+                    field: 'color',
+                    title: 'Color',
+                },
+                {
+                    field: 'milestone_order',
+                    title: 'Milestone order',
+                },
+                {
+                    field: 'datecreated',
+                    title: 'Date created',
                 },
                 {
                     field: 'createdBy',
@@ -190,25 +214,67 @@ const ProjectAdminsCRUD = (function () {
         };
 
         /* Table Initialize */
-        const datatable = $('#tablePa').KTDatatable(options);
+        const datatable = $('#tableM').KTDatatable(options);
 
         /* Form */
-        const PaForm = document.querySelector('#formPa');
-        let FormSubmitButton = document.querySelector('#btnAddNewPaFormSubmitButton');
+        const MForm = document.querySelector('#formM');
+        let FormSubmitButton = document.querySelector('#btnAddNewMFormSubmitButton');
         // Options
         let formOptions = {
             fields: {
-                paProjectId: {
+                mName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Name is required',
+                        },
+                    },
+                },
+                mDescription: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Description is required',
+                        },
+                    },
+                },
+                mDescriptionVisible: {
+                    validators: {
+                        notEmpty: {
+                            message: 'DescriptionVisible is required',
+                        },
+                    },
+                },
+                mDueDate: {
+                    validators: {
+                        notEmpty: {
+                            message: 'DueDate is required',
+                        },
+                    },
+                },
+                mProjectId: {
                     validators: {
                         notEmpty: {
                             message: 'ProjectId is required',
                         },
                     },
                 },
-                paUserId: {
+                mcolor: {
                     validators: {
                         notEmpty: {
-                            message: 'UserId is required',
+                            message: 'color is required',
+                        },
+                    },
+                },
+                mMilestoneOrder: {
+                    validators: {
+                        notEmpty: {
+                            message: 'MilestoneOrder is required',
+                        },
+                    },
+                },
+                mDatecreated: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Datecreated is required',
                         },
                     },
                 },
@@ -219,7 +285,7 @@ const ProjectAdminsCRUD = (function () {
                 // Bootstrap framework Integration
                 bootstrap: new FormValidation.plugins.Bootstrap(),
                 // Validate fields when clicking the Submit button
-                createProjectAdminsFormSubmitButton: new FormValidation.plugins.SubmitButton(),
+                createMilestoneFormSubmitButton: new FormValidation.plugins.SubmitButton(),
                 // Submit the form when all fields are valid
                 //defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
             },
@@ -229,35 +295,35 @@ const ProjectAdminsCRUD = (function () {
 
         /* Search Operations */
         // search based on status
-        $('#tablePa_search_status_2').on('change', function () {
+        $('#tableM_search_status_2').on('change', function () {
             datatable.search($(this).val().toLowerCase(), 'Status');
         });
 
         // search based on type
-        $('#tablePa_search_type_2').on('change', function () {
+        $('#tableM_search_type_2').on('change', function () {
             datatable.search($(this).val().toLowerCase(), 'Type');
         });
 
-        $('#tablePa_search_status_2, #tablePa_search_type_2').selectpicker();
+        $('#tableM_search_status_2, #tableM_search_type_2').selectpicker();
 
         // modal open
-        $('#btnOpenPaModal').on('click', async function (e) {
+        $('#btnOpenMModal').on('click', async function (e) {
             console.log('openButton is clicked');
 
             // enabling disabling buttons
-            $('#btnAddNewPaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
-            $('#btnSavePaFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
+            $('#btnAddNewMFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled');  // show add button
+            $('#btnSaveMFormSubmitButton').attr('hidden', '').attr('disabled', 'disabled'); // hide update button
 
-            FormSubmitButton = document.querySelector('#btnAddNewPaFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnAddNewMFormSubmitButton');
 
-            $('#modalPa').modal('show');   // open modal
+            $('#modalM').modal('show');   // open modal
 
-            $('#modalPa').find('.modal-title').text('Add New Entries'); // Setting title for modal
+            $('#modalM').find('.modal-title').text('Add New Entries'); // Setting title for modal
 
         });
 
         // modal post closed
-        $('#modalPa').on('hidden.bs.modal', function (e) {
+        $('#modalM').on('hidden.bs.modal', function (e) {
             console.log('Modal closed');
 
             if (fv) {
@@ -270,20 +336,37 @@ const ProjectAdminsCRUD = (function () {
             $('.fv-plugins-message-container').text(''); // remove message
 
             // clearing fields
-            $("#formPa").trigger('reset'); // clear form fields
+            $("#formM").trigger('reset'); // clear form fields
 
             // manually resetting other fields
         });
 
         // modal post opened
-        $('#modalPa').on('shown.bs.modal', function (e) {
+        $('#modalM').on('shown.bs.modal', function (e) {
             console.log('Modal open');
 
             // Initializing
+            $('#mDueDate').datepicker({
+                rtl: KTUtil.isRTL(),
+                todayBtn: 'linked',
+                clearBtn: true,
+                todayHighlight: true,
+                orientation: 'bottom left',
+                templates: arrows,
+            });
+
+            $('#mDatecreated').datepicker({
+                rtl: KTUtil.isRTL(),
+                todayBtn: 'linked',
+                clearBtn: true,
+                todayHighlight: true,
+                orientation: 'bottom left',
+                templates: arrows,
+            });
         });
 
         // form reset operation
-        $('#formPa').on('click', '.btnReset', function (e) {
+        $('#formM').on('click', '.btnReset', function (e) {
             // console.log('btnResetMenuSectionForm is clicked');
 
             if (fv) {
@@ -300,23 +383,23 @@ const ProjectAdminsCRUD = (function () {
             $('.fv-plugins-message-container').text(''); // remove message
 
             // clearing fields
-            $("#formPa").trigger('reset'); // clear form fields
+            $("#formM").trigger('reset'); // clear form fields
 
             // clear manually
             // $('#menuManagerSelect').empty().trigger('change');  // clearing select2  */
         })
 
         // form add operation
-        $('#formPa').on('click', '.btnAdd', function (e) {
+        $('#formM').on('click', '.btnAdd', function (e) {
             // console.log('btnCreate is clicked');
 
             // clearing validator messages
             $('.fv-plugins-message-container').text(''); // remove message
 
-            FormSubmitButton = document.querySelector('#btnAddNewPaFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnAddNewMFormSubmitButton');
 
             // Validation
-            fv = FormValidation.formValidation(PaForm, formOptions);
+            fv = FormValidation.formValidation(MForm, formOptions);
 
             // validation failed
             fv.on('core.form.invalid', async function () {
@@ -335,11 +418,18 @@ const ProjectAdminsCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'post',
-                    url: `${HOST_URL}/api/v1/project/admins`,
+                    url: `${HOST_URL}/api/v1/milestone`,
                     data: {
-                        _projectId: paProjectId.value,
-                        _userId: paUserId.value,
+                        description: mDescription.value,
+                        descriptionVisible: mDescriptionVisible.value,
+                        dueDate: mDueDate.value,
+                        _projectId: mProjectId.value,
+                        color: mcolor.value,
+                        milestone_order: mMilestoneOrder.value,
+                        datecreated: mDatecreated.value,
+
                     },
+
                 }).then(function (res) {
 
                     // Return valid JSON
@@ -350,32 +440,33 @@ const ProjectAdminsCRUD = (function () {
 
                     if (res.data.status == 'success') {
                         // reseting & clearing
-                        $('#modalPa').modal('hide')  // hiding modal form
+                        $('#modalM').modal('hide')  // hiding modal form
                         toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#tablePa').KTDatatable().reload(); // reload table
+                        $('#tableM').KTDatatable().reload(); // reload table
                     }
                     else if (res.data.status == 'error') {
-                        $('#modalPa').modal('hide')  // hiding modal form
+                        $('#modalM').modal('hide')  // hiding modal form
                         toastr.error(`${res.data.message}`, `${res.data.status}`)
                     }
                     else {
-                        $('#modalPa').modal('hide')
+                        $('#modalM').modal('hide')
                     };
                 });
             });
         });
 
+
         // form save operation
-        $('#formPa').on('click', '.btnSave', function (e) {
+        $('#formM').on('click', '.btnSave', function (e) {
             console.log('btnSave is clicked');
 
             // clearing validator messages
             $('.fv-plugins-message-container').text(''); // remove message
 
-            FormSubmitButton = document.querySelector('#btnSavePaFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnSaveMFormSubmitButton');
 
             // Validation
-            fv = FormValidation.formValidation(PaForm, formOptions);
+            fv = FormValidation.formValidation(MForm, formOptions);
 
             // validation failed
             fv.on('core.form.invalid', async function () {
@@ -385,7 +476,7 @@ const ProjectAdminsCRUD = (function () {
             // validation successful
             fv.on('core.form.valid', async function () {
 
-                const id = document.querySelector('#paId').value;
+                const id = document.querySelector('#mId').value;
 
                 // Show loading state on button
                 KTUtil.btnWait(FormSubmitButton, _buttonSpinnerClasses, 'Please wait');
@@ -393,10 +484,15 @@ const ProjectAdminsCRUD = (function () {
                 // Accessing Restful API
                 await axios({
                     method: 'patch',
-                    url: `${HOST_URL}/api/v1/project/admins/${id}`,
+                    url: `${HOST_URL}/api/v1/milestone/${id}`,
                     data: {
-                        _projectId: paProjectId.value,
-                        _userId: paUserId.value,
+                        description: mDescription.value,
+                        descriptionVisible: mDescriptionVisible.value,
+                        dueDate: mDueDate.value,
+                        _projectId: mProjectId.value,
+                        color: mcolor.value,
+                        milestone_order: mMilestoneOrder.value,
+                        datecreated: mDatecreated.value,
 
                     },
                 }).then(function (res) {
@@ -409,43 +505,43 @@ const ProjectAdminsCRUD = (function () {
 
                     if (res.data.status == 'success') {
                         // reseting & clearing
-                        $('#modalPa').modal('hide')  // hiding modal form
+                        $('#modalM').modal('hide')  // hiding modal form
                         toastr.success(`${res.data.message}`, `${res.data.status}`); // show sucess toastr
-                        $('#tablePa').KTDatatable().reload(); // reload table
+                        $('#tableM').KTDatatable().reload(); // reload table
 
                     }
                     else if (res.data.status == 'error') {
-                        $('#modalPa').modal('hide')  // hiding modal form
+                        $('#modalM').modal('hide')  // hiding modal form
                         toastr.error(`${res.data.message}`, `${res.data.status}`)
                     }
                     else {
-                        $('#modalPa').modal('hide') // hiding modal form
+                        $('#modalM').modal('hide') // hiding modal form
                     };
                 });
             });
         });
 
         // Edit Modal Window - opens modal with appropriate properties
-        $('#tablePa').on('click', '.btnEdit', async function (e) {
+        $('#tableM').on('click', '.btnEdit', async function (e) {
             // console.log('btnEdit is clicked');
 
             var id = $(this).attr("aria-label");
             // console.log(id);
 
-            FormSubmitButton = document.querySelector('#btnSavePaFormSubmitButton');
+            FormSubmitButton = document.querySelector('#btnSaveMFormSubmitButton');
 
             // enabling disabling buttons
-            $('#btnAddNewPaFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
-            $('#btnSavePaFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
+            $('#btnAddNeMFormSubmitButton').attr('hidden', 'hidden').attr('disabled', 'disabled'); // hide add button
+            $('#btnSaveMFormSubmitButton').removeAttr('hidden', '').removeAttr('disabled', 'disabled'); // show update button
 
-            $('#modalPa').modal('show');   // open modal
+            $('#modalM').modal('show');   // open modal
 
-            $('#modalPa').find('.modal-title').text('Edit Entry'); // Setting title for modal
+            $('#modalM').find('.modal-title').text('Edit Entry'); // Setting title for modal
 
             // retrieving data
             await axios({
                 method: 'GET',
-                url: `${HOST_URL}/api/v1/project/admins/${id}`,
+                url: `${HOST_URL}/api/v1/milestone/${id}`,
             }).then(async function (res) {
                 // Return valid JSON
                 console.log(res);
@@ -468,9 +564,14 @@ const ProjectAdminsCRUD = (function () {
                     // });
 
                     // updating fields with data
-                    document.querySelector('#paId').value = res.data.projectAdmins._id;
-                    document.querySelector('#paProjectId').value = res.data.projectAdmins._projectId;
-                    document.querySelector('#paUserId').value = res.data.projectAdmins._userId;
+                    document.querySelector('#mId').value = res.data.milestone._id;
+                    document.querySelector('#mDescription').value = res.data.milestone.description;
+                    document.querySelector('#mDescriptionVisible').value = res.data.milestone.descriptionVisible;
+                    document.querySelector('#mDueDate').value = res.data.milestone.dueDate;
+                    document.querySelector('#mProjectId').value = res.data.milestone._projectId;
+                    document.querySelector('#mcolor').value = res.data.milestone.color;
+                    document.querySelector('#mMilestoneOrder').value = res.data.milestone.milestone_order;
+                    document.querySelector('#mDatecreated').value = res.data.milestone.datecreated;
 
                 }
 
@@ -478,7 +579,7 @@ const ProjectAdminsCRUD = (function () {
         });
 
         // deleteOne operation
-        $('#tablePa').on('click', '.btnDelete', function (e) {
+        $('#tableM').on('click', '.btnDelete', function (e) {
             console.log('btnDelete Clicked');
             let ids = $(this).attr("aria-label");
 
@@ -490,10 +591,10 @@ const ProjectAdminsCRUD = (function () {
                 }
             }
 
-            axios.delete(`${HOST_URL}/api/v1/project/admins`, requests);
+            axios.delete(`${HOST_URL}/api/v1/milestone`, requests);
 
             // reload table
-            $('#tablePa').KTDatatable().reload();
+            $('#tableM').KTDatatable().reload();
 
         });
 
@@ -504,14 +605,14 @@ const ProjectAdminsCRUD = (function () {
             const ids = datatable.checkbox().getSelectedId();
             const count = ids.length;
 
-            $('#tablePa_selected_records_2').html(count);
+            $('#tableM_selected_records_2').html(count);
 
             console.log(count)
 
             if (count > 0) {
-                $('#tablePa_group_action_form_2').collapse('show');
+                $('#tableM_group_action_form_2').collapse('show');
             } else {
-                $('#tablePa_group_action_form_2').collapse('hide');
+                $('#tableM_group_action_form_2').collapse('hide');
             }
         });
 
@@ -521,12 +622,12 @@ const ProjectAdminsCRUD = (function () {
     return {
         // public functions
         init: function () {
-            _ProjectAdmins();
+            _Milestone();
 
         },
     };
 })();
 
 jQuery(document).ready(function () {
-    ProjectAdminsCRUD.init();
+    MilestoneCRUD.init();
 });

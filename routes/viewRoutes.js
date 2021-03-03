@@ -317,9 +317,11 @@ router.get(
 router.get('/project/task-timers/', viewsController.taskTimers);
 router.get('/project/task-timers/all', viewsController.taskTimersAll);
 router.get('/project/notes/', viewsController.projectNotes);
+router.get('/project/notes/all', viewsController.projectNotesAll);
 router.get('/project/admins/', viewsController.projectAdmins);
 router.get('/project/admins/all', viewsController.projectAdminsAll);
 router.get('/milestone/', viewsController.milestone);
+router.get('/milestone/all', viewsController.milestoneAll);
 
 //PROJECT MANAGEMENT TABLE RELATED ROUTES
 router.get(

@@ -131,7 +131,7 @@ const FarmCRUD = (function () {
 
             axios({
                 method: 'Post',
-                url: `${HOST_URL}/api/v1/project/entries/`,
+                url: `${HOST_URL}/api/v1/milestone/`,
                 data: {
                     description: mDescription.value,
                     descriptionVisible: mDescriptionVisible.value,

@@ -887,6 +887,12 @@ exports.projectNotes = (req, res) => {
   console.log('We are in Project Notes Form Page');
   res.status(200).render('./../views/pages/project-management/projectNotes');
 };
+exports.projectNotesAll = (req, res) => {
+  console.log('We are in Project Notes Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/projectNotesAll');
+};
 exports.projectAdmins = (req, res) => {
   console.log('We are in Project Admins Form Page');
   res.status(200).render('./../views/pages/project-management/projectAdmins');
@@ -900,6 +906,12 @@ exports.projectAdminsAll = (req, res) => {
 exports.milestone = (req, res) => {
   console.log('We are in Milesstone Form Page');
   res.status(200).render('./../views/pages/project-management/milestone');
+};
+exports.milestoneAll = (req, res) => {
+  console.log('We are in Milestone Form Page');
+  res
+    .status(200)
+    .render('./../views/pages/project-management/milestoneAll');
 };
 //PROJECT MANAGEMENT TABLE RELATED CONTROLLER
 exports.projectDiscussionsTable = (req, res) => {
