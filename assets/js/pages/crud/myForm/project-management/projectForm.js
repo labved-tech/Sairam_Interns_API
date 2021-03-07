@@ -495,7 +495,7 @@ const ProjectCRUD = (function () {
        
                 },
             }).then(function (res) {
-                KTUtil.btnRelease(TaskRemindersFormSubmitButton);
+                KTUtil.btnRelease(TaskStatusFormSubmitButton);
                 // TOASTR EXAMPLE
                 toastr.options = {
                     "closeButton": false,
